@@ -1,0 +1,165 @@
+﻿Data Warehousing for Cloud Computing Metrics - Pflichtenheft
+
+
+
+
+Einführung
+Die Ansprechpartner für dieses Projekt ist das Unternehmen Puppet Inc. in der Rolle als Auftraggeber, welches von den Mitarbeitern Herrn David Schmitt und Herrn Steve Quin vertreten wird, sowie die Auftragnehmer Herrn Tim Meusel als Teamleiter, Herrn Marcel Reuter als Teammitglied und Herrn Nikolai Luis ebenfalls als Teammitglieder. Da diese Software im Rahmen eines Abschlussprojektes des Studienganges der Schule Heinrich-Hertz-Europakolleg durchgeführt wird, begleitet der Dozent Herr Dirk Stegemann das Projekt über den gesamten Zeitraum und wird eine abschließende Beurteilung durchführen.
+
+
+
+
+Cloud Provider (Unternehmen) nutzen die Werkzeuge der Virtualisierung von Computersystemen, um aus einem physischen Host (Server) mehrere virtuelle Instanzen (vServer) zu gewinnen. Diese virtuellen Server greifen somit auf die gleichen verfügbaren Ressourcen des physischen Hosts zu. Durch eine oftmals ausgeglichene Ressourcennutzung jedes virtuellen Servers ist diese Methode wirksam, jedoch möchte jeder Cloud Provider ein einzelnes physisches System so oft wie möglich aufteilen, ohne dass die virtuellen Server sich gegenseitig die verfügbaren Ressourcen des Hosts Systems wegnehmen. Aufgrund Dessen wird eine Software benötigt, welche die Nutzung der Ressourcen für jeden virtuellen Server erfasst, dokumentiert und auswertet.
+
+
+
+
+
+
+
+
+Auftrag 
+
+
+In diesem Projekt soll eine funktionierende Open Source Software entwickelt werden, die sich in drei Teile gliedert:
+1. Die verschiedenen Ressourcetypen (CPU Zeit / Daten Durchsatz / RAM Auslastung / Speicher Auslastung / Netzwerk Durchsatz) der einzelnen virtuellen Server müssen in einem sinnvollen Intervall periodisch ermittelt werden.
+2. Die Daten müssen aggregiert und gespeichert werden. Hierbei ist auf eine Skalierung auf mindestens 10.000[a] virtuelle Instanzen unter Berücksichtigung der Verfügbarkeit und Performance der Datenbank zu achten.
+3. Diese Daten können dann dem Endanwender präsentiert werden (API und Web-UI). Hierzu wird eine Userstory Erhebung unter den drei Anwendertypen Kunde, Administrator, Manager bei Partnerunternehmen durchgeführt, um gewünschte Algorithmen zur Darstellung zu ermitteln.
+Die Daten sollen für jede virtuelle Instanz in einer oder mehreren Datenbanken gespeichert werden, auf welchen anschließend verschiedene Analysen durchgeführt werden können. Aufgrund der komplexität der Abfragen muss ein Data Warehouse Ansatz in Betracht gezogen werden. Die Daten sollen in Regelmäßigen Abständen von einer Sekunde, bis zu 5 Minuten von den Virtuellen Instanzen abgefragt werden können. Dieser Intervall kann später über die Web-UI selber definiert werden. [b][c]
+
+
+Abgrenzung des zu entwickelnden Systems
+Es gibt fertige Open Source Lösungen für die einzelnen Punkte im Projekt. Mindestens die folgenden Lösungen müssen evaluiert werden:
+
+
+Datenerfassungssysteme:
+* collectd mit Virt Plugin
+* coreutils
+* zabbix-agent
+* python-diamond
+* sysstat
+* atop
+* logtash
+* riemann
+
+
+Datenbanksysteme:
+* elasticsearch
+* cassandra
+* postgres
+* OpenTSDB
+* KNIME
+* impala
+* hadoop
+* hive
+
+
+Frontends:
+* grafana
+* graphite
+* zabbix-frontend
+
+
+Sofern dies möglich ist, sollen vorhandene Lösungen für Teilprobleme kombiniert werden, anstatt diese selbst zu implementieren. Infrastruktur zum Entwickeln und Testen wird von der Firma Host Europe GmbH und Travis CI GmbH kostenlos zur Verfügung gestellt.
+
+
+Beschreibung der Schnittstellen 
+In diesem Projekt finden mehrere Kommunikationen mit verschiedenen Schnittstellen statt. Es beginnt mit der Kommunikation zwischen dem physischen Host und den darauf betriebenen virtuellen Servern. Dazu wird eine Software verwendet, welche parallel zur Virtualisierungssoftware betrieben wird, um die verwendeten Ressourcen jedes virtuellen Servers lokal auszulesen und kurzzeitig festhalten zu können. Anschließend wird die Netzwerkschnittstelle des physischen Hosts Systems verwendet, um mit dem Netzwerk des Rechenzentrums zu kommunizieren, dazu wird eine standardisierte TCP/UDP Verbindung verwendet. Je nach Aufbau der späteren zentralen Datenhaltung, wird jeder physische Server die Möglichkeit besitzen, mit einem oder mehreren Datenbankservern zu kommunizieren. Diese Kommunikation kann auf verschiedene Weisen stattfinden, welche im Laufe des Projektes validiert werden müssen. Die voraussichtliche Schnittstellen zwischen den physischen Host Systemen und der zentralen Datenhaltung könnten wie folgt aufgebaut sein:
+Das Host System kommuniziert direkt,
+* mit einer einzelnen Datenbank (Datenhaltung)
+* mit einem Lastenverteiler (Server) und anschließend mit der zugeordneten Datenbank (Datenhaltung)
+* mit einem vor der Datenbank befindenden System, welches den ETL-Prozess übernimmt und anschließend die Daten in die Datenhaltung transportiert.
+* mit einem Messagebus-System um die Daten in die Datenhaltung zu transportieren. 
+
+
+Im Laufe des Projektes können durch Validierung und Tests von verschiedenen Datenhaltung-Systemen weitere Schnittstellen entstehen. Bei dem Zugriff auf die gespeicherten Daten wird eine Software benötigt, welche Facharbeitern, wie z.B. einem Datenanalyst oder Serveradministrator, es ermöglicht die Daten im gewünschten Format über eine API abzurufen.
+Jede dieser Schnittstellen übernimmt die Aufgabe des Senders oder Empfängers, die Aufgabenverteilung soll in folgender Auflistung dokumentiert werden:
+* Die virtuelle Instanz auf einem physischen Host System
+   * Sender
+* Das physische Host System
+   * Sender sowie Empfänger
+* Die Datenhaltung, bzw. die definierte Lösung für die Datenpflege
+   * Empfänger
+* Die in der Datenhaltung integrierte API
+   * Sender der Daten, bzw. Empfänger einer Datenanfrage
+* Die Weboberfläche für Endanwender
+   * Sender für eine Datenanfrage an der Datenhaltung, sowie die Darstellung auf dem Endgerät des Endanwender und Empfänger für die Daten
+* Das Endgerät des Endanwenders
+   * Empfänger
+
+
+Analyse des Problems
+Die größte Problematik für das Projekt ist die erzeugte Datenmenge pro System. Beim senden der Daten vom Host zur Datenhaltung darf das vorhandene Netzwerk nicht überlastet werden. Außerdem muss die Software, welche Metriken ausliest, ressourcensparend sein. Sie darf laufende virtuelle Maschinen nicht beeinflussen.
+
+
+Externe Einflüsse
+Die Software, sowie alle dazugehörigen Systeme sollen für einen permanenten Betrieb ausgelegt sein. Eine Überwachung des Prozesses von IT-Mitarbeitern des Cloud Providers wird benötigt, jedoch soll das Gesamtsystem auch unbeobachtet zuverlässig die Aufgaben ausführen, sodass das manuelle Eingreifen nicht erforderlich wird.
+
+
+
+
+
+
+Gewünschte Situation, Verhalten bei Fehlbedienungen und Störungen 
+Bei einem Stromausfall sollen die vom Rechenzentrum bereitgestellten Mittel, wie z.B. ein Notstromaggregat, genutzt werden. Sollte die Datenhaltung ausfallen, greift ein Backupsystem der Datenhaltung oder jeder physische Host kann kurzfristig Datensätze lokal abspeichern und anschließend nachliefern. Sollte eine Störung am physischen Host entstehen, sind im Normalfall auch die virtualisierten Server betroffen, sodass die Störung über den normalen Support des Unternehmens behoben wird und keine relevanten Daten verloren gehen.
+
+
+Beurteilung der Machbarkeit des Auftrags 
+a) organisatorisch / betriebswirtschaftlich
+Die benötigte Zeit für das Gesamtprojekt wird mit dem Ticketsystem Jira und Methoden der agilen Entwicklung geplant. Die personellen Kosten fallen aufgrund der Durchführung über den Studiengang weg.
+
+
+b) technisch 
+Die benötigte Hardware, sowie Infrastruktur wird von dem Auftraggeber, sowie ggf. dazukommenden Partnern bereitgestellt. Dazu gehört ebenfalls eine Testumgebung, auf welcher die spätere Abnahme der Software durchgeführt werden könnte. 
+
+
+Gültigkeit des Pflichtenhefts
+Dieses Dokument ist ab der Zustimmung von Auftraggeber und Auftragnehmer gültig. Änderungen am Inhalt können durchgeführt werden, wenn alle Seiten zustimmen, dazu zählt der Auftraggeber, der Auftraggeber und der zuständige Dozent des Heinrich-Hertz-Europakollegs. 
+Ansprechpartner für Fragen ist der Projektleiter Herr Tim Meusel.
+
+
+Projektorganisation 
+Neben den bereits genannten Personen der Rolle Auftraggeber, sowie dem begleitenden Dozent des Heinrich-Hertz-Europakollegs ist eine Aufgabenverteilung innerhalb des         Projektteams nötig. Es wurde entschieden, dass jedes Projektmitglied alle Inhalte und Bereiche des Entwicklungsprozesses kennenlernt und ggf. aushelfen oder komplett übernehmen kann. Jedoch besitzt dabei jeder die Aufgabe, in seinem zugeordneten Bereich der Entwicklung voran zu treiben und zu beobachten. Diese Aufteilung bildet sich wie folgt:
+* Der Projektteam-Leiter, Herr Tim Meusel, übernimmt die Beobachtung der
+   * Entwicklung von der Datenbeschaffung auf den physischen Host Systemen,
+   * sowie den Transport der Daten zwischen Datenhaltung und Datenbeschaffung
+* Das Projektteam-Mitglied, Herr Nikolai Luis, übernimmt die Beobachtung der
+   * Entwicklung der Datenhaltung,
+   * sowie der Entwicklung der in der Datenhaltung integrierten API
+* Das Projektteam-Mitglied, Herr Marcel Reuter, übernimmt die Beobachtung der 
+   * Entwicklung des Web Frontends, über welches später die Daten grafisch Dargestellt werden.
+
+
+
+
+
+
+
+
+
+
+Phasenplan 
+Dieses Projekt wird agil entwickelt und besitzt somit keine detaillierte Zeitplanung von Projektphasen, diese wird zu jeder Arbeitseinheit von dem Projektmanager geplant und festgelegt. Dennoch existierte eine grobe Phasen-Agenda, an welcher sich der Projektmanager orientieren wird. Diese teilt sich in folgende Phasen auf:
+* Analyse- / Initialisierungsphase
+* Konzeptionierung- / Designphase
+* Realisierungsphase
+* Testphase
+* Dokumentationsphase
+* Abnahmephase
+
+
+Meilensteine werden in Absprache zwischen dem Projektteam und dem Auftraggeber oder dem Projektteam und dem Dozenten definiert.
+
+
+
+
+Ablaufkontrolle
+Für die Ablaufkontrolle des Projektes werden verschiedene Software-Werkzeuge, sowie Prozess Vereinbarungen verwendet. Für die Übersicht und Zuteilung von Aufgaben wird das Ticket-Management System “Jira” und für die Dokumentation der getätigten Aufgaben “Confluence” genutzt. Quellcode wird mit dem Versionsverwaltungssystem “git” verwaltet.
+Des Weiteren werden alle Tätigkeiten und Beschlüsse wöchentlich dokumentiert.
+
+
+Risiken
+Wir planen echte Auslastungsdaten von Partnerfirmen zu bekommen und in unseren Tests zu verwenden. Allerdings können diese Partner absagen. Für diesen Fall müssen wir Daten selbst generieren. Dies kostet zusätzlich Zeit und unter Umständen entsprechen die Daten nicht genug der Realität. Ein weiteres Risiko wäre, dass einer unserer Projektmitglieder erkrankt oder über einen längeren Zeitraum arbeitsunfähig ist. 
+[a]10.0000 Virtuelle Instanzen
+[b]Zeit
+[c]Sollten wir hier nicht fest rein schreiben
