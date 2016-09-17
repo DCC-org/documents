@@ -98,3 +98,38 @@ milestone. The continuous execution of automated tests lowers the amount of
 time needed in dedicated test phases during the project. This allows us to
 spend a higher amount of time on the acceptance tests with real persons.
 
+\section{Quality Requirements}
+\centering
+\raisebox{-5cm}{\includegraphics[width=\textwidth]{roles.png}}
+\\[1.5cm]
+\small
+\makebox[\textwidth]{%
+    \begin{tabular}{lp{.33\textwidth}p{.33\textwidth}p{.33\textwidth}}
+      \toprule
+      & Web Frontend & Data Storage & Data Acquisition \\
+      \midrule
+      Must
+      &
+        Provide information about the usage of specific VMs or the main server to authorized users by the means of graphs and statistics.
+                    &
+                      Guarantee an ongoing processing and availability of thousands of records.
+                                   &
+                                     Determine the different resource types of one of the virtual servers in a useful timeframe. \\
+      Should
+      &
+        Support the system administrator in creating new configurations.
+                    &
+                      Provide an easier In- and Output-Interface, for fast extraction, transformation and loading of datasets.
+                                   &
+                                     Send the gathered data to the data storage in an acceptable timeframe. \\
+      Could
+      &
+        Provide an interface to execute complex queries or analytics, if needed with visualizations.
+                    &
+                      Share aggregated data with a third party system over an API. Data is transmitted using up to date security standards and best practices.
+                                   &
+                                     If there is an outage of data acquisition, all data has to be saved locally and sent to the data storage as soon as systems are up again. \\
+
+      \bottomrule
+    \end{tabular}
+}
