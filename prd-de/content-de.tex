@@ -83,10 +83,51 @@ somit eine Projektphase der Projektplanung ab. Durch dieses Vorgehen wird nur
 am Ende jeder Projektphase ein manuelles Eingreifen in den Testablauf benötigt.
 
 \section{Qualitätsanforderungen}
-\begin{figure}[bpt]
-  \centering
-  \includegraphics[width=\textwidth]{roles.png}
-\end{figure}
+\centering
+\raisebox{-5cm}{\includegraphics[width=\textwidth]{roles.png}}
+\\[1.5cm]
+\small
+\makebox[\textwidth]{%
+    \begin{tabular}{lp{.33\textwidth}p{.33\textwidth}p{.33\textwidth}}
+      \toprule
+      & WebFrontend & Datenhaltung & Datenbeschaffung \\
+      \midrule
+      Muss
+      &
+        Ausgewählten Benutzern Informationen über die Nutzung von einzelnen VMs oder
+        Hosts in Form von Grafiken und Statistiken anzeigen.
+                    &
+                      Eine dauerhafte Bereitstellung und Verarbeitung von mehreren tausend Datensätzen
+                      garantieren
+                                   &
+                                     Die verschiedenen Ressourcentypen eines einzelnen virtuellen Servers in einem
+                                     sinnvollen Zeitrahmen periodisch ermitteln. \\
+      Soll
+      &
+        Den Systemadministrator bei Neukonfigurationen unterstützen.
+                    &
+                      Eine einfache Input- und Output-Schnittstelle verfügen,
+                      über die Datensätze ein- und ausgelesen werden können.
+                                   &
+                                     Die ermittelten Daten in möglichst kürzester
+                                     Zeit an die Datenhaltung liefern. \\
+      Kann
+      &
+        Bereitstellen einer Schnittstelle zum ausführen komplexer Abfragen und Analysen
+        -- nach Bedarf mit Visualisierung
+                    &
+                      Die Daten auf einer bereits aggregierten Ebene Drittsystemen über eine API
+                      anbieten. Die Daten nach aktuellen Sicherheitstandards (Verschlüsselungen)
+                      übertragen.
+                                   &
+                                     Die Daten bei möglichen Ausfällen der gesamten Datenhaltung,
+                                     kurzfristig selber speichern und anschließend der gesamten
+                                     Datenhaltung nachliefern. \\
+
+      \bottomrule
+    \end{tabular}
+}
+
 
 %%% Local Variables:
 %%% mode: latex
