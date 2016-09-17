@@ -45,7 +45,7 @@
     \posttitle{%
         \par\end{center}
     \begin{center}\large#1\end{center}
-    \vskip0.5em}%
+    \vskip0.5em}
 }
 \pagestyle{fancy}
 
@@ -53,19 +53,19 @@
 \renewcommand{\headrulewidth}{0pt}
 \iftoggle{fsd}{%
     \rhead{\thepage}
-    \lfoot{
+    \lfoot{%
         \begin{tabular}{p{0.25\textwidth}}
           \dotfill \tabularnewline
           \centering \proj
         \end{tabular}
     }
-    \cfoot{
+    \cfoot{%
         \begin{tabular}{p{0.25\textwidth}}
           \dotfill \tabularnewline
           \centering \footnotesize \puppet
         \end{tabular}
     }
-    \rfoot{
+    \rfoot{%
         \begin{tabular}{p{0.25\textwidth}}
           \dotfill \tabularnewline
           \centering \footnotesize \supervisor
@@ -89,7 +89,7 @@
 
 \maketitle
 \thispagestyle{empty}
-~\\[3cm]
+\\[3cm]
 \begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
   \centering
   \raisebox{-0.5\height}{\includegraphics[width=6cm]{puppet.png}}
@@ -98,15 +98,15 @@
     \raisebox{-0.5\height}{\includegraphics[width=7cm]{hhek-big.jpg}}
     \tabularnewline[20ex]
     \centering
-    \parbox{\widthof{\spacedlowsmallcaps{\puppet}}}{
-    \noindent \spacedlowsmallcaps{\puppet} \\
+    \parbox{\widthof{\spacedlowsmallcaps{\puppet}}}{%
+    \noindent\spacedlowsmallcaps{\puppet} \\
   Steve Quinn\\
   David Schmitt
   }
   &
     \centering
-    \parbox{4cm}{
-    \noindent \spacedlowsmallcaps{\supervisor} \\
+    \parbox{4cm}{%
+    \noindent\spacedlowsmallcaps{\supervisor} \\
   Dirk Stegemann
   }
 \end{tabular}
@@ -120,7 +120,7 @@
 \input{\contentfile}
 
 \iftoggle{fsd}{}{%
-    ~\\[5cm]
+    \\[5cm]
     \centering
     \begin{tabular}{p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}}
       \dotfill                        & & \dotfill                          & & \dotfill \\
