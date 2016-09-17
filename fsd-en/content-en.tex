@@ -1,0 +1,250 @@
+\section{Introduction}
+
+Our Partner for this project is the company Puppet Inc. (hereafter Puppet), who
+acts as the contracting authority. The company is represented by Steve Quin and
+David Schmitt. Contractors are Tim Meusel, Nikolai Luis and Marcel Reuter. Tim
+Meusel will also act as a team leader. The project is going to be realized as a
+part of the final project for a study program at the
+Heinrich-Hertz-Europakolleg. The lecturer Dirk Stegemann is going to supervise
+the project as a representative of the school, he is also responsible for the
+final evaluation. The course of studies is `Staatlich geprüfter Informatiker'
+undertaken between 2014 and 2018.
+
+Virtualization technologies are used at cloud providers to partition the
+resources of a physical system into multiple pieces. Physical resources are
+shared between all virtual instances on a host. The goal of the different
+providers is it to host as many virtual machines as possible on each physical
+server. Due to overcommit, from time to time a single virtual instance can
+consumes too many resources, interfering with the intended functionality and
+performance of other virtual machines on the same host. Therefore, the usage
+patterns and resource requirements of each machine has to be cleanly documented
+so it can be analysed. The gathered information will then be used for
+optimisation and tailoring of the platform as a whole.
+
+\section{Task}
+
+The goal of this project is to create a working open source solution. This is
+divided into three major subtasks:
+\begin{enumerate}
+    \item Collect all required information from each virtual instances on the
+          host system, spool them and then periodically send them to the database system.
+    \item Set up a suitable database software which is scalable and provides a
+          certain level of redundancy. The goal is to save the information of at least
+          10.000 virtual instances.
+    \item Provide a web interface where customers can see visualizations of
+          their utilized resources. Furthermore an API is required to expose the data to
+          different kinds of users. A user story survey for the three types of users
+          (customer, administrator, manager) will be conducted with different partners.
+          This will help the project team figure out what kind of, possibly preprocessed
+          and aggregated data needs to be available via the API.
+\end{enumerate}
+
+The data has to be stored in one or multiple databases forming a data store.
+Complex queries will be executed on the datastore, therefore a data warehouse
+approach should be considered and analysed. The data from the virtual instances
+will be collected in a regular time frame from 1 Second, up to 5 Minutes. The
+interval of the time frame, can be defined by the user over the Web-UI.
+
+There are already finished open source projects providing the listed, isolated,
+specific functionality. This applicability of those solutions to the given task
+have to be evaluated.
+
+\section{Differentiation of the system}
+
+There are already several open source software projects that claim to provide a
+solution for one of the subtasks outlined above. The fitness of the following
+software products for the given tasks will be evaluated:
+
+\subsection{Data Acquisition Systems}
+
+\begin{outline}
+    \1 collectd with virt plugin
+    \1 coreutils
+    \1 zabbix-agent
+    \1 python-diamond
+    \1 sysstat
+    \1 atop
+    \1 logtash
+    \1 riemann
+\end{outline}
+
+\subsection{Database systems:}
+
+\begin{outline}
+    \1 elasticsearch
+    \1 cassandra
+    \1 postgres
+    \1 OpenTSDB
+    \1 KNIME
+    \1 impala
+    \1 hadoop
+    \1 hive
+\end{outline}
+
+\subsection{Frontends}
+
+\begin{outline}
+    \1 grafana
+    \1 graphite
+    \1 zabbix-frontend
+\end{outline}
+
+For both the exploration and the production phase, composition of the generic
+components listed above is preferred over a domain- and application specific
+reimplementation with a possibly limited list of features and test coverage. The
+two companies Host Europe GmbH and Travis CI GmbH provide the team with free
+testing- and development- environments.
+
+\section{Description of interfaces}
+
+There are several software interfaces in this project. The first interface
+collects and exports information over the virtual machine on the physical hosts.
+The host provides detailed usage statistics for each virtual instance. The
+network interface of the host will be used to send the gathered data to the
+database via TCP or UDP. In case of performance problems, an optional queuing or
+caching service might be required in front of the database. In this case the
+host will communicate with this service instead of the database. There are
+several possible solutions for the communication channel between the physical
+server and the data storage systems:
+
+\begin{outline}
+    \1 The host directly communicates with a single database system
+    \1 The host sends data to a loadbalancer which is placed in front of one to multiple database servers
+    \1 The host talks to a system that runs an ETL process. This process will import the data into a data storage
+    \1 The host talks to a messagebus which will save the data in the data storage
+\end{outline}
+As the process is intentionally kept open and explorative in nature, it is
+possible that during the project, based on the validation and results available
+from testing with prototypes based on different data storage solutions, new
+approaches and storage-interfaces will emerge. Technicians like data analysts or
+persons from the C-level need to be able to request the data in exchangeable
+format used by common analysis and data processing tools. These formats will be
+defined in the user story survey.
+
+Every interface takes over the role of a sender and/or receiver, as
+documented in the list below:
+\begin{outline}
+    \1 The virtual instance on a physical node
+        \2 Sender
+    \1 The physical node
+        \2 Sender and receiver
+    \1 The data storage
+        \2 Receiver
+    \1 The API
+        \2 Receiver of a datarequest, sender for data
+    \1 The webinterface
+        \2 Sends data requests to the data storage,  along with a generated view to the terminal device
+    \1 The terminal device
+        \2 Receiver
+\end{outline}
+
+\section{Problem analysis}
+
+There are two major problems that the project team needs to take care of. First
+of all, it needs to cope with the amount of data produced by every single node.
+The data will be transferred via a network that is shared with other services.
+The network must not be overallocated and the impact on the other services on
+the network must be minimized. Furthermore the resource footprint of the data
+acquisition software on the nodes must be minimal in order to not harm the
+performance of the running virtual machines.
+
+\section{External influences}
+
+The software needs to be build in a way that supports long continuous uptime
+periods. It must be able to run unsupervised without regular intervention from
+system administrators.
+
+Expected behaviour and behaviour during a disturbance The datacenter provider
+has to deal with power outages. A disruption on the central services like data
+storage should be absorbed by caching or standby nodes. An outage on a single
+physical host will kill all virtual machines on it, there is no way to
+workaround this. The operator of the host has to deal with this and not the
+project team.
+
+\section{Feasibility of the project}
+
+\begin{enumerate}
+    \item organisational/economically
+          The required amount of time will be estimated with the help of the
+          ticket system Jira and agile development methods. The milestones will be planned
+          together with Puppet Inc. Apart from the students involved and listed in the
+          introduction, there are no manpower costs in this project.
+
+    \item technical view
+          The required hardware to power this project including all development
+          \& testing tasks will be provided Puppet Inc. or other partners. The final
+          approval at the end of the project can be made on the provided platforms.
+\end{enumerate}
+
+
+\section{Scope of the Functional Specification Document}
+
+This document is to be considered effective and valid after it received joint
+approval from both Puppet Inc. and the project group. Further changes need to be
+accepted by the project team, Puppet Inc. and the lecturer from the
+Heinrich-Hertz-Europakolleg. Tim Meusel is the project groups representative for
+any such project related questions that may arise.
+
+\section{Project Organisation}
+
+Besides the roles of the contracting authority (Puppet Inc.) and the supervising
+lecturer, a distribution of roles and responsibilities among the project team
+members in required. Even though all team members will naturally be familiar
+with each of the three major components of the project on a basic level, each
+part will receive an module-officer who is ultimately responsible for the
+specific component:
+\begin{outline}
+    \1 Team leader, Tim Meusel, responsible for:
+        \2 Development of the data gathering process
+        \2 Transport of the data between the place of gathering and the data storage
+    \1 Project member, Nikolai Luis, responsible for:
+        \2 Development of the data storage part and API
+    \1 Project member, Marcel Reuter, responsible for:
+        \2 Development and automation of the web frontend
+\end{outline}
+
+\subsection{Phase planning}
+
+There won’t be detailed schedule for the planned stages at the beginning of the
+project. The project will be managed with agile methods. This allows the project
+team to work with short sprints that don’t need detailed planned phases from the
+beginning until the end. Every sprint will be planned and managed by the team
+leader. While agile, the project however still has the following stages of
+conventional software-engineering models:
+\begin{outline}
+    \1 Analysis
+    \1 Design/Prototyping
+    \1 Implementation
+    \1 Testing/Bugfixing
+    \1 Documentation
+    \1 Acceptance stage
+\end{outline}
+
+Milestones will be defined by the project team in agreement with Puppet Inc. or
+with the lecturer.
+
+\section{Procedure control}
+
+Several different software solutions will be used to track the progress of the
+project. They will allow every involved person to gather information about the
+current status. ``Concluence'' will be used for documentation, ``Jira'' for tracking
+issues and ``git'' to manage sourcecode and related artifacts such as build
+scripts, etc.. The project team will create weekly reports on the progress
+achieved in the past weeks.
+
+\section{Risk Register}
+
+We will work together with partner companies. Among other things they will
+provide us with real world data from their systems that we can use in our tests.
+It is possible that they will be unable to provide the requested data in the
+desired timeframe or a lack of interest in the project and changed priorities.
+In this case we have to generate and mock data by ourself. Mocked data is never
+as good as real data, it is possible that this distorts our tests and leads to
+wrong conclusions. A second risk is the human factor of the project, e.g.
+illness and the subsequent mid to long term drop out of one of our project
+members.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "fsd-en"
+%%% End:
