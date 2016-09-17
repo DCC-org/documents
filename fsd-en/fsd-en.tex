@@ -1,11 +1,13 @@
 \documentclass[a4paper,DIV=11,12pt]{scrartcl}
 \usepackage{fontspec}
 \usepackage{polyglossia}
+\usepackage{calc}
 \setmainfont[Ligatures=TeX]{Latin Modern Roman}
 \setdefaultlanguage{english}
 \usepackage{fancyhdr}
 \usepackage{outlines}
 \usepackage{titling}
+\usepackage{textcase}
 \usepackage[titles]{tocloft}
 \setlength{\parindent}{0pt}
 \setlength{\droptitle}{5em}
@@ -13,6 +15,8 @@
 \setlength{\footskip}{3cm}
 \renewcommand{\cftsecdotsep}{\cftdotsep}
 \renewcommand{\cftsecleader}{\normalfont\cftdotfill{\cftsecdotsep}}
+
+\newcommand{\spacedlowsmallcaps}[1]{\textsc{\MakeTextLowercase{#1}}}
 
 
 \graphicspath{{../figures/}}
@@ -63,12 +67,26 @@
 \maketitle
 \thispagestyle{empty}
 ~\\[3cm]
-\begin{minipage}{\textwidth}
+\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+  \centering
+  \raisebox{-0.5\height}{\includegraphics[width=6cm]{puppet.png}}
+  &
     \centering
-    \raisebox{-0.5\height}{\includegraphics[width=5cm]{puppet.png}}
-    \hspace*{3cm}
-    \raisebox{-0.5\height}{\includegraphics[width=5cm]{schule.jpg}}
-\end{minipage}
+    \raisebox{-0.5\height}{\includegraphics[width=7cm]{hhek-big.jpg}}
+    \tabularnewline[20ex]
+    \centering
+    \parbox{\widthof{\spacedlowsmallcaps{contracting authority}}}{
+    \noindent \spacedlowsmallcaps{contracting authority} \\
+  Steve Quinn\\
+  David Schmitt
+  }
+  &
+    \centering
+    \parbox{4cm}{
+    \noindent \spacedlowsmallcaps{Supervisor} \\
+  Dirk Stegemann
+  }
+\end{tabular}
 
 \newpage
 
