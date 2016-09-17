@@ -1,0 +1,6 @@
+$pdflatex = 'lualatex --recorder --synctex=1 --shell-escape --interaction=nonstopmode %O %S';
+# copy output, log and synctex files to working directory
+$pdflatex .= ' && cp %D %Z%B.log %Z%B.synctex.gz .';
+$pdf_mode = 1;
+$out_dir = "/tmp/latexmk-build";
+@default_files = ('fsd-de.tex');
