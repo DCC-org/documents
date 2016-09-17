@@ -1,4 +1,4 @@
-fsd-en/auto/
-fsd-en/fsd-en.pdf
-fsd-en/fsd-en.log
-fsd-en/fsd-en.synctex.gz
+*/auto/
+fsd-*/*.pdf
+*/*.log
+*/*.synctex.gz
