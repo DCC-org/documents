@@ -1,4 +1,8 @@
-*/auto/
-fsd-*/*.pdf
-*/*.log
-*/*.synctex.gz
+*auto/
+*.pdf
+*.aux
+*.toc
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
