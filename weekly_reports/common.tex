@@ -1,0 +1,303 @@
+% Meta-Informationen -----------------------------------------------------------
+%   Definition von globalen Parametern, die im gesamten Dokument verwendet
+%   werden können (z.B auf dem Deckblatt etc.).
+%
+%   ACHTUNG: Wenn die Texte Umlaute oder ein Esszet enthalten, muss der folgende
+%            Befehl bereits an dieser Stelle aktiviert werden:
+%            \usepackage[latin1]{inputenc}
+% ------------------------------------------------------------------------------
+\newcommand{\titel}{Wochenbericht~}
+\newcommand{\untertitel}{Data Warehousing for Cloud Computing Metrics}
+
+\newcommand{\projekttitel}{Data Warehousing for Cloud Computing Metrics}
+\newcommand{\projektuntertitel}{blablabla}
+
+\newcommand{\fachgebiet}{Software-Engineering}
+\newcommand{\autor}{Tim Meusel}
+\newcommand{\studienbereich}{Staatlich geprüfter Informatiker}
+
+\newcommand{\jahr}{2016}
+\newcommand{\ort}{Köln}
+\newcommand{\kunde}{Puppet}
+
+\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}             %%fügt bei 1 bis 9 eine führende Null an
+\newcommand{\todayD}{\leadingzero{\day}.\leadingzero{\month}.\the\year}
+
+\usepackage[
+    automark, % Kapitelangaben in Kopfzeile automatisch erstellen
+    headsepline, % Trennlinie unter Kopfzeile
+    ilines % Trennlinie linksbündig ausrichten
+]{scrpage2}
+
+% Anpassung an Landessprache ---------------------------------------------------
+\usepackage[ngerman]{babel}
+
+% Umlaute ----------------------------------------------------------------------
+%   Umlaute/Sonderzeichen wie äüöß direkt im Quelltext verwenden (CodePage).
+%   Erlaubt automatische Trennung von Worten mit Umlauten.
+% ------------------------------------------------------------------------------
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % Euro-Zeichen etc.
+
+% Schrift ----------------------------------------------------------------------
+\usepackage{lmodern} % bessere Fonts
+\usepackage{relsize} % Schriftgröße relativ festlegen
+
+% Grafiken ---------------------------------------------------------------------
+% Einbinden von JPG-Grafiken ermöglichen
+\usepackage[dvips,final]{graphicx}
+% hier liegen die Bilder des Dokuments
+\graphicspath{{../Bilder/}}
+
+% Befehle aus AMSTeX für mathematische Symbole z.B. \boldsymbol \mathbb --------
+\usepackage{amsmath,amsfonts}
+
+% für Index-Ausgabe mit \printindex --------------------------------------------
+\usepackage{makeidx}
+
+% Einfache Definition der Zeilenabstände und Seitenränder etc. -----------------
+\usepackage{setspace}
+\usepackage{geometry}
+
+% Symbolverzeichnis ------------------------------------------------------------
+%   Symbolverzeichnisse bequem erstellen. Beruht auf MakeIndex:
+%     makeindex.exe %Name%.nlo -s nomencl.ist -o %Name%.nls
+%   erzeugt dann das Verzeichnis. Dieser Befehl kann z.B. im TeXnicCenter
+%   als Postprozessor eingetragen werden, damit er nicht ständig manuell
+%   ausgeführt werden muss.
+%   Die Definitionen sind ausgegliedert in die Datei "Glossar.tex".
+% ------------------------------------------------------------------------------
+\usepackage[intoc]{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{Abkürzungsverzeichnis}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+
+% zum Umfließen von Bildern ----------------------------------------------------
+\usepackage{floatflt}
+
+
+% zum Einbinden von Programmcode -----------------------------------------------
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{xcolor} 
+\definecolor{hellgelb}{rgb}{1,1,0.9}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+    float=hbp,
+    basicstyle=\ttfamily\color{black}\small\smaller,
+    identifierstyle=\color{colIdentifier},
+    keywordstyle=\color{colKeys},
+    stringstyle=\color{colString},
+    commentstyle=\color{colComments},
+    columns=flexible,
+    tabsize=2,
+    frame=single,
+    extendedchars=true,
+    showspaces=false,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true,
+    backgroundcolor=\color{hellgelb},
+    breakautoindent=true
+}
+
+\usepackage{colortbl}
+
+% fortlaufendes Durchnummerieren der Fußnoten ----------------------------------
+\usepackage{chngcntr}
+
+% Formatierung von Listen ändern -----------------------------------------------
+\usepackage{paralist}
+
+% bei der Definition eigener Befehle benötigt
+\usepackage{ifthen}
+
+%für die benutzung von quotes
+\usepackage[autostyle=true,german=quotes]{csquotes}
+
+%für leichtere Tabellenbreite Definition
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+
+%Seitennummerierung Lastpage
+\usepackage{lastpage}
+
+%\usepackage{fancyhdr}
+
+% PDF-Optionen -----------------------------------------------------------------
+\usepackage[
+    bookmarks,
+    bookmarksopen=true,
+    colorlinks=true,
+% diese Farbdefinitionen zeichnen Links im PDF farblich aus
+    linkcolor=red, % einfache interne Verknüpfungen
+    anchorcolor=black,% Ankertext
+    citecolor=blue, % Verweise auf Literaturverzeichniseinträge im Text
+    filecolor=magenta, % Verknüpfungen, die lokale Dateien öffnen
+    menucolor=red, % Acrobat-Menüpunkte
+    urlcolor=cyan, 
+% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
+    %linkcolor=black, % einfache interne Verknüpfungen
+    %anchorcolor=black, % Ankertext
+    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    %menucolor=black, % Acrobat-Menüpunkte
+    %urlcolor=black, 
+    backref,
+    plainpages=false, % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels, % zur korrekten Erstellung der Bookmarks
+    hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+    %linktocpage % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
+]{hyperref}
+% Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
+\hypersetup{
+    pdftitle={\titel \untertitel},
+    pdfauthor={\autor},
+    pdfcreator={\autor},
+    pdfsubject={\titel \untertitel},
+    pdfkeywords={\titel \untertitel},
+    linktoc=all,
+    colorlinks=false,
+    hidelinks,
+}
+
+% Zeilenabstand 1,5 Zeilen -----------------------------------------------------
+\onehalfspacing
+
+% Seitenränder -----------------------------------------------------------------
+\setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
+\geometry{	paper=a4paper,
+			left=35mm,
+			right=35mm,
+			top=30mm,
+			bottom=38mm,
+			head=30mm,
+    		headsep=2.5mm,
+    		footskip=18mm
+		}
+
+% Kopf- und Fußzeilen ----------------------------------------------------------
+\pagestyle{scrheadings}
+
+\clearscrheadings
+\clearscrplain
+\clearscrheadfoot
+
+% Kopf- und Fußzeile auch auf Kapitelanfangsseiten
+\renewcommand*{\chapterpagestyle}{scrheadings} 
+
+% Abstand bei Chapter herausnehmen
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}} 
+\renewcommand*{\chapterheadendvskip}{} 
+
+% Schriftform der Kopfzeile
+\renewcommand{\headfont}{\normalfont}
+
+% Kopfzeile ----------------------------------------
+\ihead{
+			\small{SPS im Web}\\
+			\small{Automatisierung, Konfiguration, Verwaltung und Monitoring}
+}
+\ohead{
+			\small{\titel~\KW}\\
+			\autor		
+}
+
+%\setlength{\headheight}{15mm} % Höhe der Kopfzeile
+
+% Kopfzeile über den Text hinaus verbreitern
+%\setheadwidth[0pt]{textwithmarginpar} 
+%\setheadsepline[text]{1pt} % Trennlinie unter Kopfzeile
+
+
+% Fußzeile ----------------------------------------
+%\setlength{\footheight}{25mm}
+%\setlength{\footskip}{5mm}
+
+\setfootsepline[text]{2pt} % Trennlinie unter Kopfzeile
+
+
+\cfoot{       
+}
+\ofoot{
+\scriptsize{Seite \thepage~von~\pageref{LastPage}}
+		%\vspace*{57mm}
+}
+
+% sonstige typographische Einstellungen ----------------------------------------
+
+% erzeugt ein wenig mehr Platz hinter einem Punkt
+\frenchspacing 
+
+% Schusterjungen und Hurenkinder vermeiden
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+% Quellcode-Ausgabe formatieren
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt, breaklines=true}
+\lstset{emph={square}, emphstyle=\color{red}, emph={[2]root,base}, emphstyle={[2]\color{blue}}}
+
+% Fußnoten fortlaufend durchnummerieren
+%\counterwithout{footnote}{chapter}
+
+%section ist die höchste Ebene
+\counterwithout{section}{chapter}
+
+% auch subsubsection nummerieren
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+%Counter zurücksetzen
+\setcounter{section}{0}
+
+% Eigene Befehle und typographische Auszeichnungen für diese
+
+% einfaches Wechseln der Schrift, z.B.: \changefont{cmss}{sbc}{n}
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+% Abkürzungen mit korrektem Leerraum 
+\newcommand{\ua}{\mbox{u.\,a.\ }}
+\newcommand{\zB}{\mbox{z.\,B.\ }}
+\newcommand{\dahe}{\mbox{d.\,h.\ }}
+\newcommand{\Vgl}{Vgl.\ }
+\newcommand{\bzw}{bzw.\ }
+\newcommand{\evtl}{evtl.\ }
+\newcommand{\bzgl}{bzgl.\ }
+\newcommand{\ggf}{ggf.\ }
+\newcommand{\etc}{etc.\ }
+
+\newcommand{\abbildung}[1]{Abbildung~\ref{fig:#1}}
+
+\newcommand{\bs}{$\backslash$}
+
+% erzeugt ein Listenelement mit fetter Überschrift 
+\newcommand{\itemd}[2]{\item{\textbf{#1}}\\{#2}}
+
+% einige Befehle zum Zitieren --------------------------------------------------
+\newcommand{\Zitat}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\citep{#2}}{\citep[#1]{#2}}}
+
+% zum Ausgeben von Autoren
+\newcommand{\AutorName}[1]{\textsc{#1}}
+\newcommand{\Autor}[1]{\AutorName{\citeauthor{#1}}}
+
+% verschiedene Befehle um Wörter semantisch auszuzeichnen ----------------------
+\newcommand{\NeuerBegriff}[1]{\textbf{#1}}
+\newcommand{\Fachbegriff}[1]{\textit{#1}}
+
+\newcommand{\Eingabe}[1]{\texttt{#1}}
+\newcommand{\Code}[1]{\texttt{#1}}
+\newcommand{\Datei}[1]{\texttt{#1}}
+
+\newcommand{\Datentyp}[1]{\textsf{#1}}
+\newcommand{\XMLElement}[1]{\textsf{#1}}
+\newcommand{\Webservice}[1]{\textsf{#1}}

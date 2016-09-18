@@ -1,0 +1,36 @@
+% ------------------------------------------------------------------------------
+% Formatvorlage f\UTF{00FC}r Dokumentation der Treffen der Gruppe Mbx2Sql
+% ------------------------------------------------------------------------------
+
+% Dokumentenkopf ---------------------------------------------------------------
+%   Diese Vorlage basiert auf "scrreprt" aus dem koma-script.
+% ------------------------------------------------------------------------------
+\documentclass[
+    11pt, % Schriftgr\UTF{00F6}\UTF{00DF}e
+    DIV10,
+    ngerman, % f\UTF{00FC}r Umlaute, Silbentrennung etc.
+    a4paper, % Papierformat
+    oneside, % einseitiges Dokument
+    parskip=half, % Abstand zwischen Abs\UTF{00E4}tzen (halbe Zeile)
+    headings=normal, % Gr\UTF{00F6}\UTF{00DF}e der \UTF{00DC}berschriften verkleinern
+    captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
+    final % Status des Dokuments (final/draft)
+]{scrbook}
+
+\input{../common}
+
+
+\newcommand{\berichtsdatum}{12.09.2016 - 18.09.2016}
+\newcommand{\datum}{18.09.2016}
+\newcommand{\KW}{KW 37}
+
+% Dokument -----------------------------------------------------------
+\begin{document}
+\label{ErsteSeite}
+
+% Hauptteil --------------------------------------------------------------------
+\include{content}
+
+
+\label{LetzteSeite}
+\end{document}
