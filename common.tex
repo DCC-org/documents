@@ -124,12 +124,14 @@
 \input{\contentfile}
 
 \iftoggle{fsd}{}{%
-    ~\\[3cm]
-    \centering
+    \vfill % ganz nach unten.
+    {\centering
+    \renewcommand{\arraystretch}{0.9}
     \begin{tabular}{p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}}
       \dotfill                    & & \dotfill                      & & \dotfill \\
       \centering\footnotesize\proj& & \centering\footnotesize\puppet& & \centering\footnotesize\supervisor%
     \end{tabular}
+    }
 }
 
 
