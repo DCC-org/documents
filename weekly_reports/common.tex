@@ -28,39 +28,11 @@
 \setmainfont{TeX Gyre Pagella}
 \setkomafont{disposition}{\bfseries}
 
-% Grafiken ---------------------------------------------------------------------
-% Einbinden von JPG-Grafiken ermöglichen
-\usepackage[dvips,final]{graphicx}
-% hier liegen die Bilder des Dokuments
-\graphicspath{{../Bilder/}}
-
-% Befehle aus AMSTeX für mathematische Symbole z.B. \boldsymbol \mathbb --------
-\usepackage{amsmath,amsfonts}
-
-% für Index-Ausgabe mit \printindex --------------------------------------------
-\usepackage{makeidx}
+\graphicspath{{../figures/}}
 
 % Einfache Definition der Zeilenabstände und Seitenränder etc. -----------------
 \usepackage{setspace}
 \usepackage{geometry}
-
-% Symbolverzeichnis ------------------------------------------------------------
-%   Symbolverzeichnisse bequem erstellen. Beruht auf MakeIndex:
-%     makeindex.exe %Name%.nlo -s nomencl.ist -o %Name%.nls
-%   erzeugt dann das Verzeichnis. Dieser Befehl kann z.B. im TeXnicCenter
-%   als Postprozessor eingetragen werden, damit er nicht ständig manuell
-%   ausgeführt werden muss.
-%   Die Definitionen sind ausgegliedert in die Datei "Glossar.tex".
-% ------------------------------------------------------------------------------
-\usepackage[intoc]{nomencl}
-\let\abbrev\nomenclature
-\renewcommand{\nomname}{Abkürzungsverzeichnis}
-\setlength{\nomlabelwidth}{.25\hsize}
-\renewcommand{\nomlabel}[1]{#1 \dotfill}
-\setlength{\nomitemsep}{-\parsep}
-
-% zum Umfließen von Bildern ----------------------------------------------------
-\usepackage{floatflt}
 
 
 % zum Einbinden von Programmcode -----------------------------------------------
