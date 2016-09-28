@@ -8,9 +8,11 @@ for directory in ${WEEKS[*]}; do
   # iterate at each author
   for author in ${AUTHORS[*]}; do
     if [ -f "${author}.tex" ]; then
-      sed --in-place "s/###author###/$author/" content.tex;
+      sed --in-place "s/###author###/$author/" content.tex main.tex
+      latexmk -C
+      rm "${directory}_${author}.pdf"
       latexmk -jobname="${directory}_${author}" -r ../latexmkrc
-      sed --in-place "s/$author/###author###/" content.tex;
+      sed --in-place "s/$author/###author###/" content.tex main.tex
     fi
   done
 done
