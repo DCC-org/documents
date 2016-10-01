@@ -1,6 +1,6 @@
 #!/bin/bash
 AUTHORS=(bastelfreak skarf marcellii)
-WEEKS=(2016_37)
+WEEKS=(2016_37 2016_38)
 
 # iterate at all weeky directories
 for directory in ${WEEKS[*]}; do
@@ -17,4 +17,5 @@ for directory in ${WEEKS[*]}; do
       sed --in-place "s|$author|###author###|" ../content.tex
     fi
   done
+  cd ..
 done
