@@ -11,5 +11,4 @@ thesis:
 
 clean:
 	for dir in $(SUBDIRS); do cd $$dir; latexmk -C; cd ..; done
-	$(MAKE) -C weekly_reports clean
 	rm *.pdf
