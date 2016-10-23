@@ -7,3 +7,5 @@
 *.fdb_latexmk
 *.synctex.gz
 *.out
+*.run.xml
+*.bcf
