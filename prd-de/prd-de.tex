@@ -1,8 +1,12 @@
 \documentclass[a4paper,DIV=11,12pt]{scrartcl}
 \usepackage{etoolbox}
-\newtoggle{de}
-\toggletrue{de}
-\newtoggle{fsd}
-\togglefalse{fsd}
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=new]{german}
+\def\puppet{Partnerfirma}
+\def\supervisor{Betreuer}
+\def\proj{Projektleiter}
+\def\xsubtitle{Lastenheft}
+\newtoggle{signatures_every_page}
+\togglefalse{signatures_every_page}
 \def\contentfile{content-de.tex}
 \input{../common.tex}

@@ -1,8 +1,12 @@
 \documentclass[a4paper,DIV=11,12pt]{scrartcl}
 \usepackage{etoolbox}
-\newtoggle{de}
-\togglefalse{de}
-\newtoggle{fsd}
-\togglefalse{fsd}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\def\puppet{Contract Authority}
+\def\supervisor{Supervisor}
+\def\proj{Project Manager}
+\def\xsubtitle{Product Requirement Document}
+\newtoggle{signatures_every_page}
+\togglefalse{signatures_every_page}
 \def\contentfile{content-en.tex}
 \input{../common.tex}
