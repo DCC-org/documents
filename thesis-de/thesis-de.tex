@@ -1,8 +1,10 @@
 \documentclass[a4paper,DIV=11,12pt]{scrartcl}
 \usepackage{etoolbox}
+\usepackage[backend=biber]{biblatex}
 \newtoggle{de}
 \toggletrue{de}
 \newtoggle{fsd}
 \toggletrue{fsd}
 \def\contentfile{content-de.tex}
 \input{../common.tex}
+\addbibresource{../biblatex/Introduction_to_Smooth_Manifolds.bibtex}
