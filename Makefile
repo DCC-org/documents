@@ -1,10 +1,7 @@
 SUBDIRS = fsd-en fsd-de prd-en prd-de
 
-all: reports
+all:
 	for dir in $(SUBDIRS); do cd $$dir; latexmk; cp $$dir.pdf ..; cd ..; done
-
-reports:
-	$(MAKE) -C weekly_reports 
 
 clean:
 	for dir in $(SUBDIRS); do cd $$dir; latexmk -C; cd ..; done
