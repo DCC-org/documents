@@ -13,5 +13,5 @@ reports:
 	cd weekly_reports; ./magicshellscript.sh
 
 clean:
-	for dir in $(SUBDIRS); do cd $$dir; latexmk -C; cd ..; done
+	for dir in $(SUBDIRS) $(THESIS); do cd $$dir; latexmk -C; cd ..; done
 	rm *.pdf
