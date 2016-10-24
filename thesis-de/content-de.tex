@@ -29,6 +29,41 @@ ein Kürzel des Authors, hierbei bedeutet:
 \end{outline}
 
 \section{Projektvorstellung}
+Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
+an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
+physischen Systems unterschiedlich. Hier kommt es, aufgrund der
+Mischkalkulation für die Ressourcen, zu einer Überbuchung (Overcommitment) des
+Hosts. Weil das Monitoring nicht ausreichend ist, oder kein sinnvolles
+Placement implementiert ist (Placement beschreibt den Algorithmus der einen
+Node ermittelt auf dem eine neue virtuelle Instanz angelegt wird) kommt es
+regelmäßig zu Performanceeinbußen. Für Kunden gibt es keine Transparenz über
+die ihm zugeteilten und durch ihn genutzten Ressourcen, weshalb auch keine
+ressourcenbasierte Abrechnung erfolgen kann. Teamleiter sind häufig mit der
+Effizienzsteigerung der Plattform beschäftigt und müssen die Auslastung
+steigern. Dies ist ohne detaillierte Auslastungsreports nicht möglich.
+
+In diesem Projekt soll eine funktionierende Open Source Software entwickelt
+werden, die sich in drei Teile gliedert:
+\begin{outline}
+  \1 Die verschiedenen Ressourcetypen (CPU Zeit / Daten Durchsatz / RAM
+  Auslastung / Speicher Auslastung / Netzwerk Durchsatz) der einzelnen
+  virtuellen Server müssen in einem sinnvollen Intervall periodisch ermittelt
+  werden.
+  \1 Die Daten müssen aggregiert und gespeichert werden. Hierbei ist auf eine
+  Skalierung auf mindestens 10.000 virtuelle Instanzen unter Berücksichtigung
+  der Verfügbarkeit und Performance der Datenbank zu achten (Sharding oder
+  Replikation, verteilt oder zentral, dokumentenbasiert oder relational).
+  \1 Diese Daten können dann dem Endanwender präsentiert werden (API und
+  Web-UI). Hierzu wird eine Userstory Erhebung unter den drei Anwendertypen
+  Kunde, Administrator, Manager bei Partnerunternehmen durchgeführt, um
+  gewünschte Algorithmen zur Visualisierung zu ermitteln (zum Beispiel ermitteln von
+  freien oder überbuchten Nodes, grafische Auswertung für Kunden).
+\end{outline}
+
+Dieses Projekt eignet sich besonders gut als Projektarbeit, da es in drei Teile
+gegliedert ist. Jeder dieser Teile ist eigenständig und wird einem
+Projektmitglied zugeordnet. Dies erleichtert die spätere Bewertung.
+
 \subsection{Projektteam}
 \subsection{Auftraggeber}
 \subsection{Aktuelle Situation}
