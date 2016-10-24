@@ -1,10 +1,166 @@
-\section{Einleitung}
-hier ganz langen text einfügen
+\section{Erklärung}
+Hiermit erklären wir, dass wir die Arbeit selbstständig verfasst und und keine
+anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Diese Arbeit
+wurde keinem anderen Prüfungsausschuss in gleicher oder vergleichbarer Form
+vorgelegt.
 
-\section{Definition}
-ulablabla
-\cite{lee2013introduction}
-way more blabla
+\vfill
+{\centering
+\renewcommand{\arraystretch}{0.9}
+\begin{tabular}{p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}}
+  \dotfill                    & & \dotfill                      & & \dotfill \\
+  \centering\footnotesize{Tim Meusel}& & \centering\footnotesize{Marcel Reuter}& & \centering\footnotesize{Nikolai Luis}%
+\end{tabular}
+}
+
+\newpage
+
+\section{Einführung}
+Das Heinrich-Hertz-Europakolleg Bonn verlang im fünften und sechsten Semester
+der Weiterbildung zum staatlich geprüften Informatiker eine fachbezogene
+Projektarbeit. Dieses Projekt wird in Gruppen von zwei bis vier Personen
+durchgeführt und soll fachliche Inhalte sowie Inhalte aus dem Projektmanagement
+kombinieren. Es handelt sich um eine praktische Arbeit. Jeder Abschnitt enthält
+ein Kürzel des Authors, hierbei bedeutet:
+\begin{outline}
+  \1 {[NL]} erstellt von Nikolai Luis
+  \1 {[MR]} erstellt von Marcel Reuter
+  \1 {[TM]} erstellt von Tim Meusel
+\end{outline}
+
+\section{Projektvorstellung}
+Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
+an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
+physischen Systems unterschiedlich. Hier kommt es, aufgrund der
+Mischkalkulation für die Ressourcen, zu einer Überbuchung (Overcommitment) des
+Hosts. Weil das Monitoring nicht ausreichend ist, oder kein sinnvolles
+Placement implementiert ist (Placement beschreibt den Algorithmus der einen
+Node ermittelt auf dem eine neue virtuelle Instanz angelegt wird) kommt es
+regelmäßig zu Performanceeinbußen. Für Kunden gibt es keine Transparenz über
+die ihm zugeteilten und durch ihn genutzten Ressourcen, weshalb auch keine
+ressourcenbasierte Abrechnung erfolgen kann. Teamleiter sind häufig mit der
+Effizienzsteigerung der Plattform beschäftigt und müssen die Auslastung
+steigern. Dies ist ohne detaillierte Auslastungsreports nicht möglich.
+
+In diesem Projekt soll eine funktionierende Open Source Software entwickelt
+werden, die sich in drei Teile gliedert:
+\begin{outline}
+  \1 Die verschiedenen Ressourcetypen (CPU Zeit / Daten Durchsatz / RAM
+  Auslastung / Speicher Auslastung / Netzwerk Durchsatz) der einzelnen
+  virtuellen Server müssen in einem sinnvollen Intervall periodisch ermittelt
+  werden.
+  \1 Die Daten müssen aggregiert und gespeichert werden. Hierbei ist auf eine
+  Skalierung auf mindestens 10.000 virtuelle Instanzen unter Berücksichtigung
+  der Verfügbarkeit und Performance der Datenbank zu achten (Sharding oder
+  Replikation, verteilt oder zentral, dokumentenbasiert oder relational).
+  \1 Diese Daten können dann dem Endanwender präsentiert werden (API und
+  Web-UI). Hierzu wird eine Userstory Erhebung unter den drei Anwendertypen
+  Kunde, Administrator, Manager bei Partnerunternehmen durchgeführt, um
+  gewünschte Algorithmen zur Visualisierung zu ermitteln (zum Beispiel
+  ermitteln von freien oder überbuchten Nodes, grafische Auswertung für Kunden).
+\end{outline}
+
+Dieses Projekt eignet sich besonders gut als Projektarbeit, da es in drei Teile
+gegliedert ist. Jeder dieser Teile ist eigenständig und wird einem
+Projektmitglied zugeordnet. Dies erleichtert die spätere Bewertung.
+
+\subsection{Projektteam}
+Das Projektteam besteht aus den drei Mitgliedern Marcel Reuter, Nikolai Luis
+und Tim Meusel.
+
+\subsubsection{Marcel Reuter}
+Herr Reuter beendete 2013 seine Ausbildung zum IT-Systemelektroniker
+und arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist verantwortlich
+für die visuelle Schnittstelle des Projekts (Punkt 3).
+
+\subsubsection{Nikolai Luis}
+Herr Luis begann die Weiterbildung zum Techniker wärend seiner Ausbildung zum
+Fachinformatiker Anwendungsentwicklung, welche er im Januar 2016 beendete. Er arbeitet
+als BIG Data Analyst bei der Deutschen Telekom. Er ist verantwortlich
+für die Speicherung der Daten und die automatisierte Schnittstelle (Punkt 2).
+
+\subsubsection{Tim Meusel}
+Herr Meusel schloss seine Ausbildung zum Fachinformatiker Systemintegration
+2012 ab. Aktuell arbeitet er als Systems Engineer bei der Host Europe
+Group. Er verantwortet die Ermittlung sowie Übertragung der Daten.
+
+\subsection{Auftraggeber}
+Die Ansprechpartner für dieses Projekt ist das Unternehmen Puppet Inc. (im
+folgenden Puppet) in der Rolle als Auftraggeber, welches von den Mitarbeitern
+Herrn David Schmitt und Herrn Steve Quin vertreten wird. Puppet ist Marktführer
+im Bereicht Konfigurationsmangement Software. Software dieser Art hilft es
+Administratoren sehr einfach Testumgebungen aufzubauen und auch
+Produktivumgebungen zu Verwalten. Das Kernprodukt der Firma Puppet, welches
+ebenfalls puppet heißt, steht unter einer Open Source Lizenz und darf frei
+genutzt werden. Der Einsatz der Software erlaubt es dem Projektteam
+verschiedenste Prototypen in kurzer Zeit zu bauen. Puppet entwickelt außerdem
+Software zum Testen. Dies vereinfacht das Qualitätsmanagement im Projekt.
+Puppet hat in der Vergangenheit bewiesen, mit agiler Entwicklung und diversen
+Testverfahren umgehen zu können, beides wird intensiv in deren Teams genutzt.
+Herr Quin und Herr Schmitt bieten tiefgreifendes Wissen zu den verschiedenen
+Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
+
+\subsection{Aktuelle Situation}
+
+\subsection{Anforderungen}
+Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts wie
+folgt definiert:
+\subsection{Datenerfassungssysteme}
+
+\subsection{Datenbanksysteme}
+
+\subsection{Frontends}
+
+\section{Projektmanagement}
+agil, sprints, userstories
+
+\section{Verwendete Tools}
+ist das relevant? als eigener punkt?
+
+\section{Analyse von Softwarekomponenten}
+Zusammen mit dem Auftraggeber folgende Liste and Komponenten erstellt, die
+vergleichen und gegebenfalls evaluiert werden sollen:
+
+\subsection{Datenerfassungssysteme}
+
+\begin{outline}
+  \1 collectd mit Virt Plugin
+  \1 coreutils
+  \1 zabbix-agent
+  \1 python-diamond
+  \1 sysstat
+  \1 atop
+  \1 logtash
+  \1 riemann
+\end{outline}
+
+\subsection{Datenbanksysteme}
+
+\begin{outline}
+  \1 elasticsearch
+  \1 cassandra
+  \1 postgres
+  \1 OpenTSDB
+  \1 KNIME
+  \1 impala
+  \1 hadoop
+  \1 hive
+\end{outline}
+
+\subsection{Frontends}
+
+\begin{outline}
+  \1 grafana
+  \1 graphite
+  \1 zabbix-frontend
+\end{outline}
+
+\section{Implementierung}
+
+\section{Userstories}
+auflisten der einzelnen stories + implementierung
+
+\section{Fazit}
 
 \printbibliography
 %%% Local Variables:
