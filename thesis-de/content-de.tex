@@ -115,6 +115,31 @@ folgt definiert:
 \tm%
 
 \subsubsection{Datenerfassungssysteme}
+Unterschiedliche Ausbaustufen für virtuelle Machinen werden über mehrere
+verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
+differenziert. Diese Typen müssen für jede virtuelle Machine ausgelesen werden.
+Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
+virtuelle Machinen genommen. Diese sind aktuell:
+
+Zugewiesener Arbeitsspeicher, Anzahl/Leistung der Prozessorkerne, Durchsatz des
+Datenträgers, Anbindung an das Internet, nachweis via scrots fachwörter
+referenz?
+
+Diese Werte müssen sowohl in den virtuellen Machinen als auch auf dem Host
+ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
+die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
+Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
+nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
+vom Host aus ermitteln. Auf dem Host muss zusätzlich Gesamtauslastung der
+Ressourcen sowie der Zustand der Hardware ermittelt werden.
+
+Gesammelte Daten müssen lokal zwischengespeichert werden können, um einem
+Verlust bei Netzwerkstörungen zu vermeiden. Der Versand muss nach dem Push- und
+nicht nach dem Polling-Verfahren arbeiten. Somit kann Eventbasiert gearbeitet
+werden, dies verhindert Overhead im Netzwerk. Eine Visualisierung in Echtzeit
+ist nicht gefodert weshalb Daten lokal zwischengespeichert werden können um sie
+gebündelt zu verschicken.
+\tm%
 
 \subsubsection{Datenbanksysteme}
 
