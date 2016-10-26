@@ -146,14 +146,22 @@ gebündelt zu verschicken.
 \subsubsection{Datenbanksysteme}
 
 \subsubsection{Frontends}
-Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die Nutzung einzelner Virtuellen oder Physische Maschinen bereitstellen.
-Hierbei ist wichtig, das die Sicherheit der Daten gewährleistet wird. Dies bedeutet, das sowohl die Verbindung zwischen Datenbank
-und Weboberfläche gesichert sein muss, als auch die Weboberfläche selber, gegen Zugriff von Unbekannten. Die Weboberfläche greift mittels API
-Abfragen auf die Datenbank zu und kann somit die Sicherheit gewährleisten. Die Weboberfläche soll Administratoren bei Neukonfiguration
-unterstützen und zeigt hier die Auslastung der einzelnen Systemen. Der Administrator kann so gezielt die Systeme besser auslasten und 
-verteilen. Ebenfalls kann das Frontend eine Schnittstelle für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
-Virtualisiert ausgegeben werden.
-[MR]
+Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
+verbrauchten oder freien Ressourcen, wie z.B. CPU Auslastung oder RAM
+Auslastung einzelner virtueller oder physischen Maschinen bereitstellen.
+Hierbei ist wichtig, dass die Sicherheit(Authentisierung, Authentifizierung und
+Authorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
+Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
+die Weboberfläche selber, gegen Zugriff von Unbekannten. Die Weboberfläche
+greift hier mittels API Abfragen auf die Datenbank zu, dies ermöglicht uns den
+Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können.
+Die Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
+Maschinen unterstützen und zeigt hier die Auslastung der einzelnen physischen
+Systemen. Der Administrator kann so gezielt die einzelnen physischen Maschinen
+besser auslasten und verteilen. Ebenfalls kann das Frontend eine Schnittstelle
+für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
+visuell ausgegeben werden.
+\mr%
 
 \section{Projektmanagement}
 agil, sprints, userstories
