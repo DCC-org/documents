@@ -73,21 +73,21 @@ und Tim Meusel.
 
 \subsubsection{Marcel Reuter}
 Herr Reuter beendete 2013 seine Ausbildung zum IT-Systemelektroniker
-und arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist verantwortlich
-für die visuelle Schnittstelle des Projekts (Punkt 3).
+und arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist
+verantwortlich für die visuelle Schnittstelle des Projekts (Punkt 3).
 \mr%
 
 \subsubsection{Nikolai Luis}
 Herr Luis begann die Weiterbildung zum Techniker wärend seiner Ausbildung zum
-Fachinformatiker Anwendungsentwicklung, welche er im Januar 2016 beendete. Er arbeitet
-als BIG Data Analyst bei der Deutschen Telekom. Er ist verantwortlich
+Fachinformatiker Anwendungsentwicklung, welche er im Januar 2016 beendete. Er
+arbeitet als BIG Data Analyst bei der Deutschen Telekom. Er ist verantwortlich
 für die Speicherung der Daten und die automatisierte Schnittstelle (Punkt 2).
 \nl%
 
 \subsubsection{Tim Meusel}
 Herr Meusel schloss seine Ausbildung zum Fachinformatiker Systemintegration
-2012 ab. Aktuell arbeitet er als Systems Engineer bei der Host Europe
-Group. Er verantwortet die Ermittlung sowie Übertragung der Daten.
+2012 ab. Aktuell arbeitet er als Systems Engineer bei der Host Europe Group.
+Er verantwortet die Ermittlung sowie Übertragung der Daten.
 \tm%
 
 \subsection{Auftraggeber}
@@ -110,13 +110,42 @@ Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
 \subsection{Aktuelle Situation}
 
 \subsection{Anforderungen}
-Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts wie
-folgt definiert:
-\subsection{Datenerfassungssysteme}
+Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
+folgenden Abschnitt beschrieben. Diese Ergebene sich aus dem Lastenheft und
+Pflichtenheft sowie aus den User Stories der Partner. Für Alle Lösungen gillt,
+das sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
+\tm%
 
-\subsection{Datenbanksysteme}
+\subsubsection{Datenerfassungssysteme}
+Unterschiedliche Ausbaustufen für virtuelle Machinen werden über mehrere
+verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
+differenziert. Diese Typen müssen für jede virtuelle Machine ausgelesen werden.
+Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
+virtuelle Machinen genommen. Diese sind aktuell:
 
-\subsection{Frontends}
+Zugewiesener Arbeitsspeicher, Anzahl/Leistung der Prozessorkerne, Durchsatz des
+Datenträgers, Anbindung an das Internet, nachweis via scrots fachwörter
+referenz?
+
+Diese Werte müssen sowohl in den virtuellen Machinen als auch auf dem Host
+ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
+die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
+Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
+nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
+vom Host aus ermitteln. Auf dem Host muss zusätzlich Gesamtauslastung der
+Ressourcen sowie der Zustand der Hardware ermittelt werden.
+
+Gesammelte Daten müssen lokal zwischengespeichert werden können, um einem
+Verlust bei Netzwerkstörungen zu vermeiden. Der Versand muss nach dem Push- und
+nicht nach dem Polling-Verfahren arbeiten. Somit kann Eventbasiert gearbeitet
+werden, dies verhindert Overhead im Netzwerk. Eine Visualisierung in Echtzeit
+ist nicht gefodert weshalb Daten lokal zwischengespeichert werden können um sie
+gebündelt zu verschicken.
+\tm%
+
+\subsubsection{Datenbanksysteme}
+
+\subsubsection{Frontends}
 
 \section{Projektmanagement}
 agil, sprints, userstories
