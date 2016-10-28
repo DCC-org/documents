@@ -7,13 +7,15 @@ we can use:
 
 - Scaleable (the database must work, with a lot's of data's in a short time and
   can be bigger and bigger)
-- Integrity assurance (it's mean, that the data's, which get the database from
-  e.g collectd, will check before it will be saved in the databse)
 - Data safety
-  - Data safety for unouthorized access (unauthorized access by third party)
   - Data loss (if the Database will crash, what happens with the data in the
     database, which are already provided to it)
 - Performance (efficiency)
   -with the same ressources of hardware get the best result
   -with the same ressources of hardware get the fastest result
+- Information about the Database
+  - is it easy to learn, that an employee of a company can learn the database
+  fast
+  -are there informationens, which can find in the internet or something else
+
 
