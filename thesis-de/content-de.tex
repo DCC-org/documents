@@ -171,11 +171,12 @@ vergleichen und gegebenfalls evaluiert werden sollen:
 \end{outline}
 
 \subsection{Datenbanksysteme}
+\label{subsec:datenbanksysteme}
 Zu Beginn des Projektes musste das Projektteam mögliche Datenhaltungssysteme
-in einer Liste für eine darauffolgende Evaltution definieren. Bei der
-Erstellung dieser Liste wurden Systeme aufgenommen, welche die 
-Projektmitglieder aus vergangenen Projekten, bzw. aus dem täglichen
-Arbeitstag kennen. Zusätzlich hatten die Projektmitglieder vorab mit
+in einer Liste für eine darauffolgende Evalution definieren. Bei der
+Erstellung dieser Liste wurden Systeme aufgenommen, welche den 
+Projektmitgliedern aus vergangenen Projekten, bzw. aus dem täglichen
+Arbeitstag bereits bekannt waren. Zusätzlich hatten die Projektmitglieder vorab mit
 Experten aus dem Freundeskreis und Arbeitsumfeld über mögliche
 weitere Systeme gesprochen. Dadurch das Herr Luis in dem Bereich der
 Massendatenhaltungssysteme arbeitet, sind ebenefalls Systeme aufgenommen
@@ -183,7 +184,7 @@ worden, welche im Bereich der sogenannten BIG DATA Technologie
 arbeiten.
 
 Das hinzufügen von weiteren/neuen Datenbanksystemen zur späteren
-Evaltution erfolgt nur nach einer Genehmigung vom Auftraggeber.
+Evalution erfolgt nur nach einer Genehmigung vom Auftraggeber.
 
 Die in der Liste aufgenommen Systeme sind folgende:
 \begin{outline}
@@ -198,14 +199,15 @@ Die in der Liste aufgenommen Systeme sind folgende:
 \end{outline}
 \nl%
 
-\subsubsection{Vorbereitung}
+\subsubsection{Vorbereitung der Evalution}
+\label{subsubsec:vorbereitung_der_evalution}
 Als Vorbereitung für die Evalution der Datenhaltungssysteme wurden
 mehrere Kriterien definiert, welche uns einen Leitpfaden für die 
-spätere arbeit geben sollen. Während der Auswahl und Definition 
+spätere Arbeit geben sollen. Während der Auswahl und Definition 
 der von dem Datenbanksystem zu erfüllenden Kriterien wurde darauf
 geachtet, dass diese sich aus dem späteren Zielsystem ableiten lassen
 und ebenfalls realistisch erfüllbar sind. Anschließend wurde die
-Relevanz jedes Kirteriums von dem Teammitglieder beurteilt und 
+Relevanz jedes Kirteriums von den Teammitgliedern beurteilt und
 festgelegt. 
 
 Die daraus resultierten Kriterien sind nun nach Relevanz absteigend
@@ -226,15 +228,68 @@ aufgelistet:
   während dem normalen Betrieb (kein Neustart oder Auszeit)
   aufgestockt werden kann. Es ist jedoch ausreichend, wenn eine
   Aufstockung nach einer Auszeit von maximal 45 Minuten erfolgt ist.
-  Die Verwendung von einem statischen System, in Hinsicht der oben
-  genannten Ressourcen, ist ein K.O. Kriterium für die Evalution. 
-  \1 Die Performance und Effizients der Datenbank
-  \1 OpenTSDB
-  \1 KNIME
-  \1 impala
-  \1 hadoop
-  \1 hive
+  Die Verwendung von einem statischen System ist, in Hinsicht der oben
+  genannten Ressourcen, ein K.O. Kriterium für die spätere Verwendung
+  der Software im Wirkbetrieb. 
+  \1 Umweltschonende und effiziente Datenhaltung ist zu beachten. 
+  Dies definiert eine optimale Relation zwischen der verwendeten
+  Hardware und dem daraus resultierendem Resultat. Eine
+  umweltschonende Datenhaltung kann unabhängig der korrekten Auswahl
+  der genutzen Stromeffiziensklasse jedes Hardwarebauteils bereits
+  bei der im Wirkbetrieb zu benutzende Software beeinflusst werden.
+  Dies ist im Bereich der Datenhaltungs-Software zum Beispiel die
+  entstehende Speicherplatzgröße für einen einzelnen Datensatz in
+  einer Datenbank. Um so kleiner dieser ist, desto mehr kann bei 
+  Energiekosten für zusätzlichen Speicherplatz eingesparrt werden.
+  
+  Unter Berücksichtigung der genannten Attribute, soll jedoch die
+  Datenhaltungs-Software mit der gleichen Hardware-Ressource das
+  beste und schnellste Ergebnis erbringen können. Dies bedeutet, 
+  dass auch bei komplexen Analysetechniken und zusätzlich hohen
+  Datenmengen, dass System weiterhin gegenüber anderen
+  Datenhaltungssystemen ein valides und schnelles Analyseergebnis
+  erbringen kann.
+  \1 Die Datenhaltungs-Software sollte bereits über Methoden zur 
+  Datensicherung besitzen. Dabei ist zum einem eine BackUp Methodig,
+  und zum anderen das Verhalten bei Problemen am System, z.B.
+  ein Defekt am Netzwerkkabel, mit inbegriffen.
 \end{outline}
+\nl%
+
+\subsubsection{Durchführung der Evalution}
+\label{subsubsec:durchfuehrung_der_evalution}
+Bei der Durchführung der Evalution von den ausgewählten
+Datenhaltungssystemen aus der Liste in Punkt ~\ref{subsec:datenbanksysteme}
+wurden die Evalutionskriterien aus Punkt 
+~\ref{subsubsec:vorbereitung_der_evalution} verwendet. Diese dienten
+als Leitpfaden für jedes Datenhaltungssystem und wurden von jedem
+Projektmitglied beachtet.
+
+Zu Beginn der Durchführung teilte Herr Meusel als Projektleiter
+die zu evaluierenden Datenhaltungssysteme jedem Projektmitglied zu,
+um eine schnellere Bearbeitung zu gewährleisten. Bei der Einteilung
+wurden die bereits vorhandenen Erfahrungen jeder Projektmitglieder zu
+dem jeweiligen Datenhaltungssystem berücksichtigt. Im zweiten Schritt
+sollte sich anschließend jedes Projektmitglied mit dem zugeteilten
+Dantenhaltungssystem kurz auseinandersetzen. In diesem Schritt ist
+Herrn Luis aufgefallen, dass es sich bei der in der Liste
+aufgenommenen Software "KNIME" nicht um ein Datenhaltungssystem
+handelt, sondern um ein mächtiges Werkzeug zur Datenanalyse,
+Datenaufbereitung und Datendarstellung.
+
+Bei der Evalution von den anderen Datenhaltungssystemen konnten
+folgende Ergebnisse ermittelt werden: 
+\begin{evalution}
+  \item[elasticsearch] \\
+  \item[cassandra] \\
+  \item[postgres] \\
+  \item[OpenTSDB] \\
+  \item[impala] \\
+  \item[hadoop] \\
+  Ich bin ein Text der in der PDF angezeigt werden soll.
+  Wie sehe ich aus?
+  \item[hive] \\
+\end{evalution}
 \nl%
 
 \subsection{Frontends}
