@@ -72,8 +72,8 @@ und Tim Meusel.
 \tm%
 
 \subsubsection{Marcel Reuter}
-Herr Reuter beendete 2013 seine Ausbildung zum IT-Systemelektroniker
-und arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist
+Herr Reuter beendete 2013 seine Ausbildung zum IT-Systemelektroniker und
+arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist
 verantwortlich für die visuelle Schnittstelle des Projekts (Punkt 3).
 \mr%
 
@@ -149,13 +149,13 @@ gebündelt zu verschicken.
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
 verbrauchten oder freien Ressourcen, wie z.B. CPU Auslastung oder RAM
 Auslastung einzelner virtueller oder physischen Maschinen bereitstellen.
-Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung und
-Authorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
+Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
+und Authorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
 Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
 die Weboberfläche selber, gegen Zugriff von Unbekannten. Die Weboberfläche
 greift hier mittels API Abfragen auf die Datenbank zu, dies ermöglicht uns den
-Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können.
-Die Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
+Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können.  Die
+Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
 Maschinen unterstützen und zeigt hier die Auslastung der einzelnen physischen
 Systemen. Der Administrator kann so gezielt die einzelnen physischen Maschinen
 besser auslasten und verteilen. Ebenfalls kann das Frontend eine Schnittstelle
@@ -188,16 +188,15 @@ vergleichen und gegebenfalls evaluiert werden sollen:
 
 \subsection{Datenbanksysteme}
 \label{subsec:datenbanksysteme}
-Zu Beginn des Projektes musste das Projektteam mögliche Datenhaltungssysteme
-in einer Liste für eine darauffolgende Evalution definieren. Bei der
-Erstellung dieser Liste wurden Systeme aufgenommen, welche den
-Projektmitgliedern aus vergangenen Projekten, beziehungsweise aus dem
-täglichen Arbeitstag bereits bekannt waren. Zusätzlich hatten die
-Projektmitglieder vorab mit Experten aus dem eigenen Unternehmen und
-aus dem Unternehmen des Auftraggebers mögliche weitere Systeme gesprochen.
-Dadurch das Herr Luis in dem Bereich der Massendatenhaltungssysteme
-arbeitet, sind ebenfalls Systeme aufgenommen worden, welche im
-Bereich der sogenannten Big Data Technologie arbeiten.
+Zu Beginn des Projektes musste das Projektteam mögliche Datenhaltungssysteme in
+einer Liste für eine darauffolgende Evalution definieren. Bei der Erstellung
+dieser Liste wurden Systeme aufgenommen, welche den Projektmitgliedern aus
+vergangenen Projekten, beziehungsweise aus dem täglichen Arbeitstag bereits
+bekannt waren. Zusätzlich hatten die Projektmitglieder vorab mit Experten aus
+dem eigenen Unternehmen und aus dem Unternehmen des Auftraggebers mögliche
+weitere Systeme gesprochen.  Dadurch das Herr Luis in dem Bereich der
+Massendatenhaltungssysteme arbeitet, sind ebenfalls Systeme aufgenommen worden,
+welche im Bereich der sogenannten Big Data Technologie arbeiten.
 
 Das hinzufügen von weiteren/neuen Datenbanksystemen zur späteren
 Evalution erfolgt nur nach einer Genehmigung vom Auftraggeber.
@@ -217,56 +216,50 @@ Die in der Liste aufgenommen Systeme sind folgende:
 
 \subsubsection{Vorbereitung der Evalution}
 \label{subsubsec:vorbereitung_der_evalution}
-Als Vorbereitung für die Evalution der Datenhaltungssysteme wurden
-mehrere Kriterien definiert, welche einen Leitpfaden für die
-spätere Arbeit geben. Während der Auswahl und Definition
-der von dem Datenbanksystem zu erfüllenden Kriterien wurde darauf
-geachtet, dass diese sich aus dem späteren Zielsystem ableiten lassen
-und ebenfalls realistisch erfüllbar sind. Anschließend wurde die
-Relevanz jedes Kirteriums von den Teammitgliedern beurteilt und
-festgelegt.
+Als Vorbereitung für die Evalution der Datenhaltungssysteme wurden mehrere
+Kriterien definiert, welche einen Leitpfaden für die spätere Arbeit geben.
+Während der Auswahl und Definition der von dem Datenbanksystem zu erfüllenden
+Kriterien wurde darauf geachtet, dass diese sich aus dem späteren Zielsystem
+ableiten lassen und ebenfalls realistisch erfüllbar sind. Anschließend wurde
+die Relevanz jedes Kirteriums von den Teammitgliedern beurteilt und festgelegt.
 
 Die daraus resultierten Kriterien sind nun nach Relevanz absteigend
 aufgelistet:
 \begin{outline}
-  \1 Bereits vorhandenes Wissen über die Datenbank. Dazu gehört,
-  dass diese eine umfangreiche Dokumentation besitzt und eine
-  aktive und große Community für Diskussionen und Fragen besitzt.
-  Ebenfalls fallen die vorhandenen Vorkenntnisse über das
-  Datenbanksystem der Projektmitglieder, sowie die Mitarbeiter
-  von dem Unternehmen des Auftraggebers unter diesem Kriterium.
-  Es ist wichtig, dass die zu aufwendene Einarbeitungszeit während
-  dem Projekt und im späteren Wirkbetrieb bei Mitarbeitern des
-  Unternehmens so gering wie möglich gehalten wird.
-  \1 Das Datenhaltungssystem muss einfach, schnell und jederzeit
-  erweiterbar sein. Dies bedeutet, dass Ressourcen
-  (CPU/RAM/Speicherplatz) des Datenbanksystems im optimalsten Fall
-  während dem normalen Betrieb (kein Neustart oder Auszeit)
-  aufgestockt werden kann. Es ist jedoch nach Anforderung des
-  Auftraggebers ausreichend, wenn eine Aufstockung nach einer Auszeit
-  von maximal 45 Minuten erfolgt ist.
-  \1 Umweltschonende und effiziente Datenhaltung ist zu beachten.
-  Dies definiert eine optimale Relation zwischen der verwendeten
-  Hardware und dem daraus resultierendem Ergebnis. Eine
-  umweltschonende Datenhaltung kann unabhängig der korrekten Auswahl
-  der genutzten Stromeffiziensklasse jedes Hardwarebauteils bereits
-  bei der im Wirkbetrieb zu benutzende Software beeinflusst werden.
-  Dies ist im Bereich der Datenhaltungs-Software die
-  entstehende Speicherplatzgröße für einen einzelnen Datensatz in
-  einer Datenbank. Um so kleiner dieser ist, desto mehr kann bei
-  Energiekosten für zusätzlichen Speicherplatz eingesparrt werden.
+  \1 Bereits vorhandenes Wissen über die Datenbank. Dazu gehört, dass diese
+  eine umfangreiche Dokumentation besitzt und eine aktive und große Community
+  für Diskussionen und Fragen besitzt.  Ebenfalls fallen die vorhandenen
+  Vorkenntnisse über das Datenbanksystem der Projektmitglieder, sowie die
+  Mitarbeiter von dem Unternehmen des Auftraggebers unter diesem Kriterium.  Es
+  ist wichtig, dass die zu aufwendene Einarbeitungszeit während dem Projekt und
+  im späteren Wirkbetrieb bei Mitarbeitern des Unternehmens so gering wie
+  möglich gehalten wird.
+  \1 Das Datenhaltungssystem muss einfach, schnell und jederzeit erweiterbar
+  sein. Dies bedeutet, dass Ressourcen (CPU/RAM/Speicherplatz) des
+  Datenbanksystems im optimalsten Fall während dem normalen Betrieb (kein
+  Neustart oder Auszeit) aufgestockt werden kann. Es ist jedoch nach
+  Anforderung des Auftraggebers ausreichend, wenn eine Aufstockung nach einer
+  Auszeit von maximal 45 Minuten erfolgt ist.
+  \1 Umweltschonende und effiziente Datenhaltung ist zu beachten.  Dies
+  definiert eine optimale Relation zwischen der verwendeten Hardware und dem
+  daraus resultierendem Ergebnis. Eine umweltschonende Datenhaltung kann
+  unabhängig der korrekten Auswahl der genutzten Stromeffiziensklasse jedes
+  Hardwarebauteils bereits bei der im Wirkbetrieb zu benutzende Software
+  beeinflusst werden.  Dies ist im Bereich der Datenhaltungs-Software die
+  entstehende Speicherplatzgröße für einen einzelnen Datensatz in einer
+  Datenbank. Um so kleiner dieser ist, desto mehr kann bei Energiekosten für
+  zusätzlichen Speicherplatz eingesparrt werden.
 
   Unter Berücksichtigung der genannten Attribute, soll jedoch die
-  Datenhaltungs-Software mit der gleichen Hardware-Ressource das
-  beste und schnellste Ergebnis erbringen können. Dies bedeutet,
-  dass auch bei komplexen Analysetechniken und zusätzlich hohen
-  Datenmengen, dass System weiterhin gegenüber anderen
-  Datenhaltungssystemen ein valides und schnelles Analyseergebnis
-  erbringen kann.
-  \1 Die Datenhaltungs-Software sollte bereits Methoden zur
-  Datensicherung besitzen. Dabei ist zum einem eine Backup Methode,
-  und zum anderen das Verhalten bei Problemen am System, zum Beispiel
-  ein Defekt am Netzwerkkabel, mit inbegriffen.
+  Datenhaltungs-Software mit der gleichen Hardware-Ressource das beste und
+  schnellste Ergebnis erbringen können. Dies bedeutet, dass auch bei komplexen
+  Analysetechniken und zusätzlich hohen Datenmengen, dass System weiterhin
+  gegenüber anderen Datenhaltungssystemen ein valides und schnelles
+  Analyseergebnis erbringen kann.
+  \1 Die Datenhaltungs-Software sollte bereits Methoden zur Datensicherung
+  besitzen. Dabei ist zum einem eine Backup Methode, und zum anderen das
+  Verhalten bei Problemen am System, zum Beispiel ein Defekt am Netzwerkkabel,
+  mit inbegriffen.
 \end{outline}
 \nl%
 
@@ -278,20 +271,19 @@ Evalutionskriterien aus Punkt~\ref{subsubsec:vorbereitung_der_evalution}
 verwendet. Diese dienten als Leitpfaden für jedes Datenhaltungssystem und
 wurden von jedem Projektmitglied beachtet.
 
-Zu Beginn der Durchführung teilte Herr Meusel als Projektleiter
-die zu evaluierenden Datenhaltungssysteme jedem Projektmitglied zu,
-um eine schnellere Bearbeitung zu gewährleisten. Bei der Einteilung
-wurden die bereits vorhandenen Erfahrungen jeder Projektmitglieder zu
-dem jeweiligen Datenhaltungssystem berücksichtigt. Im zweiten Schritt
-sollte sich anschließend jedes Projektmitglied mit dem zugeteilten
-Dantenhaltungssystem kurz auseinandersetzen. In diesem Schritt ist
-Herrn Luis aufgefallen, dass es sich bei der in der Liste
-aufgenommenen Software ``KNIME'' nicht um ein Datenhaltungssystem
-handelt, sondern um ein Werkzeug zur Datenanalyse,
+Zu Beginn der Durchführung teilte Herr Meusel als Projektleiter die zu
+evaluierenden Datenhaltungssysteme jedem Projektmitglied zu, um eine schnellere
+Bearbeitung zu gewährleisten. Bei der Einteilung wurden die bereits vorhandenen
+Erfahrungen jeder Projektmitglieder zu dem jeweiligen Datenhaltungssystem
+berücksichtigt. Im zweiten Schritt sollte sich anschließend jedes
+Projektmitglied mit dem zugeteilten Dantenhaltungssystem kurz
+auseinandersetzen. In diesem Schritt ist Herrn Luis aufgefallen, dass es sich
+bei der in der Liste aufgenommenen Software ``KNIME'' nicht um ein
+Datenhaltungssystem handelt, sondern um ein Werkzeug zur Datenanalyse,
 Datenaufbereitung und Datendarstellung.
 
-Bei der Evaluation von den anderen Datenhaltungssystemen konnten
-folgende Ergebnisse ermittelt werden:
+Bei der Evaluation von den anderen Datenhaltungssystemen konnten folgende
+Ergebnisse ermittelt werden:
 \begin{outline}
   \1 elasticsearch
 
