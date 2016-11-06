@@ -1,0 +1,11 @@
+Author: Marcel Reuter
+Title: bus_system
+
+Copied from the Criteria for databases. Only a draft at the moment.
+
+- Integrity assurance (it's mean, that the data's, which get the database from
+  e.g collectd, will check before it will be saved in the databse)
+- Data safety
+  - Data safety for unouthorized access (unauthorized access by third party)
+
+
