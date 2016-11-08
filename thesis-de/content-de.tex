@@ -281,7 +281,7 @@ aufgelistet:
 \begin{outline}
   \1 Bereits vorhandenes Wissen über die Datenbank. Dazu gehört, dass diese
   eine umfangreiche Dokumentation besitzt und eine aktive und große Community
-  für Diskussionen und Fragen besitzt.  Ebenfalls fallen die vorhandenen
+  für Diskussionen und Fragen vorhanden ist. Ebenfalls fallen die vorhandenen
   Vorkenntnisse über das Datenbanksystem der Projektmitglieder, sowie die
   Mitarbeiter von dem Unternehmen des Auftraggebers unter diesem Kriterium.  Es
   ist wichtig, dass die zu aufwendene Einarbeitungszeit während dem Projekt und
@@ -401,11 +401,59 @@ zusätzliche Schicht(Layer) veringert.
 Anders wie bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
 der möglichen API-Systeme keine Liste im vorhin erstellt. Dies lag daran, dass
 keiner der Projektmitglieder oder Interessenten an dem Projekt Erfahrungen mit
-API-Systemen im vorhinein besitzten.
+API-Systemen im vorhinein besitzen.
 
 Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
 API-System zu erstellen und im Anschluss während der Evaluierungsphase
 Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen kann.
+
+Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
+\begin{outline}
+  \1 Die API-Software muss auf einer selbst administrierten Hardware-Umgebung
+  betrieben werden können. Das verwenden von einem fertigen API-Softwarepaket
+  von einem Cloudanbietern, bei welchem der Administrator alle Konfigurationen
+  über ein Web-Interface des Providers vornimmt und der Cloudanbieter die
+  vollständige Hardware-Umgebung administriert, ist ein absolutes
+  Ausschlusskriterium. Es ist vorgehsehen, dass das API System möglichst nah 
+  an dem Datenhaltungssystem liegt, um mögliche Latenzen zwischen den beiden
+  Systemen so niedrig wie möglich zu halten. Zudem sollen externe Cloudanbieter
+  keinen Zugriff auf die teilweise Kundenbezogenen Daten der Datenhaltung
+  erhalten. Zudem kann während dem Projekt entschiedenen werden, dass das 
+  Datenhaltungssystem nicht von externen Systemen erreichbar sein soll, sodass
+  die damit verbundene Lösung über einen Cloudprovider nicht möglich wäre. 
+  Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des 
+  Unternehmens betrieben werden.
+  \1 Die API-Software muss vollständig konfigurierbar und administrierbar sein.
+  Entsprechend soll die Software nur eine leere Hülle mit Standartfunktionen
+  einer API zur Verfügung stellen. Eine Konfiguration von einzelnen Parametern
+  ist dabei erwünscht. Zu diesem Parametern gehört als Beispiel der Port, auf
+  welchem das API-System betrieben und von anderen Systemen erreicht werden
+  kann. Zur Hilfe der admnistration soll das API-System ein Framework für
+  Entwickler bereitstellen. Mit diesem können wir als Projektmitglieder
+  anschließend die Logik in das System implementieren und somit definieren
+  welche Funktionen die API ausüben darf. Ein Framework in einer bekannten
+  Entwicklersprache ist dabei erwünscht. Dies hat den Vorteil, dass der 
+  zuständige Entwickler im Projekt keine weitere Einarbeitungszeit für die
+  neue Entwicklersprache benötigt.
+  \1 Die Erstellung von späteren Anwendungshandbüchern der API, in Fachkreisen
+  auch API-Dokumentation genannt, sollte dem API-Entwickler so einfach wie
+  möglich fallen. Eine sehr beliebte Dokumentationsmöglichkeit ist dabei das
+  dokumentieren von wichtigen Informationen direkt in dem Programmiercode des
+  API-Systems. Entwickler können dabei über die Kommentierungs-Funktion der 
+  jeweiligen Entwicklersprache eine Beschreibung sowie Ein- und Ausgabe von
+  Werten festlegen. Diese werden im Anschluss während dem Kompiliervorgang
+  in einem struktierten Dokument festgehalten und neben der eigentlichen
+  API-Software mit ausgeliefert. Dieses seperate Dokument ist oftmals in 
+  Form einer HTML oder PDF und kann auf gängigen Computersystemen eingesehen
+  werden. Die beschriebene oder ähnliche Dokumentationsmöglichkeit sollte die
+  API-Software zur Verfügung stellen.
+  \1 Bereits vorhandenes Wissen über das API-System. Dazu gehört, dass diese
+  eine umfangreiche Dokumentation besitzt und eine aktive und große Community
+  für Diskussionen und Fragen vorhanden ist. Die dazugehörige
+  Programmiersprache der API sollte ebenfalls für die Projektmitglieder
+  nachvollziehbar sein, sowie eine umfangreiche Dokumentation und aktive
+  Community für Diskussionen und Fragen besitzen.
+\end{outline}
 \nl%
 
 \subsubsection{Durchführung der Evaluierung}
