@@ -11,3 +11,7 @@
 *.bcf
 *.bbl
 *.blg
+*.glo
+*.glg
+*.gls
+*.xdy
