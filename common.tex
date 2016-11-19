@@ -14,6 +14,7 @@
 \usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{csquotes}
 \usepackage[toc,xindy]{glossaries}
+\makeglossaries
 \input{../glossary.tex}
 
 \addbibresource{../biblatex/petersohn2011vergleich.bib}
@@ -23,6 +24,10 @@
 \addbibresource{../biblatex/Projektbericht_Parallelrechnerevaluation_Hadoop_Hive.bib}
 \addbibresource{../biblatex/Fragile_development.bib}
 \addbibresource{../biblatex/How_do_APIs_evolve.bib}
+
+\DefineBibliographyStrings{german}{%
+  references = {Quellennachweis},
+}
 
 \setlength{\parindent}{0pt}
 \setlength{\droptitle}{5em}
@@ -36,6 +41,8 @@
 \newcommand{\tm}{\begin{flushright}{[TM]}\end{flushright}}
 \newcommand{\mr}{\begin{flushright}{[MR]}\end{flushright}}
 \newcommand{\nl}{\begin{flushright}{[NL]}\end{flushright}}
+
+
 
 \graphicspath{{../figures/}}
 
