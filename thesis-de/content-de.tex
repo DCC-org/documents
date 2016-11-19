@@ -376,7 +376,7 @@ Dokumentation von Softwarekomponenten für den Entwickler so einfach wie möglic
 erfolgt.
 
 Wenn die Dokumentation einer API vollständig und das ausführende System den
-Performance-Anforderungen gerecht ist, bringt die Nutzung von einem API-System
+Performance-Anforderungen gerecht ist, bringt die Nutzung von einem API System
 Vorteile. Darunter ist eine bessere Verwaltung von Zugriffsrechten und
 somit auch gleichzeitig eine Verbesserung der Systemsicherheit. Durch den vorab
 festgelegten Funktionsumfang der API kann der Systeminhaber geziehlt
@@ -398,18 +398,18 @@ Möglichkeiten.
 \subsubsection{Vorbereitung der Evaluierung}
 \label{subsubsec:api_vorbereitung_der_evaluierung}
 Anders wie bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
-der möglichen API-Systeme keine Liste im voraus erstellt. Dies lag daran, dass
+der möglichen API Systeme keine Liste im voraus erstellt. Dies lag daran, dass
 keiner der Projektmitglieder oder Interessenten an dem Projekt Erfahrungen mit
-API-Systemen im vorhinein besitzen.
+API Systemen im vorhinein besitzen.
 
 Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
-API-System zu erstellen und im Anschluss während der Evaluierungsphase
+API System zu erstellen und im Anschluss während der Evaluierungsphase
 Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen kann.
 
 Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 \begin{outline}
-  \1 Die API-Software muss auf einer selbst administrierten Hardware-Umgebung
-  betrieben werden können. Das verwenden von einem fertigen API-Softwarepaket
+  \1 Die API Software muss auf einer selbst administrierten Hardware-Umgebung
+  betrieben werden können. Das verwenden von einem fertigen API Softwarepaket
   von einem Cloudanbieter, bei welchem der Administrator alle Konfigurationen
   über ein Web-Interface des Providers vornimmt und der Cloudanbieter die
   vollständige Hardware-Umgebung administriert, ist ein absolutes
@@ -422,35 +422,40 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   die damit verbundene Lösung über einen Cloudprovider nicht möglich wäre.
   Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
   Unternehmens betrieben werden.
-  \1 Die API-Software muss vollständig konfigurierbar und administrierbar sein.
+  \1 Die API Software muss vollständig konfigurierbar und administrierbar sein.
   Entsprechend soll die Software nur eine leere Hülle mit Standardfunktionen
   einer API zur Verfügung stellen. Eine Konfiguration von einzelnen Parametern
   ist dabei erwünscht. Zu diesem Parametern gehört als Beispiel der Port, auf
-  welchem das API-System betrieben und von anderen Systemen erreicht werden
-  kann. Zur Hilfe der admnistration soll das API-System ein Framework für
+  welchem das API System betrieben und von anderen Systemen erreicht werden
+  kann. Zur Hilfe der admnistration soll das API System ein Framework für
   Entwickler bereitstellen. Mit diesem können wir als Projektmitglieder
   anschließend die Logik in das System implementieren und somit definieren
   welche Funktionen die API ausüben darf. Ein Framework in einer bekannten
   Entwicklersprache ist dabei erwünscht. Dies hat den Vorteil, dass der
   zuständige Entwickler im Projekt keine weitere Einarbeitungszeit für die neue
   Entwicklersprache benötigt.
-  \1 Das API-System sollte innerhalb des Projektes keine Kosten verursachen.
+  \1 Das API System sollte innerhalb des Projektes keine Kosten verursachen.
   Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei externen
   Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
   Anforderung nicht mit inbegriffen.
-  \1 Die Erstellung von späteren Anwendungshandbüchern der API, in Fachkreisen
-  auch API-Dokumentation genannt, sollte dem API-Entwickler so einfach wie
-  möglich fallen. Eine sehr beliebte Dokumentationsmöglichkeit ist dabei das
-  dokumentieren von wichtigen Informationen direkt in dem Programmiercode des
-  API-Systems. Entwickler können dabei über die Kommentierungs-Funktion der
-  jeweiligen Entwicklersprache eine Beschreibung sowie Ein- und Ausgabe von
-  Werten festlegen. Diese werden im Anschluss während dem Kompiliervorgang in
-  einem struktierten Dokument festgehalten und neben der eigentlichen
-  API-Software mit ausgeliefert. Dieses seperate Dokument ist oftmals in Form
-  einer HTML oder PDF und kann auf gängigen Computersystemen eingesehen werden.
-  Die beschriebene oder ähnliche Dokumentationsmöglichkeit sollte die
-  API-Software zur Verfügung stellen.
-  \1 Bereits vorhandenes Wissen über das API-System. Dazu gehört, dass diese
+  \1 Die Erstellung von späteren Anwendungshandbüchern der API, soll dem API
+  Entwickler so einfach wie möglich fallen. Eine sehr beliebte
+  Dokumentationsmöglichkeit ist dabei das dokumentieren von wichtigen
+  Informationen direkt in dem Quellcode des API Systems. Entwickler können
+  dabei über die Kommentierungs-Funktion der jeweiligen Entwicklersprache eine
+  Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden im
+  Anschluss während dem Kompiliervorgang in einem struktierten Dokument
+  festgehalten und neben der eigentlichen API Software mit ausgeliefert. Dieses
+  seperate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
+  gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
+  Dokumentationsmöglichkeit sollte die API Software zur Verfügung stellen.
+  Alternativ kann auch erst die Dokumentation geschrieben werden und darauf
+  basierend Quellcode generiert werden. Beide Verfahren nennt man ``One Source
+  of Truth Prinzip''. Hierbei wird sichergestellt, das es nur eine autoritative
+  Quelle gibt, und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
+  Dokumentation die nicht mit den eigentlichen Funktionen der Software
+  übereinstimmen.
+  \1 Bereits vorhandenes Wissen über das API System. Dazu gehört, dass diese
   eine umfangreiche Dokumentation besitzt und eine aktive und große Community
   für Diskussionen und Fragen vorhanden ist. Die dazugehörige
   Programmiersprache der API sollte ebenfalls für die Projektmitglieder
@@ -461,25 +466,25 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 
 \subsubsection{Durchführung der Evaluierung}
 \label{subsubsec:api_durchfuehrung_der_evaluierung}
-Bei der Evaluierung der API-Systeme wurden die in Punkt
+Bei der Evaluierung der API Systeme wurden die in Punkt
 ~\ref{subsubsec:api_vorbereitung_der_evaluierung} festgehaltenen Anforderungen
 der API als Leitlinie für die Durchführung verwendet. Als ersten Schritt wurde
 zunächst Recherche betrieben, damit das Projektteam einen allgemeinen Eindruck
-über die aktuelle Marktsitutation zu API-Systemen erhält. Dabei wurden im
+über die aktuelle Marktsitutation zu API Systemen erhält. Dabei wurden im
 Internet mehrere Blogs, Foren sowie Artikel von Fachzeitschriften gelesen.  Die
-dort angesprochenen API-Systeme wurden anschließend mit den bereits definierten
+dort angesprochenen API Systeme wurden anschließend mit den bereits definierten
 Anforderungen abgeglichen und aussortiert. Dabei stellten die Projektmitglieder
-fest, dass die meisten API-Systeme von Cloudprovidern nur in bereits
+fest, dass die meisten API Systeme von Cloudprovidern nur in bereits
 vorkonfigurierten Paketen mit einem monatlichen Festpreis angeboten werden.
 Beides ist ein absolutes Ausschluskriterium für den späteren Wirkbetrieb sowie
 Nutzung der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine
 eigene Definition von Funktionen komplett verboten. Lediglich ein einzelner
 Cloudprovider hatte ein Angebotsmodel bei welchem die Kunden das betriebene
-API-System in Hinischt der Funktionen modifizieren durfte.
+API System in Hinischt der Funktionen modifizieren durfte.
 
 Aufgrund diesen Erkentnissen hat sich das Projektteam während der Evaluierung
-für ein API-System mit dem Namen ``Swagger'' entschieden. Es ist aktuell das
-einzige API-System auf dem Markt, welches den Betrieb auf einer selbst
+für ein API System mit dem Namen ``Swagger'' entschieden. Es ist aktuell das
+einzige API System auf dem Markt, welches den Betrieb auf einer selbst
 administrierten Hardware-Umgebung zulässt.
 \nl%
 
