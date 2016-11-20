@@ -109,6 +109,37 @@ Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
 \tm%
 
 \subsection{Aktuelle Situation}
+In der~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen des
+Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine passende
+Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit dem große
+Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter Speicher in einem
+Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private Cloud} Umgebung
+zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}. Eines der
+Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
+physischen und virtuellen Ressourcen zu ermitteln verlässlich zu speichern. Die
+Daten sollen zur Analyse genutzt werden und Aktionen auslösen wenn bestimmte
+Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
+mehrere Nachteile mit sich:
+
+\begin{outline}
+  \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB. MongoDB ist
+  eine dokumentenorientierte Datenbank, hier werden Daten nicht in Tabellen
+  strukturiert sondern in eigenständigen Dokumenten. Jedes Dokument hat eine
+  eigene Datenstruktur (z.B. im \gls{JSON}
+  Format)~\cite{Dokumentenorientierte_Datenbank}. Dies ermöglicht es, die
+  Datenbank sehr einfach vertikal zu skalieren. Hierbei werden alle Dokumente
+  auf mehrere Server verteilt. Schreib- und Lese-Anfragen können ebenfalls auf
+  alle Server verteilt werden. Die Skalierung ist nahezu
+  linear~\cite{MongoDB_Architecture},~\cite{What_is_MongoDB}. Die Grundidee ist
+  sehr gut und eignet sich für besonders große Datenmengen oder Installationen
+  die Hochverfügbar sein müssen. Die Implementierung in MongoDB hat allerdings
+  diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit \gls{Jepsen}
+  getestet.
+
+  \1 skaliert nicht
+  \1 geht nur mit openstack
+\end{outline}
+\tm%
 
 \subsection{Anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
