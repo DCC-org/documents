@@ -362,21 +362,37 @@ Ergebnisse ermittelt werden:
 
 \subsection{Frontends}
 \label{subsec:frontends}
-Bevor das Projekt beginnen konnten, musste zusammen mit dem Auftraggeber und
-dem Projektteam, eine Liste an möglichen Frontends erarbeitet werden.
-Zusätzlich zu dieser Liste, wurden verschiedene Anforderungen definiert, welche
-im späteren Verlauf der Planung für die Evaluierung der einzelnen Frontends
-verwendet wird. Diese Liste besteht zum Teil aus Software Lösungen, welche im
-eigenen Unternehmen, bereits erfolgreich eingesetzt worden sind und zum anderen
-von Vorschläge des Auftraggebers. Während der Planung des Frontends, kamen noch
-weitere Frontends zu der Liste hinzu, welche in die Evaluierung mit aufgenommen
-worden sind.
+Bevor wir das Projekt beginnen konnten, mussten vorab zusammen mit dem
+Projektteam, eine Softwareliste an möglichen Frontends erarbeitet werden.
+Bereits vorab wurden folgende Softwarelösungen in das Pflichtenheft aufgenommen:
+\begin{outline}
+  \1 Grafana
+  \1 Graphite
+  \1 Zabbix-Frontend
+  \end{outline}
+Nach Absprache mit dem Projektteam, sind noch folgende in Frage kommende
+Systeme der Evaluierungsliste aufgenommen worden.
+\begin{outline}
+  \1 Datadog
+  \1 Gridster-D3
+  \1 Netdata
+\end{outline}
+Das Hinzufügen, von weiteren
+Softwarelösungen, während der Evaluierungsphase bedarf keine weitere Zustimmung
+durch den Auftragegeber, sondern konnte direkt mit dem Projektteam besprochen
+und aufgenommen werden. Zusätzlich zu der Liste mit den einzelnen
+Softwarelösungen, wurden verschiedene Anforderungen in einem
+Anforderungskatalog definiert, welche im späteren Verlauf der Planung
+für die Evaluierung der einzelnen Frontends verwendet wird. Die zu Evaluierende
+Softwareliste besteht zum Teil aus Softwarelösungen, welche im eigenen
+Unternehmen, bereits erfolgreich eingesetzt worden sind und zum anderen
+von Vorschläge des Auftraggebers.
 
-Dies benötigte keine Zustimmung des Auftraggebers, sondern konnte mit dem
-Projektteam besprochen werden.
+Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
+bedarf keine weitere Zustimmung durch den Auftraggeber.
 
-Folgende Frontends wurden während der Planung, bereits vorab mit dem
-Auftraggeber und dem Porjektteam erarbeitet:
+Folgende Softwarelösungen sind am Ende der Planungsphase in die
+Evaluierungsphase aufgenommen worden:
 
 \begin{outline}
   \1 grafana
@@ -388,34 +404,36 @@ Auftraggeber und dem Porjektteam erarbeitet:
 \end{outline}
 \mr%
 
-\subsection{Vorbereitung der Evaluierung}
+\subsubsection{Vorbereitung der Evaluierung}
 \label{subsubsec:vorbereiten_der_evaluierung_frontend}
-Damit die Evaluierung der einzelnen Frontends durchgeführt werden konnten,
-mussten zuvor Kriterien zusammen mit dem Porjektteam definiert werden, welche
-die Frontends erfüllen müssen. (Diese sollen später für eine bessere
-Übersichtlichkeit dienen, welche Anforderungen das Frontend haben muss). Bei 
-den Kriterien, musste darauf geachtet werden, dass diese zu Projektübergabe
-realistisch und machbar durchgeführt werden konnten. Nachdem die einzelnen
+Damit die Evaluierung der einzelnen Softwarelösungen durchgeführt werden konnten,
+mussten zuvor Kriterien mit dem Projektteam in einen
+Anforderungskatalog aufgenommen werden. Diese Kriterien, in Form von definierten
+Anforderungen, sollen für eine besser Übersicht, während der Evaluierung dienen. Bei 
+den Kriterien, musste darauf geachtet werden, dass diese während der Beurteilung
+der Anforderungen eine Machbarkeit und Realistik besitze. Nachdem die einzelnen
 Kriterien zusammen mit dem Projektteam erstellt worden sind, wurden diese im
 Anschluss von jedem einzelnen Projektmitglied auf die Machbarkeit und
-Durchführung geprüft. Erst hiernach wurden diese der Kriterien Liste
+Realisierbarkeit geprüft. Erst hiernach wurden diese dem Anforderungskatalog
 aufgenommen.
 
 Die einzelnen Kriterien wurden im nachhinein der Wichtigkeit absteigend,
 wie folgt aufgelistet:
 \begin{outline}
-  \1 Es muss eine Authentisierung, Autentifizierung und Autorisierung
-  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die View
-  vor ungeschützten Zugriff dritter geschützt sein muss. Ebenfalls müssen die
-  Daten selber, welche von dem Frontend abgegriffen werden, vor dritter
-  geschützt werden. Der Zugriff auf das Frontend soll über HTTPS durchgeführt
-  werden können und je nach Kundenanforderung auch Self Signed Zertifikate 
-  zulassen. Die Anmeldung am Frontend kann entweder über einen Lokalen
-  Administrator, als auch über eine LDAP(Lightweight Directory Access Protocol)
+  \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
+  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die 
+  Weboberfläche selber vor ungeschützten Zugriff durch dritter geschützt sein
+  muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
+  abgreifen zu können vor dritter so geschützt und gesichert werden, das hier
+  kein Schaden verursacht werden kann. Der Zugriff auf die Weboberfläche soll
+  über ein gesichertes HTTPS Protokoll durchgeführt werden können und je nach
+  Kundenanforderung auch eigene Zertifikate zulassen.
+  Die Anmeldung am Frontend kann entweder über einen Lokalen Administrator, als
+  auch über eine LDAP(Lightweight Directory Access Protocol)
   Anbindung verfügen, um hier z.B. Unternehmensverzeichnisse Anbinden zu können.
-  \1 Eine gute und große Community und Dokumentation über das Webfrontend.
-  Damit ist gemeint, das der Auftraggeber und auch die Projektmitglieder selber,
-  keine große Schulung mit dem Umgang des Frontends benötigen. Dies erleichtert
+  \1 Eine Inhaltlich gute und Umfangreiche Community und Dokumentation über das
+  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber, benötigen
+  keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
   zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
   wenn das Produkt bei einem Kunden eingesetzt wird.
   \1 Eine Leichte Anpassung, Konfiguration und direkte Ausgabe der
@@ -425,20 +443,20 @@ wie folgt aufgelistet:
   Ebenso muss die Anbindung an eventuell bereits schon vorhandene
   Datenbanksysteme einfach durchgeführt werden können.
   \1 Die Datensicherung muss einen wesentlichen Aspekt bei dem Frontend sein.
-  Dabei muss das Frontend, bereits schon Möglichkeiten bieten, eine
-  Datensicherung des Dashboards oder ähnlichem durchführen zu können.
-  Das Dashboard, wo alle Graphen und Werte hinterlegt sind, können auf ein
-  externes System (FileServer o.a.) abgelegt werden und können somit einfach
-  dupliziert und gesichert werden.
-  \1 API Zugriff für das Frontend. Damit ist gemeint, das das Frontend die
-  Möglichkeit bietet, Datensätze direkt mittels einer bereitgestellten API
-  Abfrage an der Datenbank abgreifen zu können und visuell bereit zu stellen.
-  Dabei blablabla (hier muss nochwas hin, fällt mir gerade aber nicht ein)
+  Dabei muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
+  Datensicherung des Dashboards durchführen zu können.
+  Das Dashboard, beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese
+  sollen über z.B. ein externes System (FileServer o.a.) abgelegt werden
+  und können somit einfach dupliziert und gesichert werden.
   \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
-  gewährleisten. Es dient dazu, das im späteren Verlauf, wenn das Produkt
+  unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
   eingehen zu können und diese Mittels bereits schon zur Verfügung gestellte
   Plugins oder aber durch selbst programmierte Plugins zu realisieren.
+  Diese Plugins werden, bzw sollen in Javascript geschrieben werden können.
+  Die Weboberfläche sollte jedoch auch andere Sprachen unterstützen, um so eine
+  Unabhängigkeit von Entwicklern gewährleisten zu können. Unternehmenen müssen
+  so nicht auf spezielle Entwickler von bestimmten Sprachen zurückgreifen.
 \end{outline}
 \mr%
 
