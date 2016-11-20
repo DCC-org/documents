@@ -30,6 +30,7 @@ ein Kürzel des Autors, hierbei bedeutet:
 \tm%
 
 \section{Projektvorstellung}
+\label{subsubsec:projektvorstellung}
 Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
 an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
 physischen Systems unterschiedlich. Hier kommt es, aufgrund der
@@ -108,6 +109,65 @@ Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
 \tm%
 
 \subsection{Aktuelle Situation}
+In der~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen des
+Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine passende
+Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit dem große
+Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter Speicher in einem
+Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private Cloud} Umgebung
+zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}. Eines der
+Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
+physischen und virtuellen Ressourcen zu ermitteln verlässlich zu speichern. Die
+Daten sollen zur Analyse genutzt werden und Aktionen auslösen wenn bestimmte
+Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
+mehrere Nachteile mit sich:
+
+\begin{outline}
+  \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB. MongoDB ist
+  eine dokumentenorientierte Datenbank, hier werden Daten nicht in Tabellen
+  strukturiert sondern in eigenständigen Dokumenten. Jedes Dokument hat eine
+  eigene Datenstruktur (z.B. im \gls{JSON}
+  Format)~\cite{Dokumentenorientierte_Datenbank}. Dies ermöglicht es, die
+  Datenbank sehr einfach vertikal zu skalieren. Hierbei werden alle Dokumente
+  auf mehrere Server verteilt. Schreib- und Lese-Anfragen können ebenfalls auf
+  alle Server verteilt werden. Die Skalierung ist nahezu
+  linear~\cite{MongoDB_Architecture},~\cite{What_is_MongoDB}. Die Grundidee ist
+  sehr gut und eignet sich für besonders große Datenmengen oder Installationen
+  die Hochverfügbar sein müssen. Die Implementierung in MongoDB hat allerdings
+  diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit \gls{Jepsen}
+  getestet. Die Datenbank hat sich mehrfach als sehr unzuverlässig
+  herausgestellt~\cite{MongoDB_on_Jepsen}. Die beiden folgenden Punkte
+  disqualifizieren MongoDB für einen Einsatz als persistenten  Datenspeicher,
+  da die Persistenz nicht sichergestellt ist. Es wurde von Kyle Kingsbury
+  bewiesen, das:
+    \2 MongoDB bei einem Schreibvorgang bestätigt, das Daten persistent
+    gespeichert wurden, dies allerdings nicht immer der Fall ist. Ein
+    unbemerkter Datenverlust ist die Folge.
+    \2 MongoDB in bestimmten Situationen die falschen Daten bei einer
+    Leseanfrage zurückliefert.
+
+  \1 Das Telemetry Projekt hat diese Probleme ebenfalls erkannt und nach
+  alternativen Datenbanken gesucht. Nachdem keine vorhandene Lösung ihren
+  Anforderungen entsprach, entschieden sie sich für die Entwicklung einer
+  eigenen Datenbank: \gls{Gnocchi}. Diese Datenbank ist noch in der Entwicklung
+  und noch nicht für den produktiven Einsatz bereit.
+  \1 Es wird immer wieder von Skalierungsproblemen berichtet. Das CERN betreibt
+  eine OpenStack Installation und konnte die Probleme mit Telemetry nur mit
+  immenser Hardware lösen. Die Kosten für diese Infrastruktur als auch die
+  Komplexität sind viel zu hoch. Sie übersteigen das Budget der meisten Cloud
+  Umgebungen wodurch diese unwirtschaftlich werden~\cite{OpenStack_CERN}.
+  \1 Das Telemetry Projekt ist sehr stark in OpenStack eingebunden. Der Einsatz
+  in anderen Cloud Umgebungen ist nicht vorgesehen, da die einzelnen Dienste
+  aus dem Telemetry Projekt weitere OpenStack Komponenten benötigen. Ein
+  eigenständiger betrieb ohne OpenStack ist nicht geplant für die Zukunft.
+\end{outline}
+
+Aufgrund der langen Liste an Problemen ist Telemetry aktuell innerhalb einer
+kleinen OpenStack Installation teilweise nutzbar, jedoch nicht wirtschaftlich
+in großen Umgebungen oder außerhalb von Openstack. Es ist nicht davon
+auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden. Somit
+entschied sich das Projektteam eine Alternative zu entwicklen die unkompliziert
+zu installieren ist und unabhängig von OpenStack arbeitet.
+\tm%
 
 \subsection{Anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
