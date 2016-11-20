@@ -3,7 +3,7 @@
 \usepackage{calc}
 \usepackage{booktabs}
 \usepackage{placeins}
-\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
 \setkomafont{disposition}{\bfseries}
 \usepackage{fancyhdr}
 \usepackage{outlines}
@@ -13,6 +13,9 @@
 \usepackage[unicode=true]{hyperref}
 \usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{csquotes}
+\usepackage[toc,numberedsection,xindy]{glossaries}
+\makeglossaries
+\input{../glossary.tex}
 
 \addbibresource{../biblatex/petersohn2011vergleich.bib}
 \addbibresource{../biblatex/Database_Modeling_and_Design.bib}
@@ -20,6 +23,11 @@
 \addbibresource{../biblatex/Systemprogrammierung_Sachwortverzeichnis.bib}
 \addbibresource{../biblatex/Projektbericht_Parallelrechnerevaluation_Hadoop_Hive.bib}
 \addbibresource{../biblatex/Fragile_development.bib}
+\addbibresource{../biblatex/How_do_APIs_evolve.bib}
+
+\DefineBibliographyStrings{german}{%
+  references = {Quellennachweis},
+}
 
 \setlength{\parindent}{0pt}
 \setlength{\droptitle}{5em}
@@ -33,6 +41,8 @@
 \newcommand{\tm}{\begin{flushright}{[TM]}\end{flushright}}
 \newcommand{\mr}{\begin{flushright}{[MR]}\end{flushright}}
 \newcommand{\nl}{\begin{flushright}{[NL]}\end{flushright}}
+
+
 
 \graphicspath{{../figures/}}
 
