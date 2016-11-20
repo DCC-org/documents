@@ -134,10 +134,30 @@ mehrere Nachteile mit sich:
   sehr gut und eignet sich für besonders große Datenmengen oder Installationen
   die Hochverfügbar sein müssen. Die Implementierung in MongoDB hat allerdings
   diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit \gls{Jepsen}
-  getestet.
+  getestet. Die Datenbank hat sich mehrfach als sehr unzuverlässig
+  herausgestellt~\cite{MongoDB_on_Jepsen}. Die beiden folgenden Punkte
+  disqualifizieren MongoDB für einen Einsatz als persistenten  Datenspeicher,
+  da die Persistenz nicht sichergestellt ist. Es wurde von Kyle Kingsbury
+  bewiesen, das:
+    \2 MongoDB bei einem Schreibvorgang bestätigt, das Daten persistent
+    gespeichert wurden, dies allerdings nicht immer der Fall ist. Ein
+    unbemerkter Datenverlust ist die Folge.
+    \2 MongoDB in bestimmten Situationen die falschen Daten bei einer
+    Leseanfrage zurückliefert.
 
-  \1 skaliert nicht
-  \1 geht nur mit openstack
+  \1 Das Telemetry Projekt hat diese Probleme ebenfalls erkannt und nach
+  alternativen Datenbanken gesucht. Nachdem keine vorhandene Lösung ihren
+  Anforderungen entsprach, entschieden sie sich für die Entwicklung einer
+  eigenen Datenbank: \gls{Gnocchi}. Diese Datenbank ist noch in der Entwicklung
+  und noch nicht für den produktiven Einsatz bereit.
+  \1 Es wird immer wieder von Skalierungsproblemen berichtet. Das CERN betreibt
+  eine OpenStack Installation und konnte die Probleme mit Telemetry nur mit
+  immenser Hardware lösen. Die Kosten für diese Infrastruktur als auch die
+  Komplexität sind viel zu hoch. Sie übersteigen das Budget der meisten Cloud
+  Umgebungen wodurch diese unwirtschaftlich werden~\cite{OpenStack_CERN}.
+  \1 Das Telemetry Projekt ist sehr stark in OpenStack eingebunden. Der Einsatz
+  in anderen Cloud Umgebungen ist nicht vorgesehen, da die einzelnen Dienste
+  aus dem Telemetry Projekt weitere OpenStack Komponenten benötigen.
 \end{outline}
 \tm%
 
