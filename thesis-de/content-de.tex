@@ -54,7 +54,7 @@ werden, die sich in drei Teile gliedert:
   Skalierung auf mindestens 10.000 virtuelle Instanzen unter Berücksichtigung
   der Verfügbarkeit und Performance der Datenbank zu achten (Sharding oder
   Replikation, verteilt oder zentral, dokumentenbasiert oder relational).
-  \1 Diese Daten können dann dem Endanwender präsentiert werden (API und
+  \1 Diese Daten können dann dem Endanwender präsentiert werden (\gls{API} und
   Web-UI). Hierzu wird eine Userstory Erhebung unter den drei Anwendertypen
   Kunde, Administrator, Manager bei Partnerunternehmen durchgeführt, um
   gewünschte Algorithmen zur Visualisierung zu ermitteln (zum Beispiel
@@ -164,16 +164,16 @@ visuell ausgegeben werden.
 \mr%
 
 \section{Projektmanagement}
-Die Liste an verfügbaren Managementmethoden ist lang. Methoden wie PRINCE2
-oder Lean Management kommen aus dem Bereich des Projektmanagements und sind
-seit vielen Jahren auch im Bereich der Softwareentwicklung vertreten. Hinzu
-kommen Vorgehensmodelle aus der Softwareentwicklung selbst, wie das
-Wasserfallmodell oder das Spiralmodell. In den letzten Jahren gab es einen
-Wandel hin zu agiler Entwicklung. Es hat sich gezeigt, dass sich in der
-schnelllebigen Informationswelt Anforderungen an Software regelmäßig ändern,
-auch während der Entwicklungs- und Planungsphase und nicht erst im späteren
-Betrieb. Außerdem gibt es in den meisten Projekten unvorhergesehene
-Zwischenfälle. Dazu gehören unter anderem:
+Die Liste an verfügbaren Managementmethoden ist lang. Methoden wie PRINCE2 oder
+Lean Management kommen aus dem Bereich des Projektmanagements und sind seit
+vielen Jahren auch im Bereich der Softwareentwicklung vertreten. Hinzu kommen
+Vorgehensmodelle aus der Softwareentwicklung selbst, wie das Wasserfallmodell
+oder das Spiralmodell. In den letzten Jahren gab es einen Wandel hin zu agiler
+Entwicklung. Es hat sich gezeigt, dass sich in der schnelllebigen
+Informationswelt Anforderungen an Software regelmäßig ändern, auch während der
+Entwicklungs- und Planungsphase und nicht erst im späteren Betrieb. Außerdem
+gibt es in den meisten Projekten unvorhergesehene Zwischenfälle. Dazu gehören
+unter anderem:
 
 \begin{outline}
   \1 Sicherheitslücken in verwendeten Bibliotheken werden entdeckt. Diese
@@ -266,8 +266,8 @@ Die in der Liste aufgenommen Systeme sind folgende:
 \nl%
 
 \subsubsection{Vorbereitung der Evaluierung}
-\label{subsubsec:vorbereitung_der_evaluierung}
-Als Vorbereitung für die Evaluierung der Datenhaltungssysteme wurden mehrere
+\label{subsubsec:DBS_vorbereitung_der_evaluierung}
+Als Vorbereitung für die Evalution der Datenhaltungssysteme wurden mehrere
 Kriterien definiert, welche einen Leitpfaden für die spätere Arbeit geben.
 Während der Auswahl und Definition der von dem Datenbanksystem zu erfüllenden
 Kriterien wurde darauf geachtet, dass diese sich aus dem späteren Zielsystem
@@ -279,7 +279,7 @@ aufgelistet:
 \begin{outline}
   \1 Bereits vorhandenes Wissen über die Datenbank. Dazu gehört, dass diese
   eine umfangreiche Dokumentation besitzt und eine aktive und große Community
-  für Diskussionen und Fragen besitzt.  Ebenfalls fallen die vorhandenen
+  für Diskussionen und Fragen vorhanden ist. Ebenfalls fallen die vorhandenen
   Vorkenntnisse über das Datenbanksystem der Projektmitglieder, sowie die
   Mitarbeiter von dem Unternehmen des Auftraggebers unter diesem Kriterium.  Es
   ist wichtig, dass die zu aufwendene Einarbeitungszeit während dem Projekt und
@@ -291,7 +291,7 @@ aufgelistet:
   Neustart oder Auszeit) aufgestockt werden kann. Es ist jedoch nach
   Anforderung des Auftraggebers ausreichend, wenn eine Aufstockung nach einer
   Auszeit von maximal 45 Minuten erfolgt ist.
-  \1 Umweltschonende und effiziente Datenhaltung ist zu beachten.  Dies
+  \1 Umweltschonende und effiziente Datenhaltung ist zu beachten. Dies
   definiert eine optimale Relation zwischen der verwendeten Hardware und dem
   daraus resultierendem Ergebnis. Eine umweltschonende Datenhaltung kann
   unabhängig der korrekten Auswahl der genutzten Stromeffiziensklasse jedes
@@ -316,9 +316,9 @@ aufgelistet:
 
 \subsubsection{Durchführung der Evaluierung}
 \label{subsubsec:durchfuehrung_der_evaluierung}
-Bei der Durchführung der Evaluierung von den ausgewählten Datenhaltungssystemen
+Bei der Durchführung der Evalution von den ausgewählten Datenhaltungssystemen
 aus der Liste in Punkt~\ref{subsec:datenbanksysteme} wurden die
-Evaluierungskriterien aus Punkt~\ref{subsubsec:vorbereitung_der_evaluierung}
+Evalutionskriterien aus Punkt~\ref{subsubsec:DBS_vorbereitung_der_evaluierung}
 verwendet. Diese dienten als Leitpfaden für jedes Datenhaltungssystem und
 wurden von jedem Projektmitglied beachtet.
 
@@ -360,6 +360,135 @@ Ergebnisse ermittelt werden:
 \end{outline}
 \nl%
 
+\subsection{Schnittstelle - Datenbereitstellung}
+\label{subsec:schnittstelle_datenbereitstellung}
+Neben der herkömmlichen Methode zur Datenabfrage von Datenbank-Systemen über
+einen Datenbanktreiber, existiert noch die Möglichkeit einer API.
+
+Die Verwendung von einer API Schnittstelle besitzt Nachteile, sowie Vorteile
+beziehungsweise verbirgt gewisse Gefahren in Hinsicht auf den späteren Einsatz
+im Produktivsystem. Eine dieser Gefahren ist das vernachlässigen der
+Dokumentation einer API. Dadurch, das während der Entwicklung einer API bereits
+definiert wird, welche Fähigkeiten und Methodiken die API besitzen soll, ist
+eine nicht vorhandene oder unvollständige Dokumentation suboptimal. Darum muss
+bei der Auswahl des genutzen API Systems darauf geachtet werden, dass die
+Dokumentation von Softwarekomponenten für den Entwickler so einfach wie möglich
+erfolgt.
+
+Wenn die Dokumentation einer API vollständig und das ausführende System den
+Performance-Anforderungen gerecht ist, bringt die Nutzung von einem API System
+Vorteile. Darunter ist eine bessere Verwaltung von Zugriffsrechten und
+somit auch gleichzeitig eine Verbesserung der Systemsicherheit. Durch den vorab
+festgelegten Funktionsumfang der API kann der Systeminhaber geziehlt
+kontrollieren, welche Inhalte ein Benutzer sehen oder modifizieren kann. Dabei
+können grobe Einschränkungen, wie das Lesen oder Schreiben auf der gesamten
+Datenbank, oder auch detaillierte Einschränkung, wie das Lesen oder Schreiben
+von einer einzelnen Tabelle in der Datenbank, kontrolliert werden. Anders wie
+bei der Verbindung über einen Datenbanktreiber kann bei der API der potentielle
+Angreifer keine eigenen Datenbankbefehle definieren und ausführen. Somit wird
+das Risiko der Datenmanipulation durch eine zusätzliche Schicht(Layer)
+veringert.
+
+Oftmals werden Daten nicht in der Struktur benötigt, in der sie gespeichert
+sind. Die Möglichkeiten einer Transformation auf Datenbankebene sind sehr
+begrenzt, eine API Schnittstelle in einer Hochsprache bietet hier deutlich mehr
+Möglichkeiten.
+\nl%
+
+\subsubsection{Vorbereitung der Evaluierung}
+\label{subsubsec:api_vorbereitung_der_evaluierung}
+Anders wie bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
+der möglichen API Systeme keine Liste im voraus erstellt. Dies lag daran, dass
+keiner der Projektmitglieder oder Interessenten an dem Projekt Erfahrungen mit
+API Systemen im vorhinein besitzen.
+
+Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
+API System zu erstellen und im Anschluss während der Evaluierungsphase
+Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen kann.
+
+Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
+\begin{outline}
+  \1 Die API Software muss auf einer selbst administrierten Hardware-Umgebung
+  betrieben werden können. Das verwenden von einem fertigen API Softwarepaket
+  von einem Cloudanbieter, bei welchem der Administrator alle Konfigurationen
+  über ein Web-Interface des Providers vornimmt und der Cloudanbieter die
+  vollständige Hardware-Umgebung administriert, ist ein absolutes
+  Ausschlusskriterium. Es ist vorgehsehen, dass das API System möglichst nah an
+  dem Datenhaltungssystem liegt, um mögliche Latenzen zwischen den beiden
+  Systemen so niedrig wie möglich zu halten. Zudem sollen externe Cloudanbieter
+  keinen Zugriff auf die teilweise Kundenbezogenen Daten der Datenhaltung
+  erhalten. Zudem kann während dem Projekt entschiedenen werden, dass das
+  Datenhaltungssystem nicht von externen Systemen erreichbar sein soll, sodass
+  die damit verbundene Lösung über einen Cloudprovider nicht möglich wäre.
+  Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
+  Unternehmens betrieben werden.
+  \1 Die API Software muss vollständig konfigurierbar und administrierbar sein.
+  Entsprechend soll die Software nur eine leere Hülle mit Standardfunktionen
+  einer API zur Verfügung stellen. Eine Konfiguration von einzelnen Parametern
+  ist dabei erwünscht. Zu diesem Parametern gehört als Beispiel der Port, auf
+  welchem das API System betrieben und von anderen Systemen erreicht werden
+  kann. Zur Hilfe der admnistration soll das API System ein Framework für
+  Entwickler bereitstellen. Mit diesem können wir als Projektmitglieder
+  anschließend die Logik in das System implementieren und somit definieren
+  welche Funktionen die API ausüben darf. Ein Framework in einer bekannten
+  Entwicklersprache ist dabei erwünscht. Dies hat den Vorteil, dass der
+  zuständige Entwickler im Projekt keine weitere Einarbeitungszeit für die neue
+  Entwicklersprache benötigt.
+  \1 Das API System sollte innerhalb des Projektes keine Kosten verursachen.
+  Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei externen
+  Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
+  Anforderung nicht mit inbegriffen. Grundsätzlich gillt für das ganze Projekt,
+  dass nur Software mit einer Open Source Lizenz genutzt werden darf.
+  \1 Die Erstellung von späteren Anwendungshandbüchern der API, soll dem API
+  Entwickler so einfach wie möglich fallen. Eine sehr beliebte
+  Dokumentationsmöglichkeit ist dabei das dokumentieren von wichtigen
+  Informationen direkt in dem Quellcode des API Systems. Entwickler können
+  dabei über die Kommentierungs-Funktion der jeweiligen Entwicklersprache eine
+  Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden im
+  Anschluss während dem Kompiliervorgang in einem struktierten Dokument
+  festgehalten und neben der eigentlichen API Software mit ausgeliefert. Dieses
+  seperate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
+  gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
+  Dokumentationsmöglichkeit sollte die API Software zur Verfügung stellen.
+  Alternativ kann auch erst die Dokumentation geschrieben werden und darauf
+  basierend Quellcode generiert werden. Beide Verfahren nennt man ``One Source
+  of Truth Prinzip''. Hierbei wird sichergestellt, das es nur eine autoritative
+  Quelle gibt, und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
+  Dokumentation die nicht mit den eigentlichen Funktionen der Software
+  übereinstimmen.
+  \1 Bereits vorhandenes Wissen über das API System. Dazu gehört, dass diese
+  eine umfangreiche Dokumentation besitzt und eine aktive und große Community
+  für Diskussionen und Fragen vorhanden ist. Die dazugehörige
+  Programmiersprache der API sollte ebenfalls für die Projektmitglieder
+  nachvollziehbar sein, sowie eine umfangreiche Dokumentation und aktive
+  Community für Diskussionen und Fragen besitzen.
+\end{outline}
+\nl%
+
+\subsubsection{Durchführung der Evaluierung}
+\label{subsubsec:api_durchfuehrung_der_evaluierung}
+Bei der Evaluierung der API Systeme wurden die in Punkt
+~\ref{subsubsec:api_vorbereitung_der_evaluierung} festgehaltenen Anforderungen
+der API als Leitlinie für die Durchführung verwendet. Als ersten Schritt wurde
+zunächst Recherche betrieben, damit das Projektteam einen allgemeinen Eindruck
+über die aktuelle Marktsitutation zu API Systemen erhält. Dabei wurden im
+Internet mehrere Blogs, Foren sowie Artikel von Fachzeitschriften gelesen.  Die
+dort angesprochenen API Systeme wurden anschließend mit den bereits definierten
+Anforderungen abgeglichen und aussortiert. Dabei stellten die Projektmitglieder
+fest, dass die meisten API Systeme von Cloudprovidern nur in bereits
+vorkonfigurierten Paketen mit einem monatlichen Festpreis angeboten werden.
+Beides ist ein absolutes Ausschluskriterium für den späteren Wirkbetrieb sowie
+Nutzung der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine
+eigene Definition von Funktionen komplett verboten. Lediglich ein einzelner
+Cloudprovider hatte ein Angebotsmodel bei welchem die Kunden das betriebene
+API System in Hinischt der Funktionen modifizieren durfte.
+
+Aufgrund diesen Erkentnissen hat sich das Projektteam während der Evaluierung
+für ein API System mit dem Namen ``Swagger'' entschieden. Es ist aktuell das
+einzige API System auf dem Markt, welches den Betrieb auf einer selbst
+administrierten Hardware-Umgebung zulässt.
+\nl%
+
 \subsection{Frontends}
 
 \begin{outline}
@@ -375,8 +504,10 @@ auflisten der einzelnen stories + implementierung
 
 \section{Fazit}
 
-\section{Quellennachweis}
-\printbibliography%
+\printglossaries%
+
+\printbibliography[heading=bibnumbered]
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "thesis-de"
