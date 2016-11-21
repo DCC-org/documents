@@ -1,6 +1,6 @@
 #!/bin/bash
 AUTHORS=(bastelfreak skarf marcellii monatsbericht)
-WEEKS=(2016_37 2016_38 2016_39 2016_40 2016_41 2016_42 2016_43 2016_44 2016_45)
+WEEKS=(2016_37 2016_38 2016_39 2016_40 2016_41 2016_42 2016_43 2016_44 2016_45 2016_46 2016_47 2016_48 2016_49 2016_50 2016_51 2016_52)
 
 # iterate at all weeky directories
 for directory in ${WEEKS[*]}; do
