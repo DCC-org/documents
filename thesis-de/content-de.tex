@@ -379,9 +379,9 @@ Systeme der Evaluierungsliste aufgenommen worden.
   \1 Netdata
 \end{outline}
 
-Das Hinzufügen, von weiteren Softwarelösungen, während der Evaluierungsphase
+Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
 bedarf keine weitere Zustimmung durch den Auftragegeber, sondern konnte direkt
-mit dem Projektteam besprochenund aufgenommen werden. Zusätzlich zu der Liste
+mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
 mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
 Anforderungskatalog definiert, welche im späteren Verlauf der Planung
 für die Evaluierung der einzelnen Frontends verwendet wird. Die zu evaluierende
@@ -389,8 +389,6 @@ Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
 einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und
 zum anderen aus Vorschlägen des Auftraggebers.
 
-Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
-bedarf keiner weiteren Zustimmung durch den Auftraggeber.
 
 Folgende Softwarelösungen sind am Ende der Planungsphase in die
 Evaluierungsphase aufgenommen worden:
@@ -415,9 +413,9 @@ können, mussten zuvor Kriterien mit dem Projektteam in einen Anforderungskatalo
 aufgenommen werden. Diese Kriterien, in Form von definierten Anforderungen,
 sollen für eine besser Übersicht, während der Evaluierung dienen. Bei den
 Kriterien, musste darauf geachtet werden, dass diese während der Beurteilung
-der Anforderungen eine Machbarkeit und Realistik besitze. Nachdem die einzelnen
-Kriterien zusammen mit dem Projektteam erstellt worden sind, wurden diese im
-Anschluss von jedem einzelnen Projektmitglied auf die Machbarkeit und
+der Anforderungen eine Machbarkeit und Realisierbarkeit besitzen. Nachdem die
+einzelnen Kriterien zusammen mit dem Projektteam erstellt worden sind, wurden
+diese im Anschluss von jedem einzelnen Projektmitglied auf die Machbarkeit und
 Realisierbarkeit geprüft. Erst hiernach wurden diese dem Anforderungskatalog
 aufgenommen.
 
@@ -426,15 +424,15 @@ wie folgt aufgelistet:
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
   gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die 
-  Weboberfläche selber vor ungeschützten Zugriff durch dritter geschützt sein
+  Weboberfläche selber vor unauthorisierten Zugriff durch dritter geschützt sein
   muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
-  abgreifen zu können vor dritter so geschützt und gesichert werden, das hier
-  kein Schaden verursacht werden kann. Der Zugriff auf die Weboberfläche soll
-  über ein gesichertes HTTPS Protokoll durchgeführt werden können und je nach
-  Kundenanforderung auch eigene Zertifikate zulassen.
-  Die Anmeldung am Frontend kann entweder über einen Lokalen Administrator, als
-  auch über eine LDAP(Lightweight Directory Access Protocol)
-  Anbindung verfügen, um hier z.B. Unternehmensverzeichnisse Anbinden zu können.
+  abgreifen zu können vor dritter so geschützt und gesichert werden.
+  Der Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung
+  durch HTTPS durchgeführt werden und je nach Kundenanforderung auch
+  eigene Client Zertifikate zulassen. Die Anmeldung am Frontend kann entweder
+  über einen Lokalen Administrator, als auch über eine LDAP(Lightweight
+  Directory Access Protocol) Anbindung verfügen, um hier z.B.
+  Unternehmensverzeichnisse Anbinden zu können.
   \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
   Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber, benötigen
   keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
@@ -446,24 +444,25 @@ wie folgt aufgelistet:
   und einfach (Endanwender spezifisch) direkt angepasst werden können.
   Ebenso muss die Anbindung an eventuell bereits schon vorhandene
   Datenbanksysteme einfach durchgeführt werden können.
-  \1 Die Datensicherung muss einen wesentlichen Aspekt bei dem Frontend sein.
+  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt.
   Dabei muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
   Datensicherung des Dashboards durchführen zu können.
   Das Dashboard, beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese
-  sollen über z.B. ein externes System (FileServer o.a.) abgelegt werden
-  und können somit einfach dupliziert und gesichert werden.
+  sollen über z.B. ein externes System (Dateifreigabe Server o.a.) abgelegt
+  werden und können somit einfach dupliziert und gesichert werden.
   \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
   unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
-  eingehen zu können und diese Mittels bereits schon zur Verfügung gestellte
-  Plugins oder aber durch selbst programmierte Plugins zu realisieren.
-  Diese Plugins werden, bzw sollen in Javascript geschrieben werden können.
-  Die Weboberfläche sollte jedoch auch andere Sprachen unterstützen, um so eine
-  Unabhängigkeit von Entwicklern gewährleisten zu können. Unternehmenen müssen
-  so nicht auf spezielle Entwickler von bestimmten Sprachen zurückgreifen.
+  eingehen zu können. Diese können dann Mittels bereits schon zur Verfügung
+  gestellte Plugins, z.B. in der Community oder aber durch selbst programmierte
+  Plugins realisiert werden. Die Plugins werden, bzw sollen in Javascript
+  geschrieben werden können. Die Weboberfläche sollte jedoch auch andere
+  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern gewährleisten
+  zu können. Unternehmenen müssen so nicht auf spezielle Entwickler von
+  bestimmten Sprachen zurückgreifen.
   \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen, 
   um hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu
-  sein. Ebenfalls dient eine Open Source Software, dass der Quelltext der
+  sein. Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
 \end{outline}
 \mr%
