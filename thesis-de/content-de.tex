@@ -281,10 +281,74 @@ erklären wieso weshalb warum sprints, milestones, userstories epics
 ist das relevant? als eigener punkt?
 
 \section{Analyse von Softwarekomponenten}
-Zusammen mit dem Auftraggeber folgende Liste and Komponenten erstellt, die
-vergleichen und gegebenfalls evaluiert werden sollen:
+Zusammen mit dem Auftraggeber wurde folgende Liste an Komponenten erstellt,
+die vergleichen und gegebenfalls evaluiert werden sollen:
 
 \subsection{Datenerfassungssysteme}
+Im Abschnitt XXX wurde bereits auf die einzelnen Ressourcetypen eingegangen,
+welche erfasst werden müssen. Um die verschiedenen Datenerfassungssysteme im
+Hinblick auf die Ressourcetypen zu evaluieren, muss zunächst geklärt werden was
+eine Metrik, ein Trend und eine Timeseries ist.
+
+\subsubsection{Begriffsklärung}
+Eine Metrik ist die Kombination aus:
+
+\begin{outline}
+  \1 Der Wert eines bestimmten Ressourcetypen zu einer bestimmten
+  Zeit (Momentaufnahme).
+  \1 Der Zeitstempel der Aufnahme
+  \1 der Name des Ressourcetypen
+\end{outline}
+
+Eine Metrik wird periodisch als Ganzzahl ermittelt. Die
+Kombination mehrerer Werte einer Metrik ergibt eine Timeseries (auch
+``Datenreihe'' oder ``Abfolge'' genannt). Um Speicherplatz zu sparen können die
+Werte aggregiert werden. Hierbei wird für einen bestimmten Zeitraum einer
+Timeseries die Werte genommen und folgende Funktionen angewendet:
+
+\begin{outline}
+  \1 min(): Ermittlung des niedrigsten Wertes
+  \1 max(): Ermittlung des höchsten Wertes
+  \1 count(): Addieren aller Werte
+  \1 sum(): Alle Werte werden aufaddiert. Diese Berechnung ist nicht bei jedem
+  Ressourcetyp sinnvoll, allerdings wird das Ergebnis für weitere Berechnungen
+  benötigt
+  \1 avg(): Berechnung des Durchschnitts mit den Ergebnissen aus count() und
+  sum()
+  \1 95pct(): Berechnung des Durchschnitts, zuvor werden Die Werte nach größe
+  sortiert und die höchsten 5\% ignoriert.
+\end{outline}
+
+Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
+die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
+Werte bildet einen Trend (auch History Trend genannt). Trends werden oftmals
+visualisiert. Hierbei lässt sich Ressourcensparend ein langer Verlauf der
+Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine
+``Trend Prediction'' erstellt werden. Hierbei werden Daten der Vergangenheit
+analysiert und auf eine mögliche Zukunft vorrausgerechnet.
+
+``Tiered Trends'' bezeichnet eine Datensammlung auf welche mehrfach die oben
+genannten Funktionen angewendet wurde. Die benötigte Granularität ändert sich
+oftmals mit dem Alter der Daten. Beispiel: In den ersten 24h benötigt man Daten
+mit einer Auflösung von 30 Sekunden. In den Darauffolgenden 2 Wochen reichen
+Trends mit einer Auflösung von 5 Minuten und für die folgenden 3 Monaten reicht
+eine Auflösung von 30 Minuten.
+
+Hier nimmt man sich Daten die älter als 24 Stunden sind und teilt diese in
+Einheiten von 5 Minuten. Hierauf werden die Funktionen angewendet, die
+originalen Daten gelöscht und die Ergebnisse gespeichert. Parallel wird
+regelmäßig nach bereits vorhandenen Trends geprüft, welche älter als 2 Wochen
+sind. Diese Werden wieder in Einheiten von 30 Minuten aufgeteilt und die
+Funktionen erneut angewendet. Somit wurden ``Tiered Trends'' gebildet.
+
+Das bilden von Trends kann schon wärend der Datenerfassung erfolgen, indem die
+gesammelten Werte lokal zwischengespeichert werden und ausschließlich die
+gebildeten Trends zur Datenhaltung geschickt werden. Dies ist besonders
+effizient, da jeder Server nur eine geringe Menge an Trends zu berechnen hat.
+Ein Nachteil ist das nicht vorhandensein der echten Daten.
+
+Ebenfalls kann die Generierung der Trends auf dem Datenhaltungssystem erfolgen.
+(hier vor/nachteile listen)
 
 \begin{outline}
   \1 collectd mit Virt Plugin
@@ -296,6 +360,7 @@ vergleichen und gegebenfalls evaluiert werden sollen:
   \1 logtash
   \1 riemann
 \end{outline}
+\tm%
 
 \subsection{Datenbanksysteme}
 \label{subsec:datenbanksysteme}
@@ -480,32 +545,30 @@ kommt zum Einsatz, wenn der Name Node ausfallen sollte. Er synchronisiert sich
 dauerhaft mit dem Name Node, um jederzeit zum Einsatz zu kommen.
 
 Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
-englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses
-gibt den Nodes vor, welche Daten mit welchem Node ausgetauscht werden
-und wo die einzelnen Backups stattfinden sollen. Es definiert dabei
-auch zu welchem Tageszeitpunkt einzelne Aufgaben erfüllt werden sollen.
-Diese Definitionen können von dem System automatisch definiert werden,
-jedoch auch von einer Person manuell eingestellt und verwaltet werden. 
+englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses gibt den
+Nodes vor, welche Daten mit welchem Node ausgetauscht werden und wo die
+einzelnen Backups stattfinden sollen. Es definiert dabei auch zu welchem
+Tageszeitpunkt einzelne Aufgaben erfüllt werden sollen.  Diese Definitionen
+können von dem System automatisch definiert werden, jedoch auch von einer
+Person manuell eingestellt und verwaltet werden. 
 
-Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird 
+Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 ``Hadoop Common'' eingesetzt. Es handelt sich dabei um ein reines
 Schnitstellen-Modul, welches standartisierte Protokolle implementiert und
-betreibt. Es ermöglicht zum Beispiel die Anbindung der
-Software ``Hive'' und ``Impala'', welche in den Punkt
-~\ref{subsubsubsubsec:hadoop_beschreibung} und 
-~\ref{subsubsubsubsec:impala_beschreibung} erläutert werden.
+betreibt. Es ermöglicht zum Beispiel die Anbindung der Software ``Hive'' und
+``Impala'', welche in den Punkt~\ref{subsubsubsubsec:hadoop_beschreibung}
+und~\ref{subsubsubsubsec:impala_beschreibung} erläutert werden.
 
-Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die
-Komponente ``Hadoop Map Reduce'' zum Einsatz. Diese ist von dem gleichnamigen
-Programmiermodell abgeleitet. Es handelt sich dabei um
-eine Hadoop-YARN basiertes System, welches ein parallel abarbeiten von 
-Aufgaben ermöglicht. Dabei können Analyseanfragen nun nicht mehr nur in
-einzelne Server-Threads aufgeteilt werden, sondern auch auf mehrere Data
-Nodes. Dies ermöglicht ein schnelles und effizientes Management von
-Datenabfragen. Gleichzeitig besitzt diese Komponente einen Data Node, welcher
-aus reinem Arbeitsspeicher besteht. Arbeitsspeicher ist bis dato einer der
-schnellsten Speichermedien und kommt bei zeitkritischen Datenabfragen zum
-Einsatz. 
+Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
+``Hadoop Map Reduce'' zum Einsatz. Diese ist von dem gleichnamigen
+Programmiermodell abgeleitet. Es handelt sich dabei um eine Hadoop-YARN
+basiertes System, welches ein parallel abarbeiten von Aufgaben ermöglicht.
+Dabei können Analyseanfragen nun nicht mehr nur in einzelne Server-Threads
+aufgeteilt werden, sondern auch auf mehrere Data Nodes. Dies ermöglicht ein
+schnelles und effizientes Management von Datenabfragen. Gleichzeitig besitzt
+diese Komponente einen Data Node, welcher aus reinem Arbeitsspeicher besteht.
+Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
+zeitkritischen Datenabfragen zum Einsatz. 
 
 Diese vier Komonenten bilden den ``Hadoop Core'', welcher zwingend für den
 Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
@@ -771,8 +834,8 @@ wie folgt aufgelistet:
 \subsubsection{Durchführung Evaluierung Frontend}
 \label{subsubsec:durchfuehrung_evaluierung_frontend}
 Für die Durchführung der Evaluierung der ausgewählten Frontends aus der obigen
-Liste ~\ref{subsec:frontends} wurden die entsprechenden Kriterien zur
-Evaluierung aus Punkt ~\ref{subsubsec:vorbereiten_der_evaluierung_frontend}
+Liste~\ref{subsec:frontends} wurden die entsprechenden Kriterien zur
+Evaluierung aus Punkt~\ref{subsubsec:vorbereiten_der_evaluierung_frontend}
 verwendet. 
 
 Hier fehlt noch text
@@ -789,8 +852,8 @@ Hier fehlt noch text
   + Multiplattform Support
   + OpenSource
 
-  ~ Webdesign kann nicht angepasst werden
-  ~ Webtemplate nur aus zwei auswählbar (dark/white)
+  \~{} Webdesign kann nicht angepasst werden
+  \~{} Webtemplate nur aus zwei auswählbar (dark/white)
 
   -
   -
@@ -815,8 +878,8 @@ Hier fehlt noch text
   +
   +
 
-  ~
-  ~
+  \~{}
+  \~{}
 
   - Lizenz muss Monatlich erworben werden
   -
