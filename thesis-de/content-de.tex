@@ -662,12 +662,172 @@ administrierten Hardware-Umgebung zulässt.
 \nl%
 
 \subsection{Frontends}
+\label{subsec:frontends}
+Bevor das Projekt begann, mussten vorab zusammen mit dem Projektteam, eine
+Softwareliste an möglichen Frontends erarbeitet werden. Bereits vorab wurden
+folgende Softwarelösungen in das Pflichtenheft aufgenommen:
+\begin{outline}
+  \1 Grafana
+  \1 Graphite
+  \1 Zabbix-Frontend
+  \end{outline}
+
+Nach Absprache mit dem Projektteam, sind noch folgende in Frage kommende
+Systeme der Evaluierungsliste aufgenommen worden.
+\begin{outline}
+  \1 Datadog
+  \1 Gridster-D3
+  \1 Netdata
+\end{outline}
+
+Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
+bedarf keine weitere Zustimmung durch den Auftragegeber, sondern konnte direkt
+mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
+mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
+Anforderungskatalog definiert, welche im späteren Verlauf der Planung
+für die Evaluierung der einzelnen Frontends verwendet wird. Die zu evaluierende
+Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
+einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und
+zum anderen aus Vorschlägen des Auftraggebers.
+
+
+Folgende Softwarelösungen sind am Ende der Planungsphase in die
+Evaluierungsphase aufgenommen worden:
 
 \begin{outline}
   \1 grafana
   \1 graphite
   \1 zabbix-frontend
+  \1 datadog
+  \1 gridster-D3
+  \1 netdata
 \end{outline}
+\mr%
+
+\subsubsection{Definition eines Graphen}
+\label{definition_eines_graphen}
+
+\subsubsection{Vorbereitung der Evaluierung}
+\label{subsubsec:vorbereiten_der_evaluierung_frontend}
+Damit die Evaluierungen der einzelnen Softwarelösungen durchgeführt werden
+können, mussten zuvor Kriterien mit dem Projektteam in einen Anforderungskatalog
+aufgenommen werden. Diese Kriterien, in Form von definierten Anforderungen,
+sollen für eine besser Übersicht, während der Evaluierung dienen. Bei den
+Kriterien, musste darauf geachtet werden, dass diese während der Beurteilung
+der Anforderungen eine Machbarkeit und Realisierbarkeit besitzen. Nachdem die
+einzelnen Kriterien zusammen mit dem Projektteam erstellt worden sind, wurden
+diese im Anschluss von jedem einzelnen Projektmitglied auf die Machbarkeit und
+Realisierbarkeit geprüft. Erst hiernach wurden diese dem Anforderungskatalog
+aufgenommen.
+
+Die einzelnen Kriterien wurden im nachhinein der Wichtigkeit absteigend,
+wie folgt aufgelistet:
+\begin{outline}
+  \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
+  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die 
+  Weboberfläche selber vor unauthorisierten Zugriff durch dritter geschützt sein
+  muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
+  abgreifen zu können vor dritter so geschützt und gesichert werden.
+  Der Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung
+  durch HTTPS durchgeführt werden und je nach Kundenanforderung auch
+  eigene Client Zertifikate zulassen. Die Anmeldung am Frontend kann entweder
+  über einen Lokalen Administrator, als auch über eine LDAP(Lightweight
+  Directory Access Protocol) Anbindung verfügen, um hier z.B.
+  Unternehmensverzeichnisse Anbinden zu können.
+  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
+  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber, benötigen
+  keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
+  zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
+  wenn das Produkt bei einem Kunden eingesetzt wird.
+  \1 Eine Leichte Anpassung, Konfiguration und direkte Ausgabe der
+  Visualisierung von CPU, RAM, Netzwerk oder ähnliche Datenwerte. Hiermit ist
+  gemeint das Gewährleistet werden muss, dass  die einzelnen Graphen schnell
+  und einfach (Endanwender spezifisch) direkt angepasst werden können.
+  Ebenso muss die Anbindung an eventuell bereits schon vorhandene
+  Datenbanksysteme einfach durchgeführt werden können.
+  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt.
+  Dabei muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
+  Datensicherung des Dashboards durchführen zu können.
+  Das Dashboard, beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese
+  sollen über z.B. ein externes System (Dateifreigabe Server o.a.) abgelegt
+  werden und können somit einfach dupliziert und gesichert werden.
+  \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
+  unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
+  bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
+  eingehen zu können. Diese können dann Mittels bereits schon zur Verfügung
+  gestellte Plugins, z.B. in der Community oder aber durch selbst programmierte
+  Plugins realisiert werden. Die Plugins werden, bzw sollen in Javascript
+  geschrieben werden können. Die Weboberfläche sollte jedoch auch andere
+  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern gewährleisten
+  zu können. Unternehmenen müssen so nicht auf spezielle Entwickler von
+  bestimmten Sprachen zurückgreifen.
+  \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen, 
+  um hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu
+  sein. Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
+  Software angepasst und verändert werden darf.
+\end{outline}
+\mr%
+
+\subsubsection{Durchführung Evaluierung Frontend}
+\label{subsubsec:durchfuehrung_evaluierung_frontend}
+Für die Durchführung der Evaluierung der ausgewählten Frontends aus der obigen
+Liste ~\ref{subsec:frontends} wurden die entsprechenden Kriterien zur
+Evaluierung aus Punkt ~\ref{subsubsec:vorbereiten_der_evaluierung_frontend}
+verwendet. 
+
+Hier fehlt noch text
+
+\begin{outline}
+  \1 Grafana
+  + Authentisierung, Authentifizierung und Autorisierung
+  + Gute Community und eine vielzahl an Dokumenten
+  + Leichte Anpassungen an Graphen und Einstellungen
+  + Dashboards können auf externen Server gesichert werden
+  + Grafana kann mittels bereitsgestellter API arbeiten
+  + Bietet eine Plugin Erweiterung an
+  
+  + Multiplattform Support
+  + OpenSource
+
+  ~ Webdesign kann nicht angepasst werden
+  ~ Webtemplate nur aus zwei auswählbar (dark/white)
+
+  -
+  -
+  -
+
+  \1 Graphite
+  + Authentisierung, Authentifizierung und Autorisierung
+  + Gute Community und eine vielzahl an Dokumenten
+  +
+  
+
+  \1 Zabbix-frontend
+  
+
+
+  \1 Datadog
+
+
+
+  \1 Gridster-D3
+  + 
+  +
+  +
+
+  ~
+  ~
+
+  - Lizenz muss Monatlich erworben werden
+  -
+
+
+  \1 Netdata
+
+
+
+\end{outline}
+\mr%
 
 \section{Realisierung}
 
