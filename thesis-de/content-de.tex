@@ -297,11 +297,11 @@ Eine Metrik ist die Kombination aus:
   \1 der Name des Ressourcetypen
 \end{outline}
 
-Eine Metrik wird periodisch als Ganzzahl ermittelt. Die
-Kombination mehrerer Werte einer Metrik ergibt eine Timeseries (auch
-``Datenreihe'' oder ``Abfolge'' genannt). Um Speicherplatz zu sparen können die
-Werte aggregiert werden. Hierbei wird für einen bestimmten Zeitraum einer
-Timeseries die Werte genommen und folgende Funktionen angewendet:
+Eine Metrik wird periodisch als Ganzzahl ermittelt. Die Kombination mehrerer
+Werte einer Metrik ergibt eine Timeseries (auch ``Datenreihe'' oder ``Abfolge''
+genannt). Um Speicherplatz zu sparen können die Werte aggregiert werden.
+Hierbei wird für einen bestimmten Zeitraum einer Timeseries die Werte genommen
+und folgende Funktionen angewendet:
 
 \begin{outline}
   \1 min(): Ermittlung des niedrigsten Wertes
@@ -320,9 +320,9 @@ Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
 die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
 Werte bildet einen Trend (auch History Trend genannt). Trends werden oftmals
 visualisiert. Hierbei lässt sich Ressourcensparend ein langer Verlauf der
-Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine
-``Trend Prediction'' erstellt werden. Hierbei werden Daten der Vergangenheit
-analysiert und auf eine mögliche Zukunft vorrausgerechnet.
+Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine ``Trend
+Prediction'' erstellt werden. Hierbei werden Daten der Vergangenheit analysiert
+und auf eine mögliche Zukunft vorrausgerechnet.
 
 ``Tiered Trends'' bezeichnet eine Datensammlung auf welche mehrfach die oben
 genannten Funktionen angewendet wurde. Die benötigte Granularität ändert sich
@@ -403,7 +403,7 @@ aufgelistet:
   eine umfangreiche Dokumentation besitzt und eine aktive und große Community
   für Diskussionen und Fragen vorhanden ist. Ebenfalls fallen die vorhandenen
   Vorkenntnisse über das Datenbanksystem der Projektmitglieder, sowie die
-  Mitarbeiter von dem Unternehmen des Auftraggebers unter diesem Kriterium.  Es
+  Mitarbeiter von dem Unternehmen des Auftraggebers unter diesem Kriterium. Es
   ist wichtig, dass die zu aufwendene Einarbeitungszeit während dem Projekt und
   im späteren Wirkbetrieb bei Mitarbeitern des Unternehmens so gering wie
   möglich gehalten wird.
@@ -488,32 +488,31 @@ Das Apache Hadoop System wird zum aktuellen Zeitpunkt bei
 großen und leistungsfähigen Datenhaltungssystemen eingesetzt, sodass es
 auch oftmals in Verbindung mit den Worten ``BIG DATA'' genannt wird.
 
-Es handelt sich dabei um eine Vielzahl von Komponenten, bestehend aus
-mehreren Frameworks und Ökosystemen, also im Klartext eine Reihe von frei
-wählbaren Bibliotheken zur Definition der Datenhaltungslandschaft. Apache
-Hadoop verfolgt dabei den Ansatz, alle Dateninformationen in nur einem
-gebündelten System zu verwalten und keine zusätzlichen Datenhaltungssysteme,
-welche gegebenfalls nur auf eine einzelne Anforderung spezialisiert sind,
-zu gründen.
+Es handelt sich dabei um eine Vielzahl von Komponenten, bestehend aus mehreren
+Frameworks und Ökosystemen, also im Klartext eine Reihe von frei wählbaren
+Bibliotheken zur Definition der Datenhaltungslandschaft. Apache Hadoop verfolgt
+dabei den Ansatz, alle Dateninformationen in nur einem gebündelten System zu
+verwalten und keine zusätzlichen Datenhaltungssysteme, welche gegebenfalls nur
+auf eine einzelne Anforderung spezialisiert sind, zu gründen.
 
-Um diesen Ansatz zu erfüllen, wurde das Clusterkonzept eingesetzt, Hadoop
-nennt es selber ``Hadoop Distributed File System'' (HDFS).
-Dabei werden die Daten in der Datenhaltung nicht mehr auf einem einzelnen
-physischen System gehalten, sowie vor einem Hardwareausfall gesichert,
-sondern nun auf mehrere Systeme verteilt. Hadoop teilt dabei jedem in dem
-Cluster hinzugefügten System eine spezielle Aufgabe zu. Für die
-Datenspeicherung existieren dabei drei Aufgabenfelder. Nummer Eins
-ist der Data Node, dieser besteht oftmals aus mehreren Festplatten und einer
-Netzwerkanbindung. Auf diesem wird eine Datensatz mehrmals auf verschiedenen
-Festplatten abgespeichert, sodass bei einem Ausfall der Datensatz gesichert
-ist. Es können bei Hadoop beliebig viele Data Node's in der
-Datenhalungslandschaft eingesetzt werden, so mehr Data Node's, umso mehr
-Speicherplatz steht zur verfügung. Nummer Zwei ist der Name Node, bei diesem
-handelt es sich um ein einzelnes System, welches den Speicherort (Data Node
-ID), von einem Datensatz bereitstellt. Die letzte Aufgabe erfüllt der Backup
-Node, auch bei diesem handelt es sich um ein einzelnes System. Das System
-kommt zum Einsatz, wenn der Name Node ausfallen sollte. Er synchronisiert sich
-dauerhaft mit dem Name Node, um jederzeit zum Einsatz zu kommen.
+Um diesen Ansatz zu erfüllen, wurde das Clusterkonzept eingesetzt, Hadoop nennt
+es selber ``Hadoop Distributed File System'' (HDFS).  Dabei werden die Daten in
+der Datenhaltung nicht mehr auf einem einzelnen physischen System gehalten,
+sowie vor einem Hardwareausfall gesichert, sondern nun auf mehrere Systeme
+verteilt. Hadoop teilt dabei jedem in dem Cluster hinzugefügten System eine
+spezielle Aufgabe zu. Für die Datenspeicherung existieren dabei drei
+Aufgabenfelder. Nummer Eins ist der Data Node, dieser besteht oftmals aus
+mehreren Festplatten und einer Netzwerkanbindung. Auf diesem wird eine
+Datensatz mehrmals auf verschiedenen Festplatten abgespeichert, sodass bei
+einem Ausfall der Datensatz gesichert ist. Es können bei Hadoop beliebig viele
+Data Node's in der Datenhalungslandschaft eingesetzt werden, so mehr Data
+Node's, umso mehr Speicherplatz steht zur verfügung. Nummer Zwei ist der Name
+Node, bei diesem handelt es sich um ein einzelnes System, welches den
+Speicherort (Data Node ID), von einem Datensatz bereitstellt. Die letzte
+Aufgabe erfüllt der Backup Node, auch bei diesem handelt es sich um ein
+einzelnes System. Das System kommt zum Einsatz, wenn der Name Node ausfallen
+sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um jederzeit zum
+Einsatz zu kommen.
 
 Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
 englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses gibt den
@@ -582,8 +581,8 @@ erfolgt.
 
 Wenn die Dokumentation einer API vollständig und das ausführende System den
 Performance-Anforderungen gerecht ist, bringt die Nutzung von einem API System
-Vorteile. Darunter ist eine bessere Verwaltung von Zugriffsrechten und
-somit auch gleichzeitig eine Verbesserung der Systemsicherheit. Durch den vorab
+Vorteile. Darunter ist eine bessere Verwaltung von Zugriffsrechten und somit
+auch gleichzeitig eine Verbesserung der Systemsicherheit. Durch den vorab
 festgelegten Funktionsumfang der API kann der Systeminhaber geziehlt
 kontrollieren, welche Inhalte ein Benutzer sehen oder modifizieren kann. Dabei
 können grobe Einschränkungen, wie das Lesen oder Schreiben auf der gesamten
@@ -718,11 +717,11 @@ Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
 bedarf keine weitere Zustimmung durch den Auftragegeber, sondern konnte direkt
 mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
 mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
-Anforderungskatalog definiert, welche im späteren Verlauf der Planung
-für die Evaluierung der einzelnen Frontends verwendet wird. Die zu evaluierende
+Anforderungskatalog definiert, welche im späteren Verlauf der Planung für die
+Evaluierung der einzelnen Frontends verwendet wird. Die zu evaluierende
 Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
-einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und
-zum anderen aus Vorschlägen des Auftraggebers.
+einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und zum
+anderen aus Vorschlägen des Auftraggebers.
 
 
 Folgende Softwarelösungen sind am Ende der Planungsphase in die
@@ -759,32 +758,32 @@ wie folgt aufgelistet:
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
   gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
-  Weboberfläche selber vor unauthorisierten Zugriff durch dritter geschützt sein
-  muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
-  abgreifen zu können vor dritter so geschützt und gesichert werden.
-  Der Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung
-  durch HTTPS durchgeführt werden und je nach Kundenanforderung auch
-  eigene Client Zertifikate zulassen. Die Anmeldung am Frontend kann entweder
-  über einen Lokalen Administrator, als auch über eine LDAP(Lightweight
-  Directory Access Protocol) Anbindung verfügen, um hier z.B.
-  Unternehmensverzeichnisse Anbinden zu können.
+  Weboberfläche selber vor unauthorisierten Zugriff durch dritter geschützt
+  sein muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die
+  Daten abgreifen zu können vor dritter so geschützt und gesichert werden. Der
+  Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung durch
+  HTTPS durchgeführt werden und je nach Kundenanforderung auch eigene Client
+  Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über einen
+  Lokalen Administrator, als auch über eine LDAP(Lightweight Directory Access
+  Protocol) Anbindung verfügen, um hier z.B. Unternehmensverzeichnisse
+  Anbinden zu können.
   \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
-  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber, benötigen
-  keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
+  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber,
+  benötigen keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
   zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
   wenn das Produkt bei einem Kunden eingesetzt wird.
   \1 Eine Leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnliche Datenwerte. Hiermit ist
   gemeint das Gewährleistet werden muss, dass  die einzelnen Graphen schnell
-  und einfach (Endanwender spezifisch) direkt angepasst werden können.
-  Ebenso muss die Anbindung an eventuell bereits schon vorhandene
-  Datenbanksysteme einfach durchgeführt werden können.
-  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt.
-  Dabei muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
-  Datensicherung des Dashboards durchführen zu können.
-  Das Dashboard, beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese
-  sollen über z.B. ein externes System (Dateifreigabe Server o.a.) abgelegt
-  werden und können somit einfach dupliziert und gesichert werden.
+  und einfach (Endanwender spezifisch) direkt angepasst werden können.  Ebenso
+  muss die Anbindung an eventuell bereits schon vorhandene Datenbanksysteme
+  einfach durchgeführt werden können.
+  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt.  Dabei
+  muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
+  Datensicherung des Dashboards durchführen zu können.  Das Dashboard,
+  beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen über z.B.
+  ein externes System (Dateifreigabe Server o.a.) abgelegt werden und können
+  somit einfach dupliziert und gesichert werden.
   \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
   unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
@@ -792,12 +791,12 @@ wie folgt aufgelistet:
   gestellte Plugins, z.B. in der Community oder aber durch selbst programmierte
   Plugins realisiert werden. Die Plugins werden, bzw sollen in Javascript
   geschrieben werden können. Die Weboberfläche sollte jedoch auch andere
-  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern gewährleisten
-  zu können. Unternehmenen müssen so nicht auf spezielle Entwickler von
-  bestimmten Sprachen zurückgreifen.
-  \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen,
-  um hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu
-  sein. Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
+  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern
+  gewährleisten zu können. Unternehmenen müssen so nicht auf spezielle
+  Entwickler von bestimmten Sprachen zurückgreifen.
+  \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen, um
+  hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu sein.
+  Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
 \end{outline}
 \mr%
