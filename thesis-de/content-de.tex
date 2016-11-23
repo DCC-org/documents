@@ -342,10 +342,29 @@ Das bilden von Trends kann schon während der Datenerfassung erfolgen, indem die
 gesammelten Werte lokal zwischengespeichert werden und ausschließlich die
 gebildeten Trends zur Datenhaltung geschickt werden. Dies ist besonders
 effizient, da jeder Server nur eine geringe Menge an Trends zu berechnen hat.
-Ein Nachteil ist das nicht vorhandensein der echten Daten.
+Es ist jedoch erforderlich, dass der Client alle Daten zumindest so lange
+vorhält, bis alle benötigten Trends gebildet sind, im obigen Beispiel zu
+``Tiered Trends'' sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends
+Ad hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
+neue Konfiguration für die Datenerfassungskomponente auf jedem Server erstellt
+werden, da diese keine automatisierte Schnittstelle bieten.
 
-Ebenfalls kann die Generierung der Trends auf dem Datenhaltungssystem erfolgen.
-(hier vor/nachteile listen)
+Ebenfalls kann die Generierung der Trends auf dem Datenbanksystem erfolgen.
+Dies benötigt Rechenkapazitäten, bringt aber diverse Vorteile:
+
+\begin{outline}
+  \1 Trends können nicht nur über eine Metrik eines Servers erstellt werden,
+  sondern auch über mehrere Server hinweg.
+  \1 Trends können erstellt werden, wenn diese angefordert werden
+  (Eventbasiert)
+  \1 Trends können über verschiedenste Zeitrahmen erstellt werden. Außerdem
+  läst sich dieser einfacher ändern, da er nur zentral konfiguriert ist und
+  nicht auf jedem Server,
+\end{outline}
+
+Aufgrund der Flexibilität der Trendgenerierung auf der Datenbank entschied sich
+das Projekteam dazu, die Generierung von den Servern auf die Datenbank zu
+verlagern.
 
 \begin{outline}
   \1 collectd mit Virt Plugin
