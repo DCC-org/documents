@@ -465,54 +465,28 @@ Ergebnisse und Erkenntnisse sind in dem nachfolgenden Punkt für jede
 Datenhaltungs-Software dokumentiert.
 \nl%
 
-\subsubsubsection{Elasticsearch}
-\label{subsubsubsec:elasticsearch}
-\subsubsubsubsection{Beschreibung}
-\label{subsubsubsubsec:elasticsearch_beschreibung}
+\paragraph{Elasticsearch}
+\label{paragraph:elasticsearch}
 Some Text here!
 \nl%
-\subsubsubsubsection{Evaluierungsbericht}
-\label{subsubsubsubsec:elasticsearch_evaluierung}
-Some Text Here!
-\nl%
 
-\subsubsubsection{Cassandra}
-\label{subsubsubsec:cassandra}
-\subsubsubsubsection{Beschreibung}
-\label{subsubsubsubsec:cassandra_beschreibung}
+\paragraph{Cassandra}
+\label{paragraph:cassandra}
 Some Text here!
 \nl%
-\subsubsubsubsection{Evaluierungsbericht}
-\label{subsubsubsubsec:cassandra_evaluierung}
-Some Text Here!
-\nl%
 
-\subsubsubsection{Postgres}
-\label{subsubsubsec:postgres}
-\subsubsubsubsection{Beschreibung}
-\label{subsubsubsubsec:postgres_beschreibung}
+\paragraph{Postgres}
+\label{paragraph:postgres}
 Some Text here!
 \nl%
-\subsubsubsubsection{Evaluierungsbericht}
-\label{subsubsubsubsec:postgres_evaluierung}
-Some Text Here!
-\nl%
 
-\subsubsubsection{OpenTSDB}
-\label{subsubsubsec:opentsdb}
-\subsubsubsubsection{Beschreibung}
-\label{subsubsubsubsec:opentsdb_beschreibung}
+\paragraph{OpenTSDB}
+\label{paragraph:opentsdb}
 Some Text here!
 \nl%
-\subsubsubsubsection{Evaluierungsbericht}
-\label{subsubsubsubsec:opentsdb_evaluierung}
-Some Text Here!
-\nl%
 
-\subsubsubsection{Hadoop / Hive /Impala}
-\label{subsubsubsec:hadoop_hive_impala}
-\subsubsubsubsection{Beschreibung Hadoop}
-\label{subsubsubsubsec:hadoop_beschreibung}
+\paragraph{Hadoop / Hive /Impala}
+\label{paragraph:hadoop_hive_impala}
 Das Apache Hadoop System wird zum aktuellen Zeitpunkt bei
 großen und leistungsfähigen Datenhaltungssystemen eingesetzt, sodass es
 auch oftmals in Verbindung mit den Worten ``BIG DATA'' genannt wird.
@@ -550,14 +524,14 @@ Nodes vor, welche Daten mit welchem Node ausgetauscht werden und wo die
 einzelnen Backups stattfinden sollen. Es definiert dabei auch zu welchem
 Tageszeitpunkt einzelne Aufgaben erfüllt werden sollen.  Diese Definitionen
 können von dem System automatisch definiert werden, jedoch auch von einer
-Person manuell eingestellt und verwaltet werden. 
+Person manuell eingestellt und verwaltet werden.
 
 Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 ``Hadoop Common'' eingesetzt. Es handelt sich dabei um ein reines
 Schnitstellen-Modul, welches standartisierte Protokolle implementiert und
 betreibt. Es ermöglicht zum Beispiel die Anbindung der Software ``Hive'' und
-``Impala'', welche in den Punkt~\ref{subsubsubsubsec:hadoop_beschreibung}
-und~\ref{subsubsubsubsec:impala_beschreibung} erläutert werden.
+``Impala'', welche in den Punkt~\ref{paragraph:hadoop_beschreibung}
+und~\ref{paragraph:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 ``Hadoop Map Reduce'' zum Einsatz. Diese ist von dem gleichnamigen
@@ -568,7 +542,7 @@ aufgeteilt werden, sondern auch auf mehrere Data Nodes. Dies ermöglicht ein
 schnelles und effizientes Management von Datenabfragen. Gleichzeitig besitzt
 diese Komponente einen Data Node, welcher aus reinem Arbeitsspeicher besteht.
 Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
-zeitkritischen Datenabfragen zum Einsatz. 
+zeitkritischen Datenabfragen zum Einsatz.
 
 Diese vier Komonenten bilden den ``Hadoop Core'', welcher zwingend für den
 Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
@@ -578,18 +552,18 @@ basierenden Systemen und Projekten kann hier entnommen
 werden~\cite{Hadoop_related_projects}.
 \nl%
 
-\subsubsubsubsection{Beschreibung Hive}
-\label{subsubsubsubsec:hadoop_beschreibung}
+\paragraph{Beschreibung Hive}
+\label{paragraph:hadoop_beschreibung}
 Stellt Schemas bereit (DWH) - Some more Text here
 \nl%
 
-\subsubsubsubsection{Beschreibung Impala}
-\label{subsubsubsubsec:impala_beschreibung}
+\paragraph{Beschreibung Impala}
+\label{paragraph:impala_beschreibung}
 Realtime SQL working with Hadoop Map Reduce - Some more Text here
 \nl%
 
-\subsubsubsubsection{Evaluierungsbericht}
-\label{subsubsubsubsec:hadoop_hive_impala_evaluierung}
+\paragraph{Evaluierungsbericht}
+\label{paragraph:hadoop_hive_impala_evaluierung}
 Das ganze ist kacke weil zu viel - Some more Text here
 \nl%
 
@@ -787,7 +761,7 @@ Die einzelnen Kriterien wurden im nachhinein der Wichtigkeit absteigend,
 wie folgt aufgelistet:
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
-  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die 
+  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
   Weboberfläche selber vor unauthorisierten Zugriff durch dritter geschützt sein
   muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
   abgreifen zu können vor dritter so geschützt und gesichert werden.
@@ -824,7 +798,7 @@ wie folgt aufgelistet:
   Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern gewährleisten
   zu können. Unternehmenen müssen so nicht auf spezielle Entwickler von
   bestimmten Sprachen zurückgreifen.
-  \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen, 
+  \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen,
   um hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu
   sein. Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
@@ -836,7 +810,7 @@ wie folgt aufgelistet:
 Für die Durchführung der Evaluierung der ausgewählten Frontends aus der obigen
 Liste~\ref{subsec:frontends} wurden die entsprechenden Kriterien zur
 Evaluierung aus Punkt~\ref{subsubsec:vorbereiten_der_evaluierung_frontend}
-verwendet. 
+verwendet.
 
 Hier fehlt noch text
 
@@ -848,7 +822,7 @@ Hier fehlt noch text
   + Dashboards können auf externen Server gesichert werden
   + Grafana kann mittels bereitsgestellter API arbeiten
   + Bietet eine Plugin Erweiterung an
-  
+
   + Multiplattform Support
   + OpenSource
 
@@ -863,10 +837,10 @@ Hier fehlt noch text
   + Authentisierung, Authentifizierung und Autorisierung
   + Gute Community und eine vielzahl an Dokumenten
   +
-  
+
 
   \1 Zabbix-frontend
-  
+
 
 
   \1 Datadog
@@ -874,7 +848,7 @@ Hier fehlt noch text
 
 
   \1 Gridster-D3
-  + 
+  +
   +
   +
 
