@@ -770,17 +770,18 @@ Evaluierungsphase aufgenommen worden:
 \subsubsection{Definition eines Graphen}
 \label{definition_eines_graphen}
 Auf der Weboberfläche werden dem User oder dem Administrator einzelne Graphen,
-von z.B. CPU Auslastung, RAM Auslastung oder SSD Lese- Schreibzugriffe
-angezeigt. Diese Graphen, werden entweder in Linerarer oder Balkenform
-dargestellt. Lineare Graphen, haben eine X-Achse und Y-Achse und besitzen
-zusätzlich einen Anfang und einen wachsenden Endpunkt. Er wird mittels SQL
-Statement, welche die Weboberfläche aus den Datenhaltungssystemen abgreift
-erstellt und kann vom Administrator ebenfalls nur für eine definierte
-Zeitspanne angezeigt werden. Balkendiagramme haben nur eine X-Achse, wo
-der gewünschte Analysewert eingetragen ist und werden z.B. für ausgefallene
-SSDs in einem bestimmten Zeitraum verwendet. Diese werden über ein SQL
-Statement aus den Datenhaltungssysteme abgegriffen und dem Administrator
-über eine Übersicht angezeigt.
+von z.B. CPU Auslastung, RAM Auslastung oder SSD Schreibzugriffe angezeigt.
+Diese Graphen werden entweder in linerarer oder Balkenform dargestellt.
+Lineare Graphen, haben eine X-Achse und Y-Achse und besitzen
+zusätzlich einen Anfang und einen wachsenden Endpunkt. Er wird mittels
+Metrik~\ref{subsubsection:Begriffserklärung} ,welche die Weboberfläche aus den
+Datenhaltungssystemen abgreift erstellt und kann vom Administrator ebenfalls
+nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
+eine X-Achse, wo der gewünschte Analysewert eingetragen ist und werden z.B. für
+ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden über die
+Metrik aus den Datenhaltungssysteme abgegriffen und dem Administrator über eine
+Übersicht angezeigt. Ein Graph bzw. Balkendiagramm visualisiert immer eine
+oder mehrere Timeseries~\ref{subsubsection:Begriffserklärung}.
 
 \subsubsection{Vorbereitung der Evaluierung}
 \label{subsubsec:vorbereiten_der_evaluierung_frontend}
