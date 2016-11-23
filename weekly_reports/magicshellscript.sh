@@ -19,3 +19,9 @@ for directory in ${WEEKS[*]}; do
   done
   cd ..
 done
+
+## create unified pdf for each person
+pdfunite */*_bastelfreak.pdf wochenbericht_meusel.pdf
+pdfunite */*_marcellii.pdf wochenbericht_reuter.pdf
+pdfunite */*_skarf.pdf wochenbericht_luis.pdf
+pdfunite */*_monatsbericht.pdf monatsbericht_meusel.pdf
