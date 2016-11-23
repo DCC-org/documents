@@ -172,7 +172,7 @@ zu installieren ist und unabhängig von OpenStack arbeitet.
 \subsection{Anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
 folgenden Abschnitt beschrieben. Diese ergeben sich aus dem Lastenheft und
-Pflichtenheft sowie aus den User Stories der Partner. Für Alle Lösungen gillt,
+Pflichtenheft sowie aus den Userstories der Partner. Für Alle Lösungen gillt,
 das sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
 \tm%
 
@@ -274,6 +274,7 @@ praktikabel.~\cite{scrum_talk}
 \tm%
 
 \subsection{Agile Vorgehensweise im Projekt}
+\label{subsec:agile_vorgehensweise}
 Die Projektzeit wird in zweiwöchige Abschnitte, Sprints genannt, eingeteilt. Am
 Anfang jedes Sprints erfolgt ein Rückblick auf den vergangenen Sprint. Es wird
 kurz besprochen was besonders positiv oder negativ lief, und ob die
@@ -282,7 +283,7 @@ kommenden Sprint. Es wird überlegt welche Arbeit erledigt werden muss, und
 deren ungefährer Zeitaufwand geschätzt. Für jede Aufgabe wird ein Ticket in
 der Projektmanagementsoftware erstellt. Das Projektteam hat sich für ``JIRA''
 entschieden, da dies aktuell am verbreitesten in der Wirtschaft ist. Neue
-Featurewünsche werden als User Story angelegt. Dies ist ein Ticket in dem aus
+Featurewünsche werden als Userstory angelegt. Dies ist ein Ticket in dem aus
 Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
 Ereignisse werden Meilensteine festgelegt.
 \tm%
@@ -954,7 +955,43 @@ Anforderungen und Evaluierungsergebnissen aufgelistet:
 \section{Realisierung}
 
 \section{Userstories}
-auflisten der einzelnen stories + implementierung
+Im Punk~\ref{subsec:agile_vorgehensweise} wurde bereits kurz auf Userstories
+eingegangen. Im folgenden wird die generelle Vorgehensweise erklärt, sowie die
+Implementierung und Realisierung der Userstories in diesem Projekt.
+
+Zu jeder Userstory wird ein Drahtgittermodell (Englisch: Wireframe) erstellt.
+Dies ist eine schematische Zeichnung der angefragten Änderung. Bei Änderungen
+an einer Webseite wird eine Nachbildung der Seite gezeichnet, bei
+Datenbankänderungen eine Tabelle. Im Anschluss darauf erfolgt die Zerlegung
+(Englisch: Decomposition) des Wireframes in die einzelnen
+Informationsbestandteile. Als Beispiel kann angenommen werden, dass eine
+Userstory einen zusätzlichen Graphen auf einer Webseite anfordert.
+Ausschlaggebend für die Zerlegung sind folgende Fragen:
+
+\begin{outline}
+  \1 Werden zusätzliche Daten benötigt um die Userstory zu implementieren oder
+  reichen die vorhandenen Daten die bereits auf der Webseite genutzt werden?
+  \1 Wo kommen diese Daten her?
+  \1 Wer liefert die Daten bzw.\ wird dafür eine Genehmigung benötigt?
+  \1 Werden bereits genutzte Daten nicht mehr benötigt?
+  \1 Ist die Änderung Atomar oder kann sie weiter zerlegt werden?
+\end{outline}
+
+Daraus ergeben sich mehrere Änderungen die am Projekt gemacht werden müssen um
+die Userstory zu implementieren. Für jede Änderung wird ein Ticket erstellt.
+Ziel des ganzen ist es, eine komplexe Userstory, die einen einzelnen
+erfahrenen Entwickler lange mit der Implementierung beschäftigt, möglichst weit
+herunterzubrechen. Die entstandenen Teilaufgaben erfordern größtenteils keinen
+erfahrenen Entwickler, dieser ist nur noch für einige wenige Tickets notwendig.
+Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den einzelnen
+Tickets arbeiten können.
+\tm%
+
+\subsection{Userstory 1}
+
+\subsection{Userstory 2}
+
+\subsection{Userstory 3}
 
 \section{Fazit}
 
