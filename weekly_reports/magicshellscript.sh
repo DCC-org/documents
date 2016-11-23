@@ -10,8 +10,8 @@ for directory in ${WEEKS[*]}; do
     if [ -f "${author}.tex" ]; then
       sed --in-place "s|###author###|$author|" main.tex
       sed --in-place "s|###author###|$author|" ../content.tex
-      latexmk -C
-      rm "${directory}_${author}.pdf"
+      #latexmk -C
+      #rm "${directory}_${author}.pdf"
       latexmk -jobname="${directory}_${author}" -r ../latexmkrc
       sed --in-place "s|$author|###author###|" main.tex
       sed --in-place "s|$author|###author###|" ../content.tex
