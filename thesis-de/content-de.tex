@@ -287,8 +287,45 @@ Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
 Ereignisse werden Meilensteine festgelegt.
 \tm%
 
-\section{Verwendete Tools}
-ist das relevant? als eigener punkt?
+\section{Schnittstellen im Projekt}
+Zwischen den Softwarekomponenten im Projekt werden Daten ausgetauscht. Dies
+erfolgt über definierte Schnittstellen (auch Interfaces genannt). Im folgenden
+sind die einzelnen Schnittstellen zwischen den Komponenten und von den
+Komponenten nach außen erklärt.
+\tm%
+
+\subsection{Datenerfassungssysteme}
+Die Datenerfassungssysteme stellen zwei Schnittstellen zur Verfügung. Sie
+kommunizieren mit dem lokalen System über eine
+\glslink{Bidirektional}{bidirektionale} Schnittstelle. Die Datenerfassung wird
+für die meisten Ressourcetypen über Polling realisiert. Hierzu fragt das
+Datenerfassungssysteme periodisch die Schnittstelle des Hosts nach neuen Daten.
+Abfrageschnittstelle des Hosts wird durch den Linuxkernel bereitgestellt, von
+ihr kann ausschließlich gelesen werden. Die Erfassungsysteme arbeiten
+zusätzlich eventbasiert. Hierbei schickt der Kernel die neuen Informationen
+direkt zur Schnittstelle der Datenerfassungssysteme. Der Kernel ist der
+kritischste Teil eines laufenden Computers. Er hat volle Rechte auf alle
+Hardwareschnittstellen, weshalb die Interaktion mit ihm besonders geschützt und
+minimal sein muss. Programmierfehler in der Vergangenheit erlaubten es mehrfach
+auf Schnittstellen auf den Kernel zu schreiben, obwohl das Interface nicht
+beschreibbar sein sollte. Der Kernel selbst bietet nur lokale Schnittstellen,
+aber über weitere Software werden diese indirekt im Netzwerk bereitgestellt.
+
+Die zweite Schnittstelle der Datenerfassungssysteme ist projektintern und
+interagiert mit der Datenbank. Diese Schnittstelle ist aus Sicherheitsgründen
+\glslink{Unidirektional}{unidirektional} um den Kernel zu schützen. Die
+Erfassungssysteme können also nur Daten über das Netzwerk verschicken, jedoch
+akzeptieren Sie keine Anfragen, welche über die Netzwerke eingehen.
+
+Bei beiden Schnittstellen der Datenerfassungssysteme handelt es sich um eine
+Binärschnittstelle. Hierbei werden Daten nicht in einer für Menschen lesbaren
+Form übertragen, sondern in einem Binärprotokoll. Diese Protokolle sind
+besonders effizient in der Datenübertragung und Datenverarbeitung. Es ist nicht
+erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
+
+\subsection{Datenbanksystem / API}
+
+\subsection{Frontend}
 
 \section{Analyse von Softwarekomponenten}
 \subsection{Datenerfassungssysteme}
