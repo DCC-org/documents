@@ -623,21 +623,21 @@ im Punkt~\ref{paragraph:hadoop_hive_impala} erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
-``Hadoop Ecosystem'' eingeordnet. 
+``Hadoop Ecosystem'' eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung
 von einem sogenannten ``Data Warehouse'' (DWH) in dem Hadoop Netzwerk. Ein
 Data Warehouse wird in Unternehmen verwendet, um eine vollständige Übersicht
-zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im 
+zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im
 Land verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
-Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-, 
+Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-,
 Transformations- und Ladeprozesses (ETL) wurden die unterschiedlich
 abgespeicherten Informationen von jedem einzelnen Kassensystems ausgelesen, 
 dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
 Data Warehouse angepasst und anschließend die vollständig
 Speicherung im System gewährleistet.
 
-Dadurch das in dem Hadoop System keinerlei Struktur der Daten existiert, 
+Dadurch das in dem Hadoop System keinerlei Struktur der Daten existiert,
 übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
 Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
 Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies
@@ -645,14 +645,16 @@ ist zum einem die Bereitstellung von einem standartisierten Treiber für den
 externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit dem
 bekannten Namen ``SQL''. Jedoch implementiert Apache Hive auf dem Hadoop System
 auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
-wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer Internetwebseite.
+wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer
+Internetwebseite.
 
 Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
-Sicht auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache Hive mehrere
-Sichten (Schemas) auf einene einzelnen Datensatz definieren und somit auch das 
-Rechtesystem innerhalb der Datenhaltung unterstützen. Die in dem Data Warehouse
-bekannten ``Data Marts'' fallen somit weg und werden direkt auf dem Hadoop System
-erzeugt und für ausgewählte Benutzeraccounts freigeschalten werden. 
+Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
+Hive mehrere Sichten auf einene einzelnen Datensatz definieren und somit auch
+das  Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
+für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
+dem Data Warehouse bekannten ``Data Marts'' fallen somit weg und werden durch
+den Aufbau der genannten Sichten ersetzt.
 \nl%
 
 \paragraph{Beschreibung Impala}
