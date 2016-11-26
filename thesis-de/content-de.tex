@@ -599,14 +599,14 @@ und~\ref{paragraph:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 ``Hadoop Map Reduce'' zum Einsatz. Diese ist von dem gleichnamigen
-Programmiermodell abgeleitet. Es handelt sich dabei um eine Hadoop-YARN
-basiertes System, welches ein parallel abarbeiten von Aufgaben ermöglicht.
-Dabei können Analyseanfragen nun nicht mehr nur in einzelne Server-Threads
-aufgeteilt werden, sondern auch auf mehrere Data Nodes. Dies ermöglicht ein
-schnelles und effizientes Management von Datenabfragen. Gleichzeitig besitzt
-diese Komponente einen Data Node, welcher aus reinem Arbeitsspeicher besteht.
-Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
-zeitkritischen Datenabfragen zum Einsatz.
+Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN
+basiertes System, welches ein paralleles abarbeiten von Aufgaben ermöglicht.
+Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
+einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
+wiederrum die Aufgaben im mehreren Threads abarbeiten können. Gleichzeitig
+besitzt diese Hadoop-Komponente einen Data Node, welcher aus reinem
+Arbeitsspeicher besteht. Arbeitsspeicher ist bis dato einer der schnellsten
+Speichermedien und kommt bei zeitkritischen Datenabfragen zum Einsatz.
 
 Diese vier Komonenten bilden den ``Hadoop Core'', welcher zwingend für den
 Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
