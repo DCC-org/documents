@@ -573,8 +573,8 @@ Aufgabenfelder. Nummer Eins ist der Data Node, dieser besteht oftmals aus
 mehreren Festplatten und einer Netzwerkanbindung. Auf diesem wird eine
 Datensatz mehrmals auf verschiedenen Festplatten abgespeichert, sodass bei
 einem Ausfall der Datensatz gesichert ist. Es können bei Hadoop beliebig viele
-Data Node's in der Datenhaltungslandschaft eingesetzt werden, so mehr Data
-Node's, umso mehr Speicherplatz und Rechenleistung steht zur Verfügung. Nummer
+Data Nodes in der Datenhaltungslandschaft eingesetzt werden, je mehr Data
+Nodes, umso mehr Speicherplatz und Rechenleistung steht zur Verfügung. Nummer
 Zwei ist der Name Node, bei diesem handelt es sich um ein einzelnes System,
 welches den Speicherort (Data Node ID), von einem Datensatz bereitstellt. Die
 letzte Aufgabe erfüllt der Backup Node, auch bei diesem handelt es sich um ein
@@ -605,12 +605,17 @@ Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
 einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
 wiederrum die Aufgaben im mehreren Threads abarbeiten können. Gleichzeitig
 besitzt diese Hadoop-Komponente einen Data Node, welcher aus reinem
-Arbeitsspeicher besteht. Arbeitsspeicher ist bis dato einer der schnellsten
-Speichermedien und kommt bei zeitkritischen Datenabfragen zum Einsatz.
+Arbeitsspeicher besteht. Dieser wird genutzt um Informationen für eine
+kurzfristige Zeit auf ein schnelleres Medium zu laden, sodass die
+Information in Falle einer erneuten Abfrage innerhalb dieser Zeit erneut
+genutzt werden kann, ohne diese wieder von einem langsameren Medium laden
+zu müssen. Die Zeitspanne kann dabei von einem Administrator festgelegt werden.
+Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
+zeitkritischen Datenabfragen zum Einsatz.
 
 Diese vier Komponenten bilden den ``Hadoop Core'', welcher zwingend für den
 Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
-Erfüllung von verschiedene und spezialisierten Aufgaben, werden unter dem
+Erfüllung von verschiedenen und spezialisierten Aufgaben, werden unter dem
 ``Hadoop Ecosystem'' zusammengefasst. Eine vollständige Liste von Hadoop
 basierenden Systemen und Projekten kann auf der offiziellen Webseite des
 Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
@@ -650,7 +655,7 @@ Internetwebseite.
 
 Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
 Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
-Hive mehrere Sichten auf einene einzelnen Datensatz definieren und somit auch
+Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
 das  Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
 für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
 dem Data Warehouse bekannten ``Data Marts'' fallen somit weg und werden durch
@@ -671,7 +676,7 @@ Implementierung wie in Punkt~\ref{paragraph:hadoop_beschreibung}. Apache Impala
 stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine spezialisierte
 Abfragesprache auf Basis von ``SQL''. Apache Impala arbeitet auf den
 konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
-Verknüpfung  (Interface) von einem Strukturmodell. In den meisten Fällen 
+Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen 
 kommt dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von
 Apache Hive Eins-zu-eins übernehmen und ausführen.
 
