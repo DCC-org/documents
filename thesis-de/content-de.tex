@@ -618,7 +618,23 @@ Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 
 \paragraph{Beschreibung Hive}
 \label{paragraph:hadoop_beschreibung}
-Stellt Schemas bereit (DWH) - Some more Text here
+Das Apache Hive System ist eine Hadoop basierende Software und nutzt die
+im Punkt~\ref{paragraph:hadoop_hive_impala} erläuterteten Schnittstellten
+für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
+Hadoop System aus und fällt somit nicht unter ein eigenständiges
+Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
+``Hadoop Ecosystem'' eingeordnet. 
+
+Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung
+von einem sogenannten ``Data Warehouse'' (DWH) in dem Hadoop Netzwerk. Ein
+Data Warehouse wird in Unternehmen verwendet, um eine vollständige Übersicht
+zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im 
+Land verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
+Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-, 
+Transformations- und Ladeprozesses (ETL) wurden die unterschiedlich
+abgespeicherten Informationen von jedem einzelnen Kassensystems ausgelesen, 
+dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem Data Warehouse
+angepasst und anschließend die vollständige Speicherung im System gewährleistet.
 \nl%
 
 \paragraph{Beschreibung Impala}
