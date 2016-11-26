@@ -16,7 +16,6 @@
 \usepackage[backend=biber,style=alphabetic]{biblatex}
 \usepackage{csquotes}
 \usepackage[toc,numberedsection,xindy]{glossaries}
-\usepackage{titlesec}
 \makeglossaries
 \input{../glossary.tex}
 
@@ -26,13 +25,11 @@
   references = {Quellennachweis},
 }
 
-%% setup for proper sections
-%% http://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection
 \setcounter{secnumdepth}{4}
-\titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\setcounter{tocdepth}{4}
+\RedeclareSectionCommand[
+  beforeskip=-.5\baselineskip,
+  afterskip=.2\baselineskip]{paragraph}
 
 \setlength{\parindent}{0pt}
 \setlength{\droptitle}{5em}
