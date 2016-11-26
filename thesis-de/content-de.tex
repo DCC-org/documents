@@ -542,8 +542,60 @@ Some Text here!
 
 \paragraph{Postgres}
 \label{paragraph:postgres}
-Some Text here!
-\nl%
+Postgres, oder auch PostgreSQL genannt, ist ein \gls{SQL} basiertes \gls{DBMS}.
+Die initiale Arbeit an Postgres begann 1986~\cite{old_postgres}. Mit über 30
+Jahren Entwicklung ist es eines der ältesten und am weiten verbreitetsten
+DBMS~\cite{db_ranking}. Es steht unter einer eigenen Open Source Lizenz und
+darf frei genutzt werden~\cite{postgres_license}. Die Community ist sehr aktiv,
+sie pflegt ein komplexes Wiki~\cite{postgres_wiki} sowie ein eine eigene Seite
+mit Anleitungen für Einsteiger und Optimierungshilfen für
+Fortgeschrittene~\cite{postgres_tutorial}.
+
+\lstinputlisting[language=bash]{postgres-clone.txt}
+
+Wie im in der obigen Shellausgabe zu sehen, enthäl das Git Repository des
+Postgres Quellcodes am 26.11.2016 41366 einzelne Commits von 41 verschiedenen
+Autoren. Aufgrund der Patchpolitik von Postgres werden Patches oftmals an
+Autoren aus dem Postgres Team geschickt, ein Teammitglied fügt danach den Patch
+in das Repository ein. Somit lässt sich nicht genau bestimmen von wie vielen
+Leuten Code beigesteuert wurde.
+
+Die Postgres Architektur sah lange Zeit vor, dass der Dienst auf einem einzigen
+Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten die
+Architektur anzupassen um Postgres:
+
+\begin{outline}
+  \1 \glslink{Hochverfügbarkeit}{Hochverfügbar} zu betreiben
+  \1 \glslink{Skalierung}{Vertikal zu skalieren}
+  \1 mit einer Verteilung der Anfragen den einzelnen Server zu entlasten
+\end{outline}
+
+Postgres bietet die Möglichkeit der \gls{Streaming Replication}. Hierbei wird
+nach dem \gls{Active-Passive Prinzip} 1-N gearbeitet. Dies bietet zwei
+Vorteile:
+
+\begin{outline}
+  \1 Leseanfragen können an passive Server gestellt werden.
+  \1 im Fehlerfall oder für Wartungsarbeiten kann von einem aktiven auf einen
+  beliebigen passiven Server umgeschaltet werden.
+  \1 Hochverfügbarer Betrieb der Datenbank.
+\end{outline}
+
+Der aktive Server muss somit nur noch Schreibanfragen beantworten. Das
+Hinzufügen von passiven Nodes oder das umschwenken der Schreibanfragen auf
+einen von Ihnen kann im laufenen Betrieb erfolgen. Die Postgres Konfiguration
+lässt sich zur Laufzeit anpassen um dem Dienst mehr Ressourcen des physischen
+Hosts zuzuweisen.
+
+Mit den Erweiterungen \gls{Pgpool-II} und \gls{Postgres-XC} kann ebenfalls ein
+hochverfügbarer Betrieb realisiert werden. Außerdem ermöglichen sie eine
+vertikale \gls{Skalierung}. Mehrere Server können hier zu einem Verbund
+zusammengeschaltet werden. Schreibanfragen können von mehreren Servern
+beantwortet werden. Wenn es gewünscht ist, kann jeder Server alle Daten
+vorhalten, somit beeinträchtigt der Ausfall eines Servers nur die
+Gesamtperformance, führt aber nicht zu einem Ausfall des Setups
+(Shared-Nothing-Architektur).
+\tm%
 
 \paragraph{OpenTSDB}
 \label{paragraph:opentsdb}
