@@ -583,12 +583,12 @@ sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um im Falle eines
 Ausfalls des Name Nodes sofort die Aufgaben zu übernehmen.
 
 Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
-englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses gibt den
-Nodes vor, welche Daten mit welchem Node ausgetauscht werden und wo die
-einzelnen Backups stattfinden sollen. Es definiert dabei auch zu welchem
-Tageszeitpunkt einzelne Aufgaben erfüllt werden sollen.  Diese Definitionen
-können von dem System automatisch definiert werden, jedoch auch von einer
-Person manuell eingestellt und verwaltet werden.
+englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses System
+definiert eigenständig den Austausch von Informationen zwischen den einzelnen
+Nodes. Es definiert dabei auch zu welchem Tageszeitpunkt einzelne Aufgaben
+erfüllt werden sollen. Diese Definitionen werden automatisch erstellt und 
+durchgeführt, jedoch kann dies auch von einer Person manuell eingestellt und
+verwaltet werden.
 
 Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 ``Hadoop Common'' eingesetzt. Es handelt sich dabei um ein reines
