@@ -681,15 +681,16 @@ installiert. Dabei erhalten die Data Nodes neben der eigentlichen
 Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
 Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein ``Query Planer'',
 ``Query Coordinator'' und ``Query Executor'' bereitgestellt. Der Query Planer
-hölt dabei die Kommunikation mit der SQL Applikation innerhalb des Netzwerkes. 
+hält dabei die Kommunikation mit der SQL Applikation innerhalb des Netzwerkes.
 Dieser gibt definierte Datenabfragen von Benutzern an einen beliebigen Data
-Node. Nachdem der Query Planer die Datenabfrage erhalten hat, kommuniziert er
-dies an den Query Coordinator, welcher wiederrum alle umliegenden Data Nodes
-um Unterstützung bei der Datenabfrage bittet. Dies geschieht über den Query
-Executor, welcher, wie schon der Name sagt, die Abfrage auf dem Hadoop HDFS
-System ausführt und die Daten zurück an den Query Coordinator liefert. Die
-von dem Query Coordinator zusammengesetzten Daten liefert dieser anschließend
-an die SQL Applikation zurück und der gesamte Prozess ist abgeschlossen. 
+Node weiter. Nachdem der Query Planer die Datenabfrage erhalten hat,
+kommuniziert er dies an den Query Coordinator, welcher wiederrum alle
+umliegenden Data Nodes um Unterstützung bei der Datenabfrage bittet.
+Dies geschieht über den Query Executor, welcher, wie schon der Name sagt,
+die Abfrage auf dem Hadoop HDFS System ausführt und die Daten zurück an den
+Query Coordinator liefert. Die von dem Query Coordinator zusammengesetzten
+Daten liefert dieser anschließend an die SQL Applikation zurück und der
+gesamte Prozess ist abgeschlossen.
 
 Durch das nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
 gleichzeitigem Hadoop Map Reduce werden die Datenabfragen um ein vielfaches
