@@ -659,7 +659,46 @@ den Aufbau der genannten Sichten ersetzt.
 
 \paragraph{Beschreibung Impala}
 \label{paragraph:impala_beschreibung}
-Realtime SQL working with Hadoop Map Reduce - Some more Text here
+Das Apache Impala System ist eine Hadoop basierende Software und nutzt die
+im Punkt~\ref{paragraph:hadoop_hive_impala} erläuterteten Schnittstellten
+für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
+Hadoop System aus und fällt somit nicht unter ein eigenständiges
+Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
+``Hadoop Ecosystem'' eingeordnet.
+
+Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
+Implementierung wie in Punkt~\ref{paragraph:hadoop_beschreibung}. Apache Impala
+stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine spezialisierte
+Abfragesprache auf Basis von ``SQL''. Apache Impala arbeitet auf den
+konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
+Verknüpfung  (Interface) von einem Strukturmodell. In den meisten Fällen 
+kommt dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von
+Apache Hive Eins-zu-eins übernehmen und ausführen.
+
+Apache Impala wird eingesetzt um die Schnelligkeit der Datenabfragen auf
+einem Hadoop System zu verbessern. Es wird dabei auf jedem Data Node
+installiert. Dabei erhalten die Data Nodes neben der eigentlichen
+Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
+Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein ``Query Planer'',
+``Query Coordinator'' und ``Query Executor'' bereitgestellt. Der Query Planer
+hölt dabei die Kommunikation mit der SQL Applikation innerhalb des Netzwerkes. 
+Dieser gibt definierte Datenabfragen von Benutzern an einen beliebigen Data
+Node. Nachdem der Query Planer die Datenabfrage erhalten hat, kommuniziert er
+dies an den Query Coordinator, welcher wiederrum alle umliegenden Data Nodes
+um Unterstützung bei der Datenabfrage bittet. Dies geschieht über den Query
+Executor, welcher, wie schon der Name sagt, die Abfrage auf dem Hadoop HDFS
+System ausführt und die Daten zurück an den Query Coordinator liefert. Die
+von dem Query Coordinator zusammengesetzten Daten liefert dieser anschließend
+an die SQL Applikation zurück und der gesamte Prozess ist abgeschlossen. 
+
+Durch das nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
+gleichzeitigem Hadoop Map Reduce werden die Datenabfragen um ein vielfaches
+verschnellert. Dadurch das diese Verschnellerung durch mehrere Faktoren
+beeinflusst wird, kann keine exakte Angabe der Performanceverbesserung 
+geliefert werden. Diese Faktoren sind zum Beispiel die Schreibweise der
+SQL-Syntax, da ein nicht optimierter Code die Performanceverbesserung
+wieder mindern kann. Fakt ist jedoch, dass der Einsatz von Apache Impala
+die Performance der Datenlandschaft optimiert.
 \nl%
 
 \paragraph{Evaluierungsbericht}
