@@ -1,0 +1,12 @@
+$ date; git clone git://git.postgresql.org/git/postgresql.git; \
+cd postgresql; git shortlog -s -n --no-merges | wc -l; \
+git rev-list HEAD --count
+Sa 26. Nov 13:23:17 CET 2016
+Cloning into 'postgresql'...
+remote: Counting objects: 604118, done.
+remote: Compressing objects: 100% (105910/105910), done.
+remote: Total 604118 (delta 511822), reused 586613 (delta 495859)
+Receiving objects: 100% (604118/604118), 175.83 MiB | 5.48 MiB/s, done.
+Resolving deltas: 100% (511822/511822), done.
+41
+41366

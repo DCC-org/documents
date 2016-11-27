@@ -4,49 +4,34 @@
 \usepackage{booktabs}
 \usepackage{placeins}
 \setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
+\setmonofont{DejaVu Sans Mono}
 \setkomafont{disposition}{\bfseries}
 \setkomafont{descriptionlabel}{\bfseries}
 \usepackage{fancyhdr}
 \usepackage{outlines}
 \usepackage{titling}
 \usepackage{textcase}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
 \usepackage[titles]{tocloft}
 \usepackage[unicode=true]{hyperref}
 \usepackage[backend=biber,style=alphabetic]{biblatex}
 \usepackage{csquotes}
 \usepackage[toc,numberedsection,xindy]{glossaries}
-\usepackage{titlesec}
 \makeglossaries
 \input{../glossary.tex}
 
-\addbibresource{../biblatex/petersohn2011vergleich.bib}
-\addbibresource{../biblatex/Database_Modeling_and_Design.bib}
-\addbibresource{../biblatex/Performance-Analyse_Spark_Hadoop.bib}
-\addbibresource{../biblatex/Systemprogrammierung_Sachwortverzeichnis.bib}
-\addbibresource{../biblatex/Projektbericht_Parallelrechnerevaluation_Hadoop_Hive.bib}
-\addbibresource{../biblatex/Fragile_development.bib}
-\addbibresource{../biblatex/How_do_APIs_evolve.bib}
-\addbibresource{../biblatex/OpenStack_Intro.bib}
-\addbibresource{../biblatex/OpenStack_Telemetry.bib}
-\addbibresource{../biblatex/Dokumentenorientierte_Datenbank.bib}
-\addbibresource{../biblatex/RFC7159.bib}
-\addbibresource{../biblatex/MongoDB_Architecture.bib}
-\addbibresource{../biblatex/What_is_MongoDB.bib}
-\addbibresource{../biblatex/Jepsen_Introduction.bib}
-\addbibresource{../biblatex/MongoDB_on_Jepsen.bib}
-\addbibresource{../biblatex/OpenStack_CERN.bib}
+\addbibresource{../biblatex.bib}
 
 \DefineBibliographyStrings{german}{%
   references = {Quellennachweis},
 }
 
-%% setup for proper sections
-%% http://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection
 \setcounter{secnumdepth}{4}
-\titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\setcounter{tocdepth}{4}
+\RedeclareSectionCommand[
+  beforeskip=-.5\baselineskip,
+  afterskip=.2\baselineskip]{paragraph}
 
 \setlength{\parindent}{0pt}
 \setlength{\droptitle}{5em}

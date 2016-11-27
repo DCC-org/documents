@@ -56,3 +56,80 @@
   description={Eine Punkt zu Punkt Verbindung in der Daten in beide Richtung
                fließen.}
 }
+\newglossaryentry{SQL}
+{
+  name=SQL,
+  description={Structured Query Language, SQL ist ein Medium um mit einem
+               \gls{DBMS} zu kommunizieren \cite{sumathi2007fundamentals}.}
+}
+\newglossaryentry{DBMS}
+{
+  name=DBMS,
+  description={Datenbankmanagementsystem, dieses System ist die Schnittstelle
+               zwischen gespeicherten Daten und den Anwendern, es stellt
+               Operationen wie Datenzugriff und Datenmanipulation bereit.
+               Außerdem verwaltet es das Datenbankschema. Das DBMS ermöglicht
+               parallele Zugriffe, bietet Datenintegrität sowie administrativen
+               Zugriff.}
+}
+\newglossaryentry{Streaming Replication}
+{
+  name=Streaming Replication,
+  description={Hierbei schreibt ein Server seine Änderungen an einer Datenbank
+               in eine Logdatei. Die Änderungen an der Datei werden
+               kontinuierlich an alle passiven Server übertragen, diese wenden
+               die Änderungen ebenfalls an.}
+}
+\newglossaryentry{Active-Passive Prinzip}
+{
+  name=Active-Passive Prinip,
+  description={Eine Möglichkeit des Serverbetriebs. Ein aktiver Server erhält
+               alle Anfragen von Clients, ein oder mehrere passive Server sind
+               verfügbar. Der aktive Server kann deaktiviert werden und ein
+               passiver wird dafür aktiv geschaltet.}
+}
+\newglossaryentry{Pgpool-II}
+{
+  name=Pgpool-II,
+  description={Eine Erweiterung für Postgres. Sie ermöglicht das wiederverwenden
+               von Datenbankverbindungen, das hochverfügbare Replizieren der
+               Daten sowie das verteilen von Leseanfragen \cite{pgpool}.}
+}
+\newglossaryentry{Postgres-XC}
+{
+  name=Postgres-XC,
+  description={Eine Erweiterung für Postgres. Sie ermöglicht den vertikal
+               skalierendes Cluster. Hierbei skaliert nicht nur die Leistung
+               für den lesezugriff, sondern auch für den Schreibzugriff. Je
+               mehr Nodes man in das Cluster stellt desto höher wird die
+               Schreibleistung \cite{postgres-xc}.}
+}
+\newglossaryentry{Skalierung}
+{
+  name=Skalierung,
+  description={Beschreibt das erhöhen der Ressourcen in einem komplexen
+               Softwaresetup. Bei horizontaler Skalierung wird die Leistung
+               eines einzelnen Servers erhöht durch ein Hardwareupgrade,
+               bei vertikaler Skalierung wird das Softwaresetup auf mehrere
+               Server verteilt. In großen Setups wird die vertikale
+               Vorgehensweise bevorzugt da sie mehr Leistung bieten kann.}
+}
+\newglossaryentry{Hochverfügbarkeit}
+{
+  name=Hochverfügbarkeit,
+  description={Ein IT-System gilt als verfügbar, wenn es seine definierte
+               Aufgabe abarbeiten kann. Als hochverfügbar gilt es, wenn es
+               diese Aufgabe trotz Ausfall einer oder mehrerer Komponten noch
+               erfüllen kann}
+}
+\newglossaryentry{Git}
+{
+  name=Git,
+  description={Open Source Tool zur Versionsverwaltung von Dateien.}
+}
+\newglossaryentry{Repository}
+{
+  name=Repository,
+  description={Verzeichnis zum speichern von Objekten. Im Git Kontext: Alle
+               logisch zusammengehörenden Dateien eines Projekts.}
+}
