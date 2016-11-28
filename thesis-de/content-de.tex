@@ -603,11 +603,11 @@ Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN
 basiertes System, welches ein paralleles abarbeiten von Aufgaben ermöglicht.
 Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
 einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
-wiederrum die Aufgaben im mehreren Threads abarbeiten können. Gleichzeitig
+wiederrum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
 besitzt diese Hadoop-Komponente einen Data Node, welcher aus reinem
 Arbeitsspeicher besteht. Dieser wird genutzt um Informationen für eine
 kurzfristige Zeit auf ein schnelleres Medium zu laden, sodass die
-Information in Falle einer erneuten Abfrage innerhalb dieser Zeit erneut
+Information im Falle einer erneuten Abfrage innerhalb dieser Zeit erneut
 genutzt werden kann, ohne diese wieder von einem langsameren Medium laden
 zu müssen. Die Zeitspanne kann dabei von einem Administrator festgelegt werden.
 Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
