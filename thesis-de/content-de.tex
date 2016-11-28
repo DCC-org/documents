@@ -626,22 +626,22 @@ Aufgabenfelder. Nummer Eins ist der Data Node, dieser besteht oftmals aus
 mehreren Festplatten und einer Netzwerkanbindung. Auf diesem wird eine
 Datensatz mehrmals auf verschiedenen Festplatten abgespeichert, sodass bei
 einem Ausfall der Datensatz gesichert ist. Es können bei Hadoop beliebig viele
-Data Node's in der Datenhaltungslandschaft eingesetzt werden, so mehr Data
-Node's, umso mehr Speicherplatz steht zur verfügung. Nummer Zwei ist der Name
-Node, bei diesem handelt es sich um ein einzelnes System, welches den
-Speicherort (Data Node ID), von einem Datensatz bereitstellt. Die letzte
-Aufgabe erfüllt der Backup Node, auch bei diesem handelt es sich um ein
+Data Nodes in der Datenhaltungslandschaft eingesetzt werden, je mehr Data
+Nodes, umso mehr Speicherplatz und Rechenleistung steht zur Verfügung. Nummer
+Zwei ist der Name Node, bei diesem handelt es sich um ein einzelnes System,
+welches den Speicherort (Data Node ID), von einem Datensatz bereitstellt. Die
+letzte Aufgabe erfüllt der Backup Node, auch bei diesem handelt es sich um ein
 einzelnes System. Das System kommt zum Einsatz, wenn der Name Node ausfallen
-sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um jederzeit zum
-Einsatz zu kommen.
+sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um im Falle eines
+Ausfalls des Name Nodes sofort die Aufgaben zu übernehmen.
 
 Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
-englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses gibt den
-Nodes vor, welche Daten mit welchem Node ausgetauscht werden und wo die
-einzelnen Backups stattfinden sollen. Es definiert dabei auch zu welchem
-Tageszeitpunkt einzelne Aufgaben erfüllt werden sollen.  Diese Definitionen
-können von dem System automatisch definiert werden, jedoch auch von einer
-Person manuell eingestellt und verwaltet werden.
+englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses System
+definiert eigenständig den Austausch von Informationen zwischen den einzelnen
+Nodes. Es definiert dabei auch zu welchem Tageszeitpunkt einzelne Aufgaben
+erfüllt werden sollen. Diese Definitionen werden automatisch erstellt und 
+durchgeführt, jedoch kann dies auch von einer Person manuell eingestellt und
+verwaltet werden.
 
 Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 ``Hadoop Common'' eingesetzt. Es handelt sich dabei um ein reines
@@ -652,31 +652,112 @@ und~\ref{paragraph:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 ``Hadoop Map Reduce'' zum Einsatz. Diese ist von dem gleichnamigen
-Programmiermodell abgeleitet. Es handelt sich dabei um eine Hadoop-YARN
-basiertes System, welches ein parallel abarbeiten von Aufgaben ermöglicht.
-Dabei können Analyseanfragen nun nicht mehr nur in einzelne Server-Threads
-aufgeteilt werden, sondern auch auf mehrere Data Nodes. Dies ermöglicht ein
-schnelles und effizientes Management von Datenabfragen. Gleichzeitig besitzt
-diese Komponente einen Data Node, welcher aus reinem Arbeitsspeicher besteht.
+Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN
+basiertes System, welches ein paralleles abarbeiten von Aufgaben ermöglicht.
+Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
+einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
+wiederrum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
+besitzt diese Hadoop-Komponente einen Data Node, welcher aus reinem
+Arbeitsspeicher besteht. Dieser wird genutzt um Informationen für eine
+kurzfristige Zeit auf ein schnelleres Medium zu laden, sodass die
+Information im Falle einer erneuten Abfrage innerhalb dieser Zeit erneut
+genutzt werden kann, ohne diese wieder von einem langsameren Medium laden
+zu müssen. Die Zeitspanne kann dabei von einem Administrator festgelegt werden.
 Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
 zeitkritischen Datenabfragen zum Einsatz.
 
-Diese vier Komonenten bilden den ``Hadoop Core'', welcher zwingend für den
+Diese vier Komponenten bilden den ``Hadoop Core'', welcher zwingend für den
 Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
-Erfüllung von verschiedene und spezialisierten Aufgaben, werden unter dem
-``Hadoop Ecosystem'' zusammengefasst. Eine vollständige Liste von Haddop
-basierenden Systemen und Projekten kann hier entnommen
-werden~\cite{Hadoop_related_projects}.
+Erfüllung von verschiedenen und spezialisierten Aufgaben, werden unter dem
+``Hadoop Ecosystem'' zusammengefasst. Eine vollständige Liste von Hadoop
+basierenden Systemen und Projekten kann auf der offiziellen Webseite des
+Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 \nl%
 
 \paragraph{Beschreibung Hive}
 \label{paragraph:hadoop_beschreibung}
-Stellt Schemas bereit (DWH) - Some more Text here
+Das Apache Hive System ist eine Hadoop basierende Software und nutzt die
+im Punkt~\ref{paragraph:hadoop_hive_impala} erläuterteten Schnittstellten
+für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
+Hadoop System aus und fällt somit nicht unter ein eigenständiges
+Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
+``Hadoop Ecosystem'' eingeordnet.
+
+Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung
+von einem sogenannten ``Data Warehouse'' (DWH) in dem Hadoop Netzwerk. Ein
+Data Warehouse wird in Unternehmen verwendet, um eine vollständige Übersicht
+zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im
+Land verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
+Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-,
+Transformations- und Ladeprozesses (ETL) wurden die unterschiedlich
+abgespeicherten Informationen von jedem einzelnen Kassensystems ausgelesen, 
+dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
+Data Warehouse angepasst und anschließend die vollständig
+Speicherung im System gewährleistet.
+
+Dadurch das in dem Hadoop System keinerlei Struktur der Daten existiert,
+übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
+Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
+Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies
+ist zum einem die Bereitstellung von einem standartisierten Treiber für den
+externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit dem
+bekannten Namen ``SQL''. Jedoch implementiert Apache Hive auf dem Hadoop System
+auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
+wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer
+Internetwebseite.
+
+Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
+Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
+Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
+das  Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
+für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
+dem Data Warehouse bekannten ``Data Marts'' fallen somit weg und werden durch
+den Aufbau der genannten Sichten ersetzt.
 \nl%
 
 \paragraph{Beschreibung Impala}
 \label{paragraph:impala_beschreibung}
-Realtime SQL working with Hadoop Map Reduce - Some more Text here
+Das Apache Impala System ist eine Hadoop basierende Software und nutzt die
+im Punkt~\ref{paragraph:hadoop_hive_impala} erläuterteten Schnittstellten
+für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
+Hadoop System aus und fällt somit nicht unter ein eigenständiges
+Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
+``Hadoop Ecosystem'' eingeordnet.
+
+Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
+Implementierung wie in Punkt~\ref{paragraph:hadoop_beschreibung}. Apache Impala
+stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine spezialisierte
+Abfragesprache auf Basis von ``SQL''. Apache Impala arbeitet auf den
+konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
+Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen 
+kommt dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von
+Apache Hive Eins-zu-eins übernehmen und ausführen.
+
+Apache Impala wird eingesetzt um die Schnelligkeit der Datenabfragen auf
+einem Hadoop System zu verbessern. Es wird dabei auf jedem Data Node
+installiert. Dabei erhalten die Data Nodes neben der eigentlichen
+Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
+Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein ``Query Planer'',
+``Query Coordinator'' und ``Query Executor'' bereitgestellt. Der Query Planer
+hält dabei die Kommunikation mit der SQL Applikation innerhalb des Netzwerkes.
+Dieser gibt definierte Datenabfragen von Benutzern an einen beliebigen Data
+Node weiter. Nachdem der Query Planer die Datenabfrage erhalten hat,
+kommuniziert er dies an den Query Coordinator, welcher wiederrum alle
+umliegenden Data Nodes um Unterstützung bei der Datenabfrage bittet.
+Dies geschieht über den Query Executor, welcher, wie schon der Name sagt,
+die Abfrage auf dem Hadoop HDFS System ausführt und die Daten zurück an den
+Query Coordinator liefert. Die von dem Query Coordinator zusammengesetzten
+Daten liefert dieser anschließend an die SQL Applikation zurück und der
+gesamte Prozess ist abgeschlossen.
+
+Durch das nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
+gleichzeitigem Hadoop Map Reduce werden die Datenabfragen um ein vielfaches
+verschnellert. Dadurch das diese Verschnellerung durch mehrere Faktoren
+beeinflusst wird, kann keine exakte Angabe der Performanceverbesserung 
+geliefert werden. Diese Faktoren sind zum Beispiel die Schreibweise der
+SQL-Syntax, da ein nicht optimierter Code die Performanceverbesserung
+wieder mindern kann. Fakt ist jedoch, dass der Einsatz von Apache Impala
+die Performance der Datenlandschaft optimiert.
 \nl%
 
 \paragraph{Evaluierungsbericht}
