@@ -323,8 +323,35 @@ Binärschnittstelle. Hierbei werden Daten nicht in einer für Menschen lesbaren
 Form übertragen, sondern in einem Binärprotokoll. Diese Protokolle sind
 besonders effizient in der Datenübertragung und Datenverarbeitung. Es ist nicht
 erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
+\tm%
 
-\subsection{Datenbanksystem / API}
+\subsection{Datenhaltungssystem / API}
+Das Datenhaltungssystem, sowie die mit inbegriffene API ist eine zentrale
+Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
+welches nur über die Informationen eines einzelnen physischen Servers verfügt,
+besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen 
+Informationsquellen. Darunter fallen zunächst alle am System angebundenen
+physische Server, welche aktiv die Nutzungsdaten an das Datenhaltungsystem
+liefern. Jedoch kann dies auf Wunsch des jeweiligen Kunden auch um weitere
+Informationen erweitert werden, ein Beispiel wären die Kundendaten mit dem
+jeweiligen Bestand. In unserer Ziellösung wird diese Art von Erweiterung
+jedoch zunächst nicht beachtet und wurde auch nicht vom Auftraggeber
+angefordert, sodass eine Anpassung in einem Folgeauftrag erledigt werden
+müsste.
+
+Die API ist ebenfalls eine essentielle Schnittstelle des Gesamtsystems. Durch
+die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische Daten
+innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die API
+oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
+erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
+nach den Datenformaten des JSON oder XML aufgebaut ist. Die beiden Datenformate
+sind die weitverbreitesten Formate auf dem Markt und können in vielen
+Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden werden. 
+Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
+Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering,
+da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist 
+und keine neuen Strukturen erlenen muss.
+\nl%
 
 \subsection{Frontend}
 
