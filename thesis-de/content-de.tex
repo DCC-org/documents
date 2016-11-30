@@ -327,7 +327,26 @@ erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
 \subsection{Datenbanksystem / API}
 
 \subsection{Frontend}
+Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind, mit der
+Abfrage der Daten an dem Datenhaltungssystem und zum anderen mit der Ausgabe
+und Anzeige für den User bzw. dem Administrator. Eine Schnittstelle auf einem
+Webinterface dient in erster Linie zur Anzeige von Daten, die über ein anderes
+System(BackEnd) erhalten wurden. 
 
+Die erste Schnittstelle der Weboberfläche hat nur eine lesende Berechtigung,
+auf den Datenhaltungssystemen, da keine Änderung durch die Weboberfläche
+durchgeführt werden muss. Die Schnittstelle zwischen den Datenhaltungssystemen
+und der Weboberfläche kann somit mit einer sogenannten API (verweis API kommt noch)
+realisiert werden. Somit kann hier keine Änderung durch dritter an den
+Datenhaltungssystemen durchgeführt werden.
+
+Die zweite Schnittstelle ist die Ausgabe der durch die Datenhaltungssystem
+erhaltenen Daten in einem Graphen(Verweis auf Section Graph) auf der
+Weboberfläche. Die Übertragung der Ausgabe der Daten, bzw. das Aufrufen der
+Weboberfläche wird über ein gesichertes Übertragungsprotokoll mit HTTPS
+realisiert. Dies dient zum einem für die Verschlüsselung der Verbindung von
+Client zu Weboberfläche und zurück, als auch damit die Weboberfläche 
+Authentifiziert werden kann.
 \section{Analyse von Softwarekomponenten}
 \subsection{Datenerfassungssysteme}
 Im Abschnitt XXX wurde bereits auf die einzelnen Ressourcetypen eingegangen,
