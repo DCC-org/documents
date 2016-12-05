@@ -203,11 +203,26 @@ ist nicht gefodert weshalb Daten lokal zwischengespeichert werden können um sie
 gebündelt zu verschicken.
 \tm%
 
-\subsubsection{Datenbanksysteme}
+\subsubsection{Datenhaltungssystem}
+Die Anforderung an das Datenhaltungssystem wurde einfach gehalten. Zunächst
+muss es für das abspeichern von mehreren tausend Datensätzen in der Sekunde
+ausgelegt sein. Innerhalb des Projektes wird mit 10.000 Datensätzen pro 
+Sekunde gerechnet und getestet, dies ist auf den Anforderungen des
+Auftraggebers aufgebaut. Gleichzeitig muss das Datenhaltungssystem über
+Analysewerkzeuge verfügen, sodass auf den gespeicherten Daten eine Logik
+aufgebaut werden kann. Die daraus resultierenden Analyseergebnisse sollten
+anschließend auch an verschiedene Systeme weitergeliefert werden können.
+Entsprechend soll das Datenhaltungsystem die dafür notwendigen Treiber und
+Schnittstellen mitliefern. Es soll im Klartext eine stabile Schnittstelle
+im Gesamtsystem bilden und im Falle von einem Ausfall der beiden anderen
+Softwarekomponenten die Informationen weiterhin sicher und vollständig zur
+Verfügung stellen können. Eine konkretisierte Anforderungsübersicht an das
+Datenhaltungssystem kann aus Punkt~\ref{subsec:datenhaltungssystem} entnommen
+werden. 
 
 \subsubsection{Frontends}
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
-verbrauchten oder freien Ressourcen, wie z.\,B.\ CPU Auslastung oder RAM
+verbrauchten oder freien Ressourcen, wie zum Beispiel CPU Auslastung oder RAM
 Auslastung einzelner virtueller oder physischen Maschinen bereitstellen.
 Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
 und Authorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
@@ -323,8 +338,35 @@ Binärschnittstelle. Hierbei werden Daten nicht in einer für Menschen lesbaren
 Form übertragen, sondern in einem Binärprotokoll. Diese Protokolle sind
 besonders effizient in der Datenübertragung und Datenverarbeitung. Es ist nicht
 erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
+\tm%
 
-\subsection{Datenbanksystem / API}
+\subsection{Datenhaltungssystem / API}
+Das Datenhaltungssystem, sowie die mit inbegriffene API ist eine zentrale
+Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
+welches nur über die Informationen eines einzelnen physischen Servers verfügt,
+besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen 
+Informationsquellen. Darunter fallen zunächst alle am System angebundenen
+physischen Server, welche aktiv die Nutzungsdaten an das Datenhaltungsystem
+liefern. Jedoch kann dies auf Wunsch des jeweiligen Kunden auch um weitere
+Informationen erweitert werden, ein Beispiel wären die Kundendaten mit dem
+jeweiligen Bestand. In der Ziellösung wird diese Art von Erweiterung
+jedoch zunächst nicht beachtet und wurde auch nicht vom Auftraggeber
+angefordert, sodass eine Anpassung in einem Folgeauftrag erledigt werden
+müsste.
+
+Die API ist ebenfalls eine essentielle Schnittstelle des Gesamtsystems. Durch
+die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische Daten
+innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die API
+oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
+erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
+nach den Datenformaten des JSON oder XML aufgebaut ist. Die beiden Datenformate
+sind die weitverbreitesten Formate auf dem Markt und können in vielen
+Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden werden. 
+Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
+Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering,
+da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist 
+und keine neuen Strukturen erlernen muss.
+\nl%
 
 \subsection{Frontend}
 
@@ -428,8 +470,8 @@ Evaluationskriterium für Datenerfassungssysteme.
 \end{outline}
 \tm%
 
-\subsection{Datenbanksysteme}
-\label{subsec:datenbanksysteme}
+\subsection{Datenhaltungssystem}
+\label{subsec:datenhaltungssystem}
 Zu Beginn des Projektes musste das Projektteam mögliche Datenhaltungssysteme in
 einer Liste für eine darauffolgende Evaluierung definieren. Bei der Erstellung
 dieser Liste wurden Systeme aufgenommen, welche den Projektmitgliedern aus
@@ -508,7 +550,7 @@ aufgelistet:
 \subsubsection{Durchführung der Evaluierung}
 \label{subsubsec:durchfuehrung_der_evaluierung}
 Bei der Durchführung der Evalution von den ausgewählten Datenhaltungssystemen
-aus der Liste in Punkt~\ref{subsec:datenbanksysteme} wurden die
+aus der Liste in Punkt~\ref{subsec:datenhaltungssystem} wurden die
 Evalutionskriterien aus Punkt~\ref{subsubsec:DBS_vorbereitung_der_evaluierung}
 verwendet. Diese dienten als Leitpfaden für jedes Datenhaltungssystem und
 wurden von jedem Projektmitglied beachtet.
