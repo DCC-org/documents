@@ -1094,57 +1094,73 @@ Auschlusskriterium sind.
 Im Nachfolgenden Punkt sind die einzelnen Softwarelösungen mit den einzelnen
 Anforderungen und Evaluierungsergebnissen aufgelistet:
 
+\paragraph{Grafana}
+\label{paragraph:grafana}
+Grafana ist eine von Torkel Ödegaard & Raintank Inc Entwickelte OpenSource
+Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen noch
+weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
+Datenhaltungssystem, wie z.B. influxDB zusammen und ist Multi Tenant fähig.
+Dies bedeutet, dass sowohl ein LDAP als auch eine Benutzernamen plus Kennwort
+Lösung eingesetzt werden kann. Somit können z.B. Personen aus der Führungsebene
+Eingeschränkte Zugriffe aus das System erhalten, um hier Analysen oder
+Marketing Statistiken durchführen zu können. Zusätzliche zu der Abfrage mit
+Benutzernamen und Kennwort zur Anmeldung auf die Grafana Weboberfläche, ist 
+Grafana API fähig, dies bedeutet, dass das Datenhaltungssystem API Statements
+zur Verfügung stellen können und hiermit Graphen visualisieren kann. Grafana
+kann ebenfalls auch über einfache Statements auf das Datenhaltungssystem die
+Daten abgreifen. Es wird keine Lizenz für Grafana benötigt, wodurch der
+Quellcode angepasst und verändert werden darf. Dies bedarf z.B. bei Anpassungen
+an bestimmte Kundenumgebungen. Zusätzlich zu dem Quellcode, können hier
+zusätzliche Plugins in der Porgrammiersprache Java entwickelt und in das System
+eingepflegt werden, wenn hier weitere Graphen, Analysen oder ähnlichem benötigt
+werden. Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten
+zur Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
+GitHub veröffentlicht, somit haben auch andere Mitglieder von GitHub, die 
+Möglichkeit, das Produkt zu verbessern und neue Funktionen zu implementieren.
+Dies bedarf lediglich die Zustimmung, durch die Mitglieder des Produktes auf
+GitHub. Die vom Anwender erstellen Dashboards, mit allen Graphen und Statements,
+können vom System, wie auch vom Anwender selber auf einen Externen
+Dateifreigabe Server oder Lokal abgespeichert werden.
 
+Zusammengefasst:
 \begin{outline}
-  \1 Grafana
-  + Authentisierung, Authentifizierung und Autorisierung
-  + Gute Community und eine vielzahl an Dokumenten
-  + Leichte Anpassungen an Graphen und Einstellungen
-  + Dashboards können auf externen Server gesichert werden
-  + Grafana kann mittels bereitsgestellter API arbeiten
-  + Bietet eine Plugin Erweiterung an
+  Positiv:
+  \1 Authentisierung, Authentifizierung und Autorisierung
+  \1 Gute Community und eine vielzahl an Dokumenten durch GitHub
+  \1 Leichte Anpassungen an Graphen und Einstellungen möglich
+  \1 Dashboards können auf externen Server oder Lokal gesichert werden
+  \1 API Unterstüzung
+  \1 Plugin Erweiterung möglich (Java)
 
-  + Multiplattform Support
-  + OpenSource
-
-  \textasciitilde Webdesign kann nicht angepasst werden
-  \textasciitilde Webtemplate nur aus zwei auswählbar (dark/white)
-
-  -
-  -
-  -
-
-  \1 Graphite
-  + Authentisierung, Authentifizierung und Autorisierung
-  + Gute Community und eine vielzahl an Dokumenten
-  +
-
-
-  \1 Zabbix-frontend
-
-
-
-  \1 Datadog
-
-
-
-  \1 Gridster-D3
-  +
-  +
-  +
-
-  \textasciitilde
-  \textasciitilde
-
-  - Lizenz muss Monatlich erworben werden
-  -
-
-
-  \1 Netdata
-
-
-
+  Negativ:
+  \1 Plugin Erweiterung nur in Programmiersprache Java möglich
+  \1 Webdesign kann nicht angepasst werden
+  \1 Nur zwei Webtemplates verfügbar (dark/white)
 \end{outline}
+
+\paragraph{Graphite}
+\label{paragraph:graphite}
+
+\paragraph{Zabbix-Frontend}
+\label{paragraph:zabbix-frontend}
+
+\paragraph{Datadog}
+\label{paragraph:datadog}
+
+\paragraph{Gridster-D3}
+\label{paragraph:gridster-d3}
+Gidster ist eine von Anmol Koul entwickelte Softwarelösung, welche auf
+OpenSource Basis auf GitHub liegt. Während der Evaluierung von dieser Software,
+ist aufgefallen, dass es sich hierbei nicht direkt um eine
+Visualisieurngssoftware handelt, sondern lediglich eine Funktion innerhalb
+einer Weboberfläche, nämlich das Drag & Drop, von einzelnen Graphen.
+
+Somit fällt Gridster-D3, da es sich hierbei nicht um eine
+Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
+
+\paragraph{Netdata}
+\label{paragraph:netdata}
+
 \mr%
 
 \section{Realisierung}
