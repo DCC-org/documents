@@ -1140,9 +1140,64 @@ Zusammengefasst:
 
 \paragraph{Graphite}
 \label{paragraph:graphite}
+Die Softwarelösung Graphite, wurde von Chris Davis im Jahr 2006 Entwickelt und
+gehört zu einer der meist eigesetzten Softwarelösungen im Bereich Monitoring
+und Visualisierung. Graphite ist wie auch Grafana eine Open Source Lösung und
+ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es 
+verfügt über eine inhaltlich gute und umfangreiche Community, mit einer eigenem
+Wiki Board, wo alle relevatnen Dokumentationen enthalten sind. Graphen können
+leicht mittelts Statements über eine API oder direkt an das
+Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche,
+mittels Benutzername und Kennwort oder LDAP Anbindung ist ebenfalls möglich.
+Es können einzelnen Graphen, wie auch das gesamte Dshboard auf externe Server
+oder Lokal abgespeichert werden um hier ein Verlust von den einzelnen Graphen
+vorbeugen zu können. Graphite ist wie auch Grafana kompatibel zu TimeSeries
+Datenhaltungssystemen. Es bietet keine einfache Möglichkeit, weitere
+Plugins hinzufügen zu können, wie es beispielsweise Grafana dies kann. Hierzu 
+muss der Quellcode von Graphite massiv angepasst werden, was zu einer sehr 
+guten Kenntnis des Systems vorraussetzt.
+
+
+Zusammengefasst:
+\begin{outline}
+  Positiv:
+  \1 Authentisierung, Authentifizierung und Autorisierung
+  \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
+  \1 Leichte Anpassungen an Graphen und Einstellungen möglich
+  \1 API Unterstützung
+  \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal 
+  abgespeichert werden
+  
+
+  Negativ:
+  \1 Keine Möglichkeit, leicht Plugins hinzuzufügen
+  \1 Webdesign kann nicht angepasst werden
+\end{outline}
+
 
 \paragraph{Zabbix-Frontend}
 \label{paragraph:zabbix-frontend}
+Zabbix-Frontend ist eine von Zabbix LCC entwickelte Softwarelösung, welche dem
+User/Administrator eine leichte und einfache Konfiguration von einzelnen 
+Graphen ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, wo
+viele Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur
+Erläuterungen von jedem Button enthalten sind.
+Das Zabbix-Frontend benötigt keinerlei Plugins, da hier bereits viele Funktionen
+in der eigentlichen Software enthalten ist. Plugins können dennoch in der 
+Programmiersprache Java entwickelt und implementiert werden. Es ist darauf
+ausgelegt, bei verschiedenen Events z.B. ein kritischer Festplattenstand wurde
+erreicht, eine Email an den Administrator oder weitere User zu versenden, 
+weshalb Zabbix sehr häufig gerade in großen Infrastrukturen zum Einsatz kommt.
+Die Anmeldung an der Weboberfläche kann wahlweise mit einem Lokalen User mit
+Benutzername und Kennwort oder mit einer LDAP Anbindung durchgeführt werden.
+So benötigt der Administrator, bzw. der User lediglich seine Active Directory
+Benutzerdaten zur Authentifizierung. Zabbix ist zudem mit API Abfragen
+kompatible, so können hier Graphen mit API Abfragen visualisiert werden. Sollte
+keine Abfrage über eine API gewünscht sein, so kann dies ebenfalls mittelts
+Statement direkt auf dem Datenhaltungssystem durchgeführt werden.
+Um die Datensicherheit und Ausfallsicherheit gewährleisten zu können, bietet
+Zabbix die Möglichkeit, einzelne Graphen mit Statements, wie auch das gesamte
+Dashboard exportieren und importieren zu können. 
 
 \paragraph{Datadog}
 \label{paragraph:datadog}
