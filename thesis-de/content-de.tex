@@ -1280,7 +1280,36 @@ Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
 
 \paragraph{Netdata}
 \label{paragraph:netdata}
+Netdata ist eine OpenSource Monitoring Softwarelösung. Es wurde von Costa
+Tsaousis entwickelt und bietet eine Umfangreiche Möglichkeit, Daten in Form von
+Graphen oder anderen Visualisierungen darzustellen. Der komplette Code steht
+auf GitHub, worüber auch die Community gepflegt wird. Andere Mitglieder der
+GitHub Community haben hier die Möglichkeit, Quelltext anzupassen und zu
+verändern, jedoch müssen diese von anderen Mitgliedern bestätigt werden. Es
+bietet nicht die Möglichkeit eine Authentifizierung auf der Weboberfläche 
+durchzuführen. Ebenso, werden alle Graphen, welche abgefragt werden auf einer
+Seite angezeigt, weshalb die Übersicht stark eingeschränkt ist. Graphen 
+können bei Netdata nicht einfach angepasst werden, da diese im Quellcode
+verändert und angepasst werden müssen. Das Netdata läuft ebenfalls nur auf Linux
+Oberflächen. Ein Support von Mircrosoft Windows ist hier nichtgeben. Zusätzlich
+kann hier nur jeweils eine Instanz überwacht werden. Vorteil ist hierbei, das 
+keine weitere Datenbank oder ähnliches benötigt wird.
 
+Zusammenfassung:
+\begin{outline}
+  Positiv:
+  \1 Es werden sämtliche Daten unmittelbar ohne Datenbank bereits visualisiert
+  \1 Gute inhaltliche Community
+  \1 Vollständige OpenSource Softwarelösung
+
+  Negativ:
+  \1 Sehr unübersichtlich vom Aufbau der Weboberfläche
+  \1 Authentisierung, Authentifizierung und Authorisierung kann nicht
+  gewährleistet werden
+  \1 Bietet keine API Unterstützung
+  \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
+  nicht gewährleistet  
+\end{outline}
 \mr%
 
 \section{Realisierung}
