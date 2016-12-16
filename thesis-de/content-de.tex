@@ -1122,7 +1122,7 @@ GitHub. Die vom Anwender erstellen Dashboards, mit allen Graphen und Statements,
 können vom System, wie auch vom Anwender selber auf einen Externen
 Dateifreigabe Server oder Lokal abgespeichert werden.
 
-Zusammengefasst:
+Zusammenfassung:
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
@@ -1131,6 +1131,7 @@ Zusammengefasst:
   \1 Dashboards können auf externen Server oder Lokal gesichert werden
   \1 API Unterstüzung
   \1 Plugin Erweiterung möglich (Java)
+  \1 OpenSource Softwarelösung
 
   Negativ:
   \1 Plugin Erweiterung nur in Programmiersprache Java möglich
@@ -1158,7 +1159,7 @@ muss der Quellcode von Graphite massiv angepasst werden, was zu einer sehr
 guten Kenntnis des Systems vorraussetzt.
 
 
-Zusammengefasst:
+Zusammenfassung:
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
@@ -1167,6 +1168,7 @@ Zusammengefasst:
   \1 API Unterstützung
   \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal 
   abgespeichert werden
+  \1 OpenSource Softwarelösung
   
 
   Negativ:
@@ -1199,8 +1201,71 @@ Um die Datensicherheit und Ausfallsicherheit gewährleisten zu können, bietet
 Zabbix die Möglichkeit, einzelne Graphen mit Statements, wie auch das gesamte
 Dashboard exportieren und importieren zu können. 
 
+
+Zusammenfassung:
+\begin{outline}
+  Positiv:
+  \1 Authentisierung, Authentifizierung und Autorisierung
+  \1 Gute inhaltliche Community und eine vielzahl an Dokumenten innerhalb
+  eines Wikis
+  \1 Leichte Anpassungen an Graphen und Einstellungen möglich
+  \1 API Unterstützung
+  \1 Dashboards und einzelne Graphen können auf externe Servern oder Lokal
+  abgespeichert werden
+  \1 Bringt bereits eine Softwarelösung mit, womit Daten von virtuellen
+  Maschinen exportiert werden können
+  \1 Benötigt keine Plugins
+  \1 Email Benachrichtigung bei bestimmten vordefinierten oder selbstdefinierten
+  Events
+  \1 OpenSource Softwarelösung
+  
+
+  Negativ:
+  \1 Keine Möglichkeit, das Webdesign anzupassen
+
+\end{outline}
 \paragraph{Datadog}
 \label{paragraph:datadog}
+Datadog ist ein von Oliver Pomel entwickelte Analysesoftware und wird bereits
+in großen Firmen, wie z.B. EA oder Citrix erfolgreich eingesetzt. Es ist nicht
+wie die anderen Software Lösungen ein OpenSource Produkt und wird in
+verschiedenen Lizenzen von der Anzahl der entsprechenden Hosts gestaffelt. Die 
+Basis Lizenz gibt es hier bereits kostenlos, jedoch können hier nur maximal
+5 Hosts abgefragt werden und die Daten werden maximal einen Tag zurückgehalten.
+Die teuerste Lizenz kostet hier 23 Doller und beinhaltet alle Host, welche
+der Kunde anbinden möchte. Zusätzlich bietet diese Lizenz einen Email, Chat oder
+Telefon Support. Dieser ist nicht in der Basis Lizenz vorhanden. 
+Graphen und auch Dashboards können in Datadog einfach vom Administrator erstellt
+werden. Um die Anmeldung an der Weboberfläche durchführen zu können, wird ein
+Benutzer und Kennwort benötigt. Es ist hier nicht möglich, ein LDAP an die
+Weboberfläche anbinden zu können. Innerhalb eines Graphen, können bestimmte 
+Teilabschnitte mit z.B. Social Media Plattformen, wie Facebook oder Twitter
+geteilt werden. Datadog bietet zudem eine Eventbasierte Mitteilungen, welche
+vom Administrator festgelegt werden können. Datadog hat eine vollständige API
+Unterstützung und Dashboards können vom Administrator Export werden. Eine
+Möglichkeit, Graphen zu exportieren bietet Datadog hier nicht. Die Community,
+wo viele Inhaltliche Dokumente enthalten sind, sind hier nur für Kunden 
+bestimmt, welche eine Pro Lizenz besitzen. Ebenso gibt es hier einen IRC 
+Channel, um direkt kontakt mit Support aufnehmen zu können.
+
+Zusammenfassung:
+\begin{outline}
+  Positiv:
+  \1 Authentisierung, Authentifizierung, Authorisierung
+  \1 Leichte Anpassung an Graphen, Dashboard und Einstellungen möglich
+  \1 API Unterstützung
+  \1 Gute inhaltliche Community, mit IRC Channel und Telefon Support (steht
+  nur in der Kauflizenz zu Verfügung)
+  \1 Benötigt keine zusätzlichen Plugins
+  \1 Teilabschnitte von Graphen können in Social Media Plattformen geteilt
+  werden
+
+  Negativ:
+  \1 Keine OpenSource Lizenzen. Lizenzen sind hier nach Anwendungsfall
+  gestaffelt
+  \1 Keine Anbindung an z.B. ein LDAP um eine Active Directory Anmeldung zu
+  ermöglichen
+\end{outline}
 
 \paragraph{Gridster-D3}
 \label{paragraph:gridster-d3}
