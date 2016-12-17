@@ -369,6 +369,41 @@ und keine neuen Strukturen erlernen muss.
 \nl%
 
 \subsection{Frontend}
+Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind, mit der
+Abfrage der Daten an dem Datenhaltungssystem und zum anderen mit der Ausgabe
+und Anzeige für den User bzw. dem Administrator. Eine Schnittstelle auf einem
+Webinterface dient in erster Linie zur Anzeige von Daten, die über ein anderes
+System(Backend) erhalten wurden. 
+
+Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
+welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
+Liefert der Weboberfläche alle nötigen Funktionen und Werkzeuge zur 
+Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
+Datenhaltungssystem. In der Ziellösung von diesem Projekt ist eine rein
+lesender Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird von
+dem Datenhaltungssystem-Administrator gewährleistet.
+
+Neben der verwendung eines Treibers in Verbindung mit einem Berechtigungs-
+konzept, kann auch ein API-System zum Einsatz kommen. Die Vorteile, sowie die
+Rolle dieses Systems innerhalb dieses projektes kann aus
+Punkt~\ref{subsec:schnittstelle_datenbereitstellung} entnommen werden.
+
+Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
+Datenhaltungssystem erhaltene Daten. Ohne diese Schnittstelle, würden
+Anwender, welche mit der Weboberfläche arbeiten möchten nur unstrukturierte 
+Daten erhalten und könnten diese nicht zur weiteren Analyse verwenden.
+Der Anwender erhält somit einen direkten und schnellen Überblick in Form eines
+Graphen~\ref{definition_eines_graphen} oder Diagramm über die gesamten
+Datenressourcen der Infrastruktur. Diese können bei Bedarf vom Anwender oder
+dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können  
+anschließend Personen aus z.B. der Führungsebene, welche keinen direkten
+Zugriff auf das System besitzen, Analysen oder Statistiken durchführen.
+Die Übertragung der Ausgabe der Daten, bzw. das Aufrufen der
+Weboberfläche wird über ein gesichertes Übertragungsprotokoll mit HTTPS
+realisiert. Dies dient zum einem für die Verschlüsselung der Verbindung von
+Client zu Weboberfläche und zurück, als auch damit die Weboberfläche selber 
+Authentifiziert werden kann.
+\mr%
 
 \section{Analyse von Softwarekomponenten}
 \subsection{Datenerfassungssysteme}
