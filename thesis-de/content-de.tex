@@ -1099,28 +1099,32 @@ Anforderungen und Evaluierungsergebnissen aufgelistet:
 Grafana ist eine von Torkel Ödegaard & Raintank Inc Entwickelte OpenSource
 Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen noch
 weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
-Datenhaltungssystem, wie z.B. influxDB zusammen und ist Multi Tenant fähig.
-Dies bedeutet, dass sowohl ein LDAP als auch eine Benutzernamen plus Kennwort
-Lösung eingesetzt werden kann. Somit können z.B. Personen aus der Führungsebene
-Eingeschränkte Zugriffe aus das System erhalten, um hier Analysen oder
-Marketing Statistiken durchführen zu können. Zusätzliche zu der Abfrage mit
-Benutzernamen und Kennwort zur Anmeldung auf die Grafana Weboberfläche, ist 
-Grafana API fähig, dies bedeutet, dass das Datenhaltungssystem API Statements
-zur Verfügung stellen können und hiermit Graphen visualisieren kann. Grafana
-kann ebenfalls auch über einfache Statements auf das Datenhaltungssystem die
-Daten abgreifen. Es wird keine Lizenz für Grafana benötigt, wodurch der
-Quellcode angepasst und verändert werden darf. Dies bedarf z.B. bei Anpassungen
-an bestimmte Kundenumgebungen. Zusätzlich zu dem Quellcode, können hier
-zusätzliche Plugins in der Porgrammiersprache Java entwickelt und in das System
-eingepflegt werden, wenn hier weitere Graphen, Analysen oder ähnlichem benötigt
-werden. Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten
-zur Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
-GitHub veröffentlicht, somit haben auch andere Mitglieder von GitHub, die 
-Möglichkeit, das Produkt zu verbessern und neue Funktionen zu implementieren.
-Dies bedarf lediglich die Zustimmung, durch die Mitglieder des Produktes auf
-GitHub. Die vom Anwender erstellen Dashboards, mit allen Graphen und Statements,
-können vom System, wie auch vom Anwender selber auf einen Externen
-Dateifreigabe Server oder Lokal abgespeichert werden.
+Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere unterschiedliche
+Benutzer können sich an der Weboberfläche anmelden. Dies bedeutet, dass ein
+Login an der Weboberfläche über ein Active Directory Konto oder Lokalem Benutzer 
+plus Kennwort Kombination durchgeführt werden kann. Somit können zum Beispiel Mitarbeiter
+aus der Führungsebene Eingeschränkte Zugriffe auf das System erhalten, um hier
+zum Beispiel Marketing Statistiken durchführen zu können. Zusätzliche zu der
+Abfrage mit Benutzernamen und Kennwort zur Anmeldung auf die Grafana
+Weboberfläche, ist Grafana API~\ref{subsec:schnittstelle_datenbereitstellung}
+fähig, dies bedeutet, dass das Datenhaltungssystem API Statements zur
+Verfügung stellen können und hiermit Graphen visualisieren kann. Grafana kann
+über einem Datenbanktreiber oder einer Schnitstelle in Form eines Treibers,
+einfache Statements auf das Datenhaltungssystem durchführen, um die Daten
+abzugreifen. Es ist zusätzlich eine OpenSource Software, wodurch der Quellcode
+angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
+an bestimmte Kundenumgebungen. Dadurch entstehen auch keine Supportkosten, da
+die Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode,
+können hier Plugins zur Erweiterung der Software in der Porgrammiersprache Java
+entwickelt und in das System eingepflegt werden. Dies wird zum Beispiel dann
+benötigt, wenn weitere Graphen, Analysen oder ähnlichem benötigt werden.
+Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
+Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
+veröffentlicht, somit haben auch andere Mitglieder von GitHub, die Möglichkeit,
+das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
+Anwender erstellen Dashboards, mit allen Graphen und Statements, können vom
+System, wie auch vom Anwender selber auf einen externen Dateifreigabe Server
+oder Lokal abgespeichert werden.
 
 Zusammenfassung:
 \begin{outline}
@@ -1146,17 +1150,19 @@ gehört zu einer der meist eigesetzten Softwarelösungen im Bereich Monitoring
 und Visualisierung. Graphite ist wie auch Grafana eine Open Source Lösung und
 ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es 
 verfügt über eine inhaltlich gute und umfangreiche Community, mit einer eigenem
-Wiki Board, wo alle relevatnen Dokumentationen enthalten sind. Graphen können
-leicht mittelts Statements über eine API oder direkt an das
+Wiki Board, wo alle relevanten Dokumentationen enthalten sind. Graphen können
+leicht mittelts Statements über eine
+API~\ref{subsec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
 Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche,
 mittels Benutzername und Kennwort oder LDAP Anbindung ist ebenfalls möglich.
-Es können einzelnen Graphen, wie auch das gesamte Dshboard auf externe Server
-oder Lokal abgespeichert werden um hier ein Verlust von den einzelnen Graphen
-vorbeugen zu können. Graphite ist wie auch Grafana kompatibel zu TimeSeries
-Datenhaltungssystemen. Es bietet keine einfache Möglichkeit, weitere
-Plugins hinzufügen zu können, wie es beispielsweise Grafana dies kann. Hierzu 
-muss der Quellcode von Graphite massiv angepasst werden, was zu einer sehr 
-guten Kenntnis des Systems vorraussetzt.
+Es können einzelne Graphen, wie auch das gesamte Dashboard auf externe Server
+oder Lokal abgespeichert werden um einen Verlust von einzelnen Graphen
+vorbeugen zu können. Graphite ist wie auch Grafana~\ref{paragraph:grafana}
+kompatibel zu TimeSeries Datenhaltungssystemen. Es bietet keine einfache
+Möglichkeit, weitere Plugins hinzufügen zu können, wie es beispielsweise
+Grafana~\ref{paragraph:grafana} dies kann. Hierzu muss der Quellcode von
+Graphite massiv angepasst werden, was zu einer sehr guten Kenntnis des Systems
+vorraussetzt.
 
 
 Zusammenfassung:
@@ -1181,25 +1187,25 @@ Zusammenfassung:
 \label{paragraph:zabbix-frontend}
 Zabbix-Frontend ist eine von Zabbix LCC entwickelte Softwarelösung, welche dem
 User/Administrator eine leichte und einfache Konfiguration von einzelnen 
-Graphen ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, wo
-viele Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur
-Erläuterungen von jedem Button enthalten sind.
-Das Zabbix-Frontend benötigt keinerlei Plugins, da hier bereits viele Funktionen
-in der eigentlichen Software enthalten ist. Plugins können dennoch in der 
-Programmiersprache Java entwickelt und implementiert werden. Es ist darauf
-ausgelegt, bei verschiedenen Events z.B. ein kritischer Festplattenstand wurde
-erreicht, eine Email an den Administrator oder weitere User zu versenden, 
-weshalb Zabbix sehr häufig gerade in großen Infrastrukturen zum Einsatz kommt.
-Die Anmeldung an der Weboberfläche kann wahlweise mit einem Lokalen User mit
-Benutzername und Kennwort oder mit einer LDAP Anbindung durchgeführt werden.
-So benötigt der Administrator, bzw. der User lediglich seine Active Directory
-Benutzerdaten zur Authentifizierung. Zabbix ist zudem mit API Abfragen
+Graphen ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, in
+der viele Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur
+Erläuterungen von jedem Button enthalten sind. Das Zabbix-Frontend benötigt
+keinerlei Plugins, da hier bereits viele Funktionen in der eigentlichen Software
+enthalten ist. Plugins können dennoch in der Programmiersprache Java entwickelt
+und implementiert werden. Es ist darauf ausgelegt, bei verschiedenen Events zum
+Beispiel ein kritischer Festplattenstand wurde erreicht, eine Email an den
+Administrator oder weitere User zu versenden, weshalb Zabbix sehr häufig gerade
+in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche
+kann wahlweise mit einem lokalen User mit Benutzername und Kennwort oder mit
+einer LDAP Anbindung durchgeführt werden. So benötigt der Administrator, bzw.
+der User lediglich seine Active Directory Benutzerdaten zur Authentifizierung.
+Zabbix ist zudem mit API~\ref{subsec:schnittstelle_datenbereitstellung} Abfragen
 kompatible, so können hier Graphen mit API Abfragen visualisiert werden. Sollte
 keine Abfrage über eine API gewünscht sein, so kann dies ebenfalls mittelts
-Statement direkt auf dem Datenhaltungssystem durchgeführt werden.
-Um die Datensicherheit und Ausfallsicherheit gewährleisten zu können, bietet
-Zabbix die Möglichkeit, einzelne Graphen mit Statements, wie auch das gesamte
-Dashboard exportieren und importieren zu können. 
+Statement direkt auf dem Datenhaltungssystem durchgeführt werden. Um die
+Datensicherheit und Ausfallsicherheit gewährleisten zu können, bietet Zabbix die
+Möglichkeit, einzelne Graphen mit Statements, wie auch das gesamte Dashboard
+exportieren und importieren zu können. 
 
 
 Zusammenfassung:
@@ -1227,26 +1233,28 @@ Zusammenfassung:
 \paragraph{Datadog}
 \label{paragraph:datadog}
 Datadog ist ein von Oliver Pomel entwickelte Analysesoftware und wird bereits
-in großen Firmen, wie z.B. EA oder Citrix erfolgreich eingesetzt. Es ist nicht
-wie die anderen Software Lösungen ein OpenSource Produkt und wird in
-verschiedenen Lizenzen von der Anzahl der entsprechenden Hosts gestaffelt. Die 
-Basis Lizenz gibt es hier bereits kostenlos, jedoch können hier nur maximal
-5 Hosts abgefragt werden und die Daten werden maximal einen Tag zurückgehalten.
-Die teuerste Lizenz kostet hier 23 Doller und beinhaltet alle Host, welche
-der Kunde anbinden möchte. Zusätzlich bietet diese Lizenz einen Email, Chat oder
-Telefon Support. Dieser ist nicht in der Basis Lizenz vorhanden. 
-Graphen und auch Dashboards können in Datadog einfach vom Administrator erstellt
-werden. Um die Anmeldung an der Weboberfläche durchführen zu können, wird ein
-Benutzer und Kennwort benötigt. Es ist hier nicht möglich, ein LDAP an die
-Weboberfläche anbinden zu können. Innerhalb eines Graphen, können bestimmte 
-Teilabschnitte mit z.B. Social Media Plattformen, wie Facebook oder Twitter
-geteilt werden. Datadog bietet zudem eine Eventbasierte Mitteilungen, welche
-vom Administrator festgelegt werden können. Datadog hat eine vollständige API
-Unterstützung und Dashboards können vom Administrator Export werden. Eine
-Möglichkeit, Graphen zu exportieren bietet Datadog hier nicht. Die Community,
-wo viele Inhaltliche Dokumente enthalten sind, sind hier nur für Kunden 
-bestimmt, welche eine Pro Lizenz besitzen. Ebenso gibt es hier einen IRC 
-Channel, um direkt kontakt mit Support aufnehmen zu können.
+in großen Firmen, wie zum Beispiel EA oder Citrix erfolgreich eingesetzt. Es
+ist nicht wie die anderen Software Lösungen ein OpenSource Produkt und wird in
+verschiedenen Lizenzen von der Anzahl der entsprechenden Virtuellen Instanzen,
+welcher abgegriffen werden sollen gestaffelt. Die Basis Lizenz gibt es hier
+bereits kostenlos, jedoch können hier nur maximal 5 Virtuelle Instanzen
+abgefragt werden und die Daten werden maximal einen Tag zurückgehalten. Die
+teuerste Lizenz kostet hier 23 Doller und beinhaltet alle Host, welche der Kunde
+anbinden möchte. Zusätzlich bietet diese Lizenz einen Email, Chat oder Telefon
+Support. Dieser ist nicht in der Basis Lizenz vorhanden. Graphen und auch
+Dashboards können in Datadog einfach vom Administrator erstellt werden. Um die
+Anmeldung an der Weboberfläche durchführen zu können, wird ein Benutzer und
+Kennwort benötigt. Es ist hier nicht möglich, ein LDAP an die Weboberfläche
+anbinden zu können. Innerhalb eines Graphen, können bestimmte Teilabschnitte mit
+zum Beispiel Social Media Plattformen, wie Facebook oder Twitter geteilt werden.
+Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom Administrator
+festgelegt werden können. Datadog hat eine vollständige
+API~\ref{subsec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
+können vom Administrator Export werden. Eine Möglichkeit, Graphen zu exportieren
+bietet Datadog hier nicht. Die Community, wo viele Inhaltliche Dokumente
+enthalten sind, sind hier nur für Kunden bestimmt, welche eine Pro Lizenz
+besitzen. Ebenso gibt es hier einen IRC Channel, um direkt Kontakt mit Support
+aufnehmen zu können.
 
 Zusammenfassung:
 \begin{outline}
@@ -1281,8 +1289,8 @@ Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
 \paragraph{Netdata}
 \label{paragraph:netdata}
 Netdata ist eine OpenSource Monitoring Softwarelösung. Es wurde von Costa
-Tsaousis entwickelt und bietet eine Umfangreiche Möglichkeit, Daten in Form von
-Graphen oder anderen Visualisierungen darzustellen. Der komplette Code steht
+Tsaousis entwickelt und bietet eine umfangreiche Möglichkeit, Daten in Form von
+Graphen oder anderen Visualisierungen darzustellen. Der vollständige Code steht
 auf GitHub, worüber auch die Community gepflegt wird. Andere Mitglieder der
 GitHub Community haben hier die Möglichkeit, Quelltext anzupassen und zu
 verändern, jedoch müssen diese von anderen Mitgliedern bestätigt werden. Es
@@ -1291,9 +1299,10 @@ durchzuführen. Ebenso, werden alle Graphen, welche abgefragt werden auf einer
 Seite angezeigt, weshalb die Übersicht stark eingeschränkt ist. Graphen 
 können bei Netdata nicht einfach angepasst werden, da diese im Quellcode
 verändert und angepasst werden müssen. Das Netdata läuft ebenfalls nur auf Linux
-Oberflächen. Ein Support von Mircrosoft Windows ist hier nichtgeben. Zusätzlich
-kann hier nur jeweils eine Instanz überwacht werden. Vorteil ist hierbei, das 
-keine weitere Datenbank oder ähnliches benötigt wird.
+Oberflächen. Ein Support von Mircrosoft Windows ist hier unterstützt. Ein klarer
+Nachteil ist allerdings, das diese Softwarelösung jeweils nur eine Instanz
+gleichzeitig überwachen kann und der Vorteil bei Netdata, das kein weiteres
+Datenhaltungssystem oder ähnliches benötigt wird.
 
 Zusammenfassung:
 \begin{outline}
