@@ -189,7 +189,7 @@ gebündelt zu verschicken.
 \subsubsection{Datenhaltungssystem}
 Die Anforderung an das Datenhaltungssystem wurde einfach gehalten. Zunächst
 muss es für das abspeichern von mehreren tausend Datensätzen in der Sekunde
-ausgelegt sein. Innerhalb des Projektes wird mit 10.000 Datensätzen pro 
+ausgelegt sein. Innerhalb des Projektes wird mit 10.000 Datensätzen pro
 Sekunde gerechnet und getestet, dies ist auf den Anforderungen des
 Auftraggebers aufgebaut. Gleichzeitig muss das Datenhaltungssystem über
 Analysewerkzeuge verfügen, sodass auf den gespeicherten Daten eine Logik
@@ -201,7 +201,7 @@ im Gesamtsystem bilden und im Falle von einem Ausfall der beiden anderen
 Softwarekomponenten die Informationen weiterhin sicher und vollständig zur
 Verfügung stellen können. Eine konkretisierte Anforderungsübersicht an das
 Datenhaltungssystem kann aus Punkt~\ref{subsec:datenhaltungssystem} entnommen
-werden. 
+werden.
 
 \subsubsection{Frontends}
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
@@ -327,7 +327,7 @@ erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
 Das Datenhaltungssystem, sowie die mit inbegriffene API ist eine zentrale
 Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
 welches nur über die Informationen eines einzelnen physischen Servers verfügt,
-besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen 
+besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen
 Informationsquellen. Darunter fallen zunächst alle am System angebundenen
 physischen Server, welche aktiv die Nutzungsdaten an das Datenhaltungsystem
 liefern. Jedoch kann dies auf Wunsch des jeweiligen Kunden auch um weitere
@@ -344,23 +344,23 @@ oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
 erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
 nach den Datenformaten des JSON oder XML aufgebaut ist. Die beiden Datenformate
 sind die weitverbreitesten Formate auf dem Markt und können in vielen
-Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden werden. 
+Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden werden.
 Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
 Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering,
-da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist 
+da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist
 und keine neuen Strukturen erlernen muss.
 \nl%
 
 \subsection{Frontend}
 Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind, mit der
 Abfrage der Daten an dem Datenhaltungssystem und zum anderen mit der Ausgabe
-und Anzeige für den User beziehungsweise dem Administrator. Eine Schnittstelle auf einem
-Webinterface dient in erster Linie zur Anzeige von Daten, die über ein anderes
-System(Backend) erhalten wurden. 
+und Anzeige für den User beziehungsweise dem Administrator. Eine Schnittstelle
+auf einem Webinterface dient in erster Linie zur Anzeige von Daten, die über
+ein anderes System(Backend) erhalten wurden.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
-Liefert der Weboberfläche alle nötigen Funktionen und Werkzeuge zur 
+Liefert der Weboberfläche alle nötigen Funktionen und Werkzeuge zur
 Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
 Datenhaltungssystem. In der Ziellösung von diesem Projekt ist eine rein
 lesender Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird von
@@ -372,19 +372,19 @@ Rolle dieses Systems innerhalb dieses projektes kann aus
 Punkt~\ref{subsec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
-Datenhaltungssystem erhaltene Daten. Ohne diese Schnittstelle, würden
-Anwender, welche mit der Weboberfläche arbeiten möchten nur unstrukturierte 
-Daten erhalten und könnten diese nicht zur weiteren Analyse verwenden.
-Der Anwender erhält somit einen direkten und schnellen Überblick in Form eines
+Datenhaltungssystem erhaltene Daten. Ohne diese Schnittstelle, würden Anwender,
+welche mit der Weboberfläche arbeiten möchten nur unstrukturierte Daten
+erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
+erhält somit einen direkten und schnellen Überblick in Form eines
 Graphen~\ref{definition_eines_graphen} oder Diagramm über die gesamten
 Datenressourcen der Infrastruktur. Diese können bei Bedarf vom Anwender oder
-dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können  
+dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können
 anschließend Personen aus z.B. der Führungsebene, welche keinen direkten
-Zugriff auf das System besitzen, Analysen oder Statistiken durchführen.
-Die Übertragung der Ausgabe der Daten, beziehungsweise das Aufrufen der
+Zugriff auf das System besitzen, Analysen oder Statistiken durchführen. Die
+Übertragung der Ausgabe der Daten, beziehungsweise das Aufrufen der
 Weboberfläche wird über ein gesichertes Übertragungsprotokoll mit HTTPS
 realisiert. Dies dient zum einem für die Verschlüsselung der Verbindung von
-Client zu Weboberfläche und zurück, als auch damit die Weboberfläche selber 
+Client zu Weboberfläche und zurück, als auch damit die Weboberfläche selber
 Authentifiziert werden kann.
 \mr%
 
@@ -699,7 +699,7 @@ Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
 englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses System
 definiert eigenständig den Austausch von Informationen zwischen den einzelnen
 Nodes. Es definiert dabei auch zu welchem Tageszeitpunkt einzelne Aufgaben
-erfüllt werden sollen. Diese Definitionen werden automatisch erstellt und 
+erfüllt werden sollen. Diese Definitionen werden automatisch erstellt und
 durchgeführt, jedoch kann dies auch von einer Person manuell eingestellt und
 verwaltet werden.
 
@@ -750,7 +750,7 @@ zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im
 Land verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
 Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-,
 Transformations- und Ladeprozesses (ETL) wurden die unterschiedlich
-abgespeicherten Informationen von jedem einzelnen Kassensystems ausgelesen, 
+abgespeicherten Informationen von jedem einzelnen Kassensystems ausgelesen,
 dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
 Data Warehouse angepasst und anschließend die vollständig
 Speicherung im System gewährleistet.
@@ -789,7 +789,7 @@ Implementierung wie in Punkt~\ref{paragraph:hadoop_beschreibung}. Apache Impala
 stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine spezialisierte
 Abfragesprache auf Basis von ``SQL''. Apache Impala arbeitet auf den
 konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
-Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen 
+Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen
 kommt dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von
 Apache Hive Eins-zu-eins übernehmen und ausführen.
 
@@ -813,7 +813,7 @@ gesamte Prozess ist abgeschlossen.
 Durch das nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
 gleichzeitigem Hadoop Map Reduce werden die Datenabfragen um ein vielfaches
 verschnellert. Dadurch das diese Verschnellerung durch mehrere Faktoren
-beeinflusst wird, kann keine exakte Angabe der Performanceverbesserung 
+beeinflusst wird, kann keine exakte Angabe der Performanceverbesserung
 geliefert werden. Diese Faktoren sind zum Beispiel die Schreibweise der
 SQL-Syntax, da ein nicht optimierter Code die Performanceverbesserung
 wieder mindern kann. Fakt ist jedoch, dass der Einsatz von Apache Impala
@@ -1115,34 +1115,34 @@ Anforderungen und Evaluierungsergebnissen aufgelistet:
 \paragraph{Grafana}
 \label{paragraph:grafana}
 Grafana ist eine von Torkel Ödegaard \& Raintank Inc Entwickelte OpenSource
-Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen noch
-weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
+Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen
+noch weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
 Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere unterschiedliche
 Benutzer können sich an der Weboberfläche anmelden. Dies bedeutet, dass ein
-Login an der Weboberfläche über ein Active Directory Konto oder Lokalem Benutzer 
-plus Kennwort Kombination durchgeführt werden kann. Somit können zum Beispiel Mitarbeiter
-aus der Führungsebene Eingeschränkte Zugriffe auf das System erhalten, um hier
-zum Beispiel Marketing Statistiken durchführen zu können. Zusätzliche zu der
-Abfrage mit Benutzernamen und Kennwort zur Anmeldung auf die Grafana
-Weboberfläche, ist Grafana API~\ref{subsec:schnittstelle_datenbereitstellung}
-fähig, dies bedeutet, dass das Datenhaltungssystem API Statements zur
-Verfügung stellen können und hiermit Graphen visualisieren kann. Grafana kann
-über einem Datenbanktreiber oder einer Schnitstelle in Form eines Treibers,
-einfache Statements auf das Datenhaltungssystem durchführen, um die Daten
-abzugreifen. Es ist zusätzlich eine OpenSource Software, wodurch der Quellcode
-angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen. Dadurch entstehen auch keine Supportkosten, da
-die Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode,
-können hier Plugins zur Erweiterung der Software in der Porgrammiersprache Java
-entwickelt und in das System eingepflegt werden. Dies wird zum Beispiel dann
-benötigt, wenn weitere Graphen, Analysen oder ähnlichem benötigt werden.
-Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
-Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
-veröffentlicht, somit haben auch andere Mitglieder von GitHub, die Möglichkeit,
-das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
-Anwender erstellen Dashboards, mit allen Graphen und Statements, können vom
-System, wie auch vom Anwender selber auf einen externen Dateifreigabe Server
-oder Lokal abgespeichert werden.
+Login an der Weboberfläche über ein Active Directory Konto oder Lokalem
+Benutzer plus Kennwort Kombination durchgeführt werden kann. Somit können zum
+Beispiel Mitarbeiter aus der Führungsebene Eingeschränkte Zugriffe auf das
+System erhalten, um hier zum Beispiel Marketing Statistiken durchführen zu
+können. Zusätzliche zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldung
+auf die Grafana Weboberfläche, ist Grafana
+API~\ref{subsec:schnittstelle_datenbereitstellung} fähig, dies bedeutet, dass
+das Datenhaltungssystem API Statements zur Verfügung stellen können und hiermit
+Graphen visualisieren kann. Grafana kann über einem Datenbanktreiber oder einer
+Schnitstelle in Form eines Treibers, einfache Statements auf das
+Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
+eine OpenSource Software, wodurch der Quellcode angepasst und verändert werden
+darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte Kundenumgebungen.
+Dadurch entstehen auch keine Supportkosten, da die Software nicht als ein
+Dienst angeboten wird. Zusätzlich zu dem Quellcode, können hier Plugins zur
+Erweiterung der Software in der Porgrammiersprache Java entwickelt und in das
+System eingepflegt werden. Dies wird zum Beispiel dann benötigt, wenn weitere
+Graphen, Analysen oder ähnlichem benötigt werden.  Grafana hat eine stetig
+wachsende Community mit sämtlichen Dokumenten zur Einrichtung oder Erweiterung
+des Systems. Der gesamte Quellcode ist auf GitHub veröffentlicht, somit haben
+auch andere Mitglieder von GitHub, die Möglichkeit, das Produkt zu verbessern
+und neue Funktionen zu implementieren. Die vom Anwender erstellen Dashboards,
+mit allen Graphen und Statements, können vom System, wie auch vom Anwender
+selber auf einen externen Dateifreigabe Server oder Lokal abgespeichert werden.
 
 Zusammenfassung:
 \begin{outline}
@@ -1166,7 +1166,7 @@ Zusammenfassung:
 Die Softwarelösung Graphite, wurde von Chris Davis im Jahr 2006 Entwickelt und
 gehört zu einer der meist eigesetzten Softwarelösungen im Bereich Monitoring
 und Visualisierung. Graphite ist wie auch Grafana eine Open Source Lösung und
-ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es 
+ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es
 verfügt über eine inhaltlich gute und umfangreiche Community, mit einer eigenem
 Wiki Board, wo alle relevanten Dokumentationen enthalten sind. Graphen können
 leicht mittelts Statements über eine
@@ -1190,10 +1190,10 @@ Zusammenfassung:
   \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 API Unterstützung
-  \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal 
+  \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal
   abgespeichert werden
   \1 OpenSource Softwarelösung
-  
+
 
   Negativ:
   \1 Keine Möglichkeit, leicht Plugins hinzuzufügen
@@ -1204,26 +1204,27 @@ Zusammenfassung:
 \paragraph{Zabbix-Frontend}
 \label{paragraph:zabbix-frontend}
 Zabbix-Frontend ist eine von Zabbix LCC entwickelte Softwarelösung, welche dem
-User/Administrator eine leichte und einfache Konfiguration von einzelnen 
+User/Administrator eine leichte und einfache Konfiguration von einzelnen
 Graphen ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, in
 der viele Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur
 Erläuterungen von jedem Button enthalten sind. Das Zabbix-Frontend benötigt
-keinerlei Plugins, da hier bereits viele Funktionen in der eigentlichen Software
-enthalten ist. Plugins können dennoch in der Programmiersprache Java entwickelt
-und implementiert werden. Es ist darauf ausgelegt, bei verschiedenen Events zum
-Beispiel ein kritischer Festplattenstand wurde erreicht, eine Email an den
-Administrator oder weitere User zu versenden, weshalb Zabbix sehr häufig gerade
-in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche
-kann wahlweise mit einem lokalen User mit Benutzername und Kennwort oder mit
-einer LDAP Anbindung durchgeführt werden. So benötigt der Administrator, beziehungsweise
-der User lediglich seine Active Directory Benutzerdaten zur Authentifizierung.
-Zabbix ist zudem mit API~\ref{subsec:schnittstelle_datenbereitstellung} Abfragen
-kompatible, so können hier Graphen mit API Abfragen visualisiert werden. Sollte
-keine Abfrage über eine API gewünscht sein, so kann dies ebenfalls mittelts
-Statement direkt auf dem Datenhaltungssystem durchgeführt werden. Um die
-Datensicherheit und Ausfallsicherheit gewährleisten zu können, bietet Zabbix die
-Möglichkeit, einzelne Graphen mit Statements, wie auch das gesamte Dashboard
-exportieren und importieren zu können. 
+keinerlei Plugins, da hier bereits viele Funktionen in der eigentlichen
+Software enthalten ist. Plugins können dennoch in der Programmiersprache Java
+entwickelt und implementiert werden. Es ist darauf ausgelegt, bei verschiedenen
+Events zum Beispiel ein kritischer Festplattenstand wurde erreicht, eine Email
+an den Administrator oder weitere User zu versenden, weshalb Zabbix sehr häufig
+gerade in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der
+Weboberfläche kann wahlweise mit einem lokalen User mit Benutzername und
+Kennwort oder mit einer LDAP Anbindung durchgeführt werden. So benötigt der
+Administrator, beziehungsweise der User lediglich seine Active Directory
+Benutzerdaten zur Authentifizierung.  Zabbix ist zudem mit
+API~\ref{subsec:schnittstelle_datenbereitstellung} Abfragen kompatible, so
+können hier Graphen mit API Abfragen visualisiert werden. Sollte keine Abfrage
+über eine API gewünscht sein, so kann dies ebenfalls mittelts Statement direkt
+auf dem Datenhaltungssystem durchgeführt werden. Um die Datensicherheit und
+Ausfallsicherheit gewährleisten zu können, bietet Zabbix die Möglichkeit,
+einzelne Graphen mit Statements, wie auch das gesamte Dashboard exportieren und
+importieren zu können.
 
 
 Zusammenfassung:
@@ -1242,7 +1243,7 @@ Zusammenfassung:
   \1 Email Benachrichtigung bei bestimmten vordefinierten oder selbstdefinierten
   Events
   \1 OpenSource Softwarelösung
-  
+
 
   Negativ:
   \1 Keine Möglichkeit, das Webdesign anzupassen
@@ -1335,7 +1336,7 @@ Zusammenfassung:
   gewährleistet werden
   \1 Bietet keine API Unterstützung
   \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
-  nicht gewährleistet  
+  nicht gewährleistet
 \end{outline}
 \mr%
 
@@ -1383,11 +1384,11 @@ Name der Story: Visualisierung der erhaltenen Daten zur weiteren Verwendung
 Beschreibung: Dem Administrator oder dem User soll es ermöglicht werden, eine
 visualisierte Ausgabe in Form von Graphen zu erhalten. Diese sollen Aufschluss
 über die Auslastung der einzelnen Systeme geben können.
-Akzeptanzkriterien: 
+Akzeptanzkriterien:
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
   \1 Zeitspanne von der Visualisierung kann über den Benutzer angepasst werden
-  \1 Die Graphen welche Visualisiert wurden können vom Benutzer individuell 
+  \1 Die Graphen welche Visualisiert wurden können vom Benutzer individuell
   angepasst werden
 \end{outline}
 \mr%
