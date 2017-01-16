@@ -618,7 +618,7 @@ Elasticsearch erlaubt es, als verteiltes Cluster betrieben zu werden. Hierfür
 werden mindestens zwei Server benötigt. Eingehende Daten werden in Indexe
 aufgeteilt, dies ist eine logische gruppierung basierend auf der Charakteristik
 der Daten. Zum Beispiel kan man alle gemessenen Metriken charakterisieren
-anhand des Quellservers auf dem sie ermittelt wurden oder auch anhand des 
+anhand des Quellservers auf dem sie ermittelt wurden oder auch anhand des
 Typs (Festplattenauslastung, CPU Auslastung). Jeder Index kann in einzelne
 Subgruppen aufgeteilt werden (Shards genannt). Jedes Shard kann auf einem
 anderen Server gespeichert werden. Das Schreiben in die Shards sowie Lesen aus
@@ -631,6 +631,77 @@ aktives Shard gemacht werden. Die Anzahl der Replikas pro Shard und deren
 Verteilung kann im laufenden Betrieb geändert werden. Somit erreicht man ein
 hochverfügbares Setup welches im laufenden Betrieb um neue Server erweitert
 werden kann~\cite{es_concepts}.
+
+Mit \gls{Jepsen} wurde Elasticsearch mehrfach untersucht~\cite{es_jepsen_all}.
+Nach dem ersten Test im Jahr 2014 hat Elasticsearch BV eine Übersichtsseite
+erstellt mit allen offenen Problemen und Szenarien die zu Datenverlust führen
+können~\cite{es_resiliency}. Die wenigsten Hersteller und Communitys gehen so
+offen mit Problemen um.
+
+Der letzte Jepsen Test zeigt leider, dass Elasticsearch immernoch Probleme bei
+Netzwerkausfällen und starker Systemlas hat~\cite{jepsen_elastic}. Aufgrund der
+Größe solcher Setups ist es üblich, das jeder Node im Cluster über zwei
+Netzwerkverbindungen verfügt. Eine davon ist zur internen Clusterkommunikation
+und zum verteilen der Replikas, die andere für die Kommunikation mit der
+Aussenwelt (bereitstellung der RESTful Schnittstelle).
+
+Gegeben ist ein Teilausfall des internen Netzwerks (zum Beispiel ein
+Kabelbruch)
+
+\begin{outline}
+  \1 Die Nodes merken, das einer von Ihnen nicht erreichbar ist
+  \1 Replikas der fehlenden Shards werden aktiv gesetzt
+  \1 Das Cluster nimt weiter Daten an, sofern Replikas zur Verfügung stehen
+  \1 Elasticsearch meldet, dass die neuen Daten erfolgreich geschrieben wurden
+  \1 Die neuen Daten wurden nicht geschrieben und sind verloren
+\end{outline}
+
+Dieses Verhalten ist mit dem Jepsen Test reproduzierbar~\cite{es_jepsen_iso}.
+Wärend Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt
+werden neue Daten weiterhin über die RESTful Schnittstelle angenommen und dann
+ohne Rückmeldung verworfen.
+
+Ein weiteres Problem ist das Verhalten von Elasticsearch unter hoher Systemlast.
+Ein Prozess unter Linux kann pausiert und wieder gestartet werden. Ein Node
+kann dazwischen deaktiviert werden. Hierfür gibt es verschiedene Gründe, zum
+Beispiel eine defekte Netzwerkverbindung oder eine absichtliche Abschaltung
+durch den Administrator weil er Wartungsarbeiten durchführen möchte.
+
+\begin{outline}
+  \1 Elasticsearch Prozess wird pausiert
+  \1 Das Cluster detektiert ein Netzwerkproblem zwischen dem Cluster und dem
+  pausierten Node
+  \1 Der pausierte Node wird im Cluster deaktiviert
+  \1 Der Prozess wird wieder gestartet
+  \1 Der Prozess prüft nicht, ob er noch aktiv ist für seine Shards
+  \1 Der Prozess akzeptiert eingehende Schreibanfragen über die RESTful
+  Schnitstelle und updated seine Shards
+  \ Der Prozess meldet zurück, dass er die Daten erfolgreich geschrieben hat
+  \1 Sobald das Netzwerkproblem behoben ist erhält der Node Anweisungen aus dem
+  Cluster um seine Shards auf den Stand der kopien im Netzwerk zu bringen und
+  verwirft was er selbst geschrieben hat
+\end{outline}
+
+Eine Pausierung passiert unter zwei Umständen. Der \gls{Garbage Collector}
+macht dies in regelmäßigen Abständen um den belegten Arbeitsspeicher nach nicht
+mehr benötigten Objekten zu scannen und den Speicher dann freizugeben. Der
+Garbage Collector pausiert nur für wenige Millisekunden, ein Datenverlust ist
+hier aufgrund des Zeitfenster unwahrscheinlich. Der Linux Kernel pausiert
+ebenfalls Prozesse, nämlich wenn ein System unter sehr hoher Last ist.  Wenn
+die Hardware am Rand der Leistungsgrenze arbeitet und der Kernel einen Absturz
+erwartet weil die Hardware bald überfordet ist, dann kann er einzelne Prozesse
+kurzzeitig pausieren.
+
+Dieser Datenverlust ist ebenfalls mit einem Jepsen-Test
+reproduzierbar~\cite{es_jepsen_pause}. In großen Setups ist es sehr
+realistisch, dass Server in einem Clusterverbund eine starke Last aufweisen.
+Sofern es hier zu Lastspitzen kommt die eine Überlast andeuten kommt es zu
+einem Datenverlust.
+
+Beide Probleme sind äußerst kritisch für dieses Projekt. In der Theorie ist die
+Architektur sehr gut geeignet, denn sie ist skalierbar und hochverfügbar. In
+der Praxis zeigt sich leider das Gegenteil, gerade in großen Setups mit vielen
+Nodes ist nicht garantiert, dass Daten wirklich persistent geschrieben werden.
 \tm%
 
 \paragraph{Cassandra}
