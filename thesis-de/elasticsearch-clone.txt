@@ -1,0 +1,12 @@
+$ date; git clone git@github.com:elastic/elasticsearch.git; \
+cd elasticsearch; git shortlog -s -n --no-merges | wc -l; \
+git rev-list HEAD --count
+Su 27. Nov 15:17:45 CET 2016
+Cloning into 'elasticsearch'...
+remote: Counting objects: 737381, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 737381 (delta 0), reused 0 (delta 0), pack-reused 737378
+Receiving objects: 100% (737381/737381), 297.56 MiB | 4.85 MiB/s, done.
+Resolving deltas: 100% (408502/408502), done.
+869
+25989
