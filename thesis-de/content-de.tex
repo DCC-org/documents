@@ -428,6 +428,19 @@ und folgende Funktionen angewendet:
   sortiert und die höchsten 5\% ignoriert.
 \end{outline}
 
+Außerdem gibt es die Möglichkeit die erhobenen Daten in Relation zur Zeit zu
+setzen. Hierbei wird die Differenz zwischen zwei Messpunken betrachtet.
+Beispiel: Das Betriebssystem misst die geschriebene Datenmenge auf einen
+Datenträger seit dem Startvorgang in Bytes. Interessant für den Anwender ist
+aber der Datendurchsatz in \si{\mega\byte\per\second} oder
+\si{\giga\byte\per\second}. Dies kann wie folgt berechnet werden:
+
+Ab Systemstart wird in regelmäßigen Zeitabständen $\Delta t$ ausgelesen welche
+Datenmenge seit Systemstart geschrieben und gelesen wurde. Diese Messwerte sind
+$m_i,\; i ∈ ℕ$. Danach kann die durchschnittliche Durchsatzrate $D_i$ zwischen
+zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmen durch
+\[ D_i = \frac{m_{i} - m_{i-1}}{\Delta t}.\]
+
 Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
 die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
 Werte bildet einen Trend (auch History Trend genannt). Trends werden oftmals
