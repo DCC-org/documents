@@ -497,13 +497,13 @@ basiert auf dem Lasten- und Pflichtenheft:
 
 \begin{outline}
   \1 Coreutils
-  \1 collectd mit Virt Plugin
+  \1 atop
+  \1 collectd
   \1 zabbix-agent
   \1 python-diamond
   \1 sysstat
-  \1 atop
-  \1 logtash
-  \1 riemann
+  \1 Logtash
+  \1 Riemann
 \end{outline}
 \tm%
 
@@ -532,7 +532,7 @@ lokal auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt
 werden. Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen
 Daten des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
-\begin{lstlisting}[language=bash,caption={Parsing /proc with awk}]
+\begin{lstlisting}[language=bash,caption={Parsing /proc with awk},label=lst:aw]
 #!/bin/bash
 echo "device,receive,transmit"
 while :; do
@@ -554,7 +554,35 @@ enp1s0,28949168552,1786622616
 enp1s0,28951976308,1786708990
 \end{lstlisting}
 
+Für das auslesen all dieser Daten werden kleine Scripte wie das im
+Listing~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
+werden weitere Scripte benötigt. Diese Sammlung an Scripten kann auf einem
+Server ausgeführt werden um seine lokalen Statistiken zu erfassen oder direkt
+in virtuellen Maschinen.\ libvirt, eine Bibliothek zum verwalten virtueller
+Maschinen, stellt auf einem Hostsystem Informationen über die lokalen VMs
+bereit. Dies ermöglicht es Coreutils, vom Host aus Daten der VMs zu ermitteln.
+\tm%
 
+\subsubsection{atop}
+
+\tm%
+
+\subsubsection{collectd}
+\tm%
+
+\subsubsection{zabbix-agent}
+\tm%
+
+\subsubsection{python-diamond}
+\tm%
+
+\subsubsection{sysstat}
+\tm%
+
+\subsubsection{Logtash}
+\tm%
+
+\subsubsection{Riemann}
 \tm%
 
 \subsubsection{Zusammenfassung}
@@ -564,9 +592,9 @@ enp1s0,28951976308,1786708990
   Typen                        & Coreutils & Collectd \\
   \midrule
   Zugewiesener Arbeitsspeicher & \cmark    & \xmark \\
-  Anzahl Prozessorkerne        & \xmark    & \cmark \\
-  Datenträger Durchsatz        & \xmark    & \cmark \\
-  Netzwerk Durchsatz           & \xmark    & \cmark \\
+  Anzahl Prozessorkerne        & \cmark    & \cmark \\
+  Datenträger Durchsatz        & \cmark    & \cmark \\
+  Netzwerk Durchsatz           & \cmark    & \cmark \\
   \bottomrule
 \end{tabular}
 \end{center}
