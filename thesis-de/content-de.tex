@@ -523,7 +523,36 @@ die geschriebe als auch gelesene Datenmenge. Die Informationen beziehen sich
 auf die Zeit seit dem letzten Startvorgang des Servers bis zum ausgeben der
 Datei. Ein kontinuierliches Ausgeben ermöglicht die Berechnung des Durchsatzes
 pro Sekunde. Diese Aufgabe wird von der Datenbank übernommen und ist näher im
-Abschnitt erklärt.
+Abschnitt~\ref{subsubsection:Begriffserklärung} erklärt. Das gleiche gilt für
+die Datei /proc/net/dev. Sie listet alle Netzwerkadapter des Systems
+und die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit
+Coreutils und Linux Boardmitteln ist es möglich alle benötigten Informationen
+lokal auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt
+werden. Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen
+Daten des Netzwerkadapters ``enp4s0'' in Bytes auszulesen:
+
+\begin{lstlisting}[language=bash,caption={Parsing /proc with awk}]
+#!/bin/bash
+echo "device,receive,transmit"
+while :; do
+  awk '/enp4s0/ {print "enp4s0,"$2","$10}' /proc/net/dev
+  sleep 60
+done
+\end{lstlisting}
+
+Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
+
+\begin{lstlisting}[language=bash,caption={traffic stats enp4s0}]
+device,receive,transmit
+enp4s0,28932776123,1786084537
+enp4s0,28935220128,1786163375
+enp4s0,28939447268,1786302393
+enp4s0,28942260029,1786392663
+enp4s0,28946985781,1786547807
+enp4s0,28949168552,1786622616
+enp4s0,28951976308,1786708990
+\end{lstlisting}
+
 
 \tm%
 
