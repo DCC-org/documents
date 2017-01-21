@@ -1350,19 +1350,22 @@ worden:
 Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
 Anforderungskriterien, weshalb die Produkte in die nähere Anlyse aufgenommen
 wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte
-Besonderheiten oder Funktion aufweist. Dabei ist aufgefallen, dass das 
+Besonderheit oder Funktion aufweist. Dabei ist aufgefallen, dass das 
 Zabbix-Frontend ohne einen Zabbix Server nicht verwendet werden kann. Der
-Zabbix Server ist eins von Zabbix eigen Entwickelter Server, der für die 
-Analyse der Systemressourcen, ähnlich wie collectd zuständig ist. Zusätzlich
-viel auf, das Zabbix-Frontend maximal nur mit einer Datenbank gleichzeitig
-kommunizieren und verwenden kann. Anders als bei Grafana, wo mehrere
-Datenbanken eingebunden werden können, welche über die Abfragen der Graphen
-angesprochen werden können, kann dies bei Zabbix nicht umgesetzt werden. Die
-Datenhaltungssoftware postgres bietet zudem eine Cluster High Avaibility(HA)
-möglichkeit, wodurch auch die Systemsicherheit in Ausfall und Verlust 
-gewährleistet werden kann. Aus diesen Grunden, welche nicht bestandteil des
-Anforderungskatalog sind, jedoch die anderen Lösungen nicht aufweisen, fällt
-Zabbix-Frontend aus der Verwendung und Nutzung im Projekt heraus.
+Zabbix Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er empfängt
+Metriken von Agents, bereitet diese auf und speichert sie anschließend in einer
+Datenbank. Zusätzlich ist aufgefallen, das Zabbix-Frontend maximal nur mit
+einer Datenbank gleichzeitig kommunizieren und verwenden kann. Anders als bei
+Grafana, wo mehrere Datenbanken eingebunden werden können, welche über die
+Abfragen der Graphen angesprochen werden können, kann dies bei Zabbix nicht
+umgesetzt werden. Dies hat ebenfalls den Nachteil, dass falls eine High
+Avaibility Lösungen seitens des Kunden gewünscht wird, diese mit Zabbix nicht
+umgesetzt werden kann. Eine High Avibility Lösung sind zum Beispiel zwei
+Datendenbanken, die Redundant an das WebFrontend angebunden werden können. Durch
+ein HA System kann eine Systemsicherit in Ausfall und Verlust gewähleistet
+werden. Da dies nicht Bestandteil unseres Anforderungskatalogs ist, jedoch die
+anderen zwei Systeme diese Unterstützung bieten fällt Zabbix-Frontend aus der
+weiteren verwendung und Nutzung im Projekt heraus.
 \mr%
 
 \section{Realisierung}
