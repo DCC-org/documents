@@ -496,8 +496,8 @@ Im folgenden werden die hier gelisteten Softwareprodukte evaluiert. Die Liste
 basiert auf dem Lasten- und Pflichtenheft:
 
 \begin{outline}
+  \1 Coreutils
   \1 collectd mit Virt Plugin
-  \1 coreutils
   \1 zabbix-agent
   \1 python-diamond
   \1 sysstat
@@ -505,6 +505,36 @@ basiert auf dem Lasten- und Pflichtenheft:
   \1 logtash
   \1 riemann
 \end{outline}
+\tm%
+
+\subsubsection{Coreutils}
+Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux
+Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
+Coreutils ist mit der GPL3 Lizenz lizensiert~\cite{coreutils} und zählt somit
+als Open Source Software. Der Linux Kernel stellt Informationen über
+schreibgesschützte Dateien bereit. In Kombination mit der Programmsammlung
+procps kann auf die Informationen des Kernels zugegriffen werden um Metriken zu
+ermitteln~\cite{procps}. Über das Programm free oder die Datei /proc/meminfo
+erhält man den die Menge des vorhandenen sowie zur Zeit benutzten
+Arbeitsspeichers. Die Anzahl der Prozessorkerne liefert das Programm nproc oder
+die Datei /proc/cpuinfo. /proc/diskstats liefert Informationen über die Anzahl
+der Schreib- und Lesevorgänge auf allen Datenträgern. Außerdem listet die Datei
+die geschriebe als auch gelesene Datenmenge. Die Informationen beziehen sich
+auf die Zeit seit dem letzten Startvorgang des Servers bis zum ausgeben der
+Datei. Ein kontinuierliches Ausgeben ermöglicht die Berechnung des Durchsatzes
+pro Sekunde. Diese Aufgabe wird von der Datenbank übernommen und ist näher im
+Abschnitt erklärt.
+
+\tm%
+
+\subsubsection{Zusammenfassung}
+\begin{tabular}{lcr}
+  Typen & Coreutils & Collectd \\
+  Zugewiesener Arbeitsspeicher & Ja & Nein \\
+  Anzahl Prozessorkerne & ✗ & ✔ \\
+  Datenträger Durchsatz & ✗ & ✔ \\
+  Netzwerk Durchsatz & ✗ & ✔ \\
+\end{tabular}
 \tm%
 
 \subsection{Datenhaltungssystem}
