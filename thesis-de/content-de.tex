@@ -619,12 +619,12 @@ hier aus 25989 Beiträgen von 869 verschiedenen Personen.
 Elasticsearch erlaubt es, als verteiltes Cluster betrieben zu werden. Hierfür
 werden mindestens zwei Server benötigt. Eingehende Daten werden in Indexe
 aufgeteilt, dies ist eine logische gruppierung basierend auf der Charakteristik
-der Daten. Zum Beispiel kan man alle gemessenen Metriken charakterisieren
-anhand des Quellservers auf dem sie ermittelt wurden oder auch anhand des
-Typs (Festplattenauslastung, CPU Auslastung). Jeder Index kann in einzelne
+der Daten. Zum Beispiel kann man alle gemessenen Metriken charakterisieren
+anhand des Quellservers auf dem sie ermittelt wurden oder auch anhand des Typs
+(Festplattenauslastung, CPU Auslastung). Jeder Index kann in einzelne
 Subgruppen aufgeteilt werden (Shards genannt). Jedes Shard kann auf einem
-anderen Server gespeichert werden. Das Schreiben in die Shards sowie Lesen aus
-den Shards kann parallel auf allen Servern erfolgen. Somit erreicht man eine
+anderen Server gespeichert werden. Das Schreiben in die Shards, sowie Lesen aus
+den Shards, kann parallel auf allen Servern erfolgen. Somit erreicht man eine
 horizontale \gls{Skalierung}. Es ist auch möglich Replikas von Shards zu
 erzeugen. Hierbei wird eine Kopie eines Shards auf einem anderen Server im
 Cluster gespeichert. Bei jeder Änderung des echten Shards wird auch das Replika
@@ -641,8 +641,8 @@ können~\cite{es_resiliency}. Die wenigsten Hersteller und Communitys gehen so
 offen mit Problemen um.
 
 Der letzte Jepsen Test zeigt leider, dass Elasticsearch immernoch Probleme bei
-Netzwerkausfällen und starker Systemlas hat~\cite{jepsen_elastic}. Aufgrund der
-Größe solcher Setups ist es üblich, das jeder Node im Cluster über zwei
+Netzwerkausfällen und starker Systemlast hat~\cite{jepsen_elastic}. Aufgrund
+der Größe solcher Setups ist es üblich, das jeder Node im Cluster über zwei
 Netzwerkverbindungen verfügt. Eine davon ist zur internen Clusterkommunikation
 und zum verteilen der Replikas, die andere für die Kommunikation mit der
 Aussenwelt (bereitstellung der RESTful Schnittstelle).
@@ -653,7 +653,7 @@ Kabelbruch)
 \begin{outline}
   \1 Die Nodes merken, das einer von Ihnen nicht erreichbar ist
   \1 Replikas der fehlenden Shards werden aktiv gesetzt
-  \1 Das Cluster nimt weiter Daten an, sofern Replikas zur Verfügung stehen
+  \1 Das Cluster nimmt weiter Daten an, sofern Replikas zur Verfügung stehen
   \1 Elasticsearch meldet, dass die neuen Daten erfolgreich geschrieben wurden
   \1 Die neuen Daten wurden nicht geschrieben und sind verloren
 \end{outline}
