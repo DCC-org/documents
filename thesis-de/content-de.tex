@@ -687,7 +687,7 @@ mit aufgeführt da er in der obigen Analyse bereits ausgeschlossen wurde.
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
-  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
   sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
   Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
@@ -708,9 +708,9 @@ diesen selbst zu laufen:
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \xmark           & \xmark    & \xmark      & \xmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
-  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
-  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
-  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
+  sysstat        & \xmark           & \xmark    & \xmark      & \xmark \\
+  Logstash       & \xmark           & \xmark    & \xmark      & \xmark \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
   \bottomrule
 \end{tabular}
@@ -721,7 +721,15 @@ atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
 Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
 Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
 Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
-versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.
+versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
+sysstat, Logstash und Riemann erfüllen ebenfalls die Anforderungen nicht.
+
+Übrig bleiben collectd und python-diamond. Beide erfüllen alle Anforderungen.\
+collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
+einen Geschwindigkeitsvorteil. Das Team rund um collectd arbeitet schon länger
+am Projekt und arbeitet kontinuierlich daran. Im weiteren Verlauf des Projekts
+wird deshalb mit collectd gearbeitet. Sollten sich hier unerwartete Probleme
+ergeben kann auf Diamond gewechselt werden.
 \tm%
 
 \subsection{Datenhaltungssystem}
