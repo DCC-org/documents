@@ -579,8 +579,11 @@ Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen Intervall
 kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten Standards
 und lässt sich deshalb nicht automatisiert weiterverarbeiten
 (Listing~\ref{lst:atop}. Die Daten müssen, ähnlich wie bei Coreutils, vor einer
-Speicherung in einer zentralen Datenbank erst noch bearbeitet werden.
-Vla~\cite{atop}.
+Speicherung in einer zentralen Datenbank erst noch bearbeitet werden. Es ist
+keine Funktionalität eingebaut um gesammelte Daten über das Netzwerk
+auszutauschen, dies muss ebenfalls nachgerüstet werden. Es ist keine
+Funktionalität vorhanden um Daten auf einem Host von virtuellen Maschinen zu
+ermitteln, Außerdem kann die Software nicht erweitert werden~\cite{atop}.
 \tm%
 
 \subsubsection{collectd}
