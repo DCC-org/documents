@@ -640,6 +640,7 @@ deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung f�
 die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
 Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
 Maschine oder auf einem Hostsystem.
+
 \begin{center}
 \begin{tabular}{lcccr}
   \toprule
@@ -657,6 +658,34 @@ Maschine oder auf einem Hostsystem.
 \end{tabular}
 \captionof{table}{Ermittlung von lokalen Daten}
 \end{center}
+
+In der nachfolgenden Tabelle wird vergleichen welche Datenerfassungssysteme auf
+einem Hypervisor Daten über virtuelle Maschinen erfassen können, ohne in eben
+diesen selbst zu laufen:
+
+\begin{center}
+\begin{tabular}{lcccr}
+  \toprule
+  Programme      & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  \midrule
+  Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
+  atop           & \xmark           & \xmark    & \xmark      & \xmark \\
+  collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
+  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
+  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Ermittlung von VM Daten}
+\end{center}
+
+atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
+Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
+Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
+Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
+versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.
 \tm%
 
 \subsection{Datenhaltungssystem}
