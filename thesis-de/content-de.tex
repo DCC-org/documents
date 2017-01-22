@@ -594,6 +594,7 @@ Version veröffentlichte er im Juli 2005. Seitdem erfolgt eine stetige
 Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.\ collectd bietet
 eine Vielzahl von Möglichkeiten um Daten auf einem System zu ermitteln und
 diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
+Die Software ist in C geschrieben.
 
 \lstinputlisting[language=bash,caption={collectd git clone}]{collectd-clone.txt}
 
@@ -630,14 +631,14 @@ lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
 ist eine PHP Applikation welches die Daten visualisiert und direkt aus der
 Datenbank liest. Der Agent kann mit externen Scripts erweitert werden. In
 Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
-Community bietet dafür fertige Scripte an~\cite{zabbix_virt_plugin}.
+Community bietet dafür fertige Scripte an~\cite{zabbix_virt_plugins}.
 
 Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation, dieses wird
 nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
 zwangsläufig mit dem hauseigenen zabbix-server genutzt werden. Es ist nicht
 möglich den Server, beziehungsweise die unterstützten Datenbanken redundant
 auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit
-ist der zabbix-agent nicht im Projekt nutzbar~\site{zabbix_architecture}.
+ist der zabbix-agent nicht im Projekt nutzbar~\cite{zabbix_architecture}.
 \tm%
 
 \subsubsection{python-diamond}
