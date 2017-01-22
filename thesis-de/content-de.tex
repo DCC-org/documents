@@ -430,7 +430,7 @@ und folgende Funktionen angewendet:
 
 Außerdem gibt es die Möglichkeit die erhobenen Daten in Relation zur Zeit zu
 setzen. Hierbei wird die Differenz zwischen zwei aufeinander folgenden
-Messpunken betrachtet.  Beispiel: Das Betriebssystem misst die geschriebene
+Messpunkten betrachtet.  Beispiel: Das Betriebssystem misst die geschriebene
 Datenmenge auf einen Datenträger seit dem Startvorgang in Bytes. Interessant
 für den Anwender ist aber der Datendurchsatz in \si{\mega\byte\per\second} oder
 \si{\giga\byte\per\second}. Dies kann wie folgt berechnet werden:
@@ -438,7 +438,8 @@ für den Anwender ist aber der Datendurchsatz in \si{\mega\byte\per\second} oder
 Ab Systemstart wird in regelmäßigen Zeitabständen $\Delta t$ ausgelesen welche
 Datenmenge seit Systemstart geschrieben und gelesen wurde. Bezeichne $m_i$ den
 $i$-ten Messwert. Dann kann die durchschnittliche Durchsatzrate $D_i$ zwischen
-zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmt werden durch
+zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmt werden durch:
+
 \[ D_i = \frac{m_{i} - m_{i-1}}{\Delta t}.\]
 
 Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
