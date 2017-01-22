@@ -160,6 +160,7 @@ das sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
 \tm%
 
 \subsubsection{Datenerfassungssysteme}
+\label{subsubsection:datenerfassungssysteme}
 Unterschiedliche Ausbaustufen für virtuelle Machinen werden über mehrere
 verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
 differenziert. Diese Typen müssen für jede virtuelle Machine ausgelesen werden.
@@ -391,12 +392,13 @@ Authentifiziert werden kann.
 
 \section{Analyse von Softwarekomponenten}
 \subsection{Datenerfassungssysteme}
-Im Abschnitt XXX wurde bereits auf die einzelnen Ressourcetypen eingegangen,
-welche erfasst werden müssen. Um die verschiedenen Datenerfassungssysteme im
-Hinblick auf die Ressourcetypen zu evaluieren, muss zunächst geklärt werden was
-eine Metrik, ein Trend und eine Timeseries ist.
+Im Abschnitt~\ref{subsubsection:datenerfassungssysteme} wurde bereits auf die
+einzelnen Ressourcetypen eingegangen, welche erfasst werden müssen. Um die
+verschiedenen Datenerfassungssysteme im Hinblick auf die Ressourcetypen zu
+evaluieren, muss zunächst geklärt werden was eine Metrik, ein Trend und eine
+Timeseries ist.
 
-\subsubsection{Begriffsklärung}
+\subsubsection{Begriffsklärung und Anforderungen}
 \label{subsubsection:Begriffserklärung}
 Eine Metrik ist die Kombination aus:
 
@@ -425,6 +427,20 @@ und folgende Funktionen angewendet:
   \1 95pct(): Berechnung des Durchschnitts, zuvor werden Die Werte nach größe
   sortiert und die höchsten 5\% ignoriert.
 \end{outline}
+
+Außerdem gibt es die Möglichkeit die erhobenen Daten in Relation zur Zeit zu
+setzen. Hierbei wird die Differenz zwischen zwei aufeinander folgenden
+Messpunkten betrachtet.  Beispiel: Das Betriebssystem misst die geschriebene
+Datenmenge auf einen Datenträger seit dem Startvorgang in Bytes. Interessant
+für den Anwender ist aber der Datendurchsatz in \si{\mega\byte\per\second} oder
+\si{\giga\byte\per\second}. Dies kann wie folgt berechnet werden:
+
+Ab Systemstart wird in regelmäßigen Zeitabständen $\Delta t$ ausgelesen welche
+Datenmenge seit Systemstart geschrieben und gelesen wurde. Bezeichne $m_i$ den
+$i$-ten Messwert. Dann kann die durchschnittliche Durchsatzrate $D_i$ zwischen
+zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmt werden durch:
+
+\[ D_i = \frac{m_{i} - m_{i-1}}{\Delta t}.\]
 
 Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
 die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
@@ -477,16 +493,199 @@ das Projekteam dazu, die Generierung von den Servern auf die Datenbank zu
 verlagern. Die Fähigkeit Trends generieren zu können ist somit kein
 Evaluationskriterium für Datenerfassungssysteme.
 
+Im folgenden werden die hier gelisteten Softwareprodukte evaluiert. Die Liste
+basiert auf dem Lasten- und Pflichtenheft:
+
 \begin{outline}
-  \1 collectd mit Virt Plugin
-  \1 coreutils
+  \1 Coreutils
+  \1 atop
+  \1 collectd
   \1 zabbix-agent
   \1 python-diamond
   \1 sysstat
-  \1 atop
-  \1 logtash
-  \1 riemann
+  \1 Logtash
+  \1 Riemann
 \end{outline}
+\tm%
+
+\subsubsection{Coreutils}
+Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux
+Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
+Coreutils ist mit der GPL3 Lizenz lizensiert~\cite{coreutils} und zählt somit
+als Open Source Software. Verwaltet wird die Programmsammlung aktuell von der
+Free Software Foundation. Der Linux Kernel stellt Informationen über
+schreibgesschützte Dateien bereit. In Kombination mit der Programmsammlung
+procps kann auf die Informationen des Kernels zugegriffen werden um Metriken zu
+ermitteln~\cite{procps}. Über das Programm \texttt{free} oder die Datei
+\texttt{/proc/meminfo} erhält man dann die Menge des vorhandenen sowie zur Zeit
+benutzten Arbeitsspeichers. Die Anzahl der Prozessorkerne liefert das Programm
+nproc oder die Datei \texttt{/proc/cpuinfo}. \texttt{/proc/diskstats} liefert
+Informationen über die Anzahl der Schreib- und Lesevorgänge auf allen
+Datenträgern. Außerdem listet die Datei die geschriebene als auch gelesene
+Datenmenge. Die Informationen beziehen sich auf die Zeit seit dem letzten
+Startvorgang des Servers bis zum ausgeben der Datei. Ein kontinuierliches
+Ausgeben ermöglicht die Berechnung des Durchsatzes pro Sekunde. Diese Aufgabe
+wird von der Datenbank übernommen und ist näher im
+Abschnitt~\ref{subsubsection:Begriffserklärung} erklärt. Das gleiche gilt für
+die Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems
+und die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit
+Coreutils und Linux Boardmitteln ist es möglich alle benötigten Informationen
+lokal auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt
+werden. Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen
+Daten des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
+
+\begin{lstlisting}[language=bash,caption={/proc mit awk parsen},label=lst:aw]
+#!/bin/bash
+echo "device,receive,transmit"
+while :; do
+  awk '/enp1s0/ {print "enp1s0,"$2","$10}' /proc/net/dev
+  sleep 60
+done
+\end{lstlisting}
+
+Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
+
+\begin{lstlisting}[language=bash,caption={traffic stats enp1s0}]
+device,receive,transmit
+enp1s0,28932776123,1786084537
+enp1s0,28935220128,1786163375
+enp1s0,28939447268,1786302393
+enp1s0,28942260029,1786392663
+enp1s0,28946985781,1786547807
+enp1s0,28949168552,1786622616
+enp1s0,28951976308,1786708990
+\end{lstlisting}
+
+Für das auslesen all dieser Daten werden kleine Scripte wie das im
+Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
+werden weitere Scripte benötigt. Diese Sammlung an Scripten kann auf einem
+Server ausgeführt werden um seine lokalen Statistiken zu erfassen oder direkt
+in virtuellen Maschinen.\ libvirt, eine Bibliothek zum verwalten virtueller
+Maschinen, stellt auf einem Hostsystem Informationen über die lokalen VMs
+bereit. Dies ermöglicht es Coreutils, vom Host aus Daten der VMs zu ermitteln.
+\tm%
+
+\subsubsection{atop}
+atop ist ein Linux Kommandozeilenprogramm zum visualisieren von Prozessen und
+vom Systemzustand. Es ist unter der GPL lizensiert und fällt damit unter
+Open Source Software. Der aktuelle Maintainer ist Gerlof Langeveld. Die erste
+stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
+kontinuierlich entwickelt. Es ist darauf ausgelegt im Vollbild Modus eines
+Terminals zu arbeiten(siehe Figure~\ref{figure:atop1} und~\ref{figure:atop2}).
+Neben der Liveanalyse bietet atop aber auch die Möglichkeit im Hintergrund
+periodisch eine Logdatei zu schreiben. Hier wird ein selbstentwickeltes
+Binärformat genutzt, atop kann dies aber auch zurück in ASCII umwandeln. Dann
+erhält man alle Infos, die auch die interaktive Version anzeigt. Im
+Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen Intervall
+kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten Standards
+und lässt sich deshalb nicht automatisiert weiterverarbeiten
+(Listing~\ref{lst:atop}. Die Daten müssen, ähnlich wie bei Coreutils, vor einer
+Speicherung in einer zentralen Datenbank erst noch bearbeitet werden. Es ist
+keine Funktionalität eingebaut um gesammelte Daten über das Netzwerk
+auszutauschen, dies muss ebenfalls nachgerüstet werden. Es ist keine
+Funktionalität vorhanden um Daten auf einem Host von virtuellen Maschinen zu
+ermitteln, Außerdem kann die Software nicht erweitert werden~\cite{atop}.
+\tm%
+
+\subsubsection{collectd}
+Das Projekt collectd wurde von Florian Forster gestartet. Die erste stabile
+Version veröffentlichte er im Juli 2005. Seitdem erfolgt eine stetige
+Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.\ collectd bietet
+eine Vielzahl von Möglichkeiten um Daten auf einem System zu ermitteln und
+diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
+
+\lstinputlisting[language=bash,caption={collectd git clone}]{collectd-clone.txt}
+
+Wie im obigen Listing zu sehen haben 415 Leute 9059 Änderungen im
+Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
+und zählt somit als Open Source Software. Es kann flexibel mit Plugins
+erweitert werden. Hierbei wird zwischen mehreren Kategorien
+unterschieden~\cite{collectd_plugins}:
+
+\begin{outline}
+  \1 Read, Plugins die Daten aus zusätzlichen Quellen lesen
+  \1 Write, Plugins die erfasste Daten in einem bestimmten Format lokal
+  speichern
+  \1 Binding, ein Metaplugin welches den Interpreter bestimmter Scriptsprachen
+  einbindet. Dies erlaubt es eigene Plugins in beliebigen Scriptsprachen zu
+  schreiben
+  \1 Logging, erlaubt es collectd interne Fehler und Warnungen in verschiedenen
+  Formen zu speichern und auszugeben
+\end{outline}
+
+collectd unterstüzt das Sammeln aller benötigter Daten. Es kann lokale Daten
+auf einem Hostsystem oder in einer virtuellen Maschine ermitteln. Außerdem kann
+es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendingen
+Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
+\tm%
+
+\subsubsection{zabbix-agent}
+\tm%
+
+\subsubsection{python-diamond}
+\tm%
+
+\subsubsection{sysstat}
+\tm%
+
+\subsubsection{Logtash}
+\tm%
+
+\subsubsection{Riemann}
+\tm%
+
+\subsubsection{Zusammenfassung}
+Unten aufgeführt ist eine Gegenüberstellung der verschiedenen Lösungen und
+deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung für
+die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
+Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
+Maschine oder auf einem Hostsystem.
+
+\begin{center}
+\begin{tabular}{lcccr}
+  \toprule
+  Programme      & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  \midrule
+  Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
+  atop           & \cmark           & \cmark    & \cmark      & \cmark \\
+  collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
+  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
+  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Ermittlung von lokalen Daten}
+\end{center}
+
+In der nachfolgenden Tabelle wird vergleichen welche Datenerfassungssysteme auf
+einem Hypervisor Daten über virtuelle Maschinen erfassen können, ohne in eben
+diesen selbst zu laufen:
+
+\begin{center}
+\begin{tabular}{lcccr}
+  \toprule
+  Programme      & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  \midrule
+  Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
+  atop           & \xmark           & \xmark    & \xmark      & \xmark \\
+  collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
+  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
+  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Ermittlung von VM Daten}
+\end{center}
+
+atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
+Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
+Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
+Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
+versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.
 \tm%
 
 \subsection{Datenhaltungssystem}
@@ -610,7 +809,7 @@ Daten, anschliesend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
-\lstinputlisting[language=bash]{elasticsearch-clone.txt}
+\lstinputlisting[language=bash,caption={elasticsearch git clone}]{elasticsearch-clone.txt}
 
 Oben befindet sich eine kurze Analyse des \gls{Git}
 \glslink{Repository}{Repositories} vom 27.11.2016. Die Suchmaschine besteht
@@ -722,7 +921,7 @@ sie pflegt ein komplexes Wiki~\cite{postgres_wiki}, sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für
 Fortgeschrittene~\cite{postgres_tutorial}.
 
-\lstinputlisting[language=bash]{postgres-clone.txt}
+\lstinputlisting[language=bash,caption={postgres git clone}]{postgres-clone.txt}
 
 Wie in der obigen Shellausgabe zu sehen, enthält das \gls{Git} \gls{Repository}
 des Postgres Quellcodes am 26.11.2016 41366 einzelne Commits von 41
@@ -1460,16 +1659,16 @@ worden:
 
 Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
 Anforderungskriterien, weshalb die Produkte in die nähere Anlyse aufgenommen
-wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte
-Besonderheit oder Funktion aufweist. Dabei ist aufgefallen, dass das 
-Zabbix-Frontend ohne einen Zabbix Server nicht verwendet werden kann. Der
-Zabbix Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er empfängt
-Metriken von Agents, bereitet diese auf und speichert sie anschließend in einer
-Datenbank. Zusätzlich ist aufgefallen, das Zabbix-Frontend maximal nur mit
-einer Datenbank gleichzeitig kommunizieren und verwenden kann. Anders als bei
-Grafana, wo mehrere Datenbanken eingebunden werden können, welche über die
-Abfragen der Graphen angesprochen werden können, kann dies bei Zabbix nicht
-umgesetzt werden.
+wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
+oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
+einen Zabbix Server nicht verwendet werden kann. Der Zabbix Server ist ein von
+Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
+bereitet diese auf und speichert sie anschließend in einer Datenbank.
+Zusätzlich ist aufgefallen, das Zabbix-Frontend maximal nur mit einer Datenbank
+gleichzeitig kommunizieren und verwenden kann. Anders als bei Grafana, wo
+mehrere Datenbanken eingebunden werden können, welche über die Abfragen der
+Graphen angesprochen werden können, kann dies bei Zabbix nicht umgesetzt
+werden.
 \mr%
 
 \section{Realisierung}
@@ -1527,9 +1726,17 @@ Akzeptanzkriterien:
 
 \section{Fazit}
 
+\newpage
+
+\appendix
+
 \printglossaries%
 
 \printbibliography[heading=bibnumbered]
+
+\input{../figures.tex}
+
+\input{../listings.tex}
 
 \newpage
 

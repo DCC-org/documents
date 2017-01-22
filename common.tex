@@ -3,10 +3,15 @@
 \usepackage{calc}
 \usepackage{booktabs}
 \usepackage{placeins}
-\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
-\setmonofont{DejaVu Sans Mono}
+\usepackage{setspace}
+\setmainfont[Mapping=tex-text,Ligatures=TeX]{TeX Gyre Pagella}
+\setstretch{1.15}
+\setmonofont[Scale=0.95]{Inconsolata}
 \setkomafont{disposition}{\bfseries}
 \setkomafont{descriptionlabel}{\bfseries}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
 \usepackage{fancyhdr}
 \usepackage{microtype}
 \usepackage{outlines}
@@ -17,6 +22,8 @@
 \usepackage[titles]{tocloft}
 \usepackage[unicode=true]{hyperref}
 \usepackage[backend=biber,style=alphabetic]{biblatex}
+\usepackage{siunitx}
+\sisetup{per-mode=symbol,binary-units=true}
 \usepackage{csquotes}
 \usepackage[toc,numberedsection,xindy]{glossaries}
 \makeglossaries
@@ -27,6 +34,9 @@
 \DefineBibliographyStrings{german}{%
   references = {Quellennachweis},
 }
+
+\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
+\renewcommand{\lstlistingname}{Quelltext}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -123,6 +133,9 @@
 
 \thispagestyle{empty}
 \tableofcontents
+\listoffigures
+\lstlistoflistings
+\listoftables
 \newpage
 
 \input{\contentfile}

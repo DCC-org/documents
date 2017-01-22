@@ -1,0 +1,11 @@
+date; git clone git://github.com/collectd/collectd.git; \
+cd collectd; git shortlog -s -n --no-merges | wc -l; \
+git rev-list HEAD --count
+So 22. Jan 13:55:44 CET 2017
+Cloning into 'collectd'...
+remote: Counting objects: 44666, done.
+remote: Total 44666 (delta 0), reused 0 (delta 0), pack-reused 44666
+Receiving objects: 100% (44666/44666), 15.66 MiB | 3.58 MiB/s, done.
+Resolving deltas: 100% (33003/33003), done.
+415
+9059
