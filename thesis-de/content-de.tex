@@ -1352,10 +1352,10 @@ wie folgt aufgelistet:
   sein muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die
   Daten abgreifen zu können vor dritter so geschützt und gesichert werden. Der
   Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung durch
-  HTTPS durchgeführt werden und je nach Kundenanforderung auch eigene Client
-  Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über einen
-  Lokalen Administrator, als auch über eine LDAP (Lightweight Directory Access
-  Protocol) Anbindung verfügen, um hier z.B. Unternehmensverzeichnisse
+  \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch eigene
+  Client Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über
+  einen Lokalen Administrator, als auch über eine LDAP (Lightweight Directory
+  Access Protocol) Anbindung verfügen, um hier z.B. Unternehmensverzeichnisse
   Anbinden zu können.
   \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
   Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber,
@@ -1370,10 +1370,10 @@ wie folgt aufgelistet:
   einfach durchgeführt werden können.
   \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt.  Dabei
   muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
-  Datensicherung des Dashboards durchführen zu können.  Das Dashboard,
-  beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen über z.B.
-  ein externes System (Dateifreigabe Server o.a.) abgelegt werden und können
-  somit einfach dupliziert und gesichert werden.
+  Datensicherung des \glslink{Dashboard}{Dashboards} durchführen zu können.
+  Das Dashboard, beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese
+  sollen über z.B. ein externes System (Dateifreigabe Server o.a.) abgelegt
+  werden und können somit einfach dupliziert und gesichert werden.
   \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
   unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
@@ -1428,7 +1428,7 @@ Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen
 noch weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
 Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere unterschiedliche
 Benutzer können sich an der Weboberfläche anmelden. Dies bedeutet, dass ein
-Login an der Weboberfläche über ein Active Directory Konto oder Lokalem
+Login an der Weboberfläche über ein \gls{Active Directory} Konto oder Lokalem
 Benutzer plus Kennwort Kombination durchgeführt werden kann. Somit können zum
 Beispiel Mitarbeiter aus der Führungsebene Eingeschränkte Zugriffe auf das
 System erhalten, um hier zum Beispiel Marketing Statistiken durchführen zu
@@ -1436,8 +1436,8 @@ können. Zusätzliche zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldun
 auf die Grafana Weboberfläche, ist Grafana
 API~\ref{subsec:schnittstelle_datenbereitstellung} fähig, dies bedeutet, dass
 das Datenhaltungssystem API Statements zur Verfügung stellen können und hiermit
-Graphen visualisieren kann. Grafana kann über einem Datenbanktreiber oder einer
-Schnitstelle in Form eines Treibers, einfache Statements auf das
+Graphen visualisieren kann. Grafana kann über einem \gls{Datenbanktreiber}
+oder einer Schnitstelle in Form eines Treibers, einfache Statements auf das
 Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
 eine OpenSource Software, wodurch der Quellcode angepasst und verändert werden
 darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte Kundenumgebungen.
@@ -1481,9 +1481,9 @@ Wiki Board, wo alle relevanten Dokumentationen enthalten sind. Graphen können
 leicht mittelts Statements über eine
 API~\ref{subsec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
 Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche,
-mittels Benutzername und Kennwort oder LDAP Anbindung ist ebenfalls möglich.
-Es können einzelne Graphen, wie auch das gesamte Dashboard auf externe Server
-oder Lokal abgespeichert werden um einen Verlust von einzelnen Graphen
+mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist ebenfalls
+möglich. Es können einzelne Graphen, wie auch das gesamte Dashboard auf externe
+Server oder Lokal abgespeichert werden um einen Verlust von einzelnen Graphen
 vorbeugen zu können. Graphite ist wie auch Grafana~\ref{paragraph:grafana}
 kompatibel zu TimeSeries Datenhaltungssystemen. Es bietet keine einfache
 Möglichkeit, weitere Plugins hinzufügen zu können, wie es beispielsweise
@@ -1581,7 +1581,7 @@ API~\ref{subsec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
 können vom Administrator Export werden. Eine Möglichkeit, Graphen zu exportieren
 bietet Datadog hier nicht. Die Community, wo viele Inhaltliche Dokumente
 enthalten sind, sind hier nur für Kunden bestimmt, welche eine Pro Lizenz
-besitzen. Ebenso gibt es hier einen IRC Channel, um direkt Kontakt mit Support
+besitzen. Ebenso gibt es hier einen \gls{IRC Channel}, um direkt Kontakt mit Support
 aufnehmen zu können.
 
 Zusammenfassung:
