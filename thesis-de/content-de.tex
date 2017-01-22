@@ -621,6 +621,23 @@ Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
 \subsubsection{zabbix-agent}
+Die Firma Zabbix LLC wurde wurde 2005 gegründet. Sie pflegt die Open Source
+Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
+zabbix-frontend (siehe auch Abschnitt~\ref{paragraph:zabbix-frontend} for die
+Analyse des Frontends). Alle Produkte sind unter der GPL2 lizensiert. Der Agent
+ist in C geschrieben. Er bietet die Möglichkeit diverse Daten direkt aus dem
+lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
+ist eine PHP Applikation welches die Daten visualisiert und direkt aus der
+Datenbank liest. Der Agent kann mit externen Scripts erweitert werden. In
+Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
+Community bietet dafür fertige Scripte an~\cite{zabbix_virt_plugin}.
+
+Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation, dieses wird
+nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
+zwangsläufig mit dem hauseigenen zabbix-server genutzt werden. Es ist nicht
+möglich den Server, beziehungsweise die unterstützten Datenbanken redundant
+auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit
+ist der zabbix-agent nicht im Projekt nutzbar~\site{zabbix_architecture}.
 \tm%
 
 \subsubsection{python-diamond}
@@ -640,7 +657,8 @@ Unten aufgeführt ist eine Gegenüberstellung der verschiedenen Lösungen und
 deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung für
 die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
 Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
-Maschine oder auf einem Hostsystem.
+Maschine oder auf einem Hostsystem.\ zabbix-agent wurde in der Tabelle nicht
+mit aufgeführt da er in der obigen Analyse bereits ausgeschlossen wurde.
 
 \begin{center}
 \begin{tabular}{lcccr}
@@ -650,7 +668,6 @@ Maschine oder auf einem Hostsystem.
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
-  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
   python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
   sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
   Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
@@ -672,7 +689,6 @@ diesen selbst zu laufen:
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \xmark           & \xmark    & \xmark      & \xmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
-  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
   python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
   sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
   Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
