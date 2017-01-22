@@ -590,12 +590,28 @@ ermitteln, Außerdem kann die Software nicht erweitert werden~\cite{atop}.
 \subsubsection{collectd}
 Das Projekt collectd wurde von Florian Forster gestartet. Die erste stabile
 Version veröffentlichte er im Juli 2005. Seitdem erfolgt eine stetige
-Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.
+Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.\ collectd bietet
+eine Vielzahl von Möglichkeiten um Daten auf einem System zu ermitteln und
+diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
 
 \lstinputlisting[language=bash,caption={collectd git clone}]{collectd-clone.txt}
 
-Wie im obigen Listing zu sehen haben 415 Leute 9059 Änderungen am Repository
-durchgeführt.
+Wie im obigen Listing zu sehen haben 415 Leute 9059 Änderungen im
+Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
+und zählt somit als Open Source Software. Es kann flexibel mit Plugins
+erweitert werden. Hierbei wird zwischen mehreren Kategorien
+unterschieden~\cite{collectd_plugins}:
+
+\begin{outline}
+  \1 Read, Plugins die Daten aus zusätzlichen Quellen lesen
+  \1 Write, Plugins die erfasste Daten in einem bestimmten Format lokal
+  speichern
+  \1 Binding, ein Metaplugin welches den Interpreter bestimmter Scriptsprachen
+  einbindet. Dies erlaubt es eigene Plugins in beliebigen Scriptsprachen zu
+  schreiben
+  \1 Logging, erlaubt es collectd interne Fehler und Warnungen in verschiedenen
+  Formen zu speichern und auszugeben
+\end{outline}
 \tm%
 
 \subsubsection{zabbix-agent}
