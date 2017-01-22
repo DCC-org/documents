@@ -532,7 +532,7 @@ lokal auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt
 werden. Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen
 Daten des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
-\begin{lstlisting}[language=bash,caption={Parsing /proc with awk},label=lst:aw]
+\begin{lstlisting}[language=bash,caption={/proc mit awk parsen},label=lst:aw]
 #!/bin/bash
 echo "device,receive,transmit"
 while :; do
@@ -555,7 +555,7 @@ enp1s0,28951976308,1786708990
 \end{lstlisting}
 
 Für das auslesen all dieser Daten werden kleine Scripte wie das im
-Listing~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
+Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
 werden weitere Scripte benötigt. Diese Sammlung an Scripten kann auf einem
 Server ausgeführt werden um seine lokalen Statistiken zu erfassen oder direkt
 in virtuellen Maschinen.\ libvirt, eine Bibliothek zum verwalten virtueller
@@ -564,7 +564,22 @@ bereit. Dies ermöglicht es Coreutils, vom Host aus Daten der VMs zu ermitteln.
 \tm%
 
 \subsubsection{atop}
-
+atop ist ein Linux Kommandozeilenprogramm zum visualisieren von Prozessen und
+vom Systemzustand. Es ist unter der GPL lizensiert und fällt damit unter
+Open Source Software. Der aktuelle Maintainer ist Gerlof Langeveld. Die erste
+stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
+kontinuierlich entwickelt. Es ist darauf ausgelegt im Vollbild Modus eines
+Terminals zu arbeiten(siehe Figure~\ref{figure:atop1} und~\ref{figure:atop2}).
+Neben der Liveanalyse bietet atop aber auch die Möglichkeit im Hintergrund
+periodisch eine Logdatei zu schreiben. Hier wird ein selbstentwickeltes
+Binärformat genutzt, atop kann dies aber auch zurück in ASCII umwandeln. Dann
+erhält man alle Infos, die auch die interaktive Version anzeigt. Im
+Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen Intervall
+kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten Standards
+und lässt sich deshalb nicht automatisiert weiterverarbeiten
+(Listing~\ref{lst:atop}. Die Daten müssen, ähnlich wie bei Coreutils, vor einer
+Speicherung in einer zentralen Datenbank erst noch bearbeitet werden.
+Vla~\cite{atop}.
 \tm%
 
 \subsubsection{collectd}
@@ -721,7 +736,7 @@ Daten, anschliesend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
-\lstinputlisting[language=bash]{elasticsearch-clone.txt}
+\lstinputlisting[language=bash,caption={elasticsearch git clone}]{elasticsearch-clone.txt}
 
 Oben befindet sich eine kurze Analyse des \gls{Git}
 \glslink{Repository}{Repositories} vom 27.11.2016. Die Suchmaschine besteht
@@ -833,7 +848,7 @@ sie pflegt ein komplexes Wiki~\cite{postgres_wiki}, sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für
 Fortgeschrittene~\cite{postgres_tutorial}.
 
-\lstinputlisting[language=bash]{postgres-clone.txt}
+\lstinputlisting[language=bash,caption={postgres git clone}]{postgres-clone.txt}
 
 Wie in der obigen Shellausgabe zu sehen, enthält das \gls{Git} \gls{Repository}
 des Postgres Quellcodes am 26.11.2016 41366 einzelne Commits von 41
@@ -1638,9 +1653,17 @@ Akzeptanzkriterien:
 
 \section{Fazit}
 
+\newpage
+
+\appendix
+
 \printglossaries%
 
 \printbibliography[heading=bibnumbered]
+
+\input{../figures.tex}
+
+\input{../listings.tex}
 
 \newpage
 
