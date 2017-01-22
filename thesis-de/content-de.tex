@@ -606,17 +606,21 @@ ermitteln, Außerdem kann die Software nicht erweitert werden~\cite{atop}.
 
 \subsubsection{Zusammenfassung}
 \begin{center}
-\begin{tabular}{lcr}
+\begin{tabular}{lcccr}
   \toprule
-  Typen                        & Coreutils & Collectd \\
+  Programme      & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
-  Zugewiesener Arbeitsspeicher & \cmark    & \xmark \\
-  Anzahl Prozessorkerne        & \cmark    & \cmark \\
-  Datenträger Durchsatz        & \cmark    & \cmark \\
-  Netzwerk Durchsatz           & \cmark    & \cmark \\
+  Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
+  atop           & \cmark           & \cmark    & \cmark      & \cmark \\
+  collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
+  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
+  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
   \bottomrule
 \end{tabular}
-\captionof{table}{Zusammenfassung der Datenerfassungstools}
+\captionof{table}{Ermittlung von lokalen Daten}
 \end{center}
 \tm%
 
