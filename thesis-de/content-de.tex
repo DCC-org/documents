@@ -397,6 +397,7 @@ einzelnen Ressourcetypen eingegangen, welche erfasst werden müssen. Um die
 verschiedenen Datenerfassungssysteme im Hinblick auf die Ressourcetypen zu
 evaluieren, muss zunächst geklärt werden was eine Metrik, ein Trend und eine
 Timeseries ist.
+\tm%
 
 \subsubsection{Begriffsklärung und Anforderungen}
 \label{subsubsection:Begriffserklärung}
@@ -593,8 +594,9 @@ Version veröffentlichte er im Juli 2005. Seitdem erfolgt eine stetige
 Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.\ collectd bietet
 eine Vielzahl von Möglichkeiten um Daten auf einem System zu ermitteln und
 diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
+Die Software ist in C geschrieben.
 
-\lstinputlisting[language=bash,caption={collectd git clone}]{collectd-clone.txt}
+\lstinputlisting[language=bash,caption={collectd git clone}]{../listings/collectd-clone.txt}
 
 Wie im obigen Listing zu sehen haben 415 Leute 9059 Änderungen im
 Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
@@ -620,9 +622,44 @@ Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
 \subsubsection{zabbix-agent}
+Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open Source
+Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
+zabbix-frontend (siehe auch Abschnitt~\ref{paragraph:zabbix-frontend} für die
+Analyse des Frontends). Alle Produkte sind unter der GPL2 lizensiert. Der Agent
+ist in C geschrieben. Er bietet die Möglichkeit diverse Daten direkt aus dem
+lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
+ist eine PHP Applikation welches die Daten visualisiert und direkt aus der
+Datenbank liest. Der Agent kann mit externen Scripts erweitert werden. In
+Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
+Community bietet dafür fertige Scripte an~\cite{zabbix_virt_plugins}.
+
+Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation, dieses wird
+nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
+zwangsläufig mit dem hauseigenen zabbix-server genutzt werden. Es ist nicht
+möglich den Server, beziehungsweise die unterstützten Datenbanken redundant
+auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit
+ist der zabbix-agent nicht im Projekt nutzbar~\cite{zabbix_architecture}.
 \tm%
 
 \subsubsection{python-diamond}
+python-diamond (auch Diamond genannt) ist ein in Python geschriebener Dienst.
+Er kann auf Linux Systemen diverse Daten erheben und diese über das Netzwerk
+austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
+unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die Open
+Source Software steht unter der MIT Lizenz~\cite{python-diamond}.
+
+\lstinputlisting[language=bash,caption={Diamond git clone}]{../listings/diamond-clone.txt}
+
+Wie im obigen Listing zu sehen gibt es 2922 Beiträge im Versionskontrollsystem
+von 292 verschiedenen Personen. Diamond kann alle benötigten Daten, lokal und
+vom Hypervisor über seine VMs, ermitteln. Über das Netzwerk werden diese im
+\glslink{Carbon}{Graphite Format} geschickt. Über Plugins sind auch weitere
+Formate möglich. Der \gls{Backlog} bei Diamond ist sehr hoch. Die Software hat
+aktuell 88 offene Issues im Versionsverwaltungssystem. Dies ist eine Mischung
+aus gemeldeten Fehlern und Feature Requests. Außerdem gibt es 139 offene Pull
+Requests (siehe Listing~\ref{figure:diamond}. Dies sind Änderungen am
+Quellcode die die Community erstellt hat, aber noch nicht eingepflegt worden
+sind.
 \tm%
 
 \subsubsection{sysstat}
@@ -639,7 +676,8 @@ Unten aufgeführt ist eine Gegenüberstellung der verschiedenen Lösungen und
 deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung für
 die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
 Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
-Maschine oder auf einem Hostsystem.
+Maschine oder auf einem Hostsystem.\ zabbix-agent wurde in der Tabelle nicht
+mit aufgeführt da er in der obigen Analyse bereits ausgeschlossen wurde.
 
 \begin{center}
 \begin{tabular}{lcccr}
@@ -649,8 +687,7 @@ Maschine oder auf einem Hostsystem.
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
-  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
-  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
   sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
   Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
@@ -671,10 +708,9 @@ diesen selbst zu laufen:
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \xmark           & \xmark    & \xmark      & \xmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
-  zabbix-agent   & \cmark           & \cmark    & \cmark      & \xmark \\
-  python-diamond & \cmark           & \cmark    & \xmark      & \xmark \\
-  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
-  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
+  sysstat        & \xmark           & \xmark    & \xmark      & \xmark \\
+  Logstash       & \xmark           & \xmark    & \xmark      & \xmark \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
   \bottomrule
 \end{tabular}
@@ -685,7 +721,15 @@ atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
 Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
 Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
 Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
-versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.
+versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
+sysstat, Logstash und Riemann erfüllen ebenfalls die Anforderungen nicht.
+
+Übrig bleiben collectd und python-diamond. Beide erfüllen alle Anforderungen.\
+collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
+einen Geschwindigkeitsvorteil. Das Team rund um collectd arbeitet schon länger
+am Projekt und arbeitet kontinuierlich daran. Im weiteren Verlauf des Projekts
+wird deshalb mit collectd gearbeitet. Sollten sich hier unerwartete Probleme
+ergeben kann auf Diamond gewechselt werden.
 \tm%
 
 \subsection{Datenhaltungssystem}
@@ -809,7 +853,7 @@ Daten, anschliesend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
-\lstinputlisting[language=bash,caption={elasticsearch git clone}]{elasticsearch-clone.txt}
+\lstinputlisting[language=bash,caption={elasticsearch git clone}]{../listings/elasticsearch-clone.txt}
 
 Oben befindet sich eine kurze Analyse des \gls{Git}
 \glslink{Repository}{Repositories} vom 27.11.2016. Die Suchmaschine besteht
@@ -921,7 +965,7 @@ sie pflegt ein komplexes Wiki~\cite{postgres_wiki}, sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für
 Fortgeschrittene~\cite{postgres_tutorial}.
 
-\lstinputlisting[language=bash,caption={postgres git clone}]{postgres-clone.txt}
+\lstinputlisting[language=bash,caption={postgres git clone}]{../listings/postgres-clone.txt}
 
 Wie in der obigen Shellausgabe zu sehen, enthält das \gls{Git} \gls{Repository}
 des Postgres Quellcodes am 26.11.2016 41366 einzelne Commits von 41

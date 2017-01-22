@@ -1,0 +1,12 @@
+$ date; git clone git@github.com:python-diamond/Diamond.git; \
+cd postgresql; git shortlog -s -n --no-merges | wc -l; \
+git rev-list HEAD --count
+So 22. Jan 19:57:47 CET 2017
+Cloning into 'Diamond'...
+remote: Counting objects: 21101, done.
+remote: Compressing objects: 100% (92/92), done.
+remote: Total 21101 (delta 37), reused 0 (delta 0), pack-reused 21009
+Receiving objects: 100% (21101/21101), 3.32 MiB | 1.78 MiB/s, done.
+Resolving deltas: 100% (10364/10364), done.
+292
+2922
