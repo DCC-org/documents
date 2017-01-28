@@ -675,6 +675,13 @@ Beispiel Statistiken zum Verhalten des Arbeitsspeichers. Die Interrupt
 Verarbeitung des Prozessors und detailierte Netzwerkinformationen. Ermittelte
 Daten können als \gls{CSV}, \gls{XML} oder \gls{JSON} gespeichert
 werden~\cite{sysstat_features}.
+
+sysstat bietet keine Möglichkeit um Daten von virtuellen Maschinen über den
+Host zu ermitteln. Die bereitgestellten Informationen sind aber in einer sehr
+guten Struktur dank des XML Schemas. Das einbinden in andere Programme und das
+interpretieren ist somit sehr einfach.\ sysstat erfüllt nicht alle
+Anforderungen, es kann aber eventuell als Ergänzung zu anderen Programmen
+genutzt werden.
 \tm%
 
 \subsubsection{Logtash}
@@ -688,8 +695,7 @@ Unten aufgeführt ist eine Gegenüberstellung der verschiedenen Lösungen und
 deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung für
 die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
 Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
-Maschine oder auf einem Hostsystem.\ zabbix-agent wurde in der Tabelle nicht
-mit aufgeführt da er in der obigen Analyse bereits ausgeschlossen wurde.
+Maschine oder auf einem Hostsystem.
 
 \begin{center}
 \begin{tabular}{lcccc}
@@ -698,9 +704,10 @@ mit aufgeführt da er in der obigen Analyse bereits ausgeschlossen wurde.
   \midrule
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \cmark           & \cmark    & \cmark      & \cmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
   python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
-  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
+  sysstat        & \cmark           & \cmark    & \cmark      & \cmark \\
   Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
   \bottomrule
@@ -719,6 +726,7 @@ diesen selbst zu laufen:
   \midrule
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \xmark           & \xmark    & \xmark      & \xmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
   python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
   sysstat        & \xmark           & \xmark    & \xmark      & \xmark \\
