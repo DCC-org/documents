@@ -742,7 +742,7 @@ Maschine oder auf einem Hostsystem.
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
   python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
   sysstat        & \cmark           & \cmark    & \cmark      & \cmark \\
-  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  Logstash       & \~{}             & \~{}      & \~{}        & \~{}   \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
   \bottomrule
 \end{tabular}
@@ -776,7 +776,9 @@ Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
 Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
 Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
 versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
-sysstat, Logstash und Riemann erfüllen ebenfalls die Anforderungen nicht.
+sysstat ist nicht in der Lage Daten von virtuellen Maschinen zu ermitteln und
+fällt somit auch raus.Logstash ist äußerst flexibel, benötigt aber etwas Arbeit
+bei der Entwicklung eines eigenen Eingabe-Plugins.
 
 Übrig bleiben collectd und python-diamond. Beide erfüllen alle Anforderungen.\
 collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
