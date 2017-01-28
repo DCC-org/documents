@@ -346,13 +346,13 @@ die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische Daten
 innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die API
 oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
 erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
-nach den Datenformaten des JSON oder XML aufgebaut ist. Die beiden Datenformate
-sind die weitverbreitesten Formate auf dem Markt und können in vielen
-Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden werden.
-Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
-Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering,
-da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist
-und keine neuen Strukturen erlernen muss.
+nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
+Datenformate sind die weitverbreitesten Formate auf dem Markt und können in
+vielen Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden
+werden.  Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
+Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering, da
+diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
+neuen Strukturen erlernen muss.
 \nl%
 
 \subsection{Frontend}
@@ -858,8 +858,8 @@ Die komplette Interaktion mit der Suchmaschine erfolgt über
 auch die Administration der Software selbst und das Eintragen neuer Daten.
 Elasticsearch beschreibt sich selbst als eine dokumentenbasierte No-SQL
 Datenbank. Dies bedeutet, das es keine Tabellen mit Relationen gibt. Jeder
-Datensatz ist ein Dokument, welches als JSON gespeichert wird. Ein Dokument
-basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
+Datensatz ist ein Dokument, welches als \gls{JSON} gespeichert wird. Ein
+Dokument basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
 Elasticsearch erzeugt mit Hilfe der \gls{Lucene} Bibliothek Indexe auf diesen
 Daten, anschliesend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
