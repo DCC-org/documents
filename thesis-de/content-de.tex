@@ -685,6 +685,18 @@ genutzt werden.
 \tm%
 
 \subsubsection{Logstash}
+Logstash gehört zusammen mit Elasticsearch (siehe auch
+Abschnitt~\ref{paragraph:elasticsearch}) und \gls{Kibana} zum ELK-Stack. Die
+Open Source Software steht unter der Apache License. Logstash arbeitet nach
+dem modularen \gls{EVA} Prinzip.
+
+\begin{outline}
+  \1 Die gewünschten Daten werden in vordefinierten Formaten eingelesen.
+  \1 Die Daten werden transformiert und gefiltert.
+  \1 Das Ergebnis wird zu einem oder mehreren Endpunkten geschickt.
+\end{outline}
+
+Alle drei Schritte können über Plugins erweitert werden.
 \tm%
 
 \subsubsection{Riemann}
