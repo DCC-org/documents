@@ -697,7 +697,28 @@ dem modularen \gls{EVA} Prinzip.
 \end{outline}
 
 Alle drei Schritte können mit über 200 Plugins erweitert
-werden~\cite{logstash_overview}.
+werden~\cite{logstash_overview}. Logstash ist für die Verarbeitung von
+Ereignissen ausgelegt. Diese können direkt aus diversen Quellen gelesen werden.
+Hierzu gehören unter anderem Netzwerksockets, Textdateien, Syslog Streams und
+Messagequeues. Bei der Transformation werden die Daten neu serialisiert und in
+ein anderes Format übertragen. Hier können zum Beispiel zeilenweise eingelesene
+Ereignisse aus einer Textdatei in das \gls{JSON} Format überführt werden. Dabei
+werden die unstrukturierten Daten mit Filtern zerlegt und in Typen eingeteilt
+um strukturierte Daten zu erhalten. Aus einem langen String wird dabei die
+eigentliche Nachricht, das Datum, Dringlichkeit und andere Typen erkannt.
+Bereits strukturierte Daten können auch einfach in eine andere Struktur
+überführt werden. Zum Abschluss werden die Daten ausgeben. Dies kann passieren
+in dem unter anderem in einen Cache Service, eine Message Queue oder direkt
+in eine Datenbank geschrieben wird.
+
+Logstash ist nicht auf das einlesen von Metriken ausgelegt (Ganzzahlen),
+sondern für Logs in Textform. Über ein eigenes Plugin liese sich aber auch das
+effiziente einlesen von Metriken realisieren. Mit der Vielzahl an
+Transformationen und Ausgabemöglichkeiten ist Logstash sehr flexibel und passt
+sich an jede Situation an. Dadurch dass Daten über mehrere Ausgänge parallel
+verarbeitet werden können ist die Software sehr zukunftssicher. Bei geänderten
+Anforderungen lassen sich die Daten zum Beispiel anstatt in eine SQL basierte
+Datenbank in eine No-SQL Datenbank schreiben.
 \tm%
 
 \subsubsection{Riemann}
