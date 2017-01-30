@@ -1104,7 +1104,7 @@ Nodes ist nicht garantiert, dass Daten wirklich persistent geschrieben werden.
 \label{paragraph:cassandra}
 Cassandra, ist ein \gls{SQL} und Java basiertes \gls{DBMS} und wurde ausgelegt
 für die Datenhaltung von großen Datenmengen und dessen verbundenen
-managment der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
+Managment der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
 Cluster System über mehrere Server (Nodes) um ein vollständiges Versagen, durch
 den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein Peer-to-Peer Verfahren verwendet, welches die
@@ -1140,8 +1140,6 @@ Daten in Datenbanktabellen, stattdessen werden Daten nur als gelöscht makiert
 und bei zukünftigen Abfragen zunächst nicht beachtet. Die vollständige Löschung
 der Daten wird dann zum Beispiel zu Zeitpunkten erledigt, wenn das System
 sicher ist, dass keine Fehler oder Datenleichen entstehen können.
-
-HIER: Warum wir es dennoch nicht nutzen.
 \nl%
 
 \paragraph{Postgres}
