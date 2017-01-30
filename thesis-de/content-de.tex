@@ -5,6 +5,7 @@ Projektarbeit. Dieses Projekt wird in Gruppen von zwei bis vier Personen
 durchgeführt und soll fachliche Inhalte sowie Inhalte aus dem Projektmanagement
 kombinieren. Es handelt sich um eine praktische Arbeit. Jeder Abschnitt enthält
 ein Kürzel des Autors, hierbei bedeutet:
+
 \begin{outline}
   \1 {[MR]} erstellt von Marcel Reuter
   \1 {[NL]} erstellt von Nikolai Luis
@@ -29,6 +30,7 @@ steigern. Dies ist ohne detaillierte Auslastungsreports nicht möglich.
 
 In diesem Projekt soll eine funktionierende Open Source Software entwickelt
 werden, die sich in drei Teile gliedert:
+
 \begin{outline}
   \1 Die verschiedenen Ressourcetypen (CPU Zeit / Datendurchsatz / RAM
   Auslastung / Speicher Auslastung / Netzwerkdurchsatz) der einzelnen
@@ -344,13 +346,13 @@ die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische Daten
 innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die API
 oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
 erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
-nach den Datenformaten des JSON oder XML aufgebaut ist. Die beiden Datenformate
-sind die weitverbreitesten Formate auf dem Markt und können in vielen
-Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden werden.
-Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
-Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering,
-da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist
-und keine neuen Strukturen erlernen muss.
+nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
+Datenformate sind die weitverbreitesten Formate auf dem Markt und können in
+vielen Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden
+werden.  Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
+Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering, da
+diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
+neuen Strukturen erlernen muss.
 \nl%
 
 \subsection{Frontend}
@@ -504,7 +506,7 @@ basiert auf dem Lasten- und Pflichtenheft:
   \1 zabbix-agent
   \1 python-diamond
   \1 sysstat
-  \1 Logtash
+  \1 Logstash
   \1 Riemann
 \end{outline}
 \tm%
@@ -663,9 +665,60 @@ sind.
 \tm%
 
 \subsubsection{sysstat}
+Die Softwaresammlung sysstat ist eine Kollektion an kleinen Programmen zur
+Performance Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
+älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
+erscheinen jedes Jahr mehrere Updates. Entwickelt wird das Projekt
+von~\cite{systat_releases}. Das Featureset von sysstat ist sehr umfangreich.
+Neben den geforderten Kriterien zur lokalen Datenerfassung liefert es auch
+viele weitere Details. Hierzu zählen zum Beispiel Statistiken zum Verhalten des
+Arbeitsspeichers. Die Interrupt Verarbeitung des Prozessors und detailierte
+Netzwerkinformationen. Ermittelte Daten können als \gls{CSV}, \gls{XML} oder
+\gls{JSON} gespeichert werden~\cite{sysstat_features}.
+
+Die Software sysstat bietet keine Möglichkeit um Daten von virtuellen Maschinen
+über den Host zu ermitteln. Die bereitgestellten Informationen sind aber in
+einer sehr guten Struktur dank des XML Schemas. Das einbinden in andere
+Programme und das interpretieren ist somit sehr einfach. Es werden nicht alle
+Anforderugnen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
+anderen Programmen genutzt werden.
 \tm%
 
-\subsubsection{Logtash}
+\subsubsection{Logstash}
+Logstash wird von der Firma Elasticsearch BV entwickelt. Zusammen mit
+Elasticsearch (siehe auch Abschnitt~\ref{paragraph:elasticsearch}) und
+\gls{Kibana} bilden sie den ELK-Stack. Die Open Source Software steht unter der
+Apache License. Logstash arbeitet nach dem modularen \gls{EVA} Prinzip.
+
+\begin{outline}
+  \1 Die gewünschten Daten werden in vordefinierten Formaten eingelesen.
+  \1 Die Daten werden transformiert und gefiltert.
+  \1 Das Ergebnis wird zu einem oder mehreren Endpunkten geschickt.
+\end{outline}
+
+Alle drei Schritte können mit über 200 Plugins erweitert
+werden~\cite{logstash_overview}. Logstash ist für die Verarbeitung von
+Ereignissen ausgelegt. Diese können direkt aus diversen Quellen gelesen werden.
+Hierzu gehören unter anderem Netzwerksockets, Textdateien, Syslog Streams und
+Messagequeues. Bei der Transformation werden die Daten neu serialisiert und in
+ein anderes Format übertragen. Hier können zum Beispiel zeilenweise eingelesene
+Ereignisse aus einer Textdatei in das \gls{JSON} Format überführt werden. Dabei
+werden die unstrukturierten Daten mit Filtern zerlegt und in Typen eingeteilt
+um strukturierte Daten zu erhalten. Aus einem langen String wird dabei die
+eigentliche Nachricht, das Datum, Dringlichkeit und andere Typen erkannt.
+Bereits strukturierte Daten können auch einfach in eine andere Struktur
+überführt werden. Zum Abschluss werden die Daten ausgeben. Dies kann passieren
+in dem unter anderem in einen Cache Service, eine Message Queue oder direkt
+in eine Datenbank geschrieben wird.
+
+Logstash ist nicht auf das einlesen von Metriken ausgelegt (Ganzzahlen),
+sondern für Logs in Textform. Über ein eigenes Plugin liese sich aber auch das
+effiziente einlesen von Metriken realisieren. Mit der Vielzahl an
+Transformationen und Ausgabemöglichkeiten ist Logstash sehr flexibel und passt
+sich an jede Situation an. Dadurch dass Daten über mehrere Ausgänge parallel
+verarbeitet werden können ist die Software sehr zukunftssicher. Bei geänderten
+Anforderungen lassen sich die Daten zum Beispiel anstatt in eine SQL basierte
+Datenbank in eine No-SQL Datenbank schreiben.
 \tm%
 
 \subsubsection{Riemann}
@@ -676,20 +729,20 @@ Unten aufgeführt ist eine Gegenüberstellung der verschiedenen Lösungen und
 deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung für
 die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
 Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
-Maschine oder auf einem Hostsystem.\ zabbix-agent wurde in der Tabelle nicht
-mit aufgeführt da er in der obigen Analyse bereits ausgeschlossen wurde.
+Maschine oder auf einem Hostsystem.
 
 \begin{center}
-\begin{tabular}{lcccr}
+\begin{tabular}{lcccc}
   \toprule
   Programme      & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \cmark           & \cmark    & \cmark      & \cmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
   python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
-  sysstat        & \cmark           & \cmark    & \xmark      & \xmark \\
-  Logstash       & \cmark           & \cmark    & \xmark      & \xmark \\
+  sysstat        & \cmark           & \cmark    & \cmark      & \cmark \\
+  Logstash       & \~{}             & \~{}      & \~{}        & \~{}   \\
   Riemann        & \cmark           & \cmark    & \xmark      & \xmark \\
   \bottomrule
 \end{tabular}
@@ -701,12 +754,13 @@ einem Hypervisor Daten über virtuelle Maschinen erfassen können, ohne in eben
 diesen selbst zu laufen:
 
 \begin{center}
-\begin{tabular}{lcccr}
+\begin{tabular}{lcccc}
   \toprule
   Programme      & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
   Coreutils      & \cmark           & \cmark    & \cmark      & \cmark \\
   atop           & \xmark           & \xmark    & \xmark      & \xmark \\
+  zabbix-agent   & \cmark           & \cmark    & \cmark      & \cmark \\
   collectd       & \cmark           & \cmark    & \cmark      & \cmark \\
   python-diamond & \cmark           & \cmark    & \cmark      & \cmark \\
   sysstat        & \xmark           & \xmark    & \xmark      & \xmark \\
@@ -722,7 +776,9 @@ Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
 Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
 Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
 versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
-sysstat, Logstash und Riemann erfüllen ebenfalls die Anforderungen nicht.
+sysstat ist nicht in der Lage Daten von virtuellen Maschinen zu ermitteln und
+fällt somit auch raus.Logstash ist äußerst flexibel, benötigt aber etwas Arbeit
+bei der Entwicklung eines eigenen Eingabe-Plugins.
 
 Übrig bleiben collectd und python-diamond. Beide erfüllen alle Anforderungen.\
 collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
@@ -846,8 +902,8 @@ Die komplette Interaktion mit der Suchmaschine erfolgt über
 auch die Administration der Software selbst und das Eintragen neuer Daten.
 Elasticsearch beschreibt sich selbst als eine dokumentenbasierte No-SQL
 Datenbank. Dies bedeutet, das es keine Tabellen mit Relationen gibt. Jeder
-Datensatz ist ein Dokument, welches als JSON gespeichert wird. Ein Dokument
-basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
+Datensatz ist ein Dokument, welches als \gls{JSON} gespeichert wird. Ein
+Dokument basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
 Elasticsearch erzeugt mit Hilfe der \gls{Lucene} Bibliothek Indexe auf diesen
 Daten, anschliesend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
@@ -1226,6 +1282,7 @@ API System zu erstellen und im Anschluss während der Evaluierungsphase
 Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen kann.
 
 Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
+
 \begin{outline}
   \1 Die API Software muss auf einer selbst administrierten Hardware-Umgebung
   betrieben werden können. Das verwenden von einem fertigen API Softwarepaket
@@ -1314,14 +1371,16 @@ administrierten Hardware-Umgebung zulässt.
 Bevor das Projekt begann, mussten vorab zusammen mit dem Projektteam, eine
 Softwareliste an möglichen Frontends erarbeitet werden. Bereits vorab wurden
 folgende Softwarelösungen in das Pflichtenheft aufgenommen:
+
 \begin{outline}
   \1 Grafana
   \1 Graphite
   \1 Zabbix-Frontend
-  \end{outline}
+\end{outline}
 
 Nach Absprache mit dem Projektteam, sind noch folgende in Frage kommende
 Systeme der Evaluierungsliste aufgenommen worden.
+
 \begin{outline}
   \1 Datadog
   \1 Gridster-D3
@@ -1389,6 +1448,7 @@ aufgenommen.
 
 Die einzelnen Kriterien wurden im nachhinein der Wichtigkeit absteigend,
 wie folgt aufgelistet:
+
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
   gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
@@ -1498,6 +1558,7 @@ mit allen Graphen und Statements, können vom System, wie auch vom Anwender
 selber auf einen externen Dateifreigabe Server oder Lokal abgespeichert werden.
 
 Zusammenfassung:
+
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
@@ -1537,6 +1598,7 @@ vorraussetzt.
 
 
 Zusammenfassung:
+
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
@@ -1581,6 +1643,7 @@ importieren zu können.
 
 
 Zusammenfassung:
+
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
@@ -1629,6 +1692,7 @@ besitzen. Ebenso gibt es hier einen \gls{IRC Channel}, um direkt Kontakt mit Sup
 aufnehmen zu können.
 
 Zusammenfassung:
+
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung, Authorisierung
@@ -1677,6 +1741,7 @@ ist allerdings, das diese Softwarelösung jeweils nur eine Instanz gleichzeitig
 Datenhaltungssystem oder ähnliches benötigt wird.
 
 Zusammenfassung:
+
 \begin{outline}
   Positiv:
   \1 Es werden sämtliche Daten unmittelbar ohne Datenbank bereits visualisiert
@@ -1760,6 +1825,7 @@ Beschreibung: Dem Administrator oder dem User soll es ermöglicht werden, eine
 visualisierte Ausgabe in Form von Graphen zu erhalten. Diese sollen Aufschluss
 über die Auslastung der einzelnen Systeme geben können.
 Akzeptanzkriterien:
+
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
   \1 Zeitspanne von der Visualisierung kann über den Benutzer angepasst werden
@@ -1778,6 +1844,7 @@ Akzeptanzkriterien:
 
 \printbibliography[heading=bibnumbered]
 
+\section{Anhang}
 \input{../figures.tex}
 
 \input{../listings.tex}
