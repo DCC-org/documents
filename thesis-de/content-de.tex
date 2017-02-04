@@ -1572,12 +1572,18 @@ wie folgt aufgelistet:
   hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu sein.
   Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
-  \1 Bei der Weboberfläche sollte ebenfalls auf die Performance geachtet werden,
-  so sollen Graphen und Werte schnell ohne große Zeitdifferenzen aus dem 
-  Datenhaltungssystem abgerufen werden können. Ebenso, sollte der Aufbau des
-  Dashboards beim neuladen der Seite, oder aber auch ein Wert z.B. der CPU 
-  Auslastung ändert sich massiv direkt angezeigt werden können, ohne einen 
-  Zeitlichen unterschied merken zu können.
+  \1 Der wichtigste Aspekt, bei der Performance der Weboberfläche, ist 
+  darauf zu achten, das Werte die visualisiert werden aus dem Zwischengespeicher
+  verwendet werden, um die Auslastung auf dem Datenhaltunssystem so gering wie
+  möglich zu halten. Wenn hier Beispielsweise 500 Nutzer gleichzeit auf der
+  Weboberfläche Graphen visualisieren, so dürfen hier nicht die 500 Anfragen an
+  das Datenhaltungssystem weitergeleitet werden, sondern müssen aus dem
+  Zwieschenspeicher des Dashboards bzw. der Weboberfläche erfolgen. Wie auch die
+  Datenabfragen zum Datenhaltungssystem, sollen Graphen und Werte schnell ohne
+  große Zeitdifferenzen visualisiert und angezeigt werden können. Ebenfalls,
+  sollte dem Aufbau des Dashboards bei einer Aktualisierung der Seite, oder aber
+  auch ein Wert z.B. der CPU  Auslastung ändert sich massiv direkt angezeigt
+  werden können, ohne einen Zeitlichen unterschied merken zu können.
 \end{outline}
 \mr%
 
@@ -1749,8 +1755,8 @@ Zusammenfassung:
 
   Negativ:
   \1 Keine Möglichkeit, das Webdesign anzupassen
-
 \end{outline}
+
 \paragraph{Datadog}
 \label{paragraph:datadog}
 Datadog ist ein von Oliver Pomel entwickelte Analysesoftware und wird bereits
@@ -1801,9 +1807,9 @@ Zusammenfassung:
 \label{paragraph:gridster-d3}
 Gidster ist eine von Anmol Koul entwickelte Softwarelösung, welche auf
 OpenSource Basis auf \gls{GitHub} liegt. Während der Evaluierung von dieser
-Software, ist aufgefallen, dass es sich hierbei nicht direkt um eine
-Visualisieurngssoftware handelt, sondern lediglich eine Funktion innerhalb
-einer Weboberfläche, nämlich das Drag \& Drop, von einzelnen Graphen.
+Software ist aufgefallen, dass es sich hierbei nicht direkt um eine
+Visualisierungssoftware handelt, sondern lediglich eine Funktion, nämlich das
+Drag \& Drop, von einzelnen Graphen innerhalb einer Weboberfläche.
 
 Somit fällt Gridster-D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
@@ -1826,7 +1832,7 @@ ist allerdings, das diese Softwarelösung jeweils nur eine Instanz gleichzeitig
 überwachen kann und der Vorteil bei Netdata, das kein weiteres
 Datenhaltungssystem oder ähnliches benötigt wird.
 
-Zusammenfassung: 
+Zusammenfassung:
 
 \begin{outline}
   Positiv:
@@ -1859,12 +1865,12 @@ wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
 oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
 einen Zabbix Server nicht verwendet werden kann. Der Zabbix Server ist ein von
 Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
-bereitet diese auf und speichert sie anschließend in einem Datenhaltungssystem
-ab. Zusätzlich ist aufgefallen, das Zabbix-Frontend maximal nur mit einer
-Datenbank gleichzeitig kommunizieren und verwenden kann. Anders als bei
-Grafana, wo mehrere Datenbanken eingebunden werden können, welche über die
-Abfragen der Graphen angesprochen werden können, kann dies bei Zabbix nicht
-umgesetzt werden.
+bereitet diese auf und speichert die zuvor aufbereitete Daten anschließend in
+einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das
+Zabbix-Frontend maximal nur mit einer Datenbank gleichzeitig kommunizieren und
+verwendet werden kann. Anders als bei Grafana, welches mit mehreren Datenbanken
+gleichzeitig Kommunizieren kann. Innherhalb der einzelnen Graphen werden hier
+mittels einer Abfrage die Datenbanken direkt angesprochen.
 \mr%
 
 \section{Realisierung}
