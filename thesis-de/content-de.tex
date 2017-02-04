@@ -1889,7 +1889,7 @@ Tickets arbeiten können.
 \tm%
 
 \subsection{SSD Userstory}
-Name der Story: Anzeige der SSD's, welche einen Hardwaredeffekt haben könnten
+Name der Story: Anzeige der SSD's, welche einen Hardwaredeffekt haben könnten.
 Beschreibung: In der heutigen Zeit, werden vermehrt langsame Hard Disk Drive's
 durch schnellere Solid State Disk's ausgetauscht. Gerade im Serverbetrieb, sorgt
 dies für eine schnellere Absicherung der Daten. SSDs haben jedoch, wie auch
@@ -1911,7 +1911,28 @@ Akzeptanzkriterien:
 \end{outline}
 \mr%
 
-\subsection{Userstory 2}
+\subsection{CPU Userstory}
+Name der Story: Auswertung der CPU Auslastung von jeder Instanz, um Engpässe zu
+erkennen.
+Beschreibung: Die CPUs der heutigen Zeit werden immer schneller und besser, von
+der Taktrate, bis hin zur Verarbeitungsgeschwindigkeit der Prozesse. Bei 
+Virtuellen Maschine, werden die CPUs jeweils pro Virtueller Maschine zugewiesen,
+so kann eine Maschine 2 CPU Kerne mit z.B. 2,5 GHz Takrate zugewiesen werden.
+Auf jeder Virtuellen Maschine laufen andere Dienste, weshalb eine VM
+unterschiedliche CPUs zugewiesen haben. Manchmal kommt es hier vor, das eine VM
+zu viel Rechenleistung, bedingt durch ausgeführte Dienste benötigt. Wenn eine
+VM mehr Rechenleistung benötigt, als zugewiesen ist, kann es hier zu
+Verzögerungen kommen. Um dies zu erkennen, benötigt der Administrator, eine
+detailierte Übersicht in Form eines Graphen, wieviel CPU Leistung von einer
+Virtuellen Instanz verwendet wird, um hier einen Engpass bereits vorab zu
+erkennen und der VM mehr CPU Leistung zur Verfügung stellen zu können.
+Akzeptanzkriterien:
+\begin{outline}
+  \1 Visualisierung der Auslastung der CPU Leistung für jede einzelne Instanz
+  \1 Alle Werte der CPU, wie soft-IRQ, wait oder interrupt müssen visualisiert
+  werden
+  \1 Eine frühstmögliche Erkennung von einem Engpass einer Virtuellen Maschine
+\end{outline}
 
 \subsection{Frontend}
 Name der Story: Visualisierung der erhaltenen Daten zur weiteren Verwendung
