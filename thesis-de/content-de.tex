@@ -1933,6 +1933,26 @@ Akzeptanzkriterien:
   werden
   \1 Eine frühstmögliche Erkennung von einem Engpass einer Virtuellen Maschine
 \end{outline}
+\mr%
+
+\subsection{Memory Userstory}
+Name der Story: Auswertung der Arbeitsspeicher Auslastung von jeder Instanz, um
+Engpässe zu erkennen.
+Beschreibung: Wie auch bei der CPU Auslastung, gibt es eine solche Auslastung
+auch bei dem verwendeten Arbeitsspeicher, welcher einer Virtuellen Maschine 
+zugewiesen ist. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
+entscheident, sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine
+zugewiesen ist. Hier kann es ebenfalls wie auch bei der~\ref{subsection:CPU Userstory}
+vorkommen, das es zu Engpässen auf der Virtuellen Maschine bei der Verteilung
+des Arbeitsspeichers kommen kann.
+Akzeptanzkriterien:
+\begin{outline}
+  \1 Ausgabe uns Visualisierung des Verwendeten, Freien und 
+  zwischengespeichertem Arbeitsspeicher in Form eines Graphen, für jede einzelne
+  Virtuelle Maschine
+  \1 Eine frühstmögliche Erkennung von einem Engpass des Arbeitsspeichers einer
+  Virtuellen Maschine
+\end{outline}
 
 \subsection{Frontend}
 Name der Story: Visualisierung der erhaltenen Daten zur weiteren Verwendung
