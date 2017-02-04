@@ -1889,8 +1889,8 @@ Tickets arbeiten können.
 \tm%
 
 \subsection{SSD Userstory}
-Name der Story: Anzeige der SSD's, welche einen Hardwaredeffekt haben könnten.
-Beschreibung: In der heutigen Zeit, werden vermehrt langsame Hard Disk Drive's
+\\textbf{Name der Story:}\\ Anzeige der SSD's, welche einen Hardwaredeffekt haben könnten.
+\\textbf{Beschreibung:}\\ In der heutigen Zeit, werden vermehrt langsame Hard Disk Drive's
 durch schnellere Solid State Disk's ausgetauscht. Gerade im Serverbetrieb, sorgt
 dies für eine schnellere Absicherung der Daten. SSDs haben jedoch, wie auch
 HDDs einen Lebenszyklus, der bei SSD schneller erreicht werden kann. Der
@@ -1899,7 +1899,7 @@ ein kritischer Schreib- oder Lesezyklus erreicht worden ist, um die SSD, bereits
 vor dem Ausfall austauschen zu können. Ebenfalls soll hier auch eine Statistik
 ausgegeben werden, welche SSD von welchem Hersteller in der Wahrscheinlichkeit
 am häufigsten ausfallen kann.
-Akzeptanzkriterien:
+\\textbf{Akzeptanzkriterien:}\\
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einen Diagramm, ob Balken- oder
@@ -1912,9 +1912,9 @@ Akzeptanzkriterien:
 \mr%
 
 \subsection{CPU Userstory}
-Name der Story: Auswertung der CPU Auslastung von jeder Instanz, um Engpässe zu
+\\textbf{Name der Story:}\\ Auswertung der CPU Auslastung von jeder Instanz, um Engpässe zu
 erkennen.
-Beschreibung: Die CPUs der heutigen Zeit werden immer schneller und besser, von
+\\textbf{Beschreibung:}\\ Die CPUs der heutigen Zeit werden immer schneller und besser, von
 der Taktrate, bis hin zur Verarbeitungsgeschwindigkeit der Prozesse. Bei 
 Virtuellen Maschine, werden die CPUs jeweils pro Virtueller Maschine zugewiesen,
 so kann eine Maschine 2 CPU Kerne mit z.B. 2,5 GHz Takrate zugewiesen werden.
@@ -1926,7 +1926,8 @@ Verzögerungen kommen. Um dies zu erkennen, benötigt der Administrator, eine
 detailierte Übersicht in Form eines Graphen, wieviel CPU Leistung von einer
 Virtuellen Instanz verwendet wird, um hier einen Engpass bereits vorab zu
 erkennen und der VM mehr CPU Leistung zur Verfügung stellen zu können.
-Akzeptanzkriterien:
+\\textbf{Akzeptanzkriterien:}\\
+
 \begin{outline}
   \1 Visualisierung der Auslastung der CPU Leistung für jede einzelne Instanz
   \1 Alle Werte der CPU, wie soft-IRQ, wait oder interrupt müssen visualisiert
@@ -1936,16 +1937,17 @@ Akzeptanzkriterien:
 \mr%
 
 \subsection{Memory Userstory}
-Name der Story: Auswertung der Arbeitsspeicher Auslastung von jeder Instanz, um
+\\textbf{Name der Story:}\\ Auswertung der Arbeitsspeicher Auslastung von jeder Instanz, um
 Engpässe zu erkennen.
-Beschreibung: Wie auch bei der CPU Auslastung, gibt es eine solche Auslastung
+\\textbf{Beschreibung:}\\ Wie auch bei der CPU Auslastung, gibt es eine solche Auslastung
 auch bei dem verwendeten Arbeitsspeicher, welcher einer Virtuellen Maschine 
 zugewiesen ist. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
 entscheident, sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine
 zugewiesen ist. Hier kann es ebenfalls wie auch bei der~\ref{subsection:CPU Userstory}
 vorkommen, das es zu Engpässen auf der Virtuellen Maschine bei der Verteilung
 des Arbeitsspeichers kommen kann.
-Akzeptanzkriterien:
+\\textbf{Akzeptanzkriterien:}\\
+
 \begin{outline}
   \1 Ausgabe uns Visualisierung des Verwendeten, Freien und 
   zwischengespeichertem Arbeitsspeicher in Form eines Graphen, für jede einzelne
@@ -1956,9 +1958,9 @@ Akzeptanzkriterien:
 \mr%
 
 \subsection{Zeitdefinierte Analyse Userstory}
-Name der Story: Eine Angabe über die im vergangenen Jahr verwendeten Ressourcen
+\\textbf{Name der Story:}\\ Eine Angabe über die im vergangenen Jahr verwendeten Ressourcen
 einer Virtuellen Maschine
-Beschreibung: Ein Onlineshop für zum beispiel Seasonale Ware, wie
+\\textbf{Beschreibung:}\\ Ein Onlineshop für zum beispiel Seasonale Ware, wie
 Adventskalender, benötigt eine Analyse über die verwendeten Ressourcen aus dem
 vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei beginn
 richtig skalieren zu können. Dies dient in erster Linie um die Erreichbarkeit,
@@ -1968,7 +1970,8 @@ gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
 die Ressourcen verwenden können. In den Monaten, wo keine große Nachfrage
 der Webseite besteht, können hier dann weniger Ressourcen vergeben werden. Dies
 hat den Vorteil, das spezielle Vertäge dem Kunden angeboten werden kann.
-Akzeptanzkriterien:
+\\textbf{Akzeptanzkriterien:}\\
+
 \begin{outline}
   \1 Es soll eine Ausgabe in Visualisierter Form über einen bestimmten Monat
   dargestellt werden
@@ -1978,11 +1981,11 @@ Akzeptanzkriterien:
 \mr%
 
 \subsection{Weboberfläche Userstory}
-Name der Story: Visualisierung der erhaltenen Daten zur weiteren Verwendung
-Beschreibung: Dem Administrator oder dem User soll es ermöglicht werden, eine
+\\textbf{Name der Story:}\\ Visualisierung der erhaltenen Daten zur weiteren Verwendung
+\\textbf{Beschreibung:}\\ Dem Administrator oder dem User soll es ermöglicht werden, eine
 visualisierte Ausgabe in Form von Graphen zu erhalten. Diese sollen Aufschluss
 über die Auslastung der einzelnen Systeme geben können.
-Akzeptanzkriterien:
+\\textbf{Akzeptanzkriterien:}\\
 
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
