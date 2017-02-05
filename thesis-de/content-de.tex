@@ -1892,45 +1892,46 @@ Tickets arbeiten können.
 \\textbf{Name der Story:}\\ Anzeige der SSD's, welche einen Hardwaredeffekt haben könnten.
 \\textbf{Beschreibung:}\\ In der heutigen Zeit, werden vermehrt langsame Hard Disk Drive's
 durch schnellere Solid State Disk's ausgetauscht. Gerade im Serverbetrieb, sorgt
-dies für eine schnellere Absicherung der Daten. SSDs haben jedoch, wie auch
-HDDs einen Lebenszyklus, der bei SSD schneller erreicht werden kann. Der
-Administrator soll hier darüber Benachrichtigt werden, sobald von einer SSD
-ein kritischer Schreib- oder Lesezyklus erreicht worden ist, um die SSD, bereits
-vor dem Ausfall austauschen zu können. Ebenfalls soll hier auch eine Statistik
-ausgegeben werden, welche SSD von welchem Hersteller in der Wahrscheinlichkeit
-am häufigsten ausfallen kann.
+dies für einen schnelleren Datenzugriff. SSDs haben jedoch, wie auch HDDs einen
+Lebenszyklus, der bei SSDs schneller erreicht werden kann, als bei 
+handelsüblichen HDDs. Der Administrator soll hier darüber Benachrichtigt werden,
+sobald von einer SSD ein kritischer Schreib- oder Lesezyklus erreicht worden
+ist, um die SSD, bereits vor dem Ausfall austauschen zu können. Ebenfalls soll
+hier auch eine Statistik ausgegeben werden, welche SSD von welchem Hersteller in
+der Wahrscheinlichkeit am häufigsten ausfallen kann.
 \\textbf{Akzeptanzkriterien:}\\
 
 \begin{outline}
-  \1 Die Ausgabe und Visualisierung in einen Diagramm, ob Balken- oder
-  Graphendiagramm, soll jeweils für jede einzelne Instanz angezeigt werden
+  \1 Die Ausgabe und Visualisierung in einem Diagramm, welches vorzugsweise in
+  einem Balken- oder Graphendiagramm für jede einzelne Instanz ausgegeben
+  werden kann
   \1 Auflistung einer Statistik in Form eines Balkendiagramms, über die
   Hersteller, welche am wahrscheinlich häufigsten in den Instanzen ausfallen
   \1 Eine Benachrichtigung, ob per Email oder andere Kommunikationswege,
-  wenn ein kritischer Schreib- oder Lesezyklus erreicht worden ist.
+  wenn ein kritischer Schreib- oder Lesezyklus erreicht worden ist
 \end{outline}
 \mr%
 
 \subsection{CPU Userstory}
-\\textbf{Name der Story:}\\ Auswertung der CPU Auslastung von jeder Instanz, um Engpässe zu
+\\textbf{Name der Story:}\\ Auswertung der CPU Auslastung jeder Instanz, um Engpässe zu
 erkennen.
-\\textbf{Beschreibung:}\\ Die CPUs der heutigen Zeit werden immer schneller und besser, von
-der Taktrate, bis hin zur Verarbeitungsgeschwindigkeit der Prozesse. Bei 
-Virtuellen Maschine, werden die CPUs jeweils pro Virtueller Maschine zugewiesen,
-so kann eine Maschine 2 CPU Kerne mit z.B. 2,5 GHz Takrate zugewiesen werden.
-Auf jeder Virtuellen Maschine laufen andere Dienste, weshalb eine VM
-unterschiedliche CPUs zugewiesen haben. Manchmal kommt es hier vor, das eine VM
-zu viel Rechenleistung, bedingt durch ausgeführte Dienste benötigt. Wenn eine
-VM mehr Rechenleistung benötigt, als zugewiesen ist, kann es hier zu
-Verzögerungen kommen. Um dies zu erkennen, benötigt der Administrator, eine
-detailierte Übersicht in Form eines Graphen, wieviel CPU Leistung von einer
-Virtuellen Instanz verwendet wird, um hier einen Engpass bereits vorab zu
-erkennen und der VM mehr CPU Leistung zur Verfügung stellen zu können.
+\\textbf{Beschreibung:}\\ Die CPUs der heutigen Zeit werden in der Taktrate und
+Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
+virtuellen Maschine, werden die CPUs jeweils pro Instanz zugeteilt, so kann eine
+VM 2 CPU Kerne mit z.B. 2,5 GHz Takrate zugewiesen haben. Auf jeder virtuellen
+Maschine laufen andere Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt
+haben kann. Hier kann es vorkommen, dass eine VM mehr CPU Leistung benötigt, als
+ihr selber zugewiesen ist. Um dies frühstmöglich zu erkennen, benötigt der
+Administrator, eine detailierte Übersicht in Form eines Graphen, wieviel CPU
+Leistung von einer virtuellen Instanz verwendet und vorhanden ist. Dies ist
+deshalb so wichtig, da wenn eine CPU zu wenig Rechenleistung besitzt, dann kann
+es hier zu einem Fehlverhalten der Dienste kommen. 
 \\textbf{Akzeptanzkriterien:}\\
 
 \begin{outline}
-  \1 Visualisierung der Auslastung der CPU Leistung für jede einzelne Instanz
-  \1 Alle Werte der CPU, wie soft-IRQ, wait oder interrupt müssen visualisiert
+  \1 Visualisierung der Auslastung und Verfügbarkeit der CPU Leistung für jede
+  einzelne Instanz
+  \1 Alle Werte der CPU, wie \gls{soft-IRQ}, wait oder Interrupt müssen visualisiert
   werden
   \1 Eine frühstmögliche Erkennung von einem Engpass einer Virtuellen Maschine
 \end{outline}
@@ -1939,43 +1940,43 @@ erkennen und der VM mehr CPU Leistung zur Verfügung stellen zu können.
 \subsection{Memory Userstory}
 \\textbf{Name der Story:}\\ Auswertung der Arbeitsspeicher Auslastung von jeder Instanz, um
 Engpässe zu erkennen.
-\\textbf{Beschreibung:}\\ Wie auch bei der CPU Auslastung, gibt es eine solche Auslastung
-auch bei dem verwendeten Arbeitsspeicher, welcher einer Virtuellen Maschine 
-zugewiesen ist. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
-entscheident, sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine
-zugewiesen ist. Hier kann es ebenfalls wie auch bei der~\ref{subsection:CPU Userstory}
+\\textbf{Beschreibung:}\\ Vergleichbar wie auch bei der CPU Auslastung, gibt es
+eine ähnliche Thematik zur Auslastung auch bei dem verwendeten Arbeitsspeicher.
+Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers entscheident,
+sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine zugewiesen ist.
+Hier kann es ebenfalls wie auch bei der~\ref{subsection:CPU Userstory}
 vorkommen, das es zu Engpässen auf der Virtuellen Maschine bei der Verteilung
 des Arbeitsspeichers kommen kann.
 \\textbf{Akzeptanzkriterien:}\\
 
 \begin{outline}
-  \1 Ausgabe uns Visualisierung des Verwendeten, Freien und 
-  zwischengespeichertem Arbeitsspeicher in Form eines Graphen, für jede einzelne
-  Virtuelle Maschine
+  \1 Ausgabe und Visualisierung in Form eines Graphen, für den Verwendeten,
+  Freien und zwischengespeichertem Arbeitsspeicher, für jede einzelne virtuelle
+  Maschine
   \1 Eine frühstmögliche Erkennung von einem Engpass des Arbeitsspeichers einer
-  Virtuellen Maschine
+  virtuellen Maschine
 \end{outline}
 \mr%
 
 \subsection{Zeitdefinierte Analyse Userstory}
 \\textbf{Name der Story:}\\ Eine Angabe über die im vergangenen Jahr verwendeten Ressourcen
 einer Virtuellen Maschine
-\\textbf{Beschreibung:}\\ Ein Onlineshop für zum beispiel Seasonale Ware, wie
+\\textbf{Beschreibung:}\\ Ein Onlineshop für zum Beispiel Seasonale Ware, wie
 Adventskalender, benötigt eine Analyse über die verwendeten Ressourcen aus dem
-vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei beginn
+vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei Beginn
 richtig skalieren zu können. Dies dient in erster Linie um die Erreichbarkeit,
 des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeinen
 zu verbessern. So können zum Beispiel bestimmten Virtuellen Maschine zu einem
 gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
-die Ressourcen verwenden können. In den Monaten, wo keine große Nachfrage
+die Ressourcen verwenden können. In den Monaten, in dem keine große Nachfrage
 der Webseite besteht, können hier dann weniger Ressourcen vergeben werden. Dies
-hat den Vorteil, das spezielle Vertäge dem Kunden angeboten werden kann.
+hat den Vorteil, dass spezielle Vertäge dem Kunden angeboten werden können.
 \\textbf{Akzeptanzkriterien:}\\
 
 \begin{outline}
-  \1 Es soll eine Ausgabe in Visualisierter Form über einen bestimmten Monat
+  \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
   dargestellt werden
-  \1 Ressourcen, welche benötigt werden, können direkt bereits ab beginn
+  \1 Ressourcen, welche benötigt werden, können direkt bereits ab Beginn
   zugewiesen werden
 \end{outline}
 \mr%
