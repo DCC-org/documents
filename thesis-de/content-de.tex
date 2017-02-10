@@ -30,7 +30,7 @@ fünfte und sechste Semester angemeldet werden.
 
 Die größte Hürde in einem Projekt von diesem Umfang ist die fehlende Zeit für
 die Projektarbeit. Alle drei Studenten führen die Weiterbildung nebenberuflich
-durch und müssen die Leistung neben einer regulärer Arbeitszeit, 
+durch und müssen die Leistung neben einer regulärer Arbeitszeit,
 Unterichtseinheiten und Privatleben erbringen. Eine gut struktierte
 Zeitplanung und Projektorganisation ist dabei unverzichtbar. Gleichzeitig
 muss jeder der Studenten auf sein eigenes Wohlbefinden achten. Ein zu
@@ -67,7 +67,7 @@ getätigten Optimierungen im Vergleich sehr gering aus.
 
 Das Problem der fehlenden Übersicht soll in dieser Projektarbeit gelöst
 und dokumentiert werden. Das genaue Ziel ist die Entwicklung von einem
-Softwaresystem aus drei Hauptkomponenten für den Einsatz in großen 
+Softwaresystem aus drei Hauptkomponenten für den Einsatz in großen
 Rechenzentren für die Ausarbeitung einer Ressourcen-Übersicht. Diese
 soll primär von IT-Fachkräften einsehbar sein, sodass die Gesamtperformance
 des Rechenzentrums optimiert werden kann. Je nach Datenschutzeinwilligung
@@ -77,7 +77,7 @@ werden. Jedoch handelt es sich dabei nur um ein Nebenprodukt und wird in dieser
 Projektarbeit und Dokumentation ausgeklammert.
 
 Die Methodiken der Projektorganisation, sowie der vereinzelte Zugang zu
-Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium, 
+Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium,
 Inhalte aus dem Unterricht oder Erfahrungsberichte von dem Auftragegeber.
 Dies beinhaltet auch die Beurteilung von den genutzten Quellen, welche
 für die Projektarbeit genutzt und zitiert werden. Es wird vorab
@@ -1142,7 +1142,27 @@ Gesamtperformance, führt aber nicht zu einem Ausfall des Setups
 
 \paragraph{OpenTSDB}
 \label{paragraph:opentsdb}
-Some Text here!
+OpenTSDB ist ein Zeit basiertes Programm, auf englisch ``Time Series Daemon
+(TSD)'', und arbeitet mit dem OpenSource \gls{DBMS} ``HBase'' zusammen. Es
+verfügt über die Funktionen von einem Konsolen-basierten Zugang und
+verschiedenen Treibern für den Zugriff und Austausch von Informationen zwischen
+anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der Datenspeicherung.
+Dazu wird das zugehörige gls{DBMS} ``HBase'' zwingend benötigt. OpenTSDB wird
+genutzt, um einzelne und unabhängige Systeme für den Datenzugriff
+bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an einem HBase
+System hängen. Es existiert keinerlei Informationsaustausch zwischen den
+einzelnen Deamons, sie nutzen lediglich alle die gleiche Datengrundlage des
+HBase Systems. Dennoch kann man durch dieses Verfahren die Analyseperformance
+dynamisch anpassen, da das HBase System stark  auf die Aggregation und niedrigen
+Speicherplatzbedarf optimiert wurde. Die einzelnen Deamons kommunizieren dabei
+mit dem HBase System über einfache Protokolle wie Telnet oder HTTP (API).
+
+Da unsere Dateninhalte immer in Verbindung mit einem Zeit und Datumswert sind,
+und dieses \gls{DBMS} ihre Dateninhalte immer mit einem Zeit und Datumswert
+abspeichert und diese automatisch danach sortiert, wäre es ein Kandidat für die
+spätere Nutzung in der Ziellösung. Jedoch ist die Verwendung von mehreren
+Serversystemen, welche ggf. auch auf verschiedener Hardware genutzt werden
+müssen, in der Ziellösung nicht gewünscht.
 \nl%
 
 \paragraph{Hadoop / Hive /Impala}
