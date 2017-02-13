@@ -1339,10 +1339,15 @@ Angreifer keine eigenen Datenbankbefehle definieren und ausführen. Somit wird
 das Risiko der Datenmanipulation durch eine zusätzliche Schicht (Layer)
 veringert.
 
-Oftmals werden Daten nicht in der Struktur benötigt, in der sie gespeichert
-sind. Die Möglichkeiten einer Transformation auf Datenbankebene sind sehr
-begrenzt, eine API Schnittstelle in einer Hochsprache bietet hier deutlich mehr
-Möglichkeiten.
+Oftmals benötigen die Systeme, welche auf die Daten des Datenhaltungssystems
+zugreifen, die Daten in einer anderen Struktur als diese abgespeichert sind.
+Durch die Programmiermöglichkeiten einer API können während der Abfrage der
+Informationen auf dem Datenhaltungssystem bereits Datenanpassungen vorgenommen
+werden. Diese Anpassungen können zum Beispiel Funktionen wie das anonymisieren
+oder pseudonymisieren sein, welche das Datenhaltungssystem nicht ausführen kann.
+Die API kann jedoch auch zum Beispiel die Daten vor der Auslieferung beliebig
+anpassen, und somit auf ein weiteres System optimal anpassen, ohne dabei die
+Ursprungsdaten zu verändern.
 \nl%
 
 \subsubsection{Vorbereitung der Evaluierung}
