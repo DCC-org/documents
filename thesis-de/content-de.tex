@@ -251,15 +251,27 @@ ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
 die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
 Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
 nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
-vom Host aus ermitteln. Auf dem Host muss zusätzlich Gesamtauslastung der
+vom Host aus ermitteln. Auf dem Host muss zusätzlich die Gesamtauslastung der
 Ressourcen sowie der Zustand der Hardware ermittelt werden.
+Virtualisierungssoftware bietet Schnittstellen um Daten über die laufenden
+virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen die die
+Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
+ersichtlich wofür Ressourcen in den VMs genutzt werden, so kann zum Beispiel
+ermittelt werden wie viel CPU Zeit einer Instanz zur Verfügung gestellt wird,
+aber nicht wofür die Leistung genutzt wird \( zum
+Beispiel~\glslink{Soft-IRQ}{Soft_IRQs}, \glslink{Interrupt}{Interrupts},
+\gls{iowait}\). Um detaillierte Daten für eine bessere Analyse zu bekommen muss
+deshalb auch in den virtuellen Maschinen eine Datenerfassung erfolgen, sofern
+Zugriff vorhanden ist.
 
 Gesammelte Daten müssen lokal zwischengespeichert werden können, um einem
 Verlust bei Netzwerkstörungen zu vermeiden. Der Versand muss nach dem Push- und
 nicht nach dem Polling-Verfahren arbeiten. Somit kann Eventbasiert gearbeitet
-werden, dies verhindert Overhead im Netzwerk. Eine Visualisierung in Echtzeit
-ist nicht gefodert weshalb Daten lokal zwischengespeichert werden können um sie
-gebündelt zu verschicken.
+werden, dies verhindert Overhead im Netzwerk. Es werden somit nur dann Daten
+geschickt wenn auch tatsächlich welche vorhanden sind. Beim Polling Verfahren
+muss eine Zentrale Instanz intervallmäßig abfragen ob neue Daten vorhanden
+sind. Eine Visualisierung in Echtzeit ist nicht gefordert weshalb Daten lokal
+zwischengespeichert werden können um sie gebündelt zu verschicken.
 \tm%
 
 \subsubsection{Datenhaltungssystem}
