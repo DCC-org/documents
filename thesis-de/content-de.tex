@@ -1106,17 +1106,23 @@ Cassandra, ist ein \gls{SQL} und Java basiertes \gls{DBMS} und wurde ausgelegt
 für die Datenhaltung von großen Datenmengen und dessen verbundenen
 Management der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
 Cluster System über mehrere Server (Nodes) um ein vollständiges Versagen, durch
-den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
-verhindern. Dazu wird ein Peer-to-Peer Verfahren verwendet, welches die
+den Ausfall von Hardwarekomponenten, oder Softwareteilen auf dem System zu
+verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
 Dateninformationen auf mehrere Server verteilt und verwaltet. Im Cassandra
-Umfeld wird dies über die von dem Hersteller definierten Protokoll ``gossip''
+Umfeld wird dies über das von dem Hersteller definierten Protokoll ``gossip''
 verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll, welches den
 Austausch von Statusinformationen und Metainformationen zwischen den einzelnen
 Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen erstellt,
 modifiziert oder entfernt werden, erhält ein weiterer Node in der Infrastruktur
-diese Information und baut gleichzeitig eine Replikation des Objektes. 
+diese Information und baut gleichzeitig eine Replikation des Objektes. Diese
+Replikationen werden von dem Serveradministrator definiert, indem dieser den
+Datenmengen verschiedene \gls{Partitionen} zuteilt. Das Cassandra System
+verteilt jede dieser \gls{Partitionen} an die im Netzwerk vorhandenen Nodes
+in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition eins auf dem ersten
+Node repliziert wird, Partition zwei auf dem zweiten Node und immer so weiter,
+bis das Verfahren den ersten Node wieder erreicht.
 
-\lstinputlisting[language=bash,caption={postgres git clone}]{../listings/cassandra-status.txt}
+\lstinputlisting[language=bash,caption={cassandra status}]{../listings/cassandra-status.txt}
 
 In der obigen Shellausgabe wird ein während der Evaluierungsphase erstelltes
 Cassandra System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
@@ -1129,9 +1135,11 @@ jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
 zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun
 einer der beiden Nodes ausfallen, könnte der jeweils andere automatisch
 einen Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
-weiterarbeiten.
+weiterarbeiten. Dies ist mit der Shared-Nothing-Architektur zu vergleichen,
+welche beschreibt, dass die einzelnen Netzwerkteilnehmer (Node) nicht
+zwangsläufig auf die anderen Teilnehmer angewiesen sind.
 
-Je nach Node Anzahl können verschiedene Replikations-Modelle in der
+Je nach Node Anzahl können die vorhandenen Replikations-Modelle in der
 Konfiguration eingestellt und eingesetzt werden. Cassandra bietet zudem drei
 Modelle zur Wiederherstellung von Informationen und Datensicherungen an, welche
 im Gesamten ein stabiles und sicheres System ermöglichen. Neben diesen
