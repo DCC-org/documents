@@ -1489,19 +1489,6 @@ Evaluierung der einzelnen Frontends verwendet wird. Die zu evaluierende
 Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
 einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und zum
 anderen aus Vorschlägen des Auftraggebers.
-
-
-Folgende Softwarelösungen sind am Ende der Planungsphase in die
-Evaluierungsphase aufgenommen worden:
-
-\begin{outline}
-  \1 grafana
-  \1 graphite
-  \1 zabbix-frontend
-  \1 datadog
-  \1 gridster-D3
-  \1 netdata
-\end{outline}
 \mr%
 
 \subsubsection{Definition eines Graphen}
@@ -1585,6 +1572,19 @@ wie folgt aufgelistet:
   hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu sein.
   Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
+  \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
+  Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
+  der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher die
+  Graphen neu visualisert und Daten aus dem Datenhaltungssystem aberufen werden
+  können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
+  überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
+  unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
+  visualisieren hier im Fallbeispiel Acht Graphen, mit unterschiedlichen
+  Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an
+  das Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht
+  nur die Weboberfläche zugreift, sondern auch die Datenerfassung um Daten
+  abzuspeichern, kann es hier zu massiven Performance Problemen aufkommen, die
+  durch die Weboberfläche verursacht werden können.
 \end{outline}
 \mr%
 
@@ -1756,8 +1756,8 @@ Zusammenfassung:
 
   Negativ:
   \1 Keine Möglichkeit, das Webdesign anzupassen
-
 \end{outline}
+
 \paragraph{Datadog}
 \label{paragraph:datadog}
 Datadog ist ein von Oliver Pomel entwickelte Analysesoftware und wird bereits
@@ -1806,11 +1806,13 @@ Zusammenfassung:
 
 \paragraph{Gridster-D3}
 \label{paragraph:gridster-d3}
-Gidster ist eine von Anmol Koul entwickelte Softwarelösung, welche auf
-OpenSource Basis auf GitHub liegt. Während der Evaluierung von dieser Software,
-ist aufgefallen, dass es sich hierbei nicht direkt um eine
-Visualisieurngssoftware handelt, sondern lediglich eine Funktion innerhalb
-einer Weboberfläche, nämlich das Drag \& Drop, von einzelnen Graphen.
+Gridster ist eine von Anmol Koul entwickelte Java Bibliothek, welche
+auf \gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von
+dieser Software, stellte sich herraus, dass es sich hierbei nicht direkt um eine
+Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich das
+Drag \& Drop, von einzelnen Graphen oder Elemente innerhalb einer Weboberfläche.
+Mit dieser hat man die Möglichkeit, ein Dashboard, welches selbst entwickelt
+worden ist individuell anpassen zu können.
 
 Somit fällt Gridster-D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
@@ -1849,6 +1851,7 @@ Zusammenfassung:
   \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
   nicht gewährleistet
 \end{outline}
+
 Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für das Web
 Frontend, sind folgende drei Weboberflächen in die nähere Auswahl genommen
 worden:
@@ -1865,12 +1868,12 @@ wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
 oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
 einen Zabbix Server nicht verwendet werden kann. Der Zabbix Server ist ein von
 Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
-bereitet diese auf und speichert sie anschließend in einer Datenbank.
-Zusätzlich ist aufgefallen, das Zabbix-Frontend maximal nur mit einer Datenbank
-gleichzeitig kommunizieren und verwenden kann. Anders als bei Grafana, wo
-mehrere Datenbanken eingebunden werden können, welche über die Abfragen der
-Graphen angesprochen werden können, kann dies bei Zabbix nicht umgesetzt
-werden.
+bereitet diese auf und speichert diese Daten anschließend in einem
+Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
+maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
+kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
+Kommunizieren kann. Innherhalb der einzelnen Graphen werden hier mittels einer
+Abfrage die Datenbanken direkt angesprochen.
 \mr%
 
 \section{Realisierung}
