@@ -1144,25 +1144,26 @@ Gesamtperformance, führt aber nicht zu einem Ausfall des Setups
 \label{paragraph:opentsdb}
 OpenTSDB ist ein Zeit basiertes Programm, auf englisch ``Time Series Daemon
 (TSD)'', und arbeitet mit dem OpenSource \gls{DBMS} ``HBase'' zusammen. Es
-verfügt über die Funktionen von einem Konsolen-basierten Zugang und
+verfügt über die Funktionen von einem Konsolen-basierten Zugang, sowie
 verschiedenen Treibern für den Zugriff und Austausch von Informationen zwischen
 anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der Datenspeicherung.
 Dazu wird das zugehörige gls{DBMS} ``HBase'' zwingend benötigt. OpenTSDB wird
 genutzt, um einzelne und unabhängige Systeme für den Datenzugriff
 bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an einem HBase
-System hängen. Es existiert keinerlei Informationsaustausch zwischen den
-einzelnen Deamons, sie nutzen lediglich alle die gleiche Datengrundlage des
-HBase Systems. Dennoch kann man durch dieses Verfahren die Analyseperformance
-dynamisch anpassen, da das HBase System stark  auf die Aggregation und niedrigen
-Speicherplatzbedarf optimiert wurde. Die einzelnen Deamons kommunizieren dabei
-mit dem HBase System über einfache Protokolle wie Telnet oder HTTP (API).
+System angebunden sein. Es existiert keinerlei Informationsaustausch zwischen
+den einzelnen Deamons, sondern sie nutzen lediglich alle die gleiche
+Datengrundlage des HBase Systems. Dennoch kann man durch dieses Verfahren
+die Analyseperformance dynamisch anpassen, da das HBase System stark auf die
+Aggregation und niedrigen Speicherplatzbedarf optimiert wurde. Die einzelnen
+Deamons kommunizieren dabei mit dem HBase System über einfache Protokolle wie
+Telnet oder HTTP (API).
 
-Da unsere Dateninhalte immer in Verbindung mit einem Zeit und Datumswert sind,
-und dieses \gls{DBMS} ihre Dateninhalte immer mit einem Zeit und Datumswert
-abspeichert und diese automatisch danach sortiert, wäre es ein Kandidat für die
-spätere Nutzung in der Ziellösung. Jedoch ist die Verwendung von mehreren
-Serversystemen, welche ggf. auch auf verschiedener Hardware genutzt werden
-müssen, in der Ziellösung nicht gewünscht.
+Da unsere Dateninhalte immer in Verbindung mit einem Zeit und Datumswert stehen,
+ist dieses \gls{DBMS} durch die Optimierung von dem Verarbeiten der Zeit- und
+Datums-basierten Datensätzen ein Kandidat für die spätere Nutzung in der
+Ziellösung. Jedoch ist die Verwendung von mehreren Serversystemen, welche ggf.
+auch auf verschiedener Hardware genutzt werden müssen, in der Ziellösung nicht
+gewünscht.
 \nl%
 
 \paragraph{Hadoop / Hive /Impala}
