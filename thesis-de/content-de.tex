@@ -30,7 +30,7 @@ fünfte und sechste Semester angemeldet werden.
 
 Die größte Hürde in einem Projekt von diesem Umfang ist die fehlende Zeit für
 die Projektarbeit. Alle drei Studenten führen die Weiterbildung nebenberuflich
-durch und müssen die Leistung neben einer regulärer Arbeitszeit, 
+durch und müssen die Leistung neben einer regulärer Arbeitszeit,
 Unterichtseinheiten und Privatleben erbringen. Eine gut struktierte
 Zeitplanung und Projektorganisation ist dabei unverzichtbar. Gleichzeitig
 muss jeder der Studenten auf sein eigenes Wohlbefinden achten. Ein zu
@@ -67,7 +67,7 @@ getätigten Optimierungen im Vergleich sehr gering aus.
 
 Das Problem der fehlenden Übersicht soll in dieser Projektarbeit gelöst
 und dokumentiert werden. Das genaue Ziel ist die Entwicklung von einem
-Softwaresystem aus drei Hauptkomponenten für den Einsatz in großen 
+Softwaresystem aus drei Hauptkomponenten für den Einsatz in großen
 Rechenzentren für die Ausarbeitung einer Ressourcen-Übersicht. Diese
 soll primär von IT-Fachkräften einsehbar sein, sodass die Gesamtperformance
 des Rechenzentrums optimiert werden kann. Je nach Datenschutzeinwilligung
@@ -77,7 +77,7 @@ werden. Jedoch handelt es sich dabei nur um ein Nebenprodukt und wird in dieser
 Projektarbeit und Dokumentation ausgeklammert.
 
 Die Methodiken der Projektorganisation, sowie der vereinzelte Zugang zu
-Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium, 
+Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium,
 Inhalte aus dem Unterricht oder Erfahrungsberichte von dem Auftragegeber.
 Dies beinhaltet auch die Beurteilung von den genutzten Quellen, welche
 für die Projektarbeit genutzt und zitiert werden. Es wird vorab
@@ -1908,16 +1908,110 @@ Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den einzelnen
 Tickets arbeiten können.
 \tm%
 
-\subsection{Userstory 1}
+\subsection{SSD Userstory}
+\textbf{Name der Story:} Der Administrator möchte eine Anzeige der SSDs, welche
+einen Hardwaredefekt haben könnten.
 
-\subsection{Userstory 2}
+\textbf{Beschreibung:} In der heutigen Zeit, werden vermehrt langsame
+Hard Disk Drives durch schnellere Solid State Disks ausgetauscht. Gerade im
+Serverbetrieb, sorgt dies für einen schnelleren Datenzugriff. SSDs haben
+jedoch, wie auch HDDs einen Lebenszyklus, der bei SSDs schneller erreicht
+werden kann, als bei handelsüblichen HDDs. Der Administrator soll hier darüber
+Benachrichtigt werden, sobald von einer SSD ein kritischer Schreib- oder
+Lesezyklus erreicht worden ist, um die SSD, bereits vor dem Ausfall austauschen
+zu können. Ebenfalls soll hier auch eine Statistik ausgegeben werden, welche
+SSD von welchem Hersteller in der Wahrscheinlichkeit am häufigsten ausfallen
+kann. Im folgenden finden Sie die Akzeptanzkriterien:
 
-\subsection{Frontend}
-Name der Story: Visualisierung der erhaltenen Daten zur weiteren Verwendung
-Beschreibung: Dem Administrator oder dem User soll es ermöglicht werden, eine
-visualisierte Ausgabe in Form von Graphen zu erhalten. Diese sollen Aufschluss
-über die Auslastung der einzelnen Systeme geben können.
+\begin{outline}
+  \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
+  für jede einzelne Instanz
+  \1 Auflistung einer Statistik in Form eines Balkendiagramms, über die
+  Hersteller, welche am wahrscheinlich häufigsten in den Instanzen ausfallen
+  \1 Eine Benachrichtigung, ob per Email oder andere Kommunikationswege,
+  wenn ein kritischer Schreib- oder Lesezyklus erreicht worden ist
+\end{outline}
+\mr%
+
+\subsection{CPU Userstory}
+\textbf{Name der Story:} Der Administrator möchte eine Auswertung der CPU
+Auslastung jeder Instanz, um Engpässe zu erkennen.
+
+\textbf{Beschreibung:} Die CPUs der heutigen Zeit werden in der Taktrate und
+Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
+virtuellen Maschinen, werden aus einem physischen CPU Kern des Host Systems
+mehrere virtuelle CPU Kerne emuliert und einer Instanz zugewiesen. So kann eine
+VM 2 virtuelle CPU Kerne mit z.B. 2,5GHz Takrate zugewiesen haben. Auf jeder
+Instanz laufen andere Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt
+haben kann. Hier kann es vorkommen, dass eine VM mehr CPU Leistung benötigt,
+als ihr selber zugewiesen ist. Um dies frühstmöglich zu erkennen, benötigt der
+Administrator eine detailierte Übersicht in Form eines Graphen, wieviel CPU
+Leistung von einer virtuellen Instanz verwendet wird und auf dem System
+verfügbar ist. Im folgenden finden Sie die Akzeptanzkriterien:
+
+\begin{outline}
+  \1 Visualisierung der Auslastung und Verfügbarkeit der CPU Leistung für jede
+  einzelne Instanz
+  \1 Alle Werte der CPU, \gls{Soft-IRQ},\gls{iowait} oder \gls{Interrupt}
+  müssen visualisiert werden
+  \1 Eine frühstmögliche Erkennung von einem Engpass einer Virtuellen Maschine
+\end{outline}
+\mr%
+
+\subsection{Memory Userstory}
+\textbf{Name der Story:} Der Administrator möchte eine Auswertung der
+Arbeitsspeicher Auslastung von jeder Instanz, um Engpässe zu erkennen.
+
+\textbf{Beschreibung:} Vergleichbar wie auch bei der CPU Auslastung, gibt es
+auch eine ähnliche Thematik zur Auslastung bei dem verwendeten Arbeitsspeicher.
+Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers entscheident,
+sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine zugewiesen ist.
+Hier kann es ebenfalls wie auch bei der~\ref{subsection:CPU Userstory}
+vorkommen, das es zu Engpässen auf der virtuellen Maschine bei der Verteilung
+des Arbeitsspeichers kommen kann. Im folgenden finden Sie die
 Akzeptanzkriterien:
+
+\begin{outline}
+  \1 Ausgabe und Visualisierung in Form eines Graphen, für den Verwendeten,
+  freien und zwischengespeichertem Arbeitsspeicher, für jede einzelne virtuelle
+  Maschine
+  \1 Eine frühstmögliche Erkennung von einem Engpass des Arbeitsspeichers einer
+  virtuellen Maschine
+\end{outline}
+\mr%
+
+\subsection{Zeitdefinierte Analyse Userstory}
+\textbf{Name der Story:} Der Administrator möchte eine  Angabe über die im
+vergangenen Jahr verwendeten Ressourcen einer Virtuellen Maschine.
+
+\textbf{Beschreibung:} Ein Onlineshop für zum Beispiel Seasonale Ware, wie
+Adventskalender, benötigt eine Analyse über die verwendeten Ressourcen aus dem
+vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei Beginn
+richtig skalieren zu können. Dies dient in erster Linie um die Erreichbarkeit,
+des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeinen
+zu verbessern. So können zum Beispiel bestimmten Virtuellen Maschine zu einem
+gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
+die Ressourcen verwenden können. In den Monaten, in dem keine große Nachfrage
+der Webseite besteht, können hier dann weniger Ressourcen vergeben werden. Dies
+hat den Vorteil, dass spezielle Vertäge dem Kunden angeboten werden können. Im
+folgenden finden Sie die Akzeptanzkriterien:
+
+\begin{outline}
+  \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
+  dargestellt werden
+  \1 Ressourcen, welche benötigt werden, können direkt bereits ab Beginn
+  zugewiesen werden
+\end{outline}
+\mr%
+
+\subsection{Weboberfläche Userstory}
+\textbf{Name der Story:} Der Administrator möchte die Visualisierung der
+erhaltenen Daten zur weiteren Verwendung.
+
+\textbf{Beschreibung:} Dem Administrator oder dem User soll es ermöglicht
+werden, eine visualisierte Ausgabe in Form von Graphen zu erhalten. Diese
+sollen Aufschluss über die Auslastung der einzelnen Systeme geben können. Im
+folgenden finden Sie die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
