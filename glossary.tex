@@ -288,18 +288,21 @@
 \newglossaryentry{iowait}
 {
   name=iowait,
-  description={Unter einem iowait definiert man die Aufgabe des Prozessors, bis hier eine
-              bestimmte Ein- und Ausgabe durchgeführt werden kann.}
+  description={Ein iowait beschreibt, ob ein Prozessor mit der Verarbeitung von
+              Aufgaben warten muss, weil zum Beispiel der Datenspeicher (HDDs, SSDs)
+              mit lesen oder schreiben nicht hinterherkommen.}
 }
 \newglossaryentry{Interrupt}
 {
   name=Interrupt,
-  description={Unter einem Interrupt versteht man die vorrübergehende Unterbrechung
-              eines bestimmten Prozess, damit andere Prozesse, welche kürzer abgearbeitet
-              werden können vorrang zu gewähren.}
+  description={Ein Interrupt ist die vorrübergehende Unterbrechung eines bestimmten
+              Prozesses, damit andere Prozesse, welche wichtier sind Vorrang bekommen.
+              Dieser Interrupt wird durch die Hardware ausgelöst.}
 }
 \newglossaryentry{Soft-IRQ}
 {
   name=soft-IRQ,
-  description={Ein Soft-IRQ wartet auf die \gls{Interrupts} um diese verarbeiten zu können.}
+  description={Ein Soft-IRQ ist ähnlich wie ein \gls{Interrupt} für die Unterbrechung
+              eines bestimmten Prozess zuständig, jedoch wird dieser durch einen
+              Software Interrupt ausgelöst.}
 }
