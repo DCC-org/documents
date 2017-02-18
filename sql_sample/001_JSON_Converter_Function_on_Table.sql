@@ -59,3 +59,7 @@ select convert_input_data_to_json_cpu_table(100000);
 -- DO NOT RUN THIS WITHOUT LIMIT -> Y SOFTWARE WILL CRASH
 select * from cpu LIMIT 10;
 SELECT id, data->>'host' AS name FROM cpu LIMIT 10;
+-- data->'timestamps'->>'timestamp_one'
+-- CREATE UNIQUE INDEX cpu_data_hostname ON cpu ((data->'host'));
+-- SELECT data->>'host' AS hosts, count(hosts)
+-- SUM(CAST(data->>'value' AS integer))
