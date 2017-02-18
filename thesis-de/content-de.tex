@@ -167,17 +167,17 @@ Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
 \tm%
 
 \subsection{Aktuelle Situation}
-In der~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen des
-Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine passende
-Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit dem große
-Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter Speicher in einem
-Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private Cloud} Umgebung
-zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}. Eines der
-Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
-physischen und virtuellen Ressourcen zu ermitteln verlässlich zu speichern. Die
-Daten sollen zur Analyse genutzt werden und Aktionen auslösen wenn bestimmte
-Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
-mehrere Nachteile mit sich:
+Im Abschnitt~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen
+des Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine
+passende Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit
+dem große Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter
+Speicher in einem Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private
+Cloud} Umgebung zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}.
+Eines der Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig
+Daten von physischen und virtuellen Ressourcen zu ermitteln verlässlich zu
+speichern. Die Daten sollen zur Analyse genutzt werden und Aktionen auslösen
+wenn bestimmte Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry
+bringt leider mehrere Nachteile mit sich:
 
 \begin{outline}
   \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB\@. MongoDB ist
@@ -222,7 +222,9 @@ mehrere Nachteile mit sich:
 Aufgrund der langen Liste an Problemen ist Telemetry aktuell innerhalb einer
 kleinen OpenStack Installation teilweise nutzbar, jedoch nicht wirtschaftlich
 in großen Umgebungen oder außerhalb von Openstack. Es ist nicht davon
-auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden. Somit
+auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden, da diese
+im Design und Architektur des Projekts liegen. Es gibt aktuell keine
+Alternativen zu Telemetry mit einem gleichwertigen Funktionsumfang. Somit
 entschied sich das Projektteam eine Alternative zu entwicklen die unkompliziert
 zu installieren ist und unabhängig von OpenStack arbeitet.
 \tm%
