@@ -1572,26 +1572,19 @@ wie folgt aufgelistet:
   hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu sein.
   Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
-  \1 Bei der Evaluierung der Weboberfläche, sollte zusätzlich zu den bereits 
-  aufgelisteten Anforderungskriterien auf die Performance der Weboberfläche
-  geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass der Administrator
-  eine gewisse Zeitspanne vordefinieren kann, in welchem die Graphen neu 
-  visualisert und Daten aus dem Datenhaltungssystem aberufen werden können. Dies
-  dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen überlastet wird.
-  Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht unterschiedliche User
-  greifen gleichzeitig auf die Weboberfläche zu und visualisieren hier im
-  Fallbeispiel Acht Graphen, mit unterschiedlichen Werten. Nun sind hier
-  insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
-  Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht nur
-  die Weboberfläche zugreift, sondern auch die Datenerfassung um Daten
+  \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
+  Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
+  der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher die
+  Graphen neu visualisert und Daten aus dem Datenhaltungssystem aberufen werden
+  können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
+  überlastet wird.  Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
+  unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
+  visualisieren hier im Fallbeispiel Acht Graphen, mit unterschiedlichen
+  Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an
+  das Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht
+  nur die Weboberfläche zugreift, sondern auch die Datenerfassung um Daten
   abzuspeichern, kann es hier zu massiven Performance Problemen aufkommen, die
-  durch die Weboberfläche verursacht werden können. Um die Performance beim
-  Laden der Webseite zu beschleunigen, sollte die Weboberfläche sogenannte
-  Cookies, sowie Cache unterstützen. Der Browser Cache wird jeweils vom Browser
-  individuell abgespeichert. Dieser merkt hier bedingt durch einen eigenen
-  Algorythmus, dass eine Seite mehrfach aufgerufen worden ist und speichert
-  bestimmte Inhalte in den Zwischenspeicher(Cache), um den Aufbau der Webseite
-  zu beschleunigen.
+  durch die Weboberfläche verursacht werden können.
 \end{outline}
 \mr%
 
@@ -1816,8 +1809,10 @@ Zusammenfassung:
 Gridster ist eine von Anmol Koul entwickelte OpenSource Softwarelösung, welche
 auf \gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von
 dieser Software ist aufgefallen, dass es sich hierbei nicht direkt um eine
-Visualisierungssoftware handelt, sondern lediglich eine Funktion, nämlich das
-Drag \& Drop, von einzelnen Graphen innerhalb einer Weboberfläche.
+Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich das
+Drag \& Drop, von einzelnen Graphen innerhalb einer Weboberfläche. Mit dieser
+hat man die Möglichkeit, ein Dashboard, welches selbst entwickelt worden ist
+individuell anpassen zu können, Graphen zu verschieben oder direkt zu löschen.
 
 Somit fällt Gridster-D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
@@ -1873,12 +1868,12 @@ wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
 oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
 einen Zabbix Server nicht verwendet werden kann. Der Zabbix Server ist ein von
 Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
-bereitet diese auf und speichert die zuvor aufbereitete Daten anschließend in
-einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das
-Zabbix-Frontend maximal nur mit einer Datenbank gleichzeitig kommunizieren und
-verwendet werden kann. Anders als bei Grafana, welches mit mehreren Datenbanken
-gleichzeitig Kommunizieren kann. Innherhalb der einzelnen Graphen werden hier
-mittels einer Abfrage die Datenbanken direkt angesprochen.
+bereitet diese auf und speichert diese Daten anschließend in einem
+Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
+maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
+kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
+Kommunizieren kann. Innherhalb der einzelnen Graphen werden hier mittels einer
+Abfrage die Datenbanken direkt angesprochen.
 \mr%
 
 \section{Realisierung}
