@@ -1104,7 +1104,7 @@ Nodes ist nicht garantiert, dass Daten wirklich persistent geschrieben werden.
 \label{paragraph:cassandra}
 Cassandra, ist ein \gls{SQL} und Java basiertes \gls{DBMS} und wurde ausgelegt
 für die Datenhaltung von großen Datenmengen und dessen verbundenen
-Managment der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
+Management der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
 Cluster System über mehrere Server (Nodes) um ein vollständiges Versagen, durch
 den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein Peer-to-Peer Verfahren verwendet, welches die
@@ -1112,9 +1112,9 @@ Dateninformationen auf mehrere Server verteilt und verwaltet. Im Cassandra
 Umfeld wird dies über die von dem Hersteller definierten Protokoll ``gossip''
 verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll, welches den
 Austausch von Statusinformationen und Metainformationen zwischen den einzelnen
-Nodes ermöglicht. Wenn auf einen einzelnen Node Dateninformationen erstellt,
-modifiziert oder entfernt werden, erhält ein weitere Node in der Infrastruktur
-diese Information und baut gleichzeitig ein Replikation des Objektes. 
+Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen erstellt,
+modifiziert oder entfernt werden, erhält ein weiterer Node in der Infrastruktur
+diese Information und baut gleichzeitig eine Replikation des Objektes. 
 
 \lstinputlisting[language=bash,caption={postgres git clone}]{../listings/cassandra-status.txt}
 
@@ -1124,11 +1124,12 @@ welche für Testzwecke auf dem gleichen physischen Server betrieben werden. Im
 Wirkbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten, um
 die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu erkennen,
 dass beide Systeme einen Dateneigentum, in der Shellausgabe die Spalte
-``Owns'', von 50 Prozentpunkte besitzen. Dies bedeutet, dass jeder Node jeweils
-die Hälfte der Dateninformationen bereitstellt, jedoch auch die zugehörige Häfte
-von dem anderen Node als Backup abspeichert. Sollte nun einer der beiden Nodes
-ausfallen, könnte der jeweils andere autoamtisch einen Dateneigentum von 100
-Prozentpunkten erstellen und ohne Verluste weiterarbeiten.
+``Owns'', von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
+jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
+zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun
+einer der beiden Nodes ausfallen, könnte der jeweils andere automatisch
+einen Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
+weiterarbeiten.
 
 Je nach Node Anzahl können verschiedene Replikations-Modelle in der
 Konfiguration eingestellt und eingesetzt werden. Cassandra bietet zudem drei
