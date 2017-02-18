@@ -167,17 +167,17 @@ Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
 \tm%
 
 \subsection{Aktuelle Situation}
-In der~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen des
-Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine passende
-Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit dem große
-Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter Speicher in einem
-Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private Cloud} Umgebung
-zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}. Eines der
-Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
-physischen und virtuellen Ressourcen zu ermitteln verlässlich zu speichern. Die
-Daten sollen zur Analyse genutzt werden und Aktionen auslösen wenn bestimmte
-Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
-mehrere Nachteile mit sich:
+Im Abschnitt~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen
+des Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine
+passende Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit
+dem große Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter
+Speicher in einem Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private
+Cloud} Umgebung zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}.
+Eines der Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig
+Daten von physischen und virtuellen Ressourcen zu ermitteln verlässlich zu
+speichern. Die Daten sollen zur Analyse genutzt werden und Aktionen auslösen
+wenn bestimmte Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry
+bringt leider mehrere Nachteile mit sich:
 
 \begin{outline}
   \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB\@. MongoDB ist
@@ -222,7 +222,9 @@ mehrere Nachteile mit sich:
 Aufgrund der langen Liste an Problemen ist Telemetry aktuell innerhalb einer
 kleinen OpenStack Installation teilweise nutzbar, jedoch nicht wirtschaftlich
 in großen Umgebungen oder außerhalb von Openstack. Es ist nicht davon
-auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden. Somit
+auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden, da diese
+im Design und Architektur des Projekts liegen. Es gibt aktuell keine
+Alternativen zu Telemetry mit einem gleichwertigen Funktionsumfang. Somit
 entschied sich das Projektteam eine Alternative zu entwicklen die unkompliziert
 zu installieren ist und unabhängig von OpenStack arbeitet.
 \tm%
@@ -251,15 +253,27 @@ ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
 die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
 Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
 nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
-vom Host aus ermitteln. Auf dem Host muss zusätzlich Gesamtauslastung der
+vom Host aus ermitteln. Auf dem Host muss zusätzlich die Gesamtauslastung der
 Ressourcen sowie der Zustand der Hardware ermittelt werden.
+Virtualisierungssoftware bietet Schnittstellen um Daten über die laufenden
+virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen die die
+Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
+ersichtlich wofür Ressourcen in den VMs genutzt werden, so kann zum Beispiel
+ermittelt werden wie viel CPU Zeit einer Instanz zur Verfügung gestellt wird,
+aber nicht wofür die Leistung genutzt wird \( zum
+Beispiel~\glslink{Soft-IRQ}{Soft_IRQs}, \glslink{Interrupt}{Interrupts},
+\gls{iowait}\). Um detaillierte Daten für eine bessere Analyse zu bekommen muss
+deshalb auch in den virtuellen Maschinen eine Datenerfassung erfolgen, sofern
+Zugriff vorhanden ist.
 
 Gesammelte Daten müssen lokal zwischengespeichert werden können, um einem
 Verlust bei Netzwerkstörungen zu vermeiden. Der Versand muss nach dem Push- und
 nicht nach dem Polling-Verfahren arbeiten. Somit kann Eventbasiert gearbeitet
-werden, dies verhindert Overhead im Netzwerk. Eine Visualisierung in Echtzeit
-ist nicht gefodert weshalb Daten lokal zwischengespeichert werden können um sie
-gebündelt zu verschicken.
+werden, dies verhindert Overhead im Netzwerk. Es werden somit nur dann Daten
+geschickt wenn auch tatsächlich welche vorhanden sind. Beim Polling Verfahren
+muss eine Zentrale Instanz intervallmäßig abfragen ob neue Daten vorhanden
+sind. Eine Visualisierung in Echtzeit ist nicht gefordert weshalb Daten lokal
+zwischengespeichert werden können um sie gebündelt zu verschicken.
 \tm%
 
 \subsubsection{Datenhaltungssystem}
