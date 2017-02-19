@@ -266,19 +266,25 @@ gebündelt zu verschicken.
 Nachfolgende Anforderungen an das Datenhaltungssystem wurden vor der
 Projektphase im Team und auch in der ersten Rücksprache mit dem Auftraggeber
 definiert. Sie dienen als ersten Leitpfaden der Softwarelösung und definierten
-sich wie folgt. Zunächst muss das Datenhaltungssystem
-für das Abspeichern von mehreren tausend Datensätzen in der Sekunde
-ausgelegt sein. Innerhalb des Projektes wird mit 10.000 Datensätzen pro
-Sekunde gerechnet und getestet. Gleichzeitig muss das Datenhaltungssystem über
-Analysewerkzeuge verfügen, sodass auf den gespeicherten Daten eine Logik
-aufgebaut werden kann. Die daraus resultierenden Analyseergebnisse sollten
-anschließend über im Projekt definierte Schnittstellen an verschiedene Systeme
-weitergeliefert werden können. Entsprechend soll das Datenhaltungsystem die
-dafür notwendigen Treiber und Schnittstellen mitliefern. Es soll in der
-Ziellösung eine stabile Schnittstelle im Gesamtsystem bilden und im Falle von
-einem Ausfall der beiden anderen Softwarekomponenten die Informationen weiterhin
-sicher und vollständig zur Verfügung stellen können. Eine konkretisierte
-Anforderungsübersicht an das Datenhaltungssystem kann aus
+sich wie folgt: 
+
+\begin{outline}
+  \1 Zunächst muss das Datenhaltungssystem für das Abspeichern von mehreren
+  tausend Datensätzen in der Sekunde ausgelegt sein. Innerhalb des Projektes
+  wird mit 10.000 Datensätzen pro Sekunde gerechnet und getestet.
+  \1 Gleichzeitig muss das Datenhaltungssystem über Analysewerkzeuge verfügen,
+  sodass auf den gespeicherten Daten eine fachliche Logik aufgebaut werden
+  kann.
+  \1 Die daraus resultierenden Analyseergebnisse sollten anschließend über im
+  Projekt definierte Schnittstellen an verschiedene Systeme weitergeliefert
+  werden können. Entsprechend soll das Datenhaltungsystem die dafür
+  notwendigen Treiber und Schnittstellen mitliefern. 
+\end{outline}
+
+Es soll in der Ziellösung eine stabile Schnittstelle im Gesamtsystem bilden
+und im Falle von einem Ausfall der beiden anderen Softwarekomponenten die
+Informationen weiterhin sicher und vollständig zur Verfügung stellen können.
+Eine konkretisierte Anforderungsübersicht an das Datenhaltungssystem kann aus
 Punkt~\ref{subsec:datenhaltungssystem} entnommen werden.
 \nl%
 
