@@ -13,9 +13,10 @@ from INFORMATION_SCHEMA.COLUMNS where table_name = 'log';
 */
 
 select column_name, data_type, character_maximum_length
-from INFORMATION_SCHEMA.COLUMNS where table_name LIKE 'cpu';
+from INFORMATION_SCHEMA.COLUMNS where table_name LIKE 'measurement_master';
 /*
-"id";"integer";
+"id";"bigint";
+"metadata";"json";
 "data";"json";
 */
 

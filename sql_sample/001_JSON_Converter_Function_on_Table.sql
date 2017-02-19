@@ -1,10 +1,11 @@
 ﻿--- Create Table ---
 
-DROP table if exists cpu;
+DROP table if exists measurement_master;
 
-create table cpu
+create table measurement_master
 (
-	id integer not null,
+	id bigint not null,
+	metadata json not null,
 	data json not null
 );
 
@@ -27,7 +28,7 @@ DECLARE
 		ORDER BY l."timestamp"
 		LIMIT $1
 	LOOP
-		INSERT INTO cpu VALUES (id_count, 
+		INSERT INTO measurement_master VALUES (id_count, 
 				json_build_object(
 					'host',r.host,
 					'timestamp',r."timestamp",
@@ -57,8 +58,8 @@ select convert_input_data_to_json_cpu_table(100000);
 
 
 -- DO NOT RUN THIS WITHOUT LIMIT -> Y SOFTWARE WILL CRASH
-select * from cpu LIMIT 10;
-SELECT id, data->>'host' AS name FROM cpu LIMIT 10;
+select * from measurement_master LIMIT 10;
+SELECT id, data->>'host' AS name FROM measurement_master LIMIT 10;
 -- data->'timestamps'->>'timestamp_one'
 -- CREATE UNIQUE INDEX cpu_data_hostname ON cpu ((data->'host'));
 -- SELECT data->>'host' AS hosts, count(hosts)
