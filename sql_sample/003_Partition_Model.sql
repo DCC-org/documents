@@ -61,7 +61,7 @@ CREATE TRIGGER insert_measurement_trigger
     BEFORE INSERT ON measurement_master
     FOR EACH ROW EXECUTE PROCEDURE measurement_insert_trigger();
 
--- TEST
+-- TEST - Function
 DROP function if exists convert_input_data_to_json_measurement_table(integer);
 
 CREATE OR REPLACE FUNCTION public.convert_input_data_to_json_measurement_table(integer)
@@ -83,7 +83,7 @@ DECLARE
 					'aggregation_type', 'seconds'),
 				json_build_object(
 					'host',r.host,
-					'timestamp',r."timestamp",
+					'timestamp',current_timestamp::timestamp,
 					'plugin',r.plugin,
 					'type_instance',r.type_instance,
 					'collectd_type',r.collectd_type,
@@ -103,6 +103,10 @@ $BODY$
   COST 100;
 ALTER FUNCTION public.convert_input_data_to_json_measurement_table(integer)
   OWNER TO metrics;
+-- 'timestamp',r."timestamp", --
+
+-- START TEST
+select convert_input_data_to_json_measurement_table(10);
 
 
 -- NOTES
