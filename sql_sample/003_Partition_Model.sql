@@ -1,4 +1,15 @@
-﻿-- Master
+﻿-- Drops
+DROP Table if exists measurement_xMINUS12Hour ;
+DROP Table if exists measurement_xMINUS1Day ;
+DROP Table if exists measurement_xMINUS3Day ;
+DROP Table if exists measurement_xMINUS1Week ;
+DROP Table if exists measurement_xMINUS2Week ;
+DROP Table if exists measurement_xMINUS1Month ;
+DROP Table if exists measurement_xMINUS3Month ;
+DROP Table if exists measurement_backup ;
+DROP Table if exists measurement_master;
+
+-- Master
 create table measurement_master
 (
 	id bigint not null,
@@ -7,56 +18,72 @@ create table measurement_master
 );
 
 -- Children
-CREATE TABLE measurement_xMINUS1Minute (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 minute')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Seconds
-
-CREATE TABLE measurement_xMINUS1Hour (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 hour')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Minutes
+CREATE TABLE measurement_xMINUS12Hour (
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '12 hour')::timestamp AND (current_timestamp + INTERVAL '1 minute')::timestamp)
+) INHERITS (measurement_master); 
 
 CREATE TABLE measurement_xMINUS1Day (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 day')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Hours
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 day')::timestamp AND (current_timestamp - INTERVAL '12 hour')::timestamp)
+) INHERITS (measurement_master); 
+
+CREATE TABLE measurement_xMINUS3Day (
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '3 day')::timestamp AND (current_timestamp - INTERVAL '1 day')::timestamp)
+) INHERITS (measurement_master);
 
 CREATE TABLE measurement_xMINUS1Week (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '7 day')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Days
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '7 day')::timestamp AND (current_timestamp - INTERVAL '3 day')::timestamp)
+) INHERITS (measurement_master);
+
+CREATE TABLE measurement_xMINUS2Week (
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '14 day')::timestamp AND (current_timestamp - INTERVAL '7 day')::timestamp)
+) INHERITS (measurement_master);
 
 CREATE TABLE measurement_xMINUS1Month (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 month')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Weeks
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 month')::timestamp AND (current_timestamp - INTERVAL '14 day')::timestamp)
+) INHERITS (measurement_master);
 
-CREATE TABLE measurement_xMINUS1Year (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '1 year')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Months
+CREATE TABLE measurement_xMINUS3Month (
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '3 month')::timestamp AND (current_timestamp - INTERVAL '1 month')::timestamp)
+) INHERITS (measurement_master);
 
 CREATE TABLE measurement_backup (
-	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '50 year')::timestamp AND current_timestamp::timestamp)
-) INHERITS (measurement_master); -- Aggregation = Year
+	CHECK (to_timestamp(data->>'timestamp', 'YYYY-MM-DD HH24:MI:SS.MS')::timestamp between (current_timestamp - INTERVAL '50 year')::timestamp AND (current_timestamp - INTERVAL '3 month')::timestamp)
+) INHERITS (measurement_master);
 
 
 -- INDEX
-CREATE INDEX measurement_xMINUS1Minute_timestamp ON measurement_xMINUS1Minute ((data->>'timestamp'));
-CREATE INDEX measurement_xMINUS1Hour_timestamp ON measurement_xMINUS1Hour ((data->>'timestamp'));
+CREATE INDEX measurement_xMINUS12Hour_timestamp ON measurement_xMINUS12Hour ((data->>'timestamp'));
 CREATE INDEX measurement_xMINUS1Day_timestamp ON measurement_xMINUS1Day ((data->>'timestamp'));
+CREATE INDEX measurement_xMINUS3Day_timestamp ON measurement_xMINUS3Day ((data->>'timestamp'));
 CREATE INDEX measurement_xMINUS1Week_timestamp ON measurement_xMINUS1Week ((data->>'timestamp'));
+CREATE INDEX measurement_xMINUS2Week_timestamp ON measurement_xMINUS2Week ((data->>'timestamp'));
 CREATE INDEX measurement_xMINUS1Month_timestamp ON measurement_xMINUS1Month ((data->>'timestamp'));
-CREATE INDEX measurement_xMINUS1Year_timestamp ON measurement_xMINUS1Year ((data->>'timestamp'));
+CREATE INDEX measurement_xMINUS3Month_timestamp ON measurement_xMINUS3Month ((data->>'timestamp'));
 CREATE INDEX measurement_backup_timestamp ON measurement_backup ((data->>'timestamp'));
 
+/*
+CREATE INDEX measurement_xMINUS12Hour_id ON measurement_xMINUS12Hour (id);
+CREATE INDEX measurement_xMINUS1Day_id ON measurement_xMINUS1Day (id);
+CREATE INDEX measurement_xMINUS3Day_id ON measurement_xMINUS3Day (id);
+CREATE INDEX measurement_xMINUS1Week_id ON measurement_xMINUS1Week (id);
+CREATE INDEX measurement_xMINUS2Week_id ON measurement_xMINUS2Week (id);
+CREATE INDEX measurement_xMINUS1Month_id ON measurement_xMINUS1Month (id);
+CREATE INDEX measurement_xMINUS3Month_id ON measurement_xMINUS3Month (id);
+CREATE INDEX measurement_backup_id ON measurement_backup (id);*/
 
 -- Trigger - Function
 CREATE OR REPLACE FUNCTION measurement_insert_trigger()
 RETURNS TRIGGER AS $$
 BEGIN
-    INSERT INTO measurement_xMINUS1Minute_timestamp VALUES (NEW.*);
+    INSERT INTO measurement_xMINUS12Hour VALUES (NEW.*);
     RETURN NULL;
 END;
 $$
 LANGUAGE plpgsql;
 
 -- Trigger - Event
+Drop trigger if exists insert_measurement_trigger on measurement_master;
+
 CREATE TRIGGER insert_measurement_trigger
     BEFORE INSERT ON measurement_master
     FOR EACH ROW EXECUTE PROCEDURE measurement_insert_trigger();
@@ -106,9 +133,15 @@ ALTER FUNCTION public.convert_input_data_to_json_measurement_table(integer)
 -- 'timestamp',r."timestamp", --
 
 -- START TEST
-select convert_input_data_to_json_measurement_table(10);
+truncate table measurement_master;
+select convert_input_data_to_json_measurement_table(50);
 
+-- Run this 
+insert into measurement_master VALUES (0,
+json_build_object('timestamp', current_timestamp::timestamp),
+json_build_object('timestamp', current_timestamp::timestamp));
 
+--"{"timestamp" : "2017-02-19T14:56:56.252305"}"
 -- NOTES
 ---- Building CHECK;
 -- CHECK ( logdate >= DATE '2006-02-01' AND logdate < DATE '2006-03-01' )
