@@ -20,7 +20,7 @@ DECLARE
 
 	id_count integer := 0;
  BEGIN
-	truncate table cpu;
+	truncate table measurement_master;
 
 	FOR r IN
 		SELECT *
@@ -28,7 +28,10 @@ DECLARE
 		ORDER BY l."timestamp"
 		LIMIT $1
 	LOOP
-		INSERT INTO measurement_master VALUES (id_count, 
+		INSERT INTO measurement_master VALUES (id_count,
+				json_build_object(
+					'insert_at', current_timestamp::timestamp,
+					'aggregation_type', 'seconds'),
 				json_build_object(
 					'host',r.host,
 					'timestamp',r."timestamp",
@@ -54,7 +57,7 @@ ALTER FUNCTION public.convert_input_data_to_json_cpu_table(integer)
 
 --- Test Function ---
 
-select convert_input_data_to_json_cpu_table(100000);
+select convert_input_data_to_json_cpu_table(1000000);
 
 
 -- DO NOT RUN THIS WITHOUT LIMIT -> Y SOFTWARE WILL CRASH
