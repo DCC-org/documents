@@ -46,6 +46,21 @@ CREATE INDEX measurement_xMINUS1Year_timestamp ON measurement_xMINUS1Year ((data
 CREATE INDEX measurement_backup_timestamp ON measurement_backup ((data->>'timestamp'));
 
 
+-- Trigger - Function
+CREATE OR REPLACE FUNCTION measurement_insert_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO measurement_xMINUS1Minute_timestamp VALUES (NEW.*);
+    RETURN NULL;
+END;
+$$
+LANGUAGE plpgsql;
+
+-- Trigger - Event
+CREATE TRIGGER insert_measurement_trigger
+    BEFORE INSERT ON measurement_master
+    FOR EACH ROW EXECUTE PROCEDURE measurement_insert_trigger();
+
 -- NOTES
 
 
