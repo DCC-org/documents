@@ -1156,7 +1156,26 @@ Gesamtperformance, führt aber nicht zu einem Ausfall des Setups
 
 \paragraph{OpenTSDB}
 \label{paragraph:opentsdb}
-Some Text here!
+OpenTSDB ist ein Zeitreihen basiertes Programm, auf englisch ``Time Series
+Daemon (TSD)'', und arbeitet mit dem OpenSource \gls{DBMS} ``HBase'' zusammen.
+Es verfügt über die Funktionen von einem Konsolen-basierten Zugang, sowie
+verschiedenen Treibern für den Zugriff und Austausch von Informationen zwischen
+anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der Datenspeicherung.
+Dazu wird das zugehörige \gls{DBMS} ``HBase'' zwingend benötigt. OpenTSDB wird
+genutzt, um einzelne und unabhängige Systeme für den Datenzugriff
+bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an einem HBase
+System angebunden sein. Es existiert keinerlei Informationsaustausch zwischen
+den einzelnen Deamons, sondern sie nutzen lediglich alle die gleiche
+Datengrundlage des HBase Systems. Dennoch kann man durch dieses Verfahren
+die Analyseperformance dynamisch anpassen, da das HBase System stark auf die
+Aggregation und niedrigen Speicherplatzbedarf optimiert wurde. Die einzelnen
+Deamons kommunizieren dabei mit dem HBase System über einfache Protokolle wie
+Telnet oder HTTP (API).
+
+Da die Dateninhalte immer in Verbindung mit einem Zeit und Datumswert stehen,
+ist dieses \gls{DBMS} durch die Optimierung von dem Verarbeiten der Zeit- und
+Datums-basierten Datensätzen ein Kandidat für die spätere Nutzung in der
+Ziellösung.
 \nl%
 
 \paragraph{Hadoop / Hive /Impala}
