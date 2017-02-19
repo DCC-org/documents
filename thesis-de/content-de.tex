@@ -277,21 +277,29 @@ zwischengespeichert werden können um sie gebündelt zu verschicken.
 \tm%
 
 \subsubsection{Datenhaltungssystem}
-Die Anforderung an das Datenhaltungssystem wurde einfach gehalten. Zunächst
-muss es für das abspeichern von mehreren tausend Datensätzen in der Sekunde
-ausgelegt sein. Innerhalb des Projektes wird mit 10.000 Datensätzen pro
-Sekunde gerechnet und getestet, dies ist auf den Anforderungen des
-Auftraggebers aufgebaut. Gleichzeitig muss das Datenhaltungssystem über
-Analysewerkzeuge verfügen, sodass auf den gespeicherten Daten eine Logik
-aufgebaut werden kann. Die daraus resultierenden Analyseergebnisse sollten
-anschließend auch an verschiedene Systeme weitergeliefert werden können.
-Entsprechend soll das Datenhaltungsystem die dafür notwendigen Treiber und
-Schnittstellen mitliefern. Es soll im Klartext eine stabile Schnittstelle
-im Gesamtsystem bilden und im Falle von einem Ausfall der beiden anderen
-Softwarekomponenten die Informationen weiterhin sicher und vollständig zur
-Verfügung stellen können. Eine konkretisierte Anforderungsübersicht an das
-Datenhaltungssystem kann aus Punkt~\ref{subsec:datenhaltungssystem} entnommen
-werden.
+Nachfolgende Anforderungen an das Datenhaltungssystem wurden vor der
+Projektphase im Team und auch in der ersten Rücksprache mit dem Auftraggeber
+definiert. Sie dienen als ersten Leitpfaden der Softwarelösung und definierten
+sich wie folgt: 
+
+\begin{outline}
+  \1 Zunächst muss das Datenhaltungssystem für das Abspeichern von mehreren
+  tausend Datensätzen in der Sekunde ausgelegt sein. Innerhalb des Projektes
+  wird mit 10.000 Datensätzen pro Sekunde gerechnet und getestet.
+  \1 Gleichzeitig muss das Datenhaltungssystem über Analysewerkzeuge verfügen,
+  sodass auf den gespeicherten Daten eine fachliche Logik aufgebaut werden
+  kann.
+  \1 Die daraus resultierenden Analyseergebnisse sollten anschließend über im
+  Projekt definierte Schnittstellen an verschiedene Systeme weitergeliefert
+  werden können. Entsprechend soll das Datenhaltungsystem die dafür
+  notwendigen Treiber und Schnittstellen mitliefern. 
+\end{outline}
+
+Es soll in der Ziellösung eine stabile Schnittstelle im Gesamtsystem bilden
+und im Falle von einem Ausfall der beiden anderen Softwarekomponenten die
+Informationen weiterhin sicher und vollständig zur Verfügung stellen können.
+Eine konkretisierte Anforderungsübersicht an das Datenhaltungssystem kann aus
+Punkt~\ref{subsec:datenhaltungssystem} entnommen werden.
 \nl%
 
 \subsubsection{Frontends}
@@ -1390,10 +1398,15 @@ Angreifer keine eigenen Datenbankbefehle definieren und ausführen. Somit wird
 das Risiko der Datenmanipulation durch eine zusätzliche Schicht (Layer)
 veringert.
 
-Oftmals werden Daten nicht in der Struktur benötigt, in der sie gespeichert
-sind. Die Möglichkeiten einer Transformation auf Datenbankebene sind sehr
-begrenzt, eine API Schnittstelle in einer Hochsprache bietet hier deutlich mehr
-Möglichkeiten.
+Oftmals benötigen die Systeme, welche auf die Daten des Datenhaltungssystems
+zugreifen, die Daten in einer anderen Struktur als diese abgespeichert sind.
+Durch die Programmiermöglichkeiten einer API können während der Abfrage der
+Informationen auf dem Datenhaltungssystem bereits Datenanpassungen vorgenommen
+werden. Diese Anpassungen können zum Beispiel Funktionen, wie das anonymisieren
+oder pseudonymisieren sein, welche das Datenhaltungssystem nicht ausführen
+kann. Die API kann jedoch auch zum Beispiel die Daten vor der Auslieferung
+beliebig anpassen, und somit auf ein weiteres System optimal anpassen, ohne
+dabei die Ursprungsdaten zu verändern.
 \nl%
 
 \subsubsection{Vorbereitung der Evaluierung}
@@ -1401,7 +1414,8 @@ Möglichkeiten.
 Anders wie bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
 der möglichen API Systeme keine Liste im voraus erstellt. Dies lag daran, dass
 keiner der Projektmitglieder oder Interessenten an dem Projekt Erfahrungen mit
-API Systemen im vorhinein besitzen.
+API Systemen im vorhinein besitzten und dies erst während der Projektphase
+angeeignet werden musste.
 
 Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
 API System zu erstellen und im Anschluss während der Evaluierungsphase
@@ -1419,7 +1433,8 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   dem Datenhaltungssystem liegt, um mögliche Latenzen zwischen den beiden
   Systemen so niedrig wie möglich zu halten. Zudem sollen externe Cloudanbieter
   keinen Zugriff auf die teilweise Kundenbezogenen Daten der Datenhaltung
-  erhalten. Zudem kann während dem Projekt entschiedenen werden, dass das
+  erhalten, auch wenn das System nur Performancedaten ohne Kundenbezug
+  ausliefern soll. Zudem kann während dem Projekt entschiedenen werden, dass das
   Datenhaltungssystem nicht von externen Systemen erreichbar sein soll, sodass
   die damit verbundene Lösung über einen Cloudprovider nicht möglich wäre.
   Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
