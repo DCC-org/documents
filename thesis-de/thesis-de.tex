@@ -6,7 +6,118 @@
 \def\supervisor{Betreuer}
 \def\proj{Projektleiter}
 \def\xsubtitle{Projektdokumentation}
-\newtoggle{signatures_every_page}
-\togglefalse{signatures_every_page}
-\def\contentfile{content-de.tex}
-\input{../common.tex}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{calc}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{setspace}
+\setmainfont[Mapping=tex-text,Ligatures=TeX]{TeX Gyre Pagella}
+\setstretch{1.15}
+\setmonofont[Scale=0.95]{Inconsolata}
+\setkomafont{disposition}{\bfseries}
+\setkomafont{descriptionlabel}{\bfseries}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{outlines}
+\usepackage{titling}
+\usepackage{textcase}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+\usepackage[titles]{tocloft}
+\usepackage[unicode=true]{hyperref}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\usepackage{siunitx}
+\sisetup{per-mode=symbol,binary-units=true}
+\usepackage{csquotes}
+\usepackage[toc,numberedsection,xindy]{glossaries}
+\makeglossaries
+\input{../glossary.tex}
+
+\addbibresource{../biblatex.bib}
+
+\DefineBibliographyStrings{german}{%
+  references = {Quellennachweis},
+}
+
+\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
+\renewcommand{\lstlistingname}{Quelltext}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\RedeclareSectionCommand[
+  beforeskip=-.5\baselineskip,
+  afterskip=.2\baselineskip]{paragraph}
+
+\setlength{\parindent}{0pt}
+\setlength{\droptitle}{5em}
+\setlength{\parskip}{1ex}
+\setlength{\footskip}{3cm}
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\spacedlowsmallcaps}[1]{\textsc{\MakeTextLowercase{#1}}}
+\newcommand{\tm}{\begin{flushright}{[TM]}\end{flushright}}
+\newcommand{\mr}{\begin{flushright}{[MR]}\end{flushright}}
+\newcommand{\nl}{\begin{flushright}{[NL]}\end{flushright}}
+\newcommand{\all}{\begin{flushright}{[MR, NL, TM]}\end{flushright}}
+
+\graphicspath{{../figures/}}
+
+\renewcommand{\subtitle}[1]{%
+    \posttitle{%
+        \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+\title{Data Warehousing for Cloud Computing Metrics}
+\subtitle{\xsubtitle}
+\date{\today}
+\author{%
+    Tim Meusel
+    \and
+    Nikolai Luis
+    \and
+    Marcel Reuter%
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+~\\[3cm]
+\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+  \centering
+  \raisebox{-0.5\height}{\includegraphics[width=6cm]{puppet.png}}
+  &
+    \centering
+    \raisebox{-0.5\height}{\includegraphics[width=7cm]{hhek-big.jpg}}
+    \tabularnewline[20ex]
+    \centering
+    \parbox{\maxof{\widthof{\spacedlowsmallcaps{\puppet}}}{\widthof{David Schmitt}}}{%
+    \noindent\spacedlowsmallcaps{\puppet} \\
+  Steve Quin\\
+  David Schmitt
+  }
+  &
+    \centering
+    \parbox{\widthof{Dirk Stegemann}}{%
+    \noindent\spacedlowsmallcaps{\supervisor} \\
+  Dirk Stegemann
+  }
+\end{tabular}
+
+\newpage
+
+\thispagestyle{empty}
+
+\input{content-de.tex}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "fsd-en/fsd-en"
+%%% End:
