@@ -20,13 +20,12 @@
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
-\usepackage{fancyhdr}
 \usepackage{microtype}
 \usepackage{outlines}
 \usepackage{titling}
 \usepackage{textcase}
 \usepackage{listings}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+\lstset{basicstyle=\ttfamily\small,breaklines=true}
 \usepackage[titles]{tocloft}
 \usepackage[unicode=true]{hyperref}
 \usepackage[backend=biber,style=alphabetic]{biblatex}
@@ -46,23 +45,16 @@
 \renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
 \renewcommand{\lstlistingname}{Quelltext}
 
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
-\RedeclareSectionCommand[
-  beforeskip=-.5\baselineskip,
-  afterskip=.2\baselineskip]{paragraph}
-
 \setlength{\parindent}{0pt}
-\setlength{\droptitle}{5em}
 \setlength{\parskip}{1ex}
-\setlength{\footskip}{3cm}
+\setlength{\droptitle}{5ex}
 \renewcommand{\arraystretch}{1.5}
 
 \newcommand{\spacedlowsmallcaps}[1]{\textsc{\MakeTextLowercase{#1}}}
-\newcommand{\tm}{\begin{flushright}{[TM]}\end{flushright}}
-\newcommand{\mr}{\begin{flushright}{[MR]}\end{flushright}}
-\newcommand{\nl}{\begin{flushright}{[NL]}\end{flushright}}
-\newcommand{\all}{\begin{flushright}{[MR, NL, TM]}\end{flushright}}
+\newcommand{\tm}{\hfill{\scriptsize[TM]}}
+\newcommand{\mr}{\hfill{\scriptsize[MR]}}
+\newcommand{\nl}{\hfill{\scriptsize[NL]}}
+\newcommand{\all}{\hfill{\scriptsize[MR,~NL,~TM]}}
 
 \graphicspath{{../figures/}}
 
