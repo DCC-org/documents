@@ -274,9 +274,9 @@ virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen die die
 Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
 ersichtlich wofür Ressourcen in den VMs genutzt werden, so kann zum Beispiel
 ermittelt werden wie viel CPU Zeit einer Instanz zur Verfügung gestellt wird,
-aber nicht wofür die Leistung genutzt wird \( zum
+aber nicht wofür die Leistung genutzt wird (zum
 Beispiel~\glslink{Soft-IRQ}{Soft-IRQs}, \glslink{Interrupt}{Interrupts},
-\gls{iowait}\). Um detaillierte Daten für eine bessere Analyse zu bekommen muss
+\gls{iowait}). Um detaillierte Daten für eine bessere Analyse zu bekommen muss
 deshalb auch in den virtuellen Maschinen eine Datenerfassung erfolgen, sofern
 Zugriff vorhanden ist.
 
@@ -364,8 +364,8 @@ entgegenzubeugen. Sie zeichnen sich dadurch aus, dass sie:
 \end{outline}
 
 Die Firma Puppet entwickelt seit mehreren Jahren erfolgreich Software. Sie
-steht dem Projektteam mit hilfreichen Tips und Schulungen zur Seite. ``Agile
-Softwareentwicklung'' gilt als Oberbegriff für alle Techniken und
+steht dem Projektteam mit hilfreichen Tips und Schulungen zur Seite. „Agile
+Softwareentwicklung“ gilt als Oberbegriff für alle Techniken und
 Vorgehensweisen in dem Bereich. Das Softwareentwicklungsmodell Scrum nutzt
 Teile der agilen Softwareentwicklung. Das Projektteam entschied sich für die
 Nutzung agiler Projektmanagement Methoden da diese in der Wirtschaft aktuell am
@@ -375,7 +375,7 @@ verbreitetsten sind.
 \section{Scrum}
 Scrum ist zu unflexibel für ein Technikerprojekt. Die Methode schreibt vor,
 dass man alle Techniken von Scrum nutzen muss und diese nicht abgewandelt
-werden dürfen.  Unter anderem wird ein ``Daily Standup'' verlangt. Dies ist
+werden dürfen.  Unter anderem wird ein „Daily Standup“ verlangt. Dies ist
 eine Besprechung an jedem Arbeitstag, welche genau 15 Minuten lang ist. Die
 Zeit muss gleichmäßig auf alle Teilnehmer verteilt werden. Aufgrund der
 Vollzeitbeschäftigung aller Mitglieder in Kombination mit dem
@@ -392,7 +392,7 @@ kurz besprochen was besonders positiv oder negativ lief, und ob die
 Projektmitglieder zufrieden sind. Im Anschluss folgt die Planung für den
 kommenden Sprint. Es wird überlegt welche Arbeit erledigt werden muss, und
 deren ungefährer Zeitaufwand geschätzt. Für jede Aufgabe wird ein Ticket in
-der Projektmanagementsoftware erstellt. Das Projektteam hat sich für ``JIRA''
+der Projektmanagementsoftware erstellt. Das Projektteam hat sich für „JIRA“
 entschieden, da dies aktuell am verbreitesten in der Wirtschaft ist. Neue
 Featurewünsche werden als Userstory angelegt. Dies ist ein Ticket in dem aus
 Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
@@ -522,7 +522,7 @@ Eine Metrik ist die Kombination aus:
 \end{outline}
 
 Eine Metrik wird periodisch als Ganzzahl ermittelt. Die Kombination mehrerer
-Werte einer Metrik ergibt eine Timeseries (auch ``Datenreihe'' oder ``Abfolge''
+Werte einer Metrik ergibt eine Timeseries (auch „Datenreihe“ oder „Abfolge“
 genannt). Um Speicherplatz zu sparen können die Werte aggregiert werden.
 Hierbei wird für einen bestimmten Zeitraum einer Timeseries die Werte genommen
 und folgende Funktionen angewendet:
@@ -558,11 +558,11 @@ Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
 die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
 Werte bildet einen Trend (auch History Trend genannt). Trends werden oftmals
 visualisiert. Hierbei lässt sich Ressourcensparend ein langer Verlauf der
-Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine ``Trend
-Prediction'' erstellt werden. Hierbei werden Daten der Vergangenheit analysiert
+Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine „Trend
+Prediction“ erstellt werden. Hierbei werden Daten der Vergangenheit analysiert
 und auf eine mögliche Zukunft vorrausgerechnet.
 
-``Tiered Trends'' bezeichnet eine Datensammlung auf welche mehrfach die oben
+„Tiered Trends“ bezeichnet eine Datensammlung auf welche mehrfach die oben
 genannten Funktionen angewendet wurde. Die benötigte Granularität ändert sich
 oftmals mit dem Alter der Daten. Beispiel: In den ersten 24h benötigt man Daten
 mit einer Auflösung von 30 Sekunden. In den Darauffolgenden 2 Wochen reichen
@@ -574,7 +574,7 @@ Einheiten von 5 Minuten. Hierauf werden die Funktionen angewendet, die
 originalen Daten gelöscht und die Ergebnisse gespeichert. Parallel wird
 regelmäßig nach bereits vorhandenen Trends geprüft, welche älter als 2 Wochen
 sind. Diese Werden wieder in Einheiten von 30 Minuten aufgeteilt und die
-Funktionen erneut angewendet. Somit wurden ``Tiered Trends'' gebildet.
+Funktionen erneut angewendet. Somit wurden „Tiered Trends“ gebildet.
 
 Das bilden von Trends kann schon während der Datenerfassung erfolgen, indem die
 gesammelten Werte lokal zwischengespeichert werden und ausschließlich die
@@ -582,7 +582,7 @@ gebildeten Trends zur Datenhaltung geschickt werden. Dies ist besonders
 effizient, da jeder Server nur eine geringe Menge an Trends zu berechnen hat.
 Es ist jedoch erforderlich, dass der Client alle Daten zumindest so lange
 vorhält, bis alle benötigten Trends gebildet sind, im obigen Beispiel zu
-``Tiered Trends'' sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends
+„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends
 Ad hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
 neue Konfiguration für die Datenerfassungskomponente auf jedem Server erstellt
 werden, da diese keine automatisierte Schnittstelle bieten.
@@ -990,13 +990,13 @@ Erfahrungen jeder Projektmitglieder zu dem jeweiligen Datenhaltungssystem
 berücksichtigt. Im zweiten Schritt sollte sich anschließend jedes
 Projektmitglied mit dem zugeteilten Dantenhaltungssystem kurz
 auseinandersetzen. In diesem Schritt ist Herrn Luis aufgefallen, dass es sich
-bei der in der Liste aufgenommenen Software ``KNIME'' nicht um ein
+bei der in der Liste aufgenommenen Software „KNIME“ nicht um ein
 Datenhaltungssystem handelt, sondern um ein Werkzeug zur Datenanalyse,
 Datenaufbereitung und Datendarstellung.
 
 Die daraus resultierenden Ergebnisse wurden Herrn Luis anschließend von den
 Projektmitgliedern bereitgestellt, sodass dieser einen Überblick im
-Projektbereich ``Datenhaltung'' erschaffen konnte. Die resultierenden
+Projektbereich „Datenhaltung“ erschaffen konnte. Die resultierenden
 Ergebnisse und Erkenntnisse sind in dem nachfolgenden Punkt für jede
 Datenhaltungs-Software dokumentiert.
 \nl%
@@ -1123,7 +1123,7 @@ Cluster System über mehrere Server (Nodes) um ein vollständiges Versagen, durc
 den Ausfall von Hardwarekomponenten, oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
 Dateninformationen auf mehrere Server verteilt und verwaltet. Im Cassandra
-Umfeld wird dies über das von dem Hersteller definierten Protokoll ``gossip''
+Umfeld wird dies über das von dem Hersteller definierten Protokoll „gossip“
 verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll, welches den
 Austausch von Statusinformationen und Metainformationen zwischen den einzelnen
 Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen erstellt,
@@ -1144,7 +1144,7 @@ welche für Testzwecke auf dem gleichen physischen Server betrieben werden. Im
 Wirkbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten, um
 die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu erkennen,
 dass beide Systeme einen Dateneigentum, in der Shellausgabe die Spalte
-``Owns'', von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
+„Owns“, von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
 jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
 zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun
 einer der beiden Nodes ausfallen, könnte der jeweils andere automatisch
@@ -1223,12 +1223,12 @@ nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 
 \subsubsection{OpenTSDB}
 \label{subsubsec:opentsdb}
-OpenTSDB ist ein Zeitreihen basiertes Programm, auf englisch ``Time Series
-Daemon (TSD)'', und arbeitet mit dem OpenSource \gls{DBMS} ``HBase'' zusammen.
+OpenTSDB ist ein Zeitreihen basiertes Programm, auf englisch „Time Series
+Daemon (TSD)“, und arbeitet mit dem OpenSource \gls{DBMS} „HBase“ zusammen.
 Es verfügt über die Funktionen von einem Konsolen-basierten Zugang, sowie
 verschiedenen Treibern für den Zugriff und Austausch von Informationen zwischen
 anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der Datenspeicherung.
-Dazu wird das zugehörige \gls{DBMS} ``HBase'' zwingend benötigt. OpenTSDB wird
+Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend benötigt. OpenTSDB wird
 genutzt, um einzelne und unabhängige Systeme für den Datenzugriff
 bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an einem HBase
 System angebunden sein. Es existiert keinerlei Informationsaustausch zwischen
@@ -1249,7 +1249,7 @@ Ziellösung.
 \label{subsubsec:hadoop_hive_impala}
 Das Apache Hadoop System wird zum aktuellen Zeitpunkt bei
 großen und leistungsfähigen Datenhaltungssystemen eingesetzt, sodass es
-auch oftmals in Verbindung mit den Worten ``BIG DATA'' genannt wird.
+auch oftmals in Verbindung mit den Worten „BIG DATA“ genannt wird.
 
 Es handelt sich dabei um eine Vielzahl von Komponenten, bestehend aus mehreren
 Frameworks und Ökosystemen, also im Klartext eine Reihe von frei wählbaren
@@ -1259,7 +1259,7 @@ verwalten und keine zusätzlichen Datenhaltungssysteme, welche gegebenenfalls
 nur auf eine einzelne Anforderung spezialisiert sind, zu gründen.
 
 Um diesen Ansatz zu erfüllen, wurde das Clusterkonzept eingesetzt, Hadoop nennt
-es selber ``Hadoop Distributed File System'' (HDFS).  Dabei werden die Daten in
+es selber „Hadoop Distributed File System“ (HDFS).  Dabei werden die Daten in
 der Datenhaltung nicht mehr auf einem einzelnen physischen System gehalten,
 sowie vor einem Hardwareausfall gesichert, sondern nun auf mehrere Systeme
 verteilt. Hadoop teilt dabei jedem in dem Cluster hinzugefügten System eine
@@ -1278,7 +1278,7 @@ sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um im Falle eines
 Ausfalls des Name Nodes sofort die Aufgaben zu übernehmen.
 
 Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
-englischen: Job scheduling) wurde ``Hadoop YARN'' gegründet. Dieses System
+englischen: Job scheduling) wurde „Hadoop YARN“ gegründet. Dieses System
 definiert eigenständig den Austausch von Informationen zwischen den einzelnen
 Nodes. Es definiert dabei auch zu welchem Tageszeitpunkt einzelne Aufgaben
 erfüllt werden sollen. Diese Definitionen werden automatisch erstellt und
@@ -1286,14 +1286,14 @@ durchgeführt, jedoch kann dies auch von einer Person manuell eingestellt und
 verwaltet werden.
 
 Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
-``Hadoop Common'' eingesetzt. Es handelt sich dabei um ein reines
+„Hadoop Common“ eingesetzt. Es handelt sich dabei um ein reines
 Schnitstellen-Modul, welches standartisierte Protokolle implementiert und
-betreibt. Es ermöglicht zum Beispiel die Anbindung der Software ``Hive'' und
-``Impala'', welche in den Punkt~\ref{subsubsec:hadoop_beschreibung}
+betreibt. Es ermöglicht zum Beispiel die Anbindung der Software „Hive“ und
+„Impala“, welche in den Punkt~\ref{subsubsec:hadoop_beschreibung}
 und~\ref{subsubsec:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
-``Hadoop Map Reduce'' zum Einsatz. Diese ist von dem gleichnamigen
+„Hadoop Map Reduce“ zum Einsatz. Diese ist von dem gleichnamigen
 Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN
 basiertes System, welches ein paralleles abarbeiten von Aufgaben ermöglicht.
 Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
@@ -1308,10 +1308,10 @@ zu müssen. Die Zeitspanne kann dabei von einem Administrator festgelegt werden.
 Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
 zeitkritischen Datenabfragen zum Einsatz.
 
-Diese vier Komponenten bilden den ``Hadoop Core'', welcher zwingend für den
+Diese vier Komponenten bilden den „Hadoop Core“, welcher zwingend für den
 Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
 Erfüllung von verschiedenen und spezialisierten Aufgaben, werden unter dem
-``Hadoop Ecosystem'' zusammengefasst. Eine vollständige Liste von Hadoop
+„Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von Hadoop
 basierenden Systemen und Projekten kann auf der offiziellen Webseite des
 Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 \nl%
@@ -1323,10 +1323,10 @@ im Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
-``Hadoop Ecosystem'' eingeordnet.
+„Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung
-von einem sogenannten ``Data Warehouse'' (DWH) in dem Hadoop Netzwerk. Ein
+von einem sogenannten „Data Warehouse“ (DWH) in dem Hadoop Netzwerk. Ein
 Data Warehouse wird in Unternehmen verwendet, um eine vollständige Übersicht
 zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im
 Land verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
@@ -1343,7 +1343,7 @@ Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
 Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies
 ist zum einem die Bereitstellung von einem standartisierten Treiber für den
 externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit dem
-bekannten Namen ``SQL''. Jedoch implementiert Apache Hive auf dem Hadoop System
+bekannten Namen „SQL“. Jedoch implementiert Apache Hive auf dem Hadoop System
 auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
 wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer
 Internetwebseite.
@@ -1353,7 +1353,7 @@ Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
 Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
 das  Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
 für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
-dem Data Warehouse bekannten ``Data Marts'' fallen somit weg und werden durch
+dem Data Warehouse bekannten „Data Marts“ fallen somit weg und werden durch
 den Aufbau der genannten Sichten ersetzt.
 \nl%
 
@@ -1364,12 +1364,12 @@ im Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
-``Hadoop Ecosystem'' eingeordnet.
+„Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
 Implementierung wie in Punkt~\ref{subsubsec:hadoop_beschreibung}. Apache Impala
 stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine spezialisierte
-Abfragesprache auf Basis von ``SQL''. Apache Impala arbeitet auf den
+Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf den
 konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
 Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen
 kommt dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von
@@ -1379,8 +1379,8 @@ Apache Impala wird eingesetzt um die Schnelligkeit der Datenabfragen auf
 einem Hadoop System zu verbessern. Es wird dabei auf jedem Data Node
 installiert. Dabei erhalten die Data Nodes neben der eigentlichen
 Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
-Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein ``Query Planer'',
-``Query Coordinator'' und ``Query Executor'' bereitgestellt. Der Query Planer
+Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein „Query Planer“,
+„Query Coordinator“ und „Query Executor“ bereitgestellt. Der Query Planer
 hält dabei die Kommunikation mit der SQL Applikation innerhalb des Netzwerkes.
 Dieser gibt definierte Datenabfragen von Benutzern an einen beliebigen Data
 Node weiter. Nachdem der Query Planer die Datenabfrage erhalten hat,
@@ -1527,8 +1527,8 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
   Dokumentationsmöglichkeit sollte die API Software zur Verfügung stellen.
   Alternativ kann auch erst die Dokumentation geschrieben werden und darauf
-  basierend Quellcode generiert werden. Beide Verfahren nennt man ``One Source
-  of Truth Prinzip''. Hierbei wird sichergestellt, das es nur eine autoritative
+  basierend Quellcode generiert werden. Beide Verfahren nennt man „One Source
+  of Truth Prinzip“. Hierbei wird sichergestellt, das es nur eine autoritative
   Quelle gibt, und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
   Dokumentation die nicht mit den eigentlichen Funktionen der Software
   übereinstimmen.
@@ -1561,7 +1561,7 @@ Angebotsmodel bei welchem die Kunden das betriebene API System in Hinischt der
 Funktionen modifizieren durfte.
 
 Aufgrund diesen Erkentnissen hat sich das Projektteam während der Evaluierung
-für ein API System mit dem Namen ``Swagger'' entschieden. Es ist aktuell das
+für ein API System mit dem Namen „Swagger“ entschieden. Es ist aktuell das
 einzige API System auf dem Markt, welches den Betrieb auf einer selbst
 administrierten Hardware-Umgebung zulässt.
 \nl%
