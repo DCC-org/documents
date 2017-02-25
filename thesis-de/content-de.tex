@@ -1135,9 +1135,7 @@ jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
 zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun
 einer der beiden Nodes ausfallen, könnte der jeweils andere automatisch
 einen Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
-weiterarbeiten. Dies ist mit der Shared-Nothing-Architektur zu vergleichen,
-welche beschreibt, dass die einzelnen Netzwerkteilnehmer (Node) nicht
-zwangsläufig auf die anderen Teilnehmer angewiesen sind.
+weiterarbeiten. Dies entspricht der \gls{Shared-Nothing-Architektur}.
 
 Je nach Node Anzahl können die vorhandenen Replikations-Modelle in der
 Konfiguration eingestellt und eingesetzt werden. Cassandra bietet zudem drei
@@ -1200,12 +1198,13 @@ Hosts zuzuweisen.
 
 Mit den Erweiterungen \gls{Pgpool-II} und \gls{Postgres-XC} kann ebenfalls ein
 hochverfügbarer Betrieb realisiert werden. Außerdem ermöglichen sie eine
-vertikale \gls{Skalierung}. Mehrere Server können hier zu einem Verbund
-zusammengeschaltet werden. Schreibanfragen können von mehreren Servern
-beantwortet werden. Wenn es gewünscht ist, kann jeder Server alle Daten
-vorhalten, somit beeinträchtigt der Ausfall eines Servers nur die
-Gesamtperformance, führt aber nicht zu einem Ausfall des Setups
-(Shared-Nothing-Architektur).
+vertikale \gls{Skalierung}. Mehrere Server können hier zu einem Verbund (auch
+Cluster genannt) zusammengeschaltet werden. Schreibanfragen können von mehreren
+Servern beantwortet werden. Wenn es gewünscht ist, kann nach der
+\gls{Shared-Nothing-Architektur} gearbeitet werden. In dem Fall wird nur ein
+funktionierender Server im Cluster benötigt. In einem Setup mit mehreren Nodes
+führt ein Ausfall einer oder mehrer Nodes nur zu einer verringerten Leistung,
+nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 \tm%
 
 \paragraph{OpenTSDB}
