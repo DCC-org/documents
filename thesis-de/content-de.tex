@@ -1,6 +1,4 @@
-\newpage
-
-\section*{Danksagung}
+\chapter*{Danksagung}
 Wir bedanken uns bei der Firma Puppet, insbesondere bei David Schmitt und Steve
 Quin. Euer Fachwissen und eure Unterstützung haben uns sehr geholfen das
 Projekt ordentlich zu strukturieren und auf einem hohen technischen Niveau
@@ -18,9 +16,7 @@ würde diese Dokumentation nicht in dieser Form existieren.
 \lstlistoflistings{}
 \listoftables
 
-\newpage
-
-\section{Einführung}
+\chapter{Einführung}
 \label{sec:einfuehrung}
 Das Heinrich-Hertz-Europakolleg Bonn verlangt im fünften und sechsten Semester
 der Weiterbildung zum staatlich geprüften Informatiker eine fachbezogene
@@ -101,7 +97,7 @@ Wissensdatenbanken ein grober Projektvorgang herausgearbeitet, welcher jedoch
 auch in den nachfolgenden Seiten beschrieben ist.
 \all%
 
-\section{Projektvorstellung}
+\chapter{Projektvorstellung}
 \label{subsubsec:projektvorstellung}
 Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
 an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
@@ -140,31 +136,31 @@ gegliedert ist. Jeder dieser Teile ist eigenständig und wird einem
 Projektmitglied zugeordnet. Dies erleichtert die spätere Bewertung.
 \all%
 
-\subsection{Projektteam}
+\section{Projektteam}
 Das Projektteam besteht aus den drei Mitgliedern Marcel Reuter, Nikolai Luis
 und Tim Meusel.
 \all%
 
-\subsubsection{Marcel Reuter}
+\subsection{Marcel Reuter}
 Herr Reuter beendete 2013 seine Ausbildung zum IT-Systemelektroniker und
 arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist
 verantwortlich für die visuelle Schnittstelle des Projekts (Punkt 3).
 \mr%
 
-\subsubsection{Nikolai Luis}
+\subsection{Nikolai Luis}
 Herr Luis begann die Weiterbildung zum Techniker wärend seiner Ausbildung zum
 Fachinformatiker Anwendungsentwicklung, welche er im Januar 2016 beendete. Er
 arbeitet als BIG Data Analyst bei der Deutschen Telekom. Er ist verantwortlich
 für die Speicherung der Daten und die automatisierte Schnittstelle (Punkt 2).
 \nl%
 
-\subsubsection{Tim Meusel}
+\subsection{Tim Meusel}
 Herr Meusel schloss seine Ausbildung zum Fachinformatiker Systemintegration
 2012 ab. Aktuell arbeitet er als Systems Engineer bei der Host Europe Group.
 Er verantwortet die Ermittlung sowie Übertragung der Daten.
 \tm%
 
-\subsection{Auftraggeber}
+\section{Auftraggeber}
 Die Ansprechpartner für dieses Projekt ist das Unternehmen Puppet Inc. (im
 folgenden Puppet) in der Rolle als Auftraggeber, welches von den Mitarbeitern
 Herrn David Schmitt und Herrn Steve Quin vertreten wird. Puppet ist Marktführer
@@ -181,7 +177,7 @@ Herr Quin und Herr Schmitt bieten tiefgreifendes Wissen zu den verschiedenen
 Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
 \all%
 
-\subsection{Aktuelle Situation}
+\section{Aktuelle Situation}
 Im Abschnitt~\ref{subsubsec:projektvorstellung} wurden bereits die Intentionen
 des Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine
 passende Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit
@@ -244,15 +240,15 @@ entschied sich das Projektteam eine Alternative zu entwicklen die unkompliziert
 zu installieren ist und unabhängig von OpenStack arbeitet.
 \tm%
 
-\subsection{Anforderungen}
+\section{Anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
 folgenden Abschnitt beschrieben. Diese ergeben sich aus dem Lastenheft und
 Pflichtenheft sowie aus den Userstories der Partner. Für Alle Lösungen gillt,
 das sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
 \tm%
 
-\subsubsection{Datenerfassungssysteme}
-\label{subsubsection:datenerfassungssysteme}
+\subsection{Datenerfassungssysteme}
+\label{subsection:datenerfassungssysteme}
 Unterschiedliche Ausbaustufen für virtuelle Machinen werden über mehrere
 verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
 differenziert. Diese Typen müssen für jede virtuelle Machine ausgelesen werden.
@@ -291,7 +287,7 @@ sind. Eine Visualisierung in Echtzeit ist nicht gefordert weshalb Daten lokal
 zwischengespeichert werden können um sie gebündelt zu verschicken.
 \tm%
 
-\subsubsection{Datenhaltungssystem}
+\subsection{Datenhaltungssystem}
 Nachfolgende Anforderungen an das Datenhaltungssystem wurden vor der
 Projektphase im Team und auch in der ersten Rücksprache mit dem Auftraggeber
 definiert. Sie dienen als ersten Leitpfaden der Softwarelösung und definierten
@@ -317,7 +313,7 @@ Eine konkretisierte Anforderungsübersicht an das Datenhaltungssystem kann aus
 Punkt~\ref{subsec:datenhaltungssystem} entnommen werden.
 \nl%
 
-\subsubsection{Frontends}
+\subsection{Frontends}
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
 verbrauchten oder freien Ressourcen, wie zum Beispiel CPU Auslastung oder RAM
 Auslastung einzelner virtueller oder physischen Maschinen bereitstellen.
@@ -335,7 +331,7 @@ für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
 visuell ausgegeben werden.
 \mr%
 
-\section{Projektmanagement}
+\chapter{Projektmanagement}
 Die Liste an verfügbaren Managementmethoden ist lang. Methoden wie PRINCE2 oder
 Lean Management kommen aus dem Bereich des Projektmanagements und sind seit
 vielen Jahren auch im Bereich der Softwareentwicklung vertreten. Hinzu kommen
@@ -373,7 +369,7 @@ Nutzung agiler Projektmanagement Methoden da diese in der Wirtschaft aktuell am
 verbreitetsten sind.
 \tm%
 
-\subsection{Scrum}
+\section{Scrum}
 Scrum ist zu unflexibel für ein Technikerprojekt. Die Methode schreibt vor,
 dass man alle Techniken von Scrum nutzen muss und diese nicht abgewandelt
 werden dürfen.  Unter anderem wird ein ``Daily Standup'' verlangt. Dies ist
@@ -385,7 +381,7 @@ Durchführung von täglichen Besprechungen ist nicht
 praktikabel.~\cite{scrum_talk}
 \tm%
 
-\subsection{Agile Vorgehensweise im Projekt}
+\section{Agile Vorgehensweise im Projekt}
 \label{subsec:agile_vorgehensweise}
 Die Projektzeit wird in zweiwöchige Abschnitte, Sprints genannt, eingeteilt. Am
 Anfang jedes Sprints erfolgt ein Rückblick auf den vergangenen Sprint. Es wird
@@ -400,14 +396,14 @@ Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
 Ereignisse werden Meilensteine festgelegt.
 \tm%
 
-\section{Schnittstellen im Projekt}
+\chapter{Schnittstellen im Projekt}
 Zwischen den Softwarekomponenten im Projekt werden Daten ausgetauscht. Dies
 erfolgt über definierte Schnittstellen (auch Interfaces genannt). Im folgenden
 sind die einzelnen Schnittstellen zwischen den Komponenten und von den
 Komponenten nach außen erklärt.
 \tm%
 
-\subsection{Datenerfassungssysteme}
+\section{Datenerfassungssysteme}
 Die Datenerfassungssysteme stellen zwei Schnittstellen zur Verfügung. Sie
 kommunizieren mit dem lokalen System über eine
 \glslink{Bidirektional}{bidirektionale} Schnittstelle. Die Datenerfassung wird
@@ -437,7 +433,7 @@ besonders effizient in der Datenübertragung und Datenverarbeitung. Es ist nicht
 erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
 \tm%
 
-\subsection{Datenhaltungssystem / API}
+\section{Datenhaltungssystem / API}
 Das Datenhaltungssystem, sowie die mit inbegriffene API ist eine zentrale
 Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
 welches nur über die Informationen eines einzelnen physischen Servers verfügt,
@@ -465,7 +461,7 @@ diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
 neuen Strukturen erlernen muss.
 \nl%
 
-\subsection{Frontend}
+\section{Frontend}
 Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind, mit der
 Abfrage der Daten an dem Datenhaltungssystem und zum anderen mit der Ausgabe
 und Anzeige für den User beziehungsweise dem Administrator. Eine Schnittstelle
@@ -502,17 +498,17 @@ Client zu Weboberfläche und zurück, als auch damit die Weboberfläche selber
 Authentifiziert werden kann.
 \mr%
 
-\section{Analyse von Softwarekomponenten}
-\subsection{Datenerfassungssysteme}
-Im Abschnitt~\ref{subsubsection:datenerfassungssysteme} wurde bereits auf die
+\chapter{Analyse von Softwarekomponenten}
+\section{Datenerfassungssysteme}
+Im Abschnitt~\ref{subsection:datenerfassungssysteme} wurde bereits auf die
 einzelnen Ressourcetypen eingegangen, welche erfasst werden müssen. Um die
 verschiedenen Datenerfassungssysteme im Hinblick auf die Ressourcetypen zu
 evaluieren, muss zunächst geklärt werden was eine Metrik, ein Trend und eine
 Timeseries ist.
 \tm%
 
-\subsubsection{Begriffsklärung und Anforderungen}
-\label{subsubsection:Begriffserklärung}
+\subsection{Begriffsklärung und Anforderungen}
+\label{subsection:Begriffserklärung}
 Eine Metrik ist die Kombination aus:
 
 \begin{outline}
@@ -621,7 +617,7 @@ basiert auf dem Lasten- und Pflichtenheft:
 \end{outline}
 \tm%
 
-\subsubsection{Coreutils}
+\subsection{Coreutils}
 Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux
 Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
 Coreutils ist mit der GPL3 Lizenz lizensiert~\cite{coreutils} und zählt somit
@@ -639,7 +635,7 @@ Datenmenge. Die Informationen beziehen sich auf die Zeit seit dem letzten
 Startvorgang des Servers bis zum ausgeben der Datei. Ein kontinuierliches
 Ausgeben ermöglicht die Berechnung des Durchsatzes pro Sekunde. Diese Aufgabe
 wird von der Datenbank übernommen und ist näher im
-Abschnitt~\ref{subsubsection:Begriffserklärung} erklärt. Das gleiche gilt für
+Abschnitt~\ref{subsection:Begriffserklärung} erklärt. Das gleiche gilt für
 die Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems
 und die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit
 Coreutils und Linux Boardmitteln ist es möglich alle benötigten Informationen
@@ -678,7 +674,7 @@ Maschinen, stellt auf einem Hostsystem Informationen über die lokalen VMs
 bereit. Dies ermöglicht es Coreutils, vom Host aus Daten der VMs zu ermitteln.
 \tm%
 
-\subsubsection{atop}
+\subsection{atop}
 atop ist ein Linux Kommandozeilenprogramm zum visualisieren von Prozessen und
 vom Systemzustand. Es ist unter der GPL lizensiert und fällt damit unter
 Open Source Software. Der aktuelle Maintainer ist Gerlof Langeveld. Die erste
@@ -700,7 +696,7 @@ Funktionalität vorhanden um Daten auf einem Host von virtuellen Maschinen zu
 ermitteln, Außerdem kann die Software nicht erweitert werden~\cite{atop}.
 \tm%
 
-\subsubsection{collectd}
+\subsection{collectd}
 Das Projekt collectd wurde von Florian Forster gestartet. Die erste stabile
 Version veröffentlichte er im Juli 2005. Seitdem erfolgt eine stetige
 Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.\ collectd bietet
@@ -733,7 +729,7 @@ es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendingen
 Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
-\subsubsection{zabbix-agent}
+\subsection{zabbix-agent}
 Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open Source
 Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
 zabbix-frontend (siehe auch Abschnitt~\ref{paragraph:zabbix-frontend} für die
@@ -753,7 +749,7 @@ auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit
 ist der zabbix-agent nicht im Projekt nutzbar~\cite{zabbix_architecture}.
 \tm%
 
-\subsubsection{python-diamond}
+\subsection{python-diamond}
 python-diamond (auch Diamond genannt) ist ein in Python geschriebener Dienst.
 Er kann auf Linux Systemen diverse Daten erheben und diese über das Netzwerk
 austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
@@ -774,7 +770,7 @@ Quellcode die die Community erstellt hat, aber noch nicht eingepflegt worden
 sind.
 \tm%
 
-\subsubsection{sysstat}
+\subsection{sysstat}
 Die Softwaresammlung sysstat ist eine Kollektion an kleinen Programmen zur
 Performance Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
 älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
@@ -794,7 +790,7 @@ Anforderugnen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
 anderen Programmen genutzt werden.
 \tm%
 
-\subsubsection{Logstash}
+\subsection{Logstash}
 Logstash wird von der Firma Elasticsearch BV entwickelt. Zusammen mit
 Elasticsearch (siehe auch Abschnitt~\ref{paragraph:elasticsearch}) und
 \gls{Kibana} bilden sie den ELK-Stack. Die Open Source Software steht unter der
@@ -831,13 +827,13 @@ Anforderungen lassen sich die Daten zum Beispiel anstatt in eine SQL basierte
 Datenbank in eine No-SQL Datenbank schreiben.
 \tm%
 
-\subsubsection{Riemann}
+\subsection{Riemann}
 \tm%
 
-\subsubsection{Zusammenfassung}
+\subsection{Zusammenfassung}
 Unten aufgeführt ist eine Gegenüberstellung der verschiedenen Lösungen und
 deren Möglichkeiten. Verglichen wird hier die Fähigkeit der Datenermittlung für
-die im Abschnitt~\ref{subsubsection:datenerfassungssysteme} definierten Typen.
+die im Abschnitt~\ref{subsection:datenerfassungssysteme} definierten Typen.
 Betrachtet wird zuerst nur die Ermittlung von lokalen Daten in einer virtuellen
 Maschine oder auf einem Hostsystem.
 
@@ -898,7 +894,7 @@ wird deshalb mit collectd gearbeitet. Sollten sich hier unerwartete Probleme
 ergeben kann auf Diamond gewechselt werden.
 \tm%
 
-\subsection{Datenhaltungssystem}
+\section{Datenhaltungssystem}
 \label{subsec:datenhaltungssystem}
 Zu Beginn des Projektes musste das Projektteam mögliche Datenhaltungssysteme in
 einer Liste für eine darauffolgende Evaluierung definieren. Bei der Erstellung
@@ -927,7 +923,7 @@ Die in der Liste aufgenommen Systeme sind folgende:
 \end{outline}
 \nl%
 
-\subsubsection{Vorbereitung der Evaluierung}
+\subsection{Vorbereitung der Evaluierung}
 \label{subsubsec:DBS_vorbereitung_der_evaluierung}
 Als Vorbereitung für die Evalution der Datenhaltungssysteme wurden mehrere
 Kriterien definiert, welche einen Leitpfaden für die spätere Arbeit geben.
@@ -976,7 +972,7 @@ aufgelistet:
 \end{outline}
 \nl%
 
-\subsubsection{Durchführung der Evaluierung}
+\subsection{Durchführung der Evaluierung}
 \label{subsubsec:durchfuehrung_der_evaluierung}
 Bei der Durchführung der Evalution von den ausgewählten Datenhaltungssystemen
 aus der Liste in Punkt~\ref{subsec:datenhaltungssystem} wurden die
@@ -1429,7 +1425,7 @@ verbunden, welchen das Projektteam in dem vorgegebenen Projektzeitraum nicht
 erbringen könnte.
 \nl%
 
-\subsection{Schnittstelle - Datenbereitstellung}
+\section{Schnittstelle - Datenbereitstellung}
 \label{subsec:schnittstelle_datenbereitstellung}
 Neben der herkömmlichen Methode zur Datenabfrage von Datenbank-Systemen über
 einen Datenbanktreiber, existiert noch die Möglichkeit einer API\@.
@@ -1469,7 +1465,7 @@ beliebig anpassen, und somit auf ein weiteres System optimal anpassen, ohne
 dabei die Ursprungsdaten zu verändern.
 \nl%
 
-\subsubsection{Vorbereitung der Evaluierung}
+\subsection{Vorbereitung der Evaluierung}
 \label{subsubsec:api_vorbereitung_der_evaluierung}
 Anders wie bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
 der möglichen API Systeme keine Liste im voraus erstellt. Dies lag daran, dass
@@ -1542,7 +1538,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 \end{outline}
 \nl%
 
-\subsubsection{Durchführung der Evaluierung}
+\subsection{Durchführung der Evaluierung}
 \label{subsubsec:api_durchfuehrung_der_evaluierung}
 Bei der Evaluierung der API Systeme wurden die in
 Punkt~\ref{subsubsec:api_vorbereitung_der_evaluierung} festgehaltenen
@@ -1567,7 +1563,7 @@ einzige API System auf dem Markt, welches den Betrieb auf einer selbst
 administrierten Hardware-Umgebung zulässt.
 \nl%
 
-\subsection{Frontends}
+\section{Frontends}
 \label{subsec:frontends}
 Bevor das Projekt begann, mussten vorab zusammen mit dem Projektteam, eine
 Softwareliste an möglichen Frontends erarbeitet werden. Bereits vorab wurden
@@ -1599,7 +1595,7 @@ einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und zum
 anderen aus Vorschlägen des Auftraggebers.
 \mr%
 
-\subsubsection{Definition eines Graphen}
+\subsection{Definition eines Graphen}
 \label{definition_eines_graphen}
 Ein Graph besteht im wesentlichen aus mehreren Knoten und Kanten, welche auf
 einem Koordinaten System angelegt sind. Mit Hilfe von zwei Knoten, bestehend
@@ -1612,16 +1608,16 @@ von z.B. CPU Auslastung, RAM Auslastung oder SSD Schreibzugriffe angezeigt.
 Diese Graphen werden entweder in linerarer oder Balkenform dargestellt.
 Lineare Graphen, haben eine X-Achse und Y-Achse und besitzen
 zusätzlich einen Anfang und einen wachsenden Endpunkt. Er wird mittels
-Metrik~\ref{subsubsection:Begriffserklärung}, welche die Weboberfläche aus den
+Metrik~\ref{subsection:Begriffserklärung}, welche die Weboberfläche aus den
 Datenhaltungssystemen abgreift, erstellt und kann vom Administrator ebenfalls
 nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
 eine X-Achse, wo der gewünschte Analysewert eingetragen ist und werden z.B. für
 ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden über die
 Metrik aus den Datenhaltungssysteme abgegriffen und dem Administrator über eine
 Übersicht angezeigt. Ein Graph bzw. Balkendiagramm visualisiert immer eine
-oder mehrere Timeseries~\ref{subsubsection:Begriffserklärung}.
+oder mehrere Timeseries~\ref{subsection:Begriffserklärung}.
 
-\subsubsection{Vorbereitung der Evaluierung}
+\subsection{Vorbereitung der Evaluierung}
 \label{subsubsec:vorbereiten_der_evaluierung_frontend}
 Damit die Evaluierungen der einzelnen Softwarelösungen durchgeführt werden
 können, mussten zuvor Kriterien mit dem Projektteam in einen Anforderungskatalog
@@ -1696,7 +1692,7 @@ wie folgt aufgelistet:
 \end{outline}
 \mr%
 
-\subsubsection{Durchführung Evaluierung Frontend}
+\subsection{Durchführung Evaluierung Frontend}
 \label{subsubsec:durchfuehrung_evaluierung_frontend}
 Für die Durchführung der Evaluierung der ausgewählten Frontends aus der obigen
 Liste~\ref{subsec:frontends} wurden die entsprechenden Kriterien zur
@@ -1984,9 +1980,9 @@ Kommunizieren kann. Innherhalb der einzelnen Graphen werden hier mittels einer
 Abfrage die Datenbanken direkt angesprochen.
 \mr%
 
-\section{Realisierung}
+\chapter{Realisierung}
 
-\section{Userstories}
+\chapter{Userstories}
 Im Punk~\ref{subsec:agile_vorgehensweise} wurde bereits kurz auf Userstories
 eingegangen. Im folgenden wird die generelle Vorgehensweise erklärt, sowie die
 Implementierung und Realisierung der Userstories in diesem Projekt.
@@ -2019,7 +2015,7 @@ Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den einzelnen
 Tickets arbeiten können.
 \tm%
 
-\subsection{SSD Userstory}
+\section{SSD Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine Anzeige der SSDs, welche
 einen Hardwaredefekt haben könnten.
 
@@ -2044,7 +2040,7 @@ kann. Im folgenden finden Sie die Akzeptanzkriterien:
 \end{outline}
 \mr%
 
-\subsection{CPU Userstory}
+\section{CPU Userstory}
 \label{subsection:CPU_Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine Auswertung der CPU
 Auslastung jeder Instanz, um Engpässe zu erkennen.
@@ -2070,7 +2066,7 @@ verfügbar ist. Im folgenden finden Sie die Akzeptanzkriterien:
 \end{outline}
 \mr%
 
-\subsection{Memory Userstory}
+\section{Memory Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine Auswertung der
 Arbeitsspeicher Auslastung von jeder Instanz, um Engpässe zu erkennen.
 
@@ -2092,7 +2088,7 @@ Akzeptanzkriterien:
 \end{outline}
 \mr%
 
-\subsection{Zeitdefinierte Analyse Userstory}
+\section{Zeitdefinierte Analyse Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine  Angabe über die im
 vergangenen Jahr verwendeten Ressourcen einer Virtuellen Maschine.
 
@@ -2116,7 +2112,7 @@ folgenden finden Sie die Akzeptanzkriterien:
 \end{outline}
 \mr%
 
-\subsection{Weboberfläche Userstory}
+\section{Weboberfläche Userstory}
 \textbf{Name der Story:} Der Administrator möchte die Visualisierung der
 erhaltenen Daten zur weiteren Verwendung.
 
@@ -2133,29 +2129,21 @@ folgenden finden Sie die Akzeptanzkriterien:
 \end{outline}
 \mr%
 
-\section{Fazit}
-
-\newpage
+\chapter{Fazit}
 
 \appendix
 
 \printglossaries%
 
-\newpage
-
 \printbibliography[heading=bibnumbered]
 
-\newpage
-
-\section{Anhang}
+\chapter{Anhang}
 
 \input{../figures.tex}
 
 \input{../listings.tex}
 
-\newpage
-
-\section{Erklärung}
+\chapter{Erklärung}
 Hiermit erklären wir, dass wir die Arbeit selbstständig verfasst und keine
 anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Diese Arbeit
 wurde keinem anderen Prüfungsausschuss in gleicher oder vergleichbarer Form
