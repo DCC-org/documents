@@ -507,16 +507,16 @@ Hierbei wird für einen bestimmten Zeitraum einer Timeseries die Werte genommen
 und folgende Funktionen angewendet:
 
 \begin{outline}
-  \1 min(): Ermittlung des niedrigsten Wertes
-  \1 max(): Ermittlung des höchsten Wertes
-  \1 count(): Addieren aller Werte
-  \1 sum(): Alle Werte werden aufaddiert. Diese Berechnung ist nicht bei jedem
-  Ressourcetyp sinnvoll, allerdings wird das Ergebnis für weitere Berechnungen
-  benötigt
-  \1 avg(): Berechnung des Durchschnitts mit den Ergebnissen aus count() und
-  sum()
-  \1 95pct(): Berechnung des Durchschnitts, zuvor werden Die Werte nach größe
-  sortiert und die höchsten 5\% ignoriert.
+  \1 \lstinline|min()|: Ermittlung des niedrigsten Wertes
+  \1 \lstinline|max()|: Ermittlung des höchsten Wertes
+  \1 \lstinline|count()|: Addieren aller Werte
+  \1 \lstinline|sum()|: Alle Werte werden aufaddiert. Diese Berechnung ist nicht
+  bei jedem Ressourcentyp sinnvoll, allerdings wird das Ergebnis für weitere
+  Berechnungen benötigt
+  \1 \lstinline|avg()|: Berechnung des Durchschnitts mit den Ergebnissen aus
+  \lstinline|count()| und \lstinline|sum()|
+  \1 \lstinline|95pct()|: Berechnung des Durchschnitts, zuvor werden Die Werte
+  nach Größe sortiert und die höchsten 5\% ignoriert
 \end{outline}
 
 Außerdem gibt es die Möglichkeit die erhobenen Daten in Relation zur Zeit zu
