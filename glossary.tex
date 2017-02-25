@@ -3,7 +3,7 @@
   name=API,
   description={Application Programming Interface, ermöglicht eine
                standardisierte Anbindung von externen Softwaresystemen über
-               öffentliche Methoden einer Bibliothek~\cite{HowDoAPIsEvolve}.}
+               öffentliche Methoden einer Bibliothek~\cite{HowDoAPIsEvolve}}
 }
 \newglossaryentry{Cloud}
 {
@@ -11,33 +11,33 @@
   description={Eine Platform die nach dem Client-Server Modell arbeitet. Eine
                oder mehrere bestimmte Dienstleistungen werden hier zur
                Verfügung gestellt (z.b. Mailhosting). Die Verteilung von
-               Ressourcen erfolgt dynamisch.}
+               Ressourcen erfolgt dynamisch}
 }
 \newglossaryentry{Public Cloud}
 {
   name=Public Cloud,
   description={Siehe auch \gls{Cloud}, auf dieser Platform teilen sich mehrere
-               Benutzer die gleiche physische Infrastruktur.}
+               Benutzer die gleiche physische Infrastruktur}
 }
 \newglossaryentry{Private Cloud}
 {
   name=Private Cloud,
   description={Siehe auch \gls{Cloud}, Hier wird jedem Nutzer eine dedizierte
-               Infrastruktur bereitgestellt.}
+               Infrastruktur bereitgestellt}
 }
 \newglossaryentry{JSON}
 {
   name=JSON,
   description={JavaScript Object Notation, ein Datenformat mit dem Ziel von
                Menschen und Maschinen verarbeitet werden zu können.
-               Standartisiert in~\cite{RFC7159}.}
+               Standartisiert in~\cite{RFC7159}}
 }
 \newglossaryentry{Jepsen}
 {
   name=Jepsen,
   description={Jepsen ist eine in Clojure geschriebene Bibliothek mit der
                verteilte Datenbanken auf Persistenz und Zuverlässigkeit
-               getestet werden können~\cite{Jepsen_Introduction}.}
+               getestet werden können~\cite{Jepsen_Introduction}}
 }
 \newglossaryentry{Gnocchi}
 {
@@ -48,13 +48,13 @@
 {
   name=Unidirektional,
   description={Eine Punkt zu Punkt Verbindung in der Daten nur in eine Richtung
-               fließen.}
+               fließen}
 }
 \newglossaryentry{Bidirektional}
 {
   name=Bidirektional,
   description={Eine Punkt zu Punkt Verbindung in der Daten in beide Richtung
-               fließen.}
+               fließen}
 }
 \newglossaryentry{DBMS}
 {
@@ -64,13 +64,13 @@
                Operationen wie Datenzugriff und Datenmanipulation bereit.
                Außerdem verwaltet es das Datenbankschema. Das DBMS ermöglicht
                parallele Zugriffe, bietet Datenintegrität sowie administrativen
-               Zugriff.}
+               Zugriff}
 }
 \newglossaryentry{SQL}
 {
   name=SQL,
   description={Structured Query Language, SQL ist ein Medium um mit einem
-               \gls{DBMS} zu kommunizieren~\cite{sumathi2007fundamentals}.}
+               \gls{DBMS} zu kommunizieren~\cite{sumathi2007fundamentals}}
 }
 \newglossaryentry{Streaming Replication}
 {
@@ -78,7 +78,7 @@
   description={Hierbei schreibt ein Server seine Änderungen an einer Datenbank
                in eine Logdatei. Die Änderungen an der Datei werden
                kontinuierlich an alle passiven Server übertragen, diese wenden
-               die Änderungen ebenfalls an.}
+               die Änderungen ebenfalls an}
 }
 \newglossaryentry{Active-Passive Prinzip}
 {
@@ -86,7 +86,7 @@
   description={Eine Möglichkeit des Serverbetriebs. Ein aktiver Server erhält
                alle Anfragen von Clients, ein oder mehrere passive Server sind
                verfügbar. Der aktive Server kann deaktiviert werden und ein
-               passiver wird dafür aktiv geschaltet.}
+               passiver wird dafür aktiv geschaltet}
 }
 \newglossaryentry{Pgpool-II}
 {
@@ -94,7 +94,7 @@
   description={Eine Erweiterung für Postgres. Sie ermöglicht das
                wiederverwenden von Datenbankverbindungen, das hochverfügbare
                Replizieren der Daten sowie das verteilen von
-               Leseanfragen~\cite{pgpool}.}
+               Leseanfragen~\cite{pgpool}}
 }
 \newglossaryentry{Postgres-XC}
 {
@@ -103,7 +103,7 @@
                skalierendes Cluster. Hierbei skaliert nicht nur die Leistung
                für den lesezugriff, sondern auch für den Schreibzugriff. Je
                mehr Nodes man in das Cluster stellt desto höher wird die
-               Schreibleistung~\cite{postgres-xc}.}
+               Schreibleistung~\cite{postgres-xc}}
 }
 \newglossaryentry{Skalierung}
 {
@@ -113,7 +113,7 @@
                eines einzelnen Servers erhöht durch ein Hardwareupgrade,
                bei vertikaler Skalierung wird das Softwaresetup auf mehrere
                Server verteilt. In großen Setups wird die vertikale
-               Vorgehensweise bevorzugt da sie mehr Leistung bieten kann.}
+               Vorgehensweise bevorzugt da sie mehr Leistung bieten kann}
 }
 \newglossaryentry{Hochverfügbarkeit}
 {
@@ -126,13 +126,13 @@
 \newglossaryentry{Git}
 {
   name=Git,
-  description={Open Source Tool zur Versionsverwaltung von Dateien.}
+  description={Open Source Tool zur Versionsverwaltung von Dateien}
 }
 \newglossaryentry{Repository}
 {
   name=Repository,
   description={Verzeichnis zum speichern von Objekten. Im Git Kontext: Alle
-               logisch zusammengehörenden Dateien eines Projekts.}
+               logisch zusammengehörenden Dateien eines Projekts}
 }
 \newglossaryentry{RESTful}
 {
@@ -140,7 +140,7 @@
   description={REST steht für Representational State Transfer. Es ist ein
                Architekturprinzip für Schnittstellen auf Basis von HTTP.
                RESTful bedeutet, dass eine Applikation das REST Prinzip
-               implementiert~\cite{fielding2000architectural}.}
+               implementiert~\cite{fielding2000architectural}}
 }
 \newglossaryentry{Lucene}
 {
@@ -149,7 +149,7 @@
                Volltextsuche. Sie ist in Java geschrieben und erzeugt Indexe
                welche im Anschluss durchsucht werden können. Lucene
                implementiert mehrere Suchalgorithmen. Die Indexgröße beträgt
-               20-30\% der Größe der Nutzdaten~\cite{lucene_features}.}
+               20-30\% der Größe der Nutzdaten~\cite{lucene_features}}
 }
 \newglossaryentry{Garbage Collector}
 {
@@ -158,20 +158,20 @@
                beschreibt die automatische Speicherwaltung einer Programms.
                Ein Programm allokiert Speicher dynamisch. Der GC prüft
                periodisch den belegten Speicher und gibt nicht mehr benötigte
-               Teile wieder frei.}
+               Teile wieder frei}
 }
 \newglossaryentry{HTTP}
 {
   name=HTTP,
   description={HTTP, ausgeschrieben HyperText Transfer Protocol ist ein
               Protokoll, welches für die Übertragung von Inhalten wie z.B.
-              Webseiteninhalte verwendet wird.}
+              Webseiteninhalte verwendet wird}
 }
 \newglossaryentry{HTTPS}
 {
   name=HTTPS,
   description={HTTPS,Hypertext Transfer Protocol Secure. Basiert auf
-              \gls{HTTP} mit zusätzlicher Transportverschlüsselung.}
+              \gls{HTTP} mit zusätzlicher Transportverschlüsselung}
 }
 \newglossaryentry{LDAP}
 {
@@ -180,7 +180,7 @@
             ein Netzwerkprotokoll, welches zur Abfrage und Änderung von
             Informationen aus einem Unternehmensverzeichnis verwendet wird.
             LDAP besitzt keine Transportverschlüsselung, diese wurde bei LDAPS
-            nachgerüstet.}
+            nachgerüstet}
 }
 \newglossaryentry{Active Directory}
 {
@@ -188,7 +188,7 @@
   description={Ist ein von Microsoft entwickelter Server Dienst, welcher auf
               Windows Server Maschinen installiert werden kann um in einem
               Unternehmensverzeichnis über das Protokoll \gls{LDAP} eine
-              Abfrage oder Änderung durchführen zu können.}
+              Abfrage oder Änderung durchführen zu können}
 }
 \newglossaryentry{Treiber}
 {
@@ -197,7 +197,7 @@
               Software und einer Hardware. Damit eine gewisse Software auf
               eine Hardware zugreifen kann, wird ein Treiber verwendet,
               damit hier die volle Unterstützung zwischen Hard- und Software
-              gegeben ist.}
+              gegeben ist}
 }
 \newglossaryentry{Datenbanktreiber}
 {
@@ -206,14 +206,14 @@
               Datenbanktreiber benötigt, um eine Verbindung mit einer
               Datenbank aufbauen zu können. Zusätzlich wird hier
               das Schema der Inhalte dieser Datenbank überprüft und
-              für die Verwendung aufbereitet.}
+              für die Verwendung aufbereitet}
 }
 \newglossaryentry{Statement}
 {
   name=Statement,
   description={Ein Statement ist eine Abfolge von Befehlen, für eine \gls{SQL}
               Abfrage der Datenbank. Mit dieser können Werte abgerufen,
-              verändert oder gelöscht werden.}
+              verändert oder gelöscht werden}
 }
 \newglossaryentry{Dashboard}
 {
@@ -221,7 +221,7 @@
   description={Ein Dashboard ist eine Oberfläche auf einer Webseite um Graphen
               oder Metriken einem User zur Verfügung stellen zu können. Dem
               Anwender werden diese Graphen oder Metriken visualisiert
-              dargestellt.}
+              dargestellt}
 }
 \newglossaryentry{Templates}
 {
@@ -229,7 +229,7 @@
   description={Auf Deutsch Vorlage, dient in für Dokumente, die mit Inhalt
                gefüllt und nach belieben auch angepasst werden können. Dies
                kann zum Beispiel die Planung eines Graphen sein oder einer
-               Weboberfläche.}
+               Weboberfläche}
 }
 \newglossaryentry{IRC Channel}
 {
@@ -239,7 +239,7 @@
               ermöglicht. Hier hat der Anwender die Möglichkeit, sowohl
               Privat als auch öffentlich mit anderen Mitgliedern zu schreiben.
               Um den Chat verwenden zu können wird eine Software wie z.B.
-              mIRC benötigt.}
+              mIRC benötigt}
 }
 \newglossaryentry{Agents}
 {
@@ -247,7 +247,7 @@
   description={Ist meist ein Programm, welches bestimmte Abläufe selbständig
               ohne weitere Eingriffe des Benutzers überwachen kann. Sobald
               hier ein bestimmter Wert errreicht wurde kann auf
-              verschiedene Aktionen zurückgegriffen werden.}
+              verschiedene Aktionen zurückgegriffen werden}
 }
 \newglossaryentry{CSV}
 {
@@ -256,13 +256,13 @@
               Ursprünglich wurde nur der Komma als Delimiter genutzt,
               mittlerweile sind verschiedene Trennzeichenzulässig. Eine
               Kopfzeile, welche die Daten beschreibt, ist
-              optional~\cite{RFC4180}.}
+              optional~\cite{RFC4180}}
 }
 \newglossaryentry{Carbon}
 {
   name=Carbon,
   description={Carbon ist eine Software aus dem Graphite Projekt. Sie empfängt
-               Metriken aus dem Netzwerk und schreibt diese in eine Datenbank.}
+               Metriken aus dem Netzwerk und schreibt diese in eine Datenbank}
 }
 \newglossaryentry{Backlog}
 {
@@ -270,26 +270,26 @@
   description={Begriff aus der Softwareentwicklung und aus de
                Projektmanagement. Bezeichnet die Menge an gefundenen Fehler die
                noch nicht behoben worden sind, sowie die die Menge der
-               unbearbeiteten Änderungswünschen (Featurerequests).}
+               unbearbeiteten Änderungswünschen (Featurerequests)}
 }
 \newglossaryentry{XML}
 {
   name=XML,
   description={Extensible Markup Language, eine erweiterbare
                Auszeichnungssprache für strukturierter
-               Daten~\cite{xml_definition}.}
+               Daten~\cite{xml_definition}}
 }
 \newglossaryentry{Kibana}
 {
   name=Kibana,
   description={Webinterface zum visualisieren von Logs aus einer Elasticsearch
-               Datenbank.}
+               Datenbank}
 }
 \newglossaryentry{EVA}
 {
   name=EVA,
   description={Eingabe, Verarbeitung, Ausgabe. Ein Prinzip aus der
-               Datenverarbeitung.}
+               Datenverarbeitung}
 }
 \newglossaryentry{Peer-to-Peer}
 {
@@ -299,7 +299,7 @@
                Netzwerk. Dabei kommunizieren zwei oder mehr Teilnehmer über
                eine direkte Verbindung miteinander. In einem Peer to Peer
                Netzwerk sind alle Teilnehmer gleichgestellt, die Alternative
-               ist das Client-Server Modell.}
+               ist das Client-Server Modell}
 }
 \newglossaryentry{Client-Server}
 {
@@ -309,7 +309,7 @@
                Netzwerk. Dabei kommuniziert ein oder mehrere Teilnehmer mit
                einem zentral definierten Server. In einem Client-Server Modell
                sind die Teilnehmer immer auf den Server angewiesen, da er
-               benötigte Dienste im Netzwerk anbietet.}
+               benötigte Dienste im Netzwerk anbietet}
 }
 \newglossaryentry{Partitionen}
 {
@@ -318,7 +318,7 @@
                einen Umgang mit großen Datenmengen indem eine einzelne Tabelle
                in Tochtertabellen aufgeteilt wird. Dabei werden die Datenmengen
                mit Hife von Vererbungen auf mehrere abhängige Tabellen
-               geteilt.}
+               geteilt}
 }
 \newglossaryentry{Ringtopologie}
 {
@@ -326,14 +326,14 @@
   description={In einer Ringtopologie ist jede Station mit ihrern direkten
                Nachbarstation verbunden. Entsprechend empfängt eine Station im
                Ring die Daten und reicht sie an den Nachbarn weiter. Der
-               Nachrichtenumlauf ist dabei vorgegeben.}
+               Nachrichtenumlauf ist dabei vorgegeben}
 }
 \newglossaryentry{iowait}
 {
   name=iowait,
   description={Ein iowait beschreibt, ob ein Prozessor mit der Verarbeitung von
               Aufgaben warten muss, weil der Datenspeicher (HDDs, SSDs) mit
-              lesen oder schreiben nicht hinterherkommen.}
+              lesen oder schreiben nicht hinterherkommen}
 }
 \newglossaryentry{Interrupt}
 {
@@ -341,14 +341,14 @@
   description={Ein Interrupt ist die vorrübergehende Unterbrechung eines
                bestimmten Prozesses, damit andere Prozesse, welche wichtiger
                sind Vorrang bekommen. Dieser Interrupt wird durch die Hardware
-               ausgelöst.}
+               ausgelöst}
 }
 \newglossaryentry{Soft-IRQ}
 {
   name=Soft-IRQ,
   description={Ein Soft-IRQ ist ähnlich wie ein \gls{Interrupt} für die
               Unterbrechung eines bestimmten Prozess zuständig, jedoch wird
-              dieser durch einen Software Interrupt ausgelöst.}
+              dieser durch einen Software Interrupt ausgelöst}
 }
 \newglossaryentry{GitHub}
 {
@@ -359,7 +359,7 @@
                GitHub basiert auf \gls{Git} und Entwickler können hier entweder
                alleine oder im Team an einem Softwareprojekt zusammen arbeiten.
                Jeder Entwickler kann sein eigenes \gls{Repository} erstellen
-               und dieses verändern, bearbeiten oder weiterentwickeln.}
+               und dieses verändern, bearbeiten oder weiterentwickeln}
 }
 \newglossaryentry{Shared-Nothing-Architektur}
 {
@@ -368,5 +368,5 @@
                jeder Teilnehmer im Cluster alle notwendigen Daten um beim
                Ausfall eines anderen Teilnehmers dies zu kompensieren. Das
                System ist somit weiterhin komplett erreichbar, allerdings mit
-               eingeschränkter Leistung.}
+               eingeschränkter Leistung}
 }
