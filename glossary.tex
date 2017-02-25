@@ -91,9 +91,10 @@
 \newglossaryentry{Pgpool-II}
 {
   name=Pgpool-II,
-  description={Eine Erweiterung für Postgres. Sie ermöglicht das wiederverwenden
-               von Datenbankverbindungen, das hochverfügbare Replizieren der
-               Daten sowie das verteilen von Leseanfragen~\cite{pgpool}.}
+  description={Eine Erweiterung für Postgres. Sie ermöglicht das
+               wiederverwenden von Datenbankverbindungen, das hochverfügbare
+               Replizieren der Daten sowie das verteilen von
+               Leseanfragen~\cite{pgpool}.}
 }
 \newglossaryentry{Postgres-XC}
 {
@@ -178,8 +179,8 @@
   description={Lightweight Directory Access Protocol, ist wie auch \gls{HTTPS}
             ein Netzwerkprotokoll, welches zur Abfrage und Änderung von
             Informationen aus einem Unternehmensverzeichnis verwendet wird.
-            LDAP ist in diesem Fall das Protokoll ohne Transportverschlüsselung,
-            LDAPs hingegen das gesicherte.}
+            LDAP besitzt keine Transportverschlüsselung, diese wurde bei LDAPS
+            nachgerüstet.}
 }
 \newglossaryentry{Active Directory}
 {
@@ -219,14 +220,16 @@
   name=Dashboard,
   description={Ein Dashboard ist eine Oberfläche auf einer Webseite um Graphen
               oder Metriken einem User zur Verfügung stellen zu können. Dem
-              Anwender werden diese Graphen oder Metriken visualisiert dargestellt.}
+              Anwender werden diese Graphen oder Metriken visualisiert
+              dargestellt.}
 }
 \newglossaryentry{Templates}
 {
   name=Templates,
-  description={Auf Deutsch Vorlage, dient in für Dokumente, die mit Inhalt gefüllt
-              und nach belieben auch angepasst werden können. Dies kann z.B. die
-              Planung eines Graphen sein oder einer Weboberfläche.}
+  description={Auf Deutsch Vorlage, dient in für Dokumente, die mit Inhalt
+               gefüllt und nach belieben auch angepasst werden können. Dies
+               kann zum Beispiel die Planung eines Graphen sein oder einer
+               Weboberfläche.}
 }
 \newglossaryentry{IRC Channel}
 {
@@ -252,7 +255,8 @@
   description={CSV steht für Comma Seperated Values, Kommaseparierte Daten.
               Ursprünglich wurde nur der Komma als Delimiter genutzt,
               mittlerweile sind verschiedene Trennzeichenzulässig. Eine
-              Kopfzeile, welche die Daten beschreibt, ist optional~\cite{RFC4180}.}
+              Kopfzeile, welche die Daten beschreibt, ist
+              optional~\cite{RFC4180}.}
 }
 \newglossaryentry{Carbon}
 {
@@ -263,16 +267,17 @@
 \newglossaryentry{Backlog}
 {
   name=Backlog,
-  description={Begriff aus der Softwareentwicklung und aus dem Projektmanagement.
-               Bezeichnet die Menge an gefundenen Fehler die noch nicht behoben
-               worden sind, sowie die die Menge der unbearbeiteten
-               Änderungswünschen (Featurerequests).}
+  description={Begriff aus der Softwareentwicklung und aus de
+               Projektmanagement. Bezeichnet die Menge an gefundenen Fehler die
+               noch nicht behoben worden sind, sowie die die Menge der
+               unbearbeiteten Änderungswünschen (Featurerequests).}
 }
 \newglossaryentry{XML}
 {
   name=XML,
-  description={Extensible Markup Language, eine erweiterbare Auszeichnungssprache
-               für strukturierter Daten~\cite{xml_definition}.}
+  description={Extensible Markup Language, eine erweiterbare
+               Auszeichnungssprache für strukturierter
+               Daten~\cite{xml_definition}.}
 }
 \newglossaryentry{Kibana}
 {
@@ -283,36 +288,85 @@
 \newglossaryentry{EVA}
 {
   name=EVA,
-  description={Eingabe, Verarbeitung, Ausgabe. Ein Prinzip aus der Datenverarbeitung.}
+  description={Eingabe, Verarbeitung, Ausgabe. Ein Prinzip aus der
+               Datenverarbeitung.}
+}
+\newglossaryentry{Peer-to-Peer}
+{
+  name=Peer-to-Peer,
+  description={Begriff aus der Computer Netzwerkstruktur. Es beschreibt die
+               Verbindungsart zwischen zwei oder mehreren Computern in einem
+               Netzwerk. Dabei kommunizieren zwei oder mehr Teilnehmer über
+               eine direkte Verbindung miteinander. In einem Peer to Peer
+               Netzwerk sind alle Teilnehmer gleichgestellt, die Alternative
+               ist das Client-Server Modell.}
+}
+\newglossaryentry{Client-Server}
+{
+  name=Client-Server,
+  description={Begriff aus der Computer Netzwerkstruktur. Es beschreibt die
+               Verbindungsart zwischen zwei oder mehreren Computern in einem
+               Netzwerk. Dabei kommuniziert ein oder mehrere Teilnehmer mit
+               einem zentral definierten Server. In einem Client-Server Modell
+               sind die Teilnehmer immer auf den Server angewiesen, da er
+               benötigte Dienste im Netzwerk anbietet.}
+}
+\newglossaryentry{Partitionen}
+{
+  name=Partitionen,
+  description={Eine Partitione in einem Datenbankmanagementsystem definiert
+               einen Umgang mit großen Datenmengen indem eine einzelne Tabelle
+               in Tochtertabellen aufgeteilt wird. Dabei werden die Datenmengen
+               mit Hife von Vererbungen auf mehrere abhängige Tabellen
+               geteilt.}
+}
+\newglossaryentry{Ringtopologie}
+{
+  name=Ringtopologie,
+  description={In einer Ringtopologie ist jede Station mit ihrern direkten
+               Nachbarstation verbunden. Entsprechend empfängt eine Station im
+               Ring die Daten und reicht sie an den Nachbarn weiter. Der
+               Nachrichtenumlauf ist dabei vorgegeben.}
 }
 \newglossaryentry{iowait}
 {
   name=iowait,
   description={Ein iowait beschreibt, ob ein Prozessor mit der Verarbeitung von
-              Aufgaben warten muss, weil der Datenspeicher (HDDs, SSDs) mit lesen
-              oder schreiben nicht hinterherkommen.}
+              Aufgaben warten muss, weil der Datenspeicher (HDDs, SSDs) mit
+              lesen oder schreiben nicht hinterherkommen.}
 }
 \newglossaryentry{Interrupt}
 {
   name=Interrupt,
-  description={Ein Interrupt ist die vorrübergehende Unterbrechung eines bestimmten
-              Prozesses, damit andere Prozesse, welche wichtiger sind Vorrang bekommen.
-              Dieser Interrupt wird durch die Hardware ausgelöst.}
+  description={Ein Interrupt ist die vorrübergehende Unterbrechung eines
+               bestimmten Prozesses, damit andere Prozesse, welche wichtiger
+               sind Vorrang bekommen. Dieser Interrupt wird durch die Hardware
+               ausgelöst.}
 }
 \newglossaryentry{Soft-IRQ}
 {
   name=soft-IRQ,
-  description={Ein Soft-IRQ ist ähnlich wie ein \gls{Interrupt} für die Unterbrechung
-              eines bestimmten Prozess zuständig, jedoch wird dieser durch einen
-              Software Interrupt ausgelöst.}
+  description={Ein Soft-IRQ ist ähnlich wie ein \gls{Interrupt} für die
+              Unterbrechung eines bestimmten Prozess zuständig, jedoch wird
+              dieser durch einen Software Interrupt ausgelöst.}
 }
 \newglossaryentry{GitHub}
 {
   name=GitHub,
-  description={GitHub ist ein FileHoster, welcher für die Veröffentlichung und Sicherung
-              von sogenannten Software\glslink{Repository}{Repositorys} verwendet
-              werden kann. GitHub basiert auf \gls{Git} und Entwickler können hier
-              entweder alleine oder im Team an einem Softwareprojekt zusammen arbeiten.
-              Jeder Entwickler kann sein eigenes \gls{Repository} erstellen und dieses
-              verändern, bearbeiten oder weiterentwickeln.}
+  description={GitHub ist ein FileHoster, welcher für die Veröffentlichung und
+               Sicherung von sogenannten
+               Software\glslink{Repository}{Repositorys} verwendet werden kann.
+               GitHub basiert auf \gls{Git} und Entwickler können hier entweder
+               alleine oder im Team an einem Softwareprojekt zusammen arbeiten.
+               Jeder Entwickler kann sein eigenes \gls{Repository} erstellen
+               und dieses verändern, bearbeiten oder weiterentwickeln.}
+}
+\newglossaryentry{Shared-Nothing-Architektur}
+{
+  name=Shared-Nothing-Architektur,
+  description={Eine mögliche Architektur für verteilte Systeme. Hier besitzt
+               jeder Teilnehmer im Cluster alle notwendigen Daten um beim
+               Ausfall eines anderen Teilnehmers dies zu kompensieren. Das
+               System ist somit weiterhin komplett erreichbar, allerdings mit
+               eingeschränkter Leistung.}
 }
