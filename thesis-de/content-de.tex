@@ -51,12 +51,12 @@ das fünfte und sechste Semester angemeldet werden.
 Die größte Hürde in einem Projekt von diesem Umfang ist die fehlende Zeit für
 die Projektarbeit. Alle drei Studenten führen die Weiterbildung nebenberuflich
 durch und müssen die Leistung neben einer regulärer Arbeitszeit,
-Unterichtseinheiten und Privatleben erbringen. Eine gut struktierte
-Zeitplanung und Projektorganisation ist dabei unverzichtbar. Gleichzeitig
-muss jeder der Studenten auf sein eigenes Wohlbefinden achten. Ein zu
-schnelles Arbeitstempo würde einen einzelnen unter der Last zusammenbrechen
-lassen und somit, wie auch bei einem zu langsamen Arbeitstempo, das Projektziel
-gefährdet können.
+Unterrichtseinheiten und Privatleben erbringen. Eine gut strukturierte
+Zeitplanung und Projektorganisation ist dabei unverzichtbar. Gleichzeitig muss
+jeder der Studenten auf sein eigenes Wohlbefinden achten. Ein zu schnelles
+Arbeitstempo würde einen Einzelnen unter der Last zusammenbrechen lassen und
+somit, wie auch bei einem zu langsamen Arbeitstempo, das Projektziel gefährden
+können.
 
 Bei der Durchführung des Projektes wurde bei jedem Projektmitglied der
 praktische Wissensschatz erweitert. Zum einem wurden neue Wissensinhalte zu
@@ -93,7 +93,7 @@ Projektarbeit und Dokumentation nicht betrachtet.
 
 Die Methodiken der Projektorganisation, sowie der vereinzelte Zugang zu
 Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium, Inhalte
-aus dem Unterricht oder Erfahrungsberichte von dem Auftragegeber.  Dies
+aus dem Unterricht oder Erfahrungsberichte von dem Auftragegeber. Dies
 beinhaltet auch die Beurteilung von den genutzten Quellen, welche für die
 Projektarbeit genutzt und zitiert werden. Es wird vorab bereits durch diese
 Wissensdatenbanken ein grober Projektvorgang herausgearbeitet, welcher jedoch
@@ -106,14 +106,15 @@ Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
 an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
 physischen Systems unterschiedlich. Hier kommt es, aufgrund der
 Mischkalkulation für die Ressourcen, zu einer Überbuchung (Overcommitment) des
-Hosts. Weil das Monitoring nicht ausreichend ist, oder kein sinnvolles
-Placement implementiert ist (Placement beschreibt den Algorithmus der einen
-Node ermittelt auf dem eine neue virtuelle Instanz angelegt wird) kommt es
-regelmäßig zu Performanceeinbußen. Für Kunden gibt es keine Transparenz über
-die ihm zugeteilten und durch ihn genutzten Ressourcen, weshalb auch keine
+Hosts. Weil das Monitoring nicht ausreichend ist oder kein sinnvolles Placement
+implementiert ist (Placement beschreibt den Algorithmus, der einen Node
+ermittelt auf dem eine neue virtuelle Instanz angelegt wird) kommt es
+regelmäßig zu Leistungseinbußen. Für Kunden gibt es keine Transparenz über die
+ihm zugeteilten und durch ihn genutzten Ressourcen, weshalb auch keine
 ressourcenbasierte Abrechnung erfolgen kann. Teamleiter sind häufig mit der
 Effizienzsteigerung der Plattform beschäftigt und müssen die Auslastung
-steigern. Dies ist ohne detaillierte Auslastungsreports nicht möglich.
+steigern. Dies ist ohne detaillierte Berichte über die Auslastung nicht
+möglich.
 
 In diesem Projekt soll eine funktionierende Open Source Software entwickelt
 werden, die sich in drei Teile gliedert:
@@ -167,7 +168,7 @@ Er verantwortet die Ermittlung sowie Übertragung der Daten.
 Die Ansprechpartner für dieses Projekt ist das Unternehmen Puppet Inc. (im
 folgenden Puppet) in der Rolle als Auftraggeber, welches von den Mitarbeitern
 Herrn David Schmitt und Herrn Steve Quin vertreten wird. Puppet ist Marktführer
-im Bereich Konfigurationsmangement Software. Software dieser Art hilft es
+im Bereich Konfigurationsmanagement-Software. Software dieser Art hilft es
 Administratoren sehr einfach Testumgebungen aufzubauen und auch
 Produktivumgebungen zu Verwalten. Das Kernprodukt der Firma Puppet, welches
 ebenfalls puppet heißt, steht unter einer Open Source Lizenz und darf frei
@@ -177,27 +178,27 @@ Software zum Testen. Dies vereinfacht das Qualitätsmanagement im Projekt.
 Puppet hat in der Vergangenheit bewiesen, mit agiler Entwicklung und diversen
 Testverfahren umgehen zu können, beides wird intensiv in deren Teams genutzt.
 Herr Quin und Herr Schmitt bieten tiefgreifendes Wissen zu den verschiedenen
-Programmen und Techniken, um das Projektteam zu untersützen und zu beraten.
+Programmen und Techniken, um das Projektteam zu unterstützen und zu beraten.
 \all%
 
 \section{Aktuelle Situation}
 Im Abschnitt~\ref{subsec:projektvorstellung} wurden bereits die Intentionen
 des Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine
-passende Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt mit
-dem große Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenter
+passende Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt,
+welches große Mengen an Rechen- und Netzwerkkapazitäten, sowie persistentem
 Speicher in einem Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private
-Cloud} Umgebung zusammengefasst und orchestiert werden~\cite{OpenStack_Intro}.
-Eines der Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig
-Daten von physischen und virtuellen Ressourcen zu ermitteln verlässlich zu
-speichern. Die Daten sollen zur Analyse genutzt werden und Aktionen auslösen
-wenn bestimmte Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry
-bringt leider mehrere Nachteile mit sich:
+Cloud} Umgebung zusammenfasst und orchestriert~\cite{OpenStack_Intro}. Eines
+der Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
+physischen und virtuellen Ressourcen zu ermitteln verlässlich zu speichern. Die
+Daten sollen zur Analyse genutzt werden und Aktionen auslösen, wenn bestimmte
+Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
+mehrere Nachteile mit sich:
 
 \begin{outline}
   \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB\@. MongoDB ist
   eine dokumentenorientierte Datenbank, hier werden Daten nicht in Tabellen
   strukturiert sondern in eigenständigen Dokumenten. Jedes Dokument hat eine
-  eigene Datenstruktur (z.B. im \gls{JSON}
+  eigene Datenstruktur (zum Beispiel im \gls{JSON}
   Format)~\cite{Dokumentenorientierte_Datenbank}. Dies ermöglicht es, die
   Datenbank sehr einfach vertikal zu skalieren. Hierbei werden alle Dokumente
   auf mehrere Server verteilt. Schreib- und Lese-Anfragen können ebenfalls auf
@@ -224,13 +225,13 @@ bringt leider mehrere Nachteile mit sich:
   und noch nicht für den produktiven Einsatz bereit.
   \1 Es wird immer wieder von Skalierungsproblemen berichtet. Das CERN betreibt
   eine OpenStack Installation und konnte die Probleme mit Telemetry nur mit
-  immenser Hardware lösen. Die Kosten für diese Infrastruktur als auch die
-  Komplexität sind viel zu hoch. Sie übersteigen das Budget der meisten Cloud
+  immenser Hardware lösen. Die Kosten für diese Infrastruktur, als auch die
+  Komplexität, sind viel zu hoch. Sie übersteigen das Budget der meisten Cloud
   Umgebungen wodurch diese unwirtschaftlich werden~\cite{OpenStack_CERN}.
   \1 Das Telemetry Projekt ist sehr stark in OpenStack eingebunden. Der Einsatz
   in anderen Cloud Umgebungen ist nicht vorgesehen, da die einzelnen Dienste
   aus dem Telemetry Projekt weitere OpenStack Komponenten benötigen. Ein
-  eigenständiger betrieb ohne OpenStack ist nicht geplant für die Zukunft.
+  eigenständiger Betrieb ohne OpenStack ist nicht geplant für die Zukunft.
 \end{outline}
 
 Aufgrund der langen Liste an Problemen ist Telemetry aktuell innerhalb einer
@@ -239,36 +240,36 @@ in großen Umgebungen oder außerhalb von Openstack. Es ist nicht davon
 auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden, da diese
 im Design und Architektur des Projekts liegen. Es gibt aktuell keine
 Alternativen zu Telemetry mit einem gleichwertigen Funktionsumfang. Somit
-entschied sich das Projektteam eine Alternative zu entwicklen die unkompliziert
-zu installieren ist und unabhängig von OpenStack arbeitet.
+entschied sich das Projektteam eine Alternative zu entwickeln, die
+unkompliziert zu installieren ist und unabhängig von OpenStack arbeitet.
 \tm%
 
 \section{Anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
 folgenden Abschnitt beschrieben. Diese ergeben sich aus dem Lastenheft und
-Pflichtenheft sowie aus den Userstories der Partner. Für Alle Lösungen gillt,
-das sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
+Pflichtenheft sowie aus den Userstories der Partner. Für alle Lösungen gilt,
+dass sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
 \tm%
 
 \subsection{Datenerfassungssysteme}
 \label{section:datenerfassungssysteme}
-Unterschiedliche Ausbaustufen für virtuelle Machinen werden über mehrere
+Unterschiedliche Ausbaustufen für virtuelle Maschinen werden über mehrere
 verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
 differenziert. Diese Typen müssen für jede virtuelle Machine ausgelesen werden.
 Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
-virtuelle Machinen genommen. Diese sind aktuell:
+virtuelle Maschinen genommen. Diese sind aktuell:
 
 Zugewiesener Arbeitsspeicher, Anzahl/Leistung der Prozessorkerne, Durchsatz des
 Datenträgers, Anbindung an das Internet, nachweis via scrots fachwörter
 referenz?
 
-Diese Werte müssen sowohl in den virtuellen Machinen als auch auf dem Host
+Diese Werte müssen sowohl in den virtuellen Maschinen als auch auf dem Host
 ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
 die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
 Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
 nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
 vom Host aus ermitteln. Auf dem Host muss zusätzlich die Gesamtauslastung der
-Ressourcen sowie der Zustand der Hardware ermittelt werden.
+Ressourcen sowie der Zustand der Hardware ermittelt werden.  Jede
 Virtualisierungssoftware bietet Schnittstellen um Daten über die laufenden
 virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen die die
 Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
@@ -282,12 +283,12 @@ Zugriff vorhanden ist.
 
 Gesammelte Daten müssen lokal zwischengespeichert werden können, um einem
 Verlust bei Netzwerkstörungen zu vermeiden. Der Versand muss nach dem Push- und
-nicht nach dem Polling-Verfahren arbeiten. Somit kann Eventbasiert gearbeitet
+nicht nach dem Polling-Verfahren arbeiten. Somit kann eventbasiert gearbeitet
 werden, dies verhindert Overhead im Netzwerk. Es werden somit nur dann Daten
-geschickt wenn auch tatsächlich welche vorhanden sind. Beim Polling Verfahren
-muss eine Zentrale Instanz intervallmäßig abfragen ob neue Daten vorhanden
-sind. Eine Visualisierung in Echtzeit ist nicht gefordert weshalb Daten lokal
-zwischengespeichert werden können um sie gebündelt zu verschicken.
+geschickt, wenn auch tatsächlich welche vorhanden sind. Beim Polling Verfahren
+muss eine Zentrale Instanz in konstanten Intervallen abfragen, ob neue Daten
+vorhanden sind. Eine Visualisierung in Echtzeit ist nicht gefordert, weshalb
+Daten lokal zwischengespeichert werden können um sie gebündelt zu verschicken.
 \tm%
 
 \subsection{Datenhaltungssystem}
@@ -673,8 +674,10 @@ Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
 werden weitere Scripte benötigt. Diese Sammlung an Scripten kann auf einem
 Server ausgeführt werden um seine lokalen Statistiken zu erfassen oder direkt
 in virtuellen Maschinen.\ libvirt, eine Bibliothek zum verwalten virtueller
-Maschinen, stellt auf einem Hostsystem Informationen über die lokalen VMs
-bereit. Dies ermöglicht es Coreutils, vom Host aus Daten der VMs zu ermitteln.
+Maschinen, stellt auf einem Hostsystem Informationen über die lokalen Instanzen
+bereit.\ libvirt kümmert sich hier um die Interaktion mit diversen Hypervisors
+und bietet eine eiheitliche Schnittstelle an. Dies ermöglicht es Coreutils, vom
+Host aus Daten der VMs zu ermitteln.
 \tm%
 
 \subsection{atop}
@@ -1224,20 +1227,20 @@ nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 \subsubsection{OpenTSDB}
 \label{subsubsec:opentsdb}
 OpenTSDB ist ein Zeitreihen basiertes Programm, auf englisch „Time Series
-Daemon (TSD)“, und arbeitet mit dem OpenSource \gls{DBMS} „HBase“ zusammen.
-Es verfügt über die Funktionen von einem Konsolen-basierten Zugang, sowie
-verschiedenen Treibern für den Zugriff und Austausch von Informationen zwischen
-anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der Datenspeicherung.
-Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend benötigt. OpenTSDB wird
-genutzt, um einzelne und unabhängige Systeme für den Datenzugriff
-bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an einem HBase
-System angebunden sein. Es existiert keinerlei Informationsaustausch zwischen
-den einzelnen Deamons, sondern sie nutzen lediglich alle die gleiche
-Datengrundlage des HBase Systems. Dennoch kann man durch dieses Verfahren
-die Analyseperformance dynamisch anpassen, da das HBase System stark auf die
-Aggregation und niedrigen Speicherplatzbedarf optimiert wurde. Die einzelnen
-Deamons kommunizieren dabei mit dem HBase System über einfache Protokolle wie
-Telnet oder HTTP (API).
+Daemon (TSD)“, und arbeitet mit dem Open Source Programm \gls{DBMS} „HBase“
+zusammen.  Es verfügt über die Funktionen von einem Konsolen-basierten Zugang,
+sowie verschiedenen Treibern für den Zugriff und Austausch von Informationen
+zwischen anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der
+Datenspeicherung.  Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend
+benötigt. OpenTSDB wird genutzt, um einzelne und unabhängige Systeme für den
+Datenzugriff bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an
+einem HBase System angebunden sein. Es existiert keinerlei
+Informationsaustausch zwischen den einzelnen Deamons, sondern sie nutzen
+lediglich alle die gleiche Datengrundlage des HBase Systems. Dennoch kann man
+durch dieses Verfahren die Analyseperformance dynamisch anpassen, da das HBase
+System stark auf die Aggregation und niedrigen Speicherplatzbedarf optimiert
+wurde. Die einzelnen Deamons kommunizieren dabei mit dem HBase System über
+einfache Protokolle wie Telnet oder HTTP (API).
 
 Da die Dateninhalte immer in Verbindung mit einem Zeit und Datumswert stehen,
 ist dieses \gls{DBMS} durch die Optimierung von dem Verarbeiten der Zeit- und
@@ -1521,7 +1524,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Informationen direkt in dem Quellcode des API Systems. Entwickler können
   dabei über die Kommentierungs-Funktion der jeweiligen Entwicklersprache eine
   Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden im
-  Anschluss während dem Kompiliervorgang in einem struktierten Dokument
+  Anschluss während dem Kompiliervorgang in einem strukturierten Dokument
   festgehalten und neben der eigentlichen API Software mit ausgeliefert. Dieses
   seperate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
   gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
@@ -1568,9 +1571,9 @@ administrierten Hardware-Umgebung zulässt.
 
 \section{Frontends}
 \label{sec:frontends}
-Bevor das Projekt begann, mussten vorab zusammen mit dem Projektteam, eine
-Softwareliste an möglichen Frontends erarbeitet werden. Bereits vorab wurden
-folgende Softwarelösungen in das Pflichtenheft aufgenommen:
+Bevor das Projekt begann, musste eine Softwareliste mit möglichen Frontends
+erarbeitet werden. Bereits vorab wurden folgende Softwarelösungen in das
+Pflichtenheft aufgenommen:
 
 \begin{outline}
   \1 Grafana
@@ -1578,8 +1581,8 @@ folgende Softwarelösungen in das Pflichtenheft aufgenommen:
   \1 Zabbix-Frontend
 \end{outline}
 
-Nach Absprache mit dem Projektteam, sind noch folgende in Frage kommende
-Systeme der Evaluierungsliste aufgenommen worden.
+Nach Absprache mit dem Projektteam sind noch folgende Systeme in die
+Evaluierungsliste aufgenommen worden:
 
 \begin{outline}
   \1 Datadog
@@ -1727,7 +1730,7 @@ Anforderungen und Evaluierungsergebnissen aufgelistet:
 
 \subsubsection{Grafana}
 \label{subsubsec:grafana}
-Grafana ist eine von Torkel Ödegaard \& Raintank Inc Entwickelte OpenSource
+Grafana ist eine von Torkel Ödegaard \& Raintank Inc Entwickelte Open Source
 Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen
 noch weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
 Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere unterschiedliche
@@ -1740,10 +1743,10 @@ können. Zusätzliche zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldun
 auf die Grafana Weboberfläche, ist Grafana
 API~\ref{sec:schnittstelle_datenbereitstellung} fähig, dies bedeutet, dass
 das Datenhaltungssystem API Statements zur Verfügung stellen können und hiermit
-Graphen visualisieren kann. Grafana kann über einem \gls{Datenbanktreiber}
-oder einer Schnitstelle in Form eines Treibers, einfache Statements auf das
+Graphen visualisieren kann. Grafana kann über einem \gls{Datenbanktreiber} oder
+einer Schnitstelle in Form eines Treibers, einfache Statements auf das
 Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
-eine OpenSource Software, wodurch der Quellcode angepasst und verändert werden
+eine Open Source Software, wodurch der Quellcode angepasst und verändert werden
 darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte Kundenumgebungen.
 Dadurch entstehen auch keine Supportkosten, da die Software nicht als ein
 Dienst angeboten wird. Zusätzlich zu dem Quellcode, können hier Plugins zur
@@ -1767,7 +1770,7 @@ Zusammenfassung:
   \1 Dashboards können auf externen Server oder Lokal gesichert werden
   \1 API Unterstüzung
   \1 Plugin Erweiterung möglich (Java)
-  \1 OpenSource Softwarelösung
+  \1 Open Source Softwarelösung
 
   Negativ:
   \1 Plugin Erweiterung nur in Programmiersprache Java möglich
@@ -1807,7 +1810,7 @@ Zusammenfassung:
   \1 API Unterstützung
   \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal
   abgespeichert werden
-  \1 OpenSource Softwarelösung
+  \1 Open Source Softwarelösung
 
 
   Negativ:
@@ -1858,7 +1861,7 @@ Zusammenfassung:
   \1 Benötigt keine Plugins
   \1 Email Benachrichtigung bei bestimmten vordefinierten oder selbstdefinierten
   Events
-  \1 OpenSource Softwarelösung
+  \1 Open Source Softwarelösung
 
 
   Negativ:
@@ -1869,27 +1872,27 @@ Zusammenfassung:
 \label{subsubsec:datadog}
 Datadog ist ein von Oliver Pomel entwickelte Analysesoftware und wird bereits
 in großen Firmen, wie zum Beispiel EA oder Citrix erfolgreich eingesetzt. Es
-ist nicht wie die anderen Software Lösungen ein OpenSource Produkt und wird in
+ist nicht wie die anderen Software Lösungen ein Open Source Produkt und wird in
 verschiedenen Lizenzen von der Anzahl der entsprechenden Virtuellen Instanzen,
 welcher abgegriffen werden sollen gestaffelt. Die Basis Lizenz gibt es hier
 bereits kostenlos, jedoch können hier nur maximal 5 Virtuelle Instanzen
 abgefragt werden und die Daten werden maximal einen Tag zurückgehalten. Die
-teuerste Lizenz kostet hier 23 Doller und beinhaltet alle Host, welche der Kunde
-anbinden möchte. Zusätzlich bietet diese Lizenz einen Email, Chat oder Telefon
-Support. Dieser ist nicht in der Basis Lizenz vorhanden. Graphen und auch
-Dashboards können in Datadog einfach vom Administrator erstellt werden. Um die
-Anmeldung an der Weboberfläche durchführen zu können, wird ein Benutzer und
+teuerste Lizenz kostet hier 23 Doller und beinhaltet alle Host, welche der
+Kunde anbinden möchte. Zusätzlich bietet diese Lizenz einen Email, Chat oder
+Telefon Support. Dieser ist nicht in der Basis Lizenz vorhanden. Graphen und
+auch Dashboards können in Datadog einfach vom Administrator erstellt werden. Um
+die Anmeldung an der Weboberfläche durchführen zu können, wird ein Benutzer und
 Kennwort benötigt. Es ist hier nicht möglich, ein LDAP an die Weboberfläche
-anbinden zu können. Innerhalb eines Graphen, können bestimmte Teilabschnitte mit
-zum Beispiel Social Media Plattformen, wie Facebook oder Twitter geteilt werden.
-Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom Administrator
-festgelegt werden können. Datadog hat eine vollständige
+anbinden zu können. Innerhalb eines Graphen, können bestimmte Teilabschnitte
+mit zum Beispiel Social Media Plattformen, wie Facebook oder Twitter geteilt
+werden.  Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom
+Administrator festgelegt werden können. Datadog hat eine vollständige
 API~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
-können vom Administrator Export werden. Eine Möglichkeit, Graphen zu exportieren
-bietet Datadog hier nicht. Die Community, wo viele Inhaltliche Dokumente
-enthalten sind, sind hier nur für Kunden bestimmt, welche eine Pro Lizenz
-besitzen. Ebenso gibt es hier einen \gls{IRC Channel}, um direkt Kontakt mit Support
-aufnehmen zu können.
+können vom Administrator Export werden. Eine Möglichkeit, Graphen zu
+exportieren bietet Datadog hier nicht. Die Community, wo viele Inhaltliche
+Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche eine Pro
+Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC Channel}, um direkt Kontakt
+mit Support aufnehmen zu können.
 
 Zusammenfassung:
 
@@ -1905,7 +1908,7 @@ Zusammenfassung:
   werden
 
   Negativ:
-  \1 Keine OpenSource Lizenzen. Lizenzen sind hier nach Anwendungsfall
+  \1 Keine Open Source Lizenz. Lizenzen sind hier nach Anwendungsfall
   gestaffelt
   \1 Keine Anbindung an z.B. ein LDAP um eine Active Directory Anmeldung zu
   ermöglichen
@@ -1926,7 +1929,7 @@ Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
 
 \subsubsection{Netdata}
 \label{subsubsec:netdata}
-Netdata ist eine OpenSource Monitoring Softwarelösung. Es wurde von Costa
+Netdata ist eine Open Source Monitoring Softwarelösung. Es wurde von Costa
 Tsaousis entwickelt und bietet eine umfangreiche Möglichkeit, Daten in Form von
 Graphen oder anderen Visualisierungen darzustellen. Der vollständige Code steht
 auf GitHub, worüber auch die Community gepflegt wird. Andere Mitglieder der
@@ -1937,8 +1940,8 @@ durchzuführen. Ebenso, werden alle Graphen, welche abgefragt werden auf einer
 Seite angezeigt, weshalb die Übersicht stark eingeschränkt ist. Graphen können
 bei Netdata nicht einfach angepasst werden, da diese im Quellcode verändert und
 angepasst werden müssen. Das Netdata läuft ebenfalls nur auf Linux Oberflächen.
-Ein Support von Mircrosoft Windows ist hier unterstützt. Ein klarer Nachteil
-ist allerdings, das diese Softwarelösung jeweils nur eine Instanz gleichzeitig
+Ein Support von Microsoft Windows ist hier unterstützt. Ein klarer Nachteil ist
+allerdings, dass diese Softwarelösung jeweils nur eine Instanz gleichzeitig
 überwachen kann und der Vorteil bei Netdata, das kein weiteres
 Datenhaltungssystem oder ähnliches benötigt wird.
 
@@ -1948,7 +1951,7 @@ Zusammenfassung:
   Positiv:
   \1 Es werden sämtliche Daten unmittelbar ohne Datenbank bereits visualisiert
   \1 Gute inhaltliche Community
-  \1 Vollständige OpenSource Softwarelösung
+  \1 Vollständige Open Source Softwarelösung
 
   Negativ:
   \1 Sehr unübersichtlich vom Aufbau der Weboberfläche
