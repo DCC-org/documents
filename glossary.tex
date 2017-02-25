@@ -47,13 +47,13 @@
 \newglossaryentry{Unidirektional}
 {
   name=Unidirektional,
-  description={Eine Punkt zu Punkt Verbindung in der Daten nur in eine Richtung
+  description={Eine Punkt-zu-Punkt-Verbindung, in der Daten nur in eine Richtung
                fließen}
 }
 \newglossaryentry{Bidirektional}
 {
   name=Bidirektional,
-  description={Eine Punkt zu Punkt Verbindung in der Daten in beide Richtung
+  description={Eine Punkt-zu-Punkt-Verbindung, in der Daten in beide Richtung
                fließen}
 }
 \newglossaryentry{DBMS}
@@ -93,16 +93,16 @@
   name=Pgpool-II,
   description={Eine Erweiterung für Postgres. Sie ermöglicht das
                wiederverwenden von Datenbankverbindungen, das hochverfügbare
-               Replizieren der Daten sowie das verteilen von
+               Replizieren der Daten sowie das Verteilen von
                Leseanfragen~\cite{pgpool}}
 }
 \newglossaryentry{Postgres-XC}
 {
   name=Postgres-XC,
   description={Eine Erweiterung für Postgres. Sie ermöglicht den vertikal
-               skalierendes Cluster. Hierbei skaliert nicht nur die Leistung
-               für den lesezugriff, sondern auch für den Schreibzugriff. Je
-               mehr Nodes man in das Cluster stellt desto höher wird die
+               skalierendes Clusten. Hierbei skaliert die Leistung sowohl beim
+               Lese- als auch beim Schreibzugriff. Je mehr Nodes man in den
+               Cluster stellt, desto höher wird die
                Schreibleistung~\cite{postgres-xc}}
 }
 \newglossaryentry{Skalierung}
@@ -110,28 +110,28 @@
   name=Skalierung,
   description={Beschreibt das erhöhen der Ressourcen in einem komplexen
                Softwaresetup. Bei horizontaler Skalierung wird die Leistung
-               eines einzelnen Servers erhöht durch ein Hardwareupgrade,
+               eines einzelnen Servers durch ein Hardwareupgrade erhöht,
                bei vertikaler Skalierung wird das Softwaresetup auf mehrere
                Server verteilt. In großen Setups wird die vertikale
-               Vorgehensweise bevorzugt da sie mehr Leistung bieten kann}
+               Vorgehensweise bevorzugt, da sie mehr Leistung bieten kann}
 }
 \newglossaryentry{Hochverfügbarkeit}
 {
   name=Hochverfügbarkeit,
   description={Ein IT-System gilt als verfügbar, wenn es seine definierte
                Aufgabe abarbeiten kann. Als hochverfügbar gilt es, wenn es
-               diese Aufgabe trotz Ausfall einer oder mehrerer Komponten noch
+               diese Aufgabe trotz Ausfall einer oder mehrerer Komponenten noch
                erfüllen kann}
 }
 \newglossaryentry{Git}
 {
   name=Git,
-  description={Open Source Tool zur Versionsverwaltung von Dateien}
+  description={Freie Software zur Versionsverwaltung von Dateien}
 }
 \newglossaryentry{Repository}
 {
   name=Repository,
-  description={Verzeichnis zum speichern von Objekten. Im Git Kontext: Alle
+  description={Verzeichnis zum Speichern von Objekten. Im Git Kontext: Alle
                logisch zusammengehörenden Dateien eines Projekts}
 }
 \newglossaryentry{RESTful}
@@ -146,7 +146,7 @@
 {
   name=Lucene,
   description={Lucene ist eine Bibliothek der Apache Software Foundation zur
-               Volltextsuche. Sie ist in Java geschrieben und erzeugt Indexe
+               Volltextsuche. Sie ist in Java geschrieben und erzeugt Indizes,
                welche im Anschluss durchsucht werden können. Lucene
                implementiert mehrere Suchalgorithmen. Die Indexgröße beträgt
                20-30\% der Größe der Nutzdaten~\cite{lucene_features}}
@@ -163,20 +163,20 @@
 \newglossaryentry{HTTP}
 {
   name=HTTP,
-  description={HTTP, ausgeschrieben HyperText Transfer Protocol ist ein
+  description={HyperText Transfer Protocol ist ein
               Protokoll, welches für die Übertragung von Inhalten wie z.B.
               Webseiteninhalte verwendet wird}
 }
 \newglossaryentry{HTTPS}
 {
   name=HTTPS,
-  description={HTTPS,Hypertext Transfer Protocol Secure. Basiert auf
+  description={Hypertext Transfer Protocol Secure. Basiert auf
               \gls{HTTP} mit zusätzlicher Transportverschlüsselung}
 }
 \newglossaryentry{LDAP}
 {
   name=LDAP,
-  description={Lightweight Directory Access Protocol, ist wie auch \gls{HTTPS}
+  description={Lightweight Directory Access Protocol, ist
             ein Netzwerkprotokoll, welches zur Abfrage und Änderung von
             Informationen aus einem Unternehmensverzeichnis verwendet wird.
             LDAP besitzt keine Transportverschlüsselung, diese wurde bei LDAPS
@@ -186,7 +186,7 @@
 {
   name=Active Directory,
   description={Ist ein von Microsoft entwickelter Server Dienst, welcher auf
-              Windows Server Maschinen installiert werden kann um in einem
+              Windows Server Maschinen installiert werden kann, um in einem
               Unternehmensverzeichnis über das Protokoll \gls{LDAP} eine
               Abfrage oder Änderung durchführen zu können}
 }
@@ -218,7 +218,7 @@
 \newglossaryentry{Dashboard}
 {
   name=Dashboard,
-  description={Ein Dashboard ist eine Oberfläche auf einer Webseite um Graphen
+  description={Ein Dashboard ist eine Oberfläche auf einer Webseite, um Graphen
               oder Metriken einem User zur Verfügung stellen zu können. Dem
               Anwender werden diese Graphen oder Metriken visualisiert
               dargestellt}
@@ -226,8 +226,8 @@
 \newglossaryentry{Templates}
 {
   name=Templates,
-  description={Auf Deutsch Vorlage, dient in für Dokumente, die mit Inhalt
-               gefüllt und nach belieben auch angepasst werden können. Dies
+  description={Vorlage für Dokumente, die mit Inhalt
+               gefüllt und auch nach Belieben angepasst werden können. Dies
                kann zum Beispiel die Planung eines Graphen sein oder einer
                Weboberfläche}
 }
@@ -252,9 +252,9 @@
 \newglossaryentry{CSV}
 {
   name=CSV,
-  description={CSV steht für Comma Seperated Values, Kommaseparierte Daten.
+  description={Comma Seperated Values, Kommaseparierte Daten.
               Ursprünglich wurde nur der Komma als Delimiter genutzt,
-              mittlerweile sind verschiedene Trennzeichenzulässig. Eine
+              mittlerweile sind verschiedene Trennzeichen zulässig. Eine
               Kopfzeile, welche die Daten beschreibt, ist
               optional~\cite{RFC4180}}
 }
@@ -270,20 +270,20 @@
   description={Begriff aus der Softwareentwicklung und aus de
                Projektmanagement. Bezeichnet die Menge an gefundenen Fehler die
                noch nicht behoben worden sind, sowie die die Menge der
-               unbearbeiteten Änderungswünschen (Featurerequests)}
+               unbearbeiteten Änderungswünsche (Featurerequests)}
 }
 \newglossaryentry{XML}
 {
   name=XML,
   description={Extensible Markup Language, eine erweiterbare
-               Auszeichnungssprache für strukturierter
+               Auszeichnungssprache für strukturierte
                Daten~\cite{xml_definition}}
 }
 \newglossaryentry{Kibana}
 {
   name=Kibana,
-  description={Webinterface zum visualisieren von Logs aus einer Elasticsearch
-               Datenbank}
+  description={Webinterface zum Visualisieren von Logs aus einer
+               Elasticsearch-Datenbank}
 }
 \newglossaryentry{EVA}
 {
@@ -297,7 +297,7 @@
   description={Begriff aus der Computer Netzwerkstruktur. Es beschreibt die
                Verbindungsart zwischen zwei oder mehreren Computern in einem
                Netzwerk. Dabei kommunizieren zwei oder mehr Teilnehmer über
-               eine direkte Verbindung miteinander. In einem Peer to Peer
+               eine direkte Verbindung miteinander. In einem Peer-to-Peer
                Netzwerk sind alle Teilnehmer gleichgestellt, die Alternative
                ist das Client-Server Modell}
 }
@@ -332,8 +332,8 @@
 {
   name=iowait,
   description={Ein iowait beschreibt, ob ein Prozessor mit der Verarbeitung von
-              Aufgaben warten muss, weil der Datenspeicher (HDDs, SSDs) mit
-              lesen oder schreiben nicht hinterherkommen}
+              Aufgaben warten muss, weil der Datenspeicher (HDDs, SSDs) beim
+              Lesen oder Schreiben nicht hinterherkommt}
 }
 \newglossaryentry{Interrupt}
 {
@@ -365,8 +365,8 @@
 {
   name=Shared-Nothing-Architektur,
   description={Eine mögliche Architektur für verteilte Systeme. Hier besitzt
-               jeder Teilnehmer im Cluster alle notwendigen Daten um beim
-               Ausfall eines anderen Teilnehmers dies zu kompensieren. Das
+               jeder Teilnehmer im Cluster alle notwendigen Daten um den
+               Ausfall eines anderen Teilnehmers zu kompensieren. Das
                System ist somit weiterhin komplett erreichbar, allerdings mit
                eingeschränkter Leistung}
 }
