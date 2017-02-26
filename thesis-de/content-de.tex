@@ -843,7 +843,7 @@ Datenbank in eine No-SQL Datenbank schreiben.
 \subsection{Riemann}
 Riemann ist ein junges Softwareprojekt. Das erste Release erfolgte im März
 2012. Die Open Source Software steht unter der Eclipse Public Lizenz Version 1.
-Die aktuellste Version ist trägt die Versionsnummer 0.2.12 und wurde im
+Die aktuellste Veröffentlichung trägt die Versionsnummer 0.2.12 und wurde im
 Dezember 2016 veröffentlicht. Das Versionsschema von Riemann hält sich an die
 Regeln von \gls{Semantic Versioning}, somit sind erst dann Releases zum
 produktiven Einsatz empfohlen, wenn sie die Nummer 1.0.0 oder höher enthalten.
@@ -872,6 +872,15 @@ werden Streams definiert. Diese laufen immer nach dem gleichen Schema ab:
 Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
 Sobald diese bei 75°C oder höher liegt wird eine eMail an tim@bastelfreak.de
 geschickt.
+
+Riemann besitzt eine lange Liste an vorhandenen Aktionen die man nutzen kann.
+Dazu gehört auch der Export von Events in diverse Datenbanken, dazu gehören
+unter anderem Elasticsearch, graphite, influxdb, kariosdb, opentsdb, prometheus
+und generische UDP und TCP Outputs.
+
+Während der Analyse von Riemann hat sich herausgestellt, das Riemann zwar
+besonders gut Daten verarbeiten kann, allerdings keine Möglichkeit mitbringt
+diese selbst zu ermitteln.
 \tm%
 
 \subsection{Zusammenfassung}
@@ -893,7 +902,7 @@ Maschine oder auf einem Hostsystem.
   python-diamond & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
   sysstat        & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
   Logstash       & \~{}             & \~{}      & \~{}        & \~{}     \\
-  Riemann        & \cmark{}         & \cmark{}  & \xmark{}    & \xmark{} \\
+  Riemann        & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   \bottomrule
 \end{tabular}
 \captionof{table}{Ermittlung von lokalen Daten}
@@ -915,7 +924,7 @@ diesen selbst zu laufen:
   python-diamond & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
   sysstat        & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   Logstash       & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  Riemann        & \cmark{}         & \cmark{}  & \xmark{}    & \xmark{} \\
+  Riemann        & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   \bottomrule
 \end{tabular}
 \captionof{table}{Ermittlung von VM Daten}
