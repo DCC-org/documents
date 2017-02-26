@@ -1829,10 +1829,10 @@ Zusammenfassung:
 \subsubsection{Graphite}
 \label{subsubsec:graphite}
 Die Softwarelösung Graphite, wurde von Chris Davis im Jahr 2006 Entwickelt und
-gehört zu einer der meist eigesetzten Softwarelösungen im Bereich Monitoring
+gehört zu einer der meist eingesetzten Softwarelösungen im Bereich Monitoring
 und Visualisierung. Graphite ist wie auch Grafana eine Open Source Lösung und
 ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es
-verfügt über eine inhaltlich gute und umfangreiche Community, mit einer eigenem
+verfügt über eine inhaltlich gute und umfangreiche Community, mit einem eigenem
 Wiki Board, wo alle relevanten Dokumentationen enthalten sind. Graphen können
 leicht mittels Statements über eine
 API~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
@@ -1845,7 +1845,14 @@ kompatibel zu Timeseries Datenhaltungssystemen. Es bietet keine einfache
 Möglichkeit, weitere Plugins hinzufügen zu können, wie es beispielsweise
 Grafana~\ref{subsubsec:grafana} dies kann. Hierzu muss der Quellcode von
 Graphite massiv angepasst werden, was zu einer sehr guten Kenntnis des Systems
-voraussetzt.
+voraussetzt. Graphite ist ein System, welches aus zwei Diensten besteht. Der
+graphite-web Apache Dienst ist für die Anzeige der Weboberfläche zuständig,
+welcher benötigt wird um die Weboberfläche anzeigen zu können. Der carbon-cache
+Dienst wird verwendet um die Daten, welche vom Datenerfassungsystem ermittelt
+worden sind aufzuarbeiten um sie als Graph von Graphite anzeigen lassen zu
+können. Grunsätzlich installiert sich mit der Installation von Graphite noch
+eine Whisper Datenbank, welche jedoch durch eine beliebige zum Beispiel InfluxDB
+ausgetauscht werden kann.
 
 
 Zusammenfassung:
