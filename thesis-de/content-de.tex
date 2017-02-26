@@ -661,14 +661,7 @@ auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
 Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen Daten
 des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
-\begin{lstlisting}[language=bash,caption={/proc mit awk parsen},label=lst:aw]
-#!/bin/bash
-echo "device,receive,transmit"
-while :; do
-  awk '/enp1s0/ {print "enp1s0,"$2","$10}' /proc/net/dev
-  sleep 60
-done
-\end{lstlisting}
+\lstinputlisting[language=bash,caption={/proc mit awk parsen},label=lst:aw]{../listings/coreutils-awk.txt}
 
 Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
 
