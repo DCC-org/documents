@@ -848,9 +848,37 @@ Datenbank in eine No-SQL Datenbank schreiben.
 \tm%
 
 \subsection{Riemann}
-Riemann ist ein junges Softwareprojekt, das erste Release erfolgte im März
+Riemann ist ein junges Softwareprojekt. Das erste Release erfolgte im März
 2012. Die Open Source Software steht unter der Eclipse Public Lizenz Version 1.
+Die aktuellste Version ist trägt die Versionsnummer 0.2.12 und wurde im
+Dezember 2016 veröffentlicht. Das Versionsschema von Riemann hält sich an die
+Regeln von \gls{Semantic Versioning}, somit sind erst dann Releases zum
+produktiven Einsatz empfohlen, wenn sie die Nummer 1.0.0 oder höher enthalten.
+Der Autor ist Kyle Kingsbury, welche auch \gls{Jepsen} geschrieben hat. Der
+Fokus der Software liegt auf der Verarbeitung von Ereignissen, auch Events
+genannt~\cite{riemann_concepts}. Dazu wurde eine eigene Struktur entworfen mit
+mehreren Feldern (Siehe Tabelle~\ref{tbl:riemann}). In der Konfigurationsdatei
+werden Streams definiert. Diese laufen immer nach dem gleichen Schema ab:
 
+\begin{outline}
+  \lstset{language=Clojure}
+  \1 Initialisierung eines neuen Streams mit dem Schlüsselwort
+  \lstinline|streams|
+  \1 Ein Filter mit dem Schlüsselwort \lstinline|where|, hier kann mit beliebig
+  vielen Filterregeln auf alle eingehenden Events geprüft werden. Mehrere
+  Regeln können nach den anhand der Definitionen der booleschen Algebra
+  verknüpft werden.
+  \1 Zum Schluss wird eine Aktion aufgelistet. Das Schlüsselwort ist immer der
+  Name der Aktion (\lstinline|email| im folgenden Beispiel). Diese wird auf
+  jedes Event ausgeführt, welches durch alle Filter eines Streams gekommen ist.
+  Jeder Aktion können Optionen mitgegeben werden.
+\end{outline}
+
+\lstinputlisting[language=Clojure,caption={Einfache Riemann Konfiguration}]{../listings/riemann-config.txt}
+
+Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
+Sobald diese bei 75°C oder höher liegt wird eine eMail an tim@bastelfreak.de
+geschickt.
 \tm%
 
 \subsection{Zusammenfassung}
