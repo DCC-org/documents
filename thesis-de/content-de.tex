@@ -1829,12 +1829,12 @@ Zusammenfassung:
 \subsubsection{Graphite}
 \label{subsubsec:graphite}
 Die Softwarelösung Graphite, wurde von Chris Davis im Jahr 2006 Entwickelt und
-gehört zu einer der meist eigesetzten Softwarelösungen im Bereich Monitoring
-und Visualisierung. Graphite ist wie auch Grafana eine Open Source Lösung und
-ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es
-verfügt über eine inhaltlich gute und umfangreiche Community, mit einer eigenem
-Wiki Board, wo alle relevanten Dokumentationen enthalten sind. Graphen können
-leicht mittels Statements über eine
+gehört zu einer der am meisten eingesetzten Softwarelösungen im Bereich
+Monitoring und Visualisierung. Graphite ist wie auch Grafana eine Open Source
+Lösung und ermöglicht es dem Anwender die Software bearbeiten und anpassen zu
+können. Es verfügt über eine inhaltlich gute und umfangreiche Community, mit
+einem eigenem Wiki Board, wo alle relevanten Dokumentationen enthalten sind.
+Graphen können leicht mittelts Statements über eine
 API~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
 Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche,
 mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist ebenfalls
@@ -1843,27 +1843,34 @@ Server oder Lokal abgespeichert werden, um einen Verlust von einzelnen Graphen
 vorbeugen zu können. Graphite ist wie auch Grafana~\ref{subsubsec:grafana}
 kompatibel zu Timeseries Datenhaltungssystemen. Es bietet keine einfache
 Möglichkeit, weitere Plugins hinzufügen zu können, wie es beispielsweise
-Grafana~\ref{subsubsec:grafana} dies kann. Hierzu muss der Quellcode von
-Graphite massiv angepasst werden, was zu einer sehr guten Kenntnis des Systems
-voraussetzt.
-
+Grafana~\ref{subsubsec:grafana} kann. Hierzu muss der Quellcode von Graphite
+massiv angepasst werden, wodurch gute Kenntniss der einzelnen Dienste
+erforderlich sind. Graphite ist ein System, welches aus mehreren Diensten
+besteht. Der graphite-web Dienst ist für die Anzeige der Weboberfläche
+zuständig. Der carbon-cache Dienst wird verwendet um die Daten, welche vom
+Datenerfassungsystem ermittelt worden sind aufzuarbeiten. Dies wird benötigt,
+damit Graphite diese für die Visualisierung verwenden kann. Grundsätzlich
+installiert sich mit der Installation von Graphite noch eine Whisper Datenbank,
+welche jedoch durch eine beliebige, wie OpenTSDB~\ref{subsection:OpenTSDB} oder
+InfluxDB ausgetauscht werden kann.
 
 Zusammenfassung:
 
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
-  \1 Gute Community und eine Vielzahl an Dokumenten innerhalb eines Wiki
-  \1 Leichte Anpassungen an Graphen und Einstellungen möglich
+  \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
   \1 API Unterstützung
   \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal
   abgespeichert werden
   \1 Open Source Softwarelösung
-
+  \1 Dienste können Hochverfügbar und auf unterschiedliche Server aufgeteilt
+  werden
 
   Negativ:
   \1 Keine Möglichkeit, leicht Plugins hinzuzufügen
   \1 Webdesign kann nicht angepasst werden
+  \1 Besteht aus mehreren Diensten, wie graphite-web und carbon-cache
 \end{outline}
 
 
@@ -2033,7 +2040,17 @@ Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
 maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
 kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
 Kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
-Abfrage die Datenbanken direkt angesprochen.
+Abfrage die Datenbanken direkt angesprochen. Während der Implementierung von
+Graphite fiel auf, das es deutlich Komplexer ist als Grafana. Graphite besteht
+aus mehreren Diensten, welche bei der Installation konfiguriert und
+angepasst werden müssen, damit Graphite Funktional ist. Wenn ein Dienst
+Ausfallen sollte, so betrifft dies das gesamte Graphite System und die
+Weboberfläche wäre nichtmehr erreichbar. Zusätzlich ist hier gerade in der
+Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
+von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
+mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
+einzelner Dienst, wie es bei Grafana der Fall ist. Bedingt hierdurch, wird
+Graphite für die weitere Implementierung nicht verwendet.
 \mr%
 
 \chapter{Realisierung}
@@ -2146,7 +2163,7 @@ Akzeptanzkriterien:
 \mr%
 
 \section{Zeitdefinierte Analyse Userstory}
-\textbf{Name der Story:} Der Administrator möchte eine  Angabe über die im
+\textbf{Name der Story:} Der Administrator möchte eine Angabe über die im
 vergangenen Jahr verwendeten Ressourcen einer Virtuellen Maschine.
 
 \textbf{Beschreibung:} Ein Onlineshop für zum Beispiel saisonale Ware, wie
