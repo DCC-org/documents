@@ -44,13 +44,13 @@ Softwareidee, welche in diesem Dokument vorgestellt wird. Da Herrn Meusel und
 Herrn Luis der Aufwand dieser Lösung bewusst war und beide keine Expertise im
 Bereich Frontend-Entwicklung, bzw. Datenvisualisierung besaßen, stellten Sie
 die Idee ihren Mitstudenten vor. Herr Reuter zeigte dabei hohes Interesse und
-war vorallem vom englischsprachigen Teil des Projektes überzeugt. Die von den
+war vor allem vom englischsprachigen Teil des Projektes überzeugt. Die von den
 Dozenten definierten Vorgaben waren somit erfüllt und das Projekt konnte für
 das fünfte und sechste Semester angemeldet werden.
 
 Die größte Hürde in einem Projekt von diesem Umfang ist die fehlende Zeit für
 die Projektarbeit. Alle drei Studenten führen die Weiterbildung nebenberuflich
-durch und müssen die Leistung neben einer regulärer Arbeitszeit,
+durch und müssen die Leistung neben einer regulären Arbeitszeit,
 Unterrichtseinheiten und Privatleben erbringen. Eine gut strukturierte
 Zeitplanung und Projektorganisation ist dabei unverzichtbar. Gleichzeitig muss
 jeder der Studenten auf sein eigenes Wohlbefinden achten. Ein zu schnelles
@@ -93,7 +93,7 @@ Projektarbeit und Dokumentation nicht betrachtet.
 
 Die Methodiken der Projektorganisation, sowie der vereinzelte Zugang zu
 Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium, Inhalte
-aus dem Unterricht oder Erfahrungsberichte von dem Auftragegeber. Dies
+aus dem Unterricht oder Erfahrungsberichte von dem Auftrageber. Dies
 beinhaltet auch die Beurteilung von den genutzten Quellen, welche für die
 Projektarbeit genutzt und zitiert werden. Es wird vorab bereits durch diese
 Wissensdatenbanken ein grober Projektvorgang herausgearbeitet, welcher jedoch
@@ -152,7 +152,7 @@ verantwortlich für die visuelle Schnittstelle des Projekts (Punkt 3).
 \mr%
 
 \subsection{Nikolai Luis}
-Herr Luis begann die Weiterbildung zum Techniker wärend seiner Ausbildung zum
+Herr Luis begann die Weiterbildung zum Techniker während seiner Ausbildung zum
 Fachinformatiker Anwendungsentwicklung, welche er im Januar 2016 beendete. Er
 arbeitet als BIG Data Analyst bei der Deutschen Telekom. Er ist verantwortlich
 für die Speicherung der Daten und die automatisierte Schnittstelle (Punkt 2).
@@ -196,8 +196,8 @@ mehrere Nachteile mit sich:
 
 \begin{outline}
   \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB\@. MongoDB ist
-  eine dokumentenorientierte Datenbank, hier werden Daten nicht in Tabellen
-  strukturiert sondern in eigenständigen Dokumenten. Jedes Dokument hat eine
+  eine dokumentenorientierte Datenbank. Darin werden Daten nicht in Tabellen
+  strukturiert, sondern in eigenständigen Dokumenten. Jedes Dokument hat eine
   eigene Datenstruktur (zum Beispiel im \gls{JSON}
   Format)~\cite{Dokumentenorientierte_Datenbank}. Dies ermöglicht es, die
   Datenbank sehr einfach vertikal zu skalieren. Hierbei werden alle Dokumente
@@ -219,7 +219,7 @@ mehrere Nachteile mit sich:
     Leseanfrage zurückliefert.
 
   \1 Das Telemetry Projekt hat diese Probleme ebenfalls erkannt und nach
-  alternativen Datenbanken gesucht. Nachdem keine vorhandene Lösung ihren
+  alternativen Datenbanken gesucht. Als keine vorhandene Lösung ihren
   Anforderungen entsprach, entschieden sie sich für die Entwicklung einer
   eigenen Datenbank: \gls{Gnocchi}. Diese Datenbank ist noch in der Entwicklung
   und noch nicht für den produktiven Einsatz bereit.
@@ -255,7 +255,7 @@ dass sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
 \label{section:datenerfassungssysteme}
 Unterschiedliche Ausbaustufen für virtuelle Maschinen werden über mehrere
 verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
-differenziert. Diese Typen müssen für jede virtuelle Machine ausgelesen werden.
+differenziert. Diese Typen müssen für jede virtuelle Maschine ausgelesen werden.
 Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
 virtuelle Maschinen genommen. Diese sind aktuell:
 
@@ -270,14 +270,14 @@ Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
 nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
 vom Host aus ermitteln. Auf dem Host muss zusätzlich die Gesamtauslastung der
 Ressourcen sowie der Zustand der Hardware ermittelt werden.  Jede
-Virtualisierungssoftware bietet Schnittstellen um Daten über die laufenden
+Virtualisierungssoftware bietet Schnittstellen, um Daten über die laufenden
 virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen die die
 Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
 ersichtlich wofür Ressourcen in den VMs genutzt werden, so kann zum Beispiel
 ermittelt werden wie viel CPU Zeit einer Instanz zur Verfügung gestellt wird,
 aber nicht wofür die Leistung genutzt wird (zum
 Beispiel~\glslink{Soft-IRQ}{Soft-IRQs}, \glslink{Interrupt}{Interrupts},
-\gls{iowait}). Um detaillierte Daten für eine bessere Analyse zu bekommen muss
+\gls{iowait}). Um detaillierte Daten für eine bessere Analyse zu bekommen, muss
 deshalb auch in den virtuellen Maschinen eine Datenerfassung erfolgen, sofern
 Zugriff vorhanden ist.
 
@@ -288,7 +288,7 @@ werden, dies verhindert Overhead im Netzwerk. Es werden somit nur dann Daten
 geschickt, wenn auch tatsächlich welche vorhanden sind. Beim Polling Verfahren
 muss eine Zentrale Instanz in konstanten Intervallen abfragen, ob neue Daten
 vorhanden sind. Eine Visualisierung in Echtzeit ist nicht gefordert, weshalb
-Daten lokal zwischengespeichert werden können um sie gebündelt zu verschicken.
+Daten lokal zwischengespeichert werden können, um sie gebündelt zu verschicken.
 \tm%
 
 \subsection{Datenhaltungssystem}
@@ -305,8 +305,8 @@ sich wie folgt:
   sodass auf den gespeicherten Daten eine fachliche Logik aufgebaut werden
   kann.
   \1 Die daraus resultierenden Analyseergebnisse sollten anschließend über im
-  Projekt definierte Schnittstellen an verschiedene Systeme weitergeliefert
-  werden können. Entsprechend soll das Datenhaltungsystem die dafür
+  Projekt definierte Schnittstellen an verschiedene Systeme weiter geliefert
+  werden können. Entsprechend soll das Datenhaltungssystem die dafür
   notwendigen Treiber und Schnittstellen mitliefern.
 \end{outline}
 
@@ -322,7 +322,7 @@ Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
 verbrauchten oder freien Ressourcen, wie zum Beispiel CPU Auslastung oder RAM
 Auslastung einzelner virtueller oder physischen Maschinen bereitstellen.
 Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
-und Authorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
+und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
 Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
 die Weboberfläche selber, gegen Zugriff von Unbekannten. Die Weboberfläche
 greift hier mittels API Abfragen auf die Datenbank zu, dies ermöglicht uns den
@@ -356,7 +356,7 @@ unter anderem:
 \end{outline}
 
 Die Techniken und Vorgehensweisen der agilen Softwareentwicklung versuchen dem
-entgegenzubeugen. Sie zeichnen sich dadurch aus, dass sie:
+entgegen zu beugen. Sie zeichnen sich dadurch aus, dass sie:
 
 \begin{outline}
   \1 Iterativ arbeiten
@@ -365,12 +365,12 @@ entgegenzubeugen. Sie zeichnen sich dadurch aus, dass sie:
 \end{outline}
 
 Die Firma Puppet entwickelt seit mehreren Jahren erfolgreich Software. Sie
-steht dem Projektteam mit hilfreichen Tips und Schulungen zur Seite. „Agile
+steht dem Projektteam mit hilfreichen Tipps und Schulungen zur Seite. „Agile
 Softwareentwicklung“ gilt als Oberbegriff für alle Techniken und
 Vorgehensweisen in dem Bereich. Das Softwareentwicklungsmodell Scrum nutzt
 Teile der agilen Softwareentwicklung. Das Projektteam entschied sich für die
-Nutzung agiler Projektmanagement Methoden da diese in der Wirtschaft aktuell am
-verbreitetsten sind.
+Nutzung agiler Projektmanagement Methoden, da diese in der Wirtschaft aktuell
+am verbreitetsten sind.
 \tm%
 
 \section{Scrum}
@@ -388,21 +388,37 @@ praktikabel.~\cite{scrum_talk}
 \section{Agile Vorgehensweise im Projekt}
 \label{sec:agile_vorgehensweise}
 Die Projektzeit wird in zweiwöchige Abschnitte, Sprints genannt, eingeteilt. Am
-Anfang jedes Sprints erfolgt ein Rückblick auf den vergangenen Sprint. Es wird
-kurz besprochen was besonders positiv oder negativ lief, und ob die
-Projektmitglieder zufrieden sind. Im Anschluss folgt die Planung für den
-kommenden Sprint. Es wird überlegt welche Arbeit erledigt werden muss, und
-deren ungefährer Zeitaufwand geschätzt. Für jede Aufgabe wird ein Ticket in
-der Projektmanagementsoftware erstellt. Das Projektteam hat sich für „JIRA“
-entschieden, da dies aktuell am verbreitesten in der Wirtschaft ist. Neue
+Anfang jedes Sprints erfolgt ein Rückblick auf den vergangenen Sprint
+(Retrospective). Es wird kurz besprochen was besonders positiv oder negativ
+lief und ob die Projektmitglieder zufrieden sind. Bei Unstimmigkeiten im Team
+oder bei negativen Ereignissen muss der Projektleiter sich dieser annehmen.
+Seine Aufgabe ist es ein positives Arbeitsklima zu schaffen und nach
+Möglichkeit wiederkehrende negative Punkte zu beseitigen.
+
+Wenn ein Mitglied einen besonderen Fortschritt im Projekt erzielt hat wird
+dieser kurz präsentiert (Review). Hierbei wird keine vollständige Präsentation
+mit Folien erwartet, sondern eine kurze Erklärung der erledigten Arbeit mit
+einer Demonstration. Jedes Projektmitglied darf selbstständig entscheiden ob es
+seine Arbeit hier präsentiert.
+
+Review und Retrospective werden oft als „R \& R“ abgekürzt.
+
+Am Ende jedes Sprints erfolgt die Planung für den kommenden Sprint (Planning).
+Es wird überlegt welche Arbeit erledigt werden muss, danach erfolgt die
+ungefähre Schätzung des Zeitaufwandes. Für jede Aufgabe wird ein Ticket in der
+Projektmanagementsoftware erstellt. Das Projektteam hat sich für „JIRA“
+entschieden, da dies aktuell am verbreitetsten in der Wirtschaft ist. Neue
 Featurewünsche werden als Userstory angelegt. Dies ist ein Ticket in dem aus
 Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
-Ereignisse werden Meilensteine festgelegt.
+Ereignisse werden Meilensteine festgelegt. Jeder darf neue Tickets zu jeder
+Zeit anlegen, diese landen dann im \gls{Backlog}. Dies ist der Sammelbegriff für
+ausstehende Tickets, welche keinem Sprint zugeordnet sind. Es wird nicht an
+Tickets gearbeitet, welche nicht im aktuellen Sprint sind.
 \tm%
 
 \chapter{Schnittstellen im Projekt}
 Zwischen den Softwarekomponenten im Projekt werden Daten ausgetauscht. Dies
-erfolgt über definierte Schnittstellen (auch Interfaces genannt). Im folgenden
+erfolgt über definierte Schnittstellen (auch Interfaces genannt). Im Folgenden
 sind die einzelnen Schnittstellen zwischen den Komponenten und von den
 Komponenten nach außen erklärt.
 \tm%
@@ -412,9 +428,9 @@ Die Datenerfassungssysteme stellen zwei Schnittstellen zur Verfügung. Sie
 kommunizieren mit dem lokalen System über eine
 \glslink{Bidirektional}{bidirektionale} Schnittstelle. Die Datenerfassung wird
 für die meisten Ressourcetypen über Polling realisiert. Hierzu fragt das
-Datenerfassungssysteme periodisch die Schnittstelle des Hosts nach neuen Daten.
-Abfrageschnittstelle des Hosts wird durch den Linuxkernel bereitgestellt, von
-ihr kann ausschließlich gelesen werden. Die Erfassungsysteme arbeiten
+Datenerfassungssystem periodisch die Schnittstelle des Hosts nach neuen Daten.
+Abfrageschnittstelle des Hosts wird durch den Linux-Kernel bereitgestellt, von
+ihr kann ausschließlich gelesen werden. Die Erfassungssysteme arbeiten
 zusätzlich eventbasiert. Hierbei schickt der Kernel die neuen Informationen
 direkt zur Schnittstelle der Datenerfassungssysteme. Der Kernel ist der
 kritischste Teil eines laufenden Computers. Er hat volle Rechte auf alle
@@ -424,11 +440,12 @@ auf Schnittstellen auf den Kernel zu schreiben, obwohl das Interface nicht
 beschreibbar sein sollte. Der Kernel selbst bietet nur lokale Schnittstellen,
 aber über weitere Software werden diese indirekt im Netzwerk bereitgestellt.
 
-Die zweite Schnittstelle der Datenerfassungssysteme ist projektintern und
-interagiert mit der Datenbank. Diese Schnittstelle ist aus Sicherheitsgründen
-\glslink{Unidirektional}{unidirektional} um den Kernel zu schützen. Die
-Erfassungssysteme können also nur Daten über das Netzwerk verschicken, jedoch
-akzeptieren Sie keine Anfragen, welche über die Netzwerke eingehen.
+Die zweite Schnittstelle der Datenerfassungssysteme befindet sich innerhalb des
+Projektes und interagiert mit der Datenbank. Diese Schnittstelle ist aus
+Sicherheitsgründen \glslink{Unidirektional}{unidirektional} um den Kernel zu
+schützen. Die Erfassungssysteme können also nur Daten über das Netzwerk
+verschicken, jedoch akzeptieren Sie keine Anfragen, welche über die Netzwerke
+eingehen.
 
 Bei beiden Schnittstellen der Datenerfassungssysteme handelt es sich um eine
 Binärschnittstelle. Hierbei werden Daten nicht in einer für Menschen lesbaren
@@ -443,13 +460,12 @@ Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
 welches nur über die Informationen eines einzelnen physischen Servers verfügt,
 besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen
 Informationsquellen. Darunter fallen zunächst alle am System angebundenen
-physischen Server, welche aktiv die Nutzungsdaten an das Datenhaltungsystem
+physischen Server, welche aktiv die Nutzungsdaten an das Datenhaltungssystem
 liefern. Jedoch kann dies auf Wunsch des jeweiligen Kunden auch um weitere
 Informationen erweitert werden, ein Beispiel wären die Kundendaten mit dem
-jeweiligen Bestand. In der Ziellösung wird diese Art von Erweiterung
-jedoch zunächst nicht beachtet und wurde auch nicht vom Auftraggeber
-angefordert, sodass eine Anpassung in einem Folgeauftrag erledigt werden
-müsste.
+jeweiligen Bestand. In der Ziellösung wird diese Art von Erweiterung jedoch
+zunächst nicht beachtet und wurde auch nicht vom Auftraggeber angefordert,
+sodass eine Anpassung in einem Folgeauftrag erledigt werden müsste.
 
 Die API ist ebenfalls eine essentielle Schnittstelle des Gesamtsystems. Durch
 die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische Daten
@@ -457,7 +473,7 @@ innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die API
 oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
 erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
 nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
-Datenformate sind die weitverbreitesten Formate auf dem Markt und können in
+Datenformate sind die weitverbreitetsten Formate auf dem Markt und können in
 vielen Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden
 werden.  Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
 Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering, da
@@ -480,9 +496,9 @@ Datenhaltungssystem. In der Ziellösung von diesem Projekt ist eine rein
 lesender Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird von
 dem Datenhaltungssystem-Administrator gewährleistet.
 
-Neben der verwendung eines Treibers in Verbindung mit einem Berechtigungs-
-konzept, kann auch ein API-System zum Einsatz kommen. Die Vorteile, sowie die
-Rolle dieses Systems innerhalb dieses projektes kann aus
+Neben der Verwendung eines Treibers in Verbindung mit einem
+Berechtigungskonzept, kann auch ein API-System zum Einsatz kommen. Die
+Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes kann aus
 Punkt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
@@ -493,13 +509,11 @@ erhält somit einen direkten und schnellen Überblick in Form eines
 Graphen~\ref{definition_eines_graphen} oder Diagramm über die gesamten
 Datenressourcen der Infrastruktur. Diese können bei Bedarf vom Anwender oder
 dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können
-anschließend Personen aus z.B. der Führungsebene, welche keinen direkten
-Zugriff auf das System besitzen, Analysen oder Statistiken durchführen. Die
-Übertragung der Ausgabe der Daten, beziehungsweise das Aufrufen der
-Weboberfläche wird über ein gesichertes Übertragungsprotokoll mit HTTPS
-realisiert. Dies dient zum einem für die Verschlüsselung der Verbindung von
-Client zu Weboberfläche und zurück, als auch damit die Weboberfläche selber
-Authentifiziert werden kann.
+anschließend Personen, welche keinen direkten Zugriff auf das System besitzen,
+Analysen oder Statistiken durchführen. Die Übertragung der Daten zwischen den
+Benutzern und dem Webserver erfolgt mit \gls{HTTPS}. Dies dient zum einem für
+die Verschlüsselung der Verbindung von Client zu Weboberfläche und zurück, als
+auch damit die Weboberfläche selber Authentifiziert werden kann.
 \mr%
 
 \chapter{Analyse von Softwarekomponenten}
@@ -508,7 +522,7 @@ Im Abschnitt~\ref{section:datenerfassungssysteme} wurde bereits auf die
 einzelnen Ressourcetypen eingegangen, welche erfasst werden müssen. Um die
 verschiedenen Datenerfassungssysteme im Hinblick auf die Ressourcetypen zu
 evaluieren, muss zunächst geklärt werden was eine Metrik, ein Trend und eine
-Timeseries ist.
+Zeitreihe (englischer Fachausdruck: Timeseries) ist.
 \tm%
 
 \subsection{Begriffsklärung und Anforderungen}
@@ -524,7 +538,7 @@ Eine Metrik ist die Kombination aus:
 
 Eine Metrik wird periodisch als Ganzzahl ermittelt. Die Kombination mehrerer
 Werte einer Metrik ergibt eine Timeseries (auch „Datenreihe“ oder „Abfolge“
-genannt). Um Speicherplatz zu sparen können die Werte aggregiert werden.
+genannt). Um Speicherplatz zu sparen, können die Werte aggregiert werden.
 Hierbei wird für einen bestimmten Zeitraum einer Timeseries die Werte genommen
 und folgende Funktionen angewendet:
 
@@ -555,13 +569,13 @@ zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmt werden durch:
 
 \[ D_i = \frac{m_{i} - m_{i-1}}{\Delta t}.\]
 
-Danach werden nur die Ergebnisse einer oder mehrer Funktionen gespeichert und
+Danach werden nur die Ergebnisse einer oder mehrerer Funktionen gespeichert und
 die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
 Werte bildet einen Trend (auch History Trend genannt). Trends werden oftmals
 visualisiert. Hierbei lässt sich Ressourcensparend ein langer Verlauf der
 Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine „Trend
 Prediction“ erstellt werden. Hierbei werden Daten der Vergangenheit analysiert
-und auf eine mögliche Zukunft vorrausgerechnet.
+und auf eine mögliche Zukunft vorausberechnet.
 
 „Tiered Trends“ bezeichnet eine Datensammlung auf welche mehrfach die oben
 genannten Funktionen angewendet wurde. Die benötigte Granularität ändert sich
@@ -577,14 +591,14 @@ regelmäßig nach bereits vorhandenen Trends geprüft, welche älter als 2 Woche
 sind. Diese Werden wieder in Einheiten von 30 Minuten aufgeteilt und die
 Funktionen erneut angewendet. Somit wurden „Tiered Trends“ gebildet.
 
-Das bilden von Trends kann schon während der Datenerfassung erfolgen, indem die
+Das Bilden von Trends kann schon während der Datenerfassung erfolgen, indem die
 gesammelten Werte lokal zwischengespeichert werden und ausschließlich die
 gebildeten Trends zur Datenhaltung geschickt werden. Dies ist besonders
 effizient, da jeder Server nur eine geringe Menge an Trends zu berechnen hat.
 Es ist jedoch erforderlich, dass der Client alle Daten zumindest so lange
 vorhält, bis alle benötigten Trends gebildet sind, im obigen Beispiel zu
-„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends
-Ad hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
+„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends Ad
+hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
 neue Konfiguration für die Datenerfassungskomponente auf jedem Server erstellt
 werden, da diese keine automatisierte Schnittstelle bieten.
 
@@ -602,11 +616,11 @@ Dies benötigt Rechenkapazitäten, bringt aber diverse Vorteile:
 \end{outline}
 
 Aufgrund der Flexibilität der Trendgenerierung auf der Datenbank entschied sich
-das Projekteam dazu, die Generierung von den Servern auf die Datenbank zu
+das Projektteam dazu, die Generierung von den Servern auf die Datenbank zu
 verlagern. Die Fähigkeit Trends generieren zu können ist somit kein
 Evaluationskriterium für Datenerfassungssysteme.
 
-Im folgenden werden die hier gelisteten Softwareprodukte evaluiert. Die Liste
+Im Folgenden werden die hier gelisteten Softwareprodukte evaluiert. Die Liste
 basiert auf dem Lasten- und Pflichtenheft:
 
 \begin{outline}
@@ -624,28 +638,28 @@ basiert auf dem Lasten- und Pflichtenheft:
 \subsection{Coreutils}
 Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux
 Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
-Coreutils ist mit der GPL3 Lizenz lizensiert~\cite{coreutils} und zählt somit
-als Open Source Software. Verwaltet wird die Programmsammlung aktuell von der
-Free Software Foundation. Der Linux Kernel stellt Informationen über
-schreibgesschützte Dateien bereit. In Kombination mit der Programmsammlung
-procps kann auf die Informationen des Kernels zugegriffen werden um Metriken zu
-ermitteln~\cite{procps}. Über das Programm \texttt{free} oder die Datei
+Coreutils ist mit der GPL3 lizenziert~\cite{coreutils} und zählt somit als Open
+Source Software. Verwaltet wird die Programmsammlung aktuell von der Free
+Software Foundation. Der Linux Kernel stellt Informationen über
+schreibgeschützte Dateien bereit. In Kombination mit der Programmsammlung
+procps kann auf die Informationen des Kernels zugegriffen werden, um Metriken
+zu ermitteln~\cite{procps}. Über das Programm \texttt{free} oder die Datei
 \texttt{/proc/meminfo} erhält man dann die Menge des vorhandenen sowie zur Zeit
 benutzten Arbeitsspeichers. Die Anzahl der Prozessorkerne liefert das Programm
 nproc oder die Datei \texttt{/proc/cpuinfo}. \texttt{/proc/diskstats} liefert
 Informationen über die Anzahl der Schreib- und Lesevorgänge auf allen
 Datenträgern. Außerdem listet die Datei die geschriebene als auch gelesene
 Datenmenge. Die Informationen beziehen sich auf die Zeit seit dem letzten
-Startvorgang des Servers bis zum ausgeben der Datei. Ein kontinuierliches
+Startvorgang des Servers bis zum Ausgeben der Datei. Ein kontinuierliches
 Ausgeben ermöglicht die Berechnung des Durchsatzes pro Sekunde. Diese Aufgabe
 wird von der Datenbank übernommen und ist näher im
-Abschnitt~\ref{section:Begriffserklärung} erklärt. Das gleiche gilt für
-die Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems
-und die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit
-Coreutils und Linux Boardmitteln ist es möglich alle benötigten Informationen
-lokal auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt
-werden. Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen
-Daten des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
+Abschnitt~\ref{section:Begriffserklärung} erklärt. Das gleiche gilt für die
+Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems und
+die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit Coreutils
+und Linux Bordmitteln ist es möglich alle benötigten Informationen lokal
+auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
+Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen Daten
+des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
 \begin{lstlisting}[language=bash,caption={/proc mit awk parsen},label=lst:aw]
 #!/bin/bash
@@ -669,26 +683,26 @@ enp1s0,28949168552,1786622616
 enp1s0,28951976308,1786708990
 \end{lstlisting}
 
-Für das auslesen all dieser Daten werden kleine Scripte wie das im
+Für das Auslesen all dieser Daten werden kleine Skripte wie das im
 Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
-werden weitere Scripte benötigt. Diese Sammlung an Scripten kann auf einem
+werden weitere Skripte benötigt. Diese Sammlung an Skripten kann auf einem
 Server ausgeführt werden um seine lokalen Statistiken zu erfassen oder direkt
-in virtuellen Maschinen.\ libvirt, eine Bibliothek zum verwalten virtueller
+in virtuellen Maschinen.\ libvirt, eine Bibliothek zum Verwalten virtueller
 Maschinen, stellt auf einem Hostsystem Informationen über die lokalen Instanzen
 bereit.\ libvirt kümmert sich hier um die Interaktion mit diversen Hypervisors
-und bietet eine eiheitliche Schnittstelle an. Dies ermöglicht es Coreutils, vom
-Host aus Daten der VMs zu ermitteln.
+und bietet eine einheitliche Schnittstelle an. Dies ermöglicht es Coreutils,
+vom Host aus Daten der VMs zu ermitteln.
 \tm%
 
 \subsection{atop}
 atop ist ein Linux Kommandozeilenprogramm zum visualisieren von Prozessen und
-vom Systemzustand. Es ist unter der GPL lizensiert und fällt damit unter
-Open Source Software. Der aktuelle Maintainer ist Gerlof Langeveld. Die erste
+vom Systemzustand. Es ist unter der GPL lizenziert und fällt damit unter Open
+Source Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld. Die erste
 stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
 kontinuierlich entwickelt. Es ist darauf ausgelegt im Vollbild Modus eines
 Terminals zu arbeiten (siehe Figure~\ref{figure:atop1} und~\ref{figure:atop2}).
-Neben der Liveanalyse bietet atop aber auch die Möglichkeit im Hintergrund
-periodisch eine Logdatei zu schreiben. Hier wird ein selbstentwickeltes
+Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit im Hintergrund
+periodisch eine Logdatei zu schreiben. Hier wird ein selbst entwickeltes
 Binärformat genutzt, atop kann dies aber auch zurück in ASCII umwandeln. Dann
 erhält man alle Infos, die auch die interaktive Version anzeigt. Im
 Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen Intervall
@@ -696,17 +710,17 @@ kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten Standards
 und lässt sich deshalb nicht automatisiert weiterverarbeiten
 (Listing~\ref{lst:atop}. Die Daten müssen, ähnlich wie bei Coreutils, vor einer
 Speicherung in einer zentralen Datenbank erst noch bearbeitet werden. Es ist
-keine Funktionalität eingebaut um gesammelte Daten über das Netzwerk
+keine Funktionalität eingebaut, um gesammelte Daten über das Netzwerk
 auszutauschen, dies muss ebenfalls nachgerüstet werden. Es ist keine
-Funktionalität vorhanden um Daten auf einem Host von virtuellen Maschinen zu
-ermitteln, Außerdem kann die Software nicht erweitert werden~\cite{atop}.
+Funktionalität vorhanden, um Daten auf einem Host von virtuellen Maschinen zu
+ermittelni. Außerdem kann die Software nicht erweitert werden~\cite{atop}.
 \tm%
 
 \subsection{collectd}
 Das Projekt collectd wurde von Florian Forster gestartet. Die erste stabile
 Version veröffentlichte er im Juli 2005. Seitdem erfolgt eine stetige
 Entwicklung mit mehreren neuen Veröffentlichungen pro Jahr.\ collectd bietet
-eine Vielzahl von Möglichkeiten um Daten auf einem System zu ermitteln und
+eine Vielzahl von Möglichkeiten, um Daten auf einem System zu ermitteln und
 diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
 Die Software ist in C geschrieben.
 
@@ -722,16 +736,16 @@ unterschieden~\cite{collectd_plugins}:
   \1 Read, Plugins die Daten aus zusätzlichen Quellen lesen
   \1 Write, Plugins die erfasste Daten in einem bestimmten Format lokal
   speichern
-  \1 Binding, ein Metaplugin welches den Interpreter bestimmter Scriptsprachen
-  einbindet. Dies erlaubt es eigene Plugins in beliebigen Scriptsprachen zu
+  \1 Binding, ein Metaplugin welches den Interpreter bestimmter Skriptsprachen
+  einbindet. Dies erlaubt es eigene Plugins in beliebigen Skriptsprachen zu
   schreiben
   \1 Logging, erlaubt es collectd interne Fehler und Warnungen in verschiedenen
   Formen zu speichern und auszugeben
 \end{outline}
 
-collectd unterstüzt das Sammeln aller benötigter Daten. Es kann lokale Daten
+collectd unterstützt das Sammeln aller benötigter Daten. Es kann lokale Daten
 auf einem Hostsystem oder in einer virtuellen Maschine ermitteln. Außerdem kann
-es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendingen
+es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendigen
 Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
@@ -739,13 +753,13 @@ Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open Source
 Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
 zabbix-frontend (siehe auch Abschnitt~\ref{subsubsec:zabbix-frontend} für die
-Analyse des Frontends). Alle Produkte sind unter der GPL2 lizensiert. Der Agent
+Analyse des Frontends). Alle Produkte sind unter der GPL2 lizenziert. Der Agent
 ist in C geschrieben. Er bietet die Möglichkeit diverse Daten direkt aus dem
 lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
 ist eine PHP Applikation welches die Daten visualisiert und direkt aus der
-Datenbank liest. Der Agent kann mit externen Scripts erweitert werden. In
+Datenbank liest. Der Agent kann mit externen Skripten erweitert werden. In
 Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
-Community bietet dafür fertige Scripte an~\cite{zabbix_virt_plugins}.
+Community bietet dafür fertige Skripte an~\cite{zabbix_virt_plugins}.
 
 Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation, dieses wird
 nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
@@ -772,8 +786,8 @@ Formate möglich. Der \gls{Backlog} bei Diamond ist sehr hoch. Die Software hat
 aktuell 88 offene Issues im Versionsverwaltungssystem. Dies ist eine Mischung
 aus gemeldeten Fehlern und Feature Requests. Außerdem gibt es 139 offene Pull
 Requests (siehe Listing~\ref{figure:diamond}. Dies sind Änderungen am
-Quellcode die die Community erstellt hat, aber noch nicht eingepflegt worden
-sind.
+Quellcode, welche die Community erstellt hat, aber noch nicht eingepflegt
+worden sind.
 \tm%
 
 \subsection{sysstat}
@@ -781,18 +795,18 @@ Die Softwaresammlung sysstat ist eine Kollektion an kleinen Programmen zur
 Performance Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
 älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
 erscheinen jedes Jahr mehrere Updates. Entwickelt wird das Projekt
-von~\cite{systat_releases}. Das Featureset von sysstat ist sehr umfangreich.
-Neben den geforderten Kriterien zur lokalen Datenerfassung liefert es auch
-viele weitere Details. Hierzu zählen zum Beispiel Statistiken zum Verhalten des
-Arbeitsspeichers. Die Interrupt Verarbeitung des Prozessors und detailierte
-Netzwerkinformationen. Ermittelte Daten können als \gls{CSV}, \gls{XML} oder
-\gls{JSON} gespeichert werden~\cite{sysstat_features}.
+von~\cite{systat_releases}. Das Liste der Features von sysstat ist sehr
+umfangreich.  Neben den geforderten Kriterien zur lokalen Datenerfassung
+liefert es auch viele weitere Details. Hierzu zählen zum Beispiel Statistiken
+zum Verhalten des Arbeitsspeichers. Die Interrupt Verarbeitung des Prozessors
+und detaillierte Netzwerkinformationen. Ermittelte Daten können als \gls{CSV},
+\gls{XML} oder \gls{JSON} gespeichert werden~\cite{sysstat_features}.
 
-Die Software sysstat bietet keine Möglichkeit um Daten von virtuellen Maschinen
-über den Host zu ermitteln. Die bereitgestellten Informationen sind aber in
-einer sehr guten Struktur dank des XML Schemas. Das einbinden in andere
-Programme und das interpretieren ist somit sehr einfach. Es werden nicht alle
-Anforderugnen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
+Die Software sysstat bietet keine Möglichkeit, um Daten von virtuellen
+Maschinen über den Host zu ermitteln. Die bereitgestellten Informationen sind
+aber in einer sehr guten Struktur dank des XML Schemas. Das Einbinden in andere
+Programme und das Interpretieren ist somit sehr einfach. Es werden nicht alle
+Anforderungen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
 anderen Programmen genutzt werden.
 \tm%
 
@@ -812,23 +826,23 @@ Alle drei Schritte können mit über 200 Plugins erweitert
 werden~\cite{logstash_overview}. Logstash ist für die Verarbeitung von
 Ereignissen ausgelegt. Diese können direkt aus diversen Quellen gelesen werden.
 Hierzu gehören unter anderem Netzwerksockets, Textdateien, Syslog Streams und
-Messagequeues. Bei der Transformation werden die Daten neu serialisiert und in
+Message queues. Bei der Transformation werden die Daten neu serialisiert und in
 ein anderes Format übertragen. Hier können zum Beispiel zeilenweise eingelesene
 Ereignisse aus einer Textdatei in das \gls{JSON} Format überführt werden. Dabei
-werden die unstrukturierten Daten mit Filtern zerlegt und in Typen eingeteilt
+werden die unstrukturierten Daten mit Filtern zerlegt und in Typen eingeteilt,
 um strukturierte Daten zu erhalten. Aus einem langen String wird dabei die
 eigentliche Nachricht, das Datum, Dringlichkeit und andere Typen erkannt.
 Bereits strukturierte Daten können auch einfach in eine andere Struktur
 überführt werden. Zum Abschluss werden die Daten ausgeben. Dies kann passieren
-in dem unter anderem in einen Cache Service, eine Message Queue oder direkt
-in eine Datenbank geschrieben wird.
+in dem unter anderem in einen Cache Service, eine Message Queue oder direkt in
+eine Datenbank geschrieben wird.
 
-Logstash ist nicht auf das einlesen von Metriken ausgelegt (Ganzzahlen),
-sondern für Logs in Textform. Über ein eigenes Plugin liese sich aber auch das
+Logstash ist nicht auf das Einlesen von Metriken ausgelegt (Ganzzahlen),
+sondern für Logs in Textform. Über ein eigenes Plugin ließe sich aber auch das
 effiziente einlesen von Metriken realisieren. Mit der Vielzahl an
 Transformationen und Ausgabemöglichkeiten ist Logstash sehr flexibel und passt
-sich an jede Situation an. Dadurch dass Daten über mehrere Ausgänge parallel
-verarbeitet werden können ist die Software sehr zukunftssicher. Bei geänderten
+sich an jede Situation an. Dadurch, dass Daten über mehrere Ausgänge parallel
+verarbeitet werden können, ist die Software sehr zukunftssicher. Bei geänderten
 Anforderungen lassen sich die Daten zum Beispiel anstatt in eine SQL basierte
 Datenbank in eine No-SQL Datenbank schreiben.
 \tm%
@@ -885,9 +899,9 @@ diesen selbst zu laufen:
 
 atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
 Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
-Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da Daten von
-Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
-versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
+Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da, Daten
+von Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
+Versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
 sysstat ist nicht in der Lage Daten von virtuellen Maschinen zu ermitteln und
 fällt somit auch raus.Logstash ist äußerst flexibel, benötigt aber etwas Arbeit
 bei der Entwicklung eines eigenen Eingabe-Plugins.
@@ -897,7 +911,7 @@ collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
 einen Geschwindigkeitsvorteil. Das Team rund um collectd arbeitet schon länger
 am Projekt und arbeitet kontinuierlich daran. Im weiteren Verlauf des Projekts
 wird deshalb mit collectd gearbeitet. Sollten sich hier unerwartete Probleme
-ergeben kann auf Diamond gewechselt werden.
+ergeben, kann auf Diamond gewechselt werden.
 \tm%
 
 \section{Datenhaltungssystem}
@@ -912,7 +926,7 @@ weitere Systeme gesprochen.  Dadurch das Herr Luis in dem Bereich der
 Massendatenhaltungssysteme arbeitet, sind ebenfalls Systeme aufgenommen worden,
 welche im Bereich der sogenannten Big Data Technologie arbeiten.
 
-Das hinzufügen von weiteren/neuen Datenbanksystemen zur späteren
+Das Hinzufügen von weiteren/neuen Datenbanksystemen zur späteren
 Evaluierung erfolgt nur nach einer Genehmigung vom Auftraggeber.
 
 Die in der Liste aufgenommen Systeme sind folgende:
@@ -931,12 +945,12 @@ Die in der Liste aufgenommen Systeme sind folgende:
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:DBS_vorbereitung_der_evaluierung}
-Als Vorbereitung für die Evalution der Datenhaltungssysteme wurden mehrere
+Als Vorbereitung für die Evaluation der Datenhaltungssysteme wurden mehrere
 Kriterien definiert, welche einen Leitpfaden für die spätere Arbeit geben.
-Während der Auswahl und Definition der von dem Datenbanksystem zu erfüllenden
-Kriterien wurde darauf geachtet, dass diese sich aus dem späteren Zielsystem
+Während der Auswahl und Definition, der von dem Datenbanksystem zu erfüllenden
+Kriterien, wurde darauf geachtet, dass diese sich aus dem späteren Zielsystem
 ableiten lassen und ebenfalls realistisch erfüllbar sind. Anschließend wurde
-die Relevanz jedes Kirteriums von den Teammitgliedern beurteilt und festgelegt.
+die Relevanz jedes Kriteriums von den Teammitgliedern beurteilt und festgelegt.
 
 Die daraus resultierten Kriterien sind nun nach Relevanz absteigend
 aufgelistet:
@@ -946,24 +960,24 @@ aufgelistet:
   für Diskussionen und Fragen vorhanden ist. Ebenfalls fallen die vorhandenen
   Vorkenntnisse über das Datenbanksystem der Projektmitglieder, sowie die
   Mitarbeiter von dem Unternehmen des Auftraggebers unter dieses Kriterium. Es
-  ist wichtig, dass die zu aufwendene Einarbeitungszeit während dem Projekt und
-  im späteren Wirkbetrieb bei Mitarbeitern des Unternehmens so gering wie
+  ist wichtig, dass die zu aufwendende Einarbeitungszeit während dem Projekt
+  und im späteren Wirkbetrieb bei Mitarbeitern des Unternehmens so gering wie
   möglich gehalten wird.
   \1 Das Datenhaltungssystem muss einfach, schnell und jederzeit erweiterbar
   sein. Dies bedeutet, dass Ressourcen (CPU/RAM/Speicherplatz) des
-  Datenbanksystems im optimalsten Fall während dem normalen Betrieb (kein
+  Datenbanksystems im optimalen Fall während dem normalen Betrieb (kein
   Neustart oder Auszeit) aufgestockt werden kann. Es ist jedoch nach
   Anforderung des Auftraggebers ausreichend, wenn eine Aufstockung nach einer
   Auszeit von maximal 45 Minuten erfolgt ist.
   \1 Umweltschonende und effiziente Datenhaltung ist zu beachten. Dies
   definiert eine optimale Relation zwischen der verwendeten Hardware und dem
   daraus resultierendem Ergebnis. Eine umweltschonende Datenhaltung kann
-  unabhängig der korrekten Auswahl der genutzten Stromeffiziensklasse jedes
-  Hardwarebauteils bereits bei der im Wirkbetrieb zu benutzende Software
-  beeinflusst werden.  Dies ist im Bereich der Datenhaltungs-Software die
+  unabhängig der korrekten Auswahl der genutzten Stromeffizienzklasse jedes
+  Hardwarebauteils bereits bei der im Produktivbetrieb zu benutzende Software
+  beeinflusst werden. Dies ist im Bereich der Datenhaltungs-Software die
   entstehende Speicherplatzgröße für einen einzelnen Datensatz in einer
   Datenbank. Um so kleiner dieser ist, desto mehr kann bei Energiekosten für
-  zusätzlichen Speicherplatz eingesparrt werden.
+  zusätzlichen Speicherplatz eingespart werden.
 
   Unter Berücksichtigung der genannten Attribute, soll jedoch die
   Datenhaltungs-Software mit der gleichen Hardware-Ressource das beste und
@@ -972,17 +986,19 @@ aufgelistet:
   gegenüber anderen Datenhaltungssystemen ein valides und schnelles
   Analyseergebnis erbringen kann.
   \1 Die Datenhaltungs-Software sollte bereits Methoden zur Datensicherung
-  besitzen. Dabei ist zum einem eine Backup Methode, und zum anderen das
-  Verhalten bei Problemen am System, zum Beispiel ein Defekt am Netzwerkkabel,
-  mit inbegriffen.
+  besitzen. Dabei wird unterschieden in:
+    \2 Von extern getriggerte Methoden um Backups zu erstellen.
+    \2 Intern genutzte Methoden, um im Fehlerfall (zum Beispiel ein Defekt am
+    Netzwerkkabel oder Ausfall eines Servers im Cluster) einem Datenverlust
+    vorzubeugen.
 \end{outline}
 \nl%
 
 \subsection{Durchführung der Evaluierung}
 \label{subsec:durchfuehrung_der_evaluierung}
-Bei der Durchführung der Evalution von den ausgewählten Datenhaltungssystemen
+Bei der Durchführung der Evaluation von den ausgewählten Datenhaltungssystemen
 aus der Liste in Punkt~\ref{sec:datenhaltungssystem} wurden die
-Evalutionskriterien aus Punkt~\ref{subsec:DBS_vorbereitung_der_evaluierung}
+Evaluationskriterien aus Punkt~\ref{subsec:DBS_vorbereitung_der_evaluierung}
 verwendet. Diese dienten als Leitpfaden für jedes Datenhaltungssystem und
 wurden von jedem Projektmitglied beachtet.
 
@@ -991,11 +1007,11 @@ evaluierenden Datenhaltungssysteme jedem Projektmitglied zu, um eine schnellere
 Bearbeitung zu gewährleisten. Bei der Einteilung wurden die bereits vorhandenen
 Erfahrungen jeder Projektmitglieder zu dem jeweiligen Datenhaltungssystem
 berücksichtigt. Im zweiten Schritt sollte sich anschließend jedes
-Projektmitglied mit dem zugeteilten Dantenhaltungssystem kurz
-auseinandersetzen. In diesem Schritt ist Herrn Luis aufgefallen, dass es sich
-bei der in der Liste aufgenommenen Software „KNIME“ nicht um ein
-Datenhaltungssystem handelt, sondern um ein Werkzeug zur Datenanalyse,
-Datenaufbereitung und Datendarstellung.
+Projektmitglied mit dem zugeteilten Datenhaltungssystem kurz auseinandersetzen.
+In diesem Schritt ist Herrn Luis aufgefallen, dass es sich bei der in der Liste
+aufgenommenen Software „KNIME“ nicht um ein Datenhaltungssystem handelt,
+sondern um ein Werkzeug zur Datenanalyse, Datenaufbereitung und
+Datendarstellung.
 
 Die daraus resultierenden Ergebnisse wurden Herrn Luis anschließend von den
 Projektmitgliedern bereitgestellt, sodass dieser einen Überblick im
@@ -1017,7 +1033,7 @@ Datenbank. Dies bedeutet, das es keine Tabellen mit Relationen gibt. Jeder
 Datensatz ist ein Dokument, welches als \gls{JSON} gespeichert wird. Ein
 Dokument basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
 Elasticsearch erzeugt mit Hilfe der \gls{Lucene} Bibliothek Indexe auf diesen
-Daten, anschliesend ist dann eine Volltextsuche möglich. Die Firma
+Daten, anschließend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
@@ -1029,7 +1045,7 @@ hier aus 25989 Beiträgen von 869 verschiedenen Personen.
 
 Elasticsearch erlaubt es, als verteiltes Cluster betrieben zu werden. Hierfür
 werden mindestens zwei Server benötigt. Eingehende Daten werden in Indexe
-aufgeteilt, dies ist eine logische gruppierung basierend auf der Charakteristik
+aufgeteilt, dies ist eine logische Gruppierung basierend auf der Charakteristik
 der Daten. Zum Beispiel kann man alle gemessenen Metriken charakterisieren
 anhand des Quellservers auf dem sie ermittelt wurden oder auch anhand des Typs
 (Festplattenauslastung, CPU Auslastung). Jeder Index kann in einzelne
@@ -1054,15 +1070,15 @@ offen mit Problemen um.
 Der letzte Jepsen Test zeigt leider, dass Elasticsearch immernoch Probleme bei
 Netzwerkausfällen und starker Systemlast hat~\cite{jepsen_elastic}. Aufgrund
 der Größe solcher Setups ist es üblich, das jeder Node im Cluster über zwei
-Netzwerkverbindungen verfügt. Eine davon ist zur internen Clusterkommunikation
+Netzwerkverbindungen verfügt. Eine davon ist zur internen Cluster-kommunikation
 und zum verteilen der Replikas, die andere für die Kommunikation mit der
-Aussenwelt (bereitstellung der RESTful Schnittstelle).
+Außenwelt (bereitstellung der RESTful Schnittstelle).
 
 Gegeben ist ein Teilausfall des internen Netzwerks (zum Beispiel ein
-Kabelbruch)
+Kabelbruch):
 
 \begin{outline}
-  \1 Die Nodes merken, das einer von Ihnen nicht erreichbar ist
+  \1 Die Nodes merken, dass einer von Ihnen nicht erreichbar ist
   \1 Replikas der fehlenden Shards werden aktiv gesetzt
   \1 Das Cluster nimmt weiter Daten an, sofern Replikas zur Verfügung stehen
   \1 Elasticsearch meldet, dass die neuen Daten erfolgreich geschrieben wurden
@@ -1070,15 +1086,16 @@ Kabelbruch)
 \end{outline}
 
 Dieses Verhalten ist mit dem Jepsen Test reproduzierbar~\cite{es_jepsen_iso}.
-Wärend Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt
+Während Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt
 werden neue Daten weiterhin über die RESTful Schnittstelle angenommen und dann
 ohne Rückmeldung verworfen.
 
-Ein weiteres Problem ist das Verhalten von Elasticsearch unter hoher Systemlast.
-Ein Prozess unter Linux kann pausiert und wieder gestartet werden. Ein Node
-kann dazwischen deaktiviert werden. Hierfür gibt es verschiedene Gründe, zum
-Beispiel eine defekte Netzwerkverbindung oder eine absichtliche Abschaltung
-durch den Administrator weil er Wartungsarbeiten durchführen möchte.
+Das nächste Problem ist das Verhalten von Elasticsearch unter hoher Systemlast.
+Ein Prozess unter Linux kann pausiert und wieder gestartet werden.
+Währenddessen kann ein Node deaktiviert werden. Hierfür gibt es verschiedene
+Gründe, zum Beispiel eine defekte Netzwerkverbindung oder eine absichtliche
+Abschaltung durch den Administrator weil er Wartungsarbeiten durchführen
+möchte.
 
 \begin{outline}
   \1 Elasticsearch Prozess wird pausiert
@@ -1088,28 +1105,28 @@ durch den Administrator weil er Wartungsarbeiten durchführen möchte.
   \1 Der Prozess wird wieder gestartet
   \1 Der Prozess prüft nicht, ob er noch aktiv ist für seine Shards
   \1 Der Prozess akzeptiert eingehende Schreibanfragen über die RESTful
-  Schnitstelle und updated seine Shards
-  \ Der Prozess meldet zurück, dass er die Daten erfolgreich geschrieben hat
-  \1 Sobald das Netzwerkproblem behoben ist erhält der Node Anweisungen aus dem
-  Cluster um seine Shards auf den Stand der kopien im Netzwerk zu bringen und
-  verwirft was er selbst geschrieben hat
+  Schnittstelle und updated seine Shards
+  \1 Der Prozess meldet zurück, dass er die Daten erfolgreich geschrieben hat
+  \1 Sobald das Netzwerkproblem behoben ist, erhält der Node Anweisungen aus
+  dem Cluster, um seine Shards auf den Stand der Kopien im Netzwerk zu bringen
+  und verwirft was er selbst geschrieben hat
 \end{outline}
 
-Eine Pausierung passiert unter zwei Umständen. Der \gls{Garbage Collector}
-macht dies in regelmäßigen Abständen um den belegten Arbeitsspeicher nach nicht
-mehr benötigten Objekten zu scannen und den Speicher dann freizugeben. Der
-Garbage Collector pausiert nur für wenige Millisekunden, ein Datenverlust ist
-hier aufgrund des Zeitfenster unwahrscheinlich. Der Linux Kernel pausiert
-ebenfalls Prozesse, nämlich wenn ein System unter sehr hoher Last ist.  Wenn
-die Hardware am Rand der Leistungsgrenze arbeitet und der Kernel einen Absturz
-erwartet weil die Hardware bald überfordet ist, dann kann er einzelne Prozesse
+Das Pausieren passiert unter zwei Umständen. Der \gls{Garbage Collector} macht
+dies in regelmäßigen Abständen um den belegten Arbeitsspeicher nach nicht mehr
+benötigten Objekten zu scannen und den Speicher dann freizugeben. Der Garbage
+Collector pausiert nur für wenige Millisekunden, ein Datenverlust ist hier
+aufgrund des Zeitfensters unwahrscheinlich. Auch der Linux Kernel pausiert
+Prozesse, nämlich wenn ein System unter sehr hoher Last ist. Wenn die Hardware
+am Rand der Leistungsgrenze arbeitet und der Kernel einen Absturz erwartet,
+weil die Hardware bald überfordet ist, dann kann er einzelne Prozesse
 kurzzeitig pausieren.
 
 Dieser Datenverlust ist ebenfalls mit einem Jepsen-Test
 reproduzierbar~\cite{es_jepsen_pause}. In großen Setups ist es sehr
-realistisch, dass Server in einem Clusterverbund eine starke Last aufweisen.
-Sofern es hier zu Lastspitzen kommt die eine Überlast andeuten kommt es zu
-einem Datenverlust.
+realistisch, dass Server in einem Rechnerverbund (auch Cluster genannt) eine
+starke Last aufweisen. Sofern es hier zu Lastspitzen kommt, die eine Überlast
+andeuten, ist ein Datenverlust sehr wahrscheinlich.
 
 Beide Probleme sind äußerst kritisch für dieses Projekt. In der Theorie ist die
 Architektur sehr gut geeignet, denn sie ist skalierbar und hochverfügbar. In
@@ -1144,14 +1161,14 @@ bis das Verfahren den ersten Node wieder erreicht.
 In der obigen Shellausgabe wird ein während der Evaluierungsphase erstelltes
 Cassandra System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
 welche für Testzwecke auf dem gleichen physischen Server betrieben werden. Im
-Wirkbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten, um
-die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu erkennen,
-dass beide Systeme einen Dateneigentum, in der Shellausgabe die Spalte
-„Owns“, von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
+Produktivbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten,
+um die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu
+erkennen, dass beide Systeme einen Dateneigentum, in der Shellausgabe die
+Spalte „Owns“, von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
 jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
-zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun
-einer der beiden Nodes ausfallen, könnte der jeweils andere automatisch
-einen Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
+zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun einer
+der beiden Nodes ausfallen, könnte der jeweils andere automatisch einen
+Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
 weiterarbeiten. Dies entspricht der \gls{Shared-Nothing-Architektur}.
 
 Je nach Node Anzahl können die vorhandenen Replikations-Modelle in der
@@ -1160,7 +1177,7 @@ Modelle zur Wiederherstellung von Informationen und Datensicherungen an, welche
 im Gesamten ein stabiles und sicheres System ermöglichen. Neben diesen
 Kerneigenschaften besitzt es jedoch auch noch über weitere kleinere Methoden
 zur korrekten Datenverarbeitung. Darunter ist das nicht sofortige Löschen von
-Daten in Datenbanktabellen, stattdessen werden Daten nur als gelöscht makiert
+Daten in Datenbanktabellen, stattdessen werden Daten nur als gelöscht markiert
 und bei zukünftigen Abfragen zunächst nicht beachtet. Die vollständige Löschung
 der Daten wird dann zum Beispiel zu Zeitpunkten erledigt, wenn das System
 sicher ist, dass keine Fehler oder Datenleichen entstehen können.
@@ -1180,11 +1197,11 @@ Fortgeschrittene~\cite{postgres_tutorial}.
 \lstinputlisting[language=bash,caption={postgres git clone}]{../listings/postgres-clone.txt}
 
 Wie in der obigen Shellausgabe zu sehen, enthält das \gls{Git}-\gls{Repository}
-des Postgres Quellcodes am 26.11.2016 41366 einzelne Commits von 41
-verschiedenen Autoren. Aufgrund der Patchpolitik von Postgres werden Patches
-oftmals an Autoren aus dem Postgres Team geschickt, ein Teammitglied fügt
-danach den Patch in das Repository ein. Somit lässt sich nicht genau bestimmen
-von wie vielen Leuten Code beigesteuert wurde.
+des Postgres Quellcodes am 26.11.2016 41366 einzelne \glslink{Commit}{Commits}
+von 41 verschiedenen Autoren. Aufgrund der Patchpolitik von Postgres werden
+Patches oftmals an Autoren aus dem Postgres Team geschickt, ein Teammitglied
+fügt danach den Patch in das Repository ein. Somit lässt sich nicht genau
+bestimmen von wie vielen Leuten Code beigesteuert wurde.
 
 Die Postgres Architektur sah lange Zeit vor, dass der Dienst auf einem einzigen
 Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten die
@@ -1208,9 +1225,9 @@ Vorteile:
 \end{outline}
 
 Der aktive Server muss somit nur noch Schreibanfragen beantworten. Das
-Hinzufügen von passiven Nodes oder das umschwenken der Schreibanfragen auf
-einen von Ihnen kann im laufenen Betrieb erfolgen. Die Postgres Konfiguration
-lässt sich zur Laufzeit anpassen um dem Dienst mehr Ressourcen des physischen
+Hinzufügen von passiven Nodes oder das Umschwenken der Schreibanfragen auf
+einen von Ihnen kann im laufenden Betrieb erfolgen. Die Postgres Konfiguration
+lässt sich zur Laufzeit anpassen, um dem Dienst mehr Ressourcen des physischen
 Hosts zuzuweisen.
 
 Mit den Erweiterungen \gls{Pgpool-II} und \gls{Postgres-XC} kann ebenfalls ein
@@ -1226,12 +1243,12 @@ nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 
 \subsubsection{OpenTSDB}
 \label{subsubsec:opentsdb}
-OpenTSDB ist ein Zeitreihen basiertes Programm, auf englisch „Time Series
+OpenTSDB ist ein Zeitreihen basiertes Programm, auf Englisch „Time Series
 Daemon (TSD)“, und arbeitet mit dem Open Source Programm \gls{DBMS} „HBase“
 zusammen.  Es verfügt über die Funktionen von einem Konsolen-basierten Zugang,
 sowie verschiedenen Treibern für den Zugriff und Austausch von Informationen
 zwischen anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der
-Datenspeicherung.  Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend
+Datenspeicherung. Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend
 benötigt. OpenTSDB wird genutzt, um einzelne und unabhängige Systeme für den
 Datenzugriff bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an
 einem HBase System angebunden sein. Es existiert keinerlei
@@ -1242,7 +1259,7 @@ System stark auf die Aggregation und niedrigen Speicherplatzbedarf optimiert
 wurde. Die einzelnen Deamons kommunizieren dabei mit dem HBase System über
 einfache Protokolle wie Telnet oder HTTP (API).
 
-Da die Dateninhalte immer in Verbindung mit einem Zeit und Datumswert stehen,
+Da die Dateninhalte immer in Verbindung mit einem Zeit- und Datumswert stehen,
 ist dieses \gls{DBMS} durch die Optimierung von dem Verarbeiten der Zeit- und
 Datums-basierten Datensätzen ein Kandidat für die spätere Nutzung in der
 Ziellösung.
@@ -1261,7 +1278,7 @@ dabei den Ansatz, alle Dateninformationen in nur einem gebündelten System zu
 verwalten und keine zusätzlichen Datenhaltungssysteme, welche gegebenenfalls
 nur auf eine einzelne Anforderung spezialisiert sind, zu gründen.
 
-Um diesen Ansatz zu erfüllen, wurde das Clusterkonzept eingesetzt, Hadoop nennt
+Um diesen Ansatz zu erfüllen, wurde das Cluster-konzept eingesetzt, Hadoop nennt
 es selber „Hadoop Distributed File System“ (HDFS).  Dabei werden die Daten in
 der Datenhaltung nicht mehr auf einem einzelnen physischen System gehalten,
 sowie vor einem Hardwareausfall gesichert, sondern nun auf mehrere Systeme
@@ -1273,14 +1290,14 @@ Datensatz mehrmals auf verschiedenen Festplatten abgespeichert, sodass bei
 einem Ausfall der Datensatz gesichert ist. Es können bei Hadoop beliebig viele
 Data Nodes in der Datenhaltungslandschaft eingesetzt werden, je mehr Data
 Nodes, umso mehr Speicherplatz und Rechenleistung steht zur Verfügung. Nummer
-Zwei ist der Name Node, bei diesem handelt es sich um ein einzelnes System,
+zwei ist der Name Node, bei diesem handelt es sich um ein einzelnes System,
 welches den Speicherort (Data Node ID), von einem Datensatz bereitstellt. Die
 letzte Aufgabe erfüllt der Backup Node, auch bei diesem handelt es sich um ein
 einzelnes System. Das System kommt zum Einsatz, wenn der Name Node ausfallen
 sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um im Falle eines
 Ausfalls des Name Nodes sofort die Aufgaben zu übernehmen.
 
-Für das managen des Clusterkonzepts und zeitbasierenden Aufgaben (im
+Für das Verwalten des Cluster-konzepts und zeitbasierenden Aufgaben (im
 englischen: Job scheduling) wurde „Hadoop YARN“ gegründet. Dieses System
 definiert eigenständig den Austausch von Informationen zwischen den einzelnen
 Nodes. Es definiert dabei auch zu welchem Tageszeitpunkt einzelne Aufgaben
@@ -1290,7 +1307,7 @@ verwaltet werden.
 
 Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 „Hadoop Common“ eingesetzt. Es handelt sich dabei um ein reines
-Schnitstellen-Modul, welches standartisierte Protokolle implementiert und
+Schnittstellen-Modul, welches standardisierte Protokolle implementiert und
 betreibt. Es ermöglicht zum Beispiel die Anbindung der Software „Hive“ und
 „Impala“, welche in den Punkt~\ref{subsubsec:hadoop_beschreibung}
 und~\ref{subsubsec:impala_beschreibung} erläutert werden.
@@ -1301,13 +1318,13 @@ Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN
 basiertes System, welches ein paralleles abarbeiten von Aufgaben ermöglicht.
 Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
 einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
-wiederrum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
+wiederum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
 besitzt diese Hadoop-Komponente einen Data Node, welcher aus reinem
-Arbeitsspeicher besteht. Dieser wird genutzt um Informationen für eine
-kurzfristige Zeit auf ein schnelleres Medium zu laden, sodass die
-Information im Falle einer erneuten Abfrage innerhalb dieser Zeit erneut
-genutzt werden kann, ohne diese wieder von einem langsameren Medium laden
-zu müssen. Die Zeitspanne kann dabei von einem Administrator festgelegt werden.
+Arbeitsspeicher besteht. Dieser wird genutzt, um Informationen für eine
+kurzfristige Zeit auf ein schnelleres Medium zu laden, sodass die Information
+im Falle einer erneuten Abfrage innerhalb dieser Zeit erneut genutzt werden
+kann, ohne diese wieder von einem langsameren Medium laden zu müssen. Die
+Zeitspanne kann dabei von einem Administrator festgelegt werden.
 Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
 zeitkritischen Datenabfragen zum Einsatz.
 
@@ -1321,30 +1338,29 @@ Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 
 \subsubsection{Beschreibung Hive}
 \label{subsubsec:hadoop_beschreibung}
-Das Apache Hive System ist eine Hadoop basierende Software und nutzt die
-im Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterteten Schnittstellten
-für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
-Hadoop System aus und fällt somit nicht unter ein eigenständiges
-Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
-„Hadoop Ecosystem“ eingeordnet.
+Das Apache Hive System ist eine Hadoop basierende Software und nutzt die im
+Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterten Schnittstellten für den
+Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem Hadoop System
+aus und fällt somit nicht unter ein eigenständiges Datenhaltungssystem. In der
+Hadoop Landschaft wird es unter dem Begriff „Hadoop Ecosystem“ eingeordnet.
 
-Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung
-von einem sogenannten „Data Warehouse“ (DWH) in dem Hadoop Netzwerk. Ein
-Data Warehouse wird in Unternehmen verwendet, um eine vollständige Übersicht
-zu einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im
-Land verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
+Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung von
+einem sogenannten „Data Warehouse“ (DWH) in dem Hadoop Netzwerk. Ein Data
+Warehouse wird in Unternehmen verwendet, um eine vollständige Übersicht zu
+einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im Land
+verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
 Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-,
-Transformations- und Ladeprozesses (ETL) wurden die unterschiedlich
-abgespeicherten Informationen von jedem einzelnen Kassensystems ausgelesen,
-dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
-Data Warehouse angepasst und anschließend die vollständig
-Speicherung im System gewährleistet.
+Transformations- und Ladeprozesses (ETL) werden die unterschiedlich
+abgespeicherten Informationen von jedem einzelnen Kassensystem ausgelesen, dem
+Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem Data Warehouse
+angepasst und anschließend die vollständige Speicherung im System
+gewährleistet.
 
 Dadurch das in dem Hadoop System keinerlei Struktur der Daten existiert,
 übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
 Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
-Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies
-ist zum einem die Bereitstellung von einem standartisierten Treiber für den
+Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies ist
+zum einem die Bereitstellung von einem standardisierten Treiber für den
 externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit dem
 bekannten Namen „SQL“. Jedoch implementiert Apache Hive auf dem Hadoop System
 auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
@@ -1370,39 +1386,38 @@ Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
 „Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
-Implementierung wie in Punkt~\ref{subsubsec:hadoop_beschreibung}. Apache Impala
-stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine spezialisierte
-Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf den
-konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
-Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen
-kommt dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von
-Apache Hive Eins-zu-eins übernehmen und ausführen.
+Implementierung, wie in Punkt~\ref{subsubsec:hadoop_beschreibung}. Apache
+Impala stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine
+spezialisierte Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf
+den konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
+Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen kommt
+dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von Apache Hive
+Eins-zu-eins übernehmen und ausführen.
 
-Apache Impala wird eingesetzt um die Schnelligkeit der Datenabfragen auf
-einem Hadoop System zu verbessern. Es wird dabei auf jedem Data Node
-installiert. Dabei erhalten die Data Nodes neben der eigentlichen
-Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
-Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein „Query Planer“,
-„Query Coordinator“ und „Query Executor“ bereitgestellt. Der Query Planer
-hält dabei die Kommunikation mit der SQL Applikation innerhalb des Netzwerkes.
-Dieser gibt definierte Datenabfragen von Benutzern an einen beliebigen Data
-Node weiter. Nachdem der Query Planer die Datenabfrage erhalten hat,
-kommuniziert er dies an den Query Coordinator, welcher wiederrum alle
-umliegenden Data Nodes um Unterstützung bei der Datenabfrage bittet.
-Dies geschieht über den Query Executor, welcher, wie schon der Name sagt,
-die Abfrage auf dem Hadoop HDFS System ausführt und die Daten zurück an den
-Query Coordinator liefert. Die von dem Query Coordinator zusammengesetzten
-Daten liefert dieser anschließend an die SQL Applikation zurück und der
-gesamte Prozess ist abgeschlossen.
+Apache Impala wird eingesetzt, um die Schnelligkeit der Datenabfragen auf einem
+Hadoop System zu verbessern. Es wird dabei auf jedem Data Node installiert.
+Dabei erhalten die Data Nodes neben der eigentlichen Datenspeicherung noch
+zusätzlich die Funktionen zur Ausübung von Datenbankabfragen (SQL). Konkret
+wird auf jedem Data Node ein „Query Planer“, „Query Coordinator“ und „Query
+Executor“ bereitgestellt. Der Query Planer hält dabei die Kommunikation mit der
+SQL Applikation innerhalb des Netzwerkes.  Dieser gibt definierte Datenabfragen
+von Benutzern an einen beliebigen Data Node weiter. Nachdem der Query Planer
+die Datenabfrage erhalten hat, kommuniziert er dies an den Query Coordinator,
+welcher wiederrum alle umliegenden Data Nodes um Unterstützung bei der
+Datenabfrage bittet. Dies geschieht über den Query Executor, welcher, wie
+schon der Name sagt, die Abfrage auf dem Hadoop HDFS System ausführt und die
+Daten zurück an den Query Coordinator liefert. Die von dem Query Coordinator
+zusammengesetzten Daten liefert dieser anschließend an die SQL Applikation
+zurück und der gesamte Prozess ist abgeschlossen.
 
-Durch das nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
-gleichzeitigem Hadoop Map Reduce werden die Datenabfragen um ein vielfaches
-verschnellert. Dadurch das diese Verschnellerung durch mehrere Faktoren
+Durch das Nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
+gleichzeitigem Hadoop Map Reduce Verfahren, werden die Datenabfragen um ein
+vielfaches beschleunigt. Da die Leistung des Clusters durch mehrere Faktoren
 beeinflusst wird, kann keine exakte Angabe der Performanceverbesserung
 geliefert werden. Diese Faktoren sind zum Beispiel die Schreibweise der
-SQL-Syntax, da ein nicht optimierter Code die Performanceverbesserung
-wieder mindern kann. Fakt ist jedoch, dass der Einsatz von Apache Impala
-die Performance der Datenlandschaft optimiert.
+SQL-Syntax, da ein nicht optimierter Code die Performanceverbesserung wieder
+mindern kann. Fakt ist jedoch, dass der Einsatz von Apache Impala die
+Performance der Datenlandschaft optimiert.
 \nl%
 
 \subsubsection{Evaluierungsbericht}
@@ -1411,24 +1426,23 @@ Während der Evaluierungsphase wurde ein vollständiger Hadoop Core als Prototyp
 auf zwei Testservern installiert und in den Grundlagen konfiguriert. Während
 dieser Arbeit ist dem Projektteam bereits klar geworden, dass nur für die
 Konfiguration des ersten Systemstarts, also dem Verbindungsaufbau, sowie den
-allgemeinen Funktionen eines Hadoop Core Systems zu viel Zeit
-benötigt wird. Desweiteren wurde nach dem testen des Systems die
-Konfigurationsmöglichkeiten im Bereich Optimierung der Performance und
-Geschwindigkeit studiert. Dabei wurde klar, dass durch die Größe des
-Systems die gesamte Projektzeit benötigt wird, um eine optimale und
-vollständige Konfiguration und Systemstruktur zu erarbeiten. Aufgrund
-dessen wurde die Verwendung eines Hadoop Systems in diesem Projekt sehr
-schnell ausgeschlossen. Hauptgründe dabei waren zum einem die vielen Werkzeuge
-und Methoden die das Hadoop Ecosystem bereitstellen konnte und zum anderen
-die Masse an Dokumentationen und dem damit verbundenen Konfigurationsaufwand.
-Hinzu kommt noch die darauf folgende fachliche Definition von Datenstrukturen,
-welche durch die breite Auswahl an Methodiken auf einem Hadoop System ebenfalls
-wieder viel Zeit beansprucht hätte, da zunächst aus einem der verfügbaren
-Softwareelementen aus dem Hadoop Ecosystem evaluiert und ausgewählt werden
-müsste. Zusammengefasst wäre das System den technischen Anforderungen an dem
-Projekt gewachsen, jedoch wäre der Einsatz mit einem zu großen Aufwand
-verbunden, welchen das Projektteam in dem vorgegebenen Projektzeitraum nicht
-erbringen könnte.
+allgemeinen Funktionen eines Hadoop Core Systems, zu viel Zeit benötigt wird.
+Des weiteren wurde nach dem Testen des Systems die Konfigurationsmöglichkeiten
+im Bereich Optimierung der Performance und Geschwindigkeit studiert. Dabei
+wurde klar, dass durch die Größe des Systems mehr als die gesamte Projektzeit
+benötigt wird, um eine optimale und vollständige Konfiguration und
+Systemstruktur zu erarbeiten. Aufgrund dessen wurde die Verwendung eines Hadoop
+Systems in diesem Projekt sehr schnell ausgeschlossen. Hauptgründe dabei waren
+zum einem die vielen Werkzeuge und Methoden die das Hadoop Ecosystem
+bereitstellen konnte und zum anderen die Masse an Dokumentationen und dem damit
+verbundenen Konfigurationsaufwand. Hinzu kommt noch die darauf folgende
+fachliche Definition von Datenstrukturen, welche durch die breite Auswahl an
+Methodiken auf einem Hadoop System ebenfalls wieder viel Zeit beansprucht
+hätte, da zunächst aus einem der verfügbaren Softwareelementen aus dem Hadoop
+Ecosystem evaluiert und ausgewählt werden müsste. Zusammengefasst wäre das
+System den technischen Anforderungen an dem Projekt gewachsen, jedoch wäre der
+Einsatz mit einem zu großen Aufwand verbunden, welchen das Projektteam in dem
+vorgegebenen Projektzeitraum nicht erbringen könnte.
 \nl%
 
 \section{Schnittstelle - Datenbereitstellung}
@@ -1438,11 +1452,11 @@ einen Datenbanktreiber, existiert noch die Möglichkeit einer API\@.
 
 Die Verwendung von einer API Schnittstelle besitzt Nachteile, sowie Vorteile
 beziehungsweise verbirgt gewisse Gefahren in Hinsicht auf den späteren Einsatz
-im Produktivsystem. Eine dieser Gefahren ist das vernachlässigen der
+im Produktivsystem. Eine dieser Gefahren ist das Vernachlässigen der
 Dokumentation einer API\@. Dadurch, das während der Entwicklung einer API
 bereits definiert wird, welche Fähigkeiten und Methodiken die API besitzen
 soll, ist eine nicht vorhandene oder unvollständige Dokumentation suboptimal.
-Darum muss bei der Auswahl des genutzen API Systems darauf geachtet werden,
+Darum muss bei der Auswahl des genutzten API Systems darauf geachtet werden,
 dass die Dokumentation von Softwarekomponenten für den Entwickler so einfach
 wie möglich erfolgt.
 
@@ -1450,15 +1464,15 @@ Wenn die Dokumentation einer API vollständig und das ausführende System den
 Performance-Anforderungen gerecht ist, bringt die Nutzung von einem API System
 Vorteile. Darunter ist eine bessere Verwaltung von Zugriffsrechten und somit
 auch gleichzeitig eine Verbesserung der Systemsicherheit. Durch den vorab
-festgelegten Funktionsumfang der API kann der Systeminhaber geziehlt
+festgelegten Funktionsumfang der API kann der Systeminhaber gezielt
 kontrollieren, welche Inhalte ein Benutzer sehen oder modifizieren kann. Dabei
 können grobe Einschränkungen, wie das Lesen oder Schreiben auf der gesamten
 Datenbank, oder auch detaillierte Einschränkung, wie das Lesen oder Schreiben
-von einer einzelnen Tabelle in der Datenbank, kontrolliert werden. Anders wie
+von einer einzelnen Tabelle in der Datenbank, kontrolliert werden. Anders als
 bei der Verbindung über einen Datenbanktreiber kann bei der API der potentielle
 Angreifer keine eigenen Datenbankbefehle definieren und ausführen. Somit wird
 das Risiko der Datenmanipulation durch eine zusätzliche Schicht (Layer)
-veringert.
+verringert.
 
 Oftmals benötigen die Systeme, welche auf die Daten des Datenhaltungssystems
 zugreifen, die Daten in einer anderen Struktur als diese abgespeichert sind.
@@ -1473,10 +1487,10 @@ dabei die Ursprungsdaten zu verändern.
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:api_vorbereitung_der_evaluierung}
-Anders wie bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
-der möglichen API Systeme keine Liste im voraus erstellt. Dies lag daran, dass
+Anders als bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
+der möglichen API Systeme keine Liste im Voraus erstellt. Dies lag daran, dass
 keiner der Projektmitglieder oder Interessenten an dem Projekt Erfahrungen mit
-API Systemen im vorhinein besitzten und dies erst während der Projektphase
+API Systemen im vorhinein besaß und dies erst während der Projektphase
 angeeignet werden musste.
 
 Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
@@ -1487,26 +1501,26 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 
 \begin{outline}
   \1 Die API Software muss auf einer selbst administrierten Hardware-Umgebung
-  betrieben werden können. Das verwenden von einem fertigen API Softwarepaket
+  betrieben werden können. Das Verwenden von einem fertigen API Softwarepaket
   von einem Cloudanbieter, bei welchem der Administrator alle Konfigurationen
   über ein Web-Interface des Providers vornimmt und der Cloudanbieter die
   vollständige Hardware-Umgebung administriert, ist ein absolutes
-  Ausschlusskriterium. Es ist vorgehsehen, dass das API System möglichst nah an
+  Ausschlusskriterium. Es ist vorgesehen, dass das API System möglichst nah an
   dem Datenhaltungssystem liegt, um mögliche Latenzen zwischen den beiden
   Systemen so niedrig wie möglich zu halten. Zudem sollen externe Cloudanbieter
   keinen Zugriff auf die teilweise Kundenbezogenen Daten der Datenhaltung
   erhalten, auch wenn das System nur Performancedaten ohne Kundenbezug
-  ausliefern soll. Zudem kann während dem Projekt entschiedenen werden, dass das
-  Datenhaltungssystem nicht von externen Systemen erreichbar sein soll, sodass
-  die damit verbundene Lösung über einen Cloudprovider nicht möglich wäre.
-  Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
+  ausliefern soll. Außerdem kann während dem Projekt entschiedenen werden, dass
+  das Datenhaltungssystem nicht von externen Systemen erreichbar sein soll,
+  sodass die damit verbundene Lösung über einen Cloudprovider nicht möglich
+  wäre. Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
   Unternehmens betrieben werden.
   \1 Die API Software muss vollständig konfigurierbar und administrierbar sein.
   Entsprechend soll die Software nur eine leere Hülle mit Standardfunktionen
   einer API zur Verfügung stellen. Eine Konfiguration von einzelnen Parametern
-  ist dabei erwünscht. Zu diesem Parametern gehört als Beispiel der Port, auf
+  ist dabei erwünscht. Zu diesen Parametern gehört als Beispiel der Port, auf
   welchem das API System betrieben und von anderen Systemen erreicht werden
-  kann. Zur Hilfe der admnistration soll das API System ein Framework für
+  kann. Zur Hilfe der Admnistration soll das API System ein Framework für
   Entwickler bereitstellen. Mit diesem können wir als Projektmitglieder
   anschließend die Logik in das System implementieren und somit definieren
   welche Funktionen die API ausüben darf. Ein Framework in einer bekannten
@@ -1516,22 +1530,22 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   \1 Das API System sollte innerhalb des Projektes keine Kosten verursachen.
   Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei externen
   Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
-  Anforderung nicht mit inbegriffen. Grundsätzlich gillt für das ganze Projekt,
+  Anforderung nicht mit inbegriffen. Grundsätzlich gilt für das ganze Projekt,
   dass nur Software mit einer Open Source Lizenz genutzt werden darf.
   \1 Die Erstellung von späteren Anwendungshandbüchern der API, soll dem API
   Entwickler so einfach wie möglich fallen. Eine sehr beliebte
-  Dokumentationsmöglichkeit ist dabei das dokumentieren von wichtigen
+  Dokumentationsmöglichkeit ist dabei das Dokumentieren von wichtigen
   Informationen direkt in dem Quellcode des API Systems. Entwickler können
   dabei über die Kommentierungs-Funktion der jeweiligen Entwicklersprache eine
   Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden im
-  Anschluss während dem Kompiliervorgang in einem strukturierten Dokument
+  Anschluss während des Kompiliervorgangs in einem strukturierten Dokument
   festgehalten und neben der eigentlichen API Software mit ausgeliefert. Dieses
-  seperate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
+  separate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
   gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
   Dokumentationsmöglichkeit sollte die API Software zur Verfügung stellen.
   Alternativ kann auch erst die Dokumentation geschrieben werden und darauf
   basierend Quellcode generiert werden. Beide Verfahren nennt man „One Source
-  of Truth Prinzip“. Hierbei wird sichergestellt, das es nur eine autoritative
+  of Truth Prinzip“. Hierbei wird sichergestellt, dass es nur eine autoritative
   Quelle gibt, und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
   Dokumentation die nicht mit den eigentlichen Funktionen der Software
   übereinstimmen.
@@ -1550,20 +1564,20 @@ Bei der Evaluierung der API Systeme wurden die in
 Punkt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
 Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
-allgemeinen Eindruck über die aktuelle Marktsitutation zu API Systemen erhält.
+allgemeinen Eindruck über die aktuelle Marktsituation zu API Systemen erhält.
 Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
-Fachzeitschriften gelesen.  Die dort angesprochenen API Systeme wurden
+Fachzeitschriften gelesen. Die dort angesprochenen API Systeme wurden
 anschließend mit den bereits definierten Anforderungen abgeglichen und
 aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten API
 Systeme von Cloudprovidern nur in bereits vorkonfigurierten Paketen mit einem
-monatlichen Festpreis angeboten werden.  Beides ist ein absolutes
-Ausschluskriterium für den späteren Wirkbetrieb sowie Nutzung der Software.
-Ebenfalls wurde bei den vorkonfigurierten Paketen eine eigene Definition von
-Funktionen komplett verboten. Lediglich ein einzelner Cloudprovider hatte ein
-Angebotsmodel bei welchem die Kunden das betriebene API System in Hinischt der
-Funktionen modifizieren durfte.
+monatlichen Festpreis angeboten werden. Beides ist ein absolutes
+Ausschlusskriterium für den späteren Produktivbetrieb sowie Nutzung der
+Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine eigene
+Definition von Funktionen komplett verboten. Lediglich ein einzelner
+Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene API
+System in Hinsischt der Funktionen modifizieren durften.
 
-Aufgrund diesen Erkentnissen hat sich das Projektteam während der Evaluierung
+Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
 für ein API System mit dem Namen „Swagger“ entschieden. Es ist aktuell das
 einzige API System auf dem Markt, welches den Betrieb auf einer selbst
 administrierten Hardware-Umgebung zulässt.
@@ -1591,7 +1605,7 @@ Evaluierungsliste aufgenommen worden:
 \end{outline}
 
 Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
-bedarf keine weitere Zustimmung durch den Auftragegeber, sondern konnte direkt
+bedarf keine weitere Zustimmung durch den Auftraggeber, sondern konnte direkt
 mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
 mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
 Anforderungskatalog definiert, welche im späteren Verlauf der Planung für die
@@ -1606,35 +1620,35 @@ anderen aus Vorschlägen des Auftraggebers.
 Ein Graph besteht im wesentlichen aus mehreren Knoten und Kanten, welche auf
 einem Koordinaten System angelegt sind. Mit Hilfe von zwei Knoten, bestehend
 jeweils aus einer Koordinate (x/y) werden diese eindeutig zu einer Kante
-definiert. Ein Linearer Graph wird genau dann visualisiert, wenn zwei Knoten
+definiert. Ein linearer Graph wird genau dann visualisiert, wenn zwei Knoten
 miteinander verbunden werden.
 
 Auf der Weboberfläche werden dem User oder dem Administrator einzelne Graphen,
 von z.B. CPU Auslastung, RAM Auslastung oder SSD Schreibzugriffe angezeigt.
 Diese Graphen werden entweder in linerarer oder Balkenform dargestellt.
-Lineare Graphen, haben eine X-Achse und Y-Achse und besitzen
-zusätzlich einen Anfang und einen wachsenden Endpunkt. Er wird mittels
+Lineare Graphen, haben eine X-Achse und Y-Achse und besitzen zusätzlich einen
+Anfang und einen wachsenden Endpunkt. Er wird mittels
 Metrik~\ref{section:Begriffserklärung}, welche die Weboberfläche aus den
 Datenhaltungssystemen abgreift, erstellt und kann vom Administrator ebenfalls
 nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
 eine X-Achse, wo der gewünschte Analysewert eingetragen ist und werden z.B. für
 ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden über die
-Metrik aus den Datenhaltungssysteme abgegriffen und dem Administrator über eine
-Übersicht angezeigt. Ein Graph bzw. Balkendiagramm visualisiert immer eine
-oder mehrere Timeseries~\ref{section:Begriffserklärung}.
+Metrik aus dem Datenhaltungssystem abgegriffen und dem Administrator über eine
+Übersicht angezeigt. Ein Graph bzw. Balkendiagramm visualisiert immer eine oder
+mehrere Timeseries~\ref{section:Begriffserklärung}.
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:vorbereiten_der_evaluierung_frontend}
 Damit die Evaluierungen der einzelnen Softwarelösungen durchgeführt werden
-können, mussten zuvor Kriterien mit dem Projektteam in einen Anforderungskatalog
-aufgenommen werden. Diese Kriterien, in Form von definierten Anforderungen,
-sollen für eine besser Übersicht, während der Evaluierung dienen. Bei den
-Kriterien, musste darauf geachtet werden, dass diese während der Beurteilung
-der Anforderungen eine Machbarkeit und Realisierbarkeit besitzen. Nachdem die
-einzelnen Kriterien zusammen mit dem Projektteam erstellt worden sind, wurden
-diese im Anschluss von jedem einzelnen Projektmitglied auf die Machbarkeit und
-Realisierbarkeit geprüft. Erst hiernach wurden diese dem Anforderungskatalog
-aufgenommen.
+können, mussten zuvor Kriterien mit dem Projektteam in einen
+Anforderungskatalog aufgenommen werden. Diese Kriterien, in Form von
+definierten Anforderungen, sollen für eine besser Übersicht, während der
+Evaluierung dienen. Bei den Kriterien, musste darauf geachtet werden, dass
+diese während der Beurteilung der Anforderungen eine Machbarkeit und
+Realisierbarkeit besitzen. Nachdem die einzelnen Kriterien zusammen mit dem
+Projektteam erstellt worden sind, wurden diese im Anschluss von jedem einzelnen
+Projektmitglied auf die Machbarkeit und Realisierbarkeit geprüft. Erst hiernach
+wurden diese dem Anforderungskatalog aufgenommen.
 
 Die einzelnen Kriterien wurden im nachhinein der Wichtigkeit absteigend,
 wie folgt aufgelistet:
@@ -1642,9 +1656,9 @@ wie folgt aufgelistet:
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
   gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
-  Weboberfläche selber vor unauthorisierten Zugriff durch dritter geschützt
-  sein muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die
-  Daten abgreifen zu können vor dritter so geschützt und gesichert werden. Der
+  Weboberfläche selber vor unautorisierten Zugriff durch dritter geschützt sein
+  muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
+  abgreifen zu können vor dritter so geschützt und gesichert werden. Der
   Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung durch
   \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch eigene
   Client Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über
@@ -1656,39 +1670,38 @@ wie folgt aufgelistet:
   benötigen keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
   zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
   wenn das Produkt bei einem Kunden eingesetzt wird.
-  \1 Eine Leichte Anpassung, Konfiguration und direkte Ausgabe der
+  \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnliche Datenwerte. Hiermit ist
   gemeint das Gewährleistet werden muss, dass  die einzelnen Graphen schnell
-  und einfach (Endanwender spezifisch) direkt angepasst werden können.  Ebenso
-  muss die Anbindung an eventuell bereits schon vorhandene Datenbanksysteme
-  einfach durchgeführt werden können.
-  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt.  Dabei
-  muss die Weboberfläche, bereits schon Möglichkeiten bieten, eine
-  Datensicherung des \glslink{Dashboard}{Dashboards} durchführen zu können.
-  Das Dashboard, beeinhaltet alle Graphen und vorkonfigurierte Werte. Diese
-  sollen über z.B. ein externes System (Dateifreigabe Server o.a.) abgelegt
+  und einfach (Endanwender spezifisch) direkt angepasst werden können. Ebenso
+  muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
+  durchgeführt werden können.
+  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt. Dabei
+  muss die Weboberfläche, bereits Möglichkeiten bieten, eine Datensicherung des
+  \glslink{Dashboard}{Dashboards} durchführen zu können.  Das Dashboard,
+  beinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen über zum
+  Beispiel ein externes System (Dateifreigabe Server oder ähnliches) abgelegt
   werden und können somit einfach dupliziert und gesichert werden.
   \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
   unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
-  eingehen zu können. Diese können dann Mittels bereits schon zur Verfügung
-  gestellte Plugins, z.B. in der Community oder aber durch selbst programmierte
-  Plugins realisiert werden. Die Plugins werden, bzw sollen in Javascript
-  geschrieben werden können. Die Weboberfläche sollte jedoch auch andere
-  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern
-  gewährleisten zu können. Unternehmen müssen so nicht auf spezielle
-  Entwickler von bestimmten Sprachen zurückgreifen.
-  \1 Die genutzten Softwärelösungen müssen eine Open Source Lizenz besitzen, um
+  eingehen zu können. Diese können dann, mit schon zur Verfügung gestellten
+  Plugins, zum Beispiel in der Community oder aber durch selbst programmierte
+  Plugins realisiert werden. Die Plugins werden in Javascript geschrieben. Die
+  Weboberfläche sollte jedoch auch andere Sprachen unterstützen, um so eine
+  Unabhängigkeit von Entwicklern gewährleisten zu können. Unternehmen müssen so
+  nicht auf spezielle Entwickler von bestimmten Sprachen zurückgreifen.
+  \1 Die genutzten Softwarelösungen müssen eine Open Source Lizenz besitzen, um
   hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu sein.
   Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
   \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
   Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
   der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher die
-  Graphen neu visualisert und Daten aus dem Datenhaltungssystem aberufen werden
-  können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
-  überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
-  unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
+  Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
+  werden können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
+  Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
+  Acht unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
   visualisieren hier im Fallbeispiel Acht Graphen, mit unterschiedlichen
   Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an
   das Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht
@@ -1706,14 +1719,14 @@ Evaluierung aus Punkt~\ref{subsec:vorbereiten_der_evaluierung_frontend}
 verwendet.
 
 
-Bevor die Evaluierung der einzelnen Softwarelösungen durchgeführt werden konnte,
-wurden vorab bereits eine vielzahl an Informationen über die einzelnen
+Bevor die Evaluierung der einzelnen Softwarelösungen durchgeführt werden
+konnte, wurden vorab bereits eine Vielzahl an Informationen über die einzelnen
 Softwarelösungen mittels Internetrecherche und Fachzeitschriften eingeholt.
 Zusätzlich wurden die einzelnen Softwarelösungen auf zwei Projektmitglieder
 aufgeteilt, um die Evaluierung und damit auch die Projektplanung zeitlich zu
 verkürzen.
 
-Nachdem die Analyse der Softwarelösungen von den einzelnen Projektmitglieden
+Nachdem die Analyse der Softwarelösungen von den einzelnen Projektmitgliedern
 abgeschlossen wurde, wurden die gesammelten Resultate Herrn Reuter zur
 Verfügung gestellt. Mit diesen Resultaten konnte Herr Reuter eine Auswertung
 aller Softwarelösungen durchführen, welche im nachfolgenden Punkt aufgelistet
@@ -1723,49 +1736,51 @@ Hierbei ist aufgefallen, dass für die Softwarelösung `Gridster-D3' eine
 kostenpflichtige jährliche Lizenz benötigt wird und der Quellcode nicht
 angepasst werden kann. Somit fällt diese Softwarelösung aus der weiteren
 Evaluierung aus, da diese Zwei Anforderungen bereits vorab schon ein
-Auschlusskriterium sind.
+Ausschlusskriterium sind.
 
 Im Nachfolgenden Punkt sind die einzelnen Softwarelösungen mit den einzelnen
 Anforderungen und Evaluierungsergebnissen aufgelistet:
+\mr%
 
 \subsubsection{Grafana}
 \label{subsubsec:grafana}
-Grafana ist eine von Torkel Ödegaard \& Raintank Inc Entwickelte Open Source
+Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte Open Source
 Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen
-noch weitere Ereignisfunktionen. Es arbeitet mit jedem TimeSeries
+noch weitere Ereignisfunktionen. Es arbeitet mit jedem Timeseries
 Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere unterschiedliche
 Benutzer können sich an der Weboberfläche anmelden. Dies bedeutet, dass ein
 Login an der Weboberfläche über ein \gls{Active Directory} Konto oder Lokalem
 Benutzer plus Kennwort Kombination durchgeführt werden kann. Somit können zum
 Beispiel Mitarbeiter aus der Führungsebene Eingeschränkte Zugriffe auf das
 System erhalten, um hier zum Beispiel Marketing Statistiken durchführen zu
-können. Zusätzliche zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldung
-auf die Grafana Weboberfläche, ist Grafana
-API~\ref{sec:schnittstelle_datenbereitstellung} fähig, dies bedeutet, dass
-das Datenhaltungssystem API Statements zur Verfügung stellen können und hiermit
-Graphen visualisieren kann. Grafana kann über einem \gls{Datenbanktreiber} oder
-einer Schnitstelle in Form eines Treibers, einfache Statements auf das
-Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
-eine Open Source Software, wodurch der Quellcode angepasst und verändert werden
-darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte Kundenumgebungen.
-Dadurch entstehen auch keine Supportkosten, da die Software nicht als ein
-Dienst angeboten wird. Zusätzlich zu dem Quellcode, können hier Plugins zur
-Erweiterung der Software in der Porgrammiersprache Java entwickelt und in das
-System eingepflegt werden. Dies wird zum Beispiel dann benötigt, wenn weitere
-Graphen, Analysen oder ähnlichem benötigt werden.  Grafana hat eine stetig
-wachsende Community mit sämtlichen Dokumenten zur Einrichtung oder Erweiterung
-des Systems. Der gesamte Quellcode ist auf GitHub veröffentlicht, somit haben
-auch andere Mitglieder von GitHub, die Möglichkeit, das Produkt zu verbessern
-und neue Funktionen zu implementieren. Die vom Anwender erstellen Dashboards,
-mit allen Graphen und Statements, können vom System, wie auch vom Anwender
-selber auf einen externen Dateifreigabe Server oder Lokal abgespeichert werden.
+können. Zusätzlich zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldung
+auf die Grafana Weboberfläche, ist Grafana API (siehe auch
+Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) fähig, dies bedeutet,
+dass das Datenhaltungssystem API Statements zur Verfügung stellen können und
+hiermit Graphen visualisieren kann. Grafana kann über einem
+\gls{Datenbanktreiber} oder einer Schnittstelle in Form eines Treibers,
+einfache Statements auf das Datenhaltungssystem durchführen, um die Daten
+abzugreifen. Es ist zusätzlich eine Open Source Software, wodurch der Quellcode
+angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
+an bestimmte Kundenumgebungen. Dadurch entstehen auch keine Support Kosten, da
+die Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode,
+können hier Plugins zur Erweiterung der Software in der Programmiersprache Java
+entwickelt und in das System eingepflegt werden. Dies wird zum Beispiel dann
+benötigt, wenn weitere Graphen, Analysen oder ähnlichem benötigt werden.
+Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
+Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
+veröffentlicht, somit haben auch andere Mitglieder von GitHub, die Möglichkeit,
+das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
+Anwender erstellen Dashboards, mit allen Graphen und Statements, können vom
+System, wie auch vom Anwender selber auf einen externen Dateifreigabe Server
+oder Lokal abgespeichert werden.
 
 Zusammenfassung:
 
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
-  \1 Gute Community und eine vielzahl an Dokumenten durch GitHub
+  \1 Gute Community und eine Vielzahl an Dokumentation
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 Dashboards können auf externen Server oder Lokal gesichert werden
   \1 API Unterstüzung
@@ -1786,18 +1801,18 @@ und Visualisierung. Graphite ist wie auch Grafana eine Open Source Lösung und
 ermöglicht es dem Anwender die Software bearbeiten und anpassen zu können. Es
 verfügt über eine inhaltlich gute und umfangreiche Community, mit einer eigenem
 Wiki Board, wo alle relevanten Dokumentationen enthalten sind. Graphen können
-leicht mittelts Statements über eine
+leicht mittels Statements über eine
 API~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
 Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche,
 mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist ebenfalls
 möglich. Es können einzelne Graphen, wie auch das gesamte Dashboard auf externe
-Server oder Lokal abgespeichert werden um einen Verlust von einzelnen Graphen
+Server oder Lokal abgespeichert werden, um einen Verlust von einzelnen Graphen
 vorbeugen zu können. Graphite ist wie auch Grafana~\ref{subsubsec:grafana}
-kompatibel zu TimeSeries Datenhaltungssystemen. Es bietet keine einfache
+kompatibel zu Timeseries Datenhaltungssystemen. Es bietet keine einfache
 Möglichkeit, weitere Plugins hinzufügen zu können, wie es beispielsweise
 Grafana~\ref{subsubsec:grafana} dies kann. Hierzu muss der Quellcode von
 Graphite massiv angepasst werden, was zu einer sehr guten Kenntnis des Systems
-vorraussetzt.
+voraussetzt.
 
 
 Zusammenfassung:
@@ -1805,7 +1820,7 @@ Zusammenfassung:
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
-  \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
+  \1 Gute Community und eine Vielzahl an Dokumenten innerhalb eines Wiki
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 API Unterstützung
   \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal
@@ -1838,7 +1853,7 @@ Administrator, beziehungsweise der User lediglich seine Active Directory
 Benutzerdaten zur Authentifizierung.  Zabbix ist zudem mit
 API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatible, so
 können hier Graphen mit API Abfragen visualisiert werden. Sollte keine Abfrage
-über eine API gewünscht sein, so kann dies ebenfalls mittelts Statement direkt
+über eine API gewünscht sein, so kann dies ebenfalls mittels Statement direkt
 auf dem Datenhaltungssystem durchgeführt werden. Um die Datensicherheit und
 Ausfallsicherheit gewährleisten zu können, bietet Zabbix die Möglichkeit,
 einzelne Graphen mit Statements, wie auch das gesamte Dashboard exportieren und
@@ -1850,7 +1865,7 @@ Zusammenfassung:
 \begin{outline}
   Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
-  \1 Gute inhaltliche Community und eine vielzahl an Dokumenten innerhalb
+  \1 Gute inhaltliche Community und eine Vielzahl an Dokumenten innerhalb
   eines Wikis
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 API Unterstützung
@@ -1889,16 +1904,15 @@ werden.  Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom
 Administrator festgelegt werden können. Datadog hat eine vollständige
 API~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
 können vom Administrator Export werden. Eine Möglichkeit, Graphen zu
-exportieren bietet Datadog hier nicht. Die Community, wo viele Inhaltliche
+exportieren bietet Datadog hier nicht. Die Community, wo viele inhaltliche
 Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche eine Pro
 Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC Channel}, um direkt Kontakt
 mit Support aufnehmen zu können.
 
-Zusammenfassung:
+Zusammenfassung der positiven Punkte:
 
 \begin{outline}
-  Positiv:
-  \1 Authentisierung, Authentifizierung, Authorisierung
+  \1 Authentisierung, Authentifizierung, Autorisierung
   \1 Leichte Anpassung an Graphen, Dashboard und Einstellungen möglich
   \1 API Unterstützung
   \1 Gute inhaltliche Community, mit IRC Channel und Telefon Support (steht
@@ -1906,23 +1920,26 @@ Zusammenfassung:
   \1 Benötigt keine zusätzlichen Plugins
   \1 Teilabschnitte von Graphen können in Social Media Plattformen geteilt
   werden
+\end{outline}
 
-  Negativ:
+Zusammenfassung der negativen Punkte:
+
+\begin{outline}
   \1 Keine Open Source Lizenz. Lizenzen sind hier nach Anwendungsfall
   gestaffelt
-  \1 Keine Anbindung an z.B. ein LDAP um eine Active Directory Anmeldung zu
-  ermöglichen
+  \1 Keine Möglichkeit der Anbindung an einen externen Verzeichnisdienst zur
+  Benutzerauthentifizierung.
 \end{outline}
 
 \subsubsection{Gridster-D3}
 \label{subsubsec:gridster-d3}
-Gridster ist eine von Anmol Koul entwickelte Java Bibliothek, welche
-auf \gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von
-dieser Software, stellte sich herraus, dass es sich hierbei nicht direkt um eine
-Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich das
-Drag \& Drop, von einzelnen Graphen oder Elemente innerhalb einer Weboberfläche.
-Mit dieser hat man die Möglichkeit, ein Dashboard, welches selbst entwickelt
-worden ist individuell anpassen zu können.
+Gridster ist eine von Anmol Koul entwickelte Java Bibliothek, welche auf
+\gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von dieser
+Software, stellte sich herraus, dass es sich hierbei nicht direkt um eine
+Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
+das Drag \& Drop, von einzelnen Graphen oder Elemente innerhalb einer
+Weboberfläche. Mit dieser hat man die Möglichkeit, ein Dashboard, welches
+selbst entwickelt worden ist individuell anpassen zu können.
 
 Somit fällt Gridster-D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
@@ -1955,7 +1972,7 @@ Zusammenfassung:
 
   Negativ:
   \1 Sehr unübersichtlich vom Aufbau der Weboberfläche
-  \1 Authentisierung, Authentifizierung und Authorisierung kann nicht
+  \1 Authentisierung, Authentifizierung und Autorisierung kann nicht
   gewährleistet werden
   \1 Bietet keine API Unterstützung
   \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
@@ -1973,7 +1990,7 @@ worden:
 \end{outline}
 
 Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
-Anforderungskriterien, weshalb die Produkte in die nähere Anlyse aufgenommen
+Anforderungskriterien, weshalb die Produkte in die nähere Analyse aufgenommen
 wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
 oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
 einen Zabbix Server nicht verwendet werden kann. Der Zabbix Server ist ein von
@@ -1982,7 +1999,7 @@ bereitet diese auf und speichert diese Daten anschließend in einem
 Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
 maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
 kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
-Kommunizieren kann. Innherhalb der einzelnen Graphen werden hier mittels einer
+Kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
 Abfrage die Datenbanken direkt angesprochen.
 \mr%
 
@@ -2034,7 +2051,7 @@ Benachrichtigt werden, sobald von einer SSD ein kritischer Schreib- oder
 Lesezyklus erreicht worden ist, um die SSD, bereits vor dem Ausfall austauschen
 zu können. Ebenfalls soll hier auch eine Statistik ausgegeben werden, welche
 SSD von welchem Hersteller in der Wahrscheinlichkeit am häufigsten ausfallen
-kann. Im folgenden finden Sie die Akzeptanzkriterien:
+kann. Im Folgenden finden Sie die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
@@ -2055,20 +2072,21 @@ Auslastung jeder Instanz, um Engpässe zu erkennen.
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
 virtuellen Maschinen, werden aus einem physischen CPU Kern des Host Systems
 mehrere virtuelle CPU Kerne emuliert und einer Instanz zugewiesen. So kann eine
-VM 2 virtuelle CPU Kerne mit z.B. 2,5GHz Takrate zugewiesen haben. Auf jeder
-Instanz laufen andere Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt
-haben kann. Hier kann es vorkommen, dass eine VM mehr CPU Leistung benötigt,
-als ihr selber zugewiesen ist. Um dies frühstmöglich zu erkennen, benötigt der
-Administrator eine detailierte Übersicht in Form eines Graphen, wieviel CPU
-Leistung von einer virtuellen Instanz verwendet wird und auf dem System
-verfügbar ist. Im folgenden finden Sie die Akzeptanzkriterien:
+VM 2 virtuelle CPU Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
+haben.  Auf jeder Instanz laufen andere Dienste, weshalb jede VM
+unterschiedliche CPUs zugeteilt haben kann. Hier kann es vorkommen, dass eine
+VM mehr CPU Leistung benötigt, als ihr selber zugewiesen ist. Um dies
+frühestmöglich zu erkennen, benötigt der Administrator eine detaillierte
+Übersicht in Form eines Graphen, wie viel CPU Leistung von einer virtuellen
+Instanz verwendet wird und auf dem System verfügbar ist. Im Folgenden finden
+Sie die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Visualisierung der Auslastung und Verfügbarkeit der CPU Leistung für jede
   einzelne Instanz
   \1 Alle Werte der CPU, \gls{Soft-IRQ},\gls{iowait} oder \gls{Interrupt}
   müssen visualisiert werden
-  \1 Eine frühstmögliche Erkennung von einem Engpass einer Virtuellen Maschine
+  \1 Eine frühestmögliche Erkennung von einem Engpass einer Virtuellen Maschine
 \end{outline}
 \mr%
 
@@ -2078,11 +2096,11 @@ Arbeitsspeicher Auslastung von jeder Instanz, um Engpässe zu erkennen.
 
 \textbf{Beschreibung:} Vergleichbar wie auch bei der CPU Auslastung, gibt es
 auch eine ähnliche Thematik zur Auslastung bei dem verwendeten Arbeitsspeicher.
-Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers entscheident,
+Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers entscheidend,
 sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine zugewiesen ist.
 Hier kann es ebenfalls wie auch bei der~\ref{section:CPU_Userstory}
 vorkommen, das es zu Engpässen auf der virtuellen Maschine bei der Verteilung
-des Arbeitsspeichers kommen kann. Im folgenden finden Sie die
+des Arbeitsspeichers kommen kann. Im Folgenden finden Sie die
 Akzeptanzkriterien:
 
 \begin{outline}
@@ -2098,7 +2116,7 @@ Akzeptanzkriterien:
 \textbf{Name der Story:} Der Administrator möchte eine  Angabe über die im
 vergangenen Jahr verwendeten Ressourcen einer Virtuellen Maschine.
 
-\textbf{Beschreibung:} Ein Onlineshop für zum Beispiel Seasonale Ware, wie
+\textbf{Beschreibung:} Ein Onlineshop für zum Beispiel saisonale Ware, wie
 Adventskalender, benötigt eine Analyse über die verwendeten Ressourcen aus dem
 vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei Beginn
 richtig skalieren zu können. Dies dient in erster Linie um die Erreichbarkeit,
@@ -2108,7 +2126,7 @@ gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
 die Ressourcen verwenden können. In den Monaten, in dem keine große Nachfrage
 der Webseite besteht, können hier dann weniger Ressourcen vergeben werden. Dies
 hat den Vorteil, dass spezielle Vertäge dem Kunden angeboten werden können. Im
-folgenden finden Sie die Akzeptanzkriterien:
+Folgenden finden Sie die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
