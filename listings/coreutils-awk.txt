@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "device,receive,transmit"
+while :; do
+  awk '/enp1s0/ {print "enp1s0,"$2","$10}' /proc/net/dev
+  sleep 60
+done

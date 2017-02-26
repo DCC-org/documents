@@ -1,0 +1,5 @@
+(streams
+  (where (and (service "CPU temperature")
+              (tags "core 0" )
+              (metric > 75))
+         (email "tim@bastelfreak.de")))
