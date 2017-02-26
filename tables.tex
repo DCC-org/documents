@@ -1,0 +1,18 @@
+\begin{center}
+  \begin{tabular}{ll}
+  \toprule
+  Feldname    & Beschreibung                                                 \\
+  \midrule
+  host        & Name des Servers auf dem das Event entstand                  \\
+  service     & Name des Dienstes der das Event ausgelöst hat                \\
+  state       & Beliebiger Text unter 255Bytes. Zum Beispiel „Ok“, „Warning“ \\
+  time        & Uhrzeit an dem das Event erstellt wurde                      \\
+  description & Beliebiger Text                                              \\
+  tags        & Array mit Strings anhand dessen gefiltert werden kann        \\
+  metric      & Die eigentliche Information, zum Beispiel die CPU Temperatur \\
+  ttl         & Anzahl an Sekunden die ein Event nach Erstellung gültig ist  \\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Definition einer Event-Struktur in Riemann}
+\label{tbl:riemann}
+\end{center}
