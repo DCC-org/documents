@@ -693,20 +693,21 @@ vom Systemzustand. Es ist unter der GPL lizenziert und fällt damit unter Open
 Source Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld. Die erste
 stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
 kontinuierlich entwickelt. Es ist darauf ausgelegt im Vollbild Modus eines
-Terminals zu arbeiten (siehe Figure~\ref{figure:atop1} und~\ref{figure:atop2}).
-Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit im Hintergrund
-periodisch eine Logdatei zu schreiben. Hier wird ein selbst entwickeltes
-Binärformat genutzt, atop kann dies aber auch zurück in ASCII umwandeln. Dann
-erhält man alle Infos, die auch die interaktive Version anzeigt. Im
-Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen Intervall
-kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten Standards
-und lässt sich deshalb nicht automatisiert weiterverarbeiten
-(Listing~\ref{lst:atop}. Die Daten müssen, ähnlich wie bei Coreutils, vor einer
-Speicherung in einer zentralen Datenbank erst noch bearbeitet werden. Es ist
-keine Funktionalität eingebaut, um gesammelte Daten über das Netzwerk
-auszutauschen, dies muss ebenfalls nachgerüstet werden. Es ist keine
-Funktionalität vorhanden, um Daten auf einem Host von virtuellen Maschinen zu
-ermittelni. Außerdem kann die Software nicht erweitert werden~\cite{atop}.
+Terminals zu arbeiten (siehe~\ref{figure:atop1} und~\ref{figure:atop2} für
+Screenshots). Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit
+im Hintergrund periodisch eine Logdatei zu schreiben. Hier wird ein selbst
+entwickeltes Binärformat genutzt, atop kann dies aber auch zurück in ASCII
+umwandeln. Dann erhält man alle Infos, die auch die interaktive Version
+anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen
+Intervall kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten
+Standards und lässt sich deshalb nicht automatisiert weiterverarbeiten
+(siehe~\ref{lst:atop} für eine exemplarische Ausgabe). Die Daten müssen,
+ähnlich wie bei Coreutils, vor einer Speicherung in einer zentralen Datenbank
+erst noch bearbeitet werden. Es ist keine Funktionalität eingebaut, um
+gesammelte Daten über das Netzwerk auszutauschen, dies muss ebenfalls
+nachgerüstet werden. Es ist keine Funktionalität vorhanden, um Daten auf einem
+Host von virtuellen Maschinen zu ermittelni. Außerdem kann die Software nicht
+erweitert werden~\cite{atop}.
 \tm%
 
 \subsection{collectd}
