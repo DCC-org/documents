@@ -390,7 +390,7 @@ Besprechungen, „Daily Standup“ genannt, ist genau 15 Minuten lang und soll i
 stehen abgehalten werden. Die Gesprächszeit muss gleichmäßig auf alle
 Teilnehmer verteilt werden. Hierbei spielt es keine Rolle wie groß das Team
 ist. Bei jeder Teamstärke beträgt die Gesamtzeit nur 15 Minuten. Dies ist ein
-großes Problem für Teams die sehr groß sind oder asnychron arbeiten. Aufgrund
+großes Problem für Teams die sehr groß sind oder asynchron arbeiten. Aufgrund
 der Vollzeitbeschäftigung aller Mitglieder in diesem Projekt, in Kombination
 mit dem Abendschulunterricht, erfolgen viele Arbeiten am Projekt asynchron. Es
 ist zeitlich nicht realisierbar, dass an jedem Tag jedes Teammitglied am
@@ -717,16 +717,16 @@ Screenshots). Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit
 im Hintergrund periodisch eine Logdatei zu schreiben. Hier wird ein selbst
 entwickeltes Binärformat genutzt, atop kann dies aber auch zurück in ASCII
 umwandeln. Dann erhält man alle Infos, die auch die interaktive Version
-anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben, diesen
-Intervall kann man aber anpassen. Das ASCII Format beruht nicht auf bekannten
-Standards und lässt sich deshalb nicht automatisiert weiterverarbeiten
-(siehe~\ref{lst:atop} für eine exemplarische Ausgabe). Die Daten müssen,
-ähnlich wie bei Coreutils, vor einer Speicherung in einer zentralen Datenbank
-erst noch bearbeitet werden. Es ist keine Funktionalität eingebaut, um
-gesammelte Daten über das Netzwerk auszutauschen, dies muss ebenfalls
-nachgerüstet werden. Es ist keine Funktionalität vorhanden, um Daten auf einem
-Host von virtuellen Maschinen zu ermittelni. Außerdem kann die Software nicht
-erweitert werden~\cite{atop}.
+anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben, dieser
+Intervall ist allerdings modifizierbar. Das ASCII Format beruht nicht auf
+bekannten Standards und lässt sich deshalb nicht automatisiert
+weiterverarbeiten (siehe~\ref{lst:atop} für eine exemplarische Ausgabe). Die
+Daten müssen, ähnlich wie bei Coreutils, vor einer Speicherung in einer
+zentralen Datenbank erst noch bearbeitet werden. Es ist keine Funktionalität
+eingebaut, um gesammelte Daten über das Netzwerk auszutauschen, dies muss
+ebenfalls nachgerüstet werden. Es ist keine Funktionalität vorhanden, um Daten
+auf einem Host von virtuellen Maschinen zu ermitteln. Außerdem kann die
+Software nicht erweitert werden~\cite{atop}.
 \tm%
 
 \subsection{collectd}
@@ -2222,7 +2222,7 @@ folgenden finden Sie die Akzeptanzkriterien:
 \mr%
 
 \chapter{Realisierung}
-In der Evaluierungsphase wurde für jeden Bereicht die optimale Software gesucht
+In der Evaluierungsphase wurde für jeden Bereich die optimale Software gesucht
 und gefunden. Hier wurde, mit Absicht, jeder Bereich getrennt betrachtet. Es
 wurde nicht geprüft, ob die gewählte Software in einem Bereich mit den
 Alternativen in den anderen beiden Bereichen kompatibel ist. Aufgrund der hohen
