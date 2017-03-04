@@ -2271,7 +2271,7 @@ Zeit eingehende Daten von collectd nicht direkt gespeichert werden können. Die
 Daten würden dann verloren gehen. Sofern Die Postgres Installation nicht
 Hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
 Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
-Problemene entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
+Problemen entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
 Queue genannt) zu installieren.
 \tm%
 
@@ -2286,7 +2286,7 @@ Auf der anderen Seite des Busses können Applikationen über die gleichen
 Schnittstellen auf die Daten zugreifen und diese dem Bus entnehmen. Hierbei
 kann auf die Tags gefiltert werden, um nur bestimmte Daten zu entnehmen.
 
-Im Worst Case (dem schlimmstem möglichen Zustand) ist es möglich, dass die
+Im Worst Case (dem schlimmsten möglichen Zustand) ist es möglich, dass die
 Datenbank für mehrere Stunden oder Tage nicht erreichbar ist. Hierzu
 unterstützen Message Busse eine Retention Period. Dieser Wert beschreibt wie
 lange ein Datensatz gültig ist. Wenn er zu alt ist, wird er automatisch
@@ -2315,7 +2315,7 @@ Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
 innerhalb einer JVM\. Normalerweise wird Ruby Code mit dem MRI Interpreter in
 Maschinencode übersetzt und direkt auf dem Betriebsystem ausgeführt. Der
 Interpreter JRuby übersetzt den Ruby Code in Java Bytecode, dieser wird dann
-von der JVM in einem Prozess ausgeführt, und nicht direkt auf dem
+von der JVM in einem Prozess ausgeführt und nicht direkt auf dem
 Betriebssystem. Dies ermöglicht es, Multithreading innerhalb des Ruby Codes zu
 ignorieren. Ein normales Ruby Script wird nur auf einem Prozessorkern
 ausgeführt. Ein einzelner Kern kann aber die erwartete Datenmenge nicht aus dem
@@ -2348,7 +2348,7 @@ Logstash), kann dies auch mit der Quelle erfolgen. Der Message Bus ist
 in diesem Setup die Quelle für Logstash. Die JVM kann anhand der vorhandenen
 Datenmenge im Bus beliebig viele Prozesse starten um die Datenmenge möglichst
 schnell abzufragen. Dies wäre in einem Szenario sinnvoll, in dem der Speicher
-im Bus besonders gering ist, und die Datenbank eine garantierte Leistung
+im Bus besonders gering ist und die Datenbank eine garantierte Leistung
 erbringen kann. Dies ist nur möglich, wenn Logstash der einzige Dienst ist,
 welcher mit der Datenbank interagiert. Dieses Szenario ist innerhalb des
 Projektes nicht möglich weshalb es nicht weiter verfolgt wurde bei der
