@@ -2303,13 +2303,13 @@ lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC
 mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
 \tm%
 
-\subsection{JVM und JDBC}
-Die JVM (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen von
-Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in der
-der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte Systemsicherheit,
-da die Applikation in der JVM nicht direkt mit dem Hostsystem kommunizieren
-kann. Es hilft auch beim Multithreading. Die JVM ist in der Lage beliebig viele
-Prozesse zu starten und zu verwalten.
+\subsection{JVM}
+Die \gls{JVM} ist eine virtuelle Maschine zum ausführen von Java Bytecode. Sie
+stellt eine abgekapselte Umgebung (Sandbox) bereit in der der Code ausgeführt
+wird. Dies bringt nicht nur eine erhöhte Systemsicherheit, da die Applikation
+in der JVM nicht direkt mit dem Hostsystem kommunizieren kann. Es hilft auch
+beim Multithreading. Die JVM ist in der Lage beliebig viele Prozesse zu starten
+und zu verwalten.
 
 Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
 innerhalb einer JVM\. Normalerweise wird Ruby Code mit dem MRI Interpreter in
@@ -2325,16 +2325,18 @@ Kerne belastet werden und startet entsprechend viele Prozesse mit Logstash.
 Somit erhält man eine sehr einfache Möglichkeit der Datenverarbeitung mit
 mehreren Prozessorkernen~\cite{jruby}.
 
-JDBC (Java Database Connectivity) ist die Schnittstelle der JVM zu Datenbanken.
-Sie stellt generische Funktionen bereit um mit Datenbanken zu kommunizieren.
-Für jede Datenbank, mit der kommuniziert werden soll, wird ein Treiber
-benötigt. Dies ist eine Datei, in der die spezifischen Eigenschaften eines
-bestimmten \gls{DBMS} beschrieben sind. Damit ist die JDBC Schnittstelle in der
-Lage mit diesem DBMS zu kommunizieren. Für Logstash gibt es ein Plugin, welches
-die JDBC Schnittstelle innerhalb des JRuby Bytecodes nutzbar macht. Somit
-ist Logstash in der Lage in eine Datenbank zu schreiben. Postgres bietet einen
-Treiber für JDBC an~\cite{postgres-jdbc}.
+\subsection{JDBC}
+\gls{JDBC} ist die Schnittstelle der JVM zu Datenbanken. Sie stellt generische
+Funktionen bereit um mit Datenbanken zu kommunizieren. Für jede Datenbank, mit
+der kommuniziert werden soll, wird ein Treiber benötigt. Dies ist eine Datei,
+in der die spezifischen Eigenschaften eines bestimmten \gls{DBMS} beschrieben
+sind. Damit ist die JDBC Schnittstelle in der Lage mit diesem DBMS zu
+kommunizieren. Für Logstash gibt es ein Plugin, welches die JDBC Schnittstelle
+innerhalb des JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage in
+eine Datenbank zu schreiben. Postgres bietet einen Treiber für JDBC
+an~\cite{postgres-jdbc}.
 
+\subsection{JDBC in Kombination mit der JVM}
 Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
 Logstash ist in der Lage die Auslastung der Datenbank über JDBC zu ermitteln.
 Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
