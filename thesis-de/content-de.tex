@@ -2374,6 +2374,24 @@ Grafana. Um hier jedoch nicht bei jedem einzelnen Kunden diese Anpassung
 vornehmen zu müssen, kann die Installation, wie auch die Konfiguration
 automatisiert werden.
 
+Die Automatisierung erfolgt mit einem Puppet Modul. Der Vorteil bei der
+Verwendung eines Puppet Moduls ist, das dieses Betriebssystem unabhängig
+durchgeführt werden kann. Lediglich das Puppet Modul muss hier dieses
+Betriebssystem unterstützen. Innerhalb des Moduls wird eine "Manifest.pp" Datei
+erstellt und anschließend aufgerufen. In dieser ist definiert, mit welcher
+Version Grafana installiert, welche Datenquelle verwendet oder welches
+Dashboard bereits vordefiniert übergeben werden soll. Hier können zusätzlich
+noch verschiedene andere Parameter übergeben werden. Dies erleichtert dem
+Administrator die Konfiguration, da dieses Modul nur einmal auf dem
+Betriebssystem auseführt werden muss um Grafana zu installieren. Eine
+zusätzliche Konfiguration nach der installation von Grafana wird hier nicht
+benötigt. Dashboards werden in der Konfigurationsdatei des Puppet Moduls für
+Grafana als \gls{JSON} definiert und können im nachhinein noch angepasst
+werden.
+
+Im Anhang befindet sich ein Beispiel für eine solche Konfigurationsdatei.
+\mr%
+
 
 \section{Tests und Qualitätssicherung}
 
