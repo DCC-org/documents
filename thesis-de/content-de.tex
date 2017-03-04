@@ -2274,7 +2274,13 @@ vorliegende Version auf dem Archlinux Betriebssystem.
 
 Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
 dieses mit folgendem Befehl gestartet und falls gewünscht in den Autostart von
-Archlinux hinterlegt werden:
+Archlinux hinterlegt werden. Mit folgendem Befehl wird der Grafana Dienst
+gestartet:
+\begin{lstlisting}[language=bash]
+systemctl start grafana.service
+\end{lstlisting}
+
+Um Grafana in den Autostart zu hinterlegen, wird folgender Befehl benötigt:
 \begin{lstlisting}[language=bash]
 systemctl enable grafana.service
 \end{lstlisting}
