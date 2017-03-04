@@ -2251,13 +2251,13 @@ miteinander kombiniert.
 \tm%
 
 \section{Realisierung Grafana}
-\label{sec:realisierung_Grafana}
-Nachdem nun die Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend} 
-abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
-begonnen werden. Damit die eigentliche Konfiguration durchgeführt werden konnte
-musste zuvor das Installations Paket von Grafana heruntergeladen und 
-installiert werden. Auf einem ArchLinux Betriebssystem wird dies Paket mit
-folgendem Befehl heruntergeladen und bereits vorinstalliert:
+\label{sec:realisierung_Grafana} Nachdem nun die
+Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend} abgeschlossen ist,
+konnte mit der Installation und Konfiguration von Grafana begonnen werden.
+Damit die eigentliche Konfiguration durchgeführt werden konnte musste zuvor das
+Installations Paket von Grafana heruntergeladen und installiert werden. Auf
+einem ArchLinux Betriebssystem wird dies Paket mit folgendem Befehl
+heruntergeladen und bereits vorinstalliert:
 
 \begin{lstlisting}[language=bash]
 sudo pacman -S grafana
@@ -2268,12 +2268,12 @@ heruntergeladen und installiert werden kann. Er durchsucht hier die gesamten
 vordefinierten Repository URLs nach Grafana und installiert hier die aktuellste
 vorliegende Version auf dem Arch Linux Betriebssystem.
 
-Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss 
+Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
 dieses mit folgendem Befehl gestartet und falls gewünscht in den Autostart von
 Arch Linux hinterlegt werden:
 \begin{lstlisting}[language=bash]
 systemctl start grafana.service
-\enf{lstlisting}
+\end{lstlisting}
 
 Nun ist Grafana gestartet und kann über die Weboberfläche mit Port 3000
 bereits aufgerufen und konfiguriert werden. Bei der Installation von Grafana
@@ -2285,7 +2285,7 @@ Zugangsdaten hierzu lauten:
   \1 Kennwort: admin
 \end{outline}
 
-Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert 
+Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
 werden. Anschließend sieht man hier Bereits das "HomeDashboard" von wo aus die
 einzelnen Einstellungen durchgeführt werden können.
 
@@ -2299,7 +2299,7 @@ in den Einstellungen unter Datasources sein, so wird hier Data Sources
 eingeblendet.  Dies soll den Administrator zusätzlich helfen eine bessere
 Übersichtlichkeit zu erhalten. Auf der Rechten Seite des HomeDashboards hat der
 Administrator oder User die Möglichkeit, den Aktualisierungstimer der
-anzuzeigenen Daten zu verändern.  Standardmäßig steht dieser auf sechs Stunden,
+anzuzeigenen Daten zu verändern. Standardmäßig steht dieser auf sechs Stunden,
 kann aber beliebig angepasst werden.
 
 Hier kommt das Label rein mit Bild.
@@ -2310,7 +2310,56 @@ Grafana Symbol und wählt hier anschließend "Data Sources" aus. Nun kann hier
 unter "+ Add data source" eine neue Datenquelle definiert werden. Grafana
 bietet bereits von der Installation eine gute Unterstützung von verschiedenen
 Datenhaltungssystemen an. Diese können nach belieben durch sogenannte Plugins
-erweitert werden. 
+erweitert werden. Hierzu wird im weiteren Verlauf der Implementierung
+eingegangen. Nachdem hier alle Werte ausgefüllt worden sind, kann die
+Datenquelle über die Schaltfläche "Add" hinzugefügt werden. Grafana prüft
+bereits beim speichern der Datenquelle ob diese erreichbar ist.
+
+Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues Dashboard
+angelegt werden damit die Graphen definiert werden können. Das neue Dashboard
+kann unter dem HomeDashboard angelegt werden. Anschließend erhält der
+Administrator bereits eine vielzahl von vordefinierten Auswahlmöglichkeiten von
+Graphen, Tabellen oder auch Singlestats. Diese können je nach Verwendungszweck
+hinzugefügt werden. Eine Beschränkung wieviele Graphen maximal auf einem
+Dashboard angelegt werden können gibt es nicht.
+
+Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
+werden. Hierzu wird der zu editieren Graph ausgewählt und anschließend auf
+"edit" geklickt. Unterhalb des Graphen öffnet sich dann ein Menü, wo der
+grundsätzliche Aufbau, die Metric, die Axen und diverse andere Einstellungen
+für diesen Graphen definiert werden können. Hier wird zunächst die Metric des
+Graphen angepasst, damit der Graph Werte visualisieren kann.  Anbei ein
+Beispiel, für eine solche Abfrage:
+
+Hier kommt ein Bild rein!
+
+Anschließend können noch diverse Feineinstellungen für den Graphen vorgenommen
+werden. Dieses vorgehen wird nun für jeden Graphen erstellt, dessen Wert
+visualisiert werden soll. Nachdem alle Graphen erstellt worden sind, muss das
+Dashboard abgespeichert werden, damit Einstellungen nicht verloren gehen
+können. Sollte das speichern vom Administrator vergessen werden, so warnt
+Grafana bei dem Wechsel eines Dashboards, ob die Einstellungen gespeichert
+werden soll.
+
+Die Grundeinstellungen sind nun abgeschlossen und Grafana kann verwendet
+werden. Um weitere User Zugriff zu dem Dashboard zu gewähren, können unter dem
+Grafana Symbol > Admin > Global Users weitere User Zugriff gewährt werden.
+Sollte ein unternehmen die LDAP Anbindung für die Authentifizierung an Grafana
+wünschen, so muss hier in dem Verzeichnis von der Grafana Installation die
+Datei grafana.ini angepasst werden. Alle Einstellungen die hier vorgenommen
+werden, beziehen sich auf die Servereinstellungen, welche vom Kunden
+individuell angepasst werden kann. Nachdem die Änderungen hier abgeschlossen
+sind, muss der Grafana Dienst neu gestartet werden. Dies wird mit folgendem
+Befehl durchgefüht:
+
+\begin{lstlisting}[language=bash]
+systemctl restart grafana.service
+\end{lstlisting}
+
+Diese Konfiguration beschreibt die Manuelle installation und Konfiguration von
+Grafana. Um hier jeodch nicht bei jedem einzelnen Kunden diese Anpassung
+vornehmen zu müssen, kann die Installation, wie auch die Konfiguration
+automatisiert werden.
 
 \section{Draft 1}
 
