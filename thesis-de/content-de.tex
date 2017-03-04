@@ -824,6 +824,7 @@ anderen Programmen genutzt werden.
 \tm%
 
 \subsection{Logstash}
+\label{subsec:logstash}
 Logstash wird von der Firma Elasticsearch BV entwickelt. Zusammen mit
 Elasticsearch (siehe auch Abschnitt~\ref{subsubsec:elasticsearch}) und
 \gls{Kibana} bilden sie den ELK-Stack. Die Open Source Software steht unter der
@@ -2249,19 +2250,120 @@ und gefunden. Hier wurde, mit Absicht, jeder Bereich getrennt betrachtet. Es
 wurde nicht geprüft, ob die gewählte Software in einem Bereich mit den
 Alternativen in den anderen beiden Bereichen kompatibel ist. Aufgrund der hohen
 Auswahl an Möglichkeiten pro Bereich gibt es zu viele
-Kombinationsmöglichkeiten. Diese können nicht alle im Rahmen des Projektes
-evaluiert werden. Es wurde darauf geachtet, das jede Software mit offenen und
-bekannten Schnittstellen arbeiten kann. Diese werden in der Realisierungsphase
-miteinander kombiniert.
+Kombinationsmöglichkeiten. Diese können zeitlich nicht alle im Rahmen des
+Projektes evaluiert werden. Es wurde darauf geachtet, das jede Software mit
+offenen und bekannten Schnittstellen arbeiten kann. Diese werden in der
+Realisierungsphase miteinander kombiniert.
+
+\section{Prototyp 1}
+Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
+und Grafana zur Visualisierung. Hinzu kommt eine selbst entwickelte API für
+komplexe Abfragen und Fragestellungen. Die erste Idee der Umsetzung ist
+unter~\ref{figure:draft1} visualisiert. Die Architektur ist in drei Teile
+gegliedert. Im ersten Teil befinden sich alle Hypervisors und virtuellen
+Maschinen, welche Daten via collectd verschicken. Jede Instanz von collectd
+soll ihre Daten in der zentralen Postgres Datenbank speichern. Für Tests wird
+mit einer einzelnen Postgres Datenbank gearbeitet, diese kann bei Bedarf um
+weitere Server erweitert werden um einen Hochverfügbaren Betrieb zu
+realisieren. Komplexe Datenbankabfragen über die API können, gerade bei großen
+Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, das in dieser
+Zeit eingehende Daten von collectd nicht direkt gespeichert werden können. Die
+Daten würden dann verloren gehen. Sofern Die Postgres Installation nicht
+Hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
+Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
+Problemen entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
+Queue genannt) zu installieren.
 \tm%
 
-\section{Draft 1}
+\subsection{Message Bus}
+Ein Message Bus ist eine Applikationen welche auf einem oder mehreren Servern
+betrieben wird. Über diverse Netzwerkschnittstellen ist es möglich, Daten auf
+diesen Bus zu senden. Jedes Datenpaket kann mit Tags versehen werden. Ein Tag
+kann ein beliebiger Text sein, zum Beispiel der Name des Quellservers, Uhrzeit
+an dem das Paket erstellt wurde oder eine Retention Period.
+
+Auf der anderen Seite des Busses können Applikationen über die gleichen
+Schnittstellen auf die Daten zugreifen und diese dem Bus entnehmen. Hierbei
+kann auf die Tags gefiltert werden, um nur bestimmte Daten zu entnehmen.
+
+Im Worst Case (dem schlimmsten möglichen Zustand) ist es möglich, dass die
+Datenbank für mehrere Stunden oder Tage nicht erreichbar ist. Hierzu
+unterstützen Message Busse eine Retention Period. Dieser Wert beschreibt wie
+lange ein Datensatz gültig ist. Wenn er zu alt ist, wird er automatisch
+gelöscht und vom Bus genommen. Der Bus kann somit nicht über die Zeit
+volllaufen. Im Projektteam gab es bereits Erfahrung mit der Message Bus
+Software RabbitMQ, weshalb diese für den ersten Prototypen gewählt wurde.
+
+Der Messagebus wird zwischen collectd und der Datenbank installiert. Collectd
+ist nicht in der Lage, direkt SQL zu sprechen. SQL ist allerdings die einzige
+Schnittstelle welche von Postgres bereitgestellt wird. Die Daten müssen also
+transformiert werden. Hierfür bietet sich das bereits zuvor evaluierte Logstash
+an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin um vom Bus zu
+lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC
+mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
+\tm%
+
+\subsection{JVM und JDBC}
+Die JVM (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen von
+Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in der
+der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte Systemsicherheit,
+da die Applikation in der JVM nicht direkt mit dem Hostsystem kommunizieren
+kann. Es hilft auch beim Multithreading. Die JVM ist in der Lage beliebig viele
+Prozesse zu starten und zu verwalten.
+
+Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
+innerhalb einer JVM\. Normalerweise wird Ruby Code mit dem MRI Interpreter in
+Maschinencode übersetzt und direkt auf dem Betriebsystem ausgeführt. Der
+Interpreter JRuby übersetzt den Ruby Code in Java Bytecode, dieser wird dann
+von der JVM in einem Prozess ausgeführt und nicht direkt auf dem
+Betriebssystem. Dies ermöglicht es, Multithreading innerhalb des Ruby Codes zu
+ignorieren. Ein normales Ruby Script wird nur auf einem Prozessorkern
+ausgeführt. Ein einzelner Kern kann aber die erwartete Datenmenge nicht aus dem
+Message Bus abfragen und verarbeiten. Hier kann die Architektur stark von der
+JVM profitieren. Sie kümmert sich darum, das alle zur Verfügung stehenden CPU
+Kerne belastet werden und startet entsprechend viele Prozesse mit Logstash.
+Somit erhält man eine sehr einfache Möglichkeit der Datenverarbeitung mit
+mehreren Prozessorkernen~\cite{jruby}.
+
+JDBC (Java Database Connectivity) ist die Schnittstelle der JVM zu Datenbanken.
+Sie stellt generische Funktionen bereit um mit Datenbanken zu kommunizieren.
+Für jede Datenbank, mit der kommuniziert werden soll, wird ein Treiber
+benötigt. Dies ist eine Datei, in der die spezifischen Eigenschaften eines
+bestimmten \gls{DBMS} beschrieben sind. Damit ist die JDBC Schnittstelle in der
+Lage mit diesem DBMS zu kommunizieren. Für Logstash gibt es ein Plugin, welches
+die JDBC Schnittstelle innerhalb des JRuby Bytecodes nutzbar macht. Somit
+ist Logstash in der Lage in eine Datenbank zu schreiben. Postgres bietet einen
+Treiber für JDBC an~\cite{postgres-jdbc}.
+
+Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
+Logstash ist in der Lage die Auslastung der Datenbank über JDBC zu ermitteln.
+Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
+Anfragen zur Datenbank resultiert. Sobald die Datenbank wieder eine geringere
+Auslastung hat, kann die JVM eigenständig mehr Prozesse starten und die
+Datenmenge erhöhen. Somit verhindert man Performanceprobleme auf der Datenbank
+bei komplexen Abfragen welche über die API gestellt werden.
+
+Anstatt die Datenbank als limitierenden Faktor zu nutzen (dem Ziel von
+Logstash), kann dies auch mit der Quelle erfolgen. Der Message Bus ist
+in diesem Setup die Quelle für Logstash. Die JVM kann anhand der vorhandenen
+Datenmenge im Bus beliebig viele Prozesse starten um die Datenmenge möglichst
+schnell abzufragen. Dies wäre in einem Szenario sinnvoll, in dem der Speicher
+im Bus besonders gering ist und die Datenbank eine garantierte Leistung
+erbringen kann. Dies ist nur möglich, wenn Logstash der einzige Dienst ist,
+welcher mit der Datenbank interagiert. Dieses Szenario ist innerhalb des
+Projektes nicht möglich weshalb es nicht weiter verfolgt wurde bei der
+Implementierung.
+\tm%
+
 
 \section{Draft 2}
 
 \section{Tests und Qualitätssicherung}
 
 \chapter{Fazit}
+erster prototyp war blöd, zweiter war geil
+skalierbares design, weil
+kann erweitert werden mit xyz.
 
 \appendix
 
