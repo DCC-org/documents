@@ -824,6 +824,7 @@ anderen Programmen genutzt werden.
 \tm%
 
 \subsection{Logstash}
+\label{subsec:logstash}
 Logstash wird von der Firma Elasticsearch BV entwickelt. Zusammen mit
 Elasticsearch (siehe auch Abschnitt~\ref{subsubsec:elasticsearch}) und
 \gls{Kibana} bilden sie den ELK-Stack. Die Open Source Software steht unter der
@@ -2254,6 +2255,7 @@ Projektes evaluiert werden. Es wurde darauf geachtet, das jede Software mit
 offenen und bekannten Schnittstellen arbeiten kann. Diese werden in der
 Realisierungsphase miteinander kombiniert.
 
+\section{Prototyp 1}
 Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
 und Grafana zur Visualisierung. Hinzu kommt eine selbst entwickelte API für
 komplexe Abfragen und Fragestellungen. Die erste Idee der Umsetzung ist
@@ -2263,10 +2265,40 @@ Maschinen, welche Daten via collectd verschicken. Jede Instanz von collectd
 soll ihre Daten in der zentralen Postgres Datenbank speichern. Für Tests wird
 mit einer einzelnen Postgres Datenbank gearbeitet, diese kann bei Bedarf um
 weitere Server erweitert werden um einen Hochverfügbaren Betrieb zu
-realisieren.
-\tm%
+realisieren. Komplexe Datenbankabfragen über die API können, gerade bei großen
+Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, das in dieser
+Zeit eingehende Daten von collectd nicht direkt gespeichert werden können. Die
+Daten würden dann verloren gehen. Sofern Die Postgres Installation nicht
+Hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
+Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
+Problemene entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
+Queue genannt) zu installieren.
 
-\section{Draft 1}
+Ein Message Bus ist eine Applikationen welche auf einem oder mehreren Servern
+betrieben wird. Über diverse Netzwerkschnittstellen ist es möglich, Daten auf
+diesen Bus zu senden. Jedes Datenpaket kann mit Tags versehen werden. Ein Tag
+kann ein beliebiger Text sein, zum Beispiel der Name des Quellservers, Uhrzeit
+an dem das Paket erstellt wurde oder eine Retention Period.
+
+Auf der anderen Seite des Busses können Applikationen über die gleichen
+Schnittstellen auf die Daten zugreifen und diese dem Bus entnehmen. Hierbei
+kann auf die Tags gefiltert werden, um nur bestimmte Daten zu entnehmen.
+
+Im Worst Case (dem schlimmstem möglichen Zustand) ist es möglich, dass die
+Datenbank für mehrere Stunden oder Tage nicht erreichbar ist. Hierzu
+unterstützen Message Busse eine Retention Period. Dieser Wert beschreibt wie
+lange ein Datensatz gültig ist. Wenn er zu alt ist, wird er automatisch
+gelöscht und vom Bus genommen. Der Bus kann somit nicht über die Zeit
+volllaufen. Im Projektteam gab es bereits Erfahrung mit der Message Bus
+Software RabbitMQ, weshalb diese für den ersten Prototypen gewählt wurde.
+
+Der Messagebus wird zwischen collectd und der Datenbank installiert. Collectd
+ist nicht in der Lage, direkt SQL zu sprechen. SQL ist allerdings die einzige
+Schnittstelle welche von Postgres bereitgestellt wird. Die Daten müssen also
+transformiert werden. Hierfür bietet sich das bereits zuvor evaluierte Logstash
+an (~\ref{subsec:logstash}). Logstash bietet Plugins um vom Bus zu lesen.
+Zusätzlich existiert ein Plugin um SQL auszugeben.
+\tm%
 
 \section{Draft 2}
 
