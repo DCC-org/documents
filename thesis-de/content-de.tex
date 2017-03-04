@@ -1,12 +1,12 @@
 \chapter*{Danksagung}
 Wir bedanken uns bei der Firma Puppet, insbesondere bei David Schmitt und Steve
-Quin. Euer Fachwissen und eure Unterstützung haben uns sehr geholfen das
+Quin. Euer Fachwissen und eure Unterstützung haben uns sehr geholfen, das
 Projekt ordentlich zu strukturieren und auf einem hohen technischen Niveau
-abzuschliessen. Außerdem möchten wir uns bei Hunter Haugen bedanken für die
-große Hilfestellung im Bereich Unit Testing.
+abzuschliessen. Außerdem möchten wir uns bei Hunter Haugen für die
+große Hilfestellung im Bereich Unit Testing bedanken.
 
-Ein besonderer Dank gebührt Ulli Kehrle, ohne seine unermüdlichen Erklärungen
-zum Thema \LaTeX{} und seiner Hilfestellung, auch in den späten Abendstunden,
+Ein besonderer Dank gebührt Ulli Kehrle. Ohne seine unermüdlichen Erklärungen
+zum Thema \LaTeX{} und seine Hilfestellungen, auch in den späten Abendstunden,
 würde diese Dokumentation nicht in dieser Form existieren.
 
 \newpage
@@ -35,8 +35,8 @@ Abschnitt enthält am Ende das Kürzel des Autors, hierbei bedeutet:
 \end{outline}
 
 Die Zusammensetzung dieses Teams entstand während der regulären Unterrichtszeit
-im dritten Semester. Herr Meusel und Herr Luis sprachen während einem
-Abendessen über die Inhalte ihres täglichen Arbeitstages. Herr Meusel arbeitete
+im dritten Semester. Herr Meusel und Herr Luis sprachen während eines
+Abendessens über die Inhalte ihres täglichen Arbeitstages. Herr Meusel arbeitete
 zu diesem Zeitpunkt an einem Projekt im Bereich Cloud-Hosting und Herr Luis war
 im Bereich von Datenanalysen mit großen Datenmengen und dessen Methodiken
 beschäftigt. Sehr schnell entstand aus diesen beiden Gesprächsinhalten die
@@ -62,7 +62,7 @@ Bei der Durchführung des Projektes wurde bei jedem Projektmitglied der
 praktische Wissensschatz erweitert. Zum einem wurden neue Wissensinhalte zu
 Techniken und Arbeitsmethoden erschlossen, zum anderen Vorteile weiter
 fortgebildet und Nachteile erneut auf die Probe gestellt. Entsprechend wurde
-zum Beispiel die Belastbarkeit jedes einzelnen erforscht und die
+zum Beispiel die Belastbarkeit jedes Einzelnen erforscht und die
 Selbsteinschätzung somit weiter fortgebildet oder sogar korrigiert.
 
 In einer globalisierten Arbeitswelt stehen die Möglichkeiten von IT-Systemen
@@ -72,7 +72,7 @@ Gleichzeitig beschäftigen sich Computersystem-Anbieter mit der optimalen
 Auslastung ihrer Serverfarmen (Hardware) und den damit verbundenen
 Kostenoptimierungen. Durch einen neu entstandenen Trend des Cloud-Hostings ist
 die optimale Auslastung der Hardwaremittel wichtiger denn je. Jedoch besitzt
-der Markt zu dem aktuellen Zeitpunkt noch keine Management-Software, welche
+der Markt zum aktuellen Zeitpunkt noch keine Management-Software, welche
 eine voll- oder halbautomatische Optimierung von ganzen Rechenzentren oder
 Servergruppen übernehmen kann. Entsprechend versuchen Systemadministratoren
 weiterhin auf ihren zugewiesenen Systemgruppen eine optimale Leistung zu
@@ -86,14 +86,14 @@ Softwaresystem aus drei Hauptkomponenten für den Einsatz in großen
 Rechenzentren für die Ausarbeitung einer Ressourcen-Übersicht. Diese soll
 primär von IT-Fachkräften einsehbar sein, sodass die Gesamtperformance des
 Rechenzentrums optimiert werden kann. Je nach Datenschutzeinwilligung der
-Kunden von den einzelnen Computersystem-Anbietern können diese Daten auch
+Kunden der einzelnen Computersystem-Anbieter können diese Daten auch
 sekundär für ein optimiertes Kundengespräch oder Marketing-Kampagnen eingesetzt
 werden. Jedoch handelt es sich dabei nur um ein Nebenprodukt und wird in dieser
 Projektarbeit und Dokumentation nicht betrachtet.
 
 Die Methodiken der Projektorganisation, sowie der vereinzelte Zugang zu
-Literatur erarbeiten sich die Projektmitglieder über ein Selbststudium, Inhalte
-aus dem Unterricht oder Erfahrungsberichte von dem Auftrageber. Dies
+Literatur, erarbeiten sich die Projektmitglieder über ein Selbststudium, Inhalte
+aus dem Unterricht oder Erfahrungsberichte vom Auftrageber. Dies
 beinhaltet auch die Beurteilung von den genutzten Quellen, welche für die
 Projektarbeit genutzt und zitiert werden. Es wird vorab bereits durch diese
 Wissensdatenbanken ein grober Projektvorgang herausgearbeitet, welcher jedoch
@@ -102,13 +102,13 @@ auch in den nachfolgenden Seiten beschrieben ist.
 
 \chapter{Projektvorstellung}
 \label{subsec:projektvorstellung}
-Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
+Cloud Provider bieten verschiedenste, virtuelle Instanzen auf physischen Hosts
 an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
 physischen Systems unterschiedlich. Hier kommt es, aufgrund der
 Mischkalkulation für die Ressourcen, zu einer Überbuchung (Overcommitment) des
 Hosts. Weil das Monitoring nicht ausreichend ist oder kein sinnvolles Placement
 implementiert ist (Placement beschreibt den Algorithmus, der einen Node
-ermittelt auf dem eine neue virtuelle Instanz angelegt wird) kommt es
+ermittelt auf dem eine neue, virtuelle Instanz angelegt wird), kommt es
 regelmäßig zu Leistungseinbußen. Für Kunden gibt es keine Transparenz über die
 ihm zugeteilten und durch ihn genutzten Ressourcen, weshalb auch keine
 ressourcenbasierte Abrechnung erfolgen kann. Teamleiter sind häufig mit der
@@ -121,7 +121,7 @@ werden, die sich in drei Teile gliedert:
 
 \begin{outline}
   \1 Die verschiedenen Ressourcetypen (CPU Zeit / Datendurchsatz / RAM
-  Auslastung / Speicher Auslastung / Netzwerkdurchsatz) der einzelnen
+  Auslastung / Speicher Auslastung / Netzwerkdurchsatz) der einzelnen,
   virtuellen Server müssen in einem sinnvollen Intervall periodisch ermittelt
   werden.
   \1 Die Daten müssen aggregiert und gespeichert werden. Hierbei ist auf eine
@@ -129,8 +129,8 @@ werden, die sich in drei Teile gliedert:
   der Verfügbarkeit und Performance der Datenbank zu achten (Sharding oder
   Replikation, verteilt oder zentral, dokumentenbasiert oder relational).
   \1 Diese Daten können dann dem Endanwender präsentiert werden (\gls{API} und
-  Web-UI). Hierzu wird eine Userstory Erhebung unter den drei Anwendertypen
-  Kunde, Administrator, Manager bei Partnerunternehmen durchgeführt, um
+  Web-UI). Hierzu wird eine Userstory-Erhebung unter den drei Anwendertypen
+  Kunde, Administrator und Manager bei Partnerunternehmen durchgeführt, um
   gewünschte Algorithmen zur Visualisierung zu ermitteln (zum Beispiel
   ermitteln von freien oder überbuchten Nodes, grafische Auswertung für Kunden).
 \end{outline}
@@ -147,7 +147,7 @@ und Tim Meusel.
 
 \subsection{Marcel Reuter}
 Herr Reuter beendete 2013 seine Ausbildung zum IT-Systemelektroniker und
-arbeitet seit dem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist
+arbeitet seitdem bei der Firma EBF-EDV Beratung Föllmer GmbH. Er ist
 verantwortlich für die visuelle Schnittstelle des Projekts (Punkt 3).
 \mr%
 
@@ -165,32 +165,32 @@ Er verantwortet die Ermittlung sowie Übertragung der Daten.
 \tm%
 
 \section{Auftraggeber}
-Die Ansprechpartner für dieses Projekt ist das Unternehmen Puppet Inc. (im
+Der Ansprechpartner für dieses Projekt ist das Unternehmen Puppet Inc. (im
 folgenden Puppet) in der Rolle als Auftraggeber, welches von den Mitarbeitern
 Herrn David Schmitt und Herrn Steve Quin vertreten wird. Puppet ist Marktführer
-im Bereich Konfigurationsmanagement-Software. Software dieser Art hilft es
-Administratoren sehr einfach Testumgebungen aufzubauen und auch
-Produktivumgebungen zu Verwalten. Das Kernprodukt der Firma Puppet, welches
+im Bereich der Konfigurationsmanagement-Software. Software dieser Art hilft
+Administratoren, sehr einfach Testumgebungen aufzubauen und auch
+Produktivumgebungen zu verwalten. Das Kernprodukt der Firma Puppet, welches
 ebenfalls puppet heißt, steht unter einer Open Source Lizenz und darf frei
-genutzt werden. Der Einsatz der Software erlaubt es dem Projektteam
+genutzt werden. Der Einsatz der Software erlaubt es dem Projektteam,
 verschiedenste Prototypen in kurzer Zeit zu bauen. Puppet entwickelt außerdem
 Software zum Testen. Dies vereinfacht das Qualitätsmanagement im Projekt.
 Puppet hat in der Vergangenheit bewiesen, mit agiler Entwicklung und diversen
-Testverfahren umgehen zu können, beides wird intensiv in deren Teams genutzt.
+Testverfahren umgehen zu können. Beides wird intensiv in deren Teams genutzt.
 Herr Quin und Herr Schmitt bieten tiefgreifendes Wissen zu den verschiedenen
 Programmen und Techniken, um das Projektteam zu unterstützen und zu beraten.
 \all%
 
 \section{Aktuelle Situation}
-Im Abschnitt~\ref{subsec:projektvorstellung} wurden bereits die Intentionen
-des Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine
-passende Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt,
-welches große Mengen an Rechen- und Netzwerkkapazitäten, sowie persistentem
-Speicher in einem Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private
-Cloud} Umgebung zusammenfasst und orchestriert~\cite{OpenStack_Intro}. Eines
-der Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
-physischen und virtuellen Ressourcen zu ermitteln verlässlich zu speichern. Die
-Daten sollen zur Analyse genutzt werden und Aktionen auslösen, wenn bestimmte
+Im Abschnitt~\ref{subsec:projektvorstellung} wurden bereits die Intentionen des
+Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine passende
+Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt, welches große
+Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenten Speicher in einem
+Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private Cloud} Umgebung
+zusammenfasst und orchestriert~\cite{OpenStack_Intro}. Eines der Teilprojekte
+ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von physischen und
+virtuellen Ressourcen zu ermitteln und verlässlich zu speichern. Die Daten
+sollen zur Analyse genutzt werden und Aktionen auslösen, wenn bestimmte
 Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
 mehrere Nachteile mit sich:
 
@@ -205,14 +205,14 @@ mehrere Nachteile mit sich:
   alle Server verteilt werden. Die Skalierung ist nahezu
   linear~\cite{MongoDB_Architecture},~\cite{What_is_MongoDB}. Die Grundidee ist
   sehr gut und eignet sich für besonders große Datenmengen oder Installationen
-  die Hochverfügbar sein müssen. Die Implementierung in MongoDB hat allerdings
+  die hochverfügbar sein müssen. Die Implementierung in MongoDB hat allerdings
   diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit \gls{Jepsen}
   getestet. Die Datenbank hat sich mehrfach als sehr unzuverlässig
   herausgestellt~\cite{MongoDB_on_Jepsen}. Die beiden folgenden Punkte
   disqualifizieren MongoDB für einen Einsatz als persistenten  Datenspeicher,
   da die Persistenz nicht sichergestellt ist. Es wurde von Kyle Kingsbury
-  bewiesen, das:
-    \2 MongoDB bei einem Schreibvorgang bestätigt, das Daten persistent
+  bewiesen, dass:
+    \2 MongoDB bei einem Schreibvorgang bestätigt, dass Daten persistent
     gespeichert wurden, dies allerdings nicht immer der Fall ist. Ein
     unbemerkter Datenverlust ist die Folge.
     \2 MongoDB in bestimmten Situationen die falschen Daten bei einer
@@ -224,31 +224,31 @@ mehrere Nachteile mit sich:
   eigenen Datenbank: \gls{Gnocchi}. Diese Datenbank ist noch in der Entwicklung
   und noch nicht für den produktiven Einsatz bereit.
   \1 Es wird immer wieder von Skalierungsproblemen berichtet. Das CERN betreibt
-  eine OpenStack Installation und konnte die Probleme mit Telemetry nur mit
+  eine OpenStack-Installation und konnte die Probleme mit Telemetry nur mit
   immenser Hardware lösen. Die Kosten für diese Infrastruktur, als auch die
-  Komplexität, sind viel zu hoch. Sie übersteigen das Budget der meisten Cloud
-  Umgebungen wodurch diese unwirtschaftlich werden~\cite{OpenStack_CERN}.
+  Komplexität, sind viel zu hoch. Sie übersteigen das Budget der meisten
+  Cloud-Umgebungen, wodurch diese unwirtschaftlich werden~\cite{OpenStack_CERN}.
   \1 Das Telemetry Projekt ist sehr stark in OpenStack eingebunden. Der Einsatz
-  in anderen Cloud Umgebungen ist nicht vorgesehen, da die einzelnen Dienste
-  aus dem Telemetry Projekt weitere OpenStack Komponenten benötigen. Ein
-  eigenständiger Betrieb ohne OpenStack ist nicht geplant für die Zukunft.
+  in anderen Cloud-Umgebungen ist nicht vorgesehen, da die einzelnen Dienste
+  aus dem Telemetry Projekt weitere OpenStack Komponenten benötigten. Ein
+  eigenständiger Betrieb ohne OpenStack ist für die Zukunft nicht geplant.
 \end{outline}
 
 Aufgrund der langen Liste an Problemen ist Telemetry aktuell innerhalb einer
-kleinen OpenStack Installation teilweise nutzbar, jedoch nicht wirtschaftlich
+kleinen OpenStack-Installation teilweise nutzbar, jedoch nicht wirtschaftlich
 in großen Umgebungen oder außerhalb von Openstack. Es ist nicht davon
-auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst werden, da diese
+auszugehen, dass diese Probleme kurz- bis mittelfristig gelöst würden, da diese
 im Design und Architektur des Projekts liegen. Es gibt aktuell keine
 Alternativen zu Telemetry mit einem gleichwertigen Funktionsumfang. Somit
-entschied sich das Projektteam eine Alternative zu entwickeln, die
+entschied sich das Projektteam, eine Alternative zu entwickeln, die
 unkompliziert zu installieren ist und unabhängig von OpenStack arbeitet.
 \tm%
 
 \section{Anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
-folgenden Abschnitt beschrieben. Diese ergeben sich aus dem Lastenheft und
+folgenden Abschnitt beschrieben. Diese ergeben sich aus dem Lasten- und
 Pflichtenheft sowie aus den Userstories der Partner. Für alle Lösungen gilt,
-dass sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
+dass sie eine aktive Community haben und unter einer Open-Source-Lizenz stehen.
 \tm%
 
 \subsection{Datenerfassungssysteme}
@@ -256,25 +256,25 @@ dass sie eine aktive Community haben und unter einer Open Source Lizenz stehen.
 Unterschiedliche Ausbaustufen für virtuelle Maschinen werden über mehrere
 verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
 differenziert. Diese Typen müssen für jede virtuelle Maschine ausgelesen werden.
-Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
+Als Referenz werden die Typen der größten, deutschen Anbieter nachweis! für
 virtuelle Maschinen genommen. Diese sind aktuell:
 
 Zugewiesener Arbeitsspeicher, Anzahl/Leistung der Prozessorkerne, Durchsatz des
-Datenträgers, Anbindung an das Internet, nachweis via scrots fachwörter
+Datenträgers, Anbindung an das Internet, Nachweis via scrots fachwörter
 referenz?
 
 Diese Werte müssen sowohl in den virtuellen Maschinen als auch auf dem Host
 ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
 die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
-Im klassischen vServer Bereich (dem Bereitstellen des vServers als Produkt,
+Im klassischen vServer-Bereich (dem Bereitstellen des vServers als Produkt,
 nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
 vom Host aus ermitteln. Auf dem Host muss zusätzlich die Gesamtauslastung der
 Ressourcen sowie der Zustand der Hardware ermittelt werden.  Jede
 Virtualisierungssoftware bietet Schnittstellen, um Daten über die laufenden
-virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen die die
+virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen, die die
 Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
-ersichtlich wofür Ressourcen in den VMs genutzt werden, so kann zum Beispiel
-ermittelt werden wie viel CPU Zeit einer Instanz zur Verfügung gestellt wird,
+ersichtlich, wofür Ressourcen in den VMs genutzt werden. So kann zum Beispiel
+ermittelt werden, wie viel CPU-Zeit einer Instanz zur Verfügung gestellt wird,
 aber nicht wofür die Leistung genutzt wird (zum
 Beispiel~\glslink{Soft-IRQ}{Soft-IRQs}, \glslink{Interrupt}{Interrupts},
 \gls{iowait}). Um detaillierte Daten für eine bessere Analyse zu bekommen, muss
@@ -284,9 +284,9 @@ Zugriff vorhanden ist.
 Gesammelte Daten müssen lokal zwischengespeichert werden können, um einem
 Verlust bei Netzwerkstörungen zu vermeiden. Der Versand muss nach dem Push- und
 nicht nach dem Polling-Verfahren arbeiten. Somit kann eventbasiert gearbeitet
-werden, dies verhindert Overhead im Netzwerk. Es werden somit nur dann Daten
-geschickt, wenn auch tatsächlich welche vorhanden sind. Beim Polling Verfahren
-muss eine Zentrale Instanz in konstanten Intervallen abfragen, ob neue Daten
+werden. Dies verhindert Overhead im Netzwerk. Es werden somit nur dann Daten
+geschickt, wenn auch tatsächlich welche vorhanden sind. Beim Polling-Verfahren
+muss eine zentrale Instanz in konstanten Intervallen abfragen, ob neue Daten
 vorhanden sind. Eine Visualisierung in Echtzeit ist nicht gefordert, weshalb
 Daten lokal zwischengespeichert werden können, um sie gebündelt zu verschicken.
 \tm%
@@ -294,7 +294,7 @@ Daten lokal zwischengespeichert werden können, um sie gebündelt zu verschicken
 \subsection{Datenhaltungssystem}
 Nachfolgende Anforderungen an das Datenhaltungssystem wurden vor der
 Projektphase im Team und auch in der ersten Rücksprache mit dem Auftraggeber
-definiert. Sie dienen als ersten Leitpfaden der Softwarelösung und definierten
+definiert. Sie dienen als erster Leitpfaden der Softwarelösung und definierten
 sich wie folgt:
 
 \begin{outline}
@@ -305,7 +305,7 @@ sich wie folgt:
   sodass auf den gespeicherten Daten eine fachliche Logik aufgebaut werden
   kann.
   \1 Die daraus resultierenden Analyseergebnisse sollten anschließend über im
-  Projekt definierte Schnittstellen an verschiedene Systeme weiter geliefert
+  Projekt definierte Schnittstellen an verschiedene Systeme weitergeliefert
   werden können. Entsprechend soll das Datenhaltungssystem die dafür
   notwendigen Treiber und Schnittstellen mitliefern.
 \end{outline}
@@ -319,17 +319,17 @@ Punkt~\ref{sec:datenhaltungssystem} entnommen werden.
 
 \subsection{Frontends}
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
-verbrauchten oder freien Ressourcen, wie zum Beispiel CPU Auslastung oder RAM
-Auslastung einzelner virtueller oder physischen Maschinen bereitstellen.
+verbrauchten oder freien Ressourcen, wie zum Beispiel CPU-Auslastung oder
+RAM-Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
 Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
-und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, das sowohl die
+und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, dass sowohl die
 Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
-die Weboberfläche selber, gegen Zugriff von Unbekannten. Die Weboberfläche
-greift hier mittels API Abfragen auf die Datenbank zu, dies ermöglicht uns den
-Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können.  Die
+die Weboberfläche selbst gegen Zugriff von Unbekannten. Die Weboberfläche
+greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht uns, den
+Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können. Die
 Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
-Maschinen unterstützen und zeigt hier die Auslastung der einzelnen physischen
-Systemen. Der Administrator kann so gezielt die einzelnen physischen Maschinen
+Maschinen unterstützen und zeigt hier die Auslastung der einzelnen, physischen
+Systeme. Der Administrator kann so gezielt die einzelnen, physischen Maschinen
 besser auslasten und verteilen. Ebenfalls kann das Frontend eine Schnittstelle
 für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
 visuell ausgegeben werden.
@@ -357,13 +357,13 @@ unter anderem:
   gemacht wurde, ist fehlerhaft. Die Bibliothek verhält sich anders als in der
   Dokumentation beschrieben und muss genauer begutachtet werden.
   \1 Die eingesetzte Software erfüllt ihren Zweck, benötigt aber viel zu viel
-  Leistung. Hier muss nun die Software analysiert werden, oder man migriert auf
+  Leistung. Hier muss nun die Software analysiert werden oder man migriert auf
   eine Alternative.
   \1 Bei der Verwendung mehrerer Hard- und Softwarekomponenten kommt es zu
   unerwarteten Inkompatibilitäten.
 \end{outline}
 
-Die Techniken und Vorgehensweisen der agilen Softwareentwicklung versuchen dem
+Die Techniken und Vorgehensweisen der agilen Softwareentwicklung, versuchen dem
 entgegen zu wirken. Sie zeichnen sich durch drei Merkmale aus:
 
 \begin{outline}
@@ -376,9 +376,9 @@ entgegen zu wirken. Sie zeichnen sich durch drei Merkmale aus:
 Die Firma Puppet entwickelt seit mehreren Jahren erfolgreich Software. Sie
 steht dem Projektteam mit hilfreichen Tipps und Schulungen zur Seite. „Agile
 Softwareentwicklung“ gilt als Oberbegriff für alle Techniken und
-Vorgehensweisen in dem Bereich. Aus diesem kann man sich die Methoden heraus
-suchen, die am besten zum Projekt passen. In den letzten Jahren haben sich
-daraus die beiden Softwareentwicklungsmodelle Scrum und Kanban abgeleitet.
+Vorgehensweisen in dem Bereich. Aus diesem kann man sich die Methoden
+heraussuchen, die am besten zum Projekt passen. In den letzten Jahren haben
+sich daraus die beiden Softwareentwicklungsmodelle Scrum und Kanban abgeleitet.
 Diese nutzen Teile der agilen Softwareentwicklung.
 \tm%
 
@@ -388,14 +388,14 @@ denen gearbeitet wird. In der Regel beträgt ein Abschnitt zwei Wochen. Am
 Anfang von jedem Arbeitstag des Abschnittes muss eine Besprechung erfolgen. Die
 Besprechungen, „Daily Standup“ genannt, ist genau 15 Minuten lang und soll im
 stehen abgehalten werden. Die Gesprächszeit muss gleichmäßig auf alle
-Teilnehmer verteilt werden. Hierbei spielt es keine Rolle wie groß das Team
+Teilnehmer verteilt werden. Hierbei spielt es keine Rolle, wie groß das Team
 ist. Bei jeder Teamstärke beträgt die Gesamtzeit nur 15 Minuten. Dies ist ein
 großes Problem für Teams die sehr groß sind oder asynchron arbeiten. Aufgrund
 der Vollzeitbeschäftigung aller Mitglieder in diesem Projekt, in Kombination
 mit dem Abendschulunterricht, erfolgen viele Arbeiten am Projekt asynchron. Es
 ist zeitlich nicht realisierbar, dass an jedem Tag jedes Teammitglied am
 Projekt arbeitet. Die Durchführung von täglichen Besprechungen ist somit nicht
-möglich. Scrum erlaubt es nicht einzelne Elemente des Systems nicht zu nutzen
+möglich. Scrum erlaubt es nicht, einzelne Elemente des Systems nicht zu nutzen
 oder zu modifizieren. Somit kann in diesem Projekt nicht nach Scrum gearbeitet
 werden~\cite{scrum_talk}.
 \tm%
@@ -412,26 +412,26 @@ Anfang jedes Sprints erfolgt ein Rückblick auf den vergangenen Sprint
 lief und ob die Projektmitglieder zufrieden sind. Bei Unstimmigkeiten im Team
 oder bei negativen Ereignissen muss der Projektleiter sich dieser annehmen.
 Seine Aufgabe ist es ein positives Arbeitsklima zu schaffen und nach
-Möglichkeit wiederkehrende negative Punkte zu beseitigen.
+Möglichkeit wiederkehrende, negative Punkte zu beseitigen.
 
-Wenn ein Mitglied einen besonderen Fortschritt im Projekt erzielt hat wird
+Wenn ein Mitglied einen besonderen Fortschritt im Projekt erzielt hat, wird
 dieser kurz präsentiert (Review). Hierbei wird keine vollständige Präsentation
 mit Folien erwartet, sondern eine kurze Erklärung der erledigten Arbeit mit
-einer Demonstration. Jedes Projektmitglied darf selbstständig entscheiden ob es
+einer Demonstration. Jedes Projektmitglied darf selbstständig entscheiden, ob es
 seine Arbeit hier präsentiert.
 
 Review und Retrospective werden oft als „R \& R“ abgekürzt.
 
 Am Ende jedes Sprints erfolgt die Planung für den kommenden Sprint (Planning).
-Es wird überlegt welche Arbeit erledigt werden muss, danach erfolgt die
+Es wird überlegt, welche Arbeit erledigt werden muss, danach erfolgt die
 ungefähre Schätzung des Zeitaufwandes. Für jede Aufgabe wird ein Ticket in der
 Projektmanagementsoftware erstellt. Das Projektteam hat sich für „JIRA“
 entschieden, da dies aktuell am verbreitetsten in der Wirtschaft ist. Neue
 Featurewünsche werden als Userstory angelegt. Dies ist ein Ticket in dem aus
 Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
 Ereignisse werden Meilensteine festgelegt. Jeder darf neue Tickets zu jeder
-Zeit anlegen, diese landen dann im \gls{Backlog}. Dies ist der Sammelbegriff für
-ausstehende Tickets, welche keinem Sprint zugeordnet sind. Es wird nicht an
+Zeit anlegen. Diese landen dann im \gls{Backlog}. Dies ist der Sammelbegriff
+für ausstehende Tickets, welche keinem Sprint zugeordnet sind. Es wird nicht an
 Tickets gearbeitet, welche nicht im aktuellen Sprint sind.
 \tm%
 
