@@ -2324,6 +2324,7 @@ JVM profitieren. Sie kümmert sich darum, das alle zur Verfügung stehenden CPU
 Kerne belastet werden und startet entsprechend viele Prozesse mit Logstash.
 Somit erhält man eine sehr einfache Möglichkeit der Datenverarbeitung mit
 mehreren Prozessorkernen~\cite{jruby}.
+\tm%
 
 \subsection{JDBC}
 \gls{JDBC} ist die Schnittstelle der JVM zu Datenbanken. Sie stellt generische
@@ -2335,6 +2336,77 @@ kommunizieren. Für Logstash gibt es ein Plugin, welches die JDBC Schnittstelle
 innerhalb des JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage in
 eine Datenbank zu schreiben. Postgres bietet einen Treiber für JDBC
 an~\cite{postgres-jdbc}.
+\tm%
+
+\subsection{JDBC Treiber Typen}
+Es gibt vier verschiedene Typen von JDBC Treibern. Typ vier ist besonders
+effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
+folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
+
+\subsubsection{JDBC-ODBC}
+Hierbei spricht der JDBC Treiber einen sehr generischen \gls{ODBC} Treiber an.
+Dieser kommuniziert mit einer Bibliothek des DBMS.
+
+Die Vorteile sind:
+
+\begin{outline}
+  \1 Sehr einfache Implementierung der JDBC, da ein Großteil der Arbeit von
+  der ODBC übernommen wird.
+  \1 Sehr einfacher Austausch der ODBC da die Schnittstelle generisch ist.
+  \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC Schnittstelle, somit
+  ergibt sich eine lange Liste an alternativen DBMS, die man nutzen kann.
+\end{outline}
+
+Die Nachteile sind:
+
+\begin{outline}
+  \1 Durch die große Anzahl an Komponenten, die die Daten durchfliesen, ergeben
+  sich viele Fehlerquellen.
+  \1 Da alle Schnittstellen sehr generisch sind, kann dort keine Optimierung
+  auf ein spezifisches DBMS erfolgen.
+\end{outline}
+
+\subsubsection{Nativer API Client}
+
+Die Vorteile sind:
+\begin{outline}
+
+\end{outline}
+
+Die Nachteile sind:
+
+\begin{outline}
+
+\end{outline}
+
+\subsubsection{Netzwerk Client}
+
+Die Vorteile sind:
+
+\begin{outline}
+
+\end{outline}
+
+Die Nachteile sind:
+
+\begin{outline}
+
+\end{outline}
+
+\subsubsection{Nativer Client}
+
+Die Vorteile sind:
+
+\begin{outline}
+
+\end{outline}
+
+Die Nachteile sind:
+
+\begin{outline}
+
+\end{outline}
+\tm%
 
 \subsection{JDBC in Kombination mit der JVM}
 Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
