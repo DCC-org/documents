@@ -2249,10 +2249,21 @@ und gefunden. Hier wurde, mit Absicht, jeder Bereich getrennt betrachtet. Es
 wurde nicht geprüft, ob die gewählte Software in einem Bereich mit den
 Alternativen in den anderen beiden Bereichen kompatibel ist. Aufgrund der hohen
 Auswahl an Möglichkeiten pro Bereich gibt es zu viele
-Kombinationsmöglichkeiten. Diese können nicht alle im Rahmen des Projektes
-evaluiert werden. Es wurde darauf geachtet, das jede Software mit offenen und
-bekannten Schnittstellen arbeiten kann. Diese werden in der Realisierungsphase
-miteinander kombiniert.
+Kombinationsmöglichkeiten. Diese können zeitlich nicht alle im Rahmen des
+Projektes evaluiert werden. Es wurde darauf geachtet, das jede Software mit
+offenen und bekannten Schnittstellen arbeiten kann. Diese werden in der
+Realisierungsphase miteinander kombiniert.
+
+Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
+und Grafana zur Visualisierung. Hinzu kommt eine selbst entwickelte API für
+komplexe Abfragen und Fragestellungen. Die erste Idee der Umsetzung ist
+unter~\ref{figure:draft1} visualisiert. Die Architektur ist in drei Teile
+gegliedert. Im ersten Teil befinden sich alle Hypervisors und virtuellen
+Maschinen, welche Daten via collectd verschicken. Jede Instanz von collectd
+soll ihre Daten in der zentralen Postgres Datenbank speichern. Für Tests wird
+mit einer einzelnen Postgres Datenbank gearbeitet, diese kann bei Bedarf um
+weitere Server erweitert werden um einen Hochverfügbaren Betrieb zu
+realisieren.
 \tm%
 
 \section{Draft 1}
