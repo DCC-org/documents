@@ -2342,6 +2342,17 @@ Anfragen zur Datenbank resultiert. Sobald die Datenbank wieder eine geringere
 Auslastung hat, kann die JVM eigenständig mehr Prozesse starten und die
 Datenmenge erhöhen. Somit verhindert man Performanceprobleme auf der Datenbank
 bei komplexen Abfragen welche über die API gestellt werden.
+
+Anstatt die Datenbank als limitierenden Faktor zu nutzen (dem Ziel von
+Logstash), kann dies auch mit der Quelle erfolgen. Der Message Bus ist
+in diesem Setup die Quelle für Logstash. Die JVM kann anhand der vorhandenen
+Datenmenge im Bus beliebig viele Prozesse starten um die Datenmenge möglichst
+schnell abzufragen. Dies wäre in einem Szenario sinnvoll, in dem der Speicher
+im Bus besonders gering ist, und die Datenbank eine garantierte Leistung
+erbringen kann. Dies ist nur möglich, wenn Logstash der einzige Dienst ist,
+welcher mit der Datenbank interagiert. Dieses Szenario ist innerhalb des
+Projektes nicht möglich weshalb es nicht weiter verfolgt wurde bei der
+Implementierung.
 \tm%
 
 
