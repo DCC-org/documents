@@ -2273,7 +2273,9 @@ Hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
 Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
 Problemene entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
 Queue genannt) zu installieren.
+\tm%
 
+\subsection{Message Bus}
 Ein Message Bus ist eine Applikationen welche auf einem oder mehreren Servern
 betrieben wird. Über diverse Netzwerkschnittstellen ist es möglich, Daten auf
 diesen Bus zu senden. Jedes Datenpaket kann mit Tags versehen werden. Ein Tag
@@ -2296,8 +2298,32 @@ Der Messagebus wird zwischen collectd und der Datenbank installiert. Collectd
 ist nicht in der Lage, direkt SQL zu sprechen. SQL ist allerdings die einzige
 Schnittstelle welche von Postgres bereitgestellt wird. Die Daten müssen also
 transformiert werden. Hierfür bietet sich das bereits zuvor evaluierte Logstash
-an (~\ref{subsec:logstash}). Logstash bietet Plugins um vom Bus zu lesen.
-Zusätzlich existiert ein Plugin um SQL auszugeben.
+an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin um vom Bus zu
+lesen~\cite{logstah-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC mit
+Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
+\tm%
+
+\subsection{JVM und JDBC}
+Die JVM (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen von
+Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in der
+der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte Systemsicherheit,
+da die Applikation in der JVM nicht direkt mit dem Hostsystem kommunizieren
+kann. Es hilft auch beim Multithreading. Die JVM ist in der Lage beliebig viele
+Prozesse zu starten und zu verwalten.
+
+Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
+innerhalb einer JVM\. Normalerweise wird Ruby Code mit dem MRI Interpreter in
+Maschinencode übersetzt und direkt auf dem Betriebsystem ausgeführt. Der
+Interpreter JRuby übersetzt den Ruby Code in Java Bytecode, dieser wird dann
+von der JVM in einem Prozess ausgeführt, und nicht direkt auf dem
+Betriebssystem. Dies ermöglicht es, Multithreading innerhalb des Ruby Codes zu
+ignorieren. Ein normales Ruby Script wird nur auf einem Prozessorkern
+ausgeführt. Ein einzelner Kern kann aber die erwartete Datenmenge nicht aus dem
+Message Bus abfragen und verarbeiten. Hier kann die Architektur stark von der
+JVM profitieren. Sie kümmert sich darum, das alle zur Verfügung stehenden CPU
+Kerne belastet werden und startet entsprechend viele Prozesse mit Logstash.
+Somit erhält man eine sehr einfache Möglichkeit der Datenverarbeitung mit
+mehreren Prozessorkernen~\cite{jruby}.
 \tm%
 
 \section{Draft 2}
