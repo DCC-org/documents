@@ -2250,6 +2250,68 @@ bekannten Schnittstellen arbeiten kann. Diese werden in der Realisierungsphase
 miteinander kombiniert.
 \tm%
 
+\section{Realisierung Grafana}
+\label{sec:realisierung_Grafana}
+Nachdem nun die Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend} 
+abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
+begonnen werden. Damit die eigentliche Konfiguration durchgeführt werden konnte
+musste zuvor das Installations Paket von Grafana heruntergeladen und 
+installiert werden. Auf einem ArchLinux Betriebssystem wird dies Paket mit
+folgendem Befehl heruntergeladen und bereits vorinstalliert:
+
+\begin{lstlisting}[language=bash]
+sudo pacman -S grafana
+\end{lstlisting}
+
+Pacman ist ein Paketinstaller, womit weitere Software aus einem Repository
+heruntergeladen und installiert werden kann. Er durchsucht hier die gesamten
+vordefinierten Repository URLs nach Grafana und installiert hier die aktuellste
+vorliegende Version auf dem Arch Linux Betriebssystem.
+
+Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss 
+dieses mit folgendem Befehl gestartet und falls gewünscht in den Autostart von
+Arch Linux hinterlegt werden:
+\begin{lstlisting}[language=bash]
+systemctl start grafana.service
+\enf{lstlisting}
+
+Nun ist Grafana gestartet und kann über die Weboberfläche mit Port 3000
+bereits aufgerufen und konfiguriert werden. Bei der Installation von Grafana
+wird bereits ein vordefinierter Administrator User mit Password festgelegt. Die
+Zugangsdaten hierzu lauten:
+
+\begin{outline}
+  \1 Benutzername: admin
+  \1 Kennwort: admin
+\end{outline}
+
+Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert 
+werden. Anschließend sieht man hier Bereits das "HomeDashboard" von wo aus die
+einzelnen Einstellungen durchgeführt werden können.
+
+Das HomeDashboard ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
+worüber Alle Einstellungen, wie Plugin Verwaltung, Datenquellen(Datasources)
+oder Benutzereinstellungen durchgeführt werden können. Rechts neben dem Grafana
+Symbol wird immer die aktuelle Ebene angezeigt, auf der der Administrator sich
+befindet. Wenn der Administrator hier auf dem HomeDashboard befindet, so wird
+hier Home und die Übersicht der einzelnen Dashboards. Sollte der Administrator
+in den Einstellungen unter Datasources sein, so wird hier Data Sources
+eingeblendet.  Dies soll den Administrator zusätzlich helfen eine bessere
+Übersichtlichkeit zu erhalten. Auf der Rechten Seite des HomeDashboards hat der
+Administrator oder User die Möglichkeit, den Aktualisierungstimer der
+anzuzeigenen Daten zu verändern.  Standardmäßig steht dieser auf sechs Stunden,
+kann aber beliebig angepasst werden.
+
+Hier kommt das Label rein mit Bild.
+
+Zu Beginn sollte hier zuerst die Datenquelle, von der Grafana die ermittelten
+Daten erhält konfiguriert werden. Hierzu navigiert der Administrator auf das
+Grafana Symbol und wählt hier anschließend "Data Sources" aus. Nun kann hier
+unter "+ Add data source" eine neue Datenquelle definiert werden. Grafana
+bietet bereits von der Installation eine gute Unterstützung von verschiedenen
+Datenhaltungssystemen an. Diese können nach belieben durch sogenannte Plugins
+erweitert werden. 
+
 \section{Draft 1}
 
 \section{Draft 2}
