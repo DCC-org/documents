@@ -209,7 +209,7 @@ mehrere Nachteile mit sich:
   diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit \gls{Jepsen}
   getestet. Die Datenbank hat sich mehrfach als sehr unzuverlässig
   herausgestellt~\cite{MongoDB_on_Jepsen}. Die beiden folgenden Punkte
-  disqualifizieren MongoDB für einen Einsatz als persistenten  Datenspeicher,
+  disqualifizieren MongoDB für einen Einsatz als persistenten Datenspeicher,
   da die Persistenz nicht sichergestellt ist. Es wurde von Kyle Kingsbury
   bewiesen, dass:
     \2 MongoDB bei einem Schreibvorgang bestätigt, dass Daten persistent
@@ -269,7 +269,7 @@ die virtuellen Instanzen und kann dort direkt sehr detailliert Daten ermitteln.
 Im klassischen vServer-Bereich (dem Bereitstellen des vServers als Produkt,
 nicht als Service) hat der Betreiber keinen Zugriff in die VM und muss Daten
 vom Host aus ermitteln. Auf dem Host muss zusätzlich die Gesamtauslastung der
-Ressourcen sowie der Zustand der Hardware ermittelt werden.  Jede
+Ressourcen sowie der Zustand der Hardware ermittelt werden. Jede
 Virtualisierungssoftware bietet Schnittstellen, um Daten über die laufenden
 virtuellen Instanzen zu ermitteln. Dies gilt aber nur für Ressourcen, die die
 Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
@@ -494,7 +494,7 @@ erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
 nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
 Datenformate sind die weitverbreitetsten Formate auf dem Markt und können in
 vielen Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden
-werden.  Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
+werden. Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
 Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering, da
 diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
 neuen Strukturen erlernen muss.
@@ -976,7 +976,7 @@ dieser Liste wurden Systeme aufgenommen, welche den Projektmitgliedern aus
 vergangenen Projekten, beziehungsweise aus dem täglichen Arbeitstag bereits
 bekannt waren. Zusätzlich hatten die Projektmitglieder vorab mit Experten aus
 dem eigenen Unternehmen und aus dem Unternehmen des Auftraggebers über mögliche
-weitere Systeme gesprochen.  Dadurch das Herr Luis in dem Bereich der
+weitere Systeme gesprochen. Dadurch das Herr Luis in dem Bereich der
 Massendatenhaltungssysteme arbeitet, sind ebenfalls Systeme aufgenommen worden,
 welche im Bereich der sogenannten Big Data Technologie arbeiten.
 
@@ -1299,7 +1299,7 @@ nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 \label{subsubsec:opentsdb}
 OpenTSDB ist ein Zeitreihen basiertes Programm, auf Englisch „Time Series
 Daemon (TSD)“, und arbeitet mit dem Open Source Programm \gls{DBMS} „HBase“
-zusammen.  Es verfügt über die Funktionen von einem Konsolen-basierten Zugang,
+zusammen. Es verfügt über die Funktionen von einem Konsolen-basierten Zugang,
 sowie verschiedenen Treibern für den Zugriff und Austausch von Informationen
 zwischen anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der
 Datenspeicherung. Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend
@@ -1333,7 +1333,7 @@ verwalten und keine zusätzlichen Datenhaltungssysteme, welche gegebenenfalls
 nur auf eine einzelne Anforderung spezialisiert sind, zu gründen.
 
 Um diesen Ansatz zu erfüllen, wurde das Cluster-konzept eingesetzt, Hadoop nennt
-es selber „Hadoop Distributed File System“ (HDFS).  Dabei werden die Daten in
+es selber „Hadoop Distributed File System“ (HDFS). Dabei werden die Daten in
 der Datenhaltung nicht mehr auf einem einzelnen physischen System gehalten,
 sowie vor einem Hardwareausfall gesichert, sondern nun auf mehrere Systeme
 verteilt. Hadoop teilt dabei jedem in dem Cluster hinzugefügten System eine
@@ -1424,7 +1424,7 @@ Internetwebseite.
 Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
 Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
 Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
-das  Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
+das Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
 für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
 dem Data Warehouse bekannten „Data Marts“ fallen somit weg und werden durch
 den Aufbau der genannten Sichten ersetzt.
@@ -1454,7 +1454,7 @@ Dabei erhalten die Data Nodes neben der eigentlichen Datenspeicherung noch
 zusätzlich die Funktionen zur Ausübung von Datenbankabfragen (SQL). Konkret
 wird auf jedem Data Node ein „Query Planer“, „Query Coordinator“ und „Query
 Executor“ bereitgestellt. Der Query Planer hält dabei die Kommunikation mit der
-SQL Applikation innerhalb des Netzwerkes.  Dieser gibt definierte Datenabfragen
+SQL Applikation innerhalb des Netzwerkes. Dieser gibt definierte Datenabfragen
 von Benutzern an einen beliebigen Data Node weiter. Nachdem der Query Planer
 die Datenabfrage erhalten hat, kommuniziert er dies an den Query Coordinator,
 welcher wiederrum alle umliegenden Data Nodes um Unterstützung bei der
@@ -1731,13 +1731,13 @@ wie folgt aufgelistet:
   wenn das Produkt bei einem Kunden eingesetzt wird.
   \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnliche Datenwerte. Hiermit ist
-  gemeint das Gewährleistet werden muss, dass  die einzelnen Graphen schnell
+  gemeint das Gewährleistet werden muss, dass die einzelnen Graphen schnell
   und einfach (Endanwender spezifisch) direkt angepasst werden können. Ebenso
   muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
   durchgeführt werden können.
   \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt. Dabei
   muss die Weboberfläche, bereits Möglichkeiten bieten, eine Datensicherung des
-  \glslink{Dashboard}{Dashboards} durchführen zu können.  Das Dashboard,
+  \glslink{Dashboard}{Dashboards} durchführen zu können. Das Dashboard,
   beinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen über zum
   Beispiel ein externes System (Dateifreigabe Server oder ähnliches) abgelegt
   werden und können somit einfach dupliziert und gesichert werden.
@@ -1924,7 +1924,7 @@ gerade in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der
 Weboberfläche kann wahlweise mit einem lokalen User mit Benutzername und
 Kennwort oder mit einer LDAP Anbindung durchgeführt werden. So benötigt der
 Administrator, beziehungsweise der User lediglich seine Active Directory
-Benutzerdaten zur Authentifizierung.  Zabbix ist zudem mit
+Benutzerdaten zur Authentifizierung. Zabbix ist zudem mit
 API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatible, so
 können hier Graphen mit API Abfragen visualisiert werden. Sollte keine Abfrage
 über eine API gewünscht sein, so kann dies ebenfalls mittels Statement direkt
@@ -1977,7 +1977,7 @@ die Anmeldung an der Weboberfläche durchführen zu können, wird ein Benutzer u
 Kennwort benötigt. Es ist hier nicht möglich, ein LDAP an die Weboberfläche
 anbinden zu können. Innerhalb eines Graphen, können bestimmte Teilabschnitte
 mit zum Beispiel Social Media Plattformen, wie Facebook oder Twitter geteilt
-werden.  Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom
+werden. Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom
 Administrator festgelegt werden können. Datadog hat eine vollständige
 API~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
 können vom Administrator Export werden. Eine Möglichkeit, Graphen zu
@@ -2164,7 +2164,7 @@ Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
 virtuellen Maschinen, werden aus einem physischen CPU Kern des Host Systems
 mehrere virtuelle CPU Kerne emuliert und einer Instanz zugewiesen. So kann eine
 VM 2 virtuelle CPU Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
-haben.  Auf jeder Instanz laufen andere Dienste, weshalb jede VM
+haben. Auf jeder Instanz laufen andere Dienste, weshalb jede VM
 unterschiedliche CPUs zugeteilt haben kann. Hier kann es vorkommen, dass eine
 VM mehr CPU Leistung benötigt, als ihr selber zugewiesen ist. Um dies
 frühestmöglich zu erkennen, benötigt der Administrator eine detaillierte
@@ -2303,13 +2303,13 @@ lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC
 mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
 \tm%
 
-\subsection{JVM und JDBC}
-Die JVM (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen von
-Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in der
-der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte Systemsicherheit,
-da die Applikation in der JVM nicht direkt mit dem Hostsystem kommunizieren
-kann. Es hilft auch beim Multithreading. Die JVM ist in der Lage beliebig viele
-Prozesse zu starten und zu verwalten.
+\subsection{JVM}
+Die \gls{JVM} ist eine virtuelle Maschine zum ausführen von Java Bytecode. Sie
+stellt eine abgekapselte Umgebung (Sandbox) bereit in der der Code ausgeführt
+wird. Dies bringt nicht nur eine erhöhte Systemsicherheit, da die Applikation
+in der JVM nicht direkt mit dem Hostsystem kommunizieren kann. Es hilft auch
+beim Multithreading. Die JVM ist in der Lage beliebig viele Prozesse zu starten
+und zu verwalten.
 
 Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
 innerhalb einer JVM\. Normalerweise wird Ruby Code mit dem MRI Interpreter in
@@ -2324,17 +2324,119 @@ JVM profitieren. Sie kümmert sich darum, das alle zur Verfügung stehenden CPU
 Kerne belastet werden und startet entsprechend viele Prozesse mit Logstash.
 Somit erhält man eine sehr einfache Möglichkeit der Datenverarbeitung mit
 mehreren Prozessorkernen~\cite{jruby}.
+\tm%
 
-JDBC (Java Database Connectivity) ist die Schnittstelle der JVM zu Datenbanken.
-Sie stellt generische Funktionen bereit um mit Datenbanken zu kommunizieren.
-Für jede Datenbank, mit der kommuniziert werden soll, wird ein Treiber
-benötigt. Dies ist eine Datei, in der die spezifischen Eigenschaften eines
-bestimmten \gls{DBMS} beschrieben sind. Damit ist die JDBC Schnittstelle in der
-Lage mit diesem DBMS zu kommunizieren. Für Logstash gibt es ein Plugin, welches
-die JDBC Schnittstelle innerhalb des JRuby Bytecodes nutzbar macht. Somit
-ist Logstash in der Lage in eine Datenbank zu schreiben. Postgres bietet einen
-Treiber für JDBC an~\cite{postgres-jdbc}.
+\subsection{JDBC}
+\gls{JDBC} ist die Schnittstelle der JVM zu Datenbanken. Sie stellt generische
+Funktionen bereit um mit Datenbanken zu kommunizieren. Für jede Datenbank, mit
+der kommuniziert werden soll, wird ein Treiber benötigt. Dies ist eine Datei,
+in der die spezifischen Eigenschaften eines bestimmten \gls{DBMS} beschrieben
+sind. Damit ist die JDBC Schnittstelle in der Lage mit diesem DBMS zu
+kommunizieren. Für Logstash gibt es ein Plugin, welches die JDBC Schnittstelle
+innerhalb des JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage in
+eine Datenbank zu schreiben. Postgres bietet einen Treiber für JDBC
+an~\cite{postgres-jdbc}.
+\tm%
 
+\subsection{JDBC Treiber Typen}
+Es gibt vier verschiedene Typen von JDBC Treibern. Typ vier ist besonders
+effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
+folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
+
+\subsubsection{JDBC-ODBC Treiber}
+Hierbei spricht die JDBC Schnittstelle einen sehr generischen \gls{ODBC}
+Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\. Der ODBC
+Treiber muss auf jedem System vorhanden sein, welches die JVM Applikation
+ausführt. Die Bibliothek kann, zusammen mit der Datenbank selbst, auf einem
+anderen System in Netzwerk, oder auch lokal, betrieben werden.
+
+Die Vorteile sind:
+
+\begin{outline}
+  \1 Sehr einfache Implementierung der JDBC, da ein Großteil der Arbeit von
+  der ODBC übernommen wird.
+  \1 Sehr einfacher Austausch der ODBC, da die Schnittstelle generisch ist.
+  \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC Schnittstelle, somit
+  ergibt sich eine lange Liste an alternativen DBMS, welche genutzt werden
+  können.
+\end{outline}
+
+Die Nachteile sind:
+
+\begin{outline}
+  \1 Durch die große Anzahl an Komponenten, durch die die Daten fließen,
+  ergeben sich viele Fehlerquellen.
+  \1 Da alle Schnittstellen sehr generisch sind, kann dort keine Optimierung
+  auf ein spezifisches DBMS erfolgen.
+\end{outline}
+
+\subsubsection{Nativer API Treiber}
+Die JDBC Schnittstelle spricht hier, über den Treiber, direkt die Bibliothek
+des DBMS an. Dafür muss der Treiber, als auch die Bibiliothek auf dem gleichen
+System vorhanden sein, wie die JVM Applikation. Die Datenbank selbst kann auf
+dem gleichen Server, oder über das Netzwerk angesprochen werden.
+
+Die Vorteile im Vergleich zum JDBC-ODBC Treiber:
+\begin{outline}
+  \1 Eine höhere Performance, da Teile direkt in Java geschrieben sind.
+  \1 Geringere Fehleranfälligkeit, da eine Komponente weniger vorhanden ist.
+\end{outline}
+
+Die Performance kann noch etwas verbessert werden. Außerdem ist es nicht immer
+möglich, Zusatzsoftware, wie die Bibliotheken, auf dem gewünschten System zu
+installieren. Es gibt Firmen, die dies Untersagen. Dies trifft allerdings nicht
+in diesem Projekt zu, weshalb es nicht als Negativpunkt gewertet wird.
+
+\subsubsection{Netzwerk Protokoll Treiber}
+Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
+Netzwerkapplikation geschickt (auch Middleware genannt). Diese spricht dann die
+Datenbank an, welche oft auf einem dritten System installiert ist. Hier muss
+keine Drittsoftware auf der eigentlichen Applikation installiert werden.
+
+Die Vorteile sind:
+
+\begin{outline}
+  \1 Die Middleware kann sich dediziert um SQL kümmern und von Fachleuten auf
+  dem Gebiet entwickelt werden.
+  \1 Datenbanklogik muss nicht in der eigentlichen Applikation implementiert
+  werden. Die Entwickler der Applikation können sich auf die Features der
+  Applikation konzentrieren.
+  \1 In der Middlerware kann sehr einfach Auditing erfolgen.
+\end{outline}
+
+Die Nachteile sind:
+
+\begin{outline}
+  \1 Die eigentliche Applikation benötigt zwingend eine Netzwerkfunktionalität.
+  \1 Die Datenbank Operationen erfolgen über zwei Netzwerkverbindungen, was
+  zu einem Overhead führt.
+\end{outline}
+
+\subsubsection{Nativer JDBC Treiber}
+Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, das
+er komplett in Java geschrieben ist. Er wird beim starten der Applikation
+geladen und erlaubt es der JDBC Schnittstelle direkt mit der Datenbank zu
+kommunizieren. Es werden keine weiteren Bibliotheken benötigt. Die Datenbank
+kann auf dem gleichen System wie die Applikation laufen, oder auch über das
+Netzwerk angesprochen werden.
+
+Die Vorteile sind:
+
+\begin{outline}
+  \1 Dieser Treiber bietet die größte mögliche Performance.
+  \1 Der Overhead wurde auf ein Minimum reduziert.
+  \1 Es werden keine zusätzlichen Schnittstellen benötigt, was die
+  Fehleranfälligkeit reduziert.
+\end{outline}
+
+Diese Art von Treiber bietet, aus sicht des Nutzers, keine bekannten Nachteile.
+Die Entwicklung benötigt für diese Art die meiste Arbeit, weshalb nicht jedes
+DBMS solche Treiber zur Verfügung stellt. Für Postgres existieren solche
+Treiber. Logstash ist somit in der Lage besonders effizient auf die Datenbank
+zuzugreifen.
+\tm%
+
+\subsection{JDBC in Kombination mit der JVM}
 Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
 Logstash ist in der Lage die Auslastung der Datenbank über JDBC zu ermitteln.
 Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
