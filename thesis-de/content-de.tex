@@ -2343,16 +2343,19 @@ Es gibt vier verschiedene Typen von JDBC Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
 folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
 
-\subsubsection{JDBC-ODBC}
-Hierbei spricht der JDBC Treiber einen sehr generischen \gls{ODBC} Treiber an.
-Dieser kommuniziert mit einer Bibliothek des DBMS.
+\subsubsection{JDBC-ODBC Treiber}
+Hierbei spricht die JDBC Schnittstelle einen sehr generischen \gls{ODBC}
+Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\. Der ODBC
+Treiber muss auf jedem System vorhanden sein, welches die JVM Applikation
+ausführt. Die Bibliothek kann, zusammen mit der Datenbank selbst, auf einem
+anderen System in Netzwerk, oder auch lokal, betrieben werden.
 
 Die Vorteile sind:
 
 \begin{outline}
   \1 Sehr einfache Implementierung der JDBC, da ein Großteil der Arbeit von
   der ODBC übernommen wird.
-  \1 Sehr einfacher Austausch der ODBC da die Schnittstelle generisch ist.
+  \1 Sehr einfacher Austausch der ODBC, da die Schnittstelle generisch ist.
   \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC Schnittstelle, somit
   ergibt sich eine lange Liste an alternativen DBMS, die man nutzen kann.
 \end{outline}
@@ -2366,46 +2369,69 @@ Die Nachteile sind:
   auf ein spezifisches DBMS erfolgen.
 \end{outline}
 
-\subsubsection{Nativer API Client}
+\subsubsection{Nativer API Treiber}
+Die JDBC Schnittstelle spricht hier, über den Treiber, direkt die Bibliothek
+des DBMS an. Dafür muss der Treiber, als auch die Bibiliothek auf dem gleichen
+System vorhanden sein, wie die JVM Applikation. Die Datenbank selbst kann auf
+dem gleichen Server, oder über das Netzwerk angesprochen werden.
+
+Die Vorteile im Vergleich zum JDBC-ODBC Treiber:
+\begin{outline}
+  \1 Eine höhere Performance, da Teile direkt in Java geschrieben sind.
+  \1 Geringere Fehleranfälligkeit, da eine Komponente weniger vorhanden ist.
+\end{outline}
+
+Die Performance kann noch etwas verbessert werden. Außerdem ist es nicht immer
+möglich, Zusatzsoftware, wie die Bibliotheken, auf dem gewünschten System zu
+installieren. Es gibt Firmen, die dies Untersagen. Dies trifft allerdings nicht
+in diesem Projekt zu, weshalb es nicht als Negativpunkt gewertet wird.
+
+\subsubsection{Netzwerk Protokoll Treiber}
+Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
+Netzwerkapplikation geschickt (auch Middleware genannt). Diese spricht dann die
+Datenbank an, welche oft auf einem dritten System installiert ist. Hier muss
+keine Drittsoftware auf der eigentlichen Applikation installiert werden.
 
 Die Vorteile sind:
-\begin{outline}
 
+\begin{outline}
+  \1 Die Middleware kann sich dediziert um SQL kümmern und von Fachleuten auf
+  dem Gebiet entwickelt werden.
+  \1 Datenbanklogik muss garnicht in der eigentlichen Applikation implementiert
+  werden.
+  \1 In der Middlerware kann sehr einfach Auditing erfolgen.
 \end{outline}
 
 Die Nachteile sind:
 
 \begin{outline}
-
+  \1 Die eigentliche Applikation benötigt zwingend eine Netzwerkfunktionalität.
+  \1 Die Datenbank Operationen erfolgen über zwei Netzwerkverbindungen, was
+  zu einem Overhead führt.
 \end{outline}
 
-\subsubsection{Netzwerk Client}
+\subsubsection{Nativer JDBC Treiber}
+Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, das
+er komplett in Java geschrieben ist. Er wird beim starten der Applikation
+geladen und erlaubt es der JDBC Schnittstelle direkt mit der Datenbank zu
+kommunizieren. Es werden keine weiteren Bibliotheken benötigt. Die Datenbank
+kann auf dem gleichen System wie die Applikation laufen, oder auch über das
+Netzwerk angesprochen werden.
 
 Die Vorteile sind:
 
 \begin{outline}
-
+  \1 Dieser Treiber bietet die größte mögliche Performance.
+  \1 Der Overhead wurde auf ein Minimum reduziert.
+  \1 Es werden keine zusätzlichen Schnittstellen benötigt, was die
+  Fehleranfälligkeit reduziert.
 \end{outline}
 
-Die Nachteile sind:
-
-\begin{outline}
-
-\end{outline}
-
-\subsubsection{Nativer Client}
-
-Die Vorteile sind:
-
-\begin{outline}
-
-\end{outline}
-
-Die Nachteile sind:
-
-\begin{outline}
-
-\end{outline}
+Diese Art von Treiber bietet, aus sicht des Nutzers, keine bekannten Nachteile.
+Die Entwicklung benötigt für diese Art die meiste Arbeit, weshalb nicht jedes
+DBMS solche Treiber zur Verfügung stellt. Für Postgres existieren solche
+Treiber. Logstash ist somit in der Lage besonders effizient auf die Datenbank
+zuzugreifen.
 \tm%
 
 \subsection{JDBC in Kombination mit der JVM}
