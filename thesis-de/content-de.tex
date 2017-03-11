@@ -2314,12 +2314,12 @@ beliebig viele Prozesse zu starten und zu verwalten.
 
 Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
 innerhalb einer JVM\. Normalerweise wird Ruby Code mit dem \gls{MRI}
-Interpreter in Maschinencode übersetzt und direkt auf dem Betriebsystem
+Interpreter in Maschinencode übersetzt und direkt auf dem Betriebssystem
 ausgeführt. Der Interpreter JRuby übersetzt den Ruby Code in Java Bytecode,
 dieser wird dann von der JVM in einem Prozess ausgeführt und nicht direkt auf
 dem Betriebssystem. Dies ermöglicht es, Multithreading bei der Entwicklung des
 Ruby Codes zu ignorieren. Hierfür muss keine Funktionalität programmiert
-werden, da dies automatisch von der JVM übernommen wird.Ein normales Ruby
+werden, da dies automatisch von der JVM übernommen wird. Ein normales Ruby
 Script wird nur auf einem Prozessorkern ausgeführt. Ein einzelner Kern kann
 aber die erwartete Datenmenge nicht aus dem Message Bus abfragen und
 verarbeiten. Hier kann die Architektur stark von der JVM profitieren. Sie
