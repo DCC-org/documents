@@ -1,0 +1,3 @@
+package { 'htop':
+  ensure => '2.0.2-1',
+}
