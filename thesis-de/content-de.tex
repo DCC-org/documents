@@ -2643,13 +2643,14 @@ Im Anhang befindet sich ein Beispiel für eine solche Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation, stellte sich
 heraus das es hier ein Problem gibt, die Konfiguration an Grafana zu übergeben.
-Das Puppet Modul prüft hier mit einem Login Versuch unmittelbar nach der
-Installation, ob Grafana erreichbar ist. Dieses schlägt jedoch fehl, da es bis
-zu einer Minute dauern kann, bis das Webinterface komplett erreichbar ist.
-Wenn hier anschließend erneut der Befehl puppet apply ausgeführt wird, so wird
-die Konfiguration erfolgreich implementiert. Abhilfe schafft hier, die
-Anpassung der "grafana.pp" Datei. In dieser wird eine Verzögerung, bei der
-Prüfung der erreichbarkeit festgelegt.
+Das Puppet Modul prüft hier den Login auf die Weboberfläche nicht, da es davon
+ausgeht, das die Weboberfläche nach dem Neustart von Grafana unmittelbar danach
+erreichbar ist. Es kann bis zu einer Minute nach dem Neustart dauern, bis die
+Weboberfläche erreichbar ist.  Wenn hier anschließend erneut der Befehl puppet
+apply ausgeführt wird, so wird die Konfiguration erfolgreich implementiert.
+Abhilfe schafft hier, die Anpassung der "grafana.pp" Datei. In dieser wird eine
+Verzögerung, bzw. Login Anmeldung, bei der Prüfung der erreichbarkeit
+festgelegt und definiert.
 \mr%
 
 
