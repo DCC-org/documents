@@ -2349,7 +2349,7 @@ folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
 
 \subsubsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC Schnittstelle einen sehr generischen \gls{ODBC}
-Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\. Der ODBC
+Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\@. Der ODBC
 Treiber muss auf jedem System vorhanden sein, welches die JVM Applikation
 ausführt. Die Bibliothek kann, zusammen mit der Datenbank selbst, auf einem
 anderen System in Netzwerk, oder auch lokal, betrieben werden.
@@ -2512,7 +2512,8 @@ Platform. Das Grafana Modul besitzt eigene Typen, welche Dashboards und
 Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
 normale Textdateien sondern über eine API oder Weboberfläche. Über die eigenen
 Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
-sondern auch die komplette Konfiguration automatisieren.
+sondern auch die komplette Konfiguration
+automatisieren~\cite{puppet-resource-types}.
 
 Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
@@ -2525,6 +2526,7 @@ Rahmen des Projekts werden diverse Profile erzeugt, um die einzelnen benötigten
 Komponenten gebündelt zu automatisieren. Ein Beispielhaftes Profil für Grafana
 findet sich unter~\ref{lst:grafana}. Dies installiert Grafana und richtet
 außerdem ein Dashboard und eine Datenquelle ein.
+\tm%
 
 \subsection{Ablauf eines Puppet Runs}
 Puppet kann nach dem \gls{Client-Server} Prinzip arbeiten. Der Agent läuft
