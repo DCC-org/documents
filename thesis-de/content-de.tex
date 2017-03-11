@@ -2639,7 +2639,8 @@ wird nur dann benötigt, wenn spezielle Anforderung vom Kunden gewünscht sind.
 Dashboards werden in der Konfigurationsdatei des Puppet Moduls für Grafana als
 \gls{JSON} definiert und können im nachhinein angepasst werden.
 
-Im Anhang befindet sich ein Beispiel für eine solche Konfigurationsdatei.
+Im Anhang~\ref{lst:grafana} befindet sich ein Beispiel für eine solche
+Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation, stellte sich
 heraus das es hier ein Problem gibt, die Konfiguration an Grafana zu übergeben.
@@ -2650,7 +2651,7 @@ Weboberfläche erreichbar ist.  Wenn hier anschließend erneut der Befehl puppet
 apply ausgeführt wird, so wird die Konfiguration erfolgreich implementiert.
 Abhilfe schafft hier, die Anpassung der "grafana.pp" Datei. In dieser wird eine
 Verzögerung, bzw. Login Anmeldung, bei der Prüfung der erreichbarkeit
-festgelegt und definiert.
+festgelegt und definiert~\cite{grafana-issue}.
 \mr%
 
 
