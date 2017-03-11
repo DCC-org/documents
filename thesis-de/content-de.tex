@@ -2479,7 +2479,8 @@ Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
 Automatisierung einer bestimmten Software benötigt wird. Über die Platform
 „https://forge.puppet.com/“ können diese Module ausgetauscht werden. Es
 existieren bereits Module zur Verwaltung von Postgres, collectd, Grafana und
-Logstash.
+Logstash. Jedes Modul hat seinen seinen eigenen Namespace und bündelt ein oder
+mehrere Klassen.
 \tm%
 
 \subsection{Strukturierung im puppet Code}
@@ -2516,6 +2517,14 @@ sondern auch die komplette Konfiguration automatisieren.
 Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
 Abstraktion kann Code sehr häufig wiederverwendet werden.
+
+In einem Puppet Profil werden mehrere Module und Ressourcen deklariert, um
+eine bestimmte Aufgabe zu realisiern. Dieses Profil ist aus Sicht des Codes
+eine normale Klasse. Ein Profil wird einem oder mehreren Nodes zugewiesen. Im
+Rahmen des Projekts werden diverse Profile erzeugt, um die einzelnen benötigten
+Komponenten gebündelt zu automatisieren. Ein Beispielhaftes Profil für Grafana
+findet sich unter~\ref{lst:grafana}. Dies installiert Grafana und richtet
+außerdem ein Dashboard und eine Datenquelle ein.
 
 \subsection{Ablauf eines Puppet Runs}
 Puppet kann nach dem \gls{Client-Server} Prinzip arbeiten. Der Agent läuft
