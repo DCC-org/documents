@@ -2584,7 +2584,12 @@ für diesen Graphen definiert werden können. Hier wird zunächst die Metrik des
 Graphen angepasst, damit der Graph Werte visualisieren kann.  Anbei ein
 Beispiel, für eine solche Abfrage:
 
-\ref{figure:graph}
+\begin{figure}[tbp]
+ +  \centering
+ +  \includegraphics[width=1.0\textwidth]{../figures/graph.png}
+ +  \caption{Beispielabfrage für eine Graphen Visualisierung}
+ +\label{figure:graph}
+ +\end{figure}
 
 Anschließend können noch diverse Feineinstellungen für den Graphen vorgenommen
 werden. Dieses vorgehen wird nun für jeden Graphen erstellt, dessen Werte
@@ -2617,22 +2622,22 @@ Grafana. Um hier jedoch nicht bei jedem einzelnen Kunden diese Anpassung
 vornehmen zu müssen, kann die Installation, wie auch die Konfiguration
 automatisiert werden.
 
-Die Automatisierung erfolgt mit einem Puppet Modul. Das Puppet Modul hat
+Die Automatisierung erfolgt mit einem Puppet Profil. Das Puppet Profil hat
 verschiedene Vorteile. So ist dieses Betriebsystem unabhänig, Versionen von
 Grafana können vorgegeben werden und Konfiguration werden direkt während der
-Installation in die Software implementiert. Um das Puppet Modul aufrufen zu
+Installation in die Software implementiert. Um das Puppet Profil aufrufen zu
 können, wird folgender Befehl benötigt:
 
 \begin{lstlisting}[language=bash]
 sudo puppet apply grafana.pp
 \end{lstlisting}
 
-Innerhalb des Moduls wird eine „grafana.pp“ Datei erstellt und anschließend
-mit dem Puppet Modul aufgerufen. In dieser ist definiert, mit welcher Version
+Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließend
+mit dem Puppet Profils aufgerufen. In dieser ist definiert, mit welcher Version
 Grafana installiert, welche Datenquelle verwendet oder welches Dashboard
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
 verschiedene andere Parameter, wie LDAP Anbindung übergeben werden. Dies
-erleichtert dem Administrator die Konfiguration, da dieses Modul nur einmal auf
+erleichtert dem Administrator die Konfiguration, da dieses Profil nur einmal auf
 dem Betriebssystem ausgeführt werden muss um Grafana zu installieren und
 konfigurieren. Eine zusätzliche Konfiguration nach der installation von Grafana
 wird nur dann benötigt, wenn spezielle Anforderung vom Kunden gewünscht sind.
@@ -2644,7 +2649,7 @@ Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation, stellte sich
 heraus das es hier ein Problem gibt, die Konfiguration an Grafana zu übergeben.
-Das Puppet Modul prüft hier den Login auf die Weboberfläche nicht, da es davon
+Das Puppet Profil prüft hier den Login auf die Weboberfläche nicht, da es davon
 ausgeht, das die Weboberfläche nach dem Neustart von Grafana unmittelbar danach
 erreichbar ist. Es kann bis zu einer Minute nach dem Neustart dauern, bis die
 Weboberfläche erreichbar ist.  Wenn hier anschließend erneut der Befehl puppet
