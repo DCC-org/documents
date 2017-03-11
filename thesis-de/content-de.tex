@@ -2651,12 +2651,10 @@ Während der ersten Tests für die Automatisierung der Installation, stellte sic
 heraus das es hier ein Problem gibt, die Konfiguration an Grafana zu übergeben.
 Das Puppet Profil prüft hier den Login auf die Weboberfläche nicht, da es davon
 ausgeht, das die Weboberfläche nach dem Neustart von Grafana unmittelbar danach
-erreichbar ist. Es kann bis zu einer Minute nach dem Neustart dauern, bis die
-Weboberfläche erreichbar ist.  Wenn hier anschließend erneut der Befehl puppet
-apply ausgeführt wird, so wird die Konfiguration erfolgreich implementiert.
-Abhilfe schafft hier, die Anpassung der "grafana.pp" Datei. In dieser wird eine
-Verzögerung, bzw. Login Anmeldung, bei der Prüfung der erreichbarkeit
-festgelegt und definiert~\cite{grafana-issue}.
+erreichbar ist. Das Problem liegt hier nicht in der grafana.pp sondern in dem
+eigentlichen Puppet Modul, welche uns die Ressourcentypen grafana-dashboard,
+sowie grafana-datasource bereitstellt. Hierzu wurde ein Bugreport beim
+Entwickler des Puppet Moduls erstellt~\cite{grafana-issue}.
 \mr%
 
 
