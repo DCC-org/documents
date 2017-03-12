@@ -2823,16 +2823,20 @@ Im Beispiel im Grafana Profil, sehen die Tests wie folgt aus:
   \caption{Tests für das Grafana Profil}
 \end{listing}
 
-Zuerst, werden die verschiedenen Betriebssysteme für das Grafana Profil
-getestet. Im Anschluss wird geprüft, ob die Ressourcen grafana\_dashboard,
-sowie grafana\_datasources in dem Profil enthalten sind. Zusätzlich wird hier
-noch geprüft, ob die Syntax des Profils in Ordnung ist. Erst hiernach gelten
-die Tests als bestanden. Diese Tests, können für jedes Profil einzeln definiert
-werden, da jedes Profil unterschiedliche Ressourcen benötigt. Im Anhang
-befindet sich ein Auszug aus einem bestanden Test. Es wurde bewusst darauf
-geachtet, das nur die einzelnen Profile mit Ressourcen geprüft werden, da jede
-einzelne Software bereits vom Entwickler auf Funktionalität und Sicherheit
-geprüft wurde.
+Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana Profil auf
+diesen zu testen. Jedes Betriebssystem besitzt betriebssystemspezifische
+\glslink{Fact}{Facts}. Diese werden von rspec simuliert und mit hilfe einer
+liste der unterstützten Betriebssystemen auf dem entsprechenend Profil
+getestet. Diese Liste an Betriebssystemen, wird aus der "metadata.json"
+ausgelesen und hierfür immer ein Katalog erstellt. Dieser zuvor erstellte
+Katalog wird anschließend geprüft. Unter anderem, kann das rspec prüfen, ob
+benötigte Ressourcen, wie \texttt{grafana\_dashboard}, oder
+\texttt{grafana\_datasources} in dem Profil enthalten sind. Diese Tests, können
+für jedes Profil einzeln definiert werden, da jedes Profil unterschiedliche
+Ressourcen benötigt. Im Anhang befindet sich ein Auszug aus einem bestanden
+Test. Es wurde bewusst darauf geachtet, das nur die einzelnen Profile mit
+Ressourcen geprüft werden, da jede einzelne Software bereits vom Entwickler auf
+Funktionalität und Sicherheit geprüft wurde.
 
 Der Vorteil von solchen Unit Tests mit rspec sind folgende:
 \begin{outline}
