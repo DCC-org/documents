@@ -1,0 +1,40 @@
+marcellii@ci ~/puppet-profiles $ bundle exec rake test
+profiles::grafana
+  on archlinux-3-x86_64
+    with all defaults
+      should contain Class[profiles::grafana]
+      should contain Grafana_dashboard[example_dashboard]
+      should contain Grafana_datasource[influxdb]
+      should compile into a catalogue without dependency cycles
+  on ubuntu-16.04-x86_64
+    with all defaults
+      should contain Class[profiles::grafana]
+      should contain Grafana_dashboard[example_dashboard]
+      should contain Grafana_datasource[influxdb]
+      should compile into a catalogue without dependency cycles
+  on centos-7-x86_64
+    with all defaults
+      should contain Class[profiles::grafana]
+      should contain Grafana_dashboard[example_dashboard]
+      should contain Grafana_datasource[influxdb]
+      should compile into a catalogue without dependency cycles
+  on ubuntu-14.04-x86_64
+    with all defaults
+      should contain Class[profiles::grafana]
+      should contain Grafana_dashboard[example_dashboard]
+      should contain Grafana_datasource[influxdb]
+      should compile into a catalogue without dependency cycles
+  on debian-8-x86_64
+    with all defaults
+      should contain Class[profiles::grafana]
+      should contain Grafana_dashboard[example_dashboard]
+      should contain Grafana_datasource[influxdb]
+      should compile into a catalogue without dependency cycles
+
+Finished in 6.64 seconds (files took 3.54 seconds to load)
+20 examples, 0 failures
+
+
+20 examples, 0 failures
+
+
