@@ -2794,15 +2794,15 @@ Alternativ müsste jeder Entwickler die Tests selbst lokal ausführen.
 \section{Unit Tests}
 Für die Tests und Qualitätsicherung wurden unter anderem Unit Tests verwendet.
 Unit Tests sind Software Tests und werden immer dann verwendet, wenn jeweils
-die Kernfunktion von einem Quellcode geprüft werden soll. Das Framework hierzu
-ist von rspec. Rspec stellt eine \gls{DSL} zur Verfügung, in der Testszenarien
+die Kernfunktion von einem Quellcode geprüft werden soll. Rspec ist das
+Framework und stellt eine \gls{DSL} zur Verfügung, in der Testszenarien
 definiert werden können. Die Puppet Module, die in diesem Projekt verwendet
-werden, wie zum Beispiel Grafana, besitzen schon einige Testszenarien, welche
-erweitert worden sind. Man kann hier mit einem Test, zum Beispiel prüfen, ob
-das Profil auf unterschiedlichen Betriebssystemen ausgeführt werden könnte oder
-ob bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn
-müssen diese vorab mit rspec in dem katalog kompiliert und definiert werden,
-damit diese verwendet werden können. Mit folgendem Befehl, können die Tests
+werden, wie zum Beispiel Grafana, besitzen schon einige Tests, welche erweitert
+worden sind. Man kann hier mit einem Test, zum Beispiel prüfen, ob das Profil
+auf unterschiedlichen Betriebssystemen ausgeführt werden könnte oder ob
+bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn müssen
+diese vorab mit rspec in dem katalog kompiliert und definiert werden, damit
+diese verwendet werden können. Mit folgendem Befehl, können die Tests
 durchgeführt werden:
 \begin{lstlisting}[language=bash]
 bundle exec rake spec
