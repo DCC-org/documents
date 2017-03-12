@@ -2345,7 +2345,7 @@ bestimmten \gls{DBMS} für die JDBC\@. Er kommuniziert auf der einen Seite mit
 dem DBMS und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es ein
 Plugin, welches die JDBC Schnittstelle innerhalb des JRuby Bytecodes nutzbar
 macht.  Somit ist Logstash in der Lage in eine Datenbank zu schreiben. Hierfür
-musste ausschlieslich die Kommunikation mit der JDBC programmiert werden.
+musste ausschließlich die Kommunikation mit der JDBC programmiert werden.
 Postgres bietet einen Treiber für JDBC an~\cite{postgres-jdbc}.
 \tm%
 
@@ -2480,6 +2480,7 @@ Implementierung.
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
 Konfigurationsmanagement- und Automatisierungs-Software. Sie erlaubt es, in
+<<<<<<< HEAD
 einer \glslink{Deklarative Programmiersprache}{deklarativen} \gls{DSL}, den
 gewünschten Systemzustand zu beschreiben. Die Software realisiert dies. In
 Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
@@ -2533,6 +2534,14 @@ Rahmen des Projekts werden diverse Profile erzeugt, um die einzelnen benötigten
 Komponenten gebündelt zu automatisieren. Ein Beispielhaftes Profil für Grafana
 findet sich unter~\ref{lst:grafana}. Dies installiert Grafana und richtet
 außerdem ein Dashboard und eine Datenquelle ein.
+=======
+einer deklarativen \gls{DSL}, den gewünschten Systemzustand zu beschreiben.
+Die Software realisiert dies. In Modulen wird der puppet Code gebündelt. Jedes
+Modul enthält Code, welcher zur Automatisierung einer bestimmten Software
+benötigt wird. Über die Platform \url{https://forge.puppet.com/} können diese
+Module ausgetauscht werden. Es existieren bereits Module zur Verwaltung von
+Postgres, collectd, Grafana und Logstash.
+>>>>>>> f9a5cef7676735a61862ba5cc5e3ab7047c4825c
 \tm%
 
 \subsection{Ablauf eines Puppet Runs}
@@ -2722,8 +2731,76 @@ Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
 erstellt~\cite{grafana-issue}.
 \mr%
 
+\chapter{Tests und Qualitätssicherung}
+Der genutzte, sowie der selbst entwickelte, Code ist äußerst komplex. Es
+muss von Anfang an sichergestellt werden, dass dieser Code nicht nur
+funktioniert, sondern auch den gängigen Best Practices der jeweiligen
+Programmiersprache entspricht. Dadurch wird der Code strukturierter und
+ist für Außenstehende leichter zu verstehen. Im folgenden Kapitel werden die
+einzelnen Testverfahren vorgestellt und begründet.
+\tm%
 
-\section{Tests und Qualitätssicherung}
+\section{Peer Review}
+Alles an entwickelter Software befindet sich in einem \gls{Git}
+\gls{Repository}. Die Repositories sind unter anderem auf der Webseite
+\url{https://github.com/} gespeichert. Im Branch \texttt{master} befindet sich
+ausschließlich getesteter Code. Es wird nie direkt in diesem Branch gearbeitet.
+Jedes Teammitglied erstellt sich einen \texttt{Feature Branch}. Dies ist ein
+kurzlebiger Branch, welcher auf \texttt{master} aufbaut. Im \texttt{Feature
+Branch} wird ein einzelnes Feature implementiert von einem einzelnen
+Teammitglied. Im Anschluss wird ein Pull Request eröffnet. Dies ist eine
+Möglichkeit von GitHub, einen Branch mit einem anderen zusammen zu führen. Über
+die Webseite werden die Unterschiede der beiden Branches gezeigt. Ein weiteres
+Teammitglied liest diese Änderungen (Review). Man kann nun Korrekturen
+anfordern oder den Code mergen. Dann wird der \texttt{Feature Branch} mit
+\texttt{master} zusammengeführt. Ein Teammitglied darf nie seinen eigenen Code
+mergen.
+\tm%
+
+\section{Continuous Integration}
+Continuous Integration beschreibt eine Vorgehensweise in der
+Softwareentwicklung. Hierbei wird für jede Änderung eine zuvor definierte
+Testmatrix durchlaufen, um sicherzustellen, dass die Software weiterhin intakt
+ist. Dies setzt vorraus, das Tests for dem eigentlichen Code entwickelt werden
+(Test Driven Development) oder parallel zur Entwicklung des Codes. Ersteres
+stellt sicher, das ausschlieslich das implementiert wird, das gefordert ist.
+In den Tests wird definiert wie eine Software zu funktionieren hat, danach
+wird so lange am Code entwickelt bis die Tests erfolgreich sind. Wenn man die
+Tests parallel zum Code entwickelt, ist es möglich, dass der Code mehr als die
+geforderte Funktionalität aufweist.
+
+Im Rahmen des Projekts werden Tests immer parallel zum Code entwickelt. Test
+Driven Development erfordert ein enormes Fachwissen über die genutzten
+Frameworks für Tests. Dieses lässt sich, aufgrund der komplexität, nicht
+während des Projektes aneignen.
+\tm%
+
+\subsection{Travis}
+Travis ist eine Platform für Continuous Integration. Sie ist kostenlos nutzbar
+und stellt verschiedene virtuelle Maschinen und Container bereit, in denen
+Tests ausgeführt werden können. GitHub kann bei neuen Pull Requests eine
+Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM und
+klont das entsprechende GitHub Repository und den \texttt{Feature Branch}.
+Danach wird eine definierte Testmatrix ausgeführt. Travis schickt eine
+Benachrichtigung an GitHub, nachdem die Tests beendet wurden. Somit ist in der
+Weboberfläche ersichtlich, ob die Tests erfolgreich waren oder nicht.
+
+Dieses Verfahren ermöglicht es, eine reproduzierbare Testumgebung zu nutzen.
+Diese wird immer auotmatisch gestartet. Es ist nicht mehr notwendig, jeden Test
+lokal auszuführen. Travis stellt VMs bereit, in denen nur das nötigste
+installiert ist. Dadurch ist sichergestellt, dass keine \glslink{Side
+Effect}{Side Effects} auftreten. Bei lokalen Tests tritt dies häufig auf. Der
+Entwickler hat diverse Bibliotheken installiert, welche von der entwickelten
+Software benötigt werden.  Innerhalb der entwickelten Software wird eine
+Abhängigkeit nicht definiert, es funktioniert aber trotzdem, da die Bibliothek
+zufällig vorhanden ist.  Innerhalb von Travis fällt dies aber auf. Außerdem ist
+es jedem Teammitglied möglich, die Travis Logs von überall aus zu begutachten.
+Alternativ müsste jeder Entwickler die Tests selbst lokal ausführen.
+\tm%
+
+\section{Linter und Syntax Validator}
+
+\section{Unit Tests}
 Für die Tests und Qualitätsicherung wurden unter anderem Unit Tests verwendet.
 Unit Tests sind Software Tests und werden immer dann verwendet, wenn jeweils
 die Kernfunktion von einem Quellcode geprüft werden soll. Das Framework hierzu
@@ -2741,7 +2818,10 @@ bundle exec rake spec
 
 Im Beispiel im Grafana Profil, sehen die Tests wie folgt aus:
 
-\lstinputlisting[language=ruby,caption={test für grafana profil}]{../listings/rspec-grafana.txt}
+\begin{listing}
+  \inputminted{ruby}{../listings/rspec-grafana.txt}
+  \caption{Tests für das Grafana Profil}
+\end{listing}
 
 Zuerst, werden die verschiedenen Betriebssysteme für das Grafana Profil
 getestet. Im Anschluss wird geprüft, ob die Ressourcen grafana\_dashboard,
