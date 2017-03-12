@@ -2282,7 +2282,7 @@ Problemen entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
 Queue genannt) zu installieren.
 \tm%
 
-\subsection{Message Bus}
+\section{Message Bus}
 Ein Message Bus ist eine Applikationen welche auf einem oder mehreren Servern
 betrieben wird und als \gls{Middleware} agiert. Über diverse
 Netzwerkschnittstellen ist es möglich, Daten auf diesen Bus zu senden. Jedes
@@ -2311,7 +2311,7 @@ lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC
 mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
 \tm%
 
-\subsection{JVM}
+\section{JVM}
 Die \gls{JVM} (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen
 von Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in
 der der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte
@@ -2336,7 +2336,7 @@ sehr einfache Möglichkeit der Datenverarbeitung mit mehreren
 Prozessorkernen~\cite{jruby}.
 \tm%
 
-\subsection{JDBC}
+\section{JDBC}
 \gls{JDBC} (Java Database Connectivity) ist die Schnittstelle der JVM zu
 Datenbanken. Sie stellt generische Funktionen bereit um mit Datenbanken zu
 kommunizieren. Für jede Datenbank, mit der kommuniziert werden soll, wird ein
@@ -2354,7 +2354,7 @@ Es gibt vier verschiedene Typen von JDBC Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
 folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
 
-\subsubsection{JDBC-ODBC Treiber}
+\subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC Schnittstelle einen sehr generischen \gls{ODBC}
 Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\@. Der ODBC
 Treiber muss auf jedem System vorhanden sein, welches die JVM Applikation
@@ -2381,7 +2381,7 @@ Die Nachteile sind:
   auf ein spezifisches DBMS erfolgen.
 \end{outline}
 
-\subsubsection{Nativer API Treiber}
+\subsection{Nativer API Treiber}
 Die JDBC Schnittstelle spricht hier, über den Treiber, direkt die Bibliothek
 des DBMS an. Dafür muss der Treiber, als auch die Bibiliothek auf dem gleichen
 System vorhanden sein, wie die JVM Applikation. Die Datenbank selbst kann auf
@@ -2399,7 +2399,7 @@ dem gewünschten System zu installieren. Es gibt Firmen, die dies Untersagen.
 Dies trifft allerdings nicht in diesem Projekt zu, weshalb es nicht als
 Negativpunkt gewertet wird.
 
-\subsubsection{Netzwerk Protokoll Treiber}
+\subsection{Netzwerk Protokoll Treiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
 Netzwerkapplikation geschickt (auch \gls{Middleware} genannt). Diese spricht
 dann die Datenbank an, welche oft auf einem dritten System installiert ist.
@@ -2428,7 +2428,7 @@ Die Nachteile sind:
   zurückgreifen kann.
 \end{outline}
 
-\subsubsection{Nativer JDBC Treiber}
+\subsection{Nativer JDBC Treiber}
 Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, das
 er komplett in Java geschrieben ist. Er wird beim starten der Applikation
 geladen und erlaubt es der JDBC Schnittstelle direkt mit der Datenbank zu
@@ -2453,7 +2453,7 @@ Treiber. Logstash ist somit in der Lage besonders effizient auf die Datenbank
 zuzugreifen.
 \tm%
 
-\subsection{JDBC in Kombination mit der JVM}
+\section{JDBC in Kombination mit der JVM}
 Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
 Logstash ist in der Lage die Auslastung der Datenbank über JDBC zu ermitteln.
 Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
