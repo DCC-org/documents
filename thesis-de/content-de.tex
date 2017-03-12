@@ -2696,7 +2696,22 @@ mergen.
 \tm%
 
 \section{Continuous Integration}
-travis.
+Continuous Integration beschreibt eine Vorgehensweise in der
+Softwareentwicklung. Hierbei wird für jede Änderung eine zuvor definierte
+Testmatrix durchlaufen, um sicherzustellen, dass die Software weiterhin intakt
+ist. Dies setzt vorraus, das Tests for dem eigentlichen Code entwickelt werden
+(Test Driven Development) oder parallel zur Entwicklung des Codes. Ersteres
+stellt sicher, das ausschlieslich das implementiert wird, das gefordert ist.
+In den Tests wird definiert wie eine Software zu funktionieren hat, danach
+wird so lange am Code entwickelt bis die Tests erfolgreich sind. Wenn man die
+Tests parallel zum Code entwickelt, ist es möglich, dass der Code mehr als die
+geforderte Funktionalität aufweist.
+
+Im Rahmen des Projekts werden Tests immer parallel zum Code entwickelt. Test
+Driven Development erfordert ein enormes Fachwissen über die genutzten
+Frameworks für Tests. Dieses lässt sich, aufgrund der komplexität, nicht
+während des Projektes aneignen.
+\tm%
 
 \section{Linter und Syntax Validator}
 
