@@ -680,7 +680,11 @@ auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
 Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen Daten
 des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
-\lstinputlisting[language=bash,caption={/proc mit awk parsen},label=lst:aw]{../listings/coreutils-awk.txt}
+\begin{listing}
+  \inputminted{bash}{../listings/coreutils-awk.txt}
+  \caption{/proc mit awk parsen}
+  \label{lst:aw}
+\end{listing}
 
 Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
 
@@ -888,7 +892,10 @@ werden Streams definiert. Diese laufen immer nach dem gleichen Schema ab:
   Jeder Aktion können Optionen mitgegeben werden.
 \end{outline}
 
-\lstinputlisting[language=Clojure,caption={Einfache Riemann Konfiguration}]{../listings/riemann-config.txt}
+\begin{listing}
+  \inputminted{clojure}{../listings/riemann-config.txt}
+  \caption{Einfache Riemann Konfiguration}
+\end{listing}
 
 Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
 Sobald diese bei 75°C oder höher liegt wird eine eMail an tim@bastelfreak.de
