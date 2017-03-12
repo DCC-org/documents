@@ -892,7 +892,10 @@ werden Streams definiert. Diese laufen immer nach dem gleichen Schema ab:
   Jeder Aktion können Optionen mitgegeben werden.
 \end{outline}
 
-\lstinputlisting[language=Clojure,caption={Einfache Riemann Konfiguration}]{../listings/riemann-config.txt}
+\begin{listing}
+  \inputminted{clojure}{../listings/riemann-config.txt}
+  \caption{Einfache Riemann Konfiguration}
+\end{listing}
 
 Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
 Sobald diese bei 75°C oder höher liegt wird eine eMail an tim@bastelfreak.de
