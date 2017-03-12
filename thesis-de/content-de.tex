@@ -2338,7 +2338,7 @@ bestimmten \gls{DBMS} für die JDBC\@. Er kommuniziert auf der einen Seite mit
 dem DBMS und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es ein
 Plugin, welches die JDBC Schnittstelle innerhalb des JRuby Bytecodes nutzbar
 macht.  Somit ist Logstash in der Lage in eine Datenbank zu schreiben. Hierfür
-musste ausschlieslich die Kommunikation mit der JDBC programmiert werden.
+musste ausschließlich die Kommunikation mit der JDBC programmiert werden.
 Postgres bietet einen Treiber für JDBC an~\cite{postgres-jdbc}.
 \tm%
 
@@ -2670,11 +2670,11 @@ erstellt~\cite{grafana-issue}.
 
 
 \chapter{Tests und Qualitätssicherung}
-Der genutzte, und auch der selbst entwickelte, Code ist äußerst komplex. Es
+Der genutzte, sowie der selbst entwickelte, Code ist äußerst komplex. Es
 muss von Anfang an sichergestellt werden, dass dieser Code nicht nur
 funktioniert, sondern auch den gängigen Best Practices der jeweiligen
 Programmiersprache entspricht. Dadurch wird der Code strukturierter und
-ist für Außenstehende leicher zu verstehen. Im folgenden Kapitel werden die
+ist für Außenstehende leichter zu verstehen. Im folgenden Kapitel werden die
 einzelnen Testverfahren vorgestellt und begründet.
 \tm%
 
@@ -2714,16 +2714,16 @@ während des Projektes aneignen.
 \tm%
 
 \subsection{Travis}
-Travis ist eine Platform Platform für Continuous Integration. Sie ist kostenlos
-nutzbar und stellt verschiedene virtuelle Maschinen und Container bereit, in
-denen Tests ausgeführt werden können. GitHub kann bei neuen Pull Requests eine
-Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM
-und klont das entsprechende GitHub Repository und den \texttt{Feature Branch}.
+Travis ist eine Platform für Continuous Integration. Sie ist kostenlos nutzbar
+und stellt verschiedene virtuelle Maschinen und Container bereit, in denen
+Tests ausgeführt werden können. GitHub kann bei neuen Pull Requests eine
+Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM und
+klont das entsprechende GitHub Repository und den \texttt{Feature Branch}.
 Danach wird eine definierte Testmatrix ausgeführt. Travis schickt eine
 Benachrichtigung an GitHub, nachdem die Tests beendet wurden. Somit ist in der
 Weboberfläche ersichtlich, ob die Tests erfolgreich waren oder nicht.
 
-Dieses Verfahren ermöglicht es, eine reprodzudierbare Testumgebung zu nutzen.
+Dieses Verfahren ermöglicht es, eine reproduzierbare Testumgebung zu nutzen.
 Diese wird immer auotmatisch gestartet. Es ist nicht mehr notwendig, jeden Test
 lokal auszuführen. Travis stellt VMs bereit, in denen nur das nötigste
 installiert ist. Dadurch ist sichergestellt, dass keine \glslink{Side
