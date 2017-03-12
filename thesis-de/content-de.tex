@@ -2724,16 +2724,17 @@ erstellt~\cite{grafana-issue}.
 
 
 \section{Tests und Qualitätssicherung}
-Für die Tests und Qualitätsicherung wurden sogenannte Unit Tests verwendet.
-Unit Test sind Software Tests und werden immer dann verwendet, wenn jeweils die
-Kernfunktion von einem Quellcode geprüft werden soll. Das Framework hierzu wird
-von rspec zur Verfügung gestellt und wurde für die im Projekt verwendeten
-Module angepasst.  Man kann hier mit einem Test, zum Beispiel prüfen, ob das
+Für die Tests und Qualitätsicherung wurden unter anderem Unit Tests verwendet.
+Unit Tests sind Software Tests und werden immer dann verwendet, wenn jeweils
+die Kernfunktion von einem Quellcode geprüft werden soll. Das Framework hierzu
+ist von rspec entwickelt worden. Rspec besitzt bereits schon eine Reihe an
+Test, welche für die im Projekt verwendeten Profile entweder erweitert oder neu
+erstellt worden sind. Man kann hier mit einem Test, zum Beispiel prüfen, ob das
 Profil auf unterschiedlichen Betriebssystemen ausgeführt werden kann oder ob
-bestimmte Ressourcen in dieser Datei enthalten sind. Zu Beginn müssen diese
-vorab mit rspec in dem katalog kompliert und definiert werden, damit diese
-verwendet werden können. Mit folgendem Befehl, können die Tests durchgeführt
-werden:
+bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn müssen
+diese vorab mit rspec in dem katalog kompiliert und definiert werden, damit
+diese verwendet werden können. Mit folgendem Befehl, können die Tests
+durchgeführt werden:
 \begin{lstlisting}[language=bash]
 bundle exec rake spec
 \end{lstlisting}
