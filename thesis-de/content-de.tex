@@ -2515,16 +2515,18 @@ Ressourcen. Die wichtigsten sind:
   Rechten
 \end{outline}
 
+Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
+Ressource besteht aus drei Teilen:
+
 \begin{listing}
   \inputminted{puppet}{../listings/basic-resource.txt}
   \caption{Puppet package resource für htop}
   \label{lst:puppet-resource}
 \end{listing}
 
-Im obigen Beispiel sieht man eine Deklaration einer package Ressource.  Jede
-Deklaration ist in drei Teile gegliedert. Erst wird der Typ genannt, dann ein
+Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
-Ressource muss einzigartig sein. In diesem Fall ist es der Names des Paketes,
+Ressource muss einzigartig sein. In diesem Fall ist es der Name des Paketes,
 welches in der Version 2.0.2-1 installiert wird. Puppet bietet 48 verschiedene
 Typen. Diese sind fest in puppet verankert und werden von der Firma Puppet
 gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden. Für jeden
@@ -2534,7 +2536,11 @@ Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
 normale Textdateien sondern über eine API oder Weboberfläche. Über die eigenen
 Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
 sondern auch die komplette Konfiguration
-automatisieren~\cite{puppet-resource-types}.
+automatisieren~\cite{puppet-resource-types}. Da puppet Deklarativ und nicht
+Imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
+analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert
+diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb nicht in der
+Reihenfolge abgearbeitet, in der sie notiert sind.
 
 Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
