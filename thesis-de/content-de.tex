@@ -2795,10 +2795,8 @@ Alternativ müsste jeder Entwickler die Tests selbst lokal ausführen.
 Für die Tests und Qualitätsicherung wurden unter anderem Unit Tests verwendet.
 Unit Tests sind Software Tests und werden immer dann verwendet, wenn jeweils
 die Kernfunktion von einem Quellcode geprüft werden soll. Das Framework hierzu
-ist von rspec entwickelt worden. Rspec besitzt bereits schon eine Reihe an
-Test, welche für die im Projekt verwendeten Profile entweder erweitert oder neu
-erstellt worden sind. Man kann hier mit einem Test, zum Beispiel prüfen, ob das
-Profil auf unterschiedlichen Betriebssystemen ausgeführt werden kann oder ob
+ist von rspec. Rspec stellt eine \gls{DSL} zur Verfügung, in der Testszenarien definiert werden können. Die Puppet Module, die in diesem Projekt verwendet werden, wie zum Beispiel Grafana, besitzen schon einige Testszenarien, welche erweitert worden sind. Man kann hier mit einem Test, zum Beispiel prüfen, ob das
+Profil auf unterschiedlichen Betriebssystemen ausgeführt werden könnte oder ob
 bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn müssen
 diese vorab mit rspec in dem katalog kompiliert und definiert werden, damit
 diese verwendet werden können. Mit folgendem Befehl, können die Tests
@@ -2807,7 +2805,7 @@ durchgeführt werden:
 bundle exec rake spec
 \end{lstlisting}
 
-Im Beispiel im Grafana Profil, sehen die Tests wie folgt aus:
+Die Tests für das Grafana Profil sehen wie folgt aus:
 
 \begin{listing}
   \inputminted{ruby}{../listings/rspec-grafana.txt}
@@ -2816,27 +2814,29 @@ Im Beispiel im Grafana Profil, sehen die Tests wie folgt aus:
 
 Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana Profil auf
 diesen zu testen. Jedes Betriebssystem besitzt betriebssystemspezifische
-\glslink{Fact}{Facts}. Diese werden von rspec simuliert und mit hilfe einer
-liste der unterstützten Betriebssystemen auf dem entsprechenend Profil
-getestet. Diese Liste an Betriebssystemen, wird aus der "metadata.json"
+\glslink{Fact}{Facts}. Diese werden von rspec simuliert und mit Hilfe einer
+Liste der unterstützten Betriebssystemen auf dem entsprechenend Profil
+getestet. Diese Liste an Betriebssystemen, wird aus der \texttt{metadata.json}
 ausgelesen und hierfür immer ein Katalog erstellt. Dieser zuvor erstellte
 Katalog wird anschließend geprüft. Unter anderem, kann das rspec prüfen, ob
 benötigte Ressourcen, wie \texttt{grafana\_dashboard}, oder
 \texttt{grafana\_datasources} in dem Profil enthalten sind. Diese Tests, können
 für jedes Profil einzeln definiert werden, da jedes Profil unterschiedliche
 Ressourcen benötigt. Im Anhang befindet sich ein Auszug aus einem bestanden
-Test. Es wurde bewusst darauf geachtet, das nur die einzelnen Profile mit
-Ressourcen geprüft werden, da jede einzelne Software bereits vom Entwickler auf
-Funktionalität und Sicherheit geprüft wurde.
+Test. Es wurde bewusst darauf geachtet, dass jedes Modul nur seine eigenen
+Ressourcen auf Fehler prüft. Zusätzlich wurde jede einzelne Software
+von den Entwicklern auf Funktionalität und Sicherheit geprüft.
 
 Der Vorteil von solchen Unit Tests mit rspec sind folgende:
 \begin{outline}
-  \1 Verschiedene Tests, wie Funktionalität und Syntax des Profiles können
-  gleichzeitig geprüft werden
-  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung
-  \1 Test können für alle Profile gleich definiert werden
+  \1 Verschiedene Tests, wie Funktionalität des Profiles können gleichzeitig
+  geprüft werden.
+  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung.
+  \1 Test können für alle Profile gleich definiert werden.
   \1 Die Tests können gleichzeitig für unterschiedliche Profile durchgeführt
-  werden
+  werden.
+  \1 Das Framework erlaubt es auf einfache Art und Weise viele verschiedene
+  Betriebssysteme mit einem Test zu testen.
 \end{outline}
 \mr%
 
