@@ -2476,6 +2476,19 @@ Implementierung.
 
 
 \section{Prototyp 2}
+Die Implementierung des Message Busses stellte sich als sehr komplex heraus.
+RabbitMQ zwar die Software in dem Bereich mit der größten Verbreitung, aber
+auch sehr komplex zu betreiben und aufzusetzen. Es war dem Projektteam nicht
+möglich, RabbitMQ an collectd anzubinden. Hierfür sind diverse Einstellungen
+über die RabbitMQ \gls{CLI} notwendig. Diese konnte sich nicht gegenüber dem
+RabbitMQ Server authentifizieren. Es wurde keine sinnvolle Fehlermeldung
+ausgeben. Die Entwickler von RabbitMQ konnten ebenfalls keine Lösung für das
+Problem liefern. Außerdem ist dem Projektteam aufgefallen, dass der erste
+Prototyp unnötig komplex ist. Das Konzept eines Message Busses passt sehr gut
+in das Projekt, allerdings muss dafür keine eigenständige Software genutzt
+werden. Während der Suche nach Alternativen fiel auf, das auch Postgres als Bus
+genutzt werden kann.
+\tm%
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
