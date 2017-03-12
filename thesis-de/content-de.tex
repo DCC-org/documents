@@ -2713,6 +2713,29 @@ Frameworks für Tests. Dieses lässt sich, aufgrund der komplexität, nicht
 während des Projektes aneignen.
 \tm%
 
+\subsection{Travis}
+Travis ist eine Platform Platform für Continuous Integration. Sie ist kostenlos
+nutzbar und stellt verschiedene virtuelle Maschinen und Container bereit, in
+denen Tests ausgeführt werden können. GitHub kann bei neuen Pull Requests eine
+Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM
+und klont das entsprechende GitHub Repository und den \texttt{Feature Branch}.
+Danach wird eine definierte Testmatrix ausgeführt. Travis schickt eine
+Benachrichtigung an GitHub, nachdem die Tests beendet wurden. Somit ist in der
+Weboberfläche ersichtlich, ob die Tests erfolgreich waren oder nicht.
+
+Dieses Verfahren ermöglicht es, eine reprodzudierbare Testumgebung zu nutzen.
+Diese wird immer auotmatisch gestartet. Es ist nicht mehr notwendig, jeden Test
+lokal auszuführen. Travis stellt VMs bereit, in denen nur das nötigste
+installiert ist. Dadurch ist sichergestellt, dass keine \glslink{Side
+Effect}{Side Effects} auftreten. Bei lokalen Tests tritt dies häufig auf. Der
+Entwickler hat diverse Bibliotheken installiert, welche von der entwickelten
+Software benötigt werden.  Innerhalb der entwickelten Software wird eine
+Abhängigkeit nicht definiert, es funktioniert aber trotzdem, da die Bibliothek
+zufällig vorhanden ist.  Innerhalb von Travis fällt dies aber auf. Außerdem ist
+es jedem Teammitglied möglich, die Travis Logs von überall aus zu begutachten.
+Alternativ müsste jeder Entwickler die Tests selbst lokal ausführen.
+\tm%
+
 \section{Linter und Syntax Validator}
 
 \section{Unit Tests}
