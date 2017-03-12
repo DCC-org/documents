@@ -2670,6 +2670,45 @@ erstellt~\cite{grafana-issue}.
 
 
 \section{Tests und Qualitätssicherung}
+Für die Tests und Qualitätsicherung wurden sogenannte Unit Tests verwendet.
+Unit Test sind Software Tests und werden immer dann verwendet, wenn jeweils die
+Kernfunktion von einem Quellcode geprüft werden soll. Das Framework hierzu wird
+von rspec zur Verfügung gestellt und wurde für die im Projekt verwendeten
+Module angepasst.  Man kann hier mit einem Test, zum Beispiel prüfen, ob das
+Profil auf unterschiedlichen Betriebssystemen ausgeführt werden kann oder ob
+bestimmte Ressourcen in dieser Datei enthalten sind. Zu Beginn müssen diese
+vorab mit rspec in dem katalog kompliert und definiert werden, damit diese
+verwendet werden können. Mit folgendem Befehl, können die Tests durchgeführt
+werden:
+\begin{lstlisting}[language=bash]
+bundle exec rake spec
+\end{lstlisting}
+
+Im Beispiel im Grafana Profil, sehen die Tests wie folgt aus:
+
+\lstinputlisting[language=ruby,caption={test für grafana profil}]{../listings/rspec-grafana.txt}
+
+Zuerst, werden die verschiedenen Betriebssysteme für das Grafana Profil
+getestet. Im Anschluss wird geprüft, ob die Ressourcen grafana\_dashboard,
+sowie grafana\_datasources in dem Profil enthalten sind. Zusätzlich wird hier
+noch geprüft, ob die Syntax des Profils in Ordnung ist. Erst hiernach gelten
+die Tests als bestanden. Diese Tests, können für jedes Profil einzeln definiert
+werden, da jedes Profil unterschiedliche Ressourcen benötigt. Im Anhang
+befindet sich ein Auszug aus einem bestanden Test. Es wurde bewusst darauf
+geachtet, das nur die einzelnen Profile mit Ressourcen geprüft werden, da jede
+einzelne Software bereits vom Entwickler auf Funktionalität und Sicherheit
+geprüft wurde.
+
+Der Vorteil von solchen Unit Tests mit rspec sind folgende:
+\begin{outline}
+  \1 Verschiedene Tests, wie Funktionalität und Syntax des Profiles können
+  gleichzeitig geprüft werden
+  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung
+  \1 Test können für alle Profile gleich definiert werden
+  \1 Die Tests können gleichzeitig für unterschiedliche Profile durchgeführt
+  werden
+\end{outline}
+\mr%
 
 \chapter{Fazit}
 erster prototyp war blöd, zweiter war geil
