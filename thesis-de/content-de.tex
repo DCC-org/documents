@@ -2678,6 +2678,23 @@ ist für Außenstehende leicher zu verstehen. Im folgenden Kapitel werden die
 einzelnen Testverfahren vorgestellt und begründet.
 \tm%
 
+\section{Peer Review}
+Alles an entwickelter Software befindet sich in einem \gls{Git}
+\gls{Repository}. Die Repositories sind unter anderem auf der Webseite
+„https://github.com/“ gespeichert. Im Branch \texttt{master} befindet sich
+ausschließlich getesteter Code. Es wird nie direkt in diesem Branch gearbeitet.
+Jedes Teammitglied erstellt sich einen \texttt{Feature Branch}. Dies ist ein
+kurzlebiger Branch, welcher auf \texttt{master} aufbaut. Im \texttt{Feature
+Branch} wird ein einzelnes Feature implementiert von einem einzelnen
+Teammitglied. Im Anschluss wird ein Pull Request eröffnet. Dies ist eine
+Möglichkeit von GitHub, einen Branch mit einem anderen zusammen zu führen. Über
+die Webseite werden die Unterschiede der beiden Branches gezeigt. Ein weiteres
+Teammitglied liest diese Änderungen (Review). Man kann nun Korrekturen
+anfordern oder den Code mergen. Dann wird der \texttt{Feature Branch} mit
+\texttt{master} zusammengeführt. Ein Teammitglied darf nie seinen eigenen Code
+mergen.
+\tm%
+
 \section{Unit Tests}
 Für die Tests und Qualitätsicherung wurden sogenannte Unit Tests verwendet.
 Unit Test sind Software Tests und werden immer dann verwendet, wenn jeweils die
