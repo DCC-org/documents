@@ -2282,7 +2282,7 @@ Problemen entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
 Queue genannt) zu installieren.
 \tm%
 
-\subsection{Message Bus}
+\section{Message Bus}
 Ein Message Bus ist eine Applikationen welche auf einem oder mehreren Servern
 betrieben wird und als \gls{Middleware} agiert. Über diverse
 Netzwerkschnittstellen ist es möglich, Daten auf diesen Bus zu senden. Jedes
@@ -2311,7 +2311,7 @@ lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC
 mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
 \tm%
 
-\subsection{JVM}
+\section{JVM}
 Die \gls{JVM} (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen
 von Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in
 der der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte
@@ -2336,7 +2336,7 @@ sehr einfache Möglichkeit der Datenverarbeitung mit mehreren
 Prozessorkernen~\cite{jruby}.
 \tm%
 
-\subsection{JDBC}
+\section{JDBC}
 \gls{JDBC} (Java Database Connectivity) ist die Schnittstelle der JVM zu
 Datenbanken. Sie stellt generische Funktionen bereit um mit Datenbanken zu
 kommunizieren. Für jede Datenbank, mit der kommuniziert werden soll, wird ein
@@ -2354,7 +2354,7 @@ Es gibt vier verschiedene Typen von JDBC Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
 folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
 
-\subsubsection{JDBC-ODBC Treiber}
+\subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC Schnittstelle einen sehr generischen \gls{ODBC}
 Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\@. Der ODBC
 Treiber muss auf jedem System vorhanden sein, welches die JVM Applikation
@@ -2381,7 +2381,7 @@ Die Nachteile sind:
   auf ein spezifisches DBMS erfolgen.
 \end{outline}
 
-\subsubsection{Nativer API Treiber}
+\subsection{Nativer API Treiber}
 Die JDBC Schnittstelle spricht hier, über den Treiber, direkt die Bibliothek
 des DBMS an. Dafür muss der Treiber, als auch die Bibiliothek auf dem gleichen
 System vorhanden sein, wie die JVM Applikation. Die Datenbank selbst kann auf
@@ -2399,7 +2399,7 @@ dem gewünschten System zu installieren. Es gibt Firmen, die dies Untersagen.
 Dies trifft allerdings nicht in diesem Projekt zu, weshalb es nicht als
 Negativpunkt gewertet wird.
 
-\subsubsection{Netzwerk Protokoll Treiber}
+\subsection{Netzwerk Protokoll Treiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
 Netzwerkapplikation geschickt (auch \gls{Middleware} genannt). Diese spricht
 dann die Datenbank an, welche oft auf einem dritten System installiert ist.
@@ -2428,7 +2428,7 @@ Die Nachteile sind:
   zurückgreifen kann.
 \end{outline}
 
-\subsubsection{Nativer JDBC Treiber}
+\subsection{Nativer JDBC Treiber}
 Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, das
 er komplett in Java geschrieben ist. Er wird beim starten der Applikation
 geladen und erlaubt es der JDBC Schnittstelle direkt mit der Datenbank zu
@@ -2453,7 +2453,7 @@ Treiber. Logstash ist somit in der Lage besonders effizient auf die Datenbank
 zuzugreifen.
 \tm%
 
-\subsection{JDBC in Kombination mit der JVM}
+\section{JDBC in Kombination mit der JVM}
 Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
 Logstash ist in der Lage die Auslastung der Datenbank über JDBC zu ermitteln.
 Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
@@ -2476,6 +2476,21 @@ Implementierung.
 
 
 \section{Prototyp 2}
+Die Implementierung des Message Busses stellte sich als sehr komplex heraus.
+RabbitMQ zwar die Software in dem Bereich mit der größten Verbreitung, aber
+auch sehr komplex zu betreiben und aufzusetzen. Es war dem Projektteam nicht
+möglich, RabbitMQ an collectd anzubinden. Hierfür sind diverse Einstellungen
+über die RabbitMQ \gls{CLI} notwendig. Diese konnte sich nicht gegenüber dem
+RabbitMQ Server authentifizieren. Es wurde keine sinnvolle Fehlermeldung
+ausgeben. Die Entwickler von RabbitMQ konnten ebenfalls keine Lösung für das
+Problem liefern. Außerdem ist dem Projektteam aufgefallen, dass der erste
+Prototyp unnötig komplex ist. Das Konzept eines Message Busses passt sehr gut
+in das Projekt, allerdings muss dafür keine eigenständige Software genutzt
+werden. Während der Suche nach Alternativen fiel auf, das auch Postgres als Bus
+genutzt werden kann.
+\tm%
+
+\section{Postgres Autopartitioning}
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
@@ -2487,7 +2502,21 @@ Automatisierung einer bestimmten Software benötigt wird. Über die Platform
 \url{https://forge.puppet.com/} können diese Module ausgetauscht werden. Es
 existieren bereits Module zur Verwaltung von Postgres, collectd, Grafana und
 Logstash. Jedes Modul hat seinen eigenen \gls{Namespace} und bündelt ein oder
-mehrere Klassen.
+mehrere Klassen. Informationen über ein Modul werden in der
+\texttt{metadata.json} Datei gespeichert. Diese befindet sich in jedem Modul
+und enthält folgende Informationen:
+
+\begin{outline}
+  \1 Name des Modules
+  \1 Autor
+  \1 Lizenz
+  \1 Link zum Quellcode
+  \1 Eine Kurzbeschreibung
+  \1 Liste der unterstützten Betriebssysteme
+  \1 Eine Liste an anderen Modulen, welche für den Betrieb dieses Moduls
+  benötigt werden
+  \1 Die unterstützten Puppetversionen
+\end{outline}
 \tm%
 
 \subsection{Strukturierung im puppet Code}
@@ -2501,16 +2530,18 @@ Ressourcen. Die wichtigsten sind:
   Rechten
 \end{outline}
 
+Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
+Ressource besteht aus drei Teilen:
+
 \begin{listing}
   \inputminted{puppet}{../listings/basic-resource.txt}
   \caption{Puppet package resource für htop}
   \label{lst:puppet-resource}
 \end{listing}
 
-Im obigen Beispiel sieht man eine Deklaration einer package Ressource.  Jede
-Deklaration ist in drei Teile gegliedert. Erst wird der Typ genannt, dann ein
+Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
-Ressource muss einzigartig sein. In diesem Fall ist es der Names des Paketes,
+Ressource muss einzigartig sein. In diesem Fall ist es der Name des Paketes,
 welches in der Version 2.0.2-1 installiert wird. Puppet bietet 48 verschiedene
 Typen. Diese sind fest in puppet verankert und werden von der Firma Puppet
 gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden. Für jeden
@@ -2520,19 +2551,24 @@ Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
 normale Textdateien sondern über eine API oder Weboberfläche. Über die eigenen
 Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
 sondern auch die komplette Konfiguration
-automatisieren~\cite{puppet-resource-types}.
+automatisieren~\cite{puppet-resource-types}. Da puppet Deklarativ und nicht
+Imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
+analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert
+diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb nicht in der
+Reihenfolge abgearbeitet, in der sie notiert sind.
 
 Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
 Abstraktion kann Code sehr häufig wiederverwendet werden.
 
-In einem Puppet Profil werden mehrere Module und Ressourcen deklariert, um
-eine bestimmte Aufgabe zu realisiern. Dieses Profil ist aus Sicht des Codes
-eine normale Klasse. Ein Profil wird einem oder mehreren Nodes zugewiesen. Im
-Rahmen des Projekts werden diverse Profile erzeugt, um die einzelnen benötigten
-Komponenten gebündelt zu automatisieren. Ein Beispielhaftes Profil für Grafana
-findet sich unter~\ref{lst:grafana}. Dies installiert Grafana und richtet
-außerdem ein Dashboard und eine Datenquelle ein.
+In einem Puppet Profil werden mehrere Module und Ressourcen deklariert, um eine
+bestimmte Aufgabe zu realisiern. Dieses Profil ist aus Sicht des Codes eine
+normale Klasse. Mehrere Profile werden in einem Modul gebündelt. Ein Profil
+wird einem oder mehreren Nodes zugewiesen. Im Rahmen des Projekts werden
+diverse Profile erzeugt, um die einzelnen benötigten Komponenten gebündelt zu
+automatisieren. Ein Beispielhaftes Profil für Grafana findet sich
+unter~\ref{lst:grafana}. Dies installiert Grafana und richtet außerdem ein
+Dashboard und eine Datenquelle ein.
 \tm%
 
 \subsection{Ablauf eines Puppet Runs}
