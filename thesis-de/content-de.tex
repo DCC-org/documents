@@ -2487,7 +2487,21 @@ Automatisierung einer bestimmten Software benötigt wird. Über die Platform
 \url{https://forge.puppet.com/} können diese Module ausgetauscht werden. Es
 existieren bereits Module zur Verwaltung von Postgres, collectd, Grafana und
 Logstash. Jedes Modul hat seinen eigenen \gls{Namespace} und bündelt ein oder
-mehrere Klassen.
+mehrere Klassen. Informationen über ein Modul werden in der
+\texttt{metadata.json} Datei gespeichert. Diese befindet sich in jedem Modul
+und enthält folgende Informationen:
+
+\begin{outline}
+  \1 Name des Modules
+  \1 Autor
+  \1 Lizenz
+  \1 Link zum Quellcode
+  \1 Eine Kurzbeschreibung
+  \1 Liste der unterstützten Betriebssysteme
+  \1 Eine Liste an anderen Modulen, welche für den Betrieb dieses Moduls
+  benötigt werden
+  \1 Die unterstützten Puppetversionen
+\end{outline}
 \tm%
 
 \subsection{Strukturierung im puppet Code}
