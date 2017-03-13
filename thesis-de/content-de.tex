@@ -2488,6 +2488,15 @@ Prototyp unnötig komplex ist. Das Konzept eines Message Busses passt sehr gut
 in das Projekt, allerdings muss dafür keine eigenständige Software genutzt
 werden. Während der Suche nach Alternativen fiel auf, das auch Postgres als Bus
 genutzt werden kann.
+
+Bei der Analyse von Grafana hat sich herausgestellt, das dort keine granulare
+Rechteverwaltung möglich ist, wenn direkt mit einer Datenbank interagiert wird.
+Da die selbst entwickelte API bereits Endpunkte für Analysen bereitstellen
+muss, kann diese simpel erweitert werden, um auch Daten an Grafana zu liefern.
+Somit liefert nun die API Daten an Grafana und Grafana kan nicht mehr direkt
+mit der Datenbank sprechen. Die API ist in der Lage, alle Anfragen von Grafana
+passend zu filtern und zu validieren. Eine Visualisierung des Prototypen
+findet sich unter~\ref{figure:draft2}.
 \tm%
 
 \section{Postgres Autopartitioning}
