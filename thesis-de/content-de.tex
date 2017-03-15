@@ -466,7 +466,8 @@ schützen. Die Erfassungssysteme können also nur Daten über das Netzwerk
 verschicken, jedoch akzeptieren sie keine Anfragen, welche über die Netzwerke
 eingehen.
 
-Bei beiden Schnittstellen der Datenerfassungssysteme handelt es sich um Binärschnittstellen. Hierbei werden Daten nicht in einer für Menschen lesbaren
+Bei beiden Schnittstellen der Datenerfassungssysteme handelt es sich um
+Binärschnittstellen. Hierbei werden Daten nicht in einer für Menschen lesbaren
 Form übertragen, sondern in einem Binärprotokoll. Diese Protokolle sind
 besonders effizient in der Datenübertragung und Datenverarbeitung. Es ist nicht
 erforderlich, dass Menschen mit den beiden Schnittstellen kommunizieren.
@@ -500,8 +501,8 @@ neuen Strukturen erlernen muss.
 \nl%
 
 \section{Frontend}
-Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum einen die
-Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der Ausgabe
+Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum einen
+die Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der Ausgabe
 und Anzeige für den User beziehungsweise den Administrator. Eine Schnittstelle
 auf einem Webinterface dient in erster Linie der Anzeige von Daten, die über
 ein anderes System (Backend) erhalten wurden.
@@ -529,7 +530,9 @@ Datenressourcen der Infrastruktur. Diese können bei Bedarf vom Anwender oder
 dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können
 anschließend Personen, welche keinen direkten Zugriff auf das System besitzen,
 Analysen oder Statistiken durchführen. Die Übertragung der Daten zwischen den
-Benutzern und dem Webserver erfolgt mit \gls{HTTPS}. Dies dient zum einem der Verschlüsselung der Verbindung von Client zu Weboberfläche und zurück und zum anderen damit die Weboberfläche selber authentifiziert werden kann.
+Benutzern und dem Webserver erfolgt mit \gls{HTTPS}. Dies dient zum einem der
+Verschlüsselung der Verbindung von Client zu Weboberfläche und zurück und zum
+anderen damit die Weboberfläche selber authentifiziert werden kann.
 \mr%
 
 \chapter{Analyse von Softwarekomponenten}
@@ -613,7 +616,8 @@ gebildeten Trends zur Datenhaltung geschickt werden. Dies ist besonders
 effizient, da jeder Server nur eine geringe Menge an Trends zu berechnen hat.
 Es ist jedoch erforderlich, dass der Client alle Daten zumindest so lange
 vorhält, bis alle benötigten Trends gebildet sind. Im obigen Beispiel zu
-„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends ad hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
+„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends ad
+hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
 neue Konfiguration für die Datenerfassungskomponente auf jedem Server erstellt
 werden, da diese keine automatisierte Schnittstelle bieten.
 
@@ -651,9 +655,11 @@ basiert auf dem Lasten- und Pflichtenheft:
 \tm%
 
 \subsection{Coreutils}
-Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux-Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
-Coreutils ist mit der GPL3 lizenziert~\cite{coreutils} und zählt somit als Open-Source-Software. Verwaltet wird die Programmsammlung aktuell von der Free
-Software Foundation. Der Linux Kernel stellt Informationen über
+Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem
+Linux-Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von
+Dateien. Coreutils ist mit der GPL3 lizenziert~\cite{coreutils} und zählt somit
+als Open-Source-Software. Verwaltet wird die Programmsammlung aktuell von der
+Free Software Foundation. Der Linux Kernel stellt Informationen über
 schreibgeschützte Dateien bereit. In Kombination mit der Programmsammlung
 procps kann auf die Informationen des Kernels zugegriffen werden, um Metriken
 zu ermitteln~\cite{procps}. Über das Programm \texttt{free} oder die Datei
@@ -706,10 +712,11 @@ vom Host aus Daten der VMs zu ermitteln.
 
 \subsection{atop}
 Das Linux-Kommandozeilenprogramm atop ist zum Visualisieren von Prozessen und
-des Systemzustands. Es ist unter der GPL lizenziert und fällt damit unter Open-Source-Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld. Die erste
-stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
-kontinuierlich entwickelt. Es ist darauf ausgelegt, im Vollbildmodus eines
-Terminals zu arbeiten (siehe~\ref{figure:atop1} und~\ref{figure:atop2} für
+des Systemzustands. Es ist unter der GPL lizenziert und fällt damit unter
+Open-Source-Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld.
+Die erste stabile Veröffentlichung war im Dezember 2001. Seitdem wird das
+Programm kontinuierlich entwickelt. Es ist darauf ausgelegt, im Vollbildmodus
+eines Terminals zu arbeiten (siehe~\ref{figure:atop1} und~\ref{figure:atop2} für
 Screenshots). Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit,
 im Hintergrund periodisch eine Logdatei zu schreiben. Hier wird ein selbst
 entwickeltes Binärformat genutzt. Dies kann von atop aber auch zurück in ASCII
@@ -753,14 +760,15 @@ unterschieden~\cite{collectd_plugins}:
   Formen zu speichern und auszugeben
 \end{outline}
 
-Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann lokale Daten
-auf einem Hostsystem oder in einer virtuellen Maschine ermitteln. Außerdem kann
-es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendigen
+Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann lokale
+Daten auf einem Hostsystem oder in einer virtuellen Maschine ermitteln. Außerdem
+kann es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendigen
 Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
 \subsection{zabbix-agent}
-Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open-Source-Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
+Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open-Source-Produkte
+zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
 zabbix-frontend (siehe auch Abschnitt~\ref{subsubsec:zabbix-frontend} für die
 Analyse des Frontends). Alle Produkte sind unter der GPL2 lizenziert. Der Agent
 ist in C geschrieben. Er bietet die Möglichkeit, diverse Daten direkt aus dem
@@ -782,7 +790,8 @@ ist der zabbix-agent nicht im Projekt nutzbar~\cite{zabbix_architecture}.
 Python-diamond (auch Diamond genannt) ist ein in Python geschriebener Dienst.
 Er kann auf Linux Systemen diverse Daten erheben und diese über das Netzwerk
 austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
-unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die Open-Source-Software steht unter der MIT Lizenz~\cite{python-diamond}.
+unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die
+Open-Source-Software steht unter der MIT Lizenz~\cite{python-diamond}.
 
 \lstinputlisting[language=bash,caption={Diamond git clone}]{../listings/diamond-clone.txt}
 
@@ -1366,7 +1375,8 @@ und~\ref{subsubsec:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 „Hadoop Map Reduce“ zum Einsatz. Diese ist von dem gleichnamigen
-Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN-basiertes System, welches ein paralleles Abarbeiten von Aufgaben ermöglicht.
+Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN-basiertes
+System, welches ein paralleles Abarbeiten von Aufgaben ermöglicht.
 Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
 einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
 wiederum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
@@ -1382,7 +1392,8 @@ zeitkritischen Datenabfragen zum Einsatz.
 Diese vier Komponenten bilden den „Hadoop Core“, welcher zwingend für den
 Betrieb eines Hadoop-Systems benötigt wird. Hadoop-basierende Systeme zur
 Erfüllung von verschiedenen und spezialisierten Aufgaben werden unter dem
-„Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von Hadoop-basierenden Systemen und Projekten kann auf der offiziellen Webseite des
+„Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von
+Hadoop-basierenden Systemen und Projekten kann auf der offiziellen Webseite des
 Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 \nl%
 
