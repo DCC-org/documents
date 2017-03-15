@@ -1044,21 +1044,6 @@ aufgelistet:
     Netzwerkkabel oder Ausfall eines Servers im Cluster) einem Datenverlust
     vorzubeugen.
 \end{outline}
-
-Für eine bessere Beurteilung der zu evaluierenden Systeme wurden den oben
-erläuterten Punkten eine Gewichtung zugeteilt. Dies dient für die Erstellung
-von einer Entscheidungstabelle während der Evaluierungsphase.
-
-\begin{center}
-\begin{tabular}{lcccc}
-  \toprule
-  Beschreibung & Vorhandenes Wissen & Skalierbarkeit & Umwelt & Datensicherung \\
-  \midrule
-  Gewichtung   & 4                  & 3              & 2      & 1 \\
-  \bottomrule
-\end{tabular}
-\captionof{table}{Gewichtung von evaluierungs Kriterien}
-\end{center}
 \nl%
 
 \subsection{Durchführung der Evaluierung}
@@ -1171,7 +1156,8 @@ möchte.
   \1 Der pausierte Node wird im Cluster deaktiviert
   \1 Der Prozess wird wieder gestartet
   \1 Der Prozess prüft nicht, ob er noch aktiv ist für seine Shards
-  \1 Der Prozess akzeptiert eingehende Schreibanfragen über die RESTful-Schnittstelle und updated seine Shards
+  \1 Der Prozess akzeptiert eingehende Schreibanfragen über die
+  RESTful-Schnittstelle und updated seine Shards
   \1 Der Prozess meldet zurück, dass er die Daten erfolgreich geschrieben hat
   \1 Sobald das Netzwerkproblem behoben ist, erhält der Node Anweisungen aus
   dem Cluster, um seine Shards auf den Stand der Kopien im Netzwerk zu bringen
@@ -1208,18 +1194,19 @@ Management der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
 Cluster-System über mehrere Server (Nodes), um ein vollständiges Versagen durch
 den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
-Dateninformationen auf mehrere Server verteilt und verwaltet. Im Cassandra-Umfeld wird dies über das von dem Hersteller definierte Protokoll „gossip“
-verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll, welches den
-Austausch von Statusinformationen und Metainformationen zwischen den einzelnen
-Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen erstellt,
-modifiziert oder entfernt werden, erhält ein weiterer Node in der Infrastruktur
-diese Information und baut gleichzeitig eine Replikation des Objektes. Diese
-Replikationen werden von dem Serveradministrator definiert, indem dieser den
-Datenmengen verschiedene \gls{Partitionen} zuteilt. Das Cassandra-System
-verteilt jede dieser \gls{Partitionen} an die im Netzwerk vorhandenen Nodes
-in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition eins auf dem ersten
-Node repliziert wird, Partition zwei auf dem zweiten Node und immer so weiter,
-bis das Verfahren den ersten Node wieder erreicht.
+Dateninformationen auf mehrere Server verteilt und verwaltet. Im
+Cassandra-Umfeld wird dies über das von dem Hersteller definierte Protokoll
+„gossip“ verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll,
+welches den Austausch von Statusinformationen und Metainformationen zwischen den
+einzelnen Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen
+erstellt, modifiziert oder entfernt werden, erhält ein weiterer Node in der
+Infrastruktur diese Information und baut gleichzeitig eine Replikation des
+Objektes. Diese Replikationen werden von dem Serveradministrator definiert,
+indem dieser den Datenmengen verschiedene \gls{Partitionen} zuteilt. Das
+Cassandra-System verteilt jede dieser \gls{Partitionen} an die im Netzwerk
+vorhandenen Nodes in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition
+eins auf dem ersten Node repliziert wird, Partition zwei auf dem zweiten Node
+und immer so weiter, bis das Verfahren den ersten Node wieder erreicht.
 
 \lstinputlisting[language=bash,caption={cassandra status}]{../listings/cassandra-status.txt}
 
@@ -1319,9 +1306,10 @@ Datenzugriff bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an
 einem HBase-System angebunden sein. Es existiert keinerlei
 Informationsaustausch zwischen den einzelnen Deamons, sondern sie nutzen
 lediglich alle die gleiche Datengrundlage des HBase-Systems. Dennoch kann man
-durch dieses Verfahren die Analyseperformance dynamisch anpassen, da das HBase-System stark auf die Aggregation und niedrigen Speicherplatzbedarf optimiert
-wurde. Die einzelnen Deamons kommunizieren dabei mit dem HBase-System über
-einfache Protokolle wie Telnet oder HTTP (API).
+durch dieses Verfahren die Analyseperformance dynamisch anpassen, da das
+HBase-System stark auf die Aggregation und niedrigen Speicherplatzbedarf
+optimiert wurde. Die einzelnen Deamons kommunizieren dabei mit dem HBase-System
+über einfache Protokolle wie Telnet oder HTTP (API).
 
 Da die Dateninhalte immer in Verbindung mit einem Zeit- und Datumswert stehen,
 ist dieses \gls{DBMS} durch die Optimierung des Verarbeitens der Zeit- und
@@ -1505,6 +1493,34 @@ Ecosystem evaluiert und ausgewählt werden gemusst. Zusammengefasst wäre das
 System den technischen Anforderungen an dem Projekt gewachsen, jedoch wäre der
 Einsatz mit einem zu großen Aufwand verbunden, welchen das Projektteam in dem
 vorgegebenen Projektzeitraum nicht erbringen könnte.
+\nl%
+
+\subsection{Abschluss der Evaluierung}
+\label{subsec:abschluss_db_evaluierung}
+Nachdem alle Systeme von dem Projektteam auf die genannten Kriterien untersucht
+wurden, wurde gemeinsam abschließend eine normale Entscheidungstabelle
+angefertigt. Dabei kann jedes im Punkt~\ref{subsec:DBS_vorbereitung_der_evaluierung}
+definierte Kriterium einen Wert zwischen 0 und 10 erhalten. Zehn ist dabei die
+beste und Null die schlechteste Bewertung. Die Systeme mit der höchsten
+Gesamtpunktzahl würden anschließend in der engeren Auswahl beurteilt werden.
+
+Diese Entscheidungstabelle wurde wie folgt aufgebaut:
+\begin{center}
+\begin{tabular}{lcccc}
+  \toprule
+  System      & Vorhandenes Wissen & Skalierbarkeit & Umwelt & Datensicherung &
+  Gesamtwert \\
+  \midrule
+  elasticsearch & 8  & 7  & 6  & 3  & 24 \\
+  cassandra     & 7  & 5  & 6  & 8  & 26 \\
+  postgres      & 10 & 10 & 7  & 8  & 35 \\
+  OpenTSDB      & 6  & 5  & 7  & 3  & 21 \\
+  KNIME         & 0  & 0  & 0  & 0  & 0  \\
+  Hadoop Core   & 8  & 10 & 4  & 8  & 30 \\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Gewichtung von evaluierungs Kriterien}
+\end{center}
 \nl%
 
 \section{Schnittstelle - Datenbereitstellung}
