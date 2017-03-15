@@ -102,13 +102,13 @@ auch in den nachfolgenden Seiten beschrieben ist.
 
 \chapter{Projektvorstellung}
 \label{subsec:projektvorstellung}
-Cloud Provider bieten verschiedenste, virtuelle Instanzen auf physischen Hosts
+Cloud Provider bieten verschiedenste virtuelle Instanzen auf physischen Hosts
 an. Dabei nutzt jeder virtuelle Server die vorhandenen Ressourcen des
 physischen Systems unterschiedlich. Hier kommt es, aufgrund der
 Mischkalkulation für die Ressourcen, zu einer Überbuchung (Overcommitment) des
 Hosts. Weil das Monitoring nicht ausreichend ist oder kein sinnvolles Placement
 implementiert ist (Placement beschreibt den Algorithmus, der einen Node
-ermittelt auf dem eine neue, virtuelle Instanz angelegt wird), kommt es
+ermittelt auf dem eine neue virtuelle Instanz angelegt wird), kommt es
 regelmäßig zu Leistungseinbußen. Für Kunden gibt es keine Transparenz über die
 ihm zugeteilten und durch ihn genutzten Ressourcen, weshalb auch keine
 ressourcenbasierte Abrechnung erfolgen kann. Teamleiter sind häufig mit der
@@ -121,7 +121,7 @@ werden, die sich in drei Teile gliedert:
 
 \begin{outline}
   \1 Die verschiedenen Ressourcetypen (CPU Zeit / Datendurchsatz / RAM
-  Auslastung / Speicher Auslastung / Netzwerkdurchsatz) der einzelnen,
+  Auslastung / Speicher Auslastung / Netzwerkdurchsatz) der einzelnen
   virtuellen Server müssen in einem sinnvollen Intervall periodisch ermittelt
   werden.
   \1 Die Daten müssen aggregiert und gespeichert werden. Hierbei ist auf eine
@@ -254,9 +254,9 @@ dass sie eine aktive Community haben und unter einer Open-Source-Lizenz stehen.
 \subsection{Datenerfassungssysteme}
 \label{section:datenerfassungssysteme}
 Unterschiedliche Ausbaustufen für virtuelle Maschinen werden über mehrere
-verschiedene Ressourcen, die sich in Ihrer Leistungsklasse unterscheiden,
+verschiedene Ressourcen, die sich in ihrer Leistungsklasse unterscheiden,
 differenziert. Diese Typen müssen für jede virtuelle Maschine ausgelesen werden.
-Als Referenz werden die Typen der größten, deutschen Anbieter nachweis! für
+Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
 virtuelle Maschinen genommen. Diese sind aktuell:
 
 Zugewiesener Arbeitsspeicher, Anzahl/Leistung der Prozessorkerne, Durchsatz des
@@ -328,8 +328,8 @@ die Weboberfläche selbst gegen Zugriff von Unbekannten. Die Weboberfläche
 greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht uns, den
 Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können. Die
 Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
-Maschinen unterstützen und zeigt hier die Auslastung der einzelnen, physischen
-Systeme. Der Administrator kann so gezielt die einzelnen, physischen Maschinen
+Maschinen unterstützen und zeigt hier die Auslastung der einzelnen physischen
+Systeme. Der Administrator kann so gezielt die einzelnen physischen Maschinen
 besser auslasten und verteilen. Ebenfalls kann das Frontend eine Schnittstelle
 für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
 visuell ausgegeben werden.
@@ -454,27 +454,26 @@ zusätzlich eventbasiert. Hierbei schickt der Kernel die neuen Informationen
 direkt zur Schnittstelle der Datenerfassungssysteme. Der Kernel ist der
 kritischste Teil eines laufenden Computers. Er hat volle Rechte auf alle
 Hardwareschnittstellen, weshalb die Interaktion mit ihm besonders geschützt und
-minimal sein muss. Programmierfehler in der Vergangenheit erlaubten es mehrfach
+minimal sein muss. Programmierfehler in der Vergangenheit erlaubten es mehrfach,
 auf Schnittstellen auf den Kernel zu schreiben, obwohl das Interface nicht
 beschreibbar sein sollte. Der Kernel selbst bietet nur lokale Schnittstellen,
 aber über weitere Software werden diese indirekt im Netzwerk bereitgestellt.
 
 Die zweite Schnittstelle der Datenerfassungssysteme befindet sich innerhalb des
 Projektes und interagiert mit der Datenbank. Diese Schnittstelle ist aus
-Sicherheitsgründen \glslink{Unidirektional}{unidirektional} um den Kernel zu
+Sicherheitsgründen \glslink{Unidirektional}{unidirektional}, um den Kernel zu
 schützen. Die Erfassungssysteme können also nur Daten über das Netzwerk
-verschicken, jedoch akzeptieren Sie keine Anfragen, welche über die Netzwerke
+verschicken, jedoch akzeptieren sie keine Anfragen, welche über die Netzwerke
 eingehen.
 
-Bei beiden Schnittstellen der Datenerfassungssysteme handelt es sich um eine
-Binärschnittstelle. Hierbei werden Daten nicht in einer für Menschen lesbaren
+Bei beiden Schnittstellen der Datenerfassungssysteme handelt es sich um Binärschnittstellen. Hierbei werden Daten nicht in einer für Menschen lesbaren
 Form übertragen, sondern in einem Binärprotokoll. Diese Protokolle sind
 besonders effizient in der Datenübertragung und Datenverarbeitung. Es ist nicht
-erforderlich, das Menschen mit den beiden Schnittstellen kommunizieren.
+erforderlich, dass Menschen mit den beiden Schnittstellen kommunizieren.
 \tm%
 
 \section{Datenhaltungssystem / API}
-Das Datenhaltungssystem, sowie die mit inbegriffene API ist eine zentrale
+Das Datenhaltungssystem, sowie die mit inbegriffene API, ist eine zentrale
 Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
 welches nur über die Informationen eines einzelnen physischen Servers verfügt,
 besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen
@@ -493,7 +492,7 @@ oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
 erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
 nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
 Datenformate sind die weitverbreitetsten Formate auf dem Markt und können in
-vielen Frontend Systemen ohne zusätzlichen Entwicklungskosten angebunden
+vielen Frontend-Systemen ohne zusätzliche Entwicklungskosten angebunden
 werden. Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
 Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering, da
 diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
@@ -501,38 +500,36 @@ neuen Strukturen erlernen muss.
 \nl%
 
 \section{Frontend}
-Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind, mit der
-Abfrage der Daten an dem Datenhaltungssystem und zum anderen mit der Ausgabe
-und Anzeige für den User beziehungsweise dem Administrator. Eine Schnittstelle
-auf einem Webinterface dient in erster Linie zur Anzeige von Daten, die über
+Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum einen die
+Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der Ausgabe
+und Anzeige für den User beziehungsweise den Administrator. Eine Schnittstelle
+auf einem Webinterface dient in erster Linie der Anzeige von Daten, die über
 ein anderes System (Backend) erhalten wurden.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
 Liefert der Weboberfläche alle nötigen Funktionen und Werkzeuge zur
 Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
-Datenhaltungssystem. In der Ziellösung von diesem Projekt ist eine rein
-lesender Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird von
-dem Datenhaltungssystem-Administrator gewährleistet.
+Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein rein
+lesender Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird durch
+den Datenhaltungssystem-Administrator gewährleistet.
 
 Neben der Verwendung eines Treibers in Verbindung mit einem
 Berechtigungskonzept, kann auch ein API-System zum Einsatz kommen. Die
-Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes kann aus
+Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können aus
 Punkt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
-Datenhaltungssystem erhaltene Daten. Ohne diese Schnittstelle, würden Anwender,
-welche mit der Weboberfläche arbeiten möchten nur unstrukturierte Daten
+Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
+welche mit der Weboberfläche arbeiten möchten, nur unstrukturierte Daten
 erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
 erhält somit einen direkten und schnellen Überblick in Form eines
-Graphen~\ref{definition_eines_graphen} oder Diagramm über die gesamten
+Graphens~\ref{definition_eines_graphen} oder Diagramms über die gesamten
 Datenressourcen der Infrastruktur. Diese können bei Bedarf vom Anwender oder
 dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können
 anschließend Personen, welche keinen direkten Zugriff auf das System besitzen,
 Analysen oder Statistiken durchführen. Die Übertragung der Daten zwischen den
-Benutzern und dem Webserver erfolgt mit \gls{HTTPS}. Dies dient zum einem für
-die Verschlüsselung der Verbindung von Client zu Weboberfläche und zurück, als
-auch damit die Weboberfläche selber Authentifiziert werden kann.
+Benutzern und dem Webserver erfolgt mit \gls{HTTPS}. Dies dient zum einem der Verschlüsselung der Verbindung von Client zu Weboberfläche und zurück und zum anderen damit die Weboberfläche selber authentifiziert werden kann.
 \mr%
 
 \chapter{Analyse von Softwarekomponenten}
@@ -558,7 +555,7 @@ Eine Metrik ist die Kombination aus:
 Eine Metrik wird periodisch als Ganzzahl ermittelt. Die Kombination mehrerer
 Werte einer Metrik ergibt eine Timeseries (auch „Datenreihe“ oder „Abfolge“
 genannt). Um Speicherplatz zu sparen, können die Werte aggregiert werden.
-Hierbei wird für einen bestimmten Zeitraum einer Timeseries die Werte genommen
+Hierbei werden für einen bestimmten Zeitraum einer Timeseries die Werte genommen
 und folgende Funktionen angewendet:
 
 \begin{outline}
@@ -570,18 +567,18 @@ und folgende Funktionen angewendet:
   Berechnungen benötigt
   \1 \lstinline|avg()|: Berechnung des Durchschnitts mit den Ergebnissen aus
   \lstinline|count()| und \lstinline|sum()|
-  \1 \lstinline|95pct()|: Berechnung des Durchschnitts, zuvor werden Die Werte
+  \1 \lstinline|95pct()|: Berechnung des Durchschnitts, zuvor werden die Werte
   nach Größe sortiert und die höchsten 5\% ignoriert
 \end{outline}
 
-Außerdem gibt es die Möglichkeit die erhobenen Daten in Relation zur Zeit zu
+Außerdem gibt es die Möglichkeit, die erhobenen Daten in Relation zur Zeit zu
 setzen. Hierbei wird die Differenz zwischen zwei aufeinander folgenden
 Messpunkten betrachtet.  Beispiel: Das Betriebssystem misst die geschriebene
-Datenmenge auf einen Datenträger seit dem Startvorgang in Bytes. Interessant
+Datenmenge auf einem Datenträger seit dem Startvorgang in Bytes. Interessant
 für den Anwender ist aber der Datendurchsatz in \si{\mega\byte\per\second} oder
 \si{\giga\byte\per\second}. Dies kann wie folgt berechnet werden:
 
-Ab Systemstart wird in regelmäßigen Zeitabständen $\Delta t$ ausgelesen welche
+Ab Systemstart wird in regelmäßigen Zeitabständen $\Delta t$ ausgelesen, welche
 Datenmenge seit Systemstart geschrieben und gelesen wurde. Bezeichne $m_i$ den
 $i$-ten Messwert. Dann kann die durchschnittliche Durchsatzrate $D_i$ zwischen
 zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmt werden durch:
@@ -591,15 +588,15 @@ zwei Messpunkten $m_i$ und $m_{i-1}$ bestimmt werden durch:
 Danach werden nur die Ergebnisse einer oder mehrerer Funktionen gespeichert und
 die eigentlichen Daten verworfen. Das Aneinanderreihen mehrerer aggregierter
 Werte bildet einen Trend (auch History Trend genannt). Trends werden oftmals
-visualisiert. Hierbei lässt sich Ressourcensparend ein langer Verlauf der
+visualisiert. Hierbei lässt sich ressourcensparend ein langer Verlauf der
 Metrik erkennen. Basierend auf vorhandenen Trends kann auch eine „Trend
 Prediction“ erstellt werden. Hierbei werden Daten der Vergangenheit analysiert
 und auf eine mögliche Zukunft vorausberechnet.
 
 „Tiered Trends“ bezeichnet eine Datensammlung auf welche mehrfach die oben
-genannten Funktionen angewendet wurde. Die benötigte Granularität ändert sich
+genannten Funktionen angewendet wurden. Die benötigte Granularität ändert sich
 oftmals mit dem Alter der Daten. Beispiel: In den ersten 24h benötigt man Daten
-mit einer Auflösung von 30 Sekunden. In den Darauffolgenden 2 Wochen reichen
+mit einer Auflösung von 30 Sekunden. In den darauffolgenden 2 Wochen reichen
 Trends mit einer Auflösung von 5 Minuten und für die folgenden 3 Monaten reicht
 eine Auflösung von 30 Minuten.
 
@@ -607,7 +604,7 @@ Hier nimmt man sich Daten die älter als 24 Stunden sind und teilt diese in
 Einheiten von 5 Minuten. Hierauf werden die Funktionen angewendet, die
 originalen Daten gelöscht und die Ergebnisse gespeichert. Parallel wird
 regelmäßig nach bereits vorhandenen Trends geprüft, welche älter als 2 Wochen
-sind. Diese Werden wieder in Einheiten von 30 Minuten aufgeteilt und die
+sind. Diese werden wieder in Einheiten von 30 Minuten aufgeteilt und die
 Funktionen erneut angewendet. Somit wurden „Tiered Trends“ gebildet.
 
 Das Bilden von Trends kann schon während der Datenerfassung erfolgen, indem die
@@ -615,9 +612,8 @@ gesammelten Werte lokal zwischengespeichert werden und ausschließlich die
 gebildeten Trends zur Datenhaltung geschickt werden. Dies ist besonders
 effizient, da jeder Server nur eine geringe Menge an Trends zu berechnen hat.
 Es ist jedoch erforderlich, dass der Client alle Daten zumindest so lange
-vorhält, bis alle benötigten Trends gebildet sind, im obigen Beispiel zu
-„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends Ad
-hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
+vorhält, bis alle benötigten Trends gebildet sind. Im obigen Beispiel zu
+„Tiered Trends“ sind dies 2 Wochen. Oftmals gibt es die Anforderung Trends ad hoc zu bilden oder die Intervalle regelmäßig zu verändern. Hierzu muss eine
 neue Konfiguration für die Datenerfassungskomponente auf jedem Server erstellt
 werden, da diese keine automatisierte Schnittstelle bieten.
 
@@ -655,10 +651,8 @@ basiert auf dem Lasten- und Pflichtenheft:
 \tm%
 
 \subsection{Coreutils}
-Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux
-Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
-Coreutils ist mit der GPL3 lizenziert~\cite{coreutils} und zählt somit als Open
-Source Software. Verwaltet wird die Programmsammlung aktuell von der Free
+Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem Linux-Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von Dateien.
+Coreutils ist mit der GPL3 lizenziert~\cite{coreutils} und zählt somit als Open-Source-Software. Verwaltet wird die Programmsammlung aktuell von der Free
 Software Foundation. Der Linux Kernel stellt Informationen über
 schreibgeschützte Dateien bereit. In Kombination mit der Programmsammlung
 procps kann auf die Informationen des Kernels zugegriffen werden, um Metriken
@@ -677,7 +671,7 @@ Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems und
 die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit Coreutils
 und Linux Bordmitteln ist es möglich alle benötigten Informationen lokal
 auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
-Hier ein Beispiel um alle 30 Sekunden die gesendeten sowie empfangenen Daten
+Hier ein Beispiel, um alle 30 Sekunden die gesendeten sowie empfangenen Daten
 des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
 \begin{listing}
@@ -700,9 +694,9 @@ enp1s0,28951976308,1786708990
 \end{lstlisting}
 
 Für das Auslesen all dieser Daten werden kleine Skripte wie das im
-Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken
+Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken,
 werden weitere Skripte benötigt. Diese Sammlung an Skripten kann auf einem
-Server ausgeführt werden um seine lokalen Statistiken zu erfassen oder direkt
+Server ausgeführt werden, um seine lokalen Statistiken zu erfassen oder direkt
 in virtuellen Maschinen.\ libvirt, eine Bibliothek zum Verwalten virtueller
 Maschinen, stellt auf einem Hostsystem Informationen über die lokalen Instanzen
 bereit.\ libvirt kümmert sich hier um die Interaktion mit diversen Hypervisors
@@ -711,17 +705,16 @@ vom Host aus Daten der VMs zu ermitteln.
 \tm%
 
 \subsection{atop}
-atop ist ein Linux Kommandozeilenprogramm zum visualisieren von Prozessen und
-vom Systemzustand. Es ist unter der GPL lizenziert und fällt damit unter Open
-Source Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld. Die erste
+Das Linux-Kommandozeilenprogramm atop ist zum Visualisieren von Prozessen und
+des Systemzustands. Es ist unter der GPL lizenziert und fällt damit unter Open-Source-Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld. Die erste
 stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
-kontinuierlich entwickelt. Es ist darauf ausgelegt im Vollbild Modus eines
+kontinuierlich entwickelt. Es ist darauf ausgelegt, im Vollbildmodus eines
 Terminals zu arbeiten (siehe~\ref{figure:atop1} und~\ref{figure:atop2} für
-Screenshots). Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit
+Screenshots). Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit,
 im Hintergrund periodisch eine Logdatei zu schreiben. Hier wird ein selbst
-entwickeltes Binärformat genutzt, atop kann dies aber auch zurück in ASCII
-umwandeln. Dann erhält man alle Infos, die auch die interaktive Version
-anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben, dieser
+entwickeltes Binärformat genutzt. Dies kann von atop aber auch zurück in ASCII
+umgewandelt werden. Dann erhält man alle Infos, die auch die interaktive Version
+anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben, dieses
 Intervall ist allerdings modifizierbar. Das ASCII Format beruht nicht auf
 bekannten Standards und lässt sich deshalb nicht automatisiert
 weiterverarbeiten (siehe~\ref{lst:atop} für eine exemplarische Ausgabe). Die
@@ -743,61 +736,59 @@ Die Software ist in C geschrieben.
 
 \lstinputlisting[language=bash,caption={collectd git clone}]{../listings/collectd-clone.txt}
 
-Wie im obigen Listing zu sehen haben 415 Leute 9059 Änderungen im
+Wie im obigen Listing zu sehen, haben 415 Leute 9059 Änderungen im
 Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
-und zählt somit als Open Source Software. Es kann flexibel mit Plugins
+und zählt somit als Open-Source-Software. Es kann flexibel mit Plugins
 erweitert werden. Hierbei wird zwischen mehreren Kategorien
 unterschieden~\cite{collectd_plugins}:
 
 \begin{outline}
-  \1 Read, Plugins die Daten aus zusätzlichen Quellen lesen
-  \1 Write, Plugins die erfasste Daten in einem bestimmten Format lokal
+  \1 Read, Plugins, die Daten aus zusätzlichen Quellen lesen
+  \1 Write, Plugins, die erfasste Daten in einem bestimmten Format lokal
   speichern
-  \1 Binding, ein Metaplugin welches den Interpreter bestimmter Skriptsprachen
-  einbindet. Dies erlaubt es eigene Plugins in beliebigen Skriptsprachen zu
+  \1 Binding, ein Metaplugin, welches den Interpreter bestimmter Skriptsprachen
+  einbindet. Dies erlaubt es, eigene Plugins in beliebigen Skriptsprachen zu
   schreiben
-  \1 Logging, erlaubt es collectd interne Fehler und Warnungen in verschiedenen
+  \1 Logging, erlaubt es, collectd interne Fehler und Warnungen in verschiedenen
   Formen zu speichern und auszugeben
 \end{outline}
 
-collectd unterstützt das Sammeln aller benötigter Daten. Es kann lokale Daten
+Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann lokale Daten
 auf einem Hostsystem oder in einer virtuellen Maschine ermitteln. Außerdem kann
 es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendigen
 Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
 \subsection{zabbix-agent}
-Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open Source
-Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
+Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open-Source-Produkte zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
 zabbix-frontend (siehe auch Abschnitt~\ref{subsubsec:zabbix-frontend} für die
 Analyse des Frontends). Alle Produkte sind unter der GPL2 lizenziert. Der Agent
-ist in C geschrieben. Er bietet die Möglichkeit diverse Daten direkt aus dem
+ist in C geschrieben. Er bietet die Möglichkeit, diverse Daten direkt aus dem
 lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
-ist eine PHP Applikation welches die Daten visualisiert und direkt aus der
+ist eine PHP-Applikation, welche die Daten visualisiert und direkt aus der
 Datenbank liest. Der Agent kann mit externen Skripten erweitert werden. In
 Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
 Community bietet dafür fertige Skripte an~\cite{zabbix_virt_plugins}.
 
-Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation, dieses wird
+Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation. Dieses wird
 nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
 zwangsläufig mit dem hauseigenen zabbix-server genutzt werden. Es ist nicht
-möglich den Server, beziehungsweise die unterstützten Datenbanken redundant
+möglich den Server, beziehungsweise die unterstützten Datenbanken, redundant
 auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit
 ist der zabbix-agent nicht im Projekt nutzbar~\cite{zabbix_architecture}.
 \tm%
 
 \subsection{python-diamond}
-python-diamond (auch Diamond genannt) ist ein in Python geschriebener Dienst.
+Python-diamond (auch Diamond genannt) ist ein in Python geschriebener Dienst.
 Er kann auf Linux Systemen diverse Daten erheben und diese über das Netzwerk
 austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
-unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die Open
-Source Software steht unter der MIT Lizenz~\cite{python-diamond}.
+unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die Open-Source-Software steht unter der MIT Lizenz~\cite{python-diamond}.
 
 \lstinputlisting[language=bash,caption={Diamond git clone}]{../listings/diamond-clone.txt}
 
 Wie im obigen Listing zu sehen gibt es 2922 Beiträge im Versionskontrollsystem
-von 292 verschiedenen Personen. Diamond kann alle benötigten Daten, lokal und
-vom Hypervisor über seine VMs, ermitteln. Über das Netzwerk werden diese im
+von 292 verschiedenen Personen. Diamond kann alle benötigten Daten lokal und
+vom Hypervisor über seine VMs ermitteln. Über das Netzwerk werden diese im
 \glslink{Carbon}{Graphite Format} geschickt. Über Plugins sind auch weitere
 Formate möglich. Der \gls{Backlog} bei Diamond ist sehr hoch. Die Software hat
 aktuell 88 offene Issues im Versionsverwaltungssystem. Dies ist eine Mischung
@@ -809,19 +800,19 @@ worden sind.
 
 \subsection{sysstat}
 Die Softwaresammlung sysstat ist eine Kollektion an kleinen Programmen zur
-Performance Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
+Performance-Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
 älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
 erscheinen jedes Jahr mehrere Updates. Entwickelt wird das Projekt
-von~\cite{systat_releases}. Das Liste der Features von sysstat ist sehr
+von~\cite{systat_releases}. Die Liste der Features von sysstat ist sehr
 umfangreich.  Neben den geforderten Kriterien zur lokalen Datenerfassung
 liefert es auch viele weitere Details. Hierzu zählen zum Beispiel Statistiken
-zum Verhalten des Arbeitsspeichers. Die Interrupt Verarbeitung des Prozessors
+zum Verhalten des Arbeitsspeichers. Die Interrupt-Verarbeitung des Prozessors
 und detaillierte Netzwerkinformationen. Ermittelte Daten können als \gls{CSV},
 \gls{XML} oder \gls{JSON} gespeichert werden~\cite{sysstat_features}.
 
 Die Software sysstat bietet keine Möglichkeit, um Daten von virtuellen
 Maschinen über den Host zu ermitteln. Die bereitgestellten Informationen sind
-aber in einer sehr guten Struktur dank des XML Schemas. Das Einbinden in andere
+aber in einer sehr guten Struktur dank des XML-Schemas. Das Einbinden in andere
 Programme und das Interpretieren ist somit sehr einfach. Es werden nicht alle
 Anforderungen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
 anderen Programmen genutzt werden.
@@ -831,7 +822,7 @@ anderen Programmen genutzt werden.
 \label{subsec:logstash}
 Logstash wird von der Firma Elasticsearch BV entwickelt. Zusammen mit
 Elasticsearch (siehe auch Abschnitt~\ref{subsubsec:elasticsearch}) und
-\gls{Kibana} bilden sie den ELK-Stack. Die Open Source Software steht unter der
+\gls{Kibana} bilden sie den ELK-Stack. Die Open-Source-Software steht unter der
 Apache License. Logstash arbeitet nach dem modularen \gls{EVA} Prinzip.
 
 \begin{outline}
@@ -851,28 +842,28 @@ werden die unstrukturierten Daten mit Filtern zerlegt und in Typen eingeteilt,
 um strukturierte Daten zu erhalten. Aus einem langen String wird dabei die
 eigentliche Nachricht, das Datum, Dringlichkeit und andere Typen erkannt.
 Bereits strukturierte Daten können auch einfach in eine andere Struktur
-überführt werden. Zum Abschluss werden die Daten ausgeben. Dies kann passieren
-in dem unter anderem in einen Cache Service, eine Message Queue oder direkt in
+überführt werden. Zum Abschluss werden die Daten ausgegeben. Dies kann passieren,
+indem unter anderem in einen Cache Service, eine Message Queue oder direkt in
 eine Datenbank geschrieben wird.
 
 Logstash ist nicht auf das Einlesen von Metriken ausgelegt (Ganzzahlen),
 sondern für Logs in Textform. Über ein eigenes Plugin ließe sich aber auch das
-effiziente einlesen von Metriken realisieren. Mit der Vielzahl an
+effiziente Einlesen von Metriken realisieren. Mit der Vielzahl an
 Transformationen und Ausgabemöglichkeiten ist Logstash sehr flexibel und passt
-sich an jede Situation an. Dadurch, dass Daten über mehrere Ausgänge parallel
+sich an jede Situation an. Dadurch dass Daten über mehrere Ausgänge parallel
 verarbeitet werden können, ist die Software sehr zukunftssicher. Bei geänderten
-Anforderungen lassen sich die Daten zum Beispiel anstatt in eine SQL basierte
-Datenbank in eine No-SQL Datenbank schreiben.
+Anforderungen lassen sich die Daten zum Beispiel anstatt in eine SQL-basierte
+Datenbank in eine No-SQL-Datenbank schreiben.
 \tm%
 
 \subsection{Riemann}
 Riemann ist ein junges Softwareprojekt. Das erste Release erfolgte im März
-2012. Die Open Source Software steht unter der Eclipse Public Lizenz Version 1.
+2012. Die Open-Source-Software steht unter der Eclipse Public Lizenz Version 1.
 Die aktuellste Veröffentlichung trägt die Versionsnummer 0.2.12 und wurde im
 Dezember 2016 veröffentlicht. Das Versionsschema von Riemann hält sich an die
 Regeln von \gls{Semantic Versioning}, somit sind erst dann Releases zum
 produktiven Einsatz empfohlen, wenn sie die Nummer 1.0.0 oder höher enthalten.
-Der Autor ist Kyle Kingsbury, welche auch \gls{Jepsen} geschrieben hat. Der
+Der Autor ist Kyle Kingsbury, welcher auch \gls{Jepsen} geschrieben hat. Der
 Fokus der Software liegt auf der Verarbeitung von Ereignissen, auch Events
 genannt~\cite{riemann_concepts}. Dazu wurde eine eigene Struktur entworfen mit
 mehreren Feldern (Siehe Tabelle~\ref{tbl:riemann}). In der Konfigurationsdatei
@@ -898,16 +889,16 @@ werden Streams definiert. Diese laufen immer nach dem gleichen Schema ab:
 \end{listing}
 
 Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
-Sobald diese bei 75°C oder höher liegt wird eine eMail an tim@bastelfreak.de
+Sobald diese bei 75°C oder höher liegt, wird eine E-Mail an tim@bastelfreak.de
 geschickt.
 
-Riemann besitzt eine lange Liste an vorhandenen Aktionen die man nutzen kann.
-Dazu gehört auch der Export von Events in diverse Datenbanken, dazu gehören
+Riemann besitzt eine lange Liste an vorhandenen Aktionen, die man nutzen kann.
+Dazu gehört auch der Export von Events in diverse Datenbanken. Dazu gehören
 unter anderem Elasticsearch, graphite, influxdb, kariosdb, opentsdb, prometheus
 und generische UDP und TCP Outputs.
 
-Während der Analyse von Riemann hat sich herausgestellt, das Riemann zwar
-besonders gut Daten verarbeiten kann, allerdings keine Möglichkeit mitbringt
+Während der Analyse von Riemann hat sich herausgestellt, dass Riemann zwar
+besonders gut Daten verarbeiten kann, allerdings keine Möglichkeit mitbringt,
 diese selbst zu ermitteln.
 \tm%
 
@@ -936,7 +927,7 @@ Maschine oder auf einem Hostsystem.
 \captionof{table}{Ermittlung von lokalen Daten}
 \end{center}
 
-In der nachfolgenden Tabelle wird vergleichen welche Datenerfassungssysteme auf
+In der nachfolgenden Tabelle wird verglichen, welche Datenerfassungssysteme auf
 einem Hypervisor Daten über virtuelle Maschinen erfassen können, ohne in eben
 diesen selbst zu laufen:
 
@@ -958,17 +949,17 @@ diesen selbst zu laufen:
 \captionof{table}{Ermittlung von VM Daten}
 \end{center}
 
-atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
-Betrachtung raus. Coreutils ermöglicht zwar das ermitteln aller benötigten
-Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden da, Daten
+Atop erfüllt die Anforderungen nicht und fällt somit aus der weiteren
+Betrachtung raus. Coreutils ermöglicht zwar das Ermitteln aller benötigten
+Daten, dies ist allerdings mit einem sehr großen Aufwand verbunden, da Daten
 von Hand aufbereitet werden müssen. Außerdem muss Netzwerkfunktionalität zum
 Versenden der Daten nachgerüstet werden. Somit fällt Coreutils auch raus.\
-sysstat ist nicht in der Lage Daten von virtuellen Maschinen zu ermitteln und
-fällt somit auch raus.Logstash ist äußerst flexibel, benötigt aber etwas Arbeit
+Sysstat ist nicht in der Lage, Daten von virtuellen Maschinen zu ermitteln und
+fällt somit auch raus. Logstash ist äußerst flexibel, benötigt aber etwas Arbeit
 bei der Entwicklung eines eigenen Eingabe-Plugins.
 
 Übrig bleiben collectd und python-diamond. Beide erfüllen alle Anforderungen.\
-collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
+Collectd ist in C geschrieben, dies bietet gegenüber Python im Diamond Projekt
 einen Geschwindigkeitsvorteil. Das Team rund um collectd arbeitet schon länger
 am Projekt und arbeitet kontinuierlich daran. Im weiteren Verlauf des Projekts
 wird deshalb mit collectd gearbeitet. Sollten sich hier unerwartete Probleme
@@ -985,7 +976,7 @@ bekannt waren. Zusätzlich hatten die Projektmitglieder vorab mit Experten aus
 dem eigenen Unternehmen und aus dem Unternehmen des Auftraggebers über mögliche
 weitere Systeme gesprochen. Dadurch das Herr Luis in dem Bereich der
 Massendatenhaltungssysteme arbeitet, sind ebenfalls Systeme aufgenommen worden,
-welche im Bereich der sogenannten Big Data Technologie arbeiten.
+welche im Bereich der sogenannten Big-Data-Technologie arbeiten.
 
 Das Hinzufügen von weiteren/neuen Datenbanksystemen zur späteren
 Evaluierung erfolgt nur nach einer Genehmigung vom Auftraggeber.
@@ -1021,18 +1012,18 @@ aufgelistet:
   für Diskussionen und Fragen vorhanden ist. Ebenfalls fallen die vorhandenen
   Vorkenntnisse über das Datenbanksystem der Projektmitglieder, sowie die
   Mitarbeiter von dem Unternehmen des Auftraggebers unter dieses Kriterium. Es
-  ist wichtig, dass die zu aufwendende Einarbeitungszeit während dem Projekt
+  ist wichtig, dass die aufzuwendende Einarbeitungszeit während des Projekts
   und im späteren Wirkbetrieb bei Mitarbeitern des Unternehmens so gering wie
   möglich gehalten wird.
   \1 Das Datenhaltungssystem muss einfach, schnell und jederzeit erweiterbar
   sein. Dies bedeutet, dass Ressourcen (CPU/RAM/Speicherplatz) des
-  Datenbanksystems im optimalen Fall während dem normalen Betrieb (kein
+  Datenbanksystems im optimalen Fall während des normalen Betriebs (kein
   Neustart oder Auszeit) aufgestockt werden kann. Es ist jedoch nach
   Anforderung des Auftraggebers ausreichend, wenn eine Aufstockung nach einer
   Auszeit von maximal 45 Minuten erfolgt ist.
   \1 Umweltschonende und effiziente Datenhaltung ist zu beachten. Dies
   definiert eine optimale Relation zwischen der verwendeten Hardware und dem
-  daraus resultierendem Ergebnis. Eine umweltschonende Datenhaltung kann
+  daraus resultierenden Ergebnis. Eine umweltschonende Datenhaltung kann
   unabhängig der korrekten Auswahl der genutzten Stromeffizienzklasse jedes
   Hardwarebauteils bereits bei der im Produktivbetrieb zu benutzende Software
   beeinflusst werden. Dies ist im Bereich der Datenhaltungs-Software die
@@ -1040,15 +1031,15 @@ aufgelistet:
   Datenbank. Um so kleiner dieser ist, desto mehr kann bei Energiekosten für
   zusätzlichen Speicherplatz eingespart werden.
 
-  Unter Berücksichtigung der genannten Attribute, soll jedoch die
+  Unter Berücksichtigung der genannten Attribute soll jedoch die
   Datenhaltungs-Software mit der gleichen Hardware-Ressource das beste und
   schnellste Ergebnis erbringen können. Dies bedeutet, dass auch bei komplexen
-  Analysetechniken und zusätzlich hohen Datenmengen, dass System weiterhin
+  Analysetechniken und zusätzlich hohen Datenmengen das System weiterhin
   gegenüber anderen Datenhaltungssystemen ein valides und schnelles
   Analyseergebnis erbringen kann.
   \1 Die Datenhaltungs-Software sollte bereits Methoden zur Datensicherung
   besitzen. Dabei wird unterschieden in:
-    \2 Von extern getriggerte Methoden um Backups zu erstellen.
+    \2 Von extern getriggerte Methoden, um Backups zu erstellen.
     \2 Intern genutzte Methoden, um im Fehlerfall (zum Beispiel ein Defekt am
     Netzwerkkabel oder Ausfall eines Servers im Cluster) einem Datenverlust
     vorzubeugen.
@@ -1083,7 +1074,7 @@ Datenhaltungs-Software dokumentiert.
 
 \subsubsection{Elasticsearch}
 \label{subsubsec:elasticsearch}
-Elasticsearch ist eine, in Java geschriebene, verteilte Suchmaschine mit einer
+Elasticsearch ist eine in Java geschriebene, verteilte Suchmaschine mit einer
 \gls{RESTful} Schnittstelle. Die erste Veröffentlichung gab es am 8. Februar
 2010~\cite{es_release}. Elasticsearch speichert Daten im \gls{JSON} Format ab.
 Die komplette Interaktion mit der Suchmaschine erfolgt über
@@ -1095,7 +1086,7 @@ Datensatz ist ein Dokument, welches als \gls{JSON} gespeichert wird. Ein
 Dokument basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
 Elasticsearch erzeugt mit Hilfe der \gls{Lucene} Bibliothek Indexe auf diesen
 Daten, anschließend ist dann eine Volltextsuche möglich. Die Firma
-Elasticsearch BV, aus den Niederlanden, finanziert die Entwicklung der
+Elasticsearch BV aus den Niederlanden finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
 \lstinputlisting[language=bash,caption={elasticsearch git clone}]{../listings/elasticsearch-clone.txt}
@@ -1109,37 +1100,37 @@ werden mindestens zwei Server benötigt. Eingehende Daten werden in Indexe
 aufgeteilt, dies ist eine logische Gruppierung basierend auf der Charakteristik
 der Daten. Zum Beispiel kann man alle gemessenen Metriken charakterisieren
 anhand des Quellservers auf dem sie ermittelt wurden oder auch anhand des Typs
-(Festplattenauslastung, CPU Auslastung). Jeder Index kann in einzelne
+(Festplattenauslastung, CPU-Auslastung). Jeder Index kann in einzelne
 Subgruppen aufgeteilt werden (Shards genannt). Jedes Shard kann auf einem
 anderen Server gespeichert werden. Das Schreiben in die Shards, sowie Lesen aus
 den Shards, kann parallel auf allen Servern erfolgen. Somit erreicht man eine
-horizontale \gls{Skalierung}. Es ist auch möglich Replikas von Shards zu
+horizontale \gls{Skalierung}. Es ist auch möglich, Replikas von Shards zu
 erzeugen. Hierbei wird eine Kopie eines Shards auf einem anderen Server im
 Cluster gespeichert. Bei jeder Änderung des echten Shards wird auch das Replika
-geändert. Sobald ein Server im Cluster ausfällt kann aus dem Replika ein
+geändert. Sobald ein Server im Cluster ausfällt, kann aus dem Replika ein
 aktives Shard gemacht werden. Die Anzahl der Replikas pro Shard und deren
 Verteilung kann im laufenden Betrieb geändert werden. Somit erreicht man ein
-hochverfügbares Setup welches im laufenden Betrieb um neue Server erweitert
+hochverfügbares Setup, welches im laufenden Betrieb um neue Server erweitert
 werden kann~\cite{es_concepts}.
 
 Mit \gls{Jepsen} wurde Elasticsearch mehrfach untersucht~\cite{es_jepsen_all}.
 Nach dem ersten Test im Jahr 2014 hat Elasticsearch BV eine Übersichtsseite
-erstellt mit allen offenen Problemen und Szenarien die zu Datenverlust führen
+erstellt mit allen offenen Problemen und Szenarien, die zu Datenverlust führen
 können~\cite{es_resiliency}. Die wenigsten Hersteller und Communitys gehen so
 offen mit Problemen um.
 
-Der letzte Jepsen Test zeigt leider, dass Elasticsearch immernoch Probleme bei
+Der letzte Jepsen Test zeigt leider, dass Elasticsearch immer noch Probleme bei
 Netzwerkausfällen und starker Systemlast hat~\cite{jepsen_elastic}. Aufgrund
-der Größe solcher Setups ist es üblich, das jeder Node im Cluster über zwei
-Netzwerkverbindungen verfügt. Eine davon ist zur internen Cluster-kommunikation
-und zum verteilen der Replikas, die andere für die Kommunikation mit der
-Außenwelt (bereitstellung der RESTful Schnittstelle).
+der Größe solcher Setups ist es üblich, dass jeder Node im Cluster über zwei
+Netzwerkverbindungen verfügt. Eine davon ist zur internen Cluster-Kommunikation
+und zum Verteilen der Replikas, die andere für die Kommunikation mit der
+Außenwelt (Bereitstellung der RESTful-Schnittstelle).
 
 Gegeben ist ein Teilausfall des internen Netzwerks (zum Beispiel ein
 Kabelbruch):
 
 \begin{outline}
-  \1 Die Nodes merken, dass einer von Ihnen nicht erreichbar ist
+  \1 Die Nodes merken, dass einer von ihnen nicht erreichbar ist
   \1 Replikas der fehlenden Shards werden aktiv gesetzt
   \1 Das Cluster nimmt weiter Daten an, sofern Replikas zur Verfügung stehen
   \1 Elasticsearch meldet, dass die neuen Daten erfolgreich geschrieben wurden
@@ -1147,15 +1138,15 @@ Kabelbruch):
 \end{outline}
 
 Dieses Verhalten ist mit dem Jepsen Test reproduzierbar~\cite{es_jepsen_iso}.
-Während Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt
-werden neue Daten weiterhin über die RESTful Schnittstelle angenommen und dann
+Während Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt,
+werden neue Daten weiterhin über die RESTful-Schnittstelle angenommen und dann
 ohne Rückmeldung verworfen.
 
 Das nächste Problem ist das Verhalten von Elasticsearch unter hoher Systemlast.
 Ein Prozess unter Linux kann pausiert und wieder gestartet werden.
 Währenddessen kann ein Node deaktiviert werden. Hierfür gibt es verschiedene
 Gründe, zum Beispiel eine defekte Netzwerkverbindung oder eine absichtliche
-Abschaltung durch den Administrator weil er Wartungsarbeiten durchführen
+Abschaltung durch den Administrator, weil er Wartungsarbeiten durchführen
 möchte.
 
 \begin{outline}
@@ -1165,16 +1156,15 @@ möchte.
   \1 Der pausierte Node wird im Cluster deaktiviert
   \1 Der Prozess wird wieder gestartet
   \1 Der Prozess prüft nicht, ob er noch aktiv ist für seine Shards
-  \1 Der Prozess akzeptiert eingehende Schreibanfragen über die RESTful
-  Schnittstelle und updated seine Shards
+  \1 Der Prozess akzeptiert eingehende Schreibanfragen über die RESTful-Schnittstelle und updated seine Shards
   \1 Der Prozess meldet zurück, dass er die Daten erfolgreich geschrieben hat
   \1 Sobald das Netzwerkproblem behoben ist, erhält der Node Anweisungen aus
   dem Cluster, um seine Shards auf den Stand der Kopien im Netzwerk zu bringen
-  und verwirft was er selbst geschrieben hat
+  und verwirft, was er selbst geschrieben hat
 \end{outline}
 
 Das Pausieren passiert unter zwei Umständen. Der \gls{Garbage Collector} macht
-dies in regelmäßigen Abständen um den belegten Arbeitsspeicher nach nicht mehr
+dies in regelmäßigen Abständen, um den belegten Arbeitsspeicher nach nicht mehr
 benötigten Objekten zu scannen und den Speicher dann freizugeben. Der Garbage
 Collector pausiert nur für wenige Millisekunden, ein Datenverlust ist hier
 aufgrund des Zeitfensters unwahrscheinlich. Auch der Linux Kernel pausiert
@@ -1191,27 +1181,26 @@ andeuten, ist ein Datenverlust sehr wahrscheinlich.
 
 Beide Probleme sind äußerst kritisch für dieses Projekt. In der Theorie ist die
 Architektur sehr gut geeignet, denn sie ist skalierbar und hochverfügbar. In
-der Praxis zeigt sich leider das Gegenteil, gerade in großen Setups mit vielen
+der Praxis zeigt sich leider das Gegenteil. Gerade in großen Setups mit vielen
 Nodes ist nicht garantiert, dass Daten wirklich persistent geschrieben werden.
 \tm%
 
 \subsubsection{Cassandra}
 \label{subsubsec:cassandra}
-Cassandra, ist ein \gls{SQL} und Java basiertes \gls{DBMS} und wurde ausgelegt
-für die Datenhaltung von großen Datenmengen und dessen verbundenen
+Cassandra ist ein \gls{SQL} und Java basiertes \gls{DBMS} und wurde ausgelegt
+für die Datenhaltung von großen Datenmengen und dessen verbundenem
 Management der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
-Cluster System über mehrere Server (Nodes) um ein vollständiges Versagen, durch
-den Ausfall von Hardwarekomponenten, oder Softwareteilen auf dem System zu
+Cluster-System über mehrere Server (Nodes), um ein vollständiges Versagen durch
+den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
-Dateninformationen auf mehrere Server verteilt und verwaltet. Im Cassandra
-Umfeld wird dies über das von dem Hersteller definierten Protokoll „gossip“
+Dateninformationen auf mehrere Server verteilt und verwaltet. Im Cassandra-Umfeld wird dies über das von dem Hersteller definierte Protokoll „gossip“
 verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll, welches den
 Austausch von Statusinformationen und Metainformationen zwischen den einzelnen
 Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen erstellt,
 modifiziert oder entfernt werden, erhält ein weiterer Node in der Infrastruktur
 diese Information und baut gleichzeitig eine Replikation des Objektes. Diese
 Replikationen werden von dem Serveradministrator definiert, indem dieser den
-Datenmengen verschiedene \gls{Partitionen} zuteilt. Das Cassandra System
+Datenmengen verschiedene \gls{Partitionen} zuteilt. Das Cassandra-System
 verteilt jede dieser \gls{Partitionen} an die im Netzwerk vorhandenen Nodes
 in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition eins auf dem ersten
 Node repliziert wird, Partition zwei auf dem zweiten Node und immer so weiter,
@@ -1219,8 +1208,8 @@ bis das Verfahren den ersten Node wieder erreicht.
 
 \lstinputlisting[language=bash,caption={cassandra status}]{../listings/cassandra-status.txt}
 
-In der obigen Shellausgabe wird ein während der Evaluierungsphase erstelltes
-Cassandra System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
+In der obigen Shell-Ausgabe wird ein während der Evaluierungsphase erstelltes
+Cassandra-System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
 welche für Testzwecke auf dem gleichen physischen Server betrieben werden. Im
 Produktivbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten,
 um die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu
@@ -1232,13 +1221,13 @@ der beiden Nodes ausfallen, könnte der jeweils andere automatisch einen
 Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
 weiterarbeiten. Dies entspricht der \gls{Shared-Nothing-Architektur}.
 
-Je nach Node Anzahl können die vorhandenen Replikations-Modelle in der
+Je nach Node-Anzahl können die vorhandenen Replikations-Modelle in der
 Konfiguration eingestellt und eingesetzt werden. Cassandra bietet zudem drei
 Modelle zur Wiederherstellung von Informationen und Datensicherungen an, welche
 im Gesamten ein stabiles und sicheres System ermöglichen. Neben diesen
-Kerneigenschaften besitzt es jedoch auch noch über weitere kleinere Methoden
-zur korrekten Datenverarbeitung. Darunter ist das nicht sofortige Löschen von
-Daten in Datenbanktabellen, stattdessen werden Daten nur als gelöscht markiert
+Kerneigenschaften besitzt es jedoch auch noch weitere kleinere Methoden
+zur korrekten Datenverarbeitung. Darunter fällt das nicht sofortige Löschen von
+Daten in Datenbanktabellen. Stattdessen werden Daten nur als gelöscht markiert
 und bei zukünftigen Abfragen zunächst nicht beachtet. Die vollständige Löschung
 der Daten wird dann zum Beispiel zu Zeitpunkten erledigt, wenn das System
 sicher ist, dass keine Fehler oder Datenleichen entstehen können.
@@ -1248,8 +1237,8 @@ sicher ist, dass keine Fehler oder Datenleichen entstehen können.
 \label{subsubsec:postgres}
 Postgres, oder auch PostgreSQL genannt, ist ein \gls{SQL} basiertes \gls{DBMS}.
 Die initiale Arbeit an Postgres begann 1986~\cite{old_postgres}. Mit über 30
-Jahren Entwicklung ist es eines der ältesten und am weiten verbreitetsten
-DBMS~\cite{db_ranking}. Es steht unter einer eigenen Open Source Lizenz und
+Jahren Entwicklung ist es eines der ältesten und am weitesten verbreitetsten
+DBMS~\cite{db_ranking}. Es steht unter einer eigenen Open-Source-Lizenz und
 darf frei genutzt werden~\cite{postgres_license}. Die Community ist sehr aktiv,
 sie pflegt ein komplexes Wiki~\cite{postgres_wiki}, sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für
@@ -1257,16 +1246,16 @@ Fortgeschrittene~\cite{postgres_tutorial}.
 
 \lstinputlisting[language=bash,caption={postgres git clone}]{../listings/postgres-clone.txt}
 
-Wie in der obigen Shellausgabe zu sehen, enthält das \gls{Git}-\gls{Repository}
+Wie in der obigen Shell-Ausgabe zu sehen, enthält das \gls{Git}-\gls{Repository}
 des Postgres Quellcodes am 26.11.2016 41366 einzelne \glslink{Commit}{Commits}
 von 41 verschiedenen Autoren. Aufgrund der Patchpolitik von Postgres werden
-Patches oftmals an Autoren aus dem Postgres Team geschickt, ein Teammitglied
+Patches oftmals an Autoren aus dem Postgres-Team geschickt. Ein Teammitglied
 fügt danach den Patch in das Repository ein. Somit lässt sich nicht genau
-bestimmen von wie vielen Leuten Code beigesteuert wurde.
+bestimmen, von wie vielen Leuten Code beigesteuert wurde.
 
-Die Postgres Architektur sah lange Zeit vor, dass der Dienst auf einem einzigen
-Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten die
-Architektur anzupassen um Postgres:
+Die Postgres-Architektur sah lange Zeit vor, dass der Dienst auf einem einzigen
+Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten, die
+Architektur anzupassen, um Postgres:
 
 \begin{outline}
   \1 \glslink{Hochverfügbarkeit}{Hochverfügbar} zu betreiben
@@ -1287,7 +1276,7 @@ Vorteile:
 
 Der aktive Server muss somit nur noch Schreibanfragen beantworten. Das
 Hinzufügen von passiven Nodes oder das Umschwenken der Schreibanfragen auf
-einen von Ihnen kann im laufenden Betrieb erfolgen. Die Postgres Konfiguration
+einen von ihnen kann im laufenden Betrieb erfolgen. Die Postgres-Konfiguration
 lässt sich zur Laufzeit anpassen, um dem Dienst mehr Ressourcen des physischen
 Hosts zuzuweisen.
 
@@ -1304,31 +1293,30 @@ nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 
 \subsubsection{OpenTSDB}
 \label{subsubsec:opentsdb}
-OpenTSDB ist ein Zeitreihen basiertes Programm, auf Englisch „Time Series
-Daemon (TSD)“, und arbeitet mit dem Open Source Programm \gls{DBMS} „HBase“
+OpenTSDB ist ein Zeitreihen-basiertes Programm, auf Englisch „Time Series
+Daemon (TSD)“, und arbeitet mit dem Open-Source-Programm \gls{DBMS} „HBase“
 zusammen. Es verfügt über die Funktionen von einem Konsolen-basierten Zugang,
 sowie verschiedenen Treibern für den Zugriff und Austausch von Informationen
 zwischen anderen Netzwerkgeräten. Es übernimmt nicht die Aufgabe der
 Datenspeicherung. Dazu wird das zugehörige \gls{DBMS} „HBase“ zwingend
 benötigt. OpenTSDB wird genutzt, um einzelne und unabhängige Systeme für den
 Datenzugriff bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an
-einem HBase System angebunden sein. Es existiert keinerlei
+einem HBase-System angebunden sein. Es existiert keinerlei
 Informationsaustausch zwischen den einzelnen Deamons, sondern sie nutzen
-lediglich alle die gleiche Datengrundlage des HBase Systems. Dennoch kann man
-durch dieses Verfahren die Analyseperformance dynamisch anpassen, da das HBase
-System stark auf die Aggregation und niedrigen Speicherplatzbedarf optimiert
-wurde. Die einzelnen Deamons kommunizieren dabei mit dem HBase System über
+lediglich alle die gleiche Datengrundlage des HBase-Systems. Dennoch kann man
+durch dieses Verfahren die Analyseperformance dynamisch anpassen, da das HBase-System stark auf die Aggregation und niedrigen Speicherplatzbedarf optimiert
+wurde. Die einzelnen Deamons kommunizieren dabei mit dem HBase-System über
 einfache Protokolle wie Telnet oder HTTP (API).
 
 Da die Dateninhalte immer in Verbindung mit einem Zeit- und Datumswert stehen,
-ist dieses \gls{DBMS} durch die Optimierung von dem Verarbeiten der Zeit- und
-Datums-basierten Datensätzen ein Kandidat für die spätere Nutzung in der
+ist dieses \gls{DBMS} durch die Optimierung des Verarbeitens der Zeit- und
+Datums-basierten Datensätze ein Kandidat für die spätere Nutzung in der
 Ziellösung.
 \nl%
 
 \subsubsection{Hadoop / Hive /Impala}
 \label{subsubsec:hadoop_hive_impala}
-Das Apache Hadoop System wird zum aktuellen Zeitpunkt bei
+Das Apache-Hadoop-System wird zum aktuellen Zeitpunkt bei
 großen und leistungsfähigen Datenhaltungssystemen eingesetzt, sodass es
 auch oftmals in Verbindung mit den Worten „BIG DATA“ genannt wird.
 
@@ -1339,29 +1327,29 @@ dabei den Ansatz, alle Dateninformationen in nur einem gebündelten System zu
 verwalten und keine zusätzlichen Datenhaltungssysteme, welche gegebenenfalls
 nur auf eine einzelne Anforderung spezialisiert sind, zu gründen.
 
-Um diesen Ansatz zu erfüllen, wurde das Cluster-konzept eingesetzt, Hadoop nennt
+Um diesen Ansatz zu erfüllen, wurde das Cluster-Konzept eingesetzt, Hadoop nennt
 es selber „Hadoop Distributed File System“ (HDFS). Dabei werden die Daten in
 der Datenhaltung nicht mehr auf einem einzelnen physischen System gehalten,
 sowie vor einem Hardwareausfall gesichert, sondern nun auf mehrere Systeme
 verteilt. Hadoop teilt dabei jedem in dem Cluster hinzugefügten System eine
 spezielle Aufgabe zu. Für die Datenspeicherung existieren dabei drei
 Aufgabenfelder. Nummer Eins ist der Data Node, dieser besteht oftmals aus
-mehreren Festplatten und einer Netzwerkanbindung. Auf diesem wird eine
+mehreren Festplatten und einer Netzwerkanbindung. Auf diesem wird ein
 Datensatz mehrmals auf verschiedenen Festplatten abgespeichert, sodass bei
 einem Ausfall der Datensatz gesichert ist. Es können bei Hadoop beliebig viele
 Data Nodes in der Datenhaltungslandschaft eingesetzt werden, je mehr Data
 Nodes, umso mehr Speicherplatz und Rechenleistung steht zur Verfügung. Nummer
-zwei ist der Name Node, bei diesem handelt es sich um ein einzelnes System,
-welches den Speicherort (Data Node ID), von einem Datensatz bereitstellt. Die
-letzte Aufgabe erfüllt der Backup Node, auch bei diesem handelt es sich um ein
+zwei ist der Name Node. Bei diesem handelt es sich um ein einzelnes System,
+welches den Speicherort (Data Node ID) von einem Datensatz bereitstellt. Die
+letzte Aufgabe erfüllt der Backup Node. Auch bei diesem handelt es sich um ein
 einzelnes System. Das System kommt zum Einsatz, wenn der Name Node ausfallen
 sollte. Er synchronisiert sich dauerhaft mit dem Name Node, um im Falle eines
-Ausfalls des Name Nodes sofort die Aufgaben zu übernehmen.
+Ausfalls des Name Nodes, sofort die Aufgaben zu übernehmen.
 
-Für das Verwalten des Cluster-konzepts und zeitbasierenden Aufgaben (im
+Für das Verwalten des Cluster-Konzepts und zeitbasierenden Aufgaben (im
 englischen: Job scheduling) wurde „Hadoop YARN“ gegründet. Dieses System
 definiert eigenständig den Austausch von Informationen zwischen den einzelnen
-Nodes. Es definiert dabei auch zu welchem Tageszeitpunkt einzelne Aufgaben
+Nodes. Es definiert dabei auch, zu welchem Tageszeitpunkt einzelne Aufgaben
 erfüllt werden sollen. Diese Definitionen werden automatisch erstellt und
 durchgeführt, jedoch kann dies auch von einer Person manuell eingestellt und
 verwaltet werden.
@@ -1375,8 +1363,7 @@ und~\ref{subsubsec:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 „Hadoop Map Reduce“ zum Einsatz. Diese ist von dem gleichnamigen
-Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN
-basiertes System, welches ein paralleles abarbeiten von Aufgaben ermöglicht.
+Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN-basiertes System, welches ein paralleles Abarbeiten von Aufgaben ermöglicht.
 Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
 einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
 wiederum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
@@ -1390,20 +1377,19 @@ Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
 zeitkritischen Datenabfragen zum Einsatz.
 
 Diese vier Komponenten bilden den „Hadoop Core“, welcher zwingend für den
-Betrieb eines Hadoop Systems benötigt wird. Hadoop basierende Systeme, zur
-Erfüllung von verschiedenen und spezialisierten Aufgaben, werden unter dem
-„Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von Hadoop
-basierenden Systemen und Projekten kann auf der offiziellen Webseite des
+Betrieb eines Hadoop-Systems benötigt wird. Hadoop-basierende Systeme zur
+Erfüllung von verschiedenen und spezialisierten Aufgaben werden unter dem
+„Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von Hadoop-basierenden Systemen und Projekten kann auf der offiziellen Webseite des
 Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 \nl%
 
 \subsubsection{Beschreibung Hive}
 \label{subsubsec:hadoop_beschreibung}
-Das Apache Hive System ist eine Hadoop basierende Software und nutzt die im
+Das Apache-Hive-System ist eine Hadoop-basierende Software und nutzt die im
 Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterten Schnittstellten für den
-Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem Hadoop System
+Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem Hadoop-System
 aus und fällt somit nicht unter ein eigenständiges Datenhaltungssystem. In der
-Hadoop Landschaft wird es unter dem Begriff „Hadoop Ecosystem“ eingeordnet.
+Hadoop-Landschaft wird es unter dem Begriff „Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung von
 einem sogenannten „Data Warehouse“ (DWH) in dem Hadoop Netzwerk. Ein Data
