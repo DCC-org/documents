@@ -3195,6 +3195,22 @@ Die Vorteile von solchen Unit-Tests mit rspec sind Folgende:
 \end{outline}
 \mr%
 
+\section{Acceptance Tests}
+Ein Akzeptanz Test prüft den zuvor erstellten Code in einer eigens dafür
+gestarteten virtuellen Maschine oder Container mit einem Betriebssystem auf die
+Funktionalität der einzelnen Module. Hierzu wurden schon bereits vorhandene
+Test Szenarien von \texttt{testkitchen} oder \texttt{serverspec} verwendet und
+diese auf die im Projekt verwendeten Module angepasst. Der Code wird innerhalb
+dieser Test tatsächlich ausgeführt und geprüft, ob die Funktionalität der
+einzelnen Module für den Benutzer gegeben sind. Diese Szenarien prüfen
+beispielsweise, ob die Erhaltung der Daten, sowie speichern dieser Daten in der
+Datenbank und Visualisierung der Graphen funktioniert. Es wird hier nicht
+geprüft, ob das System stabil läuft sondern lediglich, ob die einzelnen
+Funktionen vorhanden sind und funktionieren. Die Ausgabe erfolgt hier entweder
+in Bestanden oder nicht Bestanden. Anschließend kann der Entwickler diesen Code
+erneut anpassen und testen.
+\mr%
+
 \chapter{Fazit}
 erster prototyp war blöd, zweiter war geil
 skalierbares design, weil
