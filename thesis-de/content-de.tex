@@ -1412,15 +1412,15 @@ einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im Land
 verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
 Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-,
 Transformations- und Ladeprozesses (ETL) werden die unterschiedlich
-abgespeicherten Informationen von jedem einzelnen Kassensystem ausgelesen, dem
-Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem Data Warehouse
-angepasst und anschließend die vollständige Speicherung im System
+abgespeicherten Informationen von jedem einzelnen Kassensystem ausgelesen.
+Anschließend dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
+Data Warehouse angepasst und somit die vollständige Speicherung im System
 gewährleistet.
 
 Dadurch das in dem Hadoop System keinerlei Struktur der Daten existiert,
 übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
 Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
-Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies ist
+Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems. Dies ist
 zum einem die Bereitstellung von einem standardisierten Treiber für den
 externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit dem
 bekannten Namen „SQL“. Jedoch implementiert Apache Hive auf dem Hadoop System
@@ -1428,13 +1428,20 @@ auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
 wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer
 Internetwebseite.
 
-Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
+Zusammengefasst hat Apache Hive die Aufgabe zur Bereitstellung einer strukturierten
 Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
 Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
 das Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
 für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
 dem Data Warehouse bekannten „Data Marts“ fallen somit weg und werden durch
-den Aufbau der genannten Sichten ersetzt.
+den Aufbau der genannten Sichten ersetzt. Ein Data Mart ist eine von dem
+Datawarehouse getrennte Datenbank, welche genutzt wird, um für ausgewählte
+getrennte Daten Analysen und Reports zu erstellen. Diese können zum Beispeil
+nach Abteilungen im Unternehmen getrennt werden, sodass das Marketing nur Daten
+zu Produkten und Beständen erhält, jedoch keine technisch orientierte Daten.
+Des weiteren werden Data Marts in der dritten Normalform und ein Datawarehouse
+in der zweiten Normalform betrieben, entsprechend dienen sie dazu, die Daten
+nochmals fachlich aufzubereiten.
 \nl%
 
 \subsubsection{Beschreibung Impala}
