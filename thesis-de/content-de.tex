@@ -2813,7 +2813,7 @@ erstellt~\cite{grafana-issue}.
 \label{subsec:graphen-definieren}
 Soabld die Grundkonfiguration von Grafana wie in~\ref{sec:realisierung_grafana}
 beschrieben durchgeführt worden ist, können als nächstes Graphen visualisiert
-werden. Zu Beginn wird hier unter dem Punkt \texttt{General} ein
+werden.  Zu Beginn wird hier unter dem Punkt \texttt{General} ein
 aussagekräftiger Titel, sowie Beschreibung des Graphen hinterlegt. In unserem
 Beispiel, wird der Graph für die \texttt{CPU Usage} definiert. Unter dem Punkt
 \texttt{General} können alle Einstellungen für das Aussehen des Graphen
@@ -2821,10 +2821,32 @@ hinterlegt und angepasst werden. Ebenfalls können Verlinkungen zu anderen
 Dashboards oder direkten URL Adressen hinterlegt werden. Diese werden
 anschließend, wie im Anhang xyz dargestellt. Dies dient zur besseren
 Übersichtlichkeit, wenn Administratoren oder die Führungsebene diese Graphen
-analysiert. Im zweiten Schritt werden nun die einzelnen Graphen definiert.
+analysieren möchten. Im zweiten Schritt werden nun die einzelnen Graphen
+definiert.
+
 Hierzu muss unter \texttt{Metrics} zunächst ausgewählt werden, von welcher
-Datenquelle die erhaltenen Daten stammen. Die Datenquelle muss zuvor, wie in
-~\ref{sec:realisierung_grafana} beschrieben hinterlegt werden.  
+Datenquelle die erhaltenen Daten stammen und anschließend über \texttt{Add
+Query} hinzugefügt werden. Hier wird zunächst eine Standard \texttt{SELECT}
+\gls{SQL}-Abfrage hinterlegt, welche für die entsprechende Anforderung
+angepasst werden kann. Innerhalb der SQL-Abfrage wird definiert, von wo die
+erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen. Ebenfalls
+kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb einer Gruppe zusammen
+definiert werden. Nun sollten bereits einzelne Werte im Graphen visualisiert
+werden. Nachdem nun die Grundeinstellung für die Graphen konfiguriert wurden,
+können anschließend weitere Feineinstellungen eingestellt werden.
+
+Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine Y oder
+X-Achse benötigt wird. Zusätzlich kann hier auch die entsprechende Einheit für
+diese Werte definiert werden, denn die erhaltenen Werte aus der Datenbank sind
+meist nur Double oder Integer Werte, welche keine Einheiten übergeben bekommen.
+
+Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
+definiert. Eingestellt werden kann hier lediglich welchen Minimalen, Maximalen,
+Aktuellen und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und
+ob diese Werte als Tabelle ausgegeben werden sollen. Dies erleichtert die
+Übersichtlichkeit in Hinsicht, wenn hier mehrere Werte ausgegeben
+werden,andernfalls werden diese in einer Reihe angezeigt.
+
 \mr%
 
 \chapter{Tests und Qualitätssicherung}
