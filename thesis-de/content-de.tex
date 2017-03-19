@@ -417,8 +417,8 @@ Möglichkeit wiederkehrende, negative Punkte zu beseitigen.
 Wenn ein Mitglied einen besonderen Fortschritt im Projekt erzielt hat, wird
 dieser kurz präsentiert (Review). Hierbei wird keine vollständige Präsentation
 mit Folien erwartet, sondern eine kurze Erklärung der erledigten Arbeit mit
-einer Demonstration. Jedes Projektmitglied darf selbstständig entscheiden, ob es
-seine Arbeit hier präsentiert.
+einer Demonstration. Jedes Projektmitglied darf selbstständig entscheiden, ob
+es seine Arbeit hier präsentiert.
 
 Review und Retrospective werden oft als „R \& R“ abgekürzt.
 
@@ -454,10 +454,11 @@ zusätzlich eventbasiert. Hierbei schickt der Kernel die neuen Informationen
 direkt zur Schnittstelle der Datenerfassungssysteme. Der Kernel ist der
 kritischste Teil eines laufenden Computers. Er hat volle Rechte auf alle
 Hardwareschnittstellen, weshalb die Interaktion mit ihm besonders geschützt und
-minimal sein muss. Programmierfehler in der Vergangenheit erlaubten es mehrfach,
-auf Schnittstellen auf den Kernel zu schreiben, obwohl das Interface nicht
-beschreibbar sein sollte. Der Kernel selbst bietet nur lokale Schnittstellen,
-aber über weitere Software werden diese indirekt im Netzwerk bereitgestellt.
+minimal sein muss. Programmierfehler in der Vergangenheit erlaubten es
+mehrfach, auf Schnittstellen auf den Kernel zu schreiben, obwohl das Interface
+nicht beschreibbar sein sollte. Der Kernel selbst bietet nur lokale
+Schnittstellen, aber über weitere Software werden diese indirekt im Netzwerk
+bereitgestellt.
 
 Die zweite Schnittstelle der Datenerfassungssysteme befindet sich innerhalb des
 Projektes und interagiert mit der Datenbank. Diese Schnittstelle ist aus
@@ -501,11 +502,11 @@ neuen Strukturen erlernen muss.
 \nl%
 
 \section{Frontend}
-Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum einen
-die Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der Ausgabe
-und Anzeige für den User beziehungsweise den Administrator. Eine Schnittstelle
-auf einem Webinterface dient in erster Linie der Anzeige von Daten, die über
-ein anderes System (Backend) erhalten wurden.
+Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum
+einen die Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der
+Ausgabe und Anzeige für den User beziehungsweise den Administrator. Eine
+Schnittstelle auf einem Webinterface dient in erster Linie der Anzeige von
+Daten, die über ein anderes System (Backend) erhalten wurden.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
@@ -558,16 +559,16 @@ Eine Metrik ist die Kombination aus:
 Eine Metrik wird periodisch als Ganzzahl ermittelt. Die Kombination mehrerer
 Werte einer Metrik ergibt eine Timeseries (auch „Datenreihe“ oder „Abfolge“
 genannt). Um Speicherplatz zu sparen, können die Werte aggregiert werden.
-Hierbei werden für einen bestimmten Zeitraum einer Timeseries die Werte genommen
-und folgende Funktionen angewendet:
+Hierbei werden für einen bestimmten Zeitraum einer Timeseries die Werte
+genommen und folgende Funktionen angewendet:
 
 \begin{outline}
   \1 \lstinline|min()|: Ermittlung des niedrigsten Wertes
   \1 \lstinline|max()|: Ermittlung des höchsten Wertes
   \1 \lstinline|count()|: Addieren aller Werte
-  \1 \lstinline|sum()|: Alle Werte werden aufaddiert. Diese Berechnung ist nicht
-  bei jedem Ressourcentyp sinnvoll, allerdings wird das Ergebnis für weitere
-  Berechnungen benötigt
+  \1 \lstinline|sum()|: Alle Werte werden aufaddiert. Diese Berechnung ist
+  nicht bei jedem Ressourcentyp sinnvoll, allerdings wird das Ergebnis für
+  weitere Berechnungen benötigt
   \1 \lstinline|avg()|: Berechnung des Durchschnitts mit den Ergebnissen aus
   \lstinline|count()| und \lstinline|sum()|
   \1 \lstinline|95pct()|: Berechnung des Durchschnitts, zuvor werden die Werte
@@ -713,17 +714,17 @@ vom Host aus Daten der VMs zu ermitteln.
 \subsection{atop}
 Das Linux-Kommandozeilenprogramm atop ist zum Visualisieren von Prozessen und
 des Systemzustands. Es ist unter der GPL lizenziert und fällt damit unter
-Open-Source-Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld.
-Die erste stabile Veröffentlichung war im Dezember 2001. Seitdem wird das
-Programm kontinuierlich entwickelt. Es ist darauf ausgelegt, im Vollbildmodus
-eines Terminals zu arbeiten (siehe~\ref{figure:atop1} und~\ref{figure:atop2} für
+Open-Source-Software. Der aktuelle \gls{Maintainer} ist Gerlof Langeveld.  Die
+erste stabile Veröffentlichung war im Dezember 2001. Seitdem wird das Programm
+kontinuierlich entwickelt. Es ist darauf ausgelegt, im Vollbildmodus eines
+Terminals zu arbeiten (siehe~\ref{figure:atop1} und~\ref{figure:atop2} für
 Screenshots). Neben der Echtzeitanalyse bietet atop aber auch die Möglichkeit,
 im Hintergrund periodisch eine Logdatei zu schreiben. Hier wird ein selbst
 entwickeltes Binärformat genutzt. Dies kann von atop aber auch zurück in ASCII
-umgewandelt werden. Dann erhält man alle Infos, die auch die interaktive Version
-anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben, dieses
-Intervall ist allerdings modifizierbar. Das ASCII Format beruht nicht auf
-bekannten Standards und lässt sich deshalb nicht automatisiert
+umgewandelt werden. Dann erhält man alle Infos, die auch die interaktive
+Version anzeigt. Im Standardverhalten werden alle 10 Minuten Logs geschrieben,
+dieses Intervall ist allerdings modifizierbar. Das ASCII Format beruht nicht
+auf bekannten Standards und lässt sich deshalb nicht automatisiert
 weiterverarbeiten (siehe~\ref{lst:atop} für eine exemplarische Ausgabe). Die
 Daten müssen, ähnlich wie bei Coreutils, vor einer Speicherung in einer
 zentralen Datenbank erst noch bearbeitet werden. Es ist keine Funktionalität
@@ -760,10 +761,11 @@ unterschieden~\cite{collectd_plugins}:
   Formen zu speichern und auszugeben
 \end{outline}
 
-Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann lokale
-Daten auf einem Hostsystem oder in einer virtuellen Maschine ermitteln. Außerdem
-kann es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle notwendigen
-Informationen über virtuelle Instanzen abrufen~\cite{collectd_virt_plugins}.
+Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann
+lokale Daten auf einem Hostsystem oder in einer virtuellen Maschine ermitteln.
+Außerdem kann es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle
+notwendigen Informationen über virtuelle Instanzen
+abrufen~\cite{collectd_virt_plugins}.
 \tm%
 
 \subsection{zabbix-agent}
@@ -851,9 +853,9 @@ werden die unstrukturierten Daten mit Filtern zerlegt und in Typen eingeteilt,
 um strukturierte Daten zu erhalten. Aus einem langen String wird dabei die
 eigentliche Nachricht, das Datum, Dringlichkeit und andere Typen erkannt.
 Bereits strukturierte Daten können auch einfach in eine andere Struktur
-überführt werden. Zum Abschluss werden die Daten ausgegeben. Dies kann passieren,
-indem unter anderem in einen Cache Service, eine Message Queue oder direkt in
-eine Datenbank geschrieben wird.
+überführt werden. Zum Abschluss werden die Daten ausgegeben. Dies kann
+passieren, indem unter anderem in einen Cache Service, eine Message Queue oder
+direkt in eine Datenbank geschrieben wird.
 
 Logstash ist nicht auf das Einlesen von Metriken ausgelegt (Ganzzahlen),
 sondern für Logs in Textform. Über ein eigenes Plugin ließe sich aber auch das
@@ -1128,7 +1130,7 @@ erstellt mit allen offenen Problemen und Szenarien, die zu Datenverlust führen
 können~\cite{es_resiliency}. Die wenigsten Hersteller und Communitys gehen so
 offen mit Problemen um.
 
-Der letzte Jepsen Test zeigt leider, dass Elasticsearch immer noch Probleme bei
+Der letzte Jepsen-Test zeigt leider, dass Elasticsearch immer noch Probleme bei
 Netzwerkausfällen und starker Systemlast hat~\cite{jepsen_elastic}. Aufgrund
 der Größe solcher Setups ist es üblich, dass jeder Node im Cluster über zwei
 Netzwerkverbindungen verfügt. Eine davon ist zur internen Cluster-Kommunikation
@@ -1146,7 +1148,7 @@ Kabelbruch):
   \1 Die neuen Daten wurden nicht geschrieben und sind verloren
 \end{outline}
 
-Dieses Verhalten ist mit dem Jepsen Test reproduzierbar~\cite{es_jepsen_iso}.
+Dieses Verhalten ist mit dem Jepsen-Test reproduzierbar~\cite{es_jepsen_iso}.
 Während Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt,
 werden neue Daten weiterhin über die RESTful-Schnittstelle angenommen und dann
 ohne Rückmeldung verworfen.
@@ -1375,13 +1377,13 @@ und~\ref{subsubsec:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 „Hadoop Map Reduce“ zum Einsatz. Diese ist von dem gleichnamigen
-Programmiermodell abgeleitet. Es handelt sich dabei um ein Hadoop-YARN-basiertes
-System, welches ein paralleles Abarbeiten von Aufgaben ermöglicht.
-Dabei werden Analyseanfragen nun nicht mehr in mehreren Server-Threads auf
-einem einzelnen System aufgeteilt, sondern auf mehreren Data Nodes, welche
-wiederum die Aufgaben in mehreren Threads abarbeiten können. Gleichzeitig
-besitzt diese Hadoop-Komponente einen Data Node, welcher aus reinem
-Arbeitsspeicher besteht. Dieser wird genutzt, um Informationen für eine
+Programmiermodell abgeleitet. Es handelt sich dabei um ein
+Hadoop-YARN-basiertes System, welches ein paralleles Abarbeiten von Aufgaben
+ermöglicht.  Dabei werden Analyseanfragen nun nicht mehr in mehreren
+Server-Threads auf einem einzelnen System aufgeteilt, sondern auf mehreren Data
+Nodes, welche wiederum die Aufgaben in mehreren Threads abarbeiten können.
+Gleichzeitig besitzt diese Hadoop-Komponente einen Data Node, welcher aus
+reinem Arbeitsspeicher besteht. Dieser wird genutzt, um Informationen für eine
 kurzfristige Zeit auf ein schnelleres Medium zu laden, sodass die Information
 im Falle einer erneuten Abfrage innerhalb dieser Zeit erneut genutzt werden
 kann, ohne diese wieder von einem langsameren Medium laden zu müssen. Die
@@ -1390,16 +1392,16 @@ Arbeitsspeicher ist bis dato einer der schnellsten Speichermedien und kommt bei
 zeitkritischen Datenabfragen zum Einsatz.
 
 Diese vier Komponenten bilden den „Hadoop Core“, welcher zwingend für den
-Betrieb eines Hadoop-Systems benötigt wird. Hadoop-basierende Systeme zur
+Betrieb eines Hadoop-Systems benötigt wird. Hadoop basierende Systeme zur
 Erfüllung von verschiedenen und spezialisierten Aufgaben werden unter dem
 „Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von
-Hadoop-basierenden Systemen und Projekten kann auf der offiziellen Webseite des
+Hadoop basierenden Systemen und Projekten kann auf der offiziellen Webseite des
 Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
 \nl%
 
 \subsubsection{Beschreibung Hive}
 \label{subsubsec:hadoop_beschreibung}
-Das Apache-Hive-System ist eine Hadoop-basierende Software und nutzt die im
+Das Apache-Hive-System ist eine Hadoop basierende Software und nutzt die im
 Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterten Schnittstellten für den
 Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem Hadoop-System
 aus und fällt somit nicht unter ein eigenständiges Datenhaltungssystem. In der
@@ -1417,19 +1419,19 @@ Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem Data Warehouse
 angepasst und anschließend die vollständige Speicherung im System
 gewährleistet.
 
-Dadurch das in dem Hadoop System keinerlei Struktur der Daten existiert,
+Dadurch das in dem Hadoop-System keinerlei Struktur der Daten existiert,
 übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
 Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
-Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop Systems, dies ist
+Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop-Systems. Dies ist
 zum einem die Bereitstellung von einem standardisierten Treiber für den
 externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit dem
-bekannten Namen „SQL“. Jedoch implementiert Apache Hive auf dem Hadoop System
+bekannten Namen „SQL“. Jedoch implementiert Apache Hive auf dem Hadoop-System
 auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
 wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer
 Internetwebseite.
 
 Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
-Sicht (Schema) auf die Daten innerhalb des Hadoop Systems. Dabei kann Apache
+Sicht (Schema) auf die Daten innerhalb des Hadoop-Systems. Dabei kann Apache
 Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
 das Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
 für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
@@ -1439,45 +1441,46 @@ den Aufbau der genannten Sichten ersetzt.
 
 \subsubsection{Beschreibung Impala}
 \label{subsubsec:impala_beschreibung}
-Das Apache Impala System ist eine Hadoop basierende Software und nutzt die
+Das Apache-Impala-System ist eine Hadoop basierende Software und nutzt die
 im Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
-Hadoop System aus und fällt somit nicht unter ein eigenständiges
-Datenhaltungssystem. In der Hadoop Landschaft wird es unter dem Begriff
+Hadoop-System aus und fällt somit nicht unter ein eigenständiges
+Datenhaltungssystem. In der Hadoop-Landschaft wird es unter dem Begriff
 „Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
 Implementierung, wie in Punkt~\ref{subsubsec:hadoop_beschreibung}. Apache
 Impala stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine
 spezialisierte Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf
-den konsolidierten Metadaten von dem Hadoop System, benötigt jedoch auch die
-Verknüpfung (Interface) von einem Strukturmodell. In den meisten Fällen kommt
+den konsolidierten Metadaten des Hadoop-Systems, benötigt jedoch auch die
+Verknüpfung (Interface) eines Strukturmodells. In den meisten Fällen kommt
 dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von Apache Hive
 Eins-zu-eins übernehmen und ausführen.
 
 Apache Impala wird eingesetzt, um die Schnelligkeit der Datenabfragen auf einem
-Hadoop System zu verbessern. Es wird dabei auf jedem Data Node installiert.
+Hadoop-System zu verbessern. Es wird dabei auf jedem Data Node installiert.
 Dabei erhalten die Data Nodes neben der eigentlichen Datenspeicherung noch
 zusätzlich die Funktionen zur Ausübung von Datenbankabfragen (SQL). Konkret
 wird auf jedem Data Node ein „Query Planer“, „Query Coordinator“ und „Query
 Executor“ bereitgestellt. Der Query Planer hält dabei die Kommunikation mit der
-SQL Applikation innerhalb des Netzwerkes. Dieser gibt definierte Datenabfragen
+SQL-Applikation innerhalb des Netzwerkes. Dieser gibt definierte Datenabfragen
 von Benutzern an einen beliebigen Data Node weiter. Nachdem der Query Planer
 die Datenabfrage erhalten hat, kommuniziert er dies an den Query Coordinator,
 welcher wiederrum alle umliegenden Data Nodes um Unterstützung bei der
 Datenabfrage bittet. Dies geschieht über den Query Executor, welcher, wie
-schon der Name sagt, die Abfrage auf dem Hadoop HDFS System ausführt und die
+schon der Name sagt, die Abfrage auf dem Hadoop-HDFS-System ausführt und die
 Daten zurück an den Query Coordinator liefert. Die von dem Query Coordinator
-zusammengesetzten Daten liefert dieser anschließend an die SQL Applikation
+zusammengesetzten Daten liefert dieser anschließend an die SQL-Applikation
 zurück und der gesamte Prozess ist abgeschlossen.
 
-Durch das Nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie dem
-gleichzeitigem Hadoop Map Reduce Verfahren, werden die Datenabfragen um ein
-vielfaches beschleunigt. Da die Leistung des Clusters durch mehrere Faktoren
-beeinflusst wird, kann keine exakte Angabe der Performanceverbesserung
-geliefert werden. Diese Faktoren sind zum Beispiel die Schreibweise der
-SQL-Syntax, da ein nicht optimierter Code die Performanceverbesserung wieder
-mindern kann. Fakt ist jedoch, dass der Einsatz von Apache Impala die
+Durch das Nutzen des Arbeitsspeicher auf den Data Nodes, sowie der
+gleichzeitigen Nutzung des Hadoop-Map-Reduce-Verfahrens, werden die
+Datenabfragen um ein Vielfaches beschleunigt. Da die Leistung des Clusters
+durch mehrere Faktoren beeinflusst wird, kann keine exakte Angabe der
+Performanceverbesserung geliefert werden. Diese Faktoren sind zum Beispiel die
+Schreibweise der SQL-Syntax, da ein nicht optimierter Code die
+Performanceverbesserung wieder mindern kann. Fakt ist jedoch, dass der Einsatz
+von Apache Impala die
 Performance der Datenlandschaft optimiert.
 \nl%
 
@@ -1488,22 +1491,22 @@ auf zwei Testservern installiert und in den Grundlagen konfiguriert. Während
 dieser Arbeit ist dem Projektteam bereits klar geworden, dass nur für die
 Konfiguration des ersten Systemstarts, also dem Verbindungsaufbau, sowie den
 allgemeinen Funktionen eines Hadoop Core Systems, zu viel Zeit benötigt wird.
-Des weiteren wurde nach dem Testen des Systems die Konfigurationsmöglichkeiten
+Des Weiteren wurde nach dem Testen des Systems die Konfigurationsmöglichkeiten
 im Bereich Optimierung der Performance und Geschwindigkeit studiert. Dabei
 wurde klar, dass durch die Größe des Systems mehr als die gesamte Projektzeit
 benötigt wird, um eine optimale und vollständige Konfiguration und
-Systemstruktur zu erarbeiten. Aufgrund dessen wurde die Verwendung eines Hadoop
-Systems in diesem Projekt sehr schnell ausgeschlossen. Hauptgründe dabei waren
-zum einem die vielen Werkzeuge und Methoden die das Hadoop Ecosystem
-bereitstellen konnte. Zum anderen die Masse an Dokumentationen und dem damit
+Systemstruktur zu erarbeiten. Aufgrund dessen wurde die Verwendung eines
+Hadoop-Systems in diesem Projekt sehr schnell ausgeschlossen. Hauptgründe dabei
+waren zum einem die vielen Werkzeuge und Methoden die das Hadoop-Ecosystem
+bereitstellen konnte und zum anderen die Masse an Dokumentationen und dem damit
 verbundenen Konfigurationsaufwand. Hinzu kommt noch die darauf folgende
 fachliche Definition von Datenstrukturen. Diese hätte durch die breite Auswahl
-an Methodiken auf einem Hadoop System ebenfalls wieder viel Zeit beansprucht.
-Zunächst hätte aus einem der verfügbaren Softwareelementen von dem Hadoop
-Ecosystem evaluiert und ausgewählt werden gemusst. Zusammengefasst wäre das
-System den technischen Anforderungen an dem Projekt gewachsen, jedoch wäre der
-Einsatz mit einem zu großen Aufwand verbunden, welchen das Projektteam in dem
-vorgegebenen Projektzeitraum nicht erbringen könnte.
+an Methodiken auf einem Hadoop-System ebenfalls wieder viel Zeit beansprucht.
+Zunächst hätte eines der verfügbaren Softwareelemente des Hadoop-Ecosystems
+evaluiert und ausgewählt werden gemusst. Zusammengefasst wäre das System den
+technischen Anforderungen an dem Projekt gewachsen, jedoch wäre der Einsatz mit
+einem zu großen Aufwand verbunden, welchen das Projektteam in dem vorgegebenen
+Projektzeitraum nicht erbringen könnte.
 \nl%
 
 \subsection{Abschluss der Evaluierung}
@@ -1531,12 +1534,12 @@ Diese Entscheidungstabelle wurde wie folgt aufgebaut:
   Hadoop Core   & 8  & 10 & 4  & 8  & 30 \\
   \bottomrule
 \end{tabular}
-\captionof{table}{Gesamtbewertung der Datenbank Systeme}
+\captionof{table}{Gesamtbewertung der Datenbanksysteme}
 \end{center}
 
 Wie in der Entscheidungstabelle abzulesen ist, wurde im Anschluss über die
 Systeme postgres und dem Hadoop Core diskutiert. Es wurde bereits während der
-Evaluierungsphase erkannt, dass bei der Verwendung eines Hadoop Core Setups die
+Evaluierungsphase erkannt, dass bei der Verwendung eines Hadoop-Core-Setups die
 eingeplante Realisierungs-Zeit zu gering ist. Aufgrund dessen und einer höheren
 Gesamtpunktzahl wird das System postgres für dieses Projekt verwendet.
 \nl%
@@ -1546,24 +1549,24 @@ Gesamtpunktzahl wird das System postgres für dieses Projekt verwendet.
 Neben der herkömmlichen Methode zur Datenabfrage von Datenbank-Systemen über
 einen Datenbanktreiber, existiert noch die Möglichkeit einer API\@.
 
-Die Verwendung von einer API Schnittstelle besitzt Nachteile, sowie Vorteile
+Die Verwendung von einer API-Schnittstelle besitzt Nachteile sowie Vorteile,
 beziehungsweise verbirgt gewisse Gefahren in Hinsicht auf den späteren Einsatz
 im Produktivsystem. Eine dieser Gefahren ist das Vernachlässigen der
-Dokumentation einer API\@. Dadurch, das während der Entwicklung einer API
+Dokumentation einer API\@. Dadurch dass während der Entwicklung einer API
 bereits definiert wird, welche Fähigkeiten und Methodiken die API besitzen
 soll, ist eine nicht vorhandene oder unvollständige Dokumentation suboptimal.
-Darum muss bei der Auswahl des genutzten API Systems darauf geachtet werden,
+Darum muss bei der Auswahl des genutzten API-Systems darauf geachtet werden,
 dass die Dokumentation von Softwarekomponenten für den Entwickler so einfach
 wie möglich erfolgt.
 
 Wenn die Dokumentation einer API vollständig und das ausführende System den
-Performance-Anforderungen gerecht ist, bringt die Nutzung von einem API System
+Performance-Anforderungen gerecht ist, bringt die Nutzung eines API-Systems
 Vorteile. Darunter ist eine bessere Verwaltung von Zugriffsrechten und somit
 auch gleichzeitig eine Verbesserung der Systemsicherheit. Durch den vorab
 festgelegten Funktionsumfang der API kann der Systeminhaber gezielt
 kontrollieren, welche Inhalte ein Benutzer sehen oder modifizieren kann. Dabei
 können grobe Einschränkungen, wie das Lesen oder Schreiben auf der gesamten
-Datenbank, oder auch detaillierte Einschränkung, wie das Lesen oder Schreiben
+Datenbank, oder auch detaillierte Einschränkungen, wie das Lesen oder Schreiben
 von einer einzelnen Tabelle in der Datenbank, kontrolliert werden. Anders als
 bei der Verbindung über einen Datenbanktreiber kann bei der API der potentielle
 Angreifer keine eigenen Datenbankbefehle definieren und ausführen. Somit wird
@@ -1577,36 +1580,36 @@ Informationen auf dem Datenhaltungssystem bereits Datenanpassungen vorgenommen
 werden. Diese Anpassungen können zum Beispiel Funktionen, wie das anonymisieren
 oder pseudonymisieren sein, welche das Datenhaltungssystem nicht ausführen
 kann. Die API kann jedoch auch zum Beispiel die Daten vor der Auslieferung
-beliebig anpassen, und somit auf ein weiteres System optimal anpassen, ohne
+beliebig anpassen und somit auf ein weiteres System optimal anpassen, ohne
 dabei die Ursprungsdaten zu verändern.
 \nl%
 
 \subsection{Vorbereitung der Evaluierung}
-\label{subsec:api_vorbereitung_der_evaluierung}
-Anders als bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
-der möglichen API Systeme keine Liste im Voraus erstellt. Dies lag daran, dass
-keiner der Projektmitglieder oder Interessenten an dem Projekt Erfahrungen mit
-API Systemen im vorhinein besaß und dies erst während der Projektphase
-angeeignet werden musste.
+\label{subsec:api_vorbereitung_der_evaluierung} Anders als bei der Evalierung
+der Datenbanksysteme wurde bei der Evaluierung der möglichen API-Systeme keine
+Liste im Voraus erstellt. Dies lag daran, dass keines der Projektmitglieder
+oder keiner der Interessenten an dem Projekt Erfahrungen mit API-Systemen im
+Vorhinein besaß und dies erst während der Projektphase angeeignet werden
+musste.
 
 Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
-API System zu erstellen und im Anschluss während der Evaluierungsphase
-Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen kann.
+API-System zu erstellen und im Anschluss während der Evaluierungsphase
+Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen können.
 
 Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 
 \begin{outline}
   \1 Die API Software muss auf einer selbst administrierten Hardware-Umgebung
-  betrieben werden können. Das Verwenden von einem fertigen API Softwarepaket
-  von einem Cloudanbieter, bei welchem der Administrator alle Konfigurationen
+  betrieben werden können. Das Verwenden eines fertigen API-Softwarepakets
+  eines Cloudanbieters, bei welchem der Administrator alle Konfigurationen
   über ein Web-Interface des Providers vornimmt und der Cloudanbieter die
   vollständige Hardware-Umgebung administriert, ist ein absolutes
-  Ausschlusskriterium. Es ist vorgesehen, dass das API System möglichst nah an
+  Ausschlusskriterium. Es ist vorgesehen, dass das API-System möglichst nah an
   dem Datenhaltungssystem liegt, um mögliche Latenzen zwischen den beiden
   Systemen so niedrig wie möglich zu halten. Zudem sollen externe Cloudanbieter
-  keinen Zugriff auf die teilweise Kundenbezogenen Daten der Datenhaltung
-  erhalten, auch wenn das System nur Performancedaten ohne Kundenbezug
-  ausliefern soll. Außerdem kann während dem Projekt entschiedenen werden, dass
+  keinen Zugriff auf die teilweise kundenbezogenen Daten der Datenhaltung
+  erhalten, auch wenn das System nur Performance-Daten ohne Kundenbezug
+  ausliefern soll. Außerdem kann während des Projekts entschieden werden, dass
   das Datenhaltungssystem nicht von externen Systemen erreichbar sein soll,
   sodass die damit verbundene Lösung über einen Cloudprovider nicht möglich
   wäre. Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
@@ -1615,10 +1618,10 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Entsprechend soll die Software nur eine leere Hülle mit Standardfunktionen
   einer API zur Verfügung stellen. Eine Konfiguration von einzelnen Parametern
   ist dabei erwünscht. Zu diesen Parametern gehört als Beispiel der Port, auf
-  welchem das API System betrieben und von anderen Systemen erreicht werden
-  kann. Zur Hilfe der Admnistration soll das API System ein Framework für
+  welchem das API-System betrieben und von anderen Systemen erreicht werden
+  kann. Zur Hilfe der Admnistration soll das API-System ein Framework für
   Entwickler bereitstellen. Mit diesem können wir als Projektmitglieder
-  anschließend die Logik in das System implementieren und somit definieren
+  anschließend die Logik in das System implementieren und somit definieren,
   welche Funktionen die API ausüben darf. Ein Framework in einer bekannten
   Entwicklersprache ist dabei erwünscht. Dies hat den Vorteil, dass der
   zuständige Entwickler im Projekt keine weitere Einarbeitungszeit für die neue
@@ -1627,55 +1630,55 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei externen
   Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
   Anforderung nicht mit inbegriffen. Grundsätzlich gilt für das ganze Projekt,
-  dass nur Software mit einer Open Source Lizenz genutzt werden darf.
-  \1 Die Erstellung von späteren Anwendungshandbüchern der API, soll dem API
+  dass nur Software mit einer Open-Source-Lizenz genutzt werden darf.
+  \1 Die Erstellung von späteren Anwendungshandbüchern der API soll dem API
   Entwickler so einfach wie möglich fallen. Eine sehr beliebte
   Dokumentationsmöglichkeit ist dabei das Dokumentieren von wichtigen
-  Informationen direkt in dem Quellcode des API Systems. Entwickler können
-  dabei über die Kommentierungs-Funktion der jeweiligen Entwicklersprache eine
+  Informationen direkt in dem Quellcode des API-Systems. Entwickler können
+  dabei über die Kommentierungsfunktion der jeweiligen Entwicklersprache eine
   Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden im
   Anschluss während des Kompiliervorgangs in einem strukturierten Dokument
-  festgehalten und neben der eigentlichen API Software mit ausgeliefert. Dieses
+  festgehalten und neben der eigentlichen API-Software mit ausgeliefert. Dieses
   separate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
   gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
-  Dokumentationsmöglichkeit sollte die API Software zur Verfügung stellen.
+  Dokumentationsmöglichkeit sollte die API-Software zur Verfügung stellen.
   Alternativ kann auch erst die Dokumentation geschrieben werden und darauf
   basierend Quellcode generiert werden. Beide Verfahren nennt man „One Source
   of Truth Prinzip“. Hierbei wird sichergestellt, dass es nur eine autoritative
-  Quelle gibt, und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
+  Quelle gibt und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
   Dokumentation die nicht mit den eigentlichen Funktionen der Software
   übereinstimmen.
-  \1 Bereits vorhandenes Wissen über das API System. Dazu gehört, dass diese
+  \1 Bereits vorhandenes Wissen über das API-System. Dazu gehört, dass diese
   eine umfangreiche Dokumentation besitzt und eine aktive und große Community
   für Diskussionen und Fragen vorhanden ist. Die dazugehörige
   Programmiersprache der API sollte ebenfalls für die Projektmitglieder
-  nachvollziehbar sein, sowie eine umfangreiche Dokumentation und aktive
+  nachvollziehbar sein sowie eine umfangreiche Dokumentation und aktive
   Community für Diskussionen und Fragen besitzen.
 \end{outline}
 \nl%
 
 \subsection{Durchführung der Evaluierung}
 \label{subsec:api_durchfuehrung_der_evaluierung}
-Bei der Evaluierung der API Systeme wurden die in
+Bei der Evaluierung der API-Systeme wurden die in
 Punkt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
 Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
-allgemeinen Eindruck über die aktuelle Marktsituation zu API Systemen erhält.
+allgemeinen Eindruck über die aktuelle Marktsituation zu API-Systemen erhält.
 Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
-Fachzeitschriften gelesen. Die dort angesprochenen API Systeme wurden
+Fachzeitschriften gelesen. Die dort angesprochenen API-Systeme wurden
 anschließend mit den bereits definierten Anforderungen abgeglichen und
-aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten API
-Systeme von Cloudprovidern nur in bereits vorkonfigurierten Paketen mit einem
-monatlichen Festpreis angeboten werden. Beides ist ein absolutes
+aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten
+API-Systeme von Cloudprovidern nur in bereits vorkonfigurierten Paketen mit
+einem monatlichen Festpreis angeboten werden. Beides ist ein absolutes
 Ausschlusskriterium für den späteren Produktivbetrieb sowie Nutzung der
 Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine eigene
 Definition von Funktionen komplett verboten. Lediglich ein einzelner
-Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene API
-System in Hinsischt der Funktionen modifizieren durften.
+Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene
+API-System in Hinsischt der Funktionen modifizieren durften.
 
 Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
-für ein API System mit dem Namen „Swagger“ entschieden. Es ist aktuell das
-einzige API System auf dem Markt, welches den Betrieb auf einer selbst
+für ein API-System mit dem Namen „Swagger“ entschieden. Es ist aktuell das
+einzige API-System auf dem Markt, welches den Betrieb auf einer selbst
 administrierten Hardware-Umgebung zulässt.
 \nl%
 
@@ -1700,12 +1703,12 @@ Evaluierungsliste aufgenommen worden:
   \1 Netdata
 \end{outline}
 
-Das Hinzufügen von weiteren Softwarelösungen, während der Evaluierungsphase
-bedarf keine weitere Zustimmung durch den Auftraggeber, sondern konnte direkt
+Das Hinzufügen von weiteren Softwarelösungen während der Evaluierungsphase
+bedarf keiner weiteren Zustimmung durch den Auftraggeber, sondern konnte direkt
 mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
 mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
 Anforderungskatalog definiert, welche im späteren Verlauf der Planung für die
-Evaluierung der einzelnen Frontends verwendet wird. Die zu evaluierende
+Evaluierung der einzelnen Frontends verwendet werden. Die zu evaluierende
 Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
 einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und zum
 anderen aus Vorschlägen des Auftraggebers.
@@ -1713,21 +1716,21 @@ anderen aus Vorschlägen des Auftraggebers.
 
 \subsection{Definition eines Graphen}
 \label{definition_eines_graphen}
-Ein Graph besteht im wesentlichen aus mehreren Knoten und Kanten, welche auf
-einem Koordinaten System angelegt sind. Mit Hilfe von zwei Knoten, bestehend
-jeweils aus einer Koordinate (x/y) werden diese eindeutig zu einer Kante
+Ein Graph besteht im Wesentlichen aus mehreren Knoten und Kanten, welche auf
+einem Koordinatensystem angelegt sind. Mit Hilfe von zwei Knoten, bestehend
+jeweils aus einer Koordinate (x/y), werden diese eindeutig zu einer Kante
 definiert. Ein linearer Graph wird genau dann visualisiert, wenn zwei Knoten
 miteinander verbunden werden. Zusätzlich gibt es die Unterscheidung zwischen
 einem gerichteten und ungerichteten Graphen. Ein gerichteter Graph besteht aus
 einem Anfangsknoten A und einem Endknoten B, welche mit einer Kante verbunden
-sind. Bei einem ungerichteten Graph ist sowohl der Knoten A mit dem Knoten B,
+sind. Bei einem ungerichteten Graphen ist sowohl der Knoten A mit dem Knoten B,
 als auch der Knoten B mit Knoten A als Kante miteinander
 verbunden~\cite{kaiser2008c}.
 
-Auf der Weboberfläche werden dem User oder dem Administrator einzelne Graphen,
-von z.B. CPU Auslastung, RAM Auslastung oder SSD Schreibzugriffe angezeigt.
-Diese Graphen werden entweder in linerarer oder Balkenform dargestellt.
-Lineare Graphen, haben eine X-Achse und Y-Achse und besitzen zusätzlich einen
+Auf der Weboberfläche werden dem User oder dem Administrator einzelne Graphen
+von z.B. CPU-Auslastung, RAM-Auslastung oder SSD-Schreibzugriffe angezeigt.
+Diese Graphen werden entweder in Linerar- oder Balkenform dargestellt.
+Lineare Graphen haben eine X- und Y-Achse und besitzen zusätzlich einen
 Anfang und einen wachsenden Endpunkt. Er wird mittels
 Metrik~\ref{section:Begriffserklärung}, welche die Weboberfläche aus den
 Datenhaltungssystemen abgreift, erstellt und kann vom Administrator ebenfalls
@@ -1735,7 +1738,7 @@ nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
 eine X-Achse, wo der gewünschte Analysewert eingetragen ist und werden z.B. für
 ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden über die
 Metrik aus dem Datenhaltungssystem abgegriffen und dem Administrator über eine
-Übersicht angezeigt. Ein Graph bzw. Balkendiagramm visualisiert immer eine oder
+Übersicht angezeigt. Ein Graph- bzw. Balkendiagramm visualisiert immer eine oder
 mehrere Timeseries~\ref{section:Begriffserklärung}.
 
 \subsection{Vorbereitung der Evaluierung}
@@ -1743,58 +1746,58 @@ mehrere Timeseries~\ref{section:Begriffserklärung}.
 Damit die Evaluierungen der einzelnen Softwarelösungen durchgeführt werden
 können, mussten zuvor Kriterien mit dem Projektteam in einen
 Anforderungskatalog aufgenommen werden. Diese Kriterien, in Form von
-definierten Anforderungen, sollen für eine besser Übersicht, während der
-Evaluierung dienen. Bei den Kriterien, musste darauf geachtet werden, dass
-diese während der Beurteilung der Anforderungen eine Machbarkeit und
+definierten Anforderungen, sollen für eine bessere Übersicht während der
+Evaluierung dienen. Bei den Kriterien musste darauf geachtet werden, dass
+diese während der Beurteilung der Anforderungen eine Mach- und
 Realisierbarkeit besitzen. Nachdem die einzelnen Kriterien zusammen mit dem
 Projektteam erstellt worden sind, wurden diese im Anschluss von jedem einzelnen
-Projektmitglied auf die Machbarkeit und Realisierbarkeit geprüft. Erst hiernach
-wurden diese dem Anforderungskatalog aufgenommen.
+Projektmitglied auf die Mach- und Realisierbarkeit geprüft. Erst hiernach
+wurden diese im Anforderungskatalog aufgenommen.
 
-Die einzelnen Kriterien wurden im nachhinein der Wichtigkeit absteigend,
+Die einzelnen Kriterien wurden im Nachhinein der Wichtigkeit absteigend,
 wie folgt aufgelistet:
 
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
   gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
-  Weboberfläche selber vor unautorisierten Zugriff durch dritter geschützt sein
+  Weboberfläche selbst vor unautorisiertem Zugriff durch Dritte geschützt sein
   muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
-  abgreifen zu können vor dritter so geschützt und gesichert werden. Der
+  abgreifen zu können, vor Dritten so geschützt und gesichert werden. Der
   Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung durch
   \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch eigene
-  Client Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über
-  einen Lokalen Administrator, als auch über eine LDAP (Lightweight Directory
-  Access Protocol) Anbindung verfügen, um hier z.B. Unternehmensverzeichnisse
-  Anbinden zu können.
+  Client-Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über
+  einen lokalen Administrator, als auch über eine LDAP-Anbindung (Lightweight
+  Directory Access Protocol) verfügen, um hier z.B. Unternehmensverzeichnisse
+  anbinden zu können.
   \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
-  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selber,
+  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selbst,
   benötigen keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
   zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
   wenn das Produkt bei einem Kunden eingesetzt wird.
   \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
-  Visualisierung von CPU, RAM, Netzwerk oder ähnliche Datenwerte. Hiermit ist
-  gemeint das Gewährleistet werden muss, dass die einzelnen Graphen schnell
-  und einfach (Endanwender spezifisch) direkt angepasst werden können. Ebenso
+  Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
+  gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen schnell
+  und einfach (endanwenderspezifisch) direkt angepasst werden können. Ebenso
   muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
   durchgeführt werden können.
   \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt. Dabei
-  muss die Weboberfläche, bereits Möglichkeiten bieten, eine Datensicherung des
-  \glslink{Dashboard}{Dashboards} durchführen zu können. Das Dashboard,
-  beinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen über zum
-  Beispiel ein externes System (Dateifreigabe Server oder ähnliches) abgelegt
+  muss die Weboberfläche bereits Möglichkeiten bieten, eine Datensicherung des
+  \glslink{Dashboard}{Dashboards} durchführen zu können. Das Dashboard
+  beinhaltet alle Graphen und vorkonfigurierten Werte. Diese sollen über zum
+  Beispiel ein externes System (Dateifreigabeserver oder ähnliches) abgelegt
   werden und können somit einfach dupliziert und gesichert werden.
-  \1 Plugin Erweiterung. Das Frontend, muss eine Plugin Erweiterung
-  unterstützen. Es dient dazu, das im späteren Verlauf, wenn das Produkt
+  \1 Plugin-Erweiterung. Das Frontend muss eine Plugin-Erweiterung
+  unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
-  eingehen zu können. Diese können dann, mit schon zur Verfügung gestellten
-  Plugins, zum Beispiel in der Community oder aber durch selbst programmierte
+  eingegangen werden kann. Diese können dann mit schon zur Verfügung gestellten
+  Plugins zum Beispiel in der Community oder aber durch selbst programmierte
   Plugins realisiert werden. Die Plugins werden in Javascript geschrieben. Die
   Weboberfläche sollte jedoch auch andere Sprachen unterstützen, um so eine
   Unabhängigkeit von Entwicklern gewährleisten zu können. Unternehmen müssen so
   nicht auf spezielle Entwickler von bestimmten Sprachen zurückgreifen.
-  \1 Die genutzten Softwarelösungen müssen eine Open Source Lizenz besitzen, um
-  hier unabhängig von kostenpflichtigen Lizenzen und Copyright Rechten zu sein.
-  Ebenfalls ist eine Open Source Software nötig, da hier der Quelltext der
+  \1 Die genutzten Softwarelösungen müssen eine Open-Source-Lizenz besitzen, um
+  hier unabhängig von kostenpflichtigen Lizenzen und Copyright-Rechten zu sein.
+  Ebenfalls ist eine Open-Source-Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
   \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
   Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
@@ -1803,11 +1806,11 @@ wie folgt aufgelistet:
   werden können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
   Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
   Acht unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
-  visualisieren hier im Fallbeispiel Acht Graphen, mit unterschiedlichen
+  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen
   Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an
   das Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht
-  nur die Weboberfläche zugreift, sondern auch die Datenerfassung um Daten
-  abzuspeichern, kann es hier zu massiven Performance Problemen aufkommen, die
+  nur die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
+  abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
   durch die Weboberfläche verursacht werden können.
 \end{outline}
 \mr%
@@ -1845,36 +1848,36 @@ Anforderungen und Evaluierungsergebnissen aufgelistet:
 
 \subsubsection{Grafana}
 \label{subsubsec:grafana}
-Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte Open Source
-Visualisierungssoftware. Sie bietet neben einfachen Visualisierungs Graphen
-noch weitere Ereignisfunktionen. Es arbeitet mit jedem Timeseries
-Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere unterschiedliche
-Benutzer können sich an der Weboberfläche anmelden. Dies bedeutet, dass ein
-Login an der Weboberfläche über ein \gls{Active Directory} Konto oder Lokalem
-Benutzer plus Kennwort Kombination durchgeführt werden kann. Somit können zum
-Beispiel Mitarbeiter aus der Führungsebene Eingeschränkte Zugriffe auf das
-System erhalten, um hier zum Beispiel Marketing Statistiken durchführen zu
-können. Zusätzlich zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldung
-auf die Grafana Weboberfläche, ist Grafana API (siehe auch
+Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte
+Open-Source-Visualisierungssoftware. Sie bietet neben einfachen
+Visualisierungsgraphen noch weitere Ereignisfunktionen. Es arbeitet mit jedem
+Timeseries Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere
+unterschiedliche Benutzer können sich an der Weboberfläche anmelden. Dies
+bedeutet, dass ein Login an der Weboberfläche über ein \gls{Active Directory}
+Konto oder lokalen Benutzer plus Kennwortkombination durchgeführt werden kann.
+Somit können zum Beispiel Mitarbeiter aus der Führungsebene eingeschränkte
+Zugriffe auf das System erhalten, um hier zum Beispiel Marketingstatistiken
+durchführen zu können. Zusätzlich zu der Abfrage mit Benutzernamen und Kennwort
+zur Anmeldung auf die Grafana Weboberfläche, ist Grafana API (siehe auch
 Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) fähig, dies bedeutet,
-dass das Datenhaltungssystem API Statements zur Verfügung stellen können und
-hiermit Graphen visualisieren kann. Grafana kann über einem
-\gls{Datenbanktreiber} oder einer Schnittstelle in Form eines Treibers,
-einfache Statements auf das Datenhaltungssystem durchführen, um die Daten
-abzugreifen. Es ist zusätzlich eine Open Source Software, wodurch der Quellcode
-angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen. Dadurch entstehen auch keine Support Kosten, da
-die Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode,
+dass das Datenhaltungssystem API Statements zur Verfügung stellen kann und
+hiermit Graphen visualisieren kann. Grafana kann über einen
+\gls{Datenbanktreiber} oder eine Schnittstelle in Form eines Treibers einfache
+Statements auf das Datenhaltungssystem durchführen, um die Daten abzugreifen.
+Es ist zusätzlich eine Open-Source-Software, wodurch der Quellcode angepasst
+und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen an
+bestimmte Kundenumgebungen. Dadurch entstehen auch keine Support-Kosten, da die
+Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode
 können hier Plugins zur Erweiterung der Software in der Programmiersprache Java
 entwickelt und in das System eingepflegt werden. Dies wird zum Beispiel dann
-benötigt, wenn weitere Graphen, Analysen oder ähnlichem benötigt werden.
+benötigt, wenn weitere Graphen, Analysen oder ähnliches benötigt werden.
 Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
 Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
-veröffentlicht, somit haben auch andere Mitglieder von GitHub, die Möglichkeit,
+veröffentlicht, somit haben auch andere Mitglieder von GitHub die Möglichkeit,
 das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
-Anwender erstellen Dashboards, mit allen Graphen und Statements, können vom
-System, wie auch vom Anwender selber auf einen externen Dateifreigabe Server
-oder Lokal abgespeichert werden~\cite{grafana}.
+Anwender erstellten Dashboards mit allen Graphen und Statements können vom
+System, wie auch vom Anwender selbst, auf einen externen Dateifreigabeserver
+oder lokal abgespeichert werden~\cite{grafana}.
 
 Zusammenfassung:
 
@@ -1882,49 +1885,50 @@ Positiv:
 
 \begin{outline}
   \1 Authentisierung, Authentifizierung und Autorisierung
-  \1 Gute Community und eine Vielzahl an Dokumentation
+  \1 Gute Community und eine Vielzahl an Dokumentationen
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
-  \1 Dashboards können auf externen Server oder Lokal gesichert werden
-  \1 API Unterstüzung
-  \1 Plugin Erweiterung möglich (Java)
-  \1 Open Source Softwarelösung
+  \1 Dashboards können auf externen Server oder lokal gesichert werden
+  \1 API-Unterstüzung
+  \1 Plugin-Erweiterung möglich (Java)
+  \1 Open-Source-Softwarelösung
 \end{outline}
 
 Negativ:
 
 \begin{outline}
-  \1 Plugin Erweiterung nur in Programmiersprache Java möglich
+  \1 Plugin-Erweiterung nur in Programmiersprache Java möglich
   \1 Webdesign kann nicht angepasst werden
   \1 Nur zwei Webtemplates verfügbar (dark/white)
 \end{outline}
 
 \subsubsection{Graphite}
 \label{subsubsec:graphite}
-Die Softwarelösung Graphite, wurde von Chris Davis im Jahr 2006 Entwickelt und
+Die Softwarelösung Graphite wurde von Chris Davis im Jahr 2006 entwickelt und
 gehört zu einer der am meisten eingesetzten Softwarelösungen im Bereich
-Monitoring und Visualisierung. Graphite ist wie auch Grafana eine Open Source
-Lösung und ermöglicht es dem Anwender die Software bearbeiten und anpassen zu
-können. Es verfügt über eine inhaltlich gute und umfangreiche Community, mit
-einem eigenem Wiki Board, wo alle relevanten Dokumentationen enthalten sind.
-Graphen können leicht mittelts Statements über eine
+Monitoring und Visualisierung. Graphite ist wie auch Grafana eine
+Open-Source-Lösung und ermöglicht es dem Anwender, die Software bearbeiten und
+anpassen zu können. Es verfügt über eine inhaltlich gute und umfangreiche
+Community mit einem eigenem Wiki-Board, wo alle relevanten Dokumentationen
+enthalten sind.  Graphen können leicht mittels Statements über eine
 API~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
-Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche,
+Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche
 mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist ebenfalls
-möglich. Es können einzelne Graphen, wie auch das gesamte Dashboard auf externe
-Server oder Lokal abgespeichert werden, um einen Verlust von einzelnen Graphen
-vorbeugen zu können. Graphite ist wie auch Grafana~\ref{subsubsec:grafana}
-kompatibel zu Timeseries Datenhaltungssystemen. Es bietet keine einfache
-Möglichkeit, weitere Plugins hinzufügen zu können, wie es beispielsweise
-Grafana~\ref{subsubsec:grafana} kann. Hierzu muss der Quellcode von Graphite
-massiv angepasst werden, wodurch gute Kenntniss der einzelnen Dienste
-erforderlich sind. Graphite ist ein System, welches aus mehreren Diensten
-besteht. Der graphite-web Dienst ist für die Anzeige der Weboberfläche
-zuständig. Der carbon-cache Dienst wird verwendet um die Daten, welche vom
-Datenerfassungsystem ermittelt worden sind aufzuarbeiten. Dies wird benötigt,
-damit Graphite diese für die Visualisierung verwenden kann. Grundsätzlich
-installiert sich mit der Installation von Graphite noch eine Whisper Datenbank,
-welche jedoch durch eine beliebige, wie OpenTSDB~\ref{subsubsec:opentsdb} oder
-InfluxDB ausgetauscht werden kann~\cite{graphite}.
+möglich. Es können einzelne Graphen, wie auch das gesamte Dashboard, auf
+externe Server oder lokal abgespeichert werden, um einem Verlust von einzelnen
+Graphen vorbeugen zu können. Graphite ist, wie auch
+Grafana~\ref{subsubsec:grafana}, kompatibel zu Timeseries
+Datenhaltungssystemen. Es bietet keine einfache Möglichkeit, weitere Plugins
+hinzufügen zu können, wie es beispielsweise Grafana~\ref{subsubsec:grafana}
+kann. Hierzu muss der Quellcode von Graphite massiv angepasst werden, wodurch
+gute Kenntniss der einzelnen Dienste erforderlich sind. Graphite ist ein
+System, welches aus mehreren Diensten besteht. Der Graphite-Webdienst ist für
+die Anzeige der Weboberfläche zuständig. Der Carbon-Cache-Dienst wird
+verwendet, um die Daten, welche vom Datenerfassungsystem ermittelt worden sind,
+aufzuarbeiten. Dies wird benötigt, damit Graphite diese für die Visualisierung
+verwenden kann. Grundsätzlich installiert sich mit der Installation von
+Graphite noch eine Whisper-Datenbank, welche jedoch durch eine beliebige, wie
+OpenTSDB~\ref{subsubsec:opentsdb} oder InfluxDB, ausgetauscht werden
+kann~\cite{graphite}.
 
 Zusammenfassung:
 
@@ -1933,11 +1937,11 @@ Positiv:
 \begin{outline}
   \1 Authentisierung, Authentifizierung und Autorisierung
   \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
-  \1 API Unterstützung
-  \1 Dashboards und einzelne Graphen können auf externen Servern oder Lokal
+  \1 API-Unterstützung
+  \1 Dashboards und einzelne Graphen können auf externen Servern oder lokal
   abgespeichert werden
-  \1 Open Source Softwarelösung
-  \1 Dienste können Hochverfügbar und auf unterschiedliche Server aufgeteilt
+  \1 Open-Source-Softwarelösung
+  \1 Dienste können hochverfügbar und auf unterschiedliche Server aufgeteilt
   werden
 \end{outline}
 
@@ -1958,19 +1962,19 @@ Graphen ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, in
 der viele Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur
 Erläuterungen von jedem Button enthalten sind. Das Zabbix-Frontend benötigt
 keinerlei Plugins, da hier bereits viele Funktionen in der eigentlichen
-Software enthalten ist. Plugins können dennoch in der Programmiersprache Java
-entwickelt und implementiert werden. Es ist darauf ausgelegt, bei verschiedenen
-Events zum Beispiel ein kritischer Festplattenstand wurde erreicht, eine Email
-an den Administrator oder weitere User zu versenden, weshalb Zabbix sehr häufig
-gerade in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der
+Software enthalten sind. Plugins können dennoch in der Programmiersprache Java
+entwickelt und implementiert werden. Es ist darauf ausgelegt bei verschiedenen
+Events, beispielsweise das Erreichen eines kritischen Festplattenstands, eine
+E-Mail an den Administrator oder weitere User zu versenden, weshalb Zabbix sehr
+häufig gerade in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der
 Weboberfläche kann wahlweise mit einem lokalen User mit Benutzername und
-Kennwort oder mit einer LDAP Anbindung durchgeführt werden. So benötigt der
-Administrator, beziehungsweise der User lediglich seine Active Directory
-Benutzerdaten zur Authentifizierung. Zabbix ist zudem mit
-API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatible, so
-können hier Graphen mit API Abfragen visualisiert werden. Sollte keine Abfrage
-über eine API gewünscht sein, so kann dies ebenfalls mittels Statement direkt
-auf dem Datenhaltungssystem durchgeführt werden. Um die Datensicherheit und
+Kennwort oder mit einer LDAP-Anbindung durchgeführt werden. So benötigt der
+Administrator beziehungsweise der User lediglich seine
+Active-Directory-Benutzerdaten zur Authentifizierung. Zabbix ist zudem mit
+API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatibel. So können
+hier Graphen mit API-Abfragen visualisiert werden. Sollte keine Abfrage über
+eine API gewünscht sein, so kann dies ebenfalls mittels Statement direkt auf
+dem Datenhaltungssystem durchgeführt werden. Um die Datensicherheit und
 Ausfallsicherheit gewährleisten zu können, bietet Zabbix die Möglichkeit,
 einzelne Graphen mit Statements, wie auch das gesamte Dashboard exportieren und
 importieren zu können~\cite{zabbix-frontend}.
@@ -1985,15 +1989,15 @@ Positiv:
   \1 Gute inhaltliche Community und eine Vielzahl an Dokumenten innerhalb
   eines Wikis
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
-  \1 API Unterstützung
-  \1 Dashboards und einzelne Graphen können auf externe Servern oder Lokal
+  \1 API-Unterstützung
+  \1 Dashboards und einzelne Graphen können auf externe Servern oder lokal
   abgespeichert werden
   \1 Bringt bereits eine Softwarelösung mit, womit Daten von virtuellen
   Maschinen exportiert werden können
   \1 Benötigt keine Plugins
-  \1 Email Benachrichtigung bei bestimmten vordefinierten oder selbstdefinierten
-  Events
-  \1 Open Source Softwarelösung
+  \1 E-Mail-Benachrichtigung bei bestimmten vordefinierten oder
+  selbstdefinierten Events
+  \1 Open-Source-Softwarelösung
 \end{outline}
 
 Negativ:
@@ -2004,29 +2008,29 @@ Negativ:
 
 \subsubsection{Datadog}
 \label{subsubsec:datadog}
-Datadog ist ein von Oliver Pomel entwickelte Analysesoftware und wird bereits
+Datadog ist eine von Oliver Pomel entwickelte Analysesoftware und wird bereits
 in großen Firmen, wie zum Beispiel EA oder Citrix erfolgreich eingesetzt. Es
-ist nicht wie die anderen Software Lösungen ein Open Source Produkt und wird in
-verschiedenen Lizenzen von der Anzahl der entsprechenden Virtuellen Instanzen,
-welcher abgegriffen werden sollen gestaffelt. Die Basis Lizenz gibt es hier
-bereits kostenlos, jedoch können hier nur maximal 5 Virtuelle Instanzen
+ist nicht wie die anderen Software-Lösungen ein Open-Source-Produkt und wird in
+verschiedenen Lizenzen von der Anzahl der entsprechenden virtuellen Instanzen,
+welche abgegriffen werden sollen, gestaffelt. Die Basis-Lizenz gibt es hier
+bereits kostenlos, jedoch können hier nur maximal 5 virtuelle Instanzen
 abgefragt werden und die Daten werden maximal einen Tag zurückgehalten. Die
-teuerste Lizenz kostet hier 23 Doller und beinhaltet alle Host, welche der
-Kunde anbinden möchte. Zusätzlich bietet diese Lizenz einen Email, Chat oder
-Telefon Support. Dieser ist nicht in der Basis Lizenz vorhanden. Graphen und
+teuerste Lizenz kostet hier 23 Dollar und beinhaltet alle Hosts, welche der
+Kunde anbinden möchte. Zusätzlich bietet diese Lizenz einen E-Mail-, Chat- oder
+Telefonsupport. Dieser ist nicht in der Basis-Lizenz vorhanden. Graphen und
 auch Dashboards können in Datadog einfach vom Administrator erstellt werden. Um
 die Anmeldung an der Weboberfläche durchführen zu können, wird ein Benutzer und
 Kennwort benötigt. Es ist hier nicht möglich, ein LDAP an die Weboberfläche
-anbinden zu können. Innerhalb eines Graphen, können bestimmte Teilabschnitte
-mit zum Beispiel Social Media Plattformen, wie Facebook oder Twitter geteilt
-werden. Datadog bietet zudem eine Eventbasierte Mitteilungen, welche vom
-Administrator festgelegt werden können. Datadog hat eine vollständige
+anbinden zu können. Innerhalb eines Graphen können bestimmte Teilabschnitte mit
+zum Beispiel Social-Media-Plattformen wie Facebook oder Twitter geteilt werden.
+Datadog bietet zudem eventbasierte Mitteilungen, welche vom Administrator
+festgelegt werden können. Datadog hat eine vollständige
 API~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
-können vom Administrator Export werden. Eine Möglichkeit, Graphen zu
-exportieren bietet Datadog hier nicht. Die Community, wo viele inhaltliche
-Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche eine Pro
-Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC Channel}, um direkt Kontakt
-mit Support aufnehmen zu können~\cite{datadog}.
+können vom Administrator exportiert werden. Eine Möglichkeit, Graphen zu
+exportieren, bietet Datadog hier nicht. Die Community, in der viele inhaltliche
+Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche eine
+Pro-Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC-Channel}, um direkt
+Kontakt mit dem Support aufnehmen zu können~\cite{datadog}.
 
 Zusammenfassung:
 
@@ -2035,18 +2039,18 @@ Positiv:
 \begin{outline}
   \1 Authentisierung, Authentifizierung, Autorisierung
   \1 Leichte Anpassung an Graphen, Dashboard und Einstellungen möglich
-  \1 API Unterstützung
-  \1 Gute inhaltliche Community, mit IRC Channel und Telefon Support (steht
-  nur in der Kauflizenz zu Verfügung)
+  \1 API-Unterstützung
+  \1 Gute inhaltliche Community mit IRC-Channel und Telefonsupport (steht
+  nur in der Kauflizenz zur Verfügung)
   \1 Benötigt keine zusätzlichen Plugins
-  \1 Teilabschnitte von Graphen können in Social Media Plattformen geteilt
+  \1 Teilabschnitte von Graphen können in Social-Media-Plattformen geteilt
   werden
 \end{outline}
 
 Negativ:
 
 \begin{outline}
-  \1 Keine Open Source Lizenz. Lizenzen sind hier nach Anwendungsfall
+  \1 Keine Open-Source-Lizenz. Lizenzen sind hier nach Anwendungsfall
   gestaffelt
   \1 Keine Möglichkeit der Anbindung an einen externen Verzeichnisdienst zur
   Benutzerauthentifizierung.
@@ -2054,33 +2058,34 @@ Negativ:
 
 \subsubsection{Gridster-D3}
 \label{subsubsec:gridster-d3}
-Gridster ist eine von Anmol Koul entwickelte Java Bibliothek, welche auf
+Gridster ist eine von Anmol Koul entwickelte Java-Bibliothek, welche auf
 \gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von dieser
-Software, stellte sich herraus, dass es sich hierbei nicht direkt um eine
+Software, stellte sich heraus, dass es sich hierbei nicht direkt um eine
 Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
-das Drag \& Drop, von einzelnen Graphen oder Elemente innerhalb einer
+das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer
 Weboberfläche. Mit dieser hat man die Möglichkeit, ein Dashboard, welches
-selbst entwickelt worden ist individuell anpassen zu können~\cite{gridster-d3}.
+selbst entwickelt worden ist, individuell anpassen zu
+können~\cite{gridster-d3}.
 
 Somit fällt Gridster-D3, da es sich hierbei nicht um eine
-Visualisierungssoftware handelt aus der weiteren Evaluierung heraus.
+Visualisierungssoftware handelt, aus der weiteren Evaluierung heraus.
 
 \subsubsection{Netdata}
 \label{subsubsec:netdata}
-Netdata ist eine Open Source Monitoring Softwarelösung. Es wurde von Costa
+Netdata ist eine Open-Source-Monitoring-Softwarelösung. Es wurde von Costa
 Tsaousis entwickelt und bietet eine umfangreiche Möglichkeit, Daten in Form von
 Graphen oder anderen Visualisierungen darzustellen. Der vollständige Code steht
 auf GitHub, worüber auch die Community gepflegt wird. Andere Mitglieder der
-GitHub Community haben hier die Möglichkeit, Quelltext anzupassen und zu
+GitHub-Community haben hier die Möglichkeit, Quelltext anzupassen und zu
 verändern, jedoch müssen diese von anderen Mitgliedern bestätigt werden. Es
-bietet nicht die Möglichkeit eine Authentifizierung auf der Weboberfläche
-durchzuführen. Ebenso, werden alle Graphen, welche abgefragt werden auf einer
+bietet nicht die Möglichkeit, eine Authentifizierung auf der Weboberfläche
+durchzuführen. Ebenso werden alle Graphen, welche abgefragt werden, auf einer
 Seite angezeigt, weshalb die Übersicht stark eingeschränkt ist. Graphen können
 bei Netdata nicht einfach angepasst werden, da diese im Quellcode verändert und
-angepasst werden müssen. Das Netdata läuft ebenfalls nur auf Linux Oberflächen.
+angepasst werden müssen. Das Netdata läuft ebenfalls nur auf Linux-Oberflächen.
 Ein Support von Microsoft Windows ist hier unterstützt. Ein klarer Nachteil ist
 allerdings, dass diese Softwarelösung jeweils nur eine Instanz gleichzeitig
-überwachen kann und der Vorteil bei Netdata, das kein weiteres
+überwachen kann und der Vorteil bei Netdata, dass kein weiteres
 Datenhaltungssystem oder ähnliches benötigt wird~\cite{netdata}.
 
 Zusammenfassung:
@@ -2090,7 +2095,7 @@ Positiv:
 \begin{outline}
   \1 Es werden sämtliche Daten unmittelbar ohne Datenbank bereits visualisiert
   \1 Gute inhaltliche Community
-  \1 Vollständige Open Source Softwarelösung
+  \1 Vollständige Open-Source-Softwarelösung
 \end{outline}
 
 Negativ:
@@ -2099,13 +2104,13 @@ Negativ:
   \1 Sehr unübersichtlich vom Aufbau der Weboberfläche
   \1 Authentisierung, Authentifizierung und Autorisierung kann nicht
   gewährleistet werden
-  \1 Bietet keine API Unterstützung
+  \1 Bietet keine API-Unterstützung
   \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
   nicht gewährleistet
 \end{outline}
 
 Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für das Web
-Frontend, sind folgende drei Weboberflächen in die nähere Auswahl genommen
+Frontend sind folgende drei Weboberflächen in die nähere Auswahl genommen
 worden:
 
 \begin{outline}
@@ -2118,29 +2123,29 @@ Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
 Anforderungskriterien, weshalb die Produkte in die nähere Analyse aufgenommen
 wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
 oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
-einen Zabbix Server nicht verwendet werden kann. Der Zabbix Server ist ein von
+einen Zabbix-Server nicht verwendet werden kann. Der Zabbix-Server ist ein von
 Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
 bereitet diese auf und speichert diese Daten anschließend in einem
 Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
 maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
 kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
-Kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
+kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
 Abfrage die Datenbanken direkt angesprochen. Während der Implementierung von
-Graphite fiel auf, das es deutlich Komplexer ist als Grafana. Graphite besteht
+Graphite fiel auf, dass es deutlich komplexer ist als Grafana. Graphite besteht
 aus mehreren Diensten, welche bei der Installation konfiguriert und
-angepasst werden müssen, damit Graphite Funktional ist. Wenn ein Dienst
-Ausfallen sollte, so betrifft dies das gesamte Graphite System und die
-Weboberfläche wäre nichtmehr erreichbar. Zusätzlich ist hier gerade in der
+angepasst werden müssen, damit Graphite funktional ist. Wenn ein Dienst
+ausfallen sollte, so betrifft dies das gesamte Graphite-System und die
+Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in der
 Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
 von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
 mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
-einzelner Dienst, wie es bei Grafana der Fall ist. Bedingt hierdurch, wird
+einzelner Dienst, wie es bei Grafana der Fall ist. Hierdurch bedingt, wird
 Graphite für die weitere Implementierung nicht verwendet.
 \mr%
 
 \chapter{Userstories}
-Im Punk~\ref{sec:agile_vorgehensweise} wurde bereits kurz auf Userstories
-eingegangen. Im folgenden wird die generelle Vorgehensweise erklärt, sowie die
+Im Punkt~\ref{sec:agile_vorgehensweise} wurde bereits kurz auf Userstories
+eingegangen. Im Folgenden wird die generelle Vorgehensweise erklärt, sowie die
 Implementierung und Realisierung der Userstories in diesem Projekt.
 
 Zu jeder Userstory wird ein Drahtgittermodell (Englisch: Wireframe) erstellt.
@@ -2153,113 +2158,113 @@ Userstory einen zusätzlichen Graphen auf einer Webseite anfordert.
 Ausschlaggebend für die Zerlegung sind folgende Fragen:
 
 \begin{outline}
-  \1 Werden zusätzliche Daten benötigt um die Userstory zu implementieren oder
-  reichen die vorhandenen Daten die bereits auf der Webseite genutzt werden?
+  \1 Werden zusätzliche Daten benötigt, um die Userstory zu implementieren oder
+  reichen die vorhandenen Daten, die bereits auf der Webseite genutzt werden?
   \1 Wo kommen diese Daten her?
   \1 Wer liefert die Daten bzw.\ wird dafür eine Genehmigung benötigt?
   \1 Werden bereits genutzte Daten nicht mehr benötigt?
-  \1 Ist die Änderung Atomar oder kann sie weiter zerlegt werden?
+  \1 Ist die Änderung atomar oder kann sie weiter zerlegt werden?
 \end{outline}
 
-Daraus ergeben sich mehrere Änderungen die am Projekt gemacht werden müssen um
-die Userstory zu implementieren. Für jede Änderung wird ein Ticket erstellt.
-Ziel des ganzen ist es, eine komplexe Userstory, die einen einzelnen
-erfahrenen Entwickler lange mit der Implementierung beschäftigt, möglichst weit
+Daraus ergeben sich mehrere Änderungen, die am Projekt gemacht werden müssen,
+um die Userstory zu implementieren. Für jede Änderung wird ein Ticket erstellt.
+Ziel des Ganzen ist es, eine komplexe Userstory, die einen einzelnen erfahrenen
+Entwickler lange mit der Implementierung beschäftigt, möglichst weit
 herunterzubrechen. Die entstandenen Teilaufgaben erfordern größtenteils keinen
-erfahrenen Entwickler, dieser ist nur noch für einige wenige Tickets notwendig.
-Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den einzelnen
-Tickets arbeiten können.
+erfahrenen Entwickler. Dieser ist nur noch für einige, wenige Tickets
+notwendig.  Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den
+einzelnen Tickets arbeiten können.
 \tm%
 
 \section{SSD Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine Anzeige der SSDs, welche
 einen Hardwaredefekt haben könnten.
 
-\textbf{Beschreibung:} In der heutigen Zeit, werden vermehrt langsame
+\textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame
 Hard Disk Drives durch schnellere Solid State Disks ausgetauscht. Gerade im
-Serverbetrieb, sorgt dies für einen schnelleren Datenzugriff. SSDs haben
-jedoch, wie auch HDDs einen Lebenszyklus, der bei SSDs schneller erreicht
+Serverbetrieb sorgt dies für einen schnelleren Datenzugriff. SSDs haben
+jedoch, wie auch HDDs, einen Lebenszyklus, der bei SSDs schneller erreicht
 werden kann, als bei handelsüblichen HDDs. Der Administrator soll hier darüber
-Benachrichtigt werden, sobald von einer SSD ein kritischer Schreib- oder
-Lesezyklus erreicht worden ist, um die SSD, bereits vor dem Ausfall austauschen
+benachrichtigt werden, sobald von einer SSD ein kritischer Schreib- oder
+Lesezyklus erreicht worden ist, um die SSD bereits vor dem Ausfall austauschen
 zu können. Ebenfalls soll hier auch eine Statistik ausgegeben werden, welche
 SSD von welchem Hersteller in der Wahrscheinlichkeit am häufigsten ausfallen
-kann. Im Folgenden finden Sie die Akzeptanzkriterien:
+könne. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
   für jede einzelne Instanz
-  \1 Auflistung einer Statistik in Form eines Balkendiagramms, über die
+  \1 Auflistung einer Statistik in Form eines Balkendiagramms über die
   Hersteller, welche am wahrscheinlich häufigsten in den Instanzen ausfallen
-  \1 Eine Benachrichtigung, ob per Email oder andere Kommunikationswege,
+  \1 Eine Benachrichtigung, ob per E-Mail oder auf anderen Kommunikationswegen,
   wenn ein kritischer Schreib- oder Lesezyklus erreicht worden ist
 \end{outline}
 \mr%
 
 \section{CPU Userstory}
 \label{section:CPU_Userstory}
-\textbf{Name der Story:} Der Administrator möchte eine Auswertung der CPU
-Auslastung jeder Instanz, um Engpässe zu erkennen.
+\textbf{Name der Story:} Der Administrator möchte eine Auswertung der
+CPU-Auslastung jeder Instanz, um Engpässe zu erkennen.
 
 \textbf{Beschreibung:} Die CPUs der heutigen Zeit werden in der Taktrate und
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
-virtuellen Maschinen, werden aus einem physischen CPU Kern des Host Systems
-mehrere virtuelle CPU Kerne emuliert und einer Instanz zugewiesen. So kann eine
-VM 2 virtuelle CPU Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
+virtuellen Maschinen werden aus einem physischen CPU-Kern des Host-Systems
+mehrere virtuelle CPU-Kerne emuliert und einer Instanz zugewiesen. So kann eine
+VM 2 virtuelle CPU-Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
 haben. Auf jeder Instanz laufen andere Dienste, weshalb jede VM
 unterschiedliche CPUs zugeteilt haben kann. Hier kann es vorkommen, dass eine
-VM mehr CPU Leistung benötigt, als ihr selber zugewiesen ist. Um dies
+VM mehr CPU-Leistung benötigt, als ihr selbst zugewiesen ist. Um dies
 frühestmöglich zu erkennen, benötigt der Administrator eine detaillierte
-Übersicht in Form eines Graphen, wie viel CPU Leistung von einer virtuellen
+Übersicht in Form eines Graphen, wie viel CPU-Leistung von einer virtuellen
 Instanz verwendet wird und auf dem System verfügbar ist. Im Folgenden finden
-Sie die Akzeptanzkriterien:
+sich die Akzeptanzkriterien:
 
 \begin{outline}
-  \1 Visualisierung der Auslastung und Verfügbarkeit der CPU Leistung für jede
+  \1 Visualisierung der Auslastung und Verfügbarkeit der CPU-Leistung für jede
   einzelne Instanz
   \1 Alle Werte der CPU, \gls{Soft-IRQ},\gls{iowait} oder \gls{Interrupt}
   müssen visualisiert werden
-  \1 Eine frühestmögliche Erkennung von einem Engpass einer Virtuellen Maschine
+  \1 Eine frühestmögliche Erkennung von einem Engpass einer virtuellen Maschine
 \end{outline}
 \mr%
 
 \section{Memory Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine Auswertung der
-Arbeitsspeicher Auslastung von jeder Instanz, um Engpässe zu erkennen.
+Arbeitsspeicherauslastung von jeder Instanz, um Engpässe zu erkennen.
 
-\textbf{Beschreibung:} Vergleichbar wie auch bei der CPU Auslastung, gibt es
+\textbf{Beschreibung:} Vergleichbar wie auch bei der CPU-Auslastung, gibt es
 auch eine ähnliche Thematik zur Auslastung bei dem verwendeten Arbeitsspeicher.
 Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers entscheidend,
-sondern eher wie viel Arbeitsspeicher einer Virtuellen Maschine zugewiesen ist.
+sondern eher wie viel Arbeitsspeicher einer virtuellen Maschine zugewiesen ist.
 Hier kann es ebenfalls wie auch bei der~\ref{section:CPU_Userstory}
-vorkommen, das es zu Engpässen auf der virtuellen Maschine bei der Verteilung
-des Arbeitsspeichers kommen kann. Im Folgenden finden Sie die
+vorkommen, dass es zu Engpässen auf der virtuellen Maschine bei der Verteilung
+des Arbeitsspeichers kommen kann. Im Folgenden finden sich die
 Akzeptanzkriterien:
 
 \begin{outline}
-  \1 Ausgabe und Visualisierung in Form eines Graphen, für den Verwendeten,
-  freien und zwischengespeichertem Arbeitsspeicher, für jede einzelne virtuelle
+  \1 Ausgabe und Visualisierung in Form eines Graphen für den verwendeten,
+  freien und zwischengespeicherten Arbeitsspeicher für jede einzelne virtuelle
   Maschine
-  \1 Eine frühstmögliche Erkennung von einem Engpass des Arbeitsspeichers einer
-  virtuellen Maschine
+  \1 Eine frühestmögliche Erkennung von einem Engpass des Arbeitsspeichers
+  einer virtuellen Maschine
 \end{outline}
 \mr%
 
 \section{Zeitdefinierte Analyse Userstory}
 \textbf{Name der Story:} Der Administrator möchte eine Angabe über die im
-vergangenen Jahr verwendeten Ressourcen einer Virtuellen Maschine.
+vergangenen Jahr verwendeten Ressourcen einer virtuellen Maschine.
 
 \textbf{Beschreibung:} Ein Onlineshop für zum Beispiel saisonale Ware, wie
 Adventskalender, benötigt eine Analyse über die verwendeten Ressourcen aus dem
 vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei Beginn
-richtig skalieren zu können. Dies dient in erster Linie um die Erreichbarkeit,
+richtig skalieren zu können. Dies dient in erster Linie, um die Erreichbarkeit
 des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeinen
-zu verbessern. So können zum Beispiel bestimmten Virtuellen Maschine zu einem
+zu verbessern. So können zum Beispiel bestimmten virtuellen Maschinen zu einem
 gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
-die Ressourcen verwenden können. In den Monaten, in dem keine große Nachfrage
+die Ressourcen verwenden können. In den Monaten in dem keine große Nachfrage
 der Webseite besteht, können hier dann weniger Ressourcen vergeben werden. Dies
 hat den Vorteil, dass spezielle Vertäge dem Kunden angeboten werden können. Im
-Folgenden finden Sie die Akzeptanzkriterien:
+Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
@@ -2276,24 +2281,24 @@ erhaltenen Daten zur weiteren Verwendung.
 \textbf{Beschreibung:} Dem Administrator oder dem User soll es ermöglicht
 werden, eine visualisierte Ausgabe in Form von Graphen zu erhalten. Diese
 sollen Aufschluss über die Auslastung der einzelnen Systeme geben können. Im
-folgenden finden Sie die Akzeptanzkriterien:
+Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
-  \1 Zeitspanne von der Visualisierung kann über den Benutzer angepasst werden
-  \1 Die Graphen welche Visualisiert wurden können vom Benutzer individuell
+  \1 Zeitspanne der Visualisierung kann über den Benutzer angepasst werden
+  \1 Die Graphen, welche visualisiert wurden, können vom Benutzer individuell
   angepasst werden
 \end{outline}
 \mr%
 
 \chapter{Realisierung}
 In der Evaluierungsphase wurde für jeden Bereich die optimale Software gesucht
-und gefunden. Hier wurde, mit Absicht, jeder Bereich getrennt betrachtet. Es
+und gefunden. Hier wurde mit Absicht jeder Bereich getrennt betrachtet. Es
 wurde nicht geprüft, ob die gewählte Software in einem Bereich mit den
 Alternativen in den anderen beiden Bereichen kompatibel ist. Aufgrund der hohen
 Auswahl an Möglichkeiten pro Bereich gibt es zu viele
 Kombinationsmöglichkeiten. Diese können zeitlich nicht alle im Rahmen des
-Projektes evaluiert werden. Es wurde darauf geachtet, das jede Software mit
+Projektes evaluiert werden. Es wurde darauf geachtet, dass jede Software mit
 offenen und bekannten Schnittstellen arbeiten kann. Diese werden in der
 Realisierungsphase miteinander kombiniert.
 
@@ -2306,19 +2311,19 @@ gegliedert. Im ersten Teil befinden sich alle Hypervisors und virtuellen
 Maschinen, welche Daten via collectd verschicken. Jede Instanz von collectd
 soll ihre Daten in der zentralen Postgres Datenbank speichern. Für Tests wird
 mit einer einzelnen Postgres Datenbank gearbeitet, diese kann bei Bedarf um
-weitere Server erweitert werden um einen Hochverfügbaren Betrieb zu
+weitere Server erweitert werden, um einen hochverfügbaren Betrieb zu
 realisieren. Komplexe Datenbankabfragen über die API können, gerade bei großen
-Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, das in dieser
+Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, dass in dieser
 Zeit eingehende Daten von collectd nicht direkt gespeichert werden können. Die
-Daten würden dann verloren gehen. Sofern Die Postgres Installation nicht
-Hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
+Daten würden dann verloren gehen. Sofern die Postgres Installation nicht
+hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
 Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
-Problemen entgegen zu wirken kam die Idee auf, einen Message Bus (auch Message
+Problemen entgegen zu wirken, kam die Idee auf, einen Message Bus (auch Message
 Queue genannt) zu installieren.
 \tm%
 
 \section{Message Bus}
-Ein Message Bus ist eine Applikationen welche auf einem oder mehreren Servern
+Ein Message Bus ist eine Applikationen, welche auf einem oder mehreren Servern
 betrieben wird und als \gls{Middleware} agiert. Über diverse
 Netzwerkschnittstellen ist es möglich, Daten auf diesen Bus zu senden. Jedes
 Datenpaket kann mit Tags versehen werden. Ein Tag kann ein beliebiger Text
@@ -2334,24 +2339,25 @@ Datenbank für mehrere Stunden oder Tage nicht erreichbar ist. Hierzu
 unterstützen Message Busse eine Retention Period. Dieser Wert beschreibt wie
 lange ein Datensatz gültig ist. Wenn er zu alt ist, wird er automatisch
 gelöscht und vom Bus genommen. Der Bus kann somit nicht über die Zeit
-volllaufen. Im Projektteam gab es bereits Erfahrung mit der Message Bus
-Software RabbitMQ, weshalb diese für den ersten Prototypen gewählt wurde.
+volllaufen. Im Projektteam gab es bereits Erfahrung mit der
+Message-Bus-Software RabbitMQ, weshalb diese für den ersten Prototypen gewählt
+wurde.
 
 Der Messagebus wird zwischen collectd und der Datenbank installiert. Collectd
 ist nicht in der Lage, direkt SQL zu sprechen. SQL ist allerdings die einzige
-Schnittstelle welche von Postgres bereitgestellt wird. Die Daten müssen also
+Schnittstelle, welche von Postgres bereitgestellt wird. Die Daten müssen also
 transformiert werden. Hierfür bietet sich das bereits zuvor evaluierte Logstash
-an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin um vom Bus zu
-lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin um über JDBC
+an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin, um vom Bus zu
+lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin, um über JDBC
 mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
 \tm%
 
 \section{JVM}
-Die \gls{JVM} (Java Virtual Machine) ist eine virtuelle Maschine zum ausführen
+Die \gls{JVM} (Java Virtual Machine) ist eine virtuelle Maschine zum Ausführen
 von Java Bytecode. Sie stellt eine abgekapselte Umgebung (Sandbox) bereit in
 der der Code ausgeführt wird. Dies bringt nicht nur eine erhöhte
 Systemsicherheit, da die Applikation in der JVM nicht direkt mit dem Hostsystem
-kommunizieren kann. Es hilft auch beim Multithreading. Die JVM ist in der Lage
+kommunizieren kann. Es hilft auch beim Multithreading. Die JVM ist in der Lage,
 beliebig viele Prozesse zu starten und zu verwalten.
 
 Logstash selbst ist in Ruby geschrieben. Die Ausführung selbst erfolgt aber
@@ -2365,7 +2371,7 @@ werden, da dies automatisch von der JVM übernommen wird. Ein normales Ruby
 Script wird nur auf einem Prozessorkern ausgeführt. Ein einzelner Kern kann
 aber die erwartete Datenmenge nicht aus dem Message Bus abfragen und
 verarbeiten. Hier kann die Architektur stark von der JVM profitieren. Sie
-kümmert sich darum, das alle zur Verfügung stehenden CPU Kerne belastet werden
+kümmert sich darum, dass alle zur Verfügung stehenden CPU-Kerne belastet werden
 und startet entsprechend viele Prozesse mit Logstash. Somit erhält man eine
 sehr einfache Möglichkeit der Datenverarbeitung mit mehreren
 Prozessorkernen~\cite{jruby}.
@@ -2373,28 +2379,28 @@ Prozessorkernen~\cite{jruby}.
 
 \section{JDBC}
 \gls{JDBC} (Java Database Connectivity) ist die Schnittstelle der JVM zu
-Datenbanken. Sie stellt generische Funktionen bereit um mit Datenbanken zu
-kommunizieren. Für jede Datenbank, mit der kommuniziert werden soll, wird ein
+Datenbanken. Sie stellt generische Funktionen bereit, um mit Datenbanken zu
+kommunizieren. Für jede Datenbank mit der kommuniziert werden soll, wird ein
 Treiber benötigt. Dieser beschreibt die spezifischen Eigenschaften eines
 bestimmten \gls{DBMS} für die JDBC\@. Er kommuniziert auf der einen Seite mit
 dem DBMS und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es ein
-Plugin, welches die JDBC Schnittstelle innerhalb des JRuby Bytecodes nutzbar
-macht.  Somit ist Logstash in der Lage in eine Datenbank zu schreiben. Hierfür
+Plugin, welches die JDBC-Schnittstelle innerhalb des JRuby Bytecodes nutzbar
+macht. Somit ist Logstash in der Lage, in eine Datenbank zu schreiben. Hierfür
 musste ausschließlich die Kommunikation mit der JDBC programmiert werden.
 Postgres bietet einen Treiber für JDBC an~\cite{postgres-jdbc}.
 \tm%
 
 \subsection{JDBC Treiber Typen}
-Es gibt vier verschiedene Typen von JDBC Treibern. Typ vier ist besonders
+Es gibt vier verschiedene Typen von JDBC-Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
-folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
+Folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
 
 \subsection{JDBC-ODBC Treiber}
-Hierbei spricht die JDBC Schnittstelle einen sehr generischen \gls{ODBC}
-Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\@. Der ODBC
-Treiber muss auf jedem System vorhanden sein, welches die JVM Applikation
+Hierbei spricht die JDBC-Schnittstelle einen sehr generischen \gls{ODBC}
+Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\@. Der
+ODBC-Treiber muss auf jedem System vorhanden sein, welches die JVM-Applikation
 ausführt. Die Bibliothek kann, zusammen mit der Datenbank selbst, auf einem
-anderen System in Netzwerk, oder auch lokal, betrieben werden.
+anderen System im Netzwerk oder auch lokal betrieben werden.
 
 Die Vorteile sind:
 
@@ -2402,7 +2408,7 @@ Die Vorteile sind:
   \1 Sehr einfache Implementierung der JDBC, da ein Großteil der Arbeit von
   der ODBC übernommen wird.
   \1 Sehr einfacher Austausch der ODBC, da die Schnittstelle generisch ist.
-  \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC Schnittstelle, somit
+  \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC-Schnittstelle, somit
   ergibt sich eine lange Liste an alternativen DBMS, welche genutzt werden
   können.
 \end{outline}
@@ -2416,25 +2422,25 @@ Die Nachteile sind:
   auf ein spezifisches DBMS erfolgen.
 \end{outline}
 
-\subsection{Nativer API Treiber}
-Die JDBC Schnittstelle spricht hier, über den Treiber, direkt die Bibliothek
-des DBMS an. Dafür muss der Treiber, als auch die Bibiliothek auf dem gleichen
-System vorhanden sein, wie die JVM Applikation. Die Datenbank selbst kann auf
-dem gleichen Server, oder über das Netzwerk angesprochen werden.
+\subsection{Nativer API-Treiber}
+Die JDBC-Schnittstelle spricht hier über den Treiber direkt die Bibliothek
+des DBMS an. Dafür muss der Treiber als auch die Bibiliothek auf dem gleichen
+System vorhanden sein, wie die JVM-Applikation. Die Datenbank selbst kann auf
+dem gleichen Server oder über das Netzwerk angesprochen werden.
 
-Die Vorteile im Vergleich zum JDBC-ODBC Treiber:
+Die Vorteile im Vergleich zum JDBC-ODBC-Treiber:
 \begin{outline}
   \1 Eine höhere Performance, da Teile direkt in Java geschrieben sind.
   \1 Geringere Fehleranfälligkeit, da eine Komponente weniger vorhanden ist.
 \end{outline}
 
-Die Performance ist besser als beim JDBC-ODBC Treiber, aber noch nicht optimal.
+Die Performance ist besser als beim JDBC-ODBC-Treiber, aber noch nicht optimal.
 Außerdem ist es nicht immer möglich, Zusatzsoftware, wie die Bibliotheken, auf
-dem gewünschten System zu installieren. Es gibt Firmen, die dies Untersagen.
+dem gewünschten System zu installieren. Es gibt Firmen, die dies untersagen.
 Dies trifft allerdings nicht in diesem Projekt zu, weshalb es nicht als
 Negativpunkt gewertet wird.
 
-\subsection{Netzwerk Protokoll Treiber}
+\subsection{Netzwerkprotokolltreiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
 Netzwerkapplikation geschickt (auch \gls{Middleware} genannt). Diese spricht
 dann die Datenbank an, welche oft auf einem dritten System installiert ist.
@@ -2456,63 +2462,63 @@ Die Nachteile sind:
 
 \begin{outline}
   \1 Die eigentliche Applikation benötigt zwingend eine Netzwerkfunktionalität.
-  \1 Die Datenbank Operationen erfolgen über zwei Netzwerkverbindungen, was
+  \1 Die Datenbankoperationen erfolgen über zwei Netzwerkverbindungen, was
   zu einem Overhead führt.
   \1 Der Entwicklungsaufwand ist bedeutend komplexer als bei anderen Treibern,
   sofern man die Middleware selbst implementiert und nicht auf fertige Lösungen
   zurückgreifen kann.
 \end{outline}
 
-\subsection{Nativer JDBC Treiber}
-Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, das
-er komplett in Java geschrieben ist. Er wird beim starten der Applikation
-geladen und erlaubt es der JDBC Schnittstelle direkt mit der Datenbank zu
+\subsection{Nativer JDBC-Treiber}
+Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, dass
+er komplett in Java geschrieben ist. Er wird beim Starten der Applikation
+geladen und erlaubt es der JDBC-Schnittstelle, direkt mit der Datenbank zu
 kommunizieren. Es werden keine weiteren Bibliotheken benötigt. Die Datenbank
-kann auf dem gleichen System wie die Applikation laufen, oder auch über das
+kann auf dem gleichen System wie die Applikation laufen oder auch über das
 Netzwerk angesprochen werden.
 
 Die Vorteile sind:
 
 \begin{outline}
-  \1 Dieser Treiber bietet die größte mögliche Performance, da er Anfragen von
+  \1 Dieser Treiber bietet die größtmögliche Performance, da er Anfragen von
   der JDBC auf das spezifische DBMS optimieren kann.
   \1 Der Overhead wurde auf ein Minimum reduziert.
   \1 Es werden keine zusätzlichen Schnittstellen benötigt, was die
   Fehleranfälligkeit reduziert.
 \end{outline}
 
-Diese Art von Treiber bietet, aus sicht des Nutzers, keine bekannten Nachteile.
+Diese Art von Treiber bietet aus Sicht des Nutzers keine bekannten Nachteile.
 Die Entwicklung benötigt für diese Art die meiste Arbeit, weshalb nicht jedes
 DBMS solche Treiber zur Verfügung stellt. Für Postgres existieren solche
-Treiber. Logstash ist somit in der Lage besonders effizient auf die Datenbank
+Treiber. Logstash ist somit in der Lage, besonders effizient auf die Datenbank
 zuzugreifen.
 \tm%
 
 \section{JDBC in Kombination mit der JVM}
 Die Kombination aus JVM und JDBC bietet einen großen Vorteil für das Projekt.
-Logstash ist in der Lage die Auslastung der Datenbank über JDBC zu ermitteln.
+Logstash ist in der Lage, die Auslastung der Datenbank über JDBC zu ermitteln.
 Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
 Anfragen zur Datenbank resultiert. Sobald die Datenbank wieder eine geringere
 Auslastung hat, kann die JVM eigenständig mehr Prozesse starten und die
 Datenmenge erhöhen. Somit verhindert man Performanceprobleme auf der Datenbank
-bei komplexen Abfragen welche über die API gestellt werden.
+bei komplexen Abfragen, welche über die API gestellt werden.
 
 Anstatt die Datenbank als limitierenden Faktor zu nutzen (dem Ziel von
 Logstash), kann dies auch mit der Quelle erfolgen. Der Message Bus ist
 in diesem Setup die Quelle für Logstash. Die JVM kann anhand der vorhandenen
-Datenmenge im Bus beliebig viele Prozesse starten um die Datenmenge möglichst
+Datenmenge im Bus beliebig viele Prozesse starten, um die Datenmenge möglichst
 schnell abzufragen. Dies wäre in einem Szenario sinnvoll, in dem der Speicher
 im Bus besonders gering ist und die Datenbank eine garantierte Leistung
 erbringen kann. Dies ist nur möglich, wenn Logstash der einzige Dienst ist,
 welcher mit der Datenbank interagiert. Dieses Szenario ist innerhalb des
-Projektes nicht möglich weshalb es nicht weiter verfolgt wurde bei der
+Projektes nicht möglich, weshalb es nicht weiter verfolgt wurde bei der
 Implementierung.
 \tm%
 
 
 \section{Prototyp 2}
 Die Implementierung des Message Busses stellte sich als sehr komplex heraus.
-RabbitMQ zwar die Software in dem Bereich mit der größten Verbreitung, aber
+RabbitMQ ist zwar die Software in dem Bereich mit der größten Verbreitung, aber
 auch sehr komplex zu betreiben und aufzusetzen. Es war dem Projektteam nicht
 möglich, RabbitMQ an collectd anzubinden. Hierfür sind diverse Einstellungen
 über die RabbitMQ \gls{CLI} notwendig. Diese konnte sich nicht gegenüber dem
@@ -2521,14 +2527,14 @@ ausgeben. Die Entwickler von RabbitMQ konnten ebenfalls keine Lösung für das
 Problem liefern. Außerdem ist dem Projektteam aufgefallen, dass der erste
 Prototyp unnötig komplex ist. Das Konzept eines Message Busses passt sehr gut
 in das Projekt, allerdings muss dafür keine eigenständige Software genutzt
-werden. Während der Suche nach Alternativen fiel auf, das auch Postgres als Bus
-genutzt werden kann.
+werden. Während der Suche nach Alternativen fiel auf, dass auch Postgres als
+Bus genutzt werden kann.
 
 Bei der Analyse von Grafana hat sich herausgestellt, das dort keine granulare
 Rechteverwaltung möglich ist, wenn direkt mit einer Datenbank interagiert wird.
 Da die selbst entwickelte API bereits Endpunkte für Analysen bereitstellen
 muss, kann diese simpel erweitert werden, um auch Daten an Grafana zu liefern.
-Somit liefert nun die API Daten an Grafana und Grafana kan nicht mehr direkt
+Somit liefert nun die API Daten an Grafana und Grafana kann nicht mehr direkt
 mit der Datenbank sprechen. Die API ist in der Lage, alle Anfragen von Grafana
 passend zu filtern und zu validieren. Eine Visualisierung des Prototypen
 findet sich unter~\ref{figure:draft2}.
@@ -2538,11 +2544,11 @@ findet sich unter~\ref{figure:draft2}.
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
-Konfigurationsmanagement- und Automatisierungs-Software. Sie erlaubt es, in
+Konfigurationsmanagement- und Automatisierungs-Software. Sie erlaubt es in
 einer \glslink{Deklarative Programmiersprache}{deklarativen} \gls{DSL}, den
 gewünschten Systemzustand zu beschreiben. Die Software realisiert dies. In
 Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
-Automatisierung einer bestimmten Software benötigt wird. Über die Platform
+Automatisierung einer bestimmten Software benötigt wird. Über die Plattform
 \url{https://forge.puppet.com/} können diese Module ausgetauscht werden. Es
 existieren bereits Module zur Verwaltung von Postgres, collectd, Grafana und
 Logstash. Jedes Modul hat seinen eigenen \gls{Namespace} und bündelt ein oder
@@ -2569,7 +2575,7 @@ Ressourcen. Die wichtigsten sind:
 
 \begin{outline}
   \1 Package - Verwaltet die Installation und Deinstallation von Paketen
-  \1 Service - Managed Dienste auf dem System
+  \1 Service - Managt Dienste auf dem System
   \1 File - Erstellt konfigurationsdateien und Verzeichnisse mit passenden
   Rechten
 \end{outline}
@@ -2589,14 +2595,14 @@ Ressource muss einzigartig sein. In diesem Fall ist es der Name des Paketes,
 welches in der Version 2.0.2-1 installiert wird. Puppet bietet 48 verschiedene
 Typen. Diese sind fest in puppet verankert und werden von der Firma Puppet
 gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden. Für jeden
-Typ gibt es einen Provider, dieser implementiert den Typ auf einer bestimmten
-Platform. Das Grafana Modul besitzt eigene Typen, welche Dashboards und
-Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
-normale Textdateien sondern über eine API oder Weboberfläche. Über die eigenen
+Typen gibt es einen Provider. Dieser implementiert den Typen auf einer
+bestimmten Plattform. Das Grafana-Modul besitzt eigene Typen, welche Dashboards
+und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
+normale Textdateien, sondern über eine API oder Weboberfläche. Über die eigenen
 Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
 sondern auch die komplette Konfiguration
-automatisieren~\cite{puppet-resource-types}. Da puppet Deklarativ und nicht
-Imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
+automatisieren~\cite{puppet-resource-types}. Da puppet deklarativ und nicht
+imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
 analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert
 diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb nicht in der
 Reihenfolge abgearbeitet, in der sie notiert sind.
@@ -2605,68 +2611,68 @@ Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
 Abstraktion kann Code sehr häufig wiederverwendet werden.
 
-In einem Puppet Profil werden mehrere Module und Ressourcen deklariert, um eine
+In einem Puppet-Profil werden mehrere Module und Ressourcen deklariert, um eine
 bestimmte Aufgabe zu realisiern. Dieses Profil ist aus Sicht des Codes eine
 normale Klasse. Mehrere Profile werden in einem Modul gebündelt. Ein Profil
 wird einem oder mehreren Nodes zugewiesen. Im Rahmen des Projekts werden
 diverse Profile erzeugt, um die einzelnen benötigten Komponenten gebündelt zu
-automatisieren. Ein Beispielhaftes Profil für Grafana findet sich
+automatisieren. Ein beispielhaftes Profil für Grafana findet sich
 unter~\ref{lst:grafana}. Dies installiert Grafana und richtet außerdem ein
 Dashboard und eine Datenquelle ein.
 \tm%
 
 \subsection{Ablauf eines Puppet Runs}
-Puppet kann nach dem \gls{Client-Server} Prinzip arbeiten. Der Agent läuft
+Puppet kann nach dem \gls{Client-Server}-Prinzip arbeiten. Der Agent läuft
 dabei auf jedem System, welches verwaltet werden soll. Unterstützt werden neben
-Linux Distributionen auch Windows, BSD, sowie diverse Hersteller von
+Linux-Distributionen auch Windows, BSD, sowie diverse Hersteller von
 Netzwerkequipment. Periodisch ermittelt der Agent \glslink{Fact}{Facts} und
-sendet diese über eine \gls{HTTPS} Verbindung zum Puppetserver. Anhand dieser
-Facts wird entschieden, welche Module zu einem Katalog zusammen kompiliert
-werden. Der Katalog wird dem Agent zurück geschickt. Dieser analysiert sein
+sendet diese über eine \gls{HTTPS}-Verbindung zum Puppetserver. Anhand dieser
+Facts wird entschieden, welche Module zu einem Katalog zusammenkompiliert
+werden. Der Katalog wird dem Agent zurückgeschickt. Dieser analysiert sein
 vorhandenes System und gleicht es mit den Beschreibungen im Katalog ab. Sobald
 es hier zu Differenzen kommt, wird das System dem Katalog angeglichen. Jede
-durchgeführte Aktion kann reportet werden. Reports können lokal gespeichert-
+durchgeführte Aktion kann reportet werden. Reports können lokal gespeichert
 oder zu einer zentralen Datenbank gesendet werden. Die Firma Puppet bietet
 außerdem die quelloffene PuppetDB an. Diese kann Reports speichern. Über eine
 \gls{RESTful} API kann man alle Reports analysieren und Abfragen. Zusätzlich
 können alle Facts dort gespeichert werden. Ein „Puppet Run“ beschreibt den
-kompletten Ablauf vom Auslesen der Facts bis zum erstellen des Reports.
+kompletten Ablauf vom Auslesen der Facts bis zum Erstellen des Reports.
 
 Puppet kann auch ohne Puppetserver genutzt werden. Hier erfolgt der komplette
-Ablauf dann lokal. Die Module müssen auf dem Server vorhanden sein, auf dem
+Ablauf dann lokal. Die Module müssen auf dem Server vorhanden sein auf dem
 auch der Agent läuft. Er kompiliert sich dann seinen Katalog selbst. Diese
 Vorgehensweise bietet sich gerade während der Entwicklung an. In großen
-Produktivumgebungen, mit vielen Modulen, ist es oftmals sinnvoller Puppetserver
+Produktivumgebungen mit vielen Modulen ist es oftmals sinnvoller, Puppetserver
 zu nutzen und nach dem Client-Server Prinzip zu arbeiten.
 \tm%
 
 \section{Realisierung Grafana}
-\label{sec:realisierung_Grafana} Nachdem nun die
-Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend} abgeschlossen ist,
-konnte mit der Installation und Konfiguration von Grafana begonnen werden.
-Damit die eigentliche Konfiguration durchgeführt werden konnte musste zuvor das
-Installations Paket von Grafana heruntergeladen und installiert werden. Auf
-einem ArchLinux Betriebssystem wird dieses Paket mit folgendem Befehl
-installiert:
+\label{sec:realisierung_Grafana}
+Nachdem nun die Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend}
+abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
+begonnen werden. Damit die eigentliche Konfiguration durchgeführt werden
+konnte, musste zuvor das Installationspaket von Grafana heruntergeladen und
+installiert werden. Auf einem ArchLinux-Betriebssystem wird dieses Paket mit
+folgendem Befehl installiert:
 
 \begin{lstlisting}[language=bash]
 sudo pacman -S grafana
 \end{lstlisting}
 
-Pacman ist ein Paketinstaller, womit weitere Software aus einem Repository
+Pacman ist ein Paketinstaller mit dem weitere Software aus einem Repository
 heruntergeladen und installiert werden kann. Er durchsucht hier die gesamten
 vordefinierten Repository URLs nach Grafana und installiert hier die aktuellste
-vorliegende Version auf dem Archlinux Betriebssystem.
+vorliegende Version auf dem Archlinux-Betriebssystem.
 
 Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
-dieses mit folgendem Befehl gestartet und falls gewünscht in den Autostart von
+dieses mit folgendem Befehl gestartet und falls gewünscht im Autostart von
 Archlinux hinterlegt werden. Mit folgendem Befehl wird der Grafana Dienst
 gestartet:
 \begin{lstlisting}[language=bash]
 systemctl start grafana.service
 \end{lstlisting}
 
-Um Grafana in den Autostart zu hinterlegen, wird folgender Befehl benötigt:
+Um Grafana im Autostart zu hinterlegen, wird folgender Befehl benötigt:
 \begin{lstlisting}[language=bash]
 systemctl enable grafana.service
 \end{lstlisting}
@@ -2685,89 +2691,89 @@ Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
 werden. Anschließend sieht man hier bereits das Home Dashboard von wo aus die
 einzelnen Einstellungen durchgeführt werden können.
 
-Das HomeDashboard ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
-worüber Alle Einstellungen, wie Plugin Verwaltung, Datenquellen (Datasources)
+Das Home Dashboard ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
+worüber alle Einstellungen, wie Plugin-Verwaltung, Datenquellen (Datasources)
 oder Benutzereinstellungen durchgeführt werden
 können~\ref{figure:grafana_dashboard_l}. Rechts neben dem Grafana Symbol wird
-immer die aktuelle Ebene angezeigt, auf der der Administrator sich befindet.
+immer die aktuelle Ebene angezeigt auf der der Administrator sich befindet.
 Wenn der Administrator sich hier auf dem Home Dashboard befindet, so wird hier
 „Home“ angezeigt und die Übersicht der einzelnen Dashboards. Sollte der
 Administrator in den Einstellungen unter Datasources sein, so wird hier Data
-Sources eingeblendet. Dies soll den Administrator zusätzlich helfen eine
-bessere Übersichtlichkeit zu erhalten. Auf der Rechten Seite des Home
+Sources eingeblendet. Dies soll dem Administrator zusätzlich helfen, eine
+bessere Übersichtlichkeit zu erhalten. Auf der rechten Seite des Home
 Dashboards hat der Administrator oder User die Möglichkeit, den
 Aktualisierungstimer der anzuzeigenen Daten zu verändern. Standardmäßig steht
 dieser auf sechs Stunden, kann aber beliebig angepasst
 werden~\ref{figure:grafana_dashboard_r}.
 
 
-Zu Beginn sollte hier zuerst die Datenquelle, von der Grafana die ermittelten
-Daten erhält konfiguriert werden. Hierzu navigiert der Administrator auf das
+Zu Beginn sollte hier zuerst die Datenquelle von der Grafana die ermittelten
+Daten erhält, konfiguriert werden. Hierzu navigiert der Administrator auf das
 Grafana Symbol und wählt hier anschließend „Data Sources“ aus. Nun kann hier
 unter „+ Add data source“ eine neue Datenquelle definiert werden. Grafana
-bietet bereits eine vielzahl an Auswahlmöglichkeiten von Datenhaltungssystemen
-an. Diese können nach belieben durch Plugins erweitert werden. Hierauf wird im
+bietet bereits eine Vielzahl an Auswahlmöglichkeiten von Datenhaltungssystemen
+an. Diese können nach Belieben durch Plugins erweitert werden. Hierauf wird im
 weiteren Verlauf der Implementierung eingegangen. Nachdem hier alle Werte
 ausgefüllt worden sind, kann die Datenquelle über die Schaltfläche „Add“
-hinzugefügt werden. Grafana prüft bereits beim speichern der Datenquelle ob
+hinzugefügt werden. Grafana prüft bereits beim Speichern der Datenquelle, ob
 diese erreichbar ist.
 
 Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues Dashboard
-angelegt werden damit die Graphen definiert werden können. Das neue Dashboard
-kann unter dem HomeDashboard angelegt werden. Anschließend erhält der
+angelegt werden, damit die Graphen definiert werden können. Das neue Dashboard
+kann unter dem Home Dashboard angelegt werden. Anschließend erhält der
 Administrator bereits eine Vielzahl von vordefinierten Auswahlmöglichkeiten von
 Graphen, Tabellen oder auch \glslink{singlestat}{Singlestats}. Diese können je
-nach Verwendungszweck hinzugefügt werden. Eine Beschränkung wieviele Graphen
-maximal auf einem Dashboard angelegt werden können gibt es nicht.
+nach Verwendungszweck hinzugefügt werden. Eine Beschränkung, wieviele Graphen
+maximal auf einem Dashboard angelegt werden können, gibt es nicht.
 
 Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
 werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
 „edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein Menü, wo der
 grundsätzliche Aufbau, die Metrik, die Axen und diverse andere Einstellungen
 für diesen Graphen definiert werden können. Hier wird zunächst die Metrik des
-Graphen angepasst, damit der Graph Werte visualisieren kann.  Anbei ein
+Graphen angepasst, damit der Graph Werte visualisieren kann. Anbei ein
 Beispiel, für eine solche Abfrage:
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=1.0\textwidth]{../figures/graph.png}
-  \caption{Beispielabfrage für eine Graphen Visualisierung}
+  \caption{Beispielabfrage für eine Graphenvisualisierung}
 \label{figure:graph}
 \end{figure}
 
 Anschließend können noch diverse Feineinstellungen für den Graphen vorgenommen
-werden. Dieses vorgehen wird nun für jeden Graphen erstellt, dessen Werte
+werden. Dieses Vorgehen wird nun für jeden Graphen erstellt, dessen Werte
 visualisiert werden sollen. Nachdem alle Graphen erstellt worden sind, muss das
 Dashboard abgespeichert werden, damit Einstellungen nicht verloren gehen
-können. Sollte das speichern vom Administrator vergessen werden, so warnt
+können. Sollte das Speichern vom Administrator vergessen werden, so warnt
 Grafana bei dem Wechsel eines Dashboards, ob die Einstellungen gespeichert
 werden sollen.
 
 Die Grundeinstellungen sind nun abgeschlossen und Grafana kann verwendet
-werden. Um weiteren User Zugriff zu dem Dashboard zu gewähren, können unter dem
-Grafana Symbol > Admin > Global Users weitere User angelegt werden und Zugriff
-auf die Weboberfläche von Grafana erhalten. Insbesondere hier, kann beschränkt
-werden, welcher User, welche Einstellungen und Graphen sehen können. Ebenso ist
-es möglich weitere Administratoren zu erstellen. Dies kann sowohl für Lokale
-User als auch für LDAP User vergeben werden.  Sollte ein unternehmen die LDAP
-Anbindung für die Authentifizierung an Grafana wünschen, so muss hier in dem
-Verzeichnis von der Grafana Installation die Datei grafana.ini angepasst
-werden. Alle Einstellungen die hier vorgenommen werden, beziehen sich auf die
+werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
+dem Grafana Symbol > Admin > Global Users weitere User angelegt werden und
+Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
+beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
+Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
+für lokale User als auch für LDAP-User vergeben werden.  Sollte ein Unternehmen
+die LDAP-Anbindung für die Authentifizierung an Grafana wünschen, so muss hier
+in dem Verzeichnis von der Grafana-Installation die Datei grafana.ini angepasst
+werden. Alle Einstellungen, die hier vorgenommen werden, beziehen sich auf die
 Servereinstellungen, welche vom Kunden individuell angepasst werden kann.
-Nachdem die Änderungen hier abgeschlossen sind, muss der Grafana Dienst neu
+Nachdem die Änderungen hier abgeschlossen sind, muss der Grafana-Dienst neu
 gestartet werden. Dies wird mit folgendem Befehl durchgefüht:
 
 \begin{lstlisting}[language=bash]
 systemctl restart grafana.service
 \end{lstlisting}
 
-Diese Konfiguration beschreibt die Manuelle Installation und Konfiguration von
+Diese Konfiguration beschreibt die manuelle Installation und Konfiguration von
 Grafana. Um hier jedoch nicht bei jedem einzelnen Kunden diese Anpassung
 vornehmen zu müssen, kann die Installation, wie auch die Konfiguration
 automatisiert werden.
 
 Die Automatisierung erfolgt mit einem Puppet Profil. Das Puppet Profil hat
-verschiedene Vorteile. So ist dieses Betriebsystem unabhänig, Versionen von
+verschiedene Vorteile. So ist dieses Betriebsystem unabhängig, Versionen von
 Grafana können vorgegeben werden und Konfiguration werden direkt während der
 Installation in die Software implementiert. Um das Puppet Profil aufrufen zu
 können, wird folgender Befehl benötigt:
@@ -2777,33 +2783,33 @@ sudo puppet apply grafana.pp
 \end{lstlisting}
 
 Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließend
-mit dem Puppet Profil aufgerufen. In dieser ist definiert, mit welcher Version
+mit dem Puppet Profil aufgerufen. In dieser ist definiert mit welcher Version
 Grafana installiert, welche Datenquelle verwendet oder welches Dashboard
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
-verschiedene andere Parameter, wie LDAP Anbindung übergeben werden. Dies
+verschiedene andere Parameter, wie LDAP-Anbindung übergeben werden. Dies
 erleichtert dem Administrator die Konfiguration, da dieses Profil nur einmal
-auf dem Betriebssystem ausgeführt werden muss um Grafana zu installieren und
-konfigurieren. Eine zusätzliche Konfiguration nach der installation von Grafana
-wird nur dann benötigt, wenn spezielle Anforderung vom Kunden gewünscht sind.
-Dashboards werden in der Konfigurationsdatei des Puppet Moduls für Grafana als
-\gls{JSON} definiert und können im nachhinein angepasst werden.
+auf dem Betriebssystem ausgeführt werden muss, um Grafana zu installieren und
+zu konfigurieren. Eine zusätzliche Konfiguration nach der Installation von
+Grafana wird nur dann benötigt, wenn spezielle Anforderungen vom Kunden
+gewünscht sind.  Dashboards werden in der Konfigurationsdatei des Puppet Moduls
+für Grafana als \gls{JSON} definiert und können im Nachhinein angepasst werden.
 
 Im Anhang~\ref{lst:grafana} befindet sich ein Beispiel für eine solche
 Konfigurationsdatei.
 
-Während der ersten Tests für die Automatisierung der Installation, stellte sich
-heraus das es hier ein Problem gibt, die Konfiguration an Grafana zu übergeben.
-Das Puppet Profil prüft hier den Login auf die Weboberfläche nicht, da es davon
-ausgeht, das die Weboberfläche nach dem Neustart von Grafana unmittelbar danach
-erreichbar ist. Das Problem liegt hier nicht in der grafana.pp sondern in dem
-eigentlichen Puppet Modul, welche uns die Ressourcentypen
-\texttt{grafana\_dashboard}, sowie \texttt{grafana\_datasource} bereitstellt.
-Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
+Während der ersten Tests für die Automatisierung der Installation stellte sich
+heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
+übergeben. Das Puppet Profil prüft hier den Login auf die Weboberfläche nicht,
+da es davon ausgeht, dass die Weboberfläche nach dem Neustart von Grafana
+unmittelbar danach erreichbar ist. Das Problem liegt hier nicht in der
+grafana.pp, sondern in dem eigentlichen Puppet Modul, welches uns die
+Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
+bereitstellt.  Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
 erstellt~\cite{grafana-issue}.
 \mr%
 
 \chapter{Tests und Qualitätssicherung}
-Der genutzte, sowie der selbst entwickelte, Code ist äußerst komplex. Es
+Der genutzte sowie der selbst entwickelte Code ist äußerst komplex. Es
 muss von Anfang an sichergestellt werden, dass dieser Code nicht nur
 funktioniert, sondern auch den gängigen Best Practices der jeweiligen
 Programmiersprache entspricht. Dadurch wird der Code strukturierter und
@@ -2818,9 +2824,9 @@ Alles an entwickelter Software befindet sich in einem \gls{Git}
 ausschließlich getesteter Code. Es wird nie direkt in diesem Branch gearbeitet.
 Jedes Teammitglied erstellt sich einen \texttt{Feature Branch}. Dies ist ein
 kurzlebiger Branch, welcher auf \texttt{master} aufbaut. Im \texttt{Feature
-Branch} wird ein einzelnes Feature implementiert von einem einzelnen
-Teammitglied. Im Anschluss wird ein Pull Request eröffnet. Dies ist eine
-Möglichkeit von GitHub, einen Branch mit einem anderen zusammen zu führen. Über
+Branch} wird ein einzelnes Feature von einem einzelnen Teammitglied
+implementiert. Im Anschluss wird ein Pull Request eröffnet. Dies ist eine
+Möglichkeit von GitHub, einen Branch mit einem anderen zusammenzuführen. Über
 die Webseite werden die Unterschiede der beiden Branches gezeigt. Ein weiteres
 Teammitglied liest diese Änderungen (Review). Man kann nun Korrekturen
 anfordern oder den Code mergen. Dann wird der \texttt{Feature Branch} mit
@@ -2832,22 +2838,22 @@ mergen.
 Continuous Integration beschreibt eine Vorgehensweise in der
 Softwareentwicklung. Hierbei wird für jede Änderung eine zuvor definierte
 Testmatrix durchlaufen, um sicherzustellen, dass die Software weiterhin intakt
-ist. Dies setzt vorraus, das Tests for dem eigentlichen Code entwickelt werden
+ist. Dies setzt vorraus, dass Tests vor dem eigentlichen Code entwickelt werden
 (Test Driven Development) oder parallel zur Entwicklung des Codes. Ersteres
-stellt sicher, das ausschlieslich das implementiert wird, das gefordert ist.
-In den Tests wird definiert wie eine Software zu funktionieren hat, danach
+stellt sicher, dass ausschlieslich das implementiert wird, das gefordert ist.
+In den Tests wird definiert, wie eine Software zu funktionieren hat, danach
 wird so lange am Code entwickelt bis die Tests erfolgreich sind. Wenn man die
 Tests parallel zum Code entwickelt, ist es möglich, dass der Code mehr als die
 geforderte Funktionalität aufweist.
 
 Im Rahmen des Projekts werden Tests immer parallel zum Code entwickelt. Test
 Driven Development erfordert ein enormes Fachwissen über die genutzten
-Frameworks für Tests. Dieses lässt sich, aufgrund der komplexität, nicht
+Frameworks für Tests. Dieses lässt sich aufgrund der Komplexität nicht
 während des Projektes aneignen.
 \tm%
 
 \subsection{Travis}
-Travis ist eine Platform für Continuous Integration. Sie ist kostenlos nutzbar
+Travis ist eine Plattform für Continuous Integration. Sie ist kostenlos nutzbar
 und stellt verschiedene virtuelle Maschinen und Container bereit, in denen
 Tests ausgeführt werden können. GitHub kann bei neuen Pull Requests eine
 Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM und
@@ -2862,77 +2868,77 @@ lokal auszuführen. Travis stellt VMs bereit, in denen nur das nötigste
 installiert ist. Dadurch ist sichergestellt, dass keine \glslink{Side
 Effect}{Side Effects} auftreten. Bei lokalen Tests tritt dies häufig auf. Der
 Entwickler hat diverse Bibliotheken installiert, welche von der entwickelten
-Software benötigt werden.  Innerhalb der entwickelten Software wird eine
+Software benötigt werden. Innerhalb der entwickelten Software wird eine
 Abhängigkeit nicht definiert, es funktioniert aber trotzdem, da die Bibliothek
-zufällig vorhanden ist.  Innerhalb von Travis fällt dies aber auf. Außerdem ist
+zufällig vorhanden ist. Innerhalb von Travis fällt dies aber auf. Außerdem ist
 es jedem Teammitglied möglich, die Travis Logs von überall aus zu begutachten.
 Alternativ müsste jeder Entwickler die Tests selbst lokal ausführen.
 \tm%
 
 \section{Linter und Syntax Validator}
-Linter und Syntax Test, werden immer genau dann benötigt, wenn der Quellcode
-immer komplexer wird. Ein Linter Test, prüft von einem Quellcode die
-Formatierung und macht diesen anschließend lesbarer, damit auch Leien diesen
-Quellcode gut verstehen können. Der Sinn hinter einem Linter Test ist es, das
-best Practice, wie auch die Darstellung auf dem Quellcode nach einer
+Linter- und Syntax-Tests werden immer genau dann benötigt, wenn der Quellcode
+immer komplexer wird. Ein Linter-Test prüft von einem Quellcode die
+Formatierung und macht diesen anschließend lesbarer, damit auch Laien diesen
+Quellcode gut verstehen können. Der Sinn hinter einem Linter-Test ist es, das
+best Practice als auch die Darstellung auf dem Quellcode nach einer
 hinterlegten Liste von Formatierungen zu erzwingen. Diese Liste an
-Formatierungen, beeinhaltet jede Programmiersprache und deren Formatierungen,
-da jede Programmiersprache eigene Formatierungen besitzt. Ein Syntax Test macht
-eine statische Code Analyse und prüft, ob der gesamte Code syntaktisch in
-Ordnung ist. Dies bedeutet das zum Beispiel geprüft wird, ob eine Klammer
+Formatierungen beeinhaltet jede Programmiersprache und deren Formatierungen,
+da jede Programmiersprache eigene Formatierungen besitzt. Ein Syntax-Test macht
+eine statische Code-Analyse und prüft, ob der gesamte Code syntaktisch in
+Ordnung ist. Dies bedeutet, dass zum Beispiel geprüft wird, ob eine Klammer
 (öffnen oder schließen) vergessen wurde oder ein Simikolon an der richtigen
 Stelle ist.
 \mr%
 
-\section{Unit Tests}
-Für die Tests und Qualitätsicherung wurden unter anderem Unit Tests verwendet.
-Unit Tests sind Software Tests und werden immer dann verwendet, wenn jeweils
+\section{Unit-Tests}
+Für die Tests und Qualitätsicherung wurden unter anderem Unit-Tests verwendet.
+Unit-Tests sind Software-Tests und werden immer dann verwendet, wenn jeweils
 die Kernfunktion von einem Quellcode geprüft werden soll. Rspec ist das
 Framework und stellt eine \gls{DSL} zur Verfügung, in der Testszenarien
 definiert werden können. Die Puppet Module, die in diesem Projekt verwendet
 werden, wie zum Beispiel Grafana, besitzen schon einige Tests, welche erweitert
-worden sind. Man kann hier mit einem Test, zum Beispiel prüfen, ob das Profil
+worden sind. Man kann hier mit einem Test zum Beispiel prüfen, ob das Profil
 auf unterschiedlichen Betriebssystemen ausgeführt werden könnte oder ob
 bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn müssen
-diese vorab mit rspec in dem katalog kompiliert und definiert werden, damit
-diese verwendet werden können. Mit folgendem Befehl, können die Tests
+diese vorab mit rspec in dem Katalog kompiliert und definiert werden, damit
+diese verwendet werden können. Mit folgendem Befehl können die Tests
 durchgeführt werden:
 \begin{lstlisting}[language=bash]
 bundle exec rake spec
 \end{lstlisting}
 
-Die Tests für das Grafana Profil sehen wie folgt aus:
+Die Tests für das Grafana-Profil sehen wie folgt aus:
 
 \begin{listing}[H]
   \inputminted{ruby}{../listings/rspec-grafana.txt}
-  \caption{Tests für das Grafana Profil}
+  \caption{Tests für das Grafana-Profil}
 \end{listing}
 
-Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana Profil auf
+Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana-Profil auf
 diesen zu testen. Jedes Betriebssystem besitzt betriebssystemspezifische
 \glslink{Fact}{Facts}. Diese werden von rspec simuliert und mit Hilfe einer
-Liste der unterstützten Betriebssystemen auf dem entsprechenend Profil
-getestet. Diese Liste an Betriebssystemen, wird aus der \texttt{metadata.json}
+Liste der unterstützten Betriebssysteme auf dem entsprechenend Profil
+getestet. Diese Liste an Betriebssystemen wird aus der \texttt{metadata.json}
 ausgelesen und hierfür immer ein Katalog erstellt. Dieser zuvor erstellte
-Katalog wird anschließend geprüft. Unter anderem, kann das rspec prüfen, ob
-benötigte Ressourcen, wie \texttt{grafana\_dashboard}, oder
-\texttt{grafana\_datasources} in dem Profil enthalten sind. Diese Tests, können
+Katalog wird anschließend geprüft. Unter anderem kann das rspec prüfen, ob
+benötigte Ressourcen wie \texttt{grafana\_dashboard} oder
+\texttt{grafana\_datasources} in dem Profil enthalten sind. Diese Tests können
 für jedes Profil einzeln definiert werden, da jedes Profil unterschiedliche
-Ressourcen benötigt. Im Anhang befindet sich ein Auszug aus einem bestanden
+Ressourcen benötigt. Im Anhang befindet sich ein Auszug aus einem bestandenen
 Test. Es wurde bewusst darauf geachtet, dass jedes Modul nur seine eigenen
 Ressourcen auf Fehler prüft. Zusätzlich wurde jede einzelne Software
 von den Entwicklern auf Funktionalität und Sicherheit geprüft.
 
-Der Vorteil von solchen Unit Tests mit rspec sind folgende:
+Die Vorteile von solchen Unit-Tests mit rspec sind Folgende:
 
 \begin{outline}
-  \1 Verschiedene Tests, wie Funktionalität des Profiles können gleichzeitig
+  \1 Verschiedene Tests, wie Funktionalität des Profiles, können gleichzeitig
   geprüft werden.
   \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung.
-  \1 Test können für alle Profile gleich definiert werden.
+  \1 Tests können für alle Profile gleich definiert werden.
   \1 Die Tests können gleichzeitig für unterschiedliche Profile durchgeführt
   werden.
-  \1 Das Framework erlaubt es auf einfache Art und Weise viele verschiedene
+  \1 Das Framework erlaubt es auf einfache Art und Weise, viele verschiedene
   Betriebssysteme mit einem Test zu testen.
 \end{outline}
 \mr%
