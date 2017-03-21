@@ -3209,22 +3209,19 @@ Visualisierung der Graphen funktioniert. Es wird hier nicht geprüft, ob das
 System stabil läuft sondern lediglich, ob die einzelnen Funktionen vorhanden
 sind und funktionieren. Die Ausgabe erfolgt hier entweder in Bestanden oder
 nicht Bestanden. Anschließend kann der Entwickler diesen Code erneut anpassen
-und testen. Nachfolgend ist ein Beispiel für einen Akzeptanztest für das Modul
-Collectd angehangen.
+und testen. Nachfolgend sind zwei Tests für einen Akzeptanztest für das Modul
+Collectd angehangen. Der vollständige Test ist dem Anhang beigefügt.
 
 \begin{listing}[H]
   \inputminted{ruby}{../listings/acceptance-test.txt}
-  \caption{Auszug aus einem Akzeptanztest für Collectd}
+  \caption{Zwei Akzeptanztests für collectd}
 \end{listing}
 
-Hier kann man sehen, das eine \gls{cURL} Abfrage auf das Collectd Modul
-durchgeführt wird und geprüft wird, ob die Werte, welche zuvor definiert wurden
-ausgegeben werden. Wie auch für die~\ref{sec:unit-tests} werden Akzeptanztests
-für verschiedene Betriebsysteme programmiert. Anders als
-bei~\ref{sec:unit-tests} werden diese nicht in einer \texttt{Metadata.json}
-hinterlegt, sondern jedes Betriebssystem erhalt eine eigenen Datei, in der
-definiert ist, mit welcher virtuellen Maschine oder Container dieser Code
-ausgeführt werden soll.
+Wie auch für die~\ref{sec:unit-tests} werden Akzeptanztests für verschiedene
+Betriebsysteme programmiert. Anders als bei~\ref{sec:unit-tests} werden diese
+nicht in einer \texttt{Metadata.json} hinterlegt, sondern jedes Betriebssystem
+erhalt eine eigenen Datei, in der definiert ist, mit welcher virtuellen
+Maschine oder Container dieser Code ausgeführt werden soll.
 \mr%
 
 \chapter{Fazit}
