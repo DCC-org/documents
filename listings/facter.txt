@@ -1,0 +1,31 @@
+{
+  "name": "bastelfreak-ws.fritz.box",
+  "values": {
+    "architecture": "x86_64",
+    "augeas": {
+      "version": "1.7.0"
+    },
+    "augeasversion": "1.7.0",
+    "bios_release_date": "06/16/2011",
+    "system_uptime": {
+      "days": 0,
+      "hours": 6,
+      "seconds": 22910,
+      "uptime": "6:21 hours"
+    },
+    "os": {
+      "architecture": "x86_64",
+      "distro": {
+        "codename": "n/a",
+        "description": "Arch Linux",
+        "id": "Arch",
+        "release": {
+          "full": "rolling",
+          "major": "rolling"
+        },
+        "specification": "1.4"
+      }
+    },
+  "timestamp": "2017-03-05T16:40:50.851590189+01:00",
+  "expiration": "2017-03-05T17:10:50.851879236+01:00"
+}

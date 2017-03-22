@@ -1,5 +1,4 @@
 *auto/
-*.pdf
 *.aux
 *.toc
 *.log
@@ -18,3 +17,7 @@
 *.lof
 *.lol
 *.lot
+thesis-de/_minted-thesis-de/
+weekly_reports/*.pdf
+weekly_reports/*/*.pdf
+/*-*/*.pdf

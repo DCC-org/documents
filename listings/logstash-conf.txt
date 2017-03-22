@@ -1,0 +1,27 @@
+input {
+  udp {
+    host => "127.0.0.1"
+    port => 25826
+    buffer_size => 1452
+    codec => collectd {
+      typesdb => [
+        "/usr/share/collectd/types.db"
+      ]
+    }
+    type => "collectd"
+  }
+}
+
+output {
+  stdout {}
+  jdbc {
+    username => 'metrics'
+    password => '***'
+    connection_string => 'jdbc:postgresql://127.0.0.1:5432/metrics'
+    statement => [
+    "INSERT INTO log (host, timestamp, type_instance, plugin_instance, plugin, collectd_type, type, value)
+    VALUES(?, CAST (? AS timestamp), ?, ?, ?, ?, ?, CAST(? AS FLOAT))",
+    "host", "@timestamp", "type_instance", "plugin_instance", "plugin", "collectd_type", "type", "value"]
+  }
+
+}
