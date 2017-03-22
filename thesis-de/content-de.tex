@@ -2588,17 +2588,17 @@ Datenschreiben ist somit vermieden.
 Sollten nun Daten in dem genannten allgemeinen Datenobjekt vorhanden sein,
 beginnt der Transformations-Teil. Dabei greift ein weiterer Algorithmus auf
 die zwischengespeicherten Daten zu und vergleicht die Inhalte von jedem neuen
-Datensatz mit einem Repositorium, bzw. einem von dem Projektteam definierten
-Metadatensatz. Dieser dient dazu, eine spezifische Definition von allen in dem
-Datenhaltsungssystem vorhandenen Daten zu besitzen. Er wird entsprechend als
-Dokumentationsbasis genutzt, sodass ein Nutzer genau nachvollziehen kann, in
-welcher Struktur und an welchem Ort die Daten in dem Datenhaltsungssystem
-abgespeichert sind. Gleichzeitig besitzt das Projektteam und der spätere
-Administration im Wirkbetrieb die Möglichkeit den Dateninput über den
-ETL-Prozess zu kontrollieren. Darüber können zum Beispeil die Länge von
-einzelnen Attributen, oder der Datentyp angepasst werden. Es kann jedoch sogar
-tiefer ins Detail gegangen werden und der genaue Inhalt eines Attributes
-bestimmt werden. Ist ein solches Repositorium definiert, greift der
+Datensatz mit einem \gls{Repositorium}, bzw. einem von dem Projektteam
+definierten Metadatensatz. Dieser dient dazu, eine spezifische Definition von
+allen in dem Datenhaltsungssystem vorhandenen Daten zu besitzen. Er wird
+entsprechend als Dokumentationsbasis genutzt, sodass ein Nutzer genau
+nachvollziehen kann, in welcher Struktur und an welchem Ort die Daten in dem
+Datenhaltsungssystem abgespeichert sind. Gleichzeitig besitzt das Projektteam
+und der spätere Administrator im Wirkbetrieb die Möglichkeit den Dateninput
+über den ETL-Prozess zu kontrollieren. Darüber können zum Beispeil die Länge
+von einzelnen Attributen, oder der Datentyp angepasst werden. Es kann jedoch
+sogar tiefer ins Detail gegangen werden und der genaue Inhalt eines Attributes
+bestimmt werden. Ist ein solches \gls{Repositorium} definiert, greift der
 Transformations-Algorithmus darauf zu und püft die neuen Daten nach den
 Definitionen. Sollte bei der Prüfung ein Konflikt entstehen, so kann der
 Prozess diesen eigenständig lösen und die neuen Daten an die Definition
