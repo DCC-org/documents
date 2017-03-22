@@ -2625,6 +2625,24 @@ selber entwickelt, sondern nur eingebunden werden.
 
 \subsection{Repositorium}
 \label{subsec:postgres_repositorium}
+Der in Punkt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
+diesem Projekt für die Metric-Daten jedes virtuellen Servers genutzt wird,
+wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.
+Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es
+handelt sich um die Verwendung von einer einzelnen Datentabelle, welche
+nur zwei Attribute besitzt. Bei beiden Attributen handelt es sich um ein
+JSON Objekt. Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz.
+Das ist zum Beispeil eine generierte ID, um den Datensatz spezifisch
+selektieren zu können, oder die Informationen seit wann der Datensatz
+in der Datenhaltung existiert, bzw. wann und von welchem System angefasst
+wurde. Zweites JSON Objekt/Attribut beinhaltet den eigentlichen Datensatz,
+also die werthaltigen Informationen, welche auch später analysiert werden.
+Die Inhalte des Attributes werden klar in dem Metadatensatz definiert.
+Der Vorteil dieser Datenspeicherung ist zum einen die Effizienz des
+Speicherplatzes und Geschwindigkeit und zum anderen das Zusammenhalten der
+zugehörigen Informationen. Desweiteren können in diesem Model sehr einfach neue
+Informationen hinzugefügt werden, indem diese in dem Metadatensatz definiert
+werden. Dies ist ein Vorteil der Skalierbarkeit.
 \nl%
 
 \subsection{Partitionierung}
