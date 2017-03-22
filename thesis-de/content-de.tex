@@ -3143,7 +3143,7 @@ Stelle ist.
 \mr%
 
 \section{Unit-Tests}
-\label{sec:unit-tests}
+\label{sec:unit_tests}
 Für die Tests und Qualitätsicherung wurden unter anderem Unit-Tests verwendet.
 Unit-Tests sind Software-Tests und werden immer dann verwendet, wenn jeweils
 die Kernfunktion von einem Quellcode geprüft werden soll. Rspec ist das
@@ -3198,28 +3198,28 @@ Die Vorteile von solchen Unit-Tests mit rspec sind Folgende:
 
 \section{Akzeptanz Test}
 Ein Akzeptanz Test prüft den zuvor erstellten Code in einer eigens dafür
-gestarteten virtuellen Maschine oder Container mit einem Betriebssystem auf die
-Funktionalität der einzelnen Module. Hierzu wurden schon bereits vorhandene
-Test Szenarien von \gls{testkitchen} und \gls{serverspec} verwendet und
-diese auf die im Projekt verwendeten Module angepasst. Der Code wird innerhalb
-dieser Tests ausgeführt und geprüft, ob die Funktionalität der einzelnen Module
-für den Benutzer gegeben ist. Diese Szenarien prüfen beispielsweise, ob die
-Erhaltung der Daten, sowie speichern dieser Daten in der Datenbank und
-Visualisierung der Graphen funktioniert. Es wird hier nicht geprüft, ob die
-Stabilität des Systems gegeben ist sondern lediglich, ob die einzelnen
-Funktionen vorhanden sind. Die Ausgabe erfolgt hier über einen booleschen Wert,
-welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend kann
-der Entwickler diesen Code erneut anpassen und testen. Nachfolgend sind zwei
-Tests für einen Akzeptanztest für das Modul Collectd angehangen. Der
-vollständige Test ist dem Anhang beigefügt.
+gestarteten virtuellen Maschine oder abgesichertem Container mit einem
+Betriebssystem auf die Funktionalität der einzelnen Module. Hierzu wurden schon
+bereits vorhandene Test Szenarien von \gls{testkitchen} und \gls{serverspec}
+verwendet und diese auf die im Projekt verwendeten Module angepasst. Der Code
+wird innerhalb dieser Tests ausgeführt und geprüft, ob die Funktionalität der
+einzelnen Module für den Benutzer gegeben ist. Diese Szenarien prüfen
+beispielsweise, ob die Erhaltung der Daten, sowie speichern dieser Daten in der
+Datenbank und Visualisierung der Graphen funktioniert. Es wird hier nicht
+geprüft, ob die Stabilität des Systems gegeben ist sondern lediglich, ob die
+einzelnen Funktionen vorhanden sind. Die Ausgabe erfolgt hier über einen
+booleschen Wert, welcher entweder \texttt{true} oder \texttt{false} sein kann.
+Anschließend kann der Entwickler diesen Code erneut anpassen und testen.
+Nachfolgend sind zwei Tests für einen Akzeptanztest für das Modul Collectd
+angehangen. Der vollständige Test ist dem Anhang beigefügt.
 
 \begin{listing}[]
   \inputminted{ruby}{../listings/acceptance-test.txt}
   \caption{Zwei Akzeptanztests für collectd}
 \end{listing}
 
-Wie auch für die~\ref{sec:unit-tests} werden Akzeptanztests für verschiedene
-Betriebsysteme programmiert. Anders als bei~\ref{sec:unit-tests} werden diese
+Wie auch für die~\ref{sec:unit_tests} werden Akzeptanztests für verschiedene
+Betriebsysteme programmiert. Anders als bei~\ref{sec:unit_tests} werden diese
 nicht in einer \texttt{Metadata.json} hinterlegt, sondern jedes Betriebssystem
 erhält eine eigenen Datei, in der definiert ist, mit welcher virtuellen
 Maschine oder Container dieser Code ausgeführt werden soll.
