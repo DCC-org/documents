@@ -2700,6 +2700,23 @@ kann aus dem Postgres-Code im Projektanhang entnommen werden.
 
 \subsection{Datenschutz}
 \label{subsec:postgres_datenschutz}
+Für den Zugriff auf die in dem Datenhaltsungssystem befindenen Daten wurde von
+dem Projektteam eine weitere Sicherheitsebene eingefügt. Diese definiert, dass
+ein Systembenutzer, also ein Account, welcher Daten von dem System abfragt,
+keinen direkten Zugriff auf Tabellen im Datenhaltsungssystem erhält.
+Stattdessen wird für jeden Anwendungsfall, also jede Datenbankabfrage, bzw.
+analytische Fragestellung, eine eigene Postgres-Funktion bereitgestellt.
+Der Systembenutzer kann dabei ausschließlich die für ihn freigeschalteten
+Funktionen ausführen. Bei dem Systembenutzer für die API sind dies zum Beispiel
+nur Funktionen zur Abfrage von definierten Daten.
+
+Dieses Verfahren hat den großen Vorteil, dass wenn einer der Systembenutzer
+entfremdet wird, dieser keinen Schaden an dem Datenhaltsungssystem ausüben
+kann. Desweiteren kann der Systemadministrator genau kontrollieren wer auf
+welche Daten Zugriff haben soll. Ein weiterer Vorteil ist, dass durch die
+vordefinierten analytischen Fragestellungen bei jedem Benutzer die gleichen
+Daten ausgegeben werden, und somit eine falsch Aussage, aufgrund von
+verschiedenen Implementierungsweisen, vermieden wird.
 \nl%
 
 \section{API-System}
