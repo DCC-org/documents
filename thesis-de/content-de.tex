@@ -3202,16 +3202,14 @@ gestarteten virtuellen Maschine oder abgesichertem Container mit einem
 Betriebssystem auf die Funktionalität der einzelnen Module. Hierzu wurden schon
 bereits vorhandene Test Szenarien von \gls{testkitchen} und \gls{serverspec}
 verwendet und diese auf die im Projekt verwendeten Module angepasst. Der Code
-wird innerhalb dieser Tests ausgeführt und geprüft, ob die Funktionalität der
-einzelnen Module für den Benutzer gegeben ist. Diese Szenarien prüfen
+wird innerhalb dieser Tests ausgeführt und geprüft, ob die Grundfunktion, sowie
+die Funktionalität der einzelnen Module gegeben sind. Diese Szenarien prüfen
 beispielsweise, ob die Erhaltung der Daten, sowie speichern dieser Daten in der
-Datenbank und Visualisierung der Graphen funktioniert. Es wird hier nicht
-geprüft, ob die Stabilität des Systems gegeben ist sondern lediglich, ob die
-einzelnen Funktionen vorhanden sind. Die Ausgabe erfolgt hier über einen
-booleschen Wert, welcher entweder \texttt{true} oder \texttt{false} sein kann.
-Anschließend kann der Entwickler diesen Code erneut anpassen und testen.
-Nachfolgend sind zwei Tests für einen Akzeptanztest für das Modul Collectd
-angehangen. Der vollständige Test ist dem Anhang beigefügt.
+Datenbank und Visualisierung der Graphen funktioniert. Die Ausgabe erfolgt hier
+über einen booleschen Wert, welcher entweder \texttt{true} oder \texttt{false}
+sein kann.  Anschließend kann der Entwickler diesen Code erneut anpassen und
+testen.  Nachfolgend sind zwei Tests für einen Akzeptanztest für das Modul
+Collectd angehangen. Der vollständige Test ist dem Anhang beigefügt.
 
 \begin{listing}[]
   \inputminted{ruby}{../listings/acceptance-test.txt}
