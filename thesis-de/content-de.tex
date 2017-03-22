@@ -3205,14 +3205,15 @@ diese auf die im Projekt verwendeten Module angepasst. Der Code wird innerhalb
 dieser Tests ausgeführt und geprüft, ob die Funktionalität der einzelnen Module
 für den Benutzer gegeben ist. Diese Szenarien prüfen beispielsweise, ob die
 Erhaltung der Daten, sowie speichern dieser Daten in der Datenbank und
-Visualisierung der Graphen funktioniert. Es wird hier nicht geprüft, ob das
-System stabil läuft sondern lediglich, ob die einzelnen Funktionen vorhanden
-sind und funktionieren. Die Ausgabe erfolgt hier entweder in Bestanden oder
-nicht Bestanden. Anschließend kann der Entwickler diesen Code erneut anpassen
-und testen. Nachfolgend sind zwei Tests für einen Akzeptanztest für das Modul
-Collectd angehangen. Der vollständige Test ist dem Anhang beigefügt.
+Visualisierung der Graphen funktioniert. Es wird hier nicht geprüft, ob die
+Stabilität des Systems gegeben ist sondern lediglich, ob die einzelnen
+Funktionen vorhanden sind. Die Ausgabe erfolgt hier über einen booleschen Wert,
+welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend kann
+der Entwickler diesen Code erneut anpassen und testen. Nachfolgend sind zwei
+Tests für einen Akzeptanztest für das Modul Collectd angehangen. Der
+vollständige Test ist dem Anhang beigefügt.
 
-\begin{listing}[H]
+\begin{listing}[]
   \inputminted{ruby}{../listings/acceptance-test.txt}
   \caption{Zwei Akzeptanztests für collectd}
 \end{listing}
@@ -3220,7 +3221,7 @@ Collectd angehangen. Der vollständige Test ist dem Anhang beigefügt.
 Wie auch für die~\ref{sec:unit-tests} werden Akzeptanztests für verschiedene
 Betriebsysteme programmiert. Anders als bei~\ref{sec:unit-tests} werden diese
 nicht in einer \texttt{Metadata.json} hinterlegt, sondern jedes Betriebssystem
-erhalt eine eigenen Datei, in der definiert ist, mit welcher virtuellen
+erhält eine eigenen Datei, in der definiert ist, mit welcher virtuellen
 Maschine oder Container dieser Code ausgeführt werden soll.
 \mr%
 
