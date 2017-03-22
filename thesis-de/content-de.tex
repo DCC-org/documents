@@ -2652,6 +2652,50 @@ beschrieben wird.
 
 \subsection{Partitionierung}
 \label{subsec:postgres_partition}
+Bei der Partitionierung in dem Postgres-System muss zwischen zwei Arten von
+Partitionierung entschieden werden. Ersteres ist die manuelle Partitionierung
+durch den Administrator. Dabei werden über einen Index Datenbereiche definiert,
+welche logisch voneinander getrennt werden. Mit nachfolgendem Code-Prototyp
+kann solch ein Trennung im groben vom Administration definiert werden.
+
+\begin{listing}
+  \inputminted{sql}{../listings/postgres-part-sample.txt}
+  \caption{Manuelle Partitionierung Postgres}
+\end{listing}
+
+In diesem Prototypen wird eine Haupttabelle in zwei Kinder-Tabellen aufgeteilt.
+Diese Kinder-Tabellen halten dabei bestimmte definierte Datenbereiche. In
+diesem Prototypen enthält die Kinder-Tabelle „measurement_xMINUS12Hour“ nur
+Datensätze bei welchen der Zeitstempel der beinhalteten Daten zwischen dem
+aktuellen Zeitpunkt und dem aktuellen Zeitpunkt minus 12 Stunden liegt. Die
+zweite Kinder-Tabelle beinhaltet wiederrum nicht die Daten von der ersten
+Kinder-Tabelle, sondern nur alle Daten welche einen Zeitstempel innerhalb
+eines Tages besitzen. Diese Art von Partitionierung kann auf jedem beliebigen
+Attribut angewendet werden, sodass zum Beispiel auch noch CPU-Daten von
+RAM-Daten getrennt werden. Für die vollständige Implementierung einer manuellen
+Partitionierung werden jedoch noch weitere Funktionen benötigt, auf welche
+jedoch nicht im Detail eingegangen werden.
+
+Bei der manuellen Partitionierung kann ein Administrator jedoch auch durch die
+stärke der Partitionierungs-Intervalle an Optimierung verlieren, oder sogar das
+System verschlechtern. Hinzu kommt ein starker administrativer Aufwand umso
+mehr Partitionen eingefügt werden. Dabei kann auch die Übersichtlichkeit des
+Codes verloren gehen. Entsprechend bietet Postgres auch die Methode der
+automatisierten Partitionierung an. Dabei werden die Partionierung von dem
+Postgres System selbständig angepasst und die Datenspanne definiert. Dies
+bringt den Vorteil, dass eine schnelle Geschwindigkeit der Datenabfrage zu
+jedem Zeitpunkt gewährleistet ist. Der administrative Aufwand wird mit dieser
+Methode jedoch nicht verringert. Die manuelle Partionierung hat einen
+kontinuierlich gleich bleibenden administrativen Aufwand. Bei der
+automatisierten Partionierung muss vorallem zu Begin mehr Zeit investiert
+werden. Erst bei der optimalen Einstellung der Konfigurationsmöglichkeiten
+verringert sich der administrative Aufwand deutlich. 
+
+Das Projektteam hat sich entschieden die automatische Partionierung zu wählen.
+Dies gewährleistet nicht nur eine dauerhaft schnelle Datenhaltung, sondern ist
+auch Kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für
+die Partionierung einstellen muss. Die genaue Implementierung der Methode
+kann aus dem Postgres-Code im Projektanhang entnommen werden.
 \nl%
 
 \subsection{Datenschutz}
