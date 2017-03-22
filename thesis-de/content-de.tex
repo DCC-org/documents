@@ -1613,7 +1613,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   sodass die damit verbundene Lösung über einen Cloudprovider nicht möglich
   wäre. Externe Systeme sind in diesem Projekt Geräte, welche außerhalb des
   Unternehmens betrieben werden.
-  \1 Die API Software muss vollständig konfigurierbar und administrierbar sein.
+  \1 Die API-Software muss vollständig konfigurierbar und administrierbar sein.
   Entsprechend soll die Software nur eine leere Hülle mit Standardfunktionen
   einer API zur Verfügung stellen. Eine Konfiguration von einzelnen Parametern
   ist dabei erwünscht. Zu diesen Parametern gehört als Beispiel der Port, auf
@@ -1625,7 +1625,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Entwicklersprache ist dabei erwünscht. Dies hat den Vorteil, dass der
   zuständige Entwickler im Projekt keine weitere Einarbeitungszeit für die neue
   Entwicklersprache benötigt.
-  \1 Das API System sollte innerhalb des Projektes keine Kosten verursachen.
+  \1 Das API-System sollte innerhalb des Projektes keine Kosten verursachen.
   Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei externen
   Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
   Anforderung nicht mit inbegriffen. Grundsätzlich gilt für das ganze Projekt,
@@ -1653,6 +1653,9 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Programmiersprache der API sollte ebenfalls für die Projektmitglieder
   nachvollziehbar sein sowie eine umfangreiche Dokumentation und aktive
   Community für Diskussionen und Fragen besitzen.
+  \1 Das API-System sollte nicht von einem einzelnem Betriebssystem abhängig
+  sein. Das bedeutet, dass die API auf jedem beliebigen Betriebssystem
+  vollständig und zuverlässig ausgeführt und arbeiten kann. 
 \end{outline}
 \nl%
 
@@ -1677,10 +1680,32 @@ API-System in Hinsischt der Funktionen modifizieren durften.
 
 Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
 für ein API-System mit dem Namen „Swagger“ entschieden. Es ist aktuell neben den
-API Systemen „RAML“ und „API-Blueprint“ das einzige API System auf dem Markt,
+API-Systemen „RAML“ und „API-Blueprint“ das einzige API-System auf dem Markt,
 welches den Betrieb auf einer selbst administrierten Hardware-Umgebung zulässt.
 Für den Vergleich der drei Systeme wurde eine Entscheidungstabelle mit
-gewichteten Faktoren erstellt und ausgewertet.
+gewichteten Faktoren erstellt und ausgewertet. Die in der nachfolgenden
+Entscheidungstabelle genannten Faktoren wurden aus
+Punkt~\ref{subsec:api_vorbereitung_der_evaluierung} abgeleitet und können dort
+im Detail nachgeschaut werden. Jeder der definierten Kriterien kann einen
+Wert zwischen 0 und 10 erhalten. Zehn ist dabei die beste und Null die
+schlechteste Bewertung. Die Faktoren bezüglich der selbst administrierbaren
+Hardwareumgebung, und die damit verbundenen externen Kosten sind bei allen drei
+genannten API-Systemen gegeben und werden nicht berücksichtigt. API-Systeme bei
+denen dies nicht gegeben ist, wurden von dem Projektteam aus der Bewertung
+ausgeschlossen.
+
+\begin{center}
+\begin{tabular}{lccccc}
+  \toprule
+  System & Modifizierbarkeit & Dokumentation & Wissen & Abhängigkeit & Gesamt \\
+  \midrule
+  Swagger       & 10 & 9  & 10 & 10 & 39 \\
+  RAML          & 10 & 8  & 7  & 10 & 35 \\
+  API-Blueprint & 8  & 6  & 5  & 9  & 28 \\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Gesamtbewertung der API-Systeme}
+\end{center}
 \nl%
 
 \section{Frontends}
