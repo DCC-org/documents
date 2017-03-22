@@ -1414,9 +1414,9 @@ einem spezifischen Inhalt zu erhalten. Dies könnte als Beispiel die im Land
 verteilten Einkaufsläden des Unternehmens sein, welche alle ein eigenes
 Kassensystem mit einer Datenbank besitzen. Mit Hilfe des Extraktions-,
 Transformations- und Ladeprozesses (ETL) werden die unterschiedlich
-abgespeicherten Informationen von jedem einzelnen Kassensystem ausgelesen, dem
-Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem Data Warehouse
-angepasst und anschließend die vollständige Speicherung im System
+abgespeicherten Informationen von jedem einzelnen Kassensystem ausgelesen und
+anschließend dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
+Data Warehouse angepasst und somit die vollständige Speicherung im System
 gewährleistet.
 
 Dadurch das in dem Hadoop-System keinerlei Struktur der Daten existiert,
@@ -1430,13 +1430,20 @@ auch Funktionen wie das Reporten von Inhalten über eine wählbare Schnittstelle
 wie zum Beispiel dem Versand einer eMail oder Anzeige auf einer
 Internetwebseite.
 
-Apache Hive hat im Klartext die Aufgabe zur Bereitstellung einer strukturierten
+Zusammengefasst hat Apache Hive die Aufgabe zur Bereitstellung einer strukturierten
 Sicht (Schema) auf die Daten innerhalb des Hadoop-Systems. Dabei kann Apache
 Hive mehrere Sichten auf einen einzelnen Datensatz definieren und somit auch
 das Rechtesystem innerhalb der Datenhaltung unterstützen, indem diese nur
 für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
 dem Data Warehouse bekannten „Data Marts“ fallen somit weg und werden durch
-den Aufbau der genannten Sichten ersetzt.
+den Aufbau der genannten Sichten ersetzt. Ein Data Mart ist eine von dem
+Datawarehouse getrennte Datenbank, welche genutzt wird, um für ausgewählte
+getrennte Daten Analysen und Reports zu erstellen. Diese können zum Beispeil
+nach Abteilungen im Unternehmen getrennt werden, sodass das Marketing nur Daten
+zu Produkten und Beständen erhält, jedoch keine technisch orientierten Daten.
+Des weiteren werden Data Marts in der dritten Normalform und ein Datawarehouse
+in der zweiten Normalform betrieben, entsprechend dienen sie dazu, die Daten
+nochmals fachlich aufzubereiten.
 \nl%
 
 \subsubsection{Beschreibung Impala}
@@ -1455,7 +1462,8 @@ spezialisierte Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet au
 den konsolidierten Metadaten des Hadoop-Systems, benötigt jedoch auch die
 Verknüpfung (Interface) eines Strukturmodells. In den meisten Fällen kommt
 dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von Apache Hive
-Eins-zu-eins übernehmen und ausführen.
+Eins-zu-eins übernehmen und ausführen. Es kann jedoch auch ohne einem Apache
+Hive Systems ausgeführt werden. 
 
 Apache Impala wird eingesetzt, um die Schnelligkeit der Datenabfragen auf einem
 Hadoop-System zu verbessern. Es wird dabei auf jedem Data Node installiert.
@@ -1473,14 +1481,15 @@ zurück an den Query Coordinator liefert. Die von dem Query Coordinator
 zusammengesetzten Daten liefert dieser anschließend an die SQL-Applikation
 zurück und der gesamte Prozess ist abgeschlossen.
 
-Durch das Nutzen des Arbeitsspeicher auf den Data Nodes, sowie der
-gleichzeitigen Nutzung des Hadoop-Map-Reduce-Verfahrens, werden die
+Durch das Nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie der
+gleichzeitigen Nutzung des Hadoop-Map-Reduce-Verfahrens, werden die 
 Datenabfragen um ein Vielfaches beschleunigt. Da die Leistung des Clusters
 durch mehrere Faktoren beeinflusst wird, kann keine exakte Angabe der
 Performanceverbesserung geliefert werden. Diese Faktoren sind zum Beispiel die
 Schreibweise der SQL-Syntax, da ein nicht optimierter Code die
-Performanceverbesserung wieder mindern kann. Fakt ist jedoch, dass der Einsatz
-von Apache Impala die Performance der Datenlandschaft optimiert.
+Performanceverbesserung wieder mindern kann. Fakt ist jedoch, dass mit einem
+korrekt aufgesetzten Cluster System der Einsatz von Apache Impala die
+Performance der Datenlandschaft optimiert.
 \nl%
 
 \subsubsection{Evaluierungsbericht}
