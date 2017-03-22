@@ -2539,7 +2539,45 @@ passend zu filtern und zu validieren. Eine Visualisierung des Prototypen
 findet sich unter~\ref{figure:draft2}.
 \tm%
 
-\section{Postgres Autopartitioning}
+\section{Postgres}
+Für die Implementierung der Postgres Datenbank wurde zunächst ein einzelner
+Server für die Bearbeitung der Anforderung aufgebaut und mit vier Nutzern
+ausgestattet. Ersterer ist der Administrator, oder auch root genannt, welcher
+nur genutzt wird um Änderungen (Punkt~\ref{subsec:postgres_partition}) am
+System vorzunehmen. Mit diesem werden ebenfalls die Zugriffsrechte der
+einzelnen Nutzer geregelt. Zweiter Nutzer besitzt die Berechtigungen in einem
+definierten Bereich, bzw. einem für das Projekt erstellten Datentopf die Daten
+und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die Prozesse
+aus Punkt~\ref{subsec:postgres_etl} und Punkt~\ref{subsec:postgres_datenschutz}
+durchgeführt. Dritter Nutzer wird von dem in Punkt~\ref{sec:api_system}
+definierte API-System verwendet. Dieser besitzt keinen direkten Lese oder
+Schreibe Zugriffe auf die in dem definierten Datentopf vorhandenen Tabellen.
+Er erhält lediglich ausführende Rechte auf die im
+Punkt~\ref{subsec:postgres_datenschutz} erstellten Funktionen. Letzterer Nutzer
+wird für den im Punkt~\ref{subsec:postgres_etl} beschriebenen ETL-Prozess im
+Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
+
+Neben den durchgeführten Aufgaben an dem Postgres-Server wurde bei
+den Teammitgliedern jeweils die benötigte Entwicklerumgebung aufgesetzt
+und eingerichtet. Mit dieser und zusammen mit einem berechtigten Nutzer,
+können die Teammitglied an den Inhalten der Datenbank arbeiten. 
+\nl%
+
+\subsection{ETL}
+\label{subsec:postgres_etl}
+\nl%
+
+\subsection{Partitionierung}
+\label{subsec:postgres_partition}
+\nl%
+
+\subsection{Datenschutz}
+\label{subsec:postgres_datenschutz}
+\nl%
+
+\section{API-System}
+\label{sec:api_system}
+\nl%
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
