@@ -2721,6 +2721,40 @@ verschiedenen Implementierungsweisen, vermieden wird.
 
 \section{API-System}
 \label{sec:api_system}
+Bei der Entwicklung des API-Systems wurde sich zunächst auf die Implementierung
+der Postgres und Grafana Anbindung konzentriert. Voraussetzung für die
+eigentliche Entwicklung ist eine funktionierende und auch möglich dem
+Entwickler vertraute Entwicklungsumgebung. Bei der Swagger API wurde dazu
+die Umgebung mit dem Namen „Spring Tool Suite“ verwendet. Diese basiert auf
+dem Entwicklerstudio „Eclipse“ und war dem Projektteam bereits bekannt. Die
+Spring Tool Suite ist dabei für die Entwicklung einer Swagger API optimiert
+und liefert alle benötigten Grundlagen mit. Für die Einbindung weiterer
+Funktionen wurden die entsprechenden Marven-Abhängigkeiten eingefügt. Diese
+ermöglichen die einfache Integration von benötigten Bibliotheken oder
+Code-Algorithmen. Das Spring Tool Suite liefert ebenfalls eine eigene
+Testumgebung mit, in welcher der Entwickler für das Projekt angepasste Tests
+definieren und durchführen kann.
+
+Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
+definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
+von einem anderem System zugeschickt bekommt, bzw. zuschickt. Da sich das
+Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert, wurde
+mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet Grafana
+nur mit vier URL's der API. Die erste ist dafür zuständig zu prüfen, ob das
+API-System überhaupt erreichbar, bzw. vorhanden ist. Die zweite wird genutzt,
+um an dem API System anzufragen, welche Daten es besitzt. Die dritte führt die
+eigentlichen Datenanfragen, basierend auf der zweiten URL, aus und liefert die
+zu anzeigenden Daten zurück. Die letztere ermöglicht es, einzelne Informationen
+in einem Graphen hervor zu heben. Alle vier URL's besitzen eine eigene
+Anfrage-Methode und Datenstruktur an der API und erwarten auch unterschiedliche
+Antworten von der API in Struktur und Inhalt.
+
+Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
+Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API. Dies
+hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage bei
+dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die
+im Punkt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
+auch in dem API-System integriert.
 \nl%
 
 \section{Automatisierung mit Puppet}
