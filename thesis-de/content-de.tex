@@ -2639,10 +2639,12 @@ wurde. Zweites JSON Objekt/Attribut beinhaltet den eigentlichen Datensatz,
 also die werthaltigen Informationen, welche auch später analysiert werden.
 Die Inhalte des Attributes werden klar in dem Metadatensatz definiert.
 Der Vorteil dieser Datenspeicherung ist zum einen die Effizienz des
-Speicherplatzes und Geschwindigkeit und zum anderen das Zusammenhalten der
+Speicherplatzes sowie Geschwindigkeit und zum anderen das Zusammenhalten der
 zugehörigen Informationen. Desweiteren können in diesem Model sehr einfach neue
 Informationen hinzugefügt werden, indem diese in dem Metadatensatz definiert
-werden. Dies ist ein Vorteil der Skalierbarkeit.
+werden. Dies ist ein Vorteil der Skalierbarkeit und es müssen anders wie bei
+Datenbanken in der dritten Normalform die voneinander abhängigen Daten nicht
+in jeweils eine eigene Tabelle ausgelagert werden.
 
 Da sich bei diesem Model die Geschwindigkeit der Datenabfragen mit der Menge
 der Daten in einer Tabelle verlangsamt, wird die automatische Partitionierung
