@@ -2551,7 +2551,7 @@ Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
 Prozesse aus Punkt~\ref{subsec:postgres_etl} und
 Punkt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
 von dem in Punkt~\ref{sec:api_system} definierte API-System verwendet. Dieser
-besitzt keinen direkten Lese oder Schreibe Zugriffe auf die in dem definierten
+besitzt keinen direkten Lese- oder Schreibezugriffe auf die in dem definierten
 Datentopf vorhandenen Tabellen. Er erhält lediglich ausführende Rechte auf die
 im Punkt~\ref{subsec:postgres_datenschutz} erstellten Funktionen. Vierter
 Nutzer wird für den im Punkt~\ref{subsec:postgres_etl} beschriebenen ETL-Prozess
@@ -2632,7 +2632,7 @@ Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es
 handelt sich um die Verwendung von einer einzelnen Datentabelle, welche
 nur zwei Attribute besitzt. Bei beiden Attributen handelt es sich um ein
 JSON Objekt. Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz.
-Das ist zum Beispeil eine generierte ID, um den Datensatz spezifisch
+Das ist zum Beispiel eine generierte ID, um den Datensatz spezifisch
 selektieren zu können, oder die Informationen seit wann der Datensatz
 in der Datenhaltung existiert, bzw. wann und von welchem System angefasst
 wurde. Zweites JSON Objekt/Attribut beinhaltet den eigentlichen Datensatz,
@@ -2658,7 +2658,7 @@ Bei der Partitionierung in dem Postgres-System muss zwischen zwei Arten von
 Partitionierung entschieden werden. Ersteres ist die manuelle Partitionierung
 durch den Administrator. Dabei werden über einen Index Datenbereiche definiert,
 welche logisch voneinander getrennt werden. Mit nachfolgendem Code-Prototyp
-kann solch ein Trennung im groben vom Administration definiert werden.
+kann solch eine Trennung im groben vom Administrator definiert werden.
 
 \begin{listing}
   \inputminted{sql}{../listings/postgres-part-sample.txt}
@@ -2668,22 +2668,25 @@ kann solch ein Trennung im groben vom Administration definiert werden.
 In diesem Prototypen wird eine Haupttabelle in zwei Kinder-Tabellen aufgeteilt.
 Diese Kinder-Tabellen halten dabei bestimmte definierte Datenbereiche. In
 diesem Prototypen enthält die Kinder-Tabelle \texttt{measurement_xMINUS12Hour}
-nur Datensätze bei welchen der Zeitstempel der beinhalteten Daten zwischen dem
+nur Datensätze bei denen der Zeitstempel der beinhalteten Daten zwischen dem
 aktuellen Zeitpunkt und dem aktuellen Zeitpunkt minus 12 Stunden liegt. Die
 zweite Kinder-Tabelle beinhaltet wiederrum nicht die Daten von der ersten
 Kinder-Tabelle, sondern nur alle Daten welche einen Zeitstempel innerhalb
 eines Tages besitzen. Diese Art von Partitionierung kann auf jedem beliebigen
 Attribut angewendet werden, sodass zum Beispiel auch noch CPU-Daten von
-RAM-Daten getrennt werden. Für die vollständige Implementierung einer manuellen
-Partitionierung werden jedoch noch weitere Funktionen benötigt, auf welche
-jedoch nicht im Detail eingegangen werden.
+RAM-Daten getrennt werden. Der Anwender oder Analyst der Haupttabelle merkt
+dabei nicht, dass die verwendete Tabelle partitioniert ist. Für die
+vollständige Implementierung wurden von dem Projektteam jedoch auch noch
+weitere Funktionen programmiert und implementiert. Darunter ist zum Beispiel
+das Verhalten der Datenbank bei dem Einfügen von Daten mit einem älteren
+Zeitstempel.
 
 Bei der manuellen Partitionierung kann ein Administrator jedoch auch durch die
-stärke der Partitionierungs-Intervalle an Optimierung verlieren, oder sogar das
+Stärke der Partitionierungs-Intervalle an Optimierung verlieren, oder sogar das
 System verschlechtern. Hinzu kommt ein starker administrativer Aufwand umso
 mehr Partitionen eingefügt werden. Dabei kann auch die Übersichtlichkeit des
 Codes verloren gehen. Entsprechend bietet Postgres auch die Methode der
-automatisierten Partitionierung an. Dabei werden die Partionierung von dem
+automatisierten Partitionierung an. Dabei werden die Partitionen von dem
 Postgres System selbständig angepasst und die Datenspanne definiert. Dies
 bringt den Vorteil, dass eine schnelle Geschwindigkeit der Datenabfrage zu
 jedem Zeitpunkt gewährleistet ist. Der administrative Aufwand wird mit dieser
@@ -2702,7 +2705,7 @@ kann aus dem Postgres-Code im Projektanhang entnommen werden.
 
 \subsection{Datenschutz}
 \label{subsec:postgres_datenschutz}
-Für den Zugriff auf die in dem Datenhaltsungssystem befindenen Daten wurde von
+Für den Zugriff auf die in dem Datenhaltsungssystem vorhandenen Daten wurde von
 dem Projektteam eine weitere Sicherheitsebene eingefügt. Diese definiert, dass
 ein Systembenutzer, also ein Account, welcher Daten von dem System abfragt,
 keinen direkten Zugriff auf Tabellen im Datenhaltsungssystem erhält.
@@ -2714,7 +2717,7 @@ nur Funktionen zur Abfrage von definierten Daten.
 
 Dieses Verfahren hat den großen Vorteil, dass wenn einer der Systembenutzer
 entfremdet wird, dieser keinen Schaden an dem Datenhaltsungssystem ausüben
-kann. Desweiteren kann der Systemadministrator genau kontrollieren wer auf
+kann. Desweiteren kann der Systemadministrator genau kontrollieren, wer auf
 welche Daten Zugriff haben soll. Ein weiterer Vorteil ist, dass durch die
 vordefinierten analytischen Fragestellungen bei jedem Benutzer die gleichen
 Daten ausgegeben werden, und somit eine falsch Aussage, aufgrund von
@@ -2731,7 +2734,7 @@ die Umgebung mit dem Namen „Spring Tool Suite“ verwendet. Diese basiert auf
 dem Entwicklerstudio „Eclipse“ und war dem Projektteam bereits bekannt. Die
 Spring Tool Suite ist dabei für die Entwicklung einer Swagger API optimiert
 und liefert alle benötigten Grundlagen mit. Für die Einbindung weiterer
-Funktionen wurden die entsprechenden Marven-Abhängigkeiten eingefügt. Diese
+Funktionen wurden die entsprechenden Maven-Abhängigkeiten eingefügt. Diese
 ermöglichen die einfache Integration von benötigten Bibliotheken oder
 Code-Algorithmen. Das Spring Tool Suite liefert ebenfalls eine eigene
 Testumgebung mit, in welcher der Entwickler für das Projekt angepasste Tests
@@ -2742,14 +2745,14 @@ definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
 von einem anderem System zugeschickt bekommt, bzw. zuschickt. Da sich das
 Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert, wurde
 mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet Grafana
-nur mit vier URL's der API. Die erste ist dafür zuständig zu prüfen, ob das
-API-System überhaupt erreichbar, bzw. vorhanden ist. Die zweite wird genutzt,
-um an dem API System anzufragen, welche Daten es besitzt. Die dritte führt die
-eigentlichen Datenanfragen, basierend auf der zweiten URL, aus und liefert die
-zu anzeigenden Daten zurück. Die letztere ermöglicht es, einzelne Informationen
-in einem Graphen hervor zu heben. Alle vier URL's besitzen eine eigene
-Anfrage-Methode und Datenstruktur an der API und erwarten auch unterschiedliche
-Antworten von der API in Struktur und Inhalt.
+nur mit vier URL's (Endpunkte) der API. Die erste ist dafür zuständig zu
+prüfen, ob das API-System überhaupt erreichbar, bzw. vorhanden ist. Die zweite
+wird genutzt, um an dem API System anzufragen, welche Daten es besitzt. Die
+dritte führt die eigentlichen Datenanfragen, basierend auf der zweiten URL,
+aus und liefert die zu anzeigenden Daten zurück. Die letztere ermöglicht es,
+einzelne Informationen in einem Graphen hervor zu heben. Alle vier URL's
+besitzen eine eigene Anfrage-Methode und Datenstruktur an der API und erwarten
+auch unterschiedliche Antworten von der API in Struktur und Inhalt.
 
 Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
 Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API. Dies
