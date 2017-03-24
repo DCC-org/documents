@@ -2730,8 +2730,8 @@ werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
 „edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein Menü, wo der
 grundsätzliche Aufbau, die Metrik, die Axen und diverse andere Einstellungen
 für diesen Graphen definiert werden können. Hier wird zunächst die Metrik des
-Graphen angepasst, damit der Graph Werte visualisieren kann. Im nachfolgenden
-Abschnitt~\ref{subsec:grafen-definieren}, wird hier genauer auf die Erstellung
+Graphen angepasst, damit der Graph Werte visualisieren kann. Unter dem
+Abschnitt~\ref{subsec:graphen-definieren}, wird hier genauer auf die Erstellung
 von Graphen eingegangen. Im nachfolgenden ist ein Beispiel, für eine solche
 Abfrage:
 
@@ -2815,14 +2815,15 @@ Soabld die Grundkonfiguration von Grafana wie in~\ref{sec:realisierung_grafana}
 beschrieben durchgeführt worden ist, können als nächstes Graphen visualisiert
 werden. Zu Beginn wird hier unter dem Punkt \texttt{General} ein
 aussagekräftiger Titel, sowie Beschreibung des Graphen hinterlegt. In dem
-Beispiel, wird der Graph für die Prozessor Auslastung definiert. Unter dem Punkt
+Beispiel, welches im Anhang~\ref{figure:grafana_general} enthalten wird, wird
+der Graph für die Prozessor Auslastung definiert. Unter dem Punkt
 \texttt{General} können alle Einstellungen für das Aussehen des Graphen
 hinterlegt und angepasst werden. Ebenfalls können Verlinkungen zu anderen
 Dashboards oder direkten URL Adressen hinterlegt werden. Diese werden
-anschließend, wie im Anhang xyz dargestellt. Dies dient zur besseren
-Übersichtlichkeit, wenn ein Administrator oder die Führungsebene diese Graphen
-analysieren möchten. Im zweiten Schritt werden nun die einzelnen Graphen
-definiert.
+anschließend, wie im Anhang~\ref{figure:grafana_description}  dargestellt. Dies
+dient zur besseren Übersichtlichkeit, wenn ein Administrator oder die
+Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt werden nun
+die einzelnen Graphen definiert.
 
 Hierzu muss unter \texttt{Metrics} zunächst ausgewählt werden, von welcher
 Datenquelle die erhaltenen Daten stammen und anschließend über \texttt{Add
@@ -2831,30 +2832,37 @@ Query} hinzugefügt werden. Hier wird zunächst eine Art \texttt{SELECT}
 angepasst werden kann. Innerhalb der SQL-Abfrage wird definiert, von wo die
 erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen. Ebenfalls
 kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb einer Gruppe zusammen
-definiert werden. In dem Projekt wird für die Daten Erhaltung eine API~\gls{API}
-Schnittstelle verwendet, welche im laufe des Projektes entwickelt und entworfen
-worden ist. Die API liefert hier einen \gls{JSON}-Wert zurück. Damit Grafana
-diesen als Datenquelle verwenden kann, muss hier zuvor noch ein Plugin
-installiert werden. Es stehen viele verschiedene Plugins auf der Grafana Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung, sowie eine step-by-step Anleitung zur installation dieses Plugins. Die Plugins werden hier über einen \texttt{bash} Befehl installiert. Anschließend kann unter DatenQuelle die API angesprochen
-werden. Sie wird nicht mittels einer SQL-Abfrage abgerufen, sondern gibt die
-Werte bereits vor. Diese muss im Anschluss unter dem Punkt \texttt{Metrics}
-ausgewählt und hinzugefügt werden.
+definiert werden. In dem Projekt wird für die Daten Erhaltung eine
+API~\gls{API} Schnittstelle verwendet, welche im Laufe des Projektes entwickelt
+und entworfen worden ist. Die API liefert hier einen \gls{JSON}-Wert zurück.
+Damit Grafana diesen als Datenquelle verwenden kann, muss hier zuvor noch ein
+Plugin installiert werden. Es stehen viele verschiedene Plugins auf der Grafana
+Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung,
+sowie eine step-by-step Anleitung zur installation dieses Plugins. Die Plugins
+werden hier über einen \texttt{bash} Befehl installiert. Anschließend kann
+unter Datenquelle die API angesprochen werden. Sie wird nicht mittels einer
+SQL-Abfrage abgerufen, sondern gibt die Werte bereits vor. Diese muss im
+Anschluss unter dem Punkt \texttt{Metrics} ausgewählt und hinzugefügt werden.
+Ein Beispiel hierzu ist dem Anhang~\ref{figures:grafana_metrics} beigefügt.
 
-Nun sollten bereits einzelne Werte im Graphen visualisiert
-werden. Nachdem nun die Grundeinstellung für die Graphen konfiguriert wurden,
-können anschließend weitere Feineinstellungen eingestellt werden.
+Nun sollten bereits einzelne Werte im Graphen visualisiert werden. Nachdem nun
+die Grundeinstellung für die Graphen konfiguriert wurden, können anschließend
+weitere Feineinstellungen eingestellt werden.
 
-Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine Beschriftung für die  Y- oder
-X-Achse benötigt wird. Zusätzlich kann hier auch die entsprechende Einheit für
-diese Werte definiert werden, denn die erhaltenen Werte aus der Datenbank oder der API sind
-meist nur \texttt{Integer} Werte, welche keine Einheiten übergeben bekommen.
+Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine
+Beschriftung für die Y- oder X-Achse benötigt wird. Zur Verdeutlichung ist dem
+Anhang~\ref{figures:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
+hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
+erhaltenen Werte aus der Datenbank oder der API sind meist nur \texttt{Integer}
+Werte, welche keine Einheiten übergeben bekommen.
 
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
 definiert. Eingestellt werden kann hier lediglich welchen Minimalen, Maximalen,
 Aktuellen und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und
 ob diese Werte als Tabelle ausgegeben werden sollen. Dies erleichtert die
 Übersichtlichkeit in Hinsicht, wenn hier mehrere Werte ausgegeben
-werden,andernfalls werden diese in einer Reihe angezeigt.
+werden,andernfalls werden diese in einer Reihe angezeigt. Ein Beispiel hierzu
+ist dem Anhang~\ref{figures:grafana_legend} beigefügt.
 
 Nachdem nun die \texttt{Axes} und \texttt{Legend} angepasst worden sind, gibt
 es unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten,
@@ -2872,11 +2880,31 @@ können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es z
 diesem Menüpunkt noch den Punkt \texttt{Thresholds}. \texttt{Thresholds} sind
 Markierungen, innerhalb des Graphens, wenn ein kritischer Wert erreicht worden
 ist. Diese dienen dazu auf einem Blick zu erkennen, ob es hier Probleme gibt,
-oder alles in Ordnung ist.Im Anhang xyz ist ein Bild beigefügt, welches dies
-einmal verdeutlicht.
+oder alles in Ordnung ist. Im Anhang~\ref{grafana_display} ist ein Bild
+beigefügt, welches dies einmal verdeutlicht.
 
+Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden
+und können bei einem kritischen Wert eine Benachrichtgung versenden. Damit
+diese Funktion verwendet werden kann, muss zum einen dies unter dem Grafana
+Symbol oben Links Alerting konfiguriert werden und zum anderen muss dies die
+Datenquelle ebenfalls unterstützen. Die Benachrichtigung hierzu kann
+anschließend beispielsweise über Email oder die Messenger Telegram oder Threema
+erfolgen. Weitere Kommunikationswege sind hier ebenfalls möglich. Innerhalb der
+\texttt{Alert} Konfiguration, kann für jeden Graphen individuell die Kriterien
+für die Benachrichtigung definiert werden. Ein Beispiel hierzu ist dem
+Anhang~\ref{figures:grafana_alert} beigefügt. Die Bedingung, die Konfiguriert
+werden kann, muss entwender einen Min-, Max- oder Durschchnittswert
+beeinhalten, ab wann diese Bedingung erfüllt ist. Sobald diese Bedingung
+erfüllt ist, wird entsprechend eine Benachrichtigung versendet.  Diese wird
+entweder mit einem Standardtext versendet oder kann über den Punkt
+\texttt{Notifications} individuell angepasst werden. Hier kann ebenfalls
+hinterlegt werden, über welchen Weg die Benachrichtung erfolgen soll.
 
-
+Im letzten Punkt \texttt{Time range} kann der Intervall der Visualisierung für
+den Graphen definiert werden. Auf dem Grafana Dashboard oben Rechts, kann die
+allgemeine Zeit definiert werden, wie lange alle Graphen auf dem Dashboard
+Werte abrufen können. Diese Einstellung kann individuell für jeden einzelnen
+Graphen unter \texttt{Time range} überschrieben werden.
 \mr%
 
 \chapter{Tests und Qualitätssicherung}
