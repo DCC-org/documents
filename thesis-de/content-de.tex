@@ -2646,7 +2646,7 @@ zu nutzen und nach dem Client-Server Prinzip zu arbeiten.
 \tm%
 
 \section{Realisierung Grafana}
-\label{sec:realisierung_Grafana}
+\label{sec:realisierung_grafana}
 Nachdem nun die Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend}
 abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
 begonnen werden. Damit die eigentliche Konfiguration durchgeführt werden
@@ -2731,8 +2731,8 @@ werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
 grundsätzliche Aufbau, die Metrik, die Axen und diverse andere Einstellungen
 für diesen Graphen definiert werden können. Hier wird zunächst die Metrik des
 Graphen angepasst, damit der Graph Werte visualisieren kann. Unter dem
-Abschnitt~\ref{subsec:graphen-definieren}, wird hier genauer auf die Erstellung
-von Graphen eingegangen. Im nachfolgenden ist ein Beispiel, für eine solche
+Abschnitt~\ref{subsec:graphen-definieren} wird hier genauer auf die Erstellung
+von Graphen eingegangen. Im nachfolgenden ist ein Beispiel für eine solche
 Abfrage:
 
 \begin{figure}[h]
@@ -2792,7 +2792,7 @@ erleichtert dem Administrator die Konfiguration, da dieses Profil nur einmal
 auf dem Betriebssystem ausgeführt werden muss, um Grafana zu installieren und
 zu konfigurieren. Eine zusätzliche Konfiguration nach der Installation von
 Grafana wird nur dann benötigt, wenn spezielle Anforderungen vom Kunden
-gewünscht sind.  Dashboards werden in der Konfigurationsdatei des Puppet Moduls
+gewünscht sind. Dashboards werden in der Konfigurationsdatei des Puppet Moduls
 für Grafana als \gls{JSON} definiert und können im Nachhinein angepasst werden.
 
 Im Anhang~\ref{lst:grafana} befindet sich ein Beispiel für eine solche
@@ -2805,7 +2805,7 @@ da es davon ausgeht, dass die Weboberfläche nach dem Neustart von Grafana
 unmittelbar danach erreichbar ist. Das Problem liegt hier nicht in der
 grafana.pp, sondern in dem eigentlichen Puppet Modul, welches uns die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
-bereitstellt.  Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
+bereitstellt. Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
 erstellt~\cite{grafana-issue}.
 \mr%
 
@@ -2813,9 +2813,12 @@ erstellt~\cite{grafana-issue}.
 \label{subsec:graphen-definieren}
 Soabld die Grundkonfiguration von Grafana wie in~\ref{sec:realisierung_grafana}
 beschrieben durchgeführt worden ist, können als nächstes Graphen visualisiert
-werden. Zu Beginn wird hier unter dem Punkt \texttt{General} ein
+werden.
+
+\subsubsection{General}
+Zu Beginn wird hier unter dem Punkt \texttt{General} ein
 aussagekräftiger Titel, sowie Beschreibung des Graphen hinterlegt. In dem
-Beispiel, welches im Anhang~\ref{figure:grafana_general} enthalten wird, wird
+Beispiel, welches im Anhang~\ref{figure:grafana_general} enthalten ist, wird
 der Graph für die Prozessor Auslastung definiert. Unter dem Punkt
 \texttt{General} können alle Einstellungen für das Aussehen des Graphen
 hinterlegt und angepasst werden. Ebenfalls können Verlinkungen zu anderen
@@ -2825,6 +2828,7 @@ dient zur besseren Übersichtlichkeit, wenn ein Administrator oder die
 Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt werden nun
 die einzelnen Graphen definiert.
 
+\subsubsection{Metrics}
 Hierzu muss unter \texttt{Metrics} zunächst ausgewählt werden, von welcher
 Datenquelle die erhaltenen Daten stammen und anschließend über \texttt{Add
 Query} hinzugefügt werden. Hier wird zunächst eine Art \texttt{SELECT}
@@ -2834,39 +2838,45 @@ erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen. Ebenfalls
 kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb einer Gruppe zusammen
 definiert werden. In dem Projekt wird für die Daten Erhaltung eine
 API~\gls{API} Schnittstelle verwendet, welche im Laufe des Projektes entwickelt
-und entworfen worden ist. Die API liefert hier einen \gls{JSON}-Wert zurück.
-Damit Grafana diesen als Datenquelle verwenden kann, muss hier zuvor noch ein
+und entworfen worden ist. Die API liefert hier einen \gls{JSON}-Objekt zurück.
+Damit Grafana dieses als Datenquelle verwenden kann, muss hier zuvor noch ein
 Plugin installiert werden. Es stehen viele verschiedene Plugins auf der Grafana
 Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung,
-sowie eine step-by-step Anleitung zur installation dieses Plugins. Die Plugins
-werden hier über einen \texttt{bash} Befehl installiert. Anschließend kann
-unter Datenquelle die API angesprochen werden. Sie wird nicht mittels einer
-SQL-Abfrage abgerufen, sondern gibt die Werte bereits vor. Diese muss im
-Anschluss unter dem Punkt \texttt{Metrics} ausgewählt und hinzugefügt werden.
-Ein Beispiel hierzu ist dem Anhang~\ref{figures:grafana_metrics} beigefügt.
+sowie eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die
+Plugins werden hier über einen Kommandozeilenbefehl installiert. Anschließend
+kann unter Datenquelle die API angesprochen werden. Sie wird nicht mittels
+einer SQL-Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle. Diese
+muss im Anschluss unter dem Punkt \texttt{Metrics} ausgewählt und hinzugefügt
+werden. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics}
+beigefügt.
 
-Nun sollten bereits einzelne Werte im Graphen visualisiert werden. Nachdem nun
-die Grundeinstellung für die Graphen konfiguriert wurden, können anschließend
-weitere Feineinstellungen eingestellt werden.
+Nun sind bereits einzelne Werte im Graphen visualisiert. Nachdem nun
+die Grundeinstellung für die Graphen konfiguriert wurde, können anschließend
+weitere Feineinstellungen durchgeführt werden.
 
+\subsubsection{Axes}
 Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine
 Beschriftung für die Y- oder X-Achse benötigt wird. Zur Verdeutlichung ist dem
-Anhang~\ref{figures:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
+Anhang~\ref{figure:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
 hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
-erhaltenen Werte aus der Datenbank oder der API sind meist nur \texttt{Integer}
-Werte, welche keine Einheiten übergeben bekommen.
+erhaltenen Werte aus der Datenbank oder der API sind meist nur Ganz- oder
+Kommazahlen Werte, welche keine Einheiten übergeben bekommen.
 
+\subsubsection{Legend}
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
-definiert. Eingestellt werden kann hier lediglich welchen Minimalen, Maximalen,
-Aktuellen und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und
-ob diese Werte als Tabelle ausgegeben werden sollen. Dies erleichtert die
-Übersichtlichkeit in Hinsicht, wenn hier mehrere Werte ausgegeben
-werden,andernfalls werden diese in einer Reihe angezeigt. Ein Beispiel hierzu
-ist dem Anhang~\ref{figures:grafana_legend} beigefügt.
+definiert. Eingestellt werden kann hier welchen Minimalen, Maximalen, Aktuellen
+und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
+Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
+unmittelbar unterhalb des Graphen und soll für eine bessere Übersichtlichkeit
+für den Administrator dienen, da dieser die Minimalen- und Maximalenwerte
+welche innerhalb der Analyse ausgegeben worden sind sehen kann.  Ein Beispiel
+hierzu ist dem Anhang~\ref{figure:grafana_legend} beigefügt.
 
+\subsubsection{Display}
 Nachdem nun die \texttt{Axes} und \texttt{Legend} angepasst worden sind, gibt
 es unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten,
-\texttt{Draw options}, \texttt{Series overrides} und \texttt{Thresholds}. Unter
+\texttt{Draw options}, \texttt{Series overrides} und \texttt{Thresholds}. Der
+Aufbau hiervon kann dem Anhang~\ref{grafana_display} entnommen werden. Unter
 dem Punkt \texttt{Draw options} kann das Aussehen des Graphen angepasst werden.
 So kann bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt
 hinterlegt werden. Ebenso kann definiert werden, ob der Graph zur besseren
@@ -2880,9 +2890,10 @@ können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es z
 diesem Menüpunkt noch den Punkt \texttt{Thresholds}. \texttt{Thresholds} sind
 Markierungen, innerhalb des Graphens, wenn ein kritischer Wert erreicht worden
 ist. Diese dienen dazu auf einem Blick zu erkennen, ob es hier Probleme gibt,
-oder alles in Ordnung ist. Im Anhang~\ref{grafana_display} ist ein Bild
-beigefügt, welches dies einmal verdeutlicht.
+oder alles in Ordnung ist. Im Anhang~\ref{figure:grafana_thresholds} ist ein
+Bild beigefügt, welches dies einmal verdeutlicht.
 
+\subsubsection{Alert}
 Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden
 und können bei einem kritischen Wert eine Benachrichtgung versenden. Damit
 diese Funktion verwendet werden kann, muss zum einen dies unter dem Grafana
@@ -2892,7 +2903,7 @@ anschließend beispielsweise über Email oder die Messenger Telegram oder Threem
 erfolgen. Weitere Kommunikationswege sind hier ebenfalls möglich. Innerhalb der
 \texttt{Alert} Konfiguration, kann für jeden Graphen individuell die Kriterien
 für die Benachrichtigung definiert werden. Ein Beispiel hierzu ist dem
-Anhang~\ref{figures:grafana_alert} beigefügt. Die Bedingung, die Konfiguriert
+Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung, die Konfiguriert
 werden kann, muss entwender einen Min-, Max- oder Durschchnittswert
 beeinhalten, ab wann diese Bedingung erfüllt ist. Sobald diese Bedingung
 erfüllt ist, wird entsprechend eine Benachrichtigung versendet.  Diese wird
@@ -2900,6 +2911,7 @@ entweder mit einem Standardtext versendet oder kann über den Punkt
 \texttt{Notifications} individuell angepasst werden. Hier kann ebenfalls
 hinterlegt werden, über welchen Weg die Benachrichtung erfolgen soll.
 
+\subsubsection{Time range}
 Im letzten Punkt \texttt{Time range} kann der Intervall der Visualisierung für
 den Graphen definiert werden. Auf dem Grafana Dashboard oben Rechts, kann die
 allgemeine Zeit definiert werden, wie lange alle Graphen auf dem Dashboard
