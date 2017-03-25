@@ -2575,7 +2575,224 @@ passend zu filtern und zu validieren. Eine Visualisierung des Prototypen
 findet sich unter~\ref{figure:draft2}.
 \tm%
 
-\section{Postgres Autopartitioning}
+\section{Postgres}
+Für die Implementierung der Postgres Datenbank wurde zunächst ein einzelner
+Server für die Bearbeitung der Anforderung aufgebaut und mit vier Nutzern
+ausgestattet. Ersterer ist der Administrator, oder auch root genannt, welcher
+nur genutzt wird um Änderungen (Punkt~\ref{subsec:postgres_partition}) am
+System vorzunehmen. Mit diesem werden ebenfalls die Zugriffsrechte der
+einzelnen Nutzer geregelt. Der zweite Nutzer besitzt die Berechtigungen in
+einem definierten Bereich innerhalb des Postgres-Systems die
+Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
+Prozesse aus Punkt~\ref{subsec:postgres_etl} und
+Punkt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
+von dem in Punkt~\ref{sec:api_system} definierte API-System verwendet. Dieser
+besitzt keinen direkten Lese- oder Schreibezugriffe auf die in dem definierten
+Datentopf vorhandenen Tabellen. Er erhält lediglich ausführende Rechte auf die
+im Punkt~\ref{subsec:postgres_datenschutz} erstellten Funktionen. Vierter
+Nutzer wird für den im Punkt~\ref{subsec:postgres_etl} beschriebenen ETL-Prozess
+im Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
+
+Neben den durchgeführten Aufgaben an dem Postgres-Server wurde bei
+den Teammitgliedern jeweils die benötigte Entwicklerumgebung aufgesetzt
+und eingerichtet. Mit dieser und zusammen mit einem berechtigten Nutzer,
+können die Teammitglieder an den Inhalten der Datenbank arbeiten. 
+\nl%
+
+\subsection{ETL}
+\label{subsec:postgres_etl}
+Durch das fehlschlagen der Anbindung eines Message Busses an die Datenerfassung
+musste eine alternative Möglichkeit der Informationsintegration zwischen der
+Datenhaltung und Datenerfassung entwickelt werden. Dazu wurde ein vollständig
+eigener Extraktions-, Transformations- und Ladeprozess (ETL) in das System
+implementiert. Die konkrete Umsetzung erfolgte durch das Hinzufügen von einem
+eigenem Arbeitsbereich zwischen der Datenquelle und der Zieldatenbank.
+
+Dabei findet der Extraktions-Teil zwischen dem erstellten Arbeitsbereich und
+der Datenquelle statt. Es werden dabei die neuen Daten in ein allgemeines
+Datenobjekt eingefügt und kurzzeitig zwischengespeichert. Dieses Datenobjekt
+hat dabei keinerlei Anforderungen an die gelieferten Daten, und nimmt sie
+zunächst einfach auf, sodass diese nicht verloren gehen. Sollten dabei
+Daten nicht vollständig übermittelt werden oder während der Übertragung die
+Datenquelle ausfallen, beziehungsweise andere Fehler entstehen, ist dies
+zunächst für den eigentlichen Wirkbetrieb, also das Halten der vollständigen
+Daten und dem Ausliefern der Daten an andere Systeme/API, nicht relevant.
+Durch die Trennung der Systeme, beziehungsweise den einzelnen Aufgabenfeldern,
+ist nur der Verlust von neuen Daten das größte Risiko. Ein Systemabsturz durch
+dauerhafte Fehler beim Datenschreiben ist somit vermieden.
+
+Sollten nun Daten in dem genannten allgemeinen Datenobjekt vorhanden sein,
+beginnt der Transformations-Teil. Dabei greift ein weiterer Algorithmus auf
+die zwischengespeicherten Daten zu und vergleicht die Inhalte von jedem neuen
+Datensatz mit einem \gls{Repositorium}, beziehungsweise einem von dem
+Projektteam definierten Metadatensatz. Dieser dient dazu, eine spezifische
+Definition von allen in dem Datenhaltsungssystem vorhandenen Daten zu besitzen.
+Er wird entsprechend als Dokumentationsbasis genutzt, sodass ein Nutzer genau
+nachvollziehen kann, in welcher Struktur und an welchem Ort die Daten in dem
+Datenhaltsungssystem abgespeichert sind. Gleichzeitig besitzt das Projektteam
+und der spätere Administrator im Wirkbetrieb die Möglichkeit den Dateninput
+über den ETL-Prozess zu kontrollieren. Darüber können zum Beispeil die Länge
+von einzelnen Attributen, oder der Datentyp angepasst werden. Es kann jedoch
+sogar tiefer ins Detail gegangen werden und der genaue Inhalt eines Attributes
+bestimmt werden. Ist ein solches \gls{Repositorium} definiert, greift der
+Transformations-Algorithmus darauf zu und püft die neuen Daten nach den
+Definitionen. Sollte bei der Prüfung ein Konflikt entstehen, so kann der
+Prozess diesen eigenständig lösen und die neuen Daten an die Definition
+anpassen. Bei schwerwiegenden Fehlern, welche nicht von dem Algorithmus
+gelöst werden können, wurde von dem Projektteam ein Fehlerreport definiert.
+Dabei werden die auf Fehler gelaufenen Daten nicht entfernt und ein
+beliebiger Verteiler darüber informiert. Anschließend kann ein Administrator
+den Fehler beseitigen oder die Daten manuell in das Datenhaltsungssystem
+überführen.
+
+Ist der Transformations-Teil bei einem Datensatz vollständig durchgelaufen,
+beginnt der Lade-Teil. Dabei übergibt der Transformations-Algorithmus den
+vollständig korrekten Datensatz an den Lade-Algorithmus. Neben dem eigentlichen
+Datensatz übermittelt dieser auch die Zieldatenbank und Zieltabelle, sodass
+der Lade-Algorithmus nun nur noch die Daten in das entsprechende Objekt
+einfügen muss. Dabei wird speziell auf die Auslastung des Zielobjektes
+geachtet. Ist die Tabelle zum Beispeil durch einen anderen Prozess belegt,
+wird dies von dem Lade-Algorithmus erkannt und das Einfügen der Daten
+hinten angestellt. Für diesen Teil besitzt die Postgres Datenbank bereits
+vorhandene Frameworks, welche von dem Projektteam genutzt werden. Somit muss
+das Management der Prozessabarbeitung innerhalb des Datenhaltsungssystem nicht
+selber entwickelt, sondern nur eingebunden werden. 
+\nl%
+
+\subsection{Repositorium}
+\label{subsec:postgres_repositorium}
+Der in Punkt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
+diesem Projekt für die Metric-Daten jedes virtuellen Servers genutzt wird,
+wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.
+Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es
+handelt sich um die Verwendung von einer einzelnen Datentabelle, welche
+nur zwei Attribute besitzt. Bei beiden Attributen handelt es sich um ein
+JSON Objekt. Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz.
+Das ist zum Beispiel eine generierte ID, um den Datensatz spezifisch
+selektieren zu können, oder die Informationen seit wann der Datensatz
+in der Datenhaltung existiert, beziehungsweise wann und von welchem System
+angefasst wurde. Zweites JSON Objekt/Attribut beinhaltet den eigentlichen
+Datensatz, also die werthaltigen Informationen, welche auch später analysiert
+werden. Die Inhalte des Attributes werden klar in dem Metadatensatz definiert.
+Der Vorteil dieser Datenspeicherung ist zum einen die Effizienz des
+Speicherplatzes sowie Geschwindigkeit und zum anderen das Zusammenhalten der
+zugehörigen Informationen. Desweiteren können in diesem Model sehr einfach neue
+Informationen hinzugefügt werden, indem diese in dem Metadatensatz definiert
+werden. Dies ist ein Vorteil der Skalierbarkeit und es müssen anders wie bei
+Datenbanken in der dritten Normalform die voneinander abhängigen Daten nicht
+in jeweils eine eigene Tabelle ausgelagert werden.
+
+Da sich bei diesem Model die Geschwindigkeit der Datenabfragen mit der Menge
+der Daten in einer Tabelle verlangsamt, wird die automatische Partitionierung
+angewandt, welche im nachfolgendem Punkt~\ref{subsec:postgres_partition}
+beschrieben wird.
+\nl%
+
+\subsection{Partitionierung}
+\label{subsec:postgres_partition}
+Bei der Partitionierung in dem Postgres-System muss zwischen zwei Arten von
+Partitionierung entschieden werden. Ersteres ist die manuelle Partitionierung
+durch den Administrator. Dabei werden über einen Index Datenbereiche definiert,
+welche logisch voneinander getrennt werden. Mit nachfolgendem Code-Prototyp
+kann solch eine Trennung im groben vom Administrator definiert werden.
+
+Unter dem im Anhang~\ref{lst:postgressample} beigefügten Prototypen wird eine
+Haupttabelle in zwei Kinder-Tabellen aufgeteilt. Diese Kinder-Tabellen halten
+dabei bestimmte definierte Datenbereiche. In diesem Prototypen enthält die
+Kinder-Tabelle \texttt{measurement\_xMINUS12Hour} nur Datensätze bei denen der
+Zeitstempel der beinhalteten Daten zwischen dem aktuellen Zeitpunkt und dem
+aktuellen Zeitpunkt minus 12 Stunden liegt. Die zweite Kinder-Tabelle
+beinhaltet wiederrum nicht die Daten von der ersten Kinder-Tabelle, sondern nur
+alle Daten welche einen Zeitstempel innerhalb eines Tages besitzen. Diese Art
+von Partitionierung kann auf jedem beliebigen Attribut angewendet werden,
+sodass zum Beispiel auch noch CPU-Daten von RAM-Daten getrennt werden. Der
+Anwender oder Analyst der Haupttabelle merkt dabei nicht, dass die verwendete
+Tabelle partitioniert ist. Für die vollständige Implementierung wurden von dem
+Projektteam jedoch auch noch weitere Funktionen programmiert und implementiert.
+Darunter ist zum Beispiel das Verhalten der Datenbank bei dem Einfügen von
+Daten mit einem älteren Zeitstempel.
+
+Bei der manuellen Partitionierung kann ein Administrator jedoch auch durch die
+Stärke der Partitionierungs-Intervalle an Optimierung verlieren, oder sogar das
+System verschlechtern. Hinzu kommt ein starker administrativer Aufwand umso
+mehr Partitionen eingefügt werden. Dabei kann auch die Übersichtlichkeit des
+Codes verloren gehen. Entsprechend bietet Postgres auch die Methode der
+automatisierten Partitionierung an. Dabei werden die Partitionen von dem
+Postgres System selbständig angepasst und die Datenspanne definiert. Dies
+bringt den Vorteil, dass eine schnelle Geschwindigkeit der Datenabfrage zu
+jedem Zeitpunkt gewährleistet ist. Der administrative Aufwand wird mit dieser
+Methode jedoch nicht verringert. Die manuelle Partionierung hat einen
+kontinuierlich gleich bleibenden administrativen Aufwand. Bei der
+automatisierten Partionierung muss vorallem zu Begin mehr Zeit investiert
+werden. Erst bei der optimalen Einstellung der Konfigurationsmöglichkeiten
+verringert sich der administrative Aufwand deutlich. 
+
+Das Projektteam hat sich entschieden die automatische Partionierung zu wählen.
+Dies gewährleistet nicht nur eine dauerhaft schnelle Datenhaltung, sondern ist
+auch Kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für
+die Partionierung einstellen muss. Die genaue Implementierung der Methode
+kann aus dem Postgres-Code im Projektanhang entnommen werden.
+\nl%
+
+\subsection{Datenschutz}
+\label{subsec:postgres_datenschutz}
+Für den Zugriff auf die in dem Datenhaltsungssystem vorhandenen Daten wurde von
+dem Projektteam eine weitere Sicherheitsebene eingefügt. Diese definiert, dass
+ein Systembenutzer, also ein Account, welcher Daten von dem System abfragt,
+keinen direkten Zugriff auf Tabellen im Datenhaltsungssystem erhält.
+Stattdessen wird für jeden Anwendungsfall, also jede Datenbankabfrage,
+beziehungsweise analytische Fragestellung, eine eigene Postgres-Funktion
+bereitgestellt. Der Systembenutzer kann dabei ausschließlich die für ihn
+freigeschalteten Funktionen ausführen. Bei dem Systembenutzer für die API sind
+dies zum Beispiel nur Funktionen zur Abfrage von definierten Daten.
+
+Dieses Verfahren hat den großen Vorteil, dass wenn einer der Systembenutzer
+entfremdet wird, dieser keinen Schaden an dem Datenhaltsungssystem ausüben
+kann. Desweiteren kann der Systemadministrator genau kontrollieren, wer auf
+welche Daten Zugriff haben soll. Ein weiterer Vorteil ist, dass durch die
+vordefinierten analytischen Fragestellungen bei jedem Benutzer die gleichen
+Daten ausgegeben werden, und somit eine falsch Aussage, aufgrund von
+verschiedenen Implementierungsweisen, vermieden wird.
+\nl%
+
+\section{API-System}
+\label{sec:api_system}
+Bei der Entwicklung des API-Systems wurde sich zunächst auf die Implementierung
+der Postgres und Grafana Anbindung konzentriert. Voraussetzung für die
+eigentliche Entwicklung ist eine funktionierende und auch möglich dem
+Entwickler vertraute Entwicklungsumgebung. Bei der Swagger API wurde dazu
+die Umgebung mit dem Namen „Spring Tool Suite“ verwendet. Diese basiert auf
+dem Entwicklerstudio „Eclipse“ und war dem Projektteam bereits bekannt. Die
+Spring Tool Suite ist dabei für die Entwicklung einer Swagger API optimiert
+und liefert alle benötigten Grundlagen mit. Für die Einbindung weiterer
+Funktionen wurden die entsprechenden Maven-Abhängigkeiten eingefügt. Diese
+ermöglichen die einfache Integration von benötigten Bibliotheken oder
+Code-Algorithmen. Das Spring Tool Suite liefert ebenfalls eine eigene
+Testumgebung mit, in welcher der Entwickler für das Projekt angepasste Tests
+definieren und durchführen kann.
+
+Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
+definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
+von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt. Da
+sich das Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert,
+wurde mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet
+Grafana nur mit vier URL's (Endpunkte) der API\@. Die erste ist dafür zuständig
+zu prüfen, ob das API-System überhaupt erreichbar, beziehungsweise vorhanden
+ist. Die zweite wird genutzt, um an dem API System anzufragen, welche Daten es
+besitzt. Die dritte führt die eigentlichen Datenanfragen, basierend auf der
+zweiten URL, aus und liefert die zu anzeigenden Daten zurück. Die letztere
+ermöglicht es, einzelne Informationen in einem Graphen hervor zu heben. Alle
+vier URL's besitzen eine eigene Anfrage-Methode und Datenstruktur an der API
+und erwarten auch unterschiedliche Antworten von der API in Struktur und
+Inhalt.
+
+Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
+Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API\@. Dies
+hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage bei
+dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die
+im Punkt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
+auch in dem API-System integriert.
+\nl%
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
@@ -2619,9 +2836,9 @@ Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
 Ressource besteht aus drei Teilen:
 
 \begin{listing}
-  \inputminted{puppet}{../listings/basic-resource.txt}
-  \caption{Puppet package resource für htop}
-  \label{lst:puppet-resource}
+   \inputminted{puppet}{../listings/basic-resource.txt}
+   \caption{Puppet package resource für htop}
+   \label{lst:puppet-resource}
 \end{listing}
 
 Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
