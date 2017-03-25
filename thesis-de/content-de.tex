@@ -689,7 +689,8 @@ des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
 Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
 
-\begin{lstlisting}[language=bash,caption={traffic stats enp1s0}]
+\begin{center}
+\begin{minted}{text}
 device,receive,transmit
 enp1s0,28932776123,1786084537
 enp1s0,28935220128,1786163375
@@ -698,7 +699,9 @@ enp1s0,28942260029,1786392663
 enp1s0,28946985781,1786547807
 enp1s0,28949168552,1786622616
 enp1s0,28951976308,1786708990
-\end{lstlisting}
+\end{minted}
+\captionof{listing}{traffic stats enp1s0}
+\end{center}
 
 Für das Auslesen all dieser Daten werden kleine Skripte wie das im
 Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken,
@@ -742,7 +745,10 @@ eine Vielzahl von Möglichkeiten, um Daten auf einem System zu ermitteln und
 diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
 Die Software ist in C geschrieben.
 
-\lstinputlisting[language=bash,caption={collectd git clone}]{../listings/collectd-clone.txt}
+\begin{center}
+    \inputminted{text}{../listings/collectd-clone.txt}
+    \captionof{listing}{collectd git clone}
+\end{center}
 
 Wie im obigen Listing zu sehen, haben 415 Leute 9059 Änderungen im
 Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
@@ -795,7 +801,10 @@ austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
 unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die
 Open-Source-Software steht unter der MIT Lizenz~\cite{python-diamond}.
 
-\lstinputlisting[language=bash,caption={Diamond git clone}]{../listings/diamond-clone.txt}
+\begin{center}
+    \inputminted{text}{../listings/diamond-clone.txt}
+    \captionof{listing}{Diamond git clone}
+\end{center}
 
 Wie im obigen Listing zu sehen gibt es 2922 Beiträge im Versionskontrollsystem
 von 292 verschiedenen Personen. Diamond kann alle benötigten Daten lokal und
@@ -1100,7 +1109,10 @@ Daten, anschließend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV aus den Niederlanden finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
-\lstinputlisting[language=bash,caption={elasticsearch git clone}]{../listings/elasticsearch-clone.txt}
+\begin{center}
+    \inputminted{text}{../listings/elasticsearch-clone.txt}
+    \captionof{listing}{Diamond git clone}
+\end{center}
 
 Oben befindet sich eine kurze Analyse des \gls{Git}-
 \glslink{Repository}{Repositorys} vom 27.11.2016. Die Suchmaschine besteht
@@ -1219,7 +1231,10 @@ vorhandenen Nodes in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition
 eins auf dem ersten Node repliziert wird, Partition zwei auf dem zweiten Node
 und immer so weiter, bis das Verfahren den ersten Node wieder erreicht.
 
-\lstinputlisting[language=bash,caption={cassandra status}]{../listings/cassandra-status.txt}
+\begin{center}
+    \inputminted{text}{../listings/cassandra-status.txt}
+    \captionof{listing}{cassandra status}
+\end{center}
 
 In der obigen Shell-Ausgabe wird ein während der Evaluierungsphase erstelltes
 Cassandra-System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
@@ -1257,7 +1272,10 @@ sie pflegt ein komplexes Wiki~\cite{postgres_wiki}, sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für
 Fortgeschrittene~\cite{postgres_tutorial}.
 
-\lstinputlisting[language=bash,caption={postgres git clone}]{../listings/postgres-clone.txt}
+\begin{center}
+    \inputminted{text}{../listings/postgres-clone.txt}
+    \captionof{listing}{postgres git clone}
+\end{center}
 
 Wie in der obigen Shell-Ausgabe zu sehen, enthält das \gls{Git}-\gls{Repository}
 des Postgres Quellcodes am 26.11.2016 41366 einzelne \glslink{Commit}{Commits}
@@ -2839,11 +2857,11 @@ Ressourcen. Die wichtigsten sind:
 Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
 Ressource besteht aus drei Teilen:
 
-\begin{listing}
+\begin{center}
    \inputminted{puppet}{../listings/basic-resource.txt}
-   \caption{Puppet package resource für htop}
+   \captionof{listing}{Puppet package resource für htop}
    \label{lst:puppet-resource}
-\end{listing}
+\end{center}
 
 Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
@@ -2911,9 +2929,9 @@ konnte, musste zuvor das Installationspaket von Grafana heruntergeladen und
 installiert werden. Auf einem ArchLinux-Betriebssystem wird dieses Paket mit
 folgendem Befehl installiert:
 
-\begin{lstlisting}[language=bash]
+\begin{minted}{text}
 sudo pacman -S grafana
-\end{lstlisting}
+\end{minted}
 
 Pacman ist ein Paketinstaller mit dem weitere Software aus einem Repository
 heruntergeladen und installiert werden kann. Er durchsucht hier die gesamten
@@ -2924,14 +2942,14 @@ Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
 dieses mit folgendem Befehl gestartet und falls gewünscht im Autostart von
 Archlinux hinterlegt werden. Mit folgendem Befehl wird der Grafana Dienst
 gestartet:
-\begin{lstlisting}[language=bash]
+\begin{minted}{text}
 systemctl start grafana.service
-\end{lstlisting}
+\end{minted}
 
 Um Grafana im Autostart zu hinterlegen, wird folgender Befehl benötigt:
-\begin{lstlisting}[language=bash]
+\begin{minted}{text}
 systemctl enable grafana.service
-\end{lstlisting}
+\end{minted}
 
 Nun ist Grafana gestartet und kann über die Weboberfläche mit Port 3000
 bereits aufgerufen und konfiguriert werden. Bei der Installation von Grafana
@@ -3021,9 +3039,9 @@ Servereinstellungen, welche vom Kunden individuell angepasst werden kann.
 Nachdem die Änderungen hier abgeschlossen sind, muss der Grafana-Dienst neu
 gestartet werden. Dies wird mit folgendem Befehl durchgefüht:
 
-\begin{lstlisting}[language=bash]
+\begin{minted}{text}
 systemctl restart grafana.service
-\end{lstlisting}
+\end{minted}
 
 Diese Konfiguration beschreibt die manuelle Installation und Konfiguration von
 Grafana. Um hier jedoch nicht bei jedem einzelnen Kunden diese Anpassung
@@ -3036,9 +3054,9 @@ Grafana können vorgegeben werden und Konfiguration werden direkt während der
 Installation in die Software implementiert. Um das Puppet Profil aufrufen zu
 können, wird folgender Befehl benötigt:
 
-\begin{lstlisting}[language=bash]
+\begin{minted}{text}
 sudo puppet apply grafana.pp
-\end{lstlisting}
+\end{minted}
 
 Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließend
 mit dem Puppet Profil aufgerufen. In dieser ist definiert mit welcher Version
@@ -3282,16 +3300,16 @@ bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn müssen
 diese vorab mit rspec in dem Katalog kompiliert und definiert werden, damit
 diese verwendet werden können. Mit folgendem Befehl können die Tests
 durchgeführt werden:
-\begin{lstlisting}[language=bash]
+\begin{minted}{text}
 bundle exec rake spec
-\end{lstlisting}
+\end{minted}
 
 Die Tests für das Grafana-Profil sehen wie folgt aus:
 
-\begin{listing}[H]
+\begin{center}
   \inputminted{ruby}{../listings/rspec-grafana.txt}
-  \caption{Tests für das Grafana-Profil}
-\end{listing}
+  \captionof{listing}{Tests für das Grafana-Profil}
+\end{center}
 
 Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana-Profil auf
 diesen zu testen. Jedes Betriebssystem besitzt betriebssystemspezifische
@@ -3338,7 +3356,7 @@ kann der Entwickler diesen Code erneut anpassen und testen. Nachfolgend sind
 zwei Tests für einen Akzeptanztest für das Modul collectd angehangen. Der
 vollständige Test ist dem Anhang~\ref{lst:collectd-test}beigefügt.
 
-\begin{listing}[]
+\begin{listing}
   \inputminted{ruby}{../listings/acceptance-test.txt}
   \caption{Zwei Akzeptanztests für collectd}
 \end{listing}
@@ -3377,7 +3395,7 @@ anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Diese Arbeit
 wurde keinem anderen Prüfungsausschuss in gleicher oder vergleichbarer Form
 vorgelegt.
 
-\vfill
+\vspace{10ex}
 {\centering
 \renewcommand{\arraystretch}{0.9}
 \begin{tabular}{p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}p{0.05\textwidth}p{0.25\textwidth}}
