@@ -1899,6 +1899,7 @@ Negativ:
   \1 Webdesign kann nicht angepasst werden
   \1 Nur zwei Webtemplates verfügbar (dark/white)
 \end{outline}
+\mr%
 
 \subsubsection{Graphite}
 \label{subsubsec:graphite}
@@ -1951,7 +1952,7 @@ Negativ:
   \1 Webdesign kann nicht angepasst werden
   \1 Besteht aus mehreren Diensten, wie graphite-web und carbon-cache
 \end{outline}
-
+\mr%
 
 \subsubsection{Zabbix-Frontend}
 \label{subsubsec:zabbix-frontend}
@@ -2004,6 +2005,7 @@ Negativ:
 \begin{outline}
   \1 Keine Möglichkeit, das Webdesign anzupassen
 \end{outline}
+\mr%
 
 \subsubsection{Datadog}
 \label{subsubsec:datadog}
@@ -2054,6 +2056,7 @@ Negativ:
   \1 Keine Möglichkeit der Anbindung an einen externen Verzeichnisdienst zur
   Benutzerauthentifizierung.
 \end{outline}
+\mr%
 
 \subsubsection{Gridster-D3}
 \label{subsubsec:gridster-d3}
@@ -2107,6 +2110,7 @@ Negativ:
   \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
   nicht gewährleistet
 \end{outline}
+\mr%
 
 Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für das Web
 Frontend sind folgende drei Weboberflächen in die nähere Auswahl genommen
@@ -2735,7 +2739,7 @@ Abschnitt~\ref{subsec:graphen-definieren} wird hier genauer auf die Erstellung
 von Graphen eingegangen. Im nachfolgenden ist ein Beispiel für eine solche
 Abfrage:
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{../figures/graph.png}
   \caption{Beispielabfrage für eine Graphenvisualisierung}
@@ -2823,44 +2827,49 @@ der Graph für die Prozessor Auslastung definiert. Unter dem Punkt
 \texttt{General} können alle Einstellungen für das Aussehen des Graphen
 hinterlegt und angepasst werden. Ebenfalls können Verlinkungen zu anderen
 Dashboards oder direkten URL Adressen hinterlegt werden. Diese werden
-anschließend, wie im Anhang~\ref{figure:grafana_description}  dargestellt. Dies
+anschließend, wie im Anhang~\ref{figure:grafana_description} dargestellt. Dies
 dient zur besseren Übersichtlichkeit, wenn ein Administrator oder die
 Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt werden nun
 die einzelnen Graphen definiert.
+\mr%
 
 \subsubsection{Metrics}
 Hierzu muss unter \texttt{Metrics} zunächst ausgewählt werden, von welcher
 Datenquelle die erhaltenen Daten stammen und anschließend über \texttt{Add
-Query} hinzugefügt werden. Hier wird zunächst eine Art \texttt{SELECT}
-\gls{SQL}-Abfrage hinterlegt, welche für die entsprechende Anforderung
-angepasst werden kann. Innerhalb der SQL-Abfrage wird definiert, von wo die
-erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen. Ebenfalls
-kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb einer Gruppe zusammen
-definiert werden. In dem Projekt wird für die Daten Erhaltung eine
-API~\gls{API} Schnittstelle verwendet, welche im Laufe des Projektes entwickelt
-und entworfen worden ist. Die API liefert hier einen \gls{JSON}-Objekt zurück.
-Damit Grafana dieses als Datenquelle verwenden kann, muss hier zuvor noch ein
-Plugin installiert werden. Es stehen viele verschiedene Plugins auf der Grafana
-Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung,
-sowie eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die
-Plugins werden hier über einen Kommandozeilenbefehl installiert. Anschließend
-kann unter Datenquelle die API angesprochen werden. Sie wird nicht mittels
-einer SQL-Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle. Diese
-muss im Anschluss unter dem Punkt \texttt{Metrics} ausgewählt und hinzugefügt
-werden. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics}
-beigefügt.
+Query} hinzugefügt werden. Grafana unterstützt unter anderem viele verschiedene
+Datenquellen, wie zum zum Beipsiel OpenTSDB~\ref{subsubsec:opentsdb} oder
+Elasticsearch~\ref{subsubsec:elasticsearch}. In dem Projekt wird für die Daten
+Erhaltung eine HTTPS-API~\gls{API} Schnittstelle verwendet, welche im Laufe des
+Projektes entwickelt und entworfen worden ist. Die HTTPS-API liefert hier ein
+\gls{JSON}-Objekt zurück. Damit Grafana dieses als Datenquelle verwenden kann,
+muss hier zuvor noch ein Plugin installiert werden. Es stehen viele
+verschiedene Plugins auf der Grafana Webseite zur Verfügung. Zu jedem Plugin
+gibt es hier eine kurze Erläuterung, sowie eine Schritt für Schritt Anleitung
+zur Installation dieses Plugins. Die Plugins werden hier über einen
+Kommandozeilenbefehl installiert. Anschließend kann unter Datenquelle die
+HTTPS-API angesprochen werden. Sie wird nicht mittels einer SQL-Abfrage
+abgerufen, sondern über eine \gls{HTTPS} Schnittstelle. Innerhalb der API
+werden bereits vordefinierte Werte zurückgegeben. Wenn hier als Datenquelle
+eine Datenbank angesprochen werden soll, so kann hier zunächst eine Art
+\texttt{SELECT} \gls{SQL}-Abfrage hinterlegt werden. Innerhalb der SQL-Abfrage
+wird definiert, von wo die erhaltenen Daten stammen, sowie welche Werte
+abgerufen werden sollen. Ebenfalls kann diese SQL Abfrage mit anderen SQL
+Abfragen innerhalb einer Gruppe zusammen definiert werden. Ein Beispiel hierzu
+ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 
 Nun sind bereits einzelne Werte im Graphen visualisiert. Nachdem nun
 die Grundeinstellung für die Graphen konfiguriert wurde, können anschließend
 weitere Feineinstellungen durchgeführt werden.
+\mr%
 
 \subsubsection{Axes}
 Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine
-Beschriftung für die Y- oder X-Achse benötigt wird. Zur Verdeutlichung ist dem
+Beschriftung für die X- oder Y-Achse benötigt wird. Zur Verdeutlichung ist dem
 Anhang~\ref{figure:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
 hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
 erhaltenen Werte aus der Datenbank oder der API sind meist nur Ganz- oder
 Kommazahlen Werte, welche keine Einheiten übergeben bekommen.
+\mr%
 
 \subsubsection{Legend}
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
@@ -2869,17 +2878,18 @@ und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
 Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
 unmittelbar unterhalb des Graphen und soll für eine bessere Übersichtlichkeit
 für den Administrator dienen, da dieser die Minimalen- und Maximalenwerte
-welche innerhalb der Analyse ausgegeben worden sind sehen kann.  Ein Beispiel
+welche innerhalb der Analyse ausgegeben worden sind sehen kann. Ein Beispiel
 hierzu ist dem Anhang~\ref{figure:grafana_legend} beigefügt.
+\mr%
 
 \subsubsection{Display}
-Nachdem nun die \texttt{Axes} und \texttt{Legend} angepasst worden sind, gibt
-es unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten,
-\texttt{Draw options}, \texttt{Series overrides} und \texttt{Thresholds}. Der
-Aufbau hiervon kann dem Anhang~\ref{grafana_display} entnommen werden. Unter
-dem Punkt \texttt{Draw options} kann das Aussehen des Graphen angepasst werden.
-So kann bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt
-hinterlegt werden. Ebenso kann definiert werden, ob der Graph zur besseren
+Nachdem nun die Axenbeschriftung und Legende angepasst worden sind, gibt es
+unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten, \texttt{Draw
+options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau hiervon
+kann dem Anhang~\ref{figure:grafana_display} entnommen werden. Unter dem Punkt
+\texttt{Draw options} kann das Aussehen des Graphen angepasst werden.  So kann
+bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt hinterlegt
+werden. Ebenso kann definiert werden, ob der Graph zur besseren
 Übersichtlichkeit mit Farbe gefüllt werden soll oder die Breite der Linien des
 Graphen. Hier gibt es ebenfalls noch den Punkt, den Graphen als Balkendiagramm
 zu visualisieren. Diese Einstellungen werden für alle Graphen innerhalb der
@@ -2887,11 +2897,12 @@ Visualisierung durchgeführt. Um dies für jeden einzelnen Graphen anpassen zu
 können, gibt es den Punkt \texttt{Series Overrides}. In diesem können die
 Einstellungen, welche ebenfalls in \texttt{Draw options} definiert werden
 können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es zu
-diesem Menüpunkt noch den Punkt \texttt{Thresholds}. \texttt{Thresholds} sind
-Markierungen, innerhalb des Graphens, wenn ein kritischer Wert erreicht worden
-ist. Diese dienen dazu auf einem Blick zu erkennen, ob es hier Probleme gibt,
-oder alles in Ordnung ist. Im Anhang~\ref{figure:grafana_thresholds} ist ein
-Bild beigefügt, welches dies einmal verdeutlicht.
+diesem Menüpunkt noch den Punkt \texttt{Thresholds}.Dies sind Markierungen,
+innerhalb des Graphens, wenn ein kritischer Wert erreicht worden ist. Diese
+dienen dazu auf einem Blick zu erkennen, ob es hier Probleme gibt, oder alles
+in Ordnung ist. Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild
+beigefügt, welches dies einmal verdeutlicht.
+\mr%
 
 \subsubsection{Alert}
 Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden
@@ -2906,10 +2917,11 @@ für die Benachrichtigung definiert werden. Ein Beispiel hierzu ist dem
 Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung, die Konfiguriert
 werden kann, muss entwender einen Min-, Max- oder Durschchnittswert
 beeinhalten, ab wann diese Bedingung erfüllt ist. Sobald diese Bedingung
-erfüllt ist, wird entsprechend eine Benachrichtigung versendet.  Diese wird
+erfüllt ist, wird entsprechend eine Benachrichtigung versendet. Diese wird
 entweder mit einem Standardtext versendet oder kann über den Punkt
 \texttt{Notifications} individuell angepasst werden. Hier kann ebenfalls
 hinterlegt werden, über welchen Weg die Benachrichtung erfolgen soll.
+\mr%
 
 \subsubsection{Time range}
 Im letzten Punkt \texttt{Time range} kann der Intervall der Visualisierung für
