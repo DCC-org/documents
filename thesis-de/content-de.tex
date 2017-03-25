@@ -2807,7 +2807,7 @@ heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
 übergeben. Das Puppet Profil prüft hier den Login auf die Weboberfläche nicht,
 da es davon ausgeht, dass die Weboberfläche nach dem Neustart von Grafana
 unmittelbar danach erreichbar ist. Das Problem liegt hier nicht in der
-grafana.pp, sondern in dem eigentlichen Puppet Modul, welches uns die
+grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
 bereitstellt. Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
 erstellt~\cite{grafana-issue}.
@@ -2837,8 +2837,9 @@ die einzelnen Graphen definiert.
 Hierzu muss unter \texttt{Metrics} zunächst ausgewählt werden, von welcher
 Datenquelle die erhaltenen Daten stammen und anschließend über \texttt{Add
 Query} hinzugefügt werden. Grafana unterstützt unter anderem viele verschiedene
-Datenquellen, wie zum zum Beipsiel OpenTSDB~\ref{subsubsec:opentsdb} oder
-Elasticsearch~\ref{subsubsec:elasticsearch}. In dem Projekt wird für die Daten
+Datenquellen, wie zum Beipsiel OpenTSDB(siehe
+Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch(siehe
+Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
 Erhaltung eine HTTPS-API~\gls{API} Schnittstelle verwendet, welche im Laufe des
 Projektes entwickelt und entworfen worden ist. Die HTTPS-API liefert hier ein
 \gls{JSON}-Objekt zurück. Damit Grafana dieses als Datenquelle verwenden kann,
