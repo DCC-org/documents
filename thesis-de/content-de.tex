@@ -2578,20 +2578,20 @@ Datenobjekt eingefügt und kurzzeitig zwischengespeichert. Dieses Datenobjekt
 hat dabei keinerlei Anforderungen an die gelieferten Daten, und nimmt sie
 zunächst einfach auf, sodass diese nicht verloren gehen. Sollten dabei
 Daten nicht vollständig übermittelt werden oder während der Übertragung die
-Datenquelle ausfallen, bzw. andere Fehler entstehen, ist dies zunächst für den
-eigentlichen Wirkbetrieb, also das Halten der vollständigen Daten und dem
-Ausliefern der Daten an andere Systeme/API, nicht relevant. Durch die Trennung
-der Systeme, bzw. den einzelnen Aufgabenfeldern, ist nur der Verlust von neuen
-Daten das größte Risiko. Ein Systemabsturz durch dauerhafte Fehler beim
-Datenschreiben ist somit vermieden.
+Datenquelle ausfallen, beziehungsweise andere Fehler entstehen, ist dies
+zunächst für den eigentlichen Wirkbetrieb, also das Halten der vollständigen
+Daten und dem Ausliefern der Daten an andere Systeme/API, nicht relevant.
+Durch die Trennung der Systeme, beziehungsweise den einzelnen Aufgabenfeldern,
+ist nur der Verlust von neuen Daten das größte Risiko. Ein Systemabsturz durch
+dauerhafte Fehler beim Datenschreiben ist somit vermieden.
 
 Sollten nun Daten in dem genannten allgemeinen Datenobjekt vorhanden sein,
 beginnt der Transformations-Teil. Dabei greift ein weiterer Algorithmus auf
 die zwischengespeicherten Daten zu und vergleicht die Inhalte von jedem neuen
-Datensatz mit einem \gls{Repositorium}, bzw. einem von dem Projektteam
-definierten Metadatensatz. Dieser dient dazu, eine spezifische Definition von
-allen in dem Datenhaltsungssystem vorhandenen Daten zu besitzen. Er wird
-entsprechend als Dokumentationsbasis genutzt, sodass ein Nutzer genau
+Datensatz mit einem \gls{Repositorium}, beziehungsweise einem von dem
+Projektteam definierten Metadatensatz. Dieser dient dazu, eine spezifische
+Definition von allen in dem Datenhaltsungssystem vorhandenen Daten zu besitzen.
+Er wird entsprechend als Dokumentationsbasis genutzt, sodass ein Nutzer genau
 nachvollziehen kann, in welcher Struktur und an welchem Ort die Daten in dem
 Datenhaltsungssystem abgespeichert sind. Gleichzeitig besitzt das Projektteam
 und der spätere Administrator im Wirkbetrieb die Möglichkeit den Dateninput
@@ -2634,10 +2634,10 @@ nur zwei Attribute besitzt. Bei beiden Attributen handelt es sich um ein
 JSON Objekt. Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz.
 Das ist zum Beispiel eine generierte ID, um den Datensatz spezifisch
 selektieren zu können, oder die Informationen seit wann der Datensatz
-in der Datenhaltung existiert, bzw. wann und von welchem System angefasst
-wurde. Zweites JSON Objekt/Attribut beinhaltet den eigentlichen Datensatz,
-also die werthaltigen Informationen, welche auch später analysiert werden.
-Die Inhalte des Attributes werden klar in dem Metadatensatz definiert.
+in der Datenhaltung existiert, beziehungsweise wann und von welchem System
+angefasst wurde. Zweites JSON Objekt/Attribut beinhaltet den eigentlichen
+Datensatz, also die werthaltigen Informationen, welche auch später analysiert
+werden. Die Inhalte des Attributes werden klar in dem Metadatensatz definiert.
 Der Vorteil dieser Datenspeicherung ist zum einen die Effizienz des
 Speicherplatzes sowie Geschwindigkeit und zum anderen das Zusammenhalten der
 zugehörigen Informationen. Desweiteren können in diesem Model sehr einfach neue
@@ -2709,11 +2709,11 @@ Für den Zugriff auf die in dem Datenhaltsungssystem vorhandenen Daten wurde von
 dem Projektteam eine weitere Sicherheitsebene eingefügt. Diese definiert, dass
 ein Systembenutzer, also ein Account, welcher Daten von dem System abfragt,
 keinen direkten Zugriff auf Tabellen im Datenhaltsungssystem erhält.
-Stattdessen wird für jeden Anwendungsfall, also jede Datenbankabfrage, bzw.
-analytische Fragestellung, eine eigene Postgres-Funktion bereitgestellt.
-Der Systembenutzer kann dabei ausschließlich die für ihn freigeschalteten
-Funktionen ausführen. Bei dem Systembenutzer für die API sind dies zum Beispiel
-nur Funktionen zur Abfrage von definierten Daten.
+Stattdessen wird für jeden Anwendungsfall, also jede Datenbankabfrage,
+beziehungsweise analytische Fragestellung, eine eigene Postgres-Funktion
+bereitgestellt. Der Systembenutzer kann dabei ausschließlich die für ihn
+freigeschalteten Funktionen ausführen. Bei dem Systembenutzer für die API sind
+dies zum Beispiel nur Funktionen zur Abfrage von definierten Daten.
 
 Dieses Verfahren hat den großen Vorteil, dass wenn einer der Systembenutzer
 entfremdet wird, dieser keinen Schaden an dem Datenhaltsungssystem ausüben
@@ -2742,20 +2742,21 @@ definieren und durchführen kann.
 
 Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
 definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
-von einem anderem System zugeschickt bekommt, bzw. zuschickt. Da sich das
-Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert, wurde
-mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet Grafana
-nur mit vier URL's (Endpunkte) der API. Die erste ist dafür zuständig zu
-prüfen, ob das API-System überhaupt erreichbar, bzw. vorhanden ist. Die zweite
-wird genutzt, um an dem API System anzufragen, welche Daten es besitzt. Die
-dritte führt die eigentlichen Datenanfragen, basierend auf der zweiten URL,
-aus und liefert die zu anzeigenden Daten zurück. Die letztere ermöglicht es,
-einzelne Informationen in einem Graphen hervor zu heben. Alle vier URL's
-besitzen eine eigene Anfrage-Methode und Datenstruktur an der API und erwarten
-auch unterschiedliche Antworten von der API in Struktur und Inhalt.
+von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt. Da
+sich das Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert,
+wurde mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet
+Grafana nur mit vier URL's (Endpunkte) der API\@. Die erste ist dafür zuständig
+zu prüfen, ob das API-System überhaupt erreichbar, beziehungsweise vorhanden
+ist. Die zweite wird genutzt, um an dem API System anzufragen, welche Daten es
+besitzt. Die dritte führt die eigentlichen Datenanfragen, basierend auf der
+zweiten URL, aus und liefert die zu anzeigenden Daten zurück. Die letztere
+ermöglicht es, einzelne Informationen in einem Graphen hervor zu heben. Alle
+vier URL's besitzen eine eigene Anfrage-Methode und Datenstruktur an der API
+und erwarten auch unterschiedliche Antworten von der API in Struktur und
+Inhalt.
 
 Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
-Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API. Dies
+Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API\@. Dies
 hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage bei
 dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die
 im Punkt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
