@@ -1,4 +1,8 @@
-\lstinputlisting[caption={atop ASCII Logausgabe},label=lst:atop]{../listings/atop.txt}
+\begin{listing}
+  \inputminted[fontsize=\small]{text}{../listings/atop.txt}
+  \caption{atop ASCII Logausgabe}
+  \label{lst:atop}
+\end{listing}
 \begin{listing}
   \inputminted{js}{../listings/logstash-conf.txt}
   \caption{Logstash Konfigurationsdatei}
@@ -19,7 +23,11 @@
   \caption{Manuelle Partitionierung Postgres}
   \label{lst:postgressample}
 \end{listing}
-\lstinputlisting[caption={Test Ausgabe der Unit Tests}]{../listings/output-unittest.txt}
+\begin{listing}
+  \inputminted{text}{../listings/output-unittest.txt}
+  \caption{Test-Ausgabe der Unit-Tests}
+  \label{lst:output-unittests}
+\end{listing}
 \begin{listing}
   \inputminted{ruby}{../listings/full-acceptance-test.txt}
   \caption{Vollständiger Akzeptanztest für das Modul collectd}
@@ -30,4 +38,3 @@
   \caption{Beispieldatei für eine Betriebssystem definition}
   \label{lst:def-centos}
 \end{listing}
-
