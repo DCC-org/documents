@@ -2660,23 +2660,18 @@ durch den Administrator. Dabei werden über einen Index Datenbereiche definiert,
 welche logisch voneinander getrennt werden. Mit nachfolgendem Code-Prototyp
 kann solch eine Trennung im groben vom Administrator definiert werden.
 
-\begin{listing}
-  \inputminted{sql}{../listings/postgres-part-sample.txt}
-  \caption{Manuelle Partitionierung Postgres}
-\end{listing}
-
-In diesem Prototypen wird eine Haupttabelle in zwei Kinder-Tabellen aufgeteilt.
-Diese Kinder-Tabellen halten dabei bestimmte definierte Datenbereiche. In
-diesem Prototypen enthält die Kinder-Tabelle
-\texttt{measurement\_xMINUS12Hour} nur Datensätze bei denen der Zeitstempel
-der beinhalteten Daten zwischen dem aktuellen Zeitpunkt und dem aktuellen
-Zeitpunkt minus 12 Stunden liegt. Die zweite Kinder-Tabelle beinhaltet
-wiederrum nicht die Daten von der ersten Kinder-Tabelle, sondern nur alle Daten
-welche einen Zeitstempel innerhalb eines Tages besitzen. Diese Art von
-Partitionierung kann auf jedem beliebigen Attribut angewendet werden, sodass
-zum Beispiel auch noch CPU-Daten von RAM-Daten getrennt werden. Der Anwender
-oder Analyst der Haupttabelle merkt dabei nicht, dass die verwendete Tabelle
-partitioniert ist. Für die vollständige Implementierung wurden von dem
+Unter dem im Anhang~\ref{lst:collectd-test} beigefügten Prototypen wird eine
+Haupttabelle in zwei Kinder-Tabellen aufgeteilt. Diese Kinder-Tabellen halten
+dabei bestimmte definierte Datenbereiche. In diesem Prototypen enthält die
+Kinder-Tabelle \texttt{measurement\_xMINUS12Hour} nur Datensätze bei denen der
+Zeitstempel der beinhalteten Daten zwischen dem aktuellen Zeitpunkt und dem
+aktuellen Zeitpunkt minus 12 Stunden liegt. Die zweite Kinder-Tabelle
+beinhaltet wiederrum nicht die Daten von der ersten Kinder-Tabelle, sondern nur
+alle Daten welche einen Zeitstempel innerhalb eines Tages besitzen. Diese Art
+von Partitionierung kann auf jedem beliebigen Attribut angewendet werden,
+sodass zum Beispiel auch noch CPU-Daten von RAM-Daten getrennt werden. Der
+Anwender oder Analyst der Haupttabelle merkt dabei nicht, dass die verwendete
+Tabelle partitioniert ist. Für die vollständige Implementierung wurden von dem
 Projektteam jedoch auch noch weitere Funktionen programmiert und implementiert.
 Darunter ist zum Beispiel das Verhalten der Datenbank bei dem Einfügen von
 Daten mit einem älteren Zeitstempel.
