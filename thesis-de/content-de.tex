@@ -2558,7 +2558,7 @@ Nutzer wird für den im Punkt~\ref{subsec:postgres_etl} beschriebenen ETL-Prozes
 im Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
 
 Neben den durchgeführten Aufgaben an dem Postgres-Server wurde bei
-den Teammitglieder jeweils die benötigte Entwicklerumgebung aufgesetzt
+den Teammitgliedern jeweils die benötigte Entwicklerumgebung aufgesetzt
 und eingerichtet. Mit dieser und zusammen mit einem berechtigten Nutzer,
 können die Teammitglied an den Inhalten der Datenbank arbeiten. 
 \nl%
@@ -2569,7 +2569,7 @@ Durch das fehlschlagen der Anbindung eines Message Busses an die Datenerfassung
 musste eine alternative Möglichkeit der Informationsintegration zwischen der
 Datenhaltung und Datenerfassung entwickelt werden. Dazu wurde ein vollständig
 eigener Extraktions-, Transformations- und Ladeprozess (ETL) in das System
-implementiert. Die konkrete Umsetzung erfolgte durch das hinzufügen von einem
+implementiert. Die konkrete Umsetzung erfolgte durch das Hinzufügen von einem
 eigenem Arbeitsbereich zwischen der Datenquelle und der Zieldatenbank.
 
 Dabei findet der Extraktions-Teil zwischen dem erstellten Arbeitsbereich und
@@ -2667,19 +2667,19 @@ kann solch eine Trennung im groben vom Administrator definiert werden.
 
 In diesem Prototypen wird eine Haupttabelle in zwei Kinder-Tabellen aufgeteilt.
 Diese Kinder-Tabellen halten dabei bestimmte definierte Datenbereiche. In
-diesem Prototypen enthält die Kinder-Tabelle \texttt{measurement_xMINUS12Hour}
-nur Datensätze bei denen der Zeitstempel der beinhalteten Daten zwischen dem
-aktuellen Zeitpunkt und dem aktuellen Zeitpunkt minus 12 Stunden liegt. Die
-zweite Kinder-Tabelle beinhaltet wiederrum nicht die Daten von der ersten
-Kinder-Tabelle, sondern nur alle Daten welche einen Zeitstempel innerhalb
-eines Tages besitzen. Diese Art von Partitionierung kann auf jedem beliebigen
-Attribut angewendet werden, sodass zum Beispiel auch noch CPU-Daten von
-RAM-Daten getrennt werden. Der Anwender oder Analyst der Haupttabelle merkt
-dabei nicht, dass die verwendete Tabelle partitioniert ist. Für die
-vollständige Implementierung wurden von dem Projektteam jedoch auch noch
-weitere Funktionen programmiert und implementiert. Darunter ist zum Beispiel
-das Verhalten der Datenbank bei dem Einfügen von Daten mit einem älteren
-Zeitstempel.
+diesem Prototypen enthält die Kinder-Tabelle
+\texttt{measurement\@_xMINUS12Hour} nur Datensätze bei denen der Zeitstempel
+der beinhalteten Daten zwischen dem aktuellen Zeitpunkt und dem aktuellen
+Zeitpunkt minus 12 Stunden liegt. Die zweite Kinder-Tabelle beinhaltet
+wiederrum nicht die Daten von der ersten Kinder-Tabelle, sondern nur alle Daten
+welche einen Zeitstempel innerhalb eines Tages besitzen. Diese Art von
+Partitionierung kann auf jedem beliebigen Attribut angewendet werden, sodass
+zum Beispiel auch noch CPU-Daten von RAM-Daten getrennt werden. Der Anwender
+oder Analyst der Haupttabelle merkt dabei nicht, dass die verwendete Tabelle
+partitioniert ist. Für die vollständige Implementierung wurden von dem
+Projektteam jedoch auch noch weitere Funktionen programmiert und implementiert.
+Darunter ist zum Beispiel das Verhalten der Datenbank bei dem Einfügen von
+Daten mit einem älteren Zeitstempel.
 
 Bei der manuellen Partitionierung kann ein Administrator jedoch auch durch die
 Stärke der Partitionierungs-Intervalle an Optimierung verlieren, oder sogar das
