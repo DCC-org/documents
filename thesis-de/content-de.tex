@@ -255,13 +255,16 @@ dass sie eine aktive Community haben und unter einer Open-Source-Lizenz stehen.
 \label{section:datenerfassungssysteme}
 Unterschiedliche Ausbaustufen für virtuelle Maschinen werden über mehrere
 verschiedene Ressourcen, die sich in ihrer Leistungsklasse unterscheiden,
-differenziert. Diese Typen müssen für jede virtuelle Maschine ausgelesen werden.
-Als Referenz werden die Typen der größten deutschen Anbieter nachweis! für
+differenziert. Diese Typen müssen für jede virtuelle Maschine ausgelesen
+werden.  Als Referenz werden die Typen der größten deutschen Anbieter für
 virtuelle Maschinen genommen. Diese sind aktuell:
 
-Zugewiesener Arbeitsspeicher, Anzahl/Leistung der Prozessorkerne, Durchsatz des
-Datenträgers, Anbindung an das Internet, Nachweis via scrots fachwörter
-referenz?
+\begin{outline}
+  \1 Zugewiesener Arbeitsspeicher
+  \1 Anzahl/Leistung der Prozessorkerne
+  \1 Durchsatz des Datenträgers
+  \1 Anbindung an das Internet
+\end{outline}
 
 Diese Werte müssen sowohl in den virtuellen Maschinen als auch auf dem Host
 ermittelt werden können. Im Bereich Managed Hosting hat der Hoster Zugriff in
@@ -398,10 +401,6 @@ Projekt arbeitet. Die Durchführung von täglichen Besprechungen ist somit nicht
 möglich. Scrum erlaubt es nicht, einzelne Elemente des Systems nicht zu nutzen
 oder zu modifizieren. Somit kann in diesem Projekt nicht nach Scrum gearbeitet
 werden~\cite{scrum_talk}.
-\tm%
-
-\subsection{Kanban}
-bla
 \tm%
 
 \section{Agile Vorgehensweise im Projekt}
@@ -1481,7 +1480,7 @@ den konsolidierten Metadaten des Hadoop-Systems, benötigt jedoch auch die
 Verknüpfung (Interface) eines Strukturmodells. In den meisten Fällen kommt
 dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von Apache Hive
 Eins-zu-eins übernehmen und ausführen. Es kann jedoch auch ohne einem Apache
-Hive Systems ausgeführt werden. 
+Hive Systems ausgeführt werden.
 
 Apache Impala wird eingesetzt, um die Schnelligkeit der Datenabfragen auf einem
 Hadoop-System zu verbessern. Es wird dabei auf jedem Data Node installiert.
@@ -1500,7 +1499,7 @@ zusammengesetzten Daten liefert dieser anschließend an die SQL-Applikation
 zurück und der gesamte Prozess ist abgeschlossen.
 
 Durch das Nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie der
-gleichzeitigen Nutzung des Hadoop-Map-Reduce-Verfahrens, werden die 
+gleichzeitigen Nutzung des Hadoop-Map-Reduce-Verfahrens, werden die
 Datenabfragen um ein Vielfaches beschleunigt. Da die Leistung des Clusters
 durch mehrere Faktoren beeinflusst wird, kann keine exakte Angabe der
 Performanceverbesserung geliefert werden. Diese Faktoren sind zum Beispiel die
@@ -1682,7 +1681,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Community für Diskussionen und Fragen besitzen.
   \1 Das API-System sollte nicht von einem einzelnem Betriebssystem abhängig
   sein. Das bedeutet, dass die API auf jedem beliebigen Betriebssystem
-  vollständig und zuverlässig ausgeführt und arbeiten kann. 
+  vollständig und zuverlässig ausgeführt und arbeiten kann.
 \end{outline}
 \nl%
 
@@ -2618,7 +2617,7 @@ im Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
 Neben den durchgeführten Aufgaben an dem Postgres-Server wurde bei
 den Teammitgliedern jeweils die benötigte Entwicklerumgebung aufgesetzt
 und eingerichtet. Mit dieser und zusammen mit einem berechtigten Nutzer,
-können die Teammitglieder an den Inhalten der Datenbank arbeiten. 
+können die Teammitglieder an den Inhalten der Datenbank arbeiten.
 \nl%
 
 \subsection{ETL}
@@ -2678,7 +2677,7 @@ wird dies von dem Lade-Algorithmus erkannt und das Einfügen der Daten
 hinten angestellt. Für diesen Teil besitzt die Postgres Datenbank bereits
 vorhandene Frameworks, welche von dem Projektteam genutzt werden. Somit muss
 das Management der Prozessabarbeitung innerhalb des Datenhaltsungssystem nicht
-selber entwickelt, sondern nur eingebunden werden. 
+selber entwickelt, sondern nur eingebunden werden.
 \nl%
 
 \subsection{Repositorium}
@@ -2747,7 +2746,7 @@ Methode jedoch nicht verringert. Die manuelle Partionierung hat einen
 kontinuierlich gleich bleibenden administrativen Aufwand. Bei der
 automatisierten Partionierung muss vorallem zu Begin mehr Zeit investiert
 werden. Erst bei der optimalen Einstellung der Konfigurationsmöglichkeiten
-verringert sich der administrative Aufwand deutlich. 
+verringert sich der administrative Aufwand deutlich.
 
 Das Projektteam hat sich entschieden die automatische Partionierung zu wählen.
 Dies gewährleistet nicht nur eine dauerhaft schnelle Datenhaltung, sondern ist
@@ -3369,6 +3368,57 @@ eigenen Datei, in der definiert ist, mit welcher virtuellen Maschine oder
 Container dieser Code ausgeführt werden soll. Im Anhang~\ref{lst:def-centos}
 ist eine solche Datei beigefügt.
 \mr%
+
+\chapter{Ausblick}
+Im Projekt wurde eine solide und modulare Architektur erstellt. Sie erfüllt
+alle Anforderungen, bietet aber auch noch diverse Möglichkeiten für
+weitere Optimierungen oder Erweiterungen.
+\tm%
+
+\section{Alerting}
+Es ist nicht Bestandteil des Projektes, bei bestimmten Schwellwerten
+Benachrichtigungen zu verschicken. Das komplette Setup ist darauf ausgelegt,
+reaktiv und nicht aktiv zu arbeiten. Grafana bietet die Möglichkeit des
+Alertings. Dabei können Schwellwerte für bestimmte Metriken definiert werden.
+Sobald diese erreicht werden, wird eine Benachrichtigung verschickt. Dies kann
+über verschiedenste Kommunikationswege erfolgen. Denkbar ist es, Kunden zu
+informieren, wenn Ihr virtueller Server am oberen Ressourcenlimit läuft. Es
+könnte auch der Vertrieb informiert werden, welcher dann dem Kunden eine
+größere Instanz verkaufen kann.
+\tm%
+
+\section{Quality of Service}
+Logstash arbeitet im \texttt{Batch-Mode}. Dies bedeutet, das es mehrere Werte
+pro Prozess cached und diese dann gebündelt in einem SQL-Statement zur
+Datenbank schickt. Der Standardwert liegt bei 125 Werten und ist
+konfigurierbar. Es ist in bestimmten Konstellationen möglich, das Logstash
+mehrere Minuten lang Werte zwischenspeichert bevor sie zur Datenbank geschickt
+werden.  Dies passiert, wenn besonders viele Logstash Prozesse gestartet worden
+sind und wenig Daten von den Hypervisors kommen (zum Beispiel weil gerade viel
+VMs deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur
+durchgeführt wird). Wenn ein Kunde live seine Auslastung visualisieren möchte,
+dauert dies eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten.
+Zum einen kann der Zwischenspeicher verringert werden. Dies erhöht allerdings
+die Last auf der Datenbank, da dies zu wesentlich mehr SQL-Statements führt.
+Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden.
+Hierbei wird auf die eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser
+erlaubt es Daten zu filtern und in Kategorien einzuordnen. Für jede Kategorie
+kann die Größe des Zwischenspeichers definiert werden. Diese Filter kann man
+auch dynamisch aktivieren. Sobald ein Kunde eine Live-Visualisierung im Grafana
+startet, kann ein Grok Filter aktiviert werden. Dieser filtert Daten dieses
+Kunden heraus kategorisiert diese in eine QoS Queue mit einem Zwischenspeicher
+von 0. Somit wird jeder Datensatz von diesem Kunden direkt an die Datenbank
+weitergeleitet.
+\tm%
+
+\section{Cache Invalidation}
+Neben dem eingesetzten \texttt{Batch-Mode} gibt es noch eine weitere
+Arbeitsmethode in Logstash. Hierbei wird mit \texttt{Cache Invalidation}
+gearbeitet. Es wird ein Schwellwert gesetzt, der das maximale Alter des Caches
+beschreibt. Sobald die Daten den Schwellwert erreicht haben (zum Beispiel 5
+sekunden), werden sie zur Datenbank geschickt, auch wenn das Limit des
+Zwischenspeichers noch nicht erreicht ist.
+\tm%
 
 \chapter{Fazit}
 erster prototyp war blöd, zweiter war geil
