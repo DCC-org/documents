@@ -1908,28 +1908,29 @@ unterschiedliche Benutzer können sich an der Weboberfläche anmelden. Dies
 bedeutet, dass ein Login an der Weboberfläche über ein \gls{Active Directory}
 Konto oder lokalen Benutzer plus Kennwortkombination durchgeführt werden kann.
 Somit können zum Beispiel Mitarbeiter aus der Führungsebene eingeschränkte
-Zugriffe auf das System erhalten, um hier zum Beispiel Marketingstatistiken
-durchführen zu können. Zusätzlich zu der Abfrage mit Benutzernamen und Kennwort
-zur Anmeldung auf die Grafana Weboberfläche, ist Grafana API (siehe auch
-Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) fähig, dies bedeutet,
-dass das Datenhaltungssystem API Statements zur Verfügung stellen kann und
-hiermit Graphen visualisieren kann. Grafana kann über einen
-\gls{Datenbanktreiber} oder eine Schnittstelle in Form eines Treibers einfache
-Statements auf das Datenhaltungssystem durchführen, um die Daten abzugreifen.
-Es ist zusätzlich eine Open-Source-Software, wodurch der Quellcode angepasst
-und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen an
-bestimmte Kundenumgebungen. Dadurch entstehen auch keine Support-Kosten, da die
-Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode
-können hier Plugins zur Erweiterung der Software in der Programmiersprache Java
-entwickelt und in das System eingepflegt werden. Dies wird zum Beispiel dann
-benötigt, wenn weitere Graphen, Analysen oder ähnliches benötigt werden.
-Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
-Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
-veröffentlicht, somit haben auch andere Mitglieder von GitHub die Möglichkeit,
-das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
-Anwender erstellten Dashboards mit allen Graphen und Statements können vom
-System, wie auch vom Anwender selbst, auf einen externen Dateifreigabeserver
-oder lokal abgespeichert werden~\cite{grafana}.
+Zugriffe auf das System erhalten, um hier zum Beispiel Analysen durchführen zu
+können. Zusätzlich zu der Abfrage mit Benutzernamen und Kennwort zur Anmeldung
+auf die Grafana Weboberfläche, besitzt Grafana ein API (siehe auch
+Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) Plugin, welches
+installiert werden kann. Mit diesem API Plugin, ist es Grafana möglich, eine
+API ansprechen zu können. Dies bedeutet, dass das Datenhaltungssystem API
+Statements zur Verfügung stellen kann und hiermit Graphen visualisieren kann.
+Grafana kann über einen \gls{Datenbanktreiber} oder eine Schnittstelle in Form
+eines Treibers einfache Statements auf das Datenhaltungssystem durchführen, um
+die Daten abzugreifen.  Es ist zusätzlich eine Open-Source-Software, wodurch
+der Quellcode angepasst und verändert werden darf. Dies bedarf zum Beispiel bei
+Anpassungen an bestimmte Kundenumgebungen. Dadurch entstehen auch keine
+Support-Kosten, da die Software nicht als ein Dienst angeboten wird. Zusätzlich
+zu dem Quellcode können hier Plugins zur Erweiterung der Software in der
+Programmiersprache Java entwickelt und in das System eingepflegt werden. Dies
+wird zum Beispiel dann benötigt, wenn weitere Graphen, Analysen oder
+Datenquellen benötigt werden.  Grafana hat eine stetig wachsende Community mit
+sämtlichen Dokumenten zur Einrichtung oder Erweiterung des Systems. Der gesamte
+Quellcode ist auf GitHub veröffentlicht, somit haben auch andere Mitglieder von
+GitHub die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
+implementieren. Die vom Anwender erstellten Dashboards mit allen Graphen und
+Statements können vom System, wie auch vom Anwender selbst, auf einen externen
+Dateifreigabeserver oder lokal abgespeichert werden~\cite{grafana}.
 
 Zusammenfassung:
 
