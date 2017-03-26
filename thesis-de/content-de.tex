@@ -3221,6 +3221,16 @@ heraus, dass das Puppet Modul für Logstash nicht zu 100\% auf Archlinux
 funktioniert. Dies wurde vom Projektteam behoben. Der Fix wurde den Entwicklern
 in einem Pull Request zugeschickt (siehe~\cite{logstash-bug}).
 
+Die Konfiguration von collectd läuftsehr ähnlich ab. Es wurde wieder ein Puppet
+Profil erzeugt, dieses befindet sich unter~\ref{collectd-profile}. Dies
+installiert collectd, richtet dann das Netzwerk-Plugin ein, um Daten zu
+Logstash schicken zu können. Im Anschluss werden die verschiedenen Plugins zum
+Sammeln der Metriken aktiviert. Hierbei wurde festgestellt, dass das Puppet
+Modul für collectd keine sinnvollen Standardwerte für das Konfigurieren des
+collectd Repositorys besitzt. Dies wurde behoben und der Fix wieder den
+Entwicklern zur Verfügung gestellt (siehe~\cite{collectd-bug}).
+\tm%
+
 \chapter{Tests und Qualitätssicherung}
 Der genutzte sowie der selbst entwickelte Code ist äußerst komplex. Es
 muss von Anfang an sichergestellt werden, dass dieser Code nicht nur
