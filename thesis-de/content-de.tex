@@ -3216,7 +3216,10 @@ Profil geschrieben, dieses befindet sich unter~\ref{logstash-profile}. Es
 installiert Logstash, dann das JDBC Plugin für die Kommunikation mit der
 Datenbank. Hierfür wird noch der Postgres Treiber benötigt, dieser wird von der
 Postgres Webseite heruntergeladen. Zum Schluss wird die Logstash Konfiguration
-aus~\ref{lst:logstash} erzeugt und Logstash gestartet.
+aus~\ref{lst:logstash} erzeugt und Logstash gestartet. Hierbei stellte sich
+heraus, dass das Puppet Modul für Logstash nicht zu 100\% auf Archlinux
+funktioniert. Dies wurde vom Projektteam behoben. Der Fix wurde den Entwicklern
+in einem Pull Request zugeschickt (siehe~\cite{logstash-bug}).
 
 \chapter{Tests und Qualitätssicherung}
 Der genutzte sowie der selbst entwickelte Code ist äußerst komplex. Es
