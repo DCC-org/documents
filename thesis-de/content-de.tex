@@ -3208,9 +3208,15 @@ Werte abrufen können. Diese Einstellung kann individuell für jeden einzelnen
 Graphen unter \texttt{Time range} überschrieben werden.
 \mr%
 
-\section{Logstash}
-
-\section{collectd}
+\section{Logstash und collectd}
+Die Implementierung beider Komponenten gestaltet sich als sehr einfach. Für
+beide existiert ein fertiges Puppetmodul, außerdem sind die
+Konfigurationsoptionen überschaubar. Für Logstash wurde ein eigenes Puppet
+Profil geschrieben, dieses befindet sich unter~\ref{logstash-profile}. Es
+installiert Logstash, dann das JDBC Plugin für die Kommunikation mit der
+Datenbank. Hierfür wird noch der Postgres Treiber benötigt, dieser wird von der
+Postgres Webseite heruntergeladen. Zum Schluss wird die Logstash Konfiguration
+aus~\ref{lst:logstash} erzeugt und Logstash gestartet.
 
 \chapter{Tests und Qualitätssicherung}
 Der genutzte sowie der selbst entwickelte Code ist äußerst komplex. Es
