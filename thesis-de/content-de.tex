@@ -2601,6 +2601,110 @@ passend zu filtern und zu validieren. Eine Visualisierung des Prototypen
 findet sich unter~\ref{figure:draft2}.
 \tm%
 
+\section{Automatisierung mit Puppet}
+Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
+Konfigurationsmanagement- und Automatisierungs-Software. Sie erlaubt es in
+einer \glslink{Deklarative Programmiersprache}{deklarativen} \gls{DSL}, den
+gewünschten Systemzustand zu beschreiben. Die Software realisiert dies. In
+Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
+Automatisierung einer bestimmten Software benötigt wird. Über die Plattform
+\url{https://forge.puppet.com/} können diese Module ausgetauscht werden. Es
+existieren bereits Module zur Verwaltung von Postgres, collectd, Grafana und
+Logstash. Jedes Modul hat seinen eigenen \gls{Namespace} und bündelt ein oder
+mehrere Klassen. Informationen über ein Modul werden in der
+\texttt{metadata.json} Datei gespeichert. Diese befindet sich in jedem Modul
+und enthält folgende Informationen:
+
+\begin{outline}
+  \1 Name des Modules
+  \1 Autor
+  \1 Lizenz
+  \1 Link zum Quellcode
+  \1 Eine Kurzbeschreibung
+  \1 Liste der unterstützten Betriebssysteme
+  \1 Eine Liste an anderen Modulen, welche für den Betrieb dieses Moduls
+  benötigt werden
+  \1 Die unterstützten Puppetversionen
+\end{outline}
+\tm%
+
+\subsection{Strukturierung im puppet Code}
+In der DSL werden immer Ressourcen beschrieben. Es gibt verschiedene Typen von
+Ressourcen. Die wichtigsten sind:
+
+\begin{outline}
+  \1 Package - Verwaltet die Installation und Deinstallation von Paketen
+  \1 Service - Managt Dienste auf dem System
+  \1 File - Erstellt konfigurationsdateien und Verzeichnisse mit passenden
+  Rechten
+\end{outline}
+
+Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
+Ressource besteht aus drei Teilen:
+
+\begin{center}
+   \inputminted{puppet}{../listings/basic-resource.txt}
+   \captionof{listing}{Puppet package resource für htop}
+   \label{lst:puppet-resource}
+\end{center}
+
+Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
+Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
+Ressource muss einzigartig sein. In diesem Fall ist es der Name des Paketes,
+welches in der Version 2.0.2-1 installiert wird. Puppet bietet 48 verschiedene
+Typen. Diese sind fest in puppet verankert und werden von der Firma Puppet
+gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden. Für jeden
+Typen gibt es einen Provider. Dieser implementiert den Typen auf einer
+bestimmten Plattform. Das Grafana-Modul besitzt eigene Typen, welche Dashboards
+und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
+normale Textdateien, sondern über eine API oder Weboberfläche. Über die eigenen
+Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
+sondern auch die komplette Konfiguration
+automatisieren~\cite{puppet-resource-types}. Da puppet deklarativ und nicht
+imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
+analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert
+diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb nicht in der
+Reihenfolge abgearbeitet, in der sie notiert sind.
+
+Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
+verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
+Abstraktion kann Code sehr häufig wiederverwendet werden.
+
+In einem Puppet-Profil werden mehrere Module und Ressourcen deklariert, um eine
+bestimmte Aufgabe zu realisiern. Dieses Profil ist aus Sicht des Codes eine
+normale Klasse. Mehrere Profile werden in einem Modul gebündelt. Ein Profil
+wird einem oder mehreren Nodes zugewiesen. Im Rahmen des Projekts werden
+diverse Profile erzeugt, um die einzelnen benötigten Komponenten gebündelt zu
+automatisieren. Ein beispielhaftes Profil für Grafana findet sich
+unter~\ref{lst:grafana}. Dies installiert Grafana und richtet außerdem ein
+Dashboard und eine Datenquelle ein.
+\tm%
+
+\subsection{Ablauf eines Puppet Runs}
+Puppet kann nach dem \gls{Client-Server}-Prinzip arbeiten. Der Agent läuft
+dabei auf jedem System, welches verwaltet werden soll. Unterstützt werden neben
+Linux-Distributionen auch Windows, BSD, sowie diverse Hersteller von
+Netzwerkequipment. Periodisch ermittelt der Agent \glslink{Fact}{Facts} und
+sendet diese über eine \gls{HTTPS}-Verbindung zum Puppetserver. Anhand dieser
+Facts wird entschieden, welche Module zu einem Katalog zusammenkompiliert
+werden. Der Katalog wird dem Agent zurückgeschickt. Dieser analysiert sein
+vorhandenes System und gleicht es mit den Beschreibungen im Katalog ab. Sobald
+es hier zu Differenzen kommt, wird das System dem Katalog angeglichen. Jede
+durchgeführte Aktion kann reportet werden. Reports können lokal gespeichert
+oder zu einer zentralen Datenbank gesendet werden. Die Firma Puppet bietet
+außerdem die quelloffene PuppetDB an. Diese kann Reports speichern. Über eine
+\gls{RESTful} API kann man alle Reports analysieren und Abfragen. Zusätzlich
+können alle Facts dort gespeichert werden. Ein „Puppet Run“ beschreibt den
+kompletten Ablauf vom Auslesen der Facts bis zum Erstellen des Reports.
+
+Puppet kann auch ohne Puppetserver genutzt werden. Hier erfolgt der komplette
+Ablauf dann lokal. Die Module müssen auf dem Server vorhanden sein auf dem
+auch der Agent läuft. Er kompiliert sich dann seinen Katalog selbst. Diese
+Vorgehensweise bietet sich gerade während der Entwicklung an. In großen
+Produktivumgebungen mit vielen Modulen ist es oftmals sinnvoller, Puppetserver
+zu nutzen und nach dem Client-Server Prinzip zu arbeiten.
+\tm%
+
 \section{Postgres}
 Für die Implementierung der Postgres Datenbank wurde zunächst ein einzelner
 Server für die Bearbeitung der Anforderung aufgebaut und mit vier Nutzern
@@ -2819,110 +2923,6 @@ dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die
 im Punkt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
 auch in dem API-System integriert.
 \nl%
-
-\section{Automatisierung mit Puppet}
-Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
-Konfigurationsmanagement- und Automatisierungs-Software. Sie erlaubt es in
-einer \glslink{Deklarative Programmiersprache}{deklarativen} \gls{DSL}, den
-gewünschten Systemzustand zu beschreiben. Die Software realisiert dies. In
-Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
-Automatisierung einer bestimmten Software benötigt wird. Über die Plattform
-\url{https://forge.puppet.com/} können diese Module ausgetauscht werden. Es
-existieren bereits Module zur Verwaltung von Postgres, collectd, Grafana und
-Logstash. Jedes Modul hat seinen eigenen \gls{Namespace} und bündelt ein oder
-mehrere Klassen. Informationen über ein Modul werden in der
-\texttt{metadata.json} Datei gespeichert. Diese befindet sich in jedem Modul
-und enthält folgende Informationen:
-
-\begin{outline}
-  \1 Name des Modules
-  \1 Autor
-  \1 Lizenz
-  \1 Link zum Quellcode
-  \1 Eine Kurzbeschreibung
-  \1 Liste der unterstützten Betriebssysteme
-  \1 Eine Liste an anderen Modulen, welche für den Betrieb dieses Moduls
-  benötigt werden
-  \1 Die unterstützten Puppetversionen
-\end{outline}
-\tm%
-
-\subsection{Strukturierung im puppet Code}
-In der DSL werden immer Ressourcen beschrieben. Es gibt verschiedene Typen von
-Ressourcen. Die wichtigsten sind:
-
-\begin{outline}
-  \1 Package - Verwaltet die Installation und Deinstallation von Paketen
-  \1 Service - Managt Dienste auf dem System
-  \1 File - Erstellt konfigurationsdateien und Verzeichnisse mit passenden
-  Rechten
-\end{outline}
-
-Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
-Ressource besteht aus drei Teilen:
-
-\begin{center}
-   \inputminted{puppet}{../listings/basic-resource.txt}
-   \captionof{listing}{Puppet package resource für htop}
-   \label{lst:puppet-resource}
-\end{center}
-
-Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
-Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
-Ressource muss einzigartig sein. In diesem Fall ist es der Name des Paketes,
-welches in der Version 2.0.2-1 installiert wird. Puppet bietet 48 verschiedene
-Typen. Diese sind fest in puppet verankert und werden von der Firma Puppet
-gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden. Für jeden
-Typen gibt es einen Provider. Dieser implementiert den Typen auf einer
-bestimmten Plattform. Das Grafana-Modul besitzt eigene Typen, welche Dashboards
-und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
-normale Textdateien, sondern über eine API oder Weboberfläche. Über die eigenen
-Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
-sondern auch die komplette Konfiguration
-automatisieren~\cite{puppet-resource-types}. Da puppet deklarativ und nicht
-imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
-analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert
-diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb nicht in der
-Reihenfolge abgearbeitet, in der sie notiert sind.
-
-Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
-verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
-Abstraktion kann Code sehr häufig wiederverwendet werden.
-
-In einem Puppet-Profil werden mehrere Module und Ressourcen deklariert, um eine
-bestimmte Aufgabe zu realisiern. Dieses Profil ist aus Sicht des Codes eine
-normale Klasse. Mehrere Profile werden in einem Modul gebündelt. Ein Profil
-wird einem oder mehreren Nodes zugewiesen. Im Rahmen des Projekts werden
-diverse Profile erzeugt, um die einzelnen benötigten Komponenten gebündelt zu
-automatisieren. Ein beispielhaftes Profil für Grafana findet sich
-unter~\ref{lst:grafana}. Dies installiert Grafana und richtet außerdem ein
-Dashboard und eine Datenquelle ein.
-\tm%
-
-\subsection{Ablauf eines Puppet Runs}
-Puppet kann nach dem \gls{Client-Server}-Prinzip arbeiten. Der Agent läuft
-dabei auf jedem System, welches verwaltet werden soll. Unterstützt werden neben
-Linux-Distributionen auch Windows, BSD, sowie diverse Hersteller von
-Netzwerkequipment. Periodisch ermittelt der Agent \glslink{Fact}{Facts} und
-sendet diese über eine \gls{HTTPS}-Verbindung zum Puppetserver. Anhand dieser
-Facts wird entschieden, welche Module zu einem Katalog zusammenkompiliert
-werden. Der Katalog wird dem Agent zurückgeschickt. Dieser analysiert sein
-vorhandenes System und gleicht es mit den Beschreibungen im Katalog ab. Sobald
-es hier zu Differenzen kommt, wird das System dem Katalog angeglichen. Jede
-durchgeführte Aktion kann reportet werden. Reports können lokal gespeichert
-oder zu einer zentralen Datenbank gesendet werden. Die Firma Puppet bietet
-außerdem die quelloffene PuppetDB an. Diese kann Reports speichern. Über eine
-\gls{RESTful} API kann man alle Reports analysieren und Abfragen. Zusätzlich
-können alle Facts dort gespeichert werden. Ein „Puppet Run“ beschreibt den
-kompletten Ablauf vom Auslesen der Facts bis zum Erstellen des Reports.
-
-Puppet kann auch ohne Puppetserver genutzt werden. Hier erfolgt der komplette
-Ablauf dann lokal. Die Module müssen auf dem Server vorhanden sein auf dem
-auch der Agent läuft. Er kompiliert sich dann seinen Katalog selbst. Diese
-Vorgehensweise bietet sich gerade während der Entwicklung an. In großen
-Produktivumgebungen mit vielen Modulen ist es oftmals sinnvoller, Puppetserver
-zu nutzen und nach dem Client-Server Prinzip zu arbeiten.
-\tm%
 
 \section{Realisierung Grafana}
 \label{sec:realisierung_grafana}
