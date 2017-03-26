@@ -1902,34 +1902,34 @@ Anforderungen und Evaluierungsergebnissen aufgelistet:
 \label{subsubsec:grafana}
 Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte
 Open-Source-Visualisierungssoftware. Sie bietet neben einfachen
-Visualisierungsgraphen noch weitere Ereignisfunktionen. Es arbeitet mit jedem
-Timeseries Datenhaltungssystem, wie z.B. InfluxDB zusammen und mehrere
-unterschiedliche Benutzer können sich an der Weboberfläche anmelden. Dies
-bedeutet, dass ein Login an der Weboberfläche über ein \gls{Active Directory}
-Konto oder lokalen Benutzer plus Kennwortkombination durchgeführt werden kann.
-Somit können zum Beispiel Mitarbeiter aus der Führungsebene eingeschränkte
-Zugriffe auf das System erhalten, um hier zum Beispiel Marketingstatistiken
-durchführen zu können. Zusätzlich zu der Abfrage mit Benutzernamen und Kennwort
-zur Anmeldung auf die Grafana Weboberfläche, ist Grafana API (siehe auch
-Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) fähig, dies bedeutet,
-dass das Datenhaltungssystem API Statements zur Verfügung stellen kann und
-hiermit Graphen visualisieren kann. Grafana kann über einen
-\gls{Datenbanktreiber} oder eine Schnittstelle in Form eines Treibers einfache
-Statements auf das Datenhaltungssystem durchführen, um die Daten abzugreifen.
-Es ist zusätzlich eine Open-Source-Software, wodurch der Quellcode angepasst
-und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen an
-bestimmte Kundenumgebungen. Dadurch entstehen auch keine Support-Kosten, da die
-Software nicht als ein Dienst angeboten wird. Zusätzlich zu dem Quellcode
-können hier Plugins zur Erweiterung der Software in der Programmiersprache Java
-entwickelt und in das System eingepflegt werden. Dies wird zum Beispiel dann
-benötigt, wenn weitere Graphen, Analysen oder ähnliches benötigt werden.
-Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
-Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
-veröffentlicht, somit haben auch andere Mitglieder von GitHub die Möglichkeit,
-das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
-Anwender erstellten Dashboards mit allen Graphen und Statements können vom
-System, wie auch vom Anwender selbst, auf einen externen Dateifreigabeserver
-oder lokal abgespeichert werden~\cite{grafana}.
+Visualisierungsgraphen noch weitere Ereignisfunktionen. Um die Anmeldung an der
+Weboberfläche durchführen zu können, kann hier wahlweise die Anmeldung mit
+einem \gls{Active Directory} Konto oder lokalen Benutzer plus
+Kennwortkombination durchgeführt werden. Hinzu können verschiedene
+Berechtigungen vergeben werden. Somit können zum Beispiel Mitarbeiter aus der
+Führungsebene eingeschränkte Zugriffe auf das System erhalten, um hier zum
+Beispiel Analysen durchführen zu können. Grafana arbeitet mit fast jedem
+Timeseries Datenhaltungssystem, wie z.B. InfluxDB zusammen. Zusätzlich kann es
+über Plugins erweitert werden. Damit Grafana API Systeme (siehe auch
+Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) ansprechen kann, wird
+hier ein solches Plugin benötigt. Plugins werden zur Erweiterung der Software
+in der Programmiersprache Java entwickelt und installiert. Diese werden zum
+Beispiel dann benötigt, wenn weitere Graphen, Analysen oder unterstützte
+Datenquellen erweitert werden sollen. Dies bedeutet, dass das
+Datenhaltungssystem API Statements zur Verfügung stellen kann und hiermit
+Graphen visualisieren kann. Grafana kann über einen \gls{Datenbanktreiber} oder
+eine Schnittstelle in Form eines Treibers einfache Statements auf das
+Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
+eine Open-Source-Software, wodurch der Quellcode angepasst und verändert werden
+darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte Kundenumgebungen.
+Dadurch entstehen auch keine Support-Kosten, da die Software nicht als ein
+Dienst angeboten wird. Grafana hat eine stetig wachsende Community mit
+sämtlichen Dokumenten zur Einrichtung oder Erweiterung des Systems. Der gesamte
+Quellcode ist auf GitHub veröffentlicht, somit haben auch andere Mitglieder von
+GitHub die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
+implementieren. Die vom Anwender erstellten Dashboards mit allen Graphen und
+Statements können vom System, wie auch vom Anwender selbst, auf einen externen
+Dateifreigabeserver oder lokal abgespeichert werden~\cite{grafana}.
 
 Zusammenfassung:
 
@@ -1962,7 +1962,7 @@ Monitoring und Visualisierung. Graphite ist wie auch Grafana eine
 Open-Source-Lösung und ermöglicht es dem Anwender, die Software bearbeiten und
 anpassen zu können. Es verfügt über eine inhaltlich gute und umfangreiche
 Community mit einem eigenem Wiki-Board, wo alle relevanten Dokumentationen
-enthalten sind.  Graphen können leicht mittels Statements über eine
+enthalten sind. Graphen können leicht mittels Statements über eine
 API~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt an das
 Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der WebOberfläche
 mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist ebenfalls
