@@ -245,6 +245,7 @@ unkompliziert zu installieren ist und unabhängig von OpenStack arbeitet.
 \tm%
 
 \section{Anforderungen}
+\label{section:anforderungen}
 Die Detailanforderungen werden getrennt für die drei Bereiche des Projekts im
 folgenden Abschnitt beschrieben. Diese ergeben sich aus dem Lasten- und
 Pflichtenheft sowie aus den Userstories der Partner. Für alle Lösungen gilt,
@@ -3397,6 +3398,7 @@ ist eine solche Datei beigefügt.
 \mr%
 
 \chapter{Ausblick}
+\label{chapter:ausblick}
 Im Projekt wurde eine solide und modulare Architektur erstellt. Sie erfüllt
 alle Anforderungen, bietet aber auch noch diverse Möglichkeiten für
 weitere Optimierungen oder Erweiterungen.
@@ -3450,8 +3452,23 @@ Zwischenspeichers noch nicht erreicht ist.
 \chapter{Fazit}
 In vielen Monaten Arbeit wurde ein neues Softwareprojekt geschaffen, welches
 eine sehr gute Alternative zu Telemetry aus dem OpenStack Projekt darstellt.
+Die erarbeitete Lösung erfüllt alle definierten Anforderungen aus
+Abschnitt~\ref{section:anforderungen}. Nicht nur können alle Userstorys über
+Grafana visualisiert werden, auch die API stellt einen passenden Placement
+Algorithmus zur Verfügung und bietet somit mehr Features als Telemetry. Das
+Softwareprojekt ist äußerst flexibel gehalten und kann in beliebige Umgebungen
+mit Linux Hypervisors integiert werden. Aufgrund des modularen Konzepts und
+den offenen Schnittstellen gibt es auch mehrere Möglichkeiten für zukünftige
+Erweiterungen oder Spezialisierungen für bestimmte Umgebungen, wie im
+Abschnitt~\ref{chapter:ausblick} dargestellt.
+
 Das Projektteam hat nicht nur viel über Software Engineering, sondern auch
-über agiles Projektmanagement und kollaboratives Arbeiten gelernt.
+über agiles Projektmanagement und kollaboratives Arbeiten gelernt. Währen der
+Entwicklung ergaben sich diverse Probleme. Durch das konsequente arbeiten mit
+Prototypen konnten Probleme im ersten Architektur-Prototyp schnell erkannt
+werden. Gemeinsam wurde stets eine Lösung gefunden. Diverse kleinere Bugs
+in der benutzen Software wurden vom Team behoben und mit zusätzlichen Unit
+Tests versehen. Alle Änderungen wurden an die jeweiligen Entwickler geschickt.
 \all%
 
 %\appendix
