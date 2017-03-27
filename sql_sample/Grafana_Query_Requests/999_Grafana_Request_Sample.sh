@@ -16,10 +16,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 1920 }' 'http://www.swoarly.de:3333/query' > 01_last_5_minutes.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 15 Minutes
@@ -38,10 +38,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 1920 }' 'http://www.swoarly.de:3333/query' > 02_last_15_minutes.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 30 Minutes
@@ -60,10 +60,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 1920 }' 'http://www.swoarly.de:3333/query' > 03_last_30_minutes.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 1 hour
@@ -82,10 +82,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 04_last_1_hour.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 3 hour
@@ -104,10 +104,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 05_last_3_hour.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 6 hour
@@ -126,10 +126,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 06_last_6_hour.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 12 hour
@@ -148,10 +148,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 07_last_12_hour.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 24 hour
@@ -170,10 +170,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 08_last_24_hour.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #"to"day
@@ -192,10 +192,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 09_today.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #This Week
@@ -214,10 +214,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 10_this_week.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #This Month
@@ -236,10 +236,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 11_this_month.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #This Year
@@ -258,10 +258,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 12_this_year.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 2 days
@@ -280,10 +280,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 13_last_2_days.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 6 months
@@ -302,10 +302,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 14_last_6_month.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Last 2 years
@@ -324,10 +324,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 15_last_2_years.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Yesterday
@@ -346,13 +346,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 16_yesterday.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
-#Day bevore yesterday
+#Day before yesterday
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
    { "from": "2017-03-24T23:00:00.000Z",
@@ -365,13 +365,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
    [ { "target": "upper_25", "refId": "A", "type": "timeserie" },
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
-  "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 17_day_bevore_yesterday.txt
+  "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 17_day_before_yesterday.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
 
 #Previous week
@@ -390,10 +390,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 18_previous_week.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
   
 #Zoom "from" 19:30 "to" 20 
@@ -416,10 +416,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 19_zoom_30_minutes.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
   
 #Zoom "from" 19:44 "to" 46
@@ -442,10 +442,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 20_zoom_2_minutes.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
   
 #Zoom minimum
@@ -468,8 +468,8 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 21_zoom_minimum.txt
 
 # Summary
-#
-#
-#
-#
+# 1490632878000 - 1490643078000
+# 1490632928000
+# 1490632978000
+# + 50000
 #
