@@ -15,6 +15,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 1920 }' 'http://www.swoarly.de:3333/query' > 01_last_5_minutes.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Last 15 Minutes
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -29,6 +36,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 1920 }' 'http://www.swoarly.de:3333/query' > 02_last_15_minutes.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #Last 30 Minutes
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -45,6 +59,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 1920 }' 'http://www.swoarly.de:3333/query' > 03_last_30_minutes.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Last 1 hour
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -59,6 +80,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 04_last_1_hour.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #Last 3 hour
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -75,6 +103,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 05_last_3_hour.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Last 6 hour
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -89,6 +124,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 06_last_6_hour.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #Last 12 hour
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -105,6 +147,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 07_last_12_hour.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Last 24 hour
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -119,6 +168,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 08_last_24_hour.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #"to"day
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -135,6 +191,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 09_today.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #This Week
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -149,6 +212,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 10_this_week.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #This Month
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -165,6 +235,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 11_this_month.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #This Year
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -179,6 +256,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 12_this_year.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #Last 2 days
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -195,6 +279,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 13_last_2_days.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Last 6 months
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -209,6 +300,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 14_last_6_month.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #Last 2 years
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -225,6 +323,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 15_last_2_years.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Yesterday
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -239,6 +344,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 16_yesterday.txt
+
+# Summary
+#
+#
+#
+#
+#
 
 #Day bevore yesterday
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -255,6 +367,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 17_day_bevore_yesterday.txt
 
+# Summary
+#
+#
+#
+#
+#
+
 #Previous week
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
   "range":
@@ -269,6 +388,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 18_previous_week.txt
+
+# Summary
+#
+#
+#
+#
+#
   
 #Zoom "from" 19:30 "to" 20 
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -288,6 +414,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 19_zoom_30_minutes.txt
+
+# Summary
+#
+#
+#
+#
+#
   
 #Zoom "from" 19:44 "to" 46
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -307,6 +440,13 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 20_zoom_2_minutes.txt
+
+# Summary
+#
+#
+#
+#
+#
   
 #Zoom minimum
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{ "panelId": 1,
@@ -326,3 +466,10 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
      { "target": "upper_50", "refId": "B", "type": "timeserie" } ],
   "format": "json",
   "maxDataPoints": 944 }' 'http://www.swoarly.de:3333/query' > 21_zoom_minimum.txt
+
+# Summary
+#
+#
+#
+#
+#
