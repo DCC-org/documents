@@ -3211,7 +3211,7 @@ Graphen unter \texttt{Time range} überschrieben werden.
 Die Implementierung beider Komponenten gestaltet sich als sehr einfach. Für
 beide existiert ein fertiges Puppetmodul, außerdem sind die
 Konfigurationsoptionen überschaubar. Für Logstash wurde ein eigenes Puppet
-Profil geschrieben, dieses befindet sich unter~\ref{logstash-profile}. Es
+Profil geschrieben, dieses befindet sich unter~\ref{lst:logstash-profile}. Es
 installiert Logstash und anschließend das JDBC Plugin für die Kommunikation mit
 der Datenbank. Hierfür wird noch der Postgres Treiber benötigt, dieser wird von
 der Postgres Webseite heruntergeladen. Zum Schluss wird die Logstash
@@ -3221,8 +3221,8 @@ Archlinux funktioniert. Dies wurde vom Projektteam behoben. Der Fix wurde den
 Entwicklern in einem Pull Request zugeschickt (siehe~\cite{logstash-bug}).
 
 Die Konfiguration von collectd läuft sehr ähnlich ab. Es wurde wieder ein
-Puppet Profil erzeugt, dieses befindet sich unter~\ref{collectd-profile}. Dies
-installiert collectd, richtet dann das Netzwerk-Plugin ein, um Daten zu
+Puppet Profil erzeugt, dieses befindet sich unter~\ref{lst:collectd-profile}.
+Dies installiert collectd, richtet dann das Netzwerk-Plugin ein, um Daten zu
 Logstash schicken zu können. Im Anschluss werden die verschiedenen Plugins zum
 Sammeln der Metriken aktiviert. Hierbei wurde festgestellt, dass das Puppet
 Modul für collectd keine sinnvollen Standardwerte für das Konfigurieren des
