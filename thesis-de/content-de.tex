@@ -187,28 +187,28 @@ Projekts erläutert. In der Vergangenheit wurde schon mal versucht eine passende
 Softwarelösung zu entwickeln. OpenStack ist ein Softwareprojekt, welches große
 Mengen an Rechen- und Netzwerkkapazitäten, sowie persistenten Speicher in einem
 Rechenzentrum zu einer \gls{Public Cloud} oder \gls{Private Cloud} Umgebung
-zusammenfasst und orchestriert~\cite{OpenStack_Intro}. Eines der Teilprojekte
-ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von physischen und
-virtuellen Ressourcen zu ermitteln und verlässlich zu speichern. Die Daten
-sollen zur Analyse genutzt werden und Aktionen auslösen, wenn bestimmte
-Kriterien erreicht sind~\cite{OpenStack_Telemetry}. Telemetry bringt leider
-mehrere Nachteile mit sich:
+zusammenfasst und orchestriert (vgl.~\cite{OpenStack_Intro}). Eines der
+Teilprojekte ist Telemetry. Das Ziel hiervon ist es, zuverlässig Daten von
+physischen und virtuellen Ressourcen zu ermitteln und verlässlich zu speichern.
+Die Daten sollen zur Analyse genutzt werden und Aktionen auslösen, wenn
+bestimmte Kriterien erreicht sind (vgl.~\cite{OpenStack_Telemetry}). Telemetry
+bringt leider mehrere Nachteile mit sich:
 
 \begin{outline}
   \1 Die Standarddatenbank für Telemetry war lange Zeit MongoDB\@. MongoDB ist
   eine dokumentenorientierte Datenbank. Darin werden Daten nicht in Tabellen
   strukturiert, sondern in eigenständigen Dokumenten. Jedes Dokument hat eine
   eigene Datenstruktur (zum Beispiel im \gls{JSON}
-  Format)~\cite{Dokumentenorientierte_Datenbank}. Dies ermöglicht es, die
+  Format)(vgl.~\cite{Dokumentenorientierte_Datenbank}). Dies ermöglicht es, die
   Datenbank sehr einfach vertikal zu skalieren. Hierbei werden alle Dokumente
   auf mehrere Server verteilt. Schreib- und Lese-Anfragen können ebenfalls auf
-  alle Server verteilt werden. Die Skalierung ist nahezu
-  linear~\cite{MongoDB_Architecture},~\cite{What_is_MongoDB}. Die Grundidee ist
-  sehr gut und eignet sich für besonders große Datenmengen oder Installationen
-  die hochverfügbar sein müssen. Die Implementierung in MongoDB hat allerdings
-  diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit \gls{Jepsen}
-  getestet. Die Datenbank hat sich mehrfach als sehr unzuverlässig
-  herausgestellt~\cite{MongoDB_on_Jepsen}. Die beiden folgenden Punkte
+  alle Server verteilt werden. Die Skalierung ist nahezu linear
+  (vgl.~\cite{MongoDB_Architecture},vgl.~\cite{What_is_MongoDB}). Die Grundidee
+  ist sehr gut und eignet sich für besonders große Datenmengen oder
+  Installationen die hochverfügbar sein müssen. Die Implementierung in MongoDB
+  hat allerdings diverse Nachteile. Kyle Kingsbury hat intensiv MongoDB mit
+  \gls{Jepsen} getestet. Die Datenbank hat sich mehrfach als sehr unzuverlässig
+  herausgestellt (vgl.~\cite{MongoDB_on_Jepsen}). Die beiden folgenden Punkte
   disqualifizieren MongoDB für einen Einsatz als persistenten Datenspeicher,
   da die Persistenz nicht sichergestellt ist. Es wurde von Kyle Kingsbury
   bewiesen, dass:
@@ -227,7 +227,8 @@ mehrere Nachteile mit sich:
   eine OpenStack-Installation und konnte die Probleme mit Telemetry nur mit
   immenser Hardware lösen. Die Kosten für diese Infrastruktur, als auch die
   Komplexität, sind viel zu hoch. Sie übersteigen das Budget der meisten
-  Cloud-Umgebungen, wodurch diese unwirtschaftlich werden~\cite{OpenStack_CERN}.
+  Cloud-Umgebungen, wodurch diese unwirtschaftlich werden
+  (vgl.~\cite{OpenStack_CERN}).
   \1 Das Telemetry Projekt ist sehr stark in OpenStack eingebunden. Der Einsatz
   in anderen Cloud-Umgebungen ist nicht vorgesehen, da die einzelnen Dienste
   aus dem Telemetry Projekt weitere OpenStack Komponenten benötigten. Ein
@@ -400,7 +401,7 @@ ist zeitlich nicht realisierbar, dass an jedem Tag jedes Teammitglied am
 Projekt arbeitet. Die Durchführung von täglichen Besprechungen ist somit nicht
 möglich. Scrum erlaubt es nicht, einzelne Elemente des Systems nicht zu nutzen
 oder zu modifizieren. Somit kann in diesem Projekt nicht nach Scrum gearbeitet
-werden~\cite{scrum_talk}.
+werden (vgl.~\cite{scrum_talk}).
 \tm%
 
 \section{Agile Vorgehensweise im Projekt}
@@ -657,16 +658,16 @@ basiert auf dem Lasten- und Pflichtenheft:
 \subsection{Coreutils}
 Coreutils ist eine Sammlung von Standardwerkzeugen auf jedem
 Linux-Betriebssystem. Sie bieten einfache Möglichkeiten zur Editierung von
-Dateien. Coreutils ist mit der GPL3 lizenziert~\cite{coreutils} und zählt somit
-als Open-Source-Software. Verwaltet wird die Programmsammlung aktuell von der
-Free Software Foundation. Der Linux Kernel stellt Informationen über
-schreibgeschützte Dateien bereit. In Kombination mit der Programmsammlung
+Dateien. Coreutils ist mit der GPL3 lizenziert (vgl.~\cite{coreutils}) und
+zählt somit als Open-Source-Software. Verwaltet wird die Programmsammlung
+aktuell von der Free Software Foundation. Der Linux Kernel stellt Informationen
+über schreibgeschützte Dateien bereit. In Kombination mit der Programmsammlung
 procps kann auf die Informationen des Kernels zugegriffen werden, um Metriken
-zu ermitteln~\cite{procps}. Über das Programm \texttt{free} oder die Datei
-\texttt{/proc/meminfo} erhält man dann die Menge des vorhandenen sowie zur Zeit
-benutzten Arbeitsspeichers. Die Anzahl der Prozessorkerne liefert das Programm
-nproc oder die Datei \texttt{/proc/cpuinfo}. \texttt{/proc/diskstats} liefert
-Informationen über die Anzahl der Schreib- und Lesevorgänge auf allen
+zu ermitteln (vgl.~\cite{procps}). Über das Programm \texttt{free} oder die
+Datei \texttt{/proc/meminfo} erhält man dann die Menge des vorhandenen sowie
+zur Zeit benutzten Arbeitsspeichers. Die Anzahl der Prozessorkerne liefert das
+Programm nproc oder die Datei \texttt{/proc/cpuinfo}. \texttt{/proc/diskstats}
+liefert Informationen über die Anzahl der Schreib- und Lesevorgänge auf allen
 Datenträgern. Außerdem listet die Datei die geschriebene als auch gelesene
 Datenmenge. Die Informationen beziehen sich auf die Zeit seit dem letzten
 Startvorgang des Servers bis zum Ausgeben der Datei. Ein kontinuierliches
@@ -733,7 +734,7 @@ zentralen Datenbank erst noch bearbeitet werden. Es ist keine Funktionalität
 eingebaut, um gesammelte Daten über das Netzwerk auszutauschen, dies muss
 ebenfalls nachgerüstet werden. Es ist keine Funktionalität vorhanden, um Daten
 auf einem Host von virtuellen Maschinen zu ermitteln. Außerdem kann die
-Software nicht erweitert werden~\cite{atop}.
+Software nicht erweitert werden (vgl~\cite{atop}).
 \tm%
 
 \subsection{collectd}
@@ -753,7 +754,7 @@ Wie im obigen Listing zu sehen, haben 415 Leute 9059 Änderungen im
 Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
 und zählt somit als Open-Source-Software. Es kann flexibel mit Plugins
 erweitert werden. Hierbei wird zwischen mehreren Kategorien
-unterschieden~\cite{collectd_plugins}:
+unterschieden (vgl.~\cite{collectd_plugins}):
 
 \begin{outline}
   \1 Read, Plugins, die Daten aus zusätzlichen Quellen lesen
@@ -770,7 +771,7 @@ Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann
 lokale Daten auf einem Hostsystem oder in einer virtuellen Maschine ermitteln.
 Außerdem kann es mit Hilfe des \texttt{Virt} Plugins auf einem Host auch alle
 notwendigen Informationen über virtuelle Instanzen
-abrufen~\cite{collectd_virt_plugins}.
+abrufen(vgl.~\cite{collectd_virt_plugins}).
 \tm%
 
 \subsection{zabbix-agent}
@@ -783,14 +784,14 @@ lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
 ist eine PHP-Applikation, welche die Daten visualisiert und direkt aus der
 Datenbank liest. Der Agent kann mit externen Skripten erweitert werden. In
 Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
-Community bietet dafür fertige Skripte an~\cite{zabbix_virt_plugins}.
+Community bietet dafür fertige Skripte an (vgl.~\cite{zabbix_virt_plugins}).
 
 Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation. Dieses wird
 nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
 zwangsläufig mit dem hauseigenen zabbix-server genutzt werden. Es ist nicht
 möglich den Server, beziehungsweise die unterstützten Datenbanken, redundant
-auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit
-ist der zabbix-agent nicht im Projekt nutzbar~\cite{zabbix_architecture}.
+auszulegen. Dies ist eine Anforderung für die Datenhaltungssysteme. Somit ist
+der zabbix-agent nicht im Projekt nutzbar (vgl.~\cite{zabbix_architecture}).
 \tm%
 
 \subsection{python-diamond}
@@ -798,7 +799,7 @@ Python-diamond (auch Diamond genannt) ist ein in Python geschriebener Dienst.
 Er kann auf Linux Systemen diverse Daten erheben und diese über das Netzwerk
 austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
 unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die
-Open-Source-Software steht unter der MIT Lizenz~\cite{python-diamond}.
+Open-Source-Software steht unter der MIT Lizenz (vgl.~\cite{python-diamond}).
 
 \begin{center}
     \inputminted{text}{../listings/diamond-clone.txt}
@@ -822,12 +823,12 @@ Die Softwaresammlung sysstat ist eine Kollektion an kleinen Programmen zur
 Performance-Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
 älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
 erscheinen jedes Jahr mehrere Updates. Entwickelt wird das Projekt
-von~\cite{systat_releases}. Die Liste der Features von sysstat ist sehr
+von (vgl.~\cite{systat_releases}). Die Liste der Features von sysstat ist sehr
 umfangreich.  Neben den geforderten Kriterien zur lokalen Datenerfassung
 liefert es auch viele weitere Details. Hierzu zählen zum Beispiel Statistiken
 zum Verhalten des Arbeitsspeichers. Die Interrupt-Verarbeitung des Prozessors
 und detaillierte Netzwerkinformationen. Ermittelte Daten können als \gls{CSV},
-\gls{XML} oder \gls{JSON} gespeichert werden~\cite{sysstat_features}.
+\gls{XML} oder \gls{JSON} gespeichert werden (vgl.~\cite{sysstat_features}).
 
 Die Software sysstat bietet keine Möglichkeit, um Daten von virtuellen
 Maschinen über den Host zu ermitteln. Die bereitgestellten Informationen sind
@@ -851,7 +852,7 @@ Apache License. Logstash arbeitet nach dem modularen \gls{EVA} Prinzip.
 \end{outline}
 
 Alle drei Schritte können mit über 200 Plugins erweitert
-werden~\cite{logstash_overview}. Logstash ist für die Verarbeitung von
+werden (vgl.~\cite{logstash_overview}). Logstash ist für die Verarbeitung von
 Ereignissen ausgelegt. Diese können direkt aus diversen Quellen gelesen werden.
 Hierzu gehören unter anderem Netzwerksockets, Textdateien, Syslog Streams und
 Message queues. Bei der Transformation werden die Daten neu serialisiert und in
@@ -884,9 +885,10 @@ Regeln von \gls{Semantic Versioning}, somit sind erst dann Releases zum
 produktiven Einsatz empfohlen, wenn sie die Nummer 1.0.0 oder höher enthalten.
 Der Autor ist Kyle Kingsbury, welcher auch \gls{Jepsen} geschrieben hat. Der
 Fokus der Software liegt auf der Verarbeitung von Ereignissen, auch Events
-genannt~\cite{riemann_concepts}. Dazu wurde eine eigene Struktur entworfen mit
-mehreren Feldern (Siehe Tabelle~\ref{tbl:riemann}). In der Konfigurationsdatei
-werden Streams definiert. Diese laufen immer nach dem gleichen Schema ab:
+genannt (vgl.~\cite{riemann_concepts}). Dazu wurde eine eigene Struktur
+entworfen mit mehreren Feldern (Siehe Tabelle~\ref{tbl:riemann}). In der
+Konfigurationsdatei werden Streams definiert. Diese laufen immer nach dem
+gleichen Schema ab:
 
 \begin{outline}
   \lstset{language=Clojure}
@@ -1133,20 +1135,20 @@ geändert. Sobald ein Server im Cluster ausfällt, kann aus dem Replika ein
 aktives Shard gemacht werden. Die Anzahl der Replikas pro Shard und deren
 Verteilung kann im laufenden Betrieb geändert werden. Somit erreicht man ein
 hochverfügbares Setup, welches im laufenden Betrieb um neue Server erweitert
-werden kann~\cite{es_concepts}.
+werden kann (vgl.~\cite{es_concepts}).
 
-Mit \gls{Jepsen} wurde Elasticsearch mehrfach untersucht~\cite{es_jepsen_all}.
-Nach dem ersten Test im Jahr 2014 hat Elasticsearch BV eine Übersichtsseite
-erstellt mit allen offenen Problemen und Szenarien, die zu Datenverlust führen
-können~\cite{es_resiliency}. Die wenigsten Hersteller und Communitys gehen so
-offen mit Problemen um.
+Mit \gls{Jepsen} wurde Elasticsearch mehrfach untersucht
+(vgl.~\cite{es_jepsen_all}). Nach dem ersten Test im Jahr 2014 hat
+Elasticsearch BV eine Übersichtsseite erstellt mit allen offenen Problemen und
+Szenarien, die zu Datenverlust führen können (vgl.~\cite{es_resiliency}). Die
+wenigsten Hersteller und Communitys gehen so offen mit Problemen um.
 
 Der letzte Jepsen-Test zeigt leider, dass Elasticsearch immer noch Probleme bei
-Netzwerkausfällen und starker Systemlast hat~\cite{jepsen_elastic}. Aufgrund
-der Größe solcher Setups ist es üblich, dass jeder Node im Cluster über zwei
-Netzwerkverbindungen verfügt. Eine davon ist zur internen Cluster-Kommunikation
-und zum Verteilen der Replikas, die andere für die Kommunikation mit der
-Außenwelt (Bereitstellung der RESTful-Schnittstelle).
+Netzwerkausfällen und starker Systemlast hat (vgl.~\cite{jepsen_elastic}).
+Aufgrund der Größe solcher Setups ist es üblich, dass jeder Node im Cluster
+über zwei Netzwerkverbindungen verfügt. Eine davon ist zur internen
+Cluster-Kommunikation und zum Verteilen der Replikas, die andere für die
+Kommunikation mit der Außenwelt (Bereitstellung der RESTful-Schnittstelle).
 
 Gegeben ist ein Teilausfall des internen Netzwerks (zum Beispiel ein
 Kabelbruch):
@@ -1159,10 +1161,10 @@ Kabelbruch):
   \1 Die neuen Daten wurden nicht geschrieben und sind verloren
 \end{outline}
 
-Dieses Verhalten ist mit dem Jepsen-Test reproduzierbar~\cite{es_jepsen_iso}.
-Während Elasticsearch Replikas von Shards eines ausgefallenen Nodes aktiv setzt,
-werden neue Daten weiterhin über die RESTful-Schnittstelle angenommen und dann
-ohne Rückmeldung verworfen.
+Dieses Verhalten ist mit dem Jepsen-Test reproduzierbar
+(vgl.~\cite{es_jepsen_iso}). Während Elasticsearch Replikas von Shards eines
+ausgefallenen Nodes aktiv setzt, werden neue Daten weiterhin über die
+RESTful-Schnittstelle angenommen und dann ohne Rückmeldung verworfen.
 
 Das nächste Problem ist das Verhalten von Elasticsearch unter hoher Systemlast.
 Ein Prozess unter Linux kann pausiert und wieder gestartet werden.
@@ -1196,11 +1198,11 @@ am Rand der Leistungsgrenze arbeitet und der Kernel einen Absturz erwartet,
 weil die Hardware bald überfordet ist, dann kann er einzelne Prozesse
 kurzzeitig pausieren.
 
-Dieser Datenverlust ist ebenfalls mit einem Jepsen-Test
-reproduzierbar~\cite{es_jepsen_pause}. In großen Setups ist es sehr
-realistisch, dass Server in einem Rechnerverbund (auch Cluster genannt) eine
-starke Last aufweisen. Sofern es hier zu Lastspitzen kommt, die eine Überlast
-andeuten, ist ein Datenverlust sehr wahrscheinlich.
+Dieser Datenverlust ist ebenfalls mit einem Jepsen-Test reproduzierbar
+(vgl.~\cite{es_jepsen_pause}). In großen Setups ist es sehr realistisch, dass
+Server in einem Rechnerverbund (auch Cluster genannt) eine starke Last
+aufweisen. Sofern es hier zu Lastspitzen kommt, die eine Überlast andeuten, ist
+ein Datenverlust sehr wahrscheinlich.
 
 Beide Probleme sind äußerst kritisch für dieses Projekt. In der Theorie ist die
 Architektur sehr gut geeignet, denn sie ist skalierbar und hochverfügbar. In
@@ -1263,13 +1265,14 @@ sicher ist, dass keine Fehler oder Datenleichen entstehen können.
 \subsubsection{Postgres}
 \label{subsubsec:postgres}
 Postgres, oder auch PostgreSQL genannt, ist ein \gls{SQL} basiertes \gls{DBMS}.
-Die initiale Arbeit an Postgres begann 1986~\cite{old_postgres}. Mit über 30
-Jahren Entwicklung ist es eines der ältesten und am weitesten verbreitetsten
-DBMS~\cite{db_ranking}. Es steht unter einer eigenen Open-Source-Lizenz und
-darf frei genutzt werden~\cite{postgres_license}. Die Community ist sehr aktiv,
-sie pflegt ein komplexes Wiki~\cite{postgres_wiki}, sowie eine eigene Seite mit
-Anleitungen für Einsteiger und Optimierungshilfen für
-Fortgeschrittene~\cite{postgres_tutorial}.
+Die initiale Arbeit an Postgres begann 1986 (vgl.~\cite{old_postgres}). Mit
+über 30 Jahren Entwicklung ist es eines der ältesten und am weitesten
+verbreitetsten DBMS (vgl.~\cite{db_ranking}). Es steht unter einer eigenen
+Open-Source-Lizenz und darf frei genutzt werden (vgl.~\cite{postgres_license}).
+Die Community ist sehr aktiv, sie pflegt ein komplexes Wiki
+(vgl.~\cite{postgres_wiki}), sowie eine eigene Seite mit Anleitungen für
+Einsteiger und Optimierungshilfen für Fortgeschrittene
+(vgl.~\cite{postgres_tutorial}).
 
 \begin{center}
     \inputminted{text}{../listings/postgres-clone.txt}
@@ -1413,7 +1416,7 @@ Betrieb eines Hadoop-Systems benötigt wird. Hadoop basierende Systeme zur
 Erfüllung von verschiedenen und spezialisierten Aufgaben werden unter dem
 „Hadoop Ecosystem“ zusammengefasst. Eine vollständige Liste von
 Hadoop basierenden Systemen und Projekten kann auf der offiziellen Webseite des
-Entwicklers entnommen werden~\cite{Hadoop_related_projects}.
+Entwicklers entnommen werden (vgl.~\cite{Hadoop_related_projects}).
 \nl%
 
 \subsubsection{Beschreibung Hive}
@@ -1777,21 +1780,21 @@ einem gerichteten und ungerichteten Graphen. Ein gerichteter Graph besteht aus
 einem Anfangsknoten A und einem Endknoten B, welche mit einer Kante verbunden
 sind. Bei einem ungerichteten Graphen ist sowohl der Knoten A mit dem Knoten B,
 als auch der Knoten B mit Knoten A als Kante miteinander
-verbunden~\cite{kaiser2008c}.
+verbunden (vgl.~\cite{kaiser2008c}).
 
 Auf der Weboberfläche werden dem User oder dem Administrator einzelne Graphen
 von z.B. CPU-Auslastung, RAM-Auslastung oder SSD-Schreibzugriffe angezeigt.
-Diese Graphen werden entweder in Linerar- oder Balkenform dargestellt.
-Lineare Graphen haben eine X- und Y-Achse und besitzen zusätzlich einen
-Anfang und einen wachsenden Endpunkt. Er wird mittels
+Diese Graphen werden entweder in Linerar- oder Balkenform dargestellt. Lineare
+Graphen haben eine X- und Y-Achse und besitzen zusätzlich einen Anfang und
+einen wachsenden Endpunkt. Er wird mittels
 Metrik~\ref{section:Begriffserklärung}, welche die Weboberfläche aus den
 Datenhaltungssystemen abgreift, erstellt und kann vom Administrator ebenfalls
 nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
 eine X-Achse, wo der gewünschte Analysewert eingetragen ist und werden z.B. für
 ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden über die
 Metrik aus dem Datenhaltungssystem abgegriffen und dem Administrator über eine
-Übersicht angezeigt. Ein Graph- bzw. Balkendiagramm visualisiert immer eine oder
-mehrere Timeseries~\ref{section:Begriffserklärung}.
+Übersicht angezeigt. Ein Graph- bzw. Balkendiagramm visualisiert immer eine
+oder mehrere Timeseries~\ref{section:Begriffserklärung}.
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:vorbereiten_der_evaluierung_frontend}
@@ -1929,7 +1932,7 @@ Quellcode ist auf GitHub veröffentlicht, somit haben auch andere Mitglieder von
 GitHub die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
 implementieren. Die vom Anwender erstellten Dashboards mit allen Graphen und
 Statements können vom System, wie auch vom Anwender selbst, auf einen externen
-Dateifreigabeserver oder lokal abgespeichert werden~\cite{grafana}.
+Dateifreigabeserver oder lokal abgespeichert werden (vgl.~\cite{grafana}).
 
 Zusammenfassung:
 
@@ -1981,7 +1984,7 @@ aufzuarbeiten. Dies wird benötigt, damit Graphite diese für die Visualisierung
 verwenden kann. Grundsätzlich installiert sich mit der Installation von
 Graphite noch eine Whisper-Datenbank, welche jedoch durch eine beliebige, wie
 OpenTSDB~\ref{subsubsec:opentsdb} oder InfluxDB, ausgetauscht werden
-kann~\cite{graphite}.
+kann (vgl.~\cite{graphite}).
 
 Zusammenfassung:
 
@@ -2030,7 +2033,7 @@ eine API gewünscht sein, so kann dies ebenfalls mittels Statement direkt auf
 dem Datenhaltungssystem durchgeführt werden. Um die Datensicherheit und
 Ausfallsicherheit gewährleisten zu können, bietet Zabbix die Möglichkeit,
 einzelne Graphen mit Statements, wie auch das gesamte Dashboard exportieren und
-importieren zu können~\cite{zabbix-frontend}.
+importieren zu können (vgl.~\cite{zabbix-frontend}).
 
 
 Zusammenfassung:
@@ -2084,7 +2087,7 @@ können vom Administrator exportiert werden. Eine Möglichkeit, Graphen zu
 exportieren, bietet Datadog hier nicht. Die Community, in der viele inhaltliche
 Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche eine
 Pro-Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC-Channel}, um direkt
-Kontakt mit dem Support aufnehmen zu können~\cite{datadog}.
+Kontakt mit dem Support aufnehmen zu können (vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2120,7 +2123,7 @@ Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
 das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer
 Weboberfläche. Mit dieser hat man die Möglichkeit, ein Dashboard, welches
 selbst entwickelt worden ist, individuell anpassen zu
-können~\cite{gridster-d3}.
+können (vgl.~\cite{gridster-d3}).
 
 Somit fällt Gridster-D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt, aus der weiteren Evaluierung heraus.
@@ -2141,7 +2144,7 @@ angepasst werden müssen. Das Netdata läuft ebenfalls nur auf Linux-Oberfläche
 Ein Support von Microsoft Windows ist hier unterstützt. Ein klarer Nachteil ist
 allerdings, dass diese Softwarelösung jeweils nur eine Instanz gleichzeitig
 überwachen kann und der Vorteil bei Netdata, dass kein weiteres
-Datenhaltungssystem oder ähnliches benötigt wird~\cite{netdata}.
+Datenhaltungssystem oder ähnliches benötigt wird (vgl.~\cite{netdata}).
 
 Zusammenfassung:
 
@@ -2407,9 +2410,9 @@ Der Messagebus wird zwischen collectd und der Datenbank installiert. Collectd
 ist nicht in der Lage, direkt SQL zu sprechen. SQL ist allerdings die einzige
 Schnittstelle, welche von Postgres bereitgestellt wird. Die Daten müssen also
 transformiert werden. Hierfür bietet sich das bereits zuvor evaluierte Logstash
-an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin, um vom Bus zu
-lesen~\cite{logstash-rabbitmq}. Zusätzlich existiert ein Plugin, um über JDBC
-mit Datenbanken zu kommunizieren~\cite{logstash-jdbc}.
+an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin, um vom Bus zu lesen
+(vgl~\cite{logstash-rabbitmq}). Zusätzlich existiert ein Plugin, um über JDBC
+mit Datenbanken zu kommunizieren (vgl.~\cite{logstash-jdbc}).
 \tm%
 
 \section{JVM}
@@ -2434,7 +2437,7 @@ verarbeiten. Hier kann die Architektur stark von der JVM profitieren. Sie
 kümmert sich darum, dass alle zur Verfügung stehenden CPU-Kerne belastet werden
 und startet entsprechend viele Prozesse mit Logstash. Somit erhält man eine
 sehr einfache Möglichkeit der Datenverarbeitung mit mehreren
-Prozessorkernen~\cite{jruby}.
+Prozessorkernen (vgl.~\cite{jruby}).
 \tm%
 
 \section{JDBC}
@@ -2447,13 +2450,13 @@ dem DBMS und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es ein
 Plugin, welches die JDBC-Schnittstelle innerhalb des JRuby Bytecodes nutzbar
 macht. Somit ist Logstash in der Lage, in eine Datenbank zu schreiben. Hierfür
 musste ausschließlich die Kommunikation mit der JDBC programmiert werden.
-Postgres bietet einen Treiber für JDBC an~\cite{postgres-jdbc}.
+Postgres bietet einen Treiber für JDBC an (vgl.~\cite{postgres-jdbc}).
 \tm%
 
 \subsection{JDBC Treiber Typen}
 Es gibt vier verschiedene Typen von JDBC-Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
-Folgenden sind die einzelnen Typen erklärt~\cite{jdbc-types}.
+Folgenden sind die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
 
 \subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC-Schnittstelle einen sehr generischen \gls{ODBC}
@@ -2658,12 +2661,12 @@ bestimmten Plattform. Das Grafana-Modul besitzt eigene Typen, welche Dashboards
 und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt nicht über
 normale Textdateien, sondern über eine API oder Weboberfläche. Über die eigenen
 Typen kann Puppet auch hiermit interagieren und nicht nur die Installation,
-sondern auch die komplette Konfiguration
-automatisieren~\cite{puppet-resource-types}. Da puppet deklarativ und nicht
-imperativ arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter
-analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert
-diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb nicht in der
-Reihenfolge abgearbeitet, in der sie notiert sind.
+sondern auch die komplette Konfiguration automatisieren
+(vgl.~\cite{puppet-resource-types}). Da puppet deklarativ und nicht imperativ
+arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter analysiert
+alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert diese zu einem
+gerichteten Graphen. Die Ressourcen werden deshalb nicht in der Reihenfolge
+abgearbeitet, in der sie notiert sind.
 
 Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
@@ -3084,7 +3087,7 @@ unmittelbar danach erreichbar ist. Das Problem liegt hier nicht in der
 grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
 bereitstellt. Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
-erstellt~\cite{grafana-issue}.
+erstellt (vgl.~\cite{grafana-issue}).
 \mr%
 
 \subsection{Graphen definieren}
@@ -3218,7 +3221,7 @@ der Postgres Webseite heruntergeladen. Zum Schluss wird die Logstash
 Konfiguration aus~\ref{lst:logstash} erzeugt und Logstash gestartet. Hierbei
 stellte sich heraus, dass das Puppet Modul für Logstash nicht zu 100\% auf
 Archlinux funktioniert. Dies wurde vom Projektteam behoben. Der Fix wurde den
-Entwicklern in einem Pull Request zugeschickt (siehe~\cite{logstash-bug}).
+Entwicklern in einem Pull Request zugeschickt (vgl.~\cite{logstash-bug}).
 
 Die Konfiguration von collectd läuft sehr ähnlich ab. Es wurde wieder ein
 Puppet Profil erzeugt, dieses befindet sich unter~\ref{collectd-profile}. Dies
@@ -3227,7 +3230,7 @@ Logstash schicken zu können. Im Anschluss werden die verschiedenen Plugins zum
 Sammeln der Metriken aktiviert. Hierbei wurde festgestellt, dass das Puppet
 Modul für collectd keine sinnvollen Standardwerte für das Konfigurieren des
 collectd Repositorys besitzt. Dies wurde behoben und der Fix wieder den
-Entwicklern zur Verfügung gestellt (siehe~\cite{collectd-bug}).
+Entwicklern zur Verfügung gestellt (vgl.~\cite{collectd-bug}).
 \tm%
 
 \chapter{Tests und Qualitätssicherung}
