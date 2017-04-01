@@ -43,6 +43,7 @@ DECLARE
 					'value',r.value,
 					'version',r.version)
 				);
+		-- RAISE NOTICE 'Insert number: %', id_count; --> fucks the connection via pgAdmin3
 		id_count := id_count + 1;
 	END LOOP;
 	
