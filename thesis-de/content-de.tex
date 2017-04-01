@@ -1763,47 +1763,21 @@ Dokumentation. Im nachfolgenden, können die einzelnen Kriterien entnommen
 werden:
 
 \begin{outline}
-  \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
-  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
-  Weboberfläche selbst vor unautorisiertem Zugriff durch Dritte geschützt sein
-  muss. Ebenfalls muss die Verbindung, welche die Datenvisualisierung nutzt, um
-  die Daten abgreifen zu können, vor Dritten so geschützt und gesichert werden.
-  Der Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung
-  durch \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch
-  eigene Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
-  kann entweder über einen lokalen Administrator, als auch über eine
-  LDAP-Anbindung (Lightweight Directory Access Protocol) verfügen, um hier z.B.
-  Unternehmensverzeichnisse anbinden zu können.
-  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über die
-  Datenvisualisierung. Der Auftraggeber und auch die Projektmitglieder selbst,
-  benötigen keine große Schulung mit dem Umgang der Datenvisualisierung. Dies
-  erleichtert zum einen den späteren Betrieb, als auch die Wartung im späteren
-  Verlauf, wenn das Produkt bei einem Kunden eingesetzt wird.
-  \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
-  Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
-  gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen schnell
-  und einfach (endanwenderspezifisch) direkt angepasst werden können. Ebenso
-  muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
-  durchgeführt werden können.
-  \1 Die Datensicherung ist bei der Datenvisualisierung ein wesentlicher
-  Aspekt. Dabei muss die Weboberfläche bereits Möglichkeiten bieten, eine
-  Datensicherung des \glslink{Dashboard}{Dashboards} durchführen zu können. Das
-  Dashboard beinhaltet alle Graphen und vorkonfigurierten Werte. Diese sollen
-  über zum Beispiel ein externes System (Dateifreigabeserver oder ähnliches)
-  abgelegt werden und können somit einfach dupliziert und gesichert werden.
-  \1 Plugin-Erweiterung. Die Datenvisualisierung muss eine Plugin-Erweiterung
-  unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
-  bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
-  eingegangen werden kann. Diese können dann mit schon zur Verfügung gestellten
-  Plugins zum Beispiel in der Community oder aber durch selbst programmierte
-  Plugins realisiert werden. Die Plugins werden in Javascript geschrieben. Die
-  Weboberfläche sollte jedoch auch andere Sprachen unterstützen, um so eine
-  Unabhängigkeit von Entwicklern gewährleisten zu können. Unternehmen müssen so
-  nicht auf spezielle Entwickler von bestimmten Sprachen zurückgreifen.
   \1 Die genutzten Softwarelösungen müssen eine Open-Source-Lizenz besitzen, um
   hier unabhängig von kostenpflichtigen Lizenzen und Copyright-Rechten zu sein.
   Ebenfalls ist eine Open-Source-Software nötig, da hier der Quelltext der
   Software angepasst und verändert werden darf.
+  \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
+  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
+  Weboberfläche selbst vor unautorisiertem Zugriff durch Dritte geschützt sein
+  muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
+  abgreifen zu können, vor Dritten so geschützt und gesichert werden. Der
+  Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung durch
+  \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch eigene
+  Client-Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über
+  einen lokalen Administrator, als auch über eine LDAP-Anbindung (Lightweight
+  Directory Access Protocol) verfügen, um hier z.B. Unternehmensverzeichnisse
+  anbinden zu können.
   \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
   Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
   der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher die
@@ -1817,6 +1791,32 @@ werden:
   nur die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
   abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
   durch die Weboberfläche verursacht werden können.
+  \1 Plugin-Erweiterung. Das Frontend muss eine Plugin-Erweiterung
+  unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
+  bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
+  eingegangen werden kann. Diese können dann mit schon zur Verfügung gestellten
+  Plugins zum Beispiel in der Community oder aber durch selbst programmierte
+  Plugins realisiert werden. Die Plugins werden in Javascript geschrieben. Die
+  Weboberfläche sollte jedoch auch andere Sprachen unterstützen, um so eine
+  Unabhängigkeit von Entwicklern gewährleisten zu können. Unternehmen müssen so
+  nicht auf spezielle Entwickler von bestimmten Sprachen zurückgreifen.
+  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt. Dabei
+  muss die Weboberfläche bereits Möglichkeiten bieten, eine Datensicherung des
+  \glslink{Dashboard}{Dashboards} durchführen zu können. Das Dashboard
+  beinhaltet alle Graphen und vorkonfigurierten Werte. Diese sollen über zum
+  Beispiel ein externes System (Dateifreigabeserver oder ähnliches) abgelegt
+  werden und können somit einfach dupliziert und gesichert werden.
+  \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
+  Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
+  gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen schnell
+  und einfach (endanwenderspezifisch) direkt angepasst werden können. Ebenso
+  muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
+  durchgeführt werden können.
+  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
+  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selbst,
+  benötigen keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
+  zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
+  wenn das Produkt bei einem Kunden eingesetzt wird.
 \end{outline}
 \mr%
 
