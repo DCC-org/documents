@@ -1,5 +1,31 @@
 # documents
 
+## Setup
+
+We need a few tools to successfully work with latex:
+
+```
+sudo pacman -Syu texlive-bin texlive-core make texlive-bibtexextra texlive-bin texlive-core texlive-fontsextra texlive-formatsextra texlive-games texlive-genericextra texlive-htmlxml texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-plainextra texlive-pstricks texlive-publishers texlive-science biber
+```
+
+Also a font package:
+
+```
+sudo pacman -Syu ttf-inconsolata
+```
+
+Python dependencies for colorized text and syntax highlighting:
+
+```
+sudo pacman -Syu python-pygments python2-pygments pygmentize
+```
+
+Last but not least, a tool to convert svg to pdf:
+
+```
+sudo pacman -Syu inkscape
+```
+
 ## how to cite
 
 \cite{HorgasAnalyse}
