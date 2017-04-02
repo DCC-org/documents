@@ -97,5 +97,20 @@ CREATE TRIGGER testing_partition_insert_trigger BEFORE INSERT ON measurement_mas
 --Disable Trigger
 -- DROP TRIGGER testing_partition_insert_trigger ON measurement_master;
 
+-- View: Showing all partitions for master table
+CREATE VIEW show_master_partitions AS
+SELECT nmsp_parent.nspname AS parent_schema,
+       parent.relname AS parent,
+       nmsp_child.nspname AS child_schema,
+       child.relname AS child
+FROM pg_inherits
+JOIN pg_class parent ON pg_inherits.inhparent = parent.oid
+JOIN pg_class child ON pg_inherits.inhrelid = child.oid
+JOIN pg_namespace nmsp_parent ON nmsp_parent.oid = parent.relnamespace
+JOIN pg_namespace nmsp_child ON nmsp_child.oid = child.relnamespace
+WHERE parent.relname='measurement_master' ;
+
+select * from show_master_partitions;
+
 -- Test
 select convert_input_data_to_json_cpu_table(1);
