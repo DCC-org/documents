@@ -30,16 +30,32 @@ ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
 
 CREATE OR REPLACE FUNCTION reset_sequence_on_truncate() RETURNS trigger AS
   $BODY$
-    BEGIN
-	  ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
-      RETURN NULL;
+  DECLARE
+	m 	varchar[];
+	d 	varchar[];
+  BEGIN
+	d := array(select child_schema || '.' || child from show_master_partitions);
+	
+	FOREACH m SLICE 1 IN ARRAY d
+    LOOP
+		EXECUTE 'SELECT pg_terminate_backend(pg_stat_activity.pid)
+		FROM pg_stat_activity
+		WHERE pg_stat_activity.query LIKE ''%' || m[1] || '%''
+		  AND pg_stat_activity.pid <> pg_backend_pid();';
+		RAISE INFO 'Dropped table: %', m[1];
+		EXECUTE 'DROP TABLE ' || m[1];
+    END LOOP;
+	
+	ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
+	RAISE NOTICE 'Reset SEQUENCE.';
+    RETURN NULL;
     END;
   $BODY$
 LANGUAGE plpgsql VOLATILE
 COST 100;
 
 -- Create trigger
-CREATE TRIGGER trigger_reset_sequence_on_truncate AFTER TRUNCATE ON measurement_master EXECUTE PROCEDURE reset_sequence_on_truncate();
+CREATE TRIGGER trigger_reset_sequence_on_truncate BEFORE TRUNCATE ON measurement_master EXECUTE PROCEDURE reset_sequence_on_truncate();
 
 --Disable Trigger
 -- DROP TRIGGER trigger_reset_sequence_on_truncate ON measurement_master;
