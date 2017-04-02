@@ -113,4 +113,16 @@ WHERE parent.relname='measurement_master' ;
 select * from show_master_partitions;
 
 -- Test
-select convert_input_data_to_json_cpu_table(1);
+select convert_input_data_to_json_cpu_table(10);
+
+select * from measurement_master;
+
+select * from show_master_partitions;
+
+select * from "partitions"."measurement_master_2017_02_15";
+
+drop table "partitions"."measurement_master_2017_02_15";
+
+truncate table measurement_master;
+
+select nextval('public.measurement_master_metadata_id');
