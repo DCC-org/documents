@@ -28,7 +28,7 @@ DECLARE
 		ORDER BY l."timestamp"
 		LIMIT $1
 	LOOP
-		INSERT INTO measurement_master VALUES (id_count,
+		INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
 				json_build_object(
 					'insert_at', current_timestamp::timestamp,
 					'aggregation_type', 'seconds'),

@@ -1,4 +1,4 @@
-﻿-- Master
+﻿-- Table: Master
 drop table if exists measurement_master;
 create table measurement_master
 (
@@ -7,6 +7,24 @@ create table measurement_master
 	data json not null
 ) WITH ( OIDS=FALSE);
 
+ALTER TABLE measurement_master OWNER TO metrics;
+
+-- SEQUENCE measurement_master_metadata_id @ measurement_master
+
+CREATE SEQUENCE measurement_master_metadata_id
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+	
+ALTER TABLE measurement_master_metadata_id OWNER TO metrics;
+
+ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
+
+-- Test SEQUENCE
+
+SELECT nextval('public.measurement_master_metadata_id');
 
 -- Schema: partitions
  
