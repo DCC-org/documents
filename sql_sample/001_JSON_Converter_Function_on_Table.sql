@@ -20,8 +20,6 @@ DECLARE
 
 	id_count integer := 0;
  BEGIN
-	truncate table measurement_master;
-
 	FOR r IN
 		SELECT *
 		FROM log l
