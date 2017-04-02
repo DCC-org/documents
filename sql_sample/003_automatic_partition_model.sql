@@ -23,7 +23,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 	  partition_date := replace(partition_date,'-', '_');
 	  new_timestamp := replace(new_timestamp,'"', '');
 	  new_timestamp := substring(new_timestamp from 1 for 10);
-      partition := TG_RELNAME || '_' || partition_date;
+      partition := 'measurement_' || partition_date;
 	  
       IF NOT EXISTS(
 			SELECT b.nspname, a.relname
