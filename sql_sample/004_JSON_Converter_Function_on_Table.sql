@@ -1,15 +1,4 @@
-﻿--- Create Table ---
-
-DROP table if exists measurement_master;
-
-create table measurement_master
-(
-	id bigint not null,
-	metadata json not null,
-	data json not null
-);
-
---- Create Function ---
+﻿--- Create Function ---
 
 DROP function if exists convert_input_data_to_json_cpu_table(integer);
 

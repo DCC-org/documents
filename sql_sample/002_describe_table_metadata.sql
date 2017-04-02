@@ -26,3 +26,5 @@ from INFORMATION_SCHEMA.COLUMNS where table_name LIKE 'anz';
 /*
 "count";"bigint";
 */
+
+-- https://www.postgresql.org/docs/9.1/static/plpgsql-trigger.html
