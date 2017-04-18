@@ -3501,6 +3501,18 @@ Entwickler auch einen umfangreichen Bericht zu den von dem Programm getätigten
 Inhalten, um zu prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
 \nl%
 
+\section{ETL Test}
+\label{sec:etl_test}
+Für den in Punkt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
+Transformations- und Ladeprozess vor der Datenhaltung wird neben den
+in Punkt~\ref{sec:unit_tests} erläuterteten Komponententests und
+in Punkt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
+noch ein Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das
+System reagiert, wenn eine vorher nicht definierte Situation eintritt.
+Dies könnte zum Beispiel das erhalten von anderen Daten sein, welche keine
+definierten Metadaten-Einträge besitzen.
+\nl%
+
 \chapter{Ausblick}
 \label{chapter:ausblick}
 Im Projekt wurde eine solide und modulare Architektur erstellt. Sie erfüllt
