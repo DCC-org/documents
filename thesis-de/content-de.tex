@@ -322,7 +322,7 @@ Eine konkretisierte Anforderungsübersicht an das Datenhaltungssystem kann aus
 Punkt~\ref{sec:datenhaltungssystem} entnommen werden.
 \nl%
 
-\subsection{Frontends}
+\subsection{Datenvisualisierung}
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
 verbrauchten oder freien Ressourcen, wie zum Beispiel CPU-Auslastung oder
 RAM-Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
@@ -331,13 +331,13 @@ und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, dass sowohl die
 Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
 die Weboberfläche selbst gegen Zugriff von Unbekannten. Die Weboberfläche
 greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht uns, den
-Zugriff nur für das Frontend auf die Datenbank gewährleisten zu können. Die
-Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
-Maschinen unterstützen und zeigt hier die Auslastung der einzelnen physischen
-Systeme. Der Administrator kann so gezielt die einzelnen physischen Maschinen
-besser auslasten und verteilen. Ebenfalls kann das Frontend eine Schnittstelle
-für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
-visuell ausgegeben werden.
+Zugriff nur für die Datenvisualisierung auf die Datenbank gewährleisten zu
+können. Die Weboberfläche soll Administratoren bei Neukonfiguration von
+virtuellen Maschinen unterstützen und zeigt hier die Auslastung der einzelnen
+physischen Systeme. Der Administrator kann so gezielt die einzelnen physischen
+Maschinen besser auslasten und verteilen. Ebenfalls kann die
+Datenvisualisierung eine Schnittstelle für komplexe Abfragen und Analysen
+bereitstellen. Bei Bedarf können diese auch visuell ausgegeben werden.
 \mr%
 
 \chapter{Projektmanagement}
@@ -502,7 +502,7 @@ diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
 neuen Strukturen erlernen muss.
 \nl%
 
-\section{Frontend}
+\section{Datenvisualisierung}
 Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum
 einen die Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der
 Ausgabe und Anzeige für den User beziehungsweise den Administrator. Eine
@@ -1738,8 +1738,8 @@ ausgeschlossen.
 \end{center}
 \nl%
 
-\section{Frontends}
-\label{sec:frontends}
+\section{Datenvisualisierung}
+\label{sec:datenvisualisierung}
 Bevor das Projekt begann, musste eine Softwareliste mit möglichen Frontends
 erarbeitet werden. Bereits vorab wurden folgende Softwarelösungen in das
 Pflichtenheft aufgenommen:
@@ -1798,7 +1798,7 @@ Metrik aus dem Datenhaltungssystem abgegriffen und dem Administrator über eine
 oder mehrere Timeseries~\ref{section:Begriffserklärung}.
 
 \subsection{Vorbereitung der Evaluierung}
-\label{subsec:vorbereiten_der_evaluierung_frontend}
+\label{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
 Damit die Evaluierungen der einzelnen Softwarelösungen durchgeführt werden
 können, mussten zuvor Kriterien mit dem Projektteam in einen
 Anforderungskatalog aufgenommen werden. Diese Kriterien, in Form von
@@ -1825,8 +1825,8 @@ wie folgt aufgelistet:
   einen lokalen Administrator, als auch über eine LDAP-Anbindung (Lightweight
   Directory Access Protocol) verfügen, um hier z.B. Unternehmensverzeichnisse
   anbinden zu können.
-  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über das
-  Webfrontend. Der Auftraggeber und auch die Projektmitglieder selbst,
+  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über die
+  Datenvisualisierung. Der Auftraggeber und auch die Projektmitglieder selbst,
   benötigen keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
   zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
   wenn das Produkt bei einem Kunden eingesetzt wird.
@@ -1871,12 +1871,12 @@ wie folgt aufgelistet:
 \end{outline}
 \mr%
 
-\subsection{Durchführung Evaluierung Frontend}
-\label{subsec:durchfuehrung_evaluierung_frontend}
-Für die Durchführung der Evaluierung der ausgewählten Frontends aus der obigen
-Liste~\ref{sec:frontends} wurden die entsprechenden Kriterien zur
-Evaluierung aus Punkt~\ref{subsec:vorbereiten_der_evaluierung_frontend}
-verwendet.
+\subsection{Durchführung der Evaluierung}
+\label{subsec:durchfuehrung_evaluierung_datenvisualisierung}
+Für die Durchführung der Evaluierung der ausgewählten Datenvisualisierungs
+Software aus der obigen Liste~\ref{sec:datenvisualisierung} wurden die
+entsprechenden Kriterien zur Evaluierung aus
+Punkt~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung} verwendet.
 
 
 Bevor die Evaluierung der einzelnen Softwarelösungen durchgeführt werden
@@ -2169,6 +2169,8 @@ Negativ:
 \end{outline}
 \mr%
 
+\subsection{Abschluss der Evaluierung}
+\label{subsec:abschluss_evaluierung}
 Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für das Web
 Frontend sind folgende drei Weboberflächen in die nähere Auswahl genommen
 worden:
@@ -2929,7 +2931,8 @@ auch in dem API-System integriert.
 
 \section{Realisierung Grafana}
 \label{sec:realisierung_grafana}
-Nachdem nun die Evaluierung~\ref{subsec:durchfuehrung_evaluierung_frontend}
+Nachdem nun die
+Evaluierung~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
 abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
 begonnen werden. Damit die eigentliche Konfiguration durchgeführt werden
 konnte, musste zuvor das Installationspaket von Grafana heruntergeladen und
