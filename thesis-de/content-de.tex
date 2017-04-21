@@ -3442,7 +3442,7 @@ ist eine solche Datei beigefügt.
 
 \section{API Test}
 \label{sec:api_test}
-Während der Entwicklung des API Systems wurde bei der Implementierung einem
+Während der Entwicklung des API Systems wurde bei der Implementierung von einem
 neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie in
 Punkt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
 durchgeführt. Speziell bei der API wurden die Komponententests in einem
@@ -3451,42 +3451,42 @@ die API, also Java, verfasst. Das in dem in Punkt~\ref{sec:api_system} genannte
 Entwicklerstudio „Spring Tool Suite“ bietet dabei eine benutzerfreundliche
 Darstellung und Verwendung. Es stellt den zu einem Algorithmus zugehörigen
 Komponententest direkt im Programm bereit, sodass jeder Entwickler die
-zugehörigen Tests sofort erkennen kann und nicht danach suchen muss.
+zugehörigen Tests sofort erkennen kann und hierzu nicht danach suchen muss.
 
-Für das Ausführen der definierten Test muss kein eigene Laufzeit
-Infrastruktur bereitgestellt werden. Echte Komponententest werden normalerweise
-extrem schnell ausgeführt und steigerten durch die Integration in das genannte
-Entwicklerstudio die Produktivität der API Entwicklung um ein vielfaches. Durch
-die geringe Laufzeit konnten die Tests auch beliebig oft, in unserem Fall, nach
-jeder Änderung am Code ausgeführt werden, ohne das längere Wartezeiten
-entstehen.
+Für das Ausführen der definierten Tests muss keine eigene Laufzeit
+Infrastruktur bereitgestellt werden. Echte Komponententests werden
+normalerweise extrem schnell ausgeführt und steigern durch die Integration in
+das genannte Entwicklerstudio die Produktivität der API Entwicklung um ein
+vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft, in
+unserem Fall, nach jeder Änderung am Code ausgeführt werden, ohne das längere
+Wartezeiten entstehen.
 
 Die von Swagger bereitgestellten Testbibliotheken sind dabei sehr umfangreich
 und bieten zu jeder API Funktion auch die passenden Testdefinitionen. Die
 bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
 Objekte sind in Testumgebungen Platzhalter für die im echten Code verwendeten
 Objektdefinitionen. Ein konkretes Beispiel dafür wäre die „Bean“ Definition
-von Swagger. Mit dieser können verschiedene Einstellungen, beziehungsweise
-verschiedene Definitionen von Objekten in insgesamt verschiedenen
-Laufzeitumgebungen einfach definiert und ausgewählt werden. In unserem Projekt
+von Swagger. Mit dieser können unterschiedliche Einstellungen, beziehungsweise
+verschiedene Definitionen von Objekten in eigenen
+Laufzeitumgebungen einfach definiert und ausgewählt werden. In dem Projekt
 war dies zum Beispiel das nutzen von im Arbeitsspeicher gehaltene Daten zum
-Testen während der Entwicklung versus dem Zugriff auf die Produktivdaten
+testen während der Entwicklung versus dem Zugriff auf die Produktivdaten
 der Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in diese Art von
 Testbibliothek gehört, war das registrieren von verschiedenen API Profilen,
 welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu stellen,
-dass jeder dieser Profile so funktioniert, wie von dem Entwickeler vorgegeben.
+dass jeder dieser Profile so funktioniert, wie von dem Entwickler vorgegeben.
 
 Neben den vorgestellten Komponententests kann der Entwickler ebenfalls
 sogenannte Integrationstest in der Swagger Testumgebung definieren. Bei
 diesen werden nicht einzeln definierte Algorithmen auf die Funktionsweise
-getestet, sondern eine aufeinander abgestimmte Reihe von Einzeltest.
+getestet, sondern eine aufeinander abgestimmte Reihe von Einzeltests.
 Dabei wird geprüft, ob die voneinander abhängigen Komponenten optimal
 miteinander zusammenarbeiten und vorhanden sind
 (vgl.~\cite{Spring_Testing}).
 
 Bei der Swagger Testbibliothek kann zum Beispiel das korrekte Caching von
 Daten getestet werden. Das Anfragen und Abholen von Daten bei einem
-Datenhaltsungssystem kann je nach Abfrage sehr lange dauern, um diese
+Datenhaltungssystem kann je nach Abfrage sehr lange dauern, um diese
 Zeit zu verkürzen, nutzt Swagger die Methoden des Caching, welche mit
 diesem Test überprüft werden. Ein weiterer Testfall wäre die Prüfung
 von Abhängigkeiten, wenn zum Beispiel die API eine eigene
@@ -3494,7 +3494,7 @@ Konfigurations-Datei besitzt, kann damit geprüft werden, ob diese vollständig
 und ohne Fehleinträge ist. Jedoch kann der Integrationstest auch für komplexere
 Inhalte verwendet werden. In unserem Projekt ist dies die Prüfung der korrekten
 Transaktion von Daten mit der Nutzung von Backup-Transaktionen. Diese helfen
-vorallem wenn die API Daten in dem Datenhaltsungssystem modifizieren, da nach
+vorallem wenn die API Daten in dem Datenhaltungssystem modifizieren, da nach
 der Modifizierung die Daten wieder auf den vorherigen Stand zurück gesetzt
 werden. Diese Tests sparen nicht nur Administrations-Zeit, sondern geben dem
 Entwickler auch einen umfangreichen Bericht zu den von dem Programm getätigten
@@ -3504,7 +3504,7 @@ Inhalten, um zu prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
 \section{ETL Test}
 \label{sec:etl_test}
 Für den in Punkt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
-Transformations- und Ladeprozess vor der Datenhaltung wird neben den
+Transformations- und Ladeprozess von der Datenhaltung wird neben den
 in Punkt~\ref{sec:unit_tests} erläuterteten Komponententests und
 in Punkt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
 noch ein Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das
