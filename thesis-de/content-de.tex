@@ -1896,13 +1896,15 @@ aller Softwarelösungen durchführen. Um die Nutzwertanalyse durchführen zu
 können, wurde jede Softwarelösung gegenübergestellt und auf den
 Kriterienkatalog geprüft. Hierfür wurde ein Punktesystem von Null bis Fünf
 festgelegt, wobei Null die schlechteste Punktzahl und Fünf die beste Punktzahl
-ist. Diese vergebenen Punkte, wurden anschließend mit der Gewichtung
-Multipliziert, welches dann die Gesamtpunktzahl ergibt.
+ist. Diese vergebenen Punkte, wurden anschließend mit der Gewichtung in eine
+Tabelle eingetragen und Multipliziert, welches dann die Gesamtpunktzahl ergibt.
+Die Tabellen, werden im Abschnitt~\ref{subsec:abschluss_evaluierung} genauer
+erklärt.
 
 Während der Evaluierung der einzelnen Softwarelösungen ist aufgefallen, dass
 die Softwarelösung `Gridster-D3' keine direkte Visualisierungssoftware ist. Die
 entsprechende Evaluierung, von diesem Produkt, kann unter
-Punkt~\ref{subsubsec:gridster-d3} vollständig entnommen werden. 
+Punkt~\ref{subsubsec:gridster-d3} vollständig entnommen werden.
 
 Im Nachfolgenden Punkt sind die einzelnen Softwarelösungen mit den einzelnen
 Anforderungen und Evaluierungsergebnissen aufgelistet:
@@ -2177,15 +2179,79 @@ Negativ:
 
 \subsection{Abschluss der Evaluierung}
 \label{subsec:abschluss_evaluierung}
-Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für das Web
-Frontend sind folgende drei Weboberflächen in die nähere Auswahl genommen
-worden:
+Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für die
+Datenvisualisierung wurden diesen während der Evaluierung entsprechende
+Bewertungspunkte für die Kriterien von Null bis Fünf festgelegt. In
+nachfolgender Tabelle, kann hier die Nutzwertanalyse der Softwarelösungen
+Datadog, Gridster-D3 und Netdata entnommen werden.
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\multicolumn{1}{c}{Kriterien} & Gewicht & \multicolumn{2}{c}{Datadog} &
+\multicolumn{2}{c}{Gridster-D3} & \multicolumn{2}{c}{Netdata} \\
+\midrule
+ &  & Bewertung & Gesamt & Bewertung & Gesamt & Bewertung & Gesamt \\
+Skalierbar & 25\% & 3 & 0,75 & 0 & 0,00 & 2 & 0,50 \\
+Kosten & 20\% & 1 & 0,20 & 0 & 0,00 & 5 & 1,00 \\
+Sicherheit & 30\% & 3 & 0,90 & 0 & 0,00 & 1 & 0,30 \\
+Performance & 15\% & 4 & 0,60 & 0 & 0,00 & 1 & 0,15 \\
+Dokumentation & 10\% & 5 & 0,50 & 0 & 0,00 & 4 & 0,40 \\
+\midrule
+Gesamt & 100\% &  & 2,95 &  & 0,00 &  & 2,35
+\end{tabular}%
+}
+\caption{Nutzwertanalyse Datadog, Gridster-D3 und Netdata}
+\label{nwa_dgn}
+\end{table}
+
+In der oben stehenden Tabelle, erhält die Softwarelösung
+Datadog~\ref{subsubsec:datadog} nur 2,95 Gesamtpunkte, da diese Softwarelösung
+eine Kostenpflichtige Lizenz benötigt. Dies ist innerhalb des Projektes ein
+Kernkriterium, weshalb es als Softwarelösung nicht weiter verwendet.
+Gridster-D3~\ref{subsubsec:gridster-d3} ist bereits während der
+Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um eine
+Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem Grund,
+hat Gridster-D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im laufe der
+Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr unübersichtlich
+aufgebaut und keine Sicherheit gewährleistern kann. Alle drei Softwärelösungen
+sind damit ausgeschieden, da eine mindest Gesamtpunktzahl von 3,00 nicht
+erreicht worden ist.
+
+Nachstehen bleiben folgende drei Datenvisualisierungslösungen für die nähere
+Auswahl:
 
 \begin{outline}
   \1 Grafana
   \1 Graphite
   \1 Zabbix-Frontend
 \end{outline}
+
+Ebenfalls wie auch bei den anderen Softwarelösungen, wurde auch hier eine
+entsprechende Tabelle erstellt:
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\multicolumn{1}{c}{Kriterien} & Gewicht & \multicolumn{2}{c}{Grafana} &
+\multicolumn{2}{c}{Graphite} & \multicolumn{2}{c}{Zabbix-Frontend} \\
+\midrule
+ &  & Bewertung & Gesamt & Bewertung & Gesamt & Bewertung & Gesamt \\
+Skalierbar & 25\% & 4 & 1,00 & 2 & 0,50 & 2 & 0,50 \\
+Kosten & 20\% & 5 & 1,00 & 5 & 1,00 & 5 & 1,00 \\
+Sicherheit & 30\% & 4 & 1,20 & 4 & 1,20 & 4 & 1,20 \\
+Performance & 15\% & 3 & 0,45 & 2 & 0,30 & 2 & 0,30 \\
+Dokumentation & 10\% & 5 & 0,50 & 5 & 0,50 & 5 & 0,50 \\
+\midrule
+Gesamt & 100\% &  & 4,15 &  & 3,50 &  & 3,50
+\end{tabular}%
+}
+\caption{Nutzwertanalyse Grafana, Graphite und Zabbix-Frontend}
+\label{nwa_ggz}
+\end{table}
+
 
 Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
 Anforderungskriterien, weshalb die Produkte in die nähere Analyse aufgenommen
@@ -2212,48 +2278,6 @@ Graphite für die weitere Implementierung nicht verwendet.
 
 
 
-
-\begin{table}[H]
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lccccccc@{}}
-\toprule
-\multicolumn{1}{c}{Kriterien} & Gewicht & \multicolumn{2}{c}{Grafana} &
-\multicolumn{2}{c}{Graphite} & \multicolumn{2}{c}{Zabbix-Frontend} \\
-\midrule
- &  & Bewertung & Gesamt & Bewertung & Gesamt & Bewertung & Gesamt \\
-Skalierbar & 25\% & 4 & 1,00 & 2 & 0,50 & 2 & 0,50 \\
-Kosten & 20\% & 5 & 1,00 & 5 & 1,00 & 5 & 1,00 \\
-Sicherheit & 30\% & 4 & 1,20 & 4 & 1,20 & 4 & 1,20 \\
-Performance & 15\% & 3 & 0,45 & 2 & 0,30 & 2 & 0,30 \\
-Dokumentation & 10\% & 5 & 0,50 & 5 & 0,50 & 5 & 0,50 \\
-\midrule
-Gesamt & 100\% &  & 4,15 &  & 3,50 &  & 3,50
-\end{tabular}%
-}
-\caption{Nutzwertanalyse Grafana, Graphite und Zabbix-Frontend}
-\label{nwa_ggz}
-\end{table}
-
-\begin{table}[H]
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lccccccc@{}}
-\toprule
-\multicolumn{1}{c}{Kriterien} & Gewicht & \multicolumn{2}{c}{Datadog} & 
-\multicolumn{2}{c}{Gridster-D3} & \multicolumn{2}{c}{Netdata} \\ 
-\midrule
- &  & Bewertung & Gesamt & Bewertung & Gesamt & Bewertung & Gesamt \\
-Skalierbar & 25\% & 3 & 0,75 & 0 & 0,00 & 2 & 0,50 \\
-Kosten & 20\% & 1 & 0,20 & 0 & 0,00 & 5 & 1,00 \\
-Sicherheit & 30\% & 3 & 0,90 & 0 & 0,00 & 1 & 0,30 \\
-Performance & 15\% & 4 & 0,60 & 0 & 0,00 & 1 & 0,15 \\
-Dokumentation & 10\% & 5 & 0,50 & 0 & 0,00 & 4 & 0,40 \\ 
-\midrule
-Gesamt & 100\% &  & 2,95 &  & 0,00 &  & 2,35
-\end{tabular}%
-}
-\caption{Nutzwertanalyse Datadog, Gridster-D3 und Netdata}
-\label{nwa_dgn}
-\end{table}
 
 \mr%
 
