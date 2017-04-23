@@ -2181,7 +2181,9 @@ Negativ:
 \label{subsec:abschluss_evaluierung}
 Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für die
 Datenvisualisierung wurden diesen während der Evaluierung entsprechende
-Bewertungspunkte für die Kriterien von Null bis Fünf festgelegt. In
+Bewertungspunkte für die Kriterien von Null bis Fünf festgelegt. Damit eine
+Softwarelösung in die nähere Auswahl aufgenommen werden kann, muss es
+mindestens 3,00 Gesamtpunkte in der Nutzwertanalyse erhalten. In
 nachfolgender Tabelle, kann hier die Nutzwertanalyse der Softwarelösungen
 Datadog, Gridster-D3 und Netdata entnommen werden.
 
@@ -2214,12 +2216,12 @@ Gridster-D3~\ref{subsubsec:gridster-d3} ist bereits während der
 Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um eine
 Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem Grund,
 hat Gridster-D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im laufe der
-Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr unübersichtlich
-aufgebaut und keine Sicherheit gewährleistern kann. Alle drei Softwärelösungen
-sind damit ausgeschieden, da eine mindest Gesamtpunktzahl von 3,00 nicht
-erreicht worden ist.
+Evaluierung hat Netdata~\ref{subsubsec:netdata} 2,35 Gesamtpunkte erhalten, da
+es sehr unübersichtlich aufgebaut ist und keine Sicherheit gewährleisten kann.
+Alle drei Softwärelösungen sind damit ausgeschieden, da eine mindest
+Gesamtpunktzahl von 3,00 nicht erreicht worden ist.
 
-Nachstehen bleiben folgende drei Datenvisualisierungslösungen für die nähere
+Nachfolgend bleiben folgende drei Datenvisualisierungslösungen für die nähere
 Auswahl:
 
 \begin{outline}
@@ -2228,8 +2230,8 @@ Auswahl:
   \1 Zabbix-Frontend
 \end{outline}
 
-Ebenfalls wie auch bei den anderen Softwarelösungen, wurde auch hier eine
-entsprechende Tabelle erstellt:
+Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster-D3 und Netdata,
+wurde auch hierfür eine Nutzwertanalyse durchgeführt, die wie folgt aussieht:
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2239,46 +2241,46 @@ entsprechende Tabelle erstellt:
 \multicolumn{2}{c}{Graphite} & \multicolumn{2}{c}{Zabbix-Frontend} \\
 \midrule
  &  & Bewertung & Gesamt & Bewertung & Gesamt & Bewertung & Gesamt \\
-Skalierbar & 25\% & 4 & 1,00 & 2 & 0,50 & 2 & 0,50 \\
+Skalierbar & 25\% & 4 & 1,00 & 3 & 0,75 & 2 & 0,50 \\
 Kosten & 20\% & 5 & 1,00 & 5 & 1,00 & 5 & 1,00 \\
 Sicherheit & 30\% & 4 & 1,20 & 4 & 1,20 & 4 & 1,20 \\
 Performance & 15\% & 3 & 0,45 & 2 & 0,30 & 2 & 0,30 \\
 Dokumentation & 10\% & 5 & 0,50 & 5 & 0,50 & 5 & 0,50 \\
 \midrule
-Gesamt & 100\% &  & 4,15 &  & 3,50 &  & 3,50
+Gesamt & 100\% &  & 4,15 &  & 3,75 &  & 3,50
 \end{tabular}%
 }
 \caption{Nutzwertanalyse Grafana, Graphite und Zabbix-Frontend}
 \label{nwa_ggz}
 \end{table}
 
-
-Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
-Anforderungskriterien, weshalb die Produkte in die nähere Analyse aufgenommen
-wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
-oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
-einen Zabbix-Server nicht verwendet werden kann. Der Zabbix-Server ist ein von
-Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
-bereitet diese auf und speichert diese Daten anschließend in einem
-Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
-maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
-kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
-kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
-Abfrage die Datenbanken direkt angesprochen. Während der Implementierung von
-Graphite fiel auf, dass es deutlich komplexer ist als Grafana. Graphite besteht
-aus mehreren Diensten, welche bei der Installation konfiguriert und
-angepasst werden müssen, damit Graphite funktional ist. Wenn ein Dienst
-ausfallen sollte, so betrifft dies das gesamte Graphite-System und die
-Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in der
-Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
-von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
-mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
-einzelner Dienst, wie es bei Grafana der Fall ist. Hierdurch bedingt, wird
-Graphite für die weitere Implementierung nicht verwendet.
-
-
-
-
+Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix-Frontend
+durchgeführt worden ist, hat die
+Zabbix-Frontend~\ref{subsubsec:zabbix-frontend} Softwarelösung eine
+Gesamtpunktzahl von 3,50 erhalten. Während der Evaulierung der Zabbix-Frontend
+Softwarelösung, fiel auf, dass das Zabbix-Frontend ohne einen Zabbix-Server
+nicht verwendet werden kann. Der Zabbix-Server ist ein von Zabbix LLC
+entwickelter Netzwerkdienst. Er empfängt Metriken von Agents, bereitet diese
+auf und speichert diese Daten anschließend in einem Datenhaltungssystem ab.
+Zusätzlich ist aufgefallen, dass das Zabbix-Frontend maximal nur mit einer
+Datenbank gleichzeitig kommunizieren und verwendet werden kann. Anders als bei
+Grafana, welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.
+Innerhalb der einzelnen Graphen werden hier mittels einer Abfrage die
+Datenbanken direkt angesprochen. Bei der Evaluierung der
+Graphite~\ref{subsubsec:graphite} Softwarelösung, hat Graphite 3,75
+Gesamtpunkte erhalten.  Während der Implementierung von Graphite fiel auf, dass
+es deutlich komplexer ist als Grafana. Graphite besteht aus mehreren Diensten,
+welche bei der Installation konfiguriert und angepasst werden müssen, damit
+Graphite funktional ist. Wenn ein Dienst ausfallen sollte, so betrifft dies das
+gesamte Graphite-System und die Weboberfläche wäre nicht mehr erreichbar.
+Zusätzlich ist hier gerade in der Wartung der Dienste ein Mehraufwand, da der
+Administrator alle Dienste in Form von Abhängigkeit zueinander und
+Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
+Graphite auch mehr Systemressourcen als ein einzelner Dienst, wie es bei
+Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die weitere
+Implementierung nicht verwendet. Grafana~\ref{subsubsec:grafana} hat in der
+Nutzwertanalyse die meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von
+den Projektmitgliedern zuvor definierte Kriterien.
 \mr%
 
 \chapter{Userstories}
