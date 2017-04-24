@@ -14,15 +14,14 @@ create table public.etl_master
 	last_value double precision
 );
 
---- Create ETL Trigger - Last Object ---
+--- Create ETL Trigger - Last Object  DONT WORK YET :-( ---
 CREATE OR REPLACE FUNCTION update_last_data_information() RETURNS trigger AS
 $BODY$
 DECLARE
-	etl_metadata_id TEXT;
+	etl_metadata_id TEXT := NEW.metadata->'metadata_id';
 BEGIN
-	etl_metadata_id := NEW.metadata->'metadata_id';
 	EXECUTE 'DELETE FROM public.etl_master where last_data_information->>''metadata_id''::text = ''' || etl_metadata_id || '''::text ;';
-	RAISE NOTICE 'DELETE metadata_id from public.etl_master == ' || etl_metadata_id;
+	
 	
 	INSERT INTO public.etl_master VALUES (
 					json_build_object
@@ -44,8 +43,8 @@ BEGIN
 	RETURN NULL;
 exception when others then
 	INSERT INTO public.etl_error_log VALUES (
-		'ERROR: ' || SQLERRM || SQLSTATE,
-		'Metadata: ' NEW.metadata || ' DATA: ' || NEW.data	
+		'ERROR: '::text,
+		'Metadata: '::text
 	);
 	RETURN NULL;
 END;
@@ -60,18 +59,6 @@ CREATE TRIGGER run_update_last_data_information AFTER INSERT ON measurement_mast
 -- DROP TRIGGER run_update_last_data_information ON measurement_master;
 
 --- Create Function ---
-/*
-collectd_type
-│ percent        │
-│ percent_inodes │
-│ df_inodes      │
-│ count          │
-│ df_complex     │
-│ conntrack      │
-│ nikolai        │
-│ percent_bytes  │
-│ entropy 
-*/
 
 DROP function if exists public.write_to_database_etl
 	(
