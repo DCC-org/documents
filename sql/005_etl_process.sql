@@ -1,3 +1,64 @@
+--- Create Error Log Table ---
+drop table if exists public.etl_error_log;
+create table public.etl_error_log
+(
+	error_info TEXT not null,
+	data TEXT not null
+);
+
+--- Create ETL Table - Last Objects ---
+drop table if exists public.etl_master;
+create table public.etl_master
+(
+	last_data_information json not null,
+	last_value double precision
+);
+
+--- Create ETL Trigger - Last Object ---
+CREATE OR REPLACE FUNCTION update_last_data_information() RETURNS trigger AS
+$BODY$
+DECLARE
+	etl_metadata_id TEXT;
+BEGIN
+	etl_metadata_id := NEW.metadata->'metadata_id';
+	EXECUTE 'DELETE FROM public.etl_master where last_data_information->>''metadata_id''::text = ''' || etl_metadata_id || '''::text ;';
+	RAISE NOTICE 'DELETE metadata_id from public.etl_master == ' || etl_metadata_id;
+	
+	INSERT INTO public.etl_master VALUES (
+					json_build_object
+					(
+					'metadata_id', etl_metadata_id,
+					'insert_at', current_timestamp::timestamp,
+					'timestamp', NEW.data->'timestamp',
+					'host', NEW.data->'host',
+					'plugin', NEW.data->'plugin',
+					'type_instance', NEW.data->'type_instance',
+					'collectd_type', NEW.data->'collectd_type',
+					'plugin_instance', NEW.data->'plugin_instance',
+					'type', NEW.data->'type',
+					'version', NEW.data->'version'
+					)
+					,
+					round(cast(NEW.data->'value' as numeric),2)
+				);
+	RETURN NULL;
+exception when others then
+	INSERT INTO public.etl_error_log VALUES (
+		'ERROR: ' || SQLERRM || SQLSTATE,
+		'Metadata: ' NEW.metadata || ' DATA: ' || NEW.data	
+	);
+	RETURN NULL;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE
+COST 100;
+
+-- Create trigger
+CREATE TRIGGER run_update_last_data_information AFTER INSERT ON measurement_master FOR EACH ROW EXECUTE PROCEDURE update_last_data_information();
+
+--Disable Trigger
+-- DROP TRIGGER run_update_last_data_information ON measurement_master;
+
 --- Create Function ---
 /*
 collectd_type

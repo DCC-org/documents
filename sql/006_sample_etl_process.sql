@@ -8,7 +8,8 @@ CREATE OR REPLACE FUNCTION public.test_etl_process_partition()
 	INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
 			json_build_object(
 				'insert_at', current_timestamp::timestamp,
-				'aggregation_type', 'seconds'),
+				'aggregation_type', 'seconds',
+				'metadata_id', '1'),
 			json_build_object(
 				'host',NEW.host,
 				'timestamp',NEW."timestamp",
@@ -20,6 +21,12 @@ CREATE OR REPLACE FUNCTION public.test_etl_process_partition()
 				'value',NEW.value,
 				'version',NEW.version)
 			);
+	RETURN NULL;
+exception when others then
+	INSERT INTO public.etl_error_log VALUES (
+		'ERROR: ' || SQLERRM || SQLSTATE,
+		'Data: not implemented yet'
+	);
 	RETURN NULL;
 END;
 $BODY$
