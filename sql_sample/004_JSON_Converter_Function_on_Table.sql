@@ -1,15 +1,4 @@
-﻿--- Create Table ---
-
-DROP table if exists measurement_master;
-
-create table measurement_master
-(
-	id bigint not null,
-	metadata json not null,
-	data json not null
-);
-
---- Create Function ---
+﻿--- Create Function ---
 
 DROP function if exists convert_input_data_to_json_cpu_table(integer);
 
@@ -20,15 +9,13 @@ DECLARE
 
 	id_count integer := 0;
  BEGIN
-	truncate table measurement_master;
-
 	FOR r IN
 		SELECT *
 		FROM log l
 		ORDER BY l."timestamp"
 		LIMIT $1
 	LOOP
-		INSERT INTO measurement_master VALUES (id_count,
+		INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
 				json_build_object(
 					'insert_at', current_timestamp::timestamp,
 					'aggregation_type', 'seconds'),
@@ -43,6 +30,7 @@ DECLARE
 					'value',r.value,
 					'version',r.version)
 				);
+		-- RAISE NOTICE 'Insert number: %', id_count; --> fucks the connection via pgAdmin3
 		id_count := id_count + 1;
 	END LOOP;
 	
