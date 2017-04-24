@@ -1,13 +1,4 @@
 --- Create Function ---
-"host";"character varying";
-"timestamp";"timestamp with time zone";
-"plugin";"character varying";
-"type_instance";"character varying";
-"collectd_type";"character varying";
-"plugin_instance";"character varying";
-"type";"character varying";
-"value";"double precision";
-"version";"character varying";
 
 DROP function if exists public.write_to_database_etl
 	(
@@ -36,9 +27,20 @@ CREATE OR REPLACE FUNCTION public.write_to_database_etl
 	)
   RETURNS character AS $BODY$
 DECLARE
-	id_count integer := 0;
+	d_value double precision;
+	t_timestamp timestamp;
  BEGIN
-	return 'Ok ' || in_host || ' stop';
+	d_value := cast(in_value as double precision);
+	
+	if in_timestamp !~* '[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9]\s[0-9][0-9]\:[0-9][0-9]\:[0-9][0-9]\.[0-9][0-9][0-9]\+[0-9][0-9]' then
+		RAISE EXCEPTION 'Error @ Timestamp Format';
+	end if;
+	
+	return 'done';
+	
+exception when others then -- On Error
+	return 'Error :-('; -- Do something
+	
 END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
