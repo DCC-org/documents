@@ -19,10 +19,10 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
     BEGIN
 	  partition_date := NEW.data->'timestamp';
 	  new_timestamp	:= partition_date;
-      partition_date := substring(partition_date from 2 for 10);
+      partition_date := substring(partition_date from 2 for 13);
 	  partition_date := replace(partition_date,'-', '_');
 	  new_timestamp := replace(new_timestamp,'"', '');
-	  new_timestamp := substring(new_timestamp from 1 for 10);
+	  new_timestamp := substring(new_timestamp from 1 for 13);
       partition := 'measurement_' || partition_date;
 	  
       IF NOT EXISTS(
@@ -34,7 +34,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 		) THEN
 		
         RAISE NOTICE 'A partition has been created %', prefix || '.' || partition;
-        EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (substring(data->>''timestamp''::text from 1 for 10) = ''' || new_timestamp || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
+        EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (substring(data->>''timestamp''::text from 1 for 13) = ''' || new_timestamp || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
 		
       END IF;
       EXECUTE 'INSERT INTO ' || prefix || '.' || partition || ' SELECT(public.' || TG_RELNAME || ' ' || quote_literal(NEW) || ').* RETURNING id;';
