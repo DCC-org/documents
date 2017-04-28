@@ -28,9 +28,6 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 	  new_timestamp := substring(new_timestamp from 1 for 13);
       partition := 'measurement_' || partition_date;
 	  
-	  RAISE notice 'Partition: %', partition_date::text;
-	  RAISE notice 'Timestamp: %', new_timestamp::text;
-	  
       IF NOT EXISTS(
 			SELECT b.nspname, a.relname
 			FROM pg_class a, pg_catalog.pg_namespace b
@@ -43,8 +40,6 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 		RAISE NOTICE 'A partition has been created % on %', prefix || '.' || partition, TG_RELNAME;
 		
       END IF;
-	  
-	  RAISE NOTICE 'Daten %', NEW;
 	  
       EXECUTE 'INSERT INTO ' || prefix || '.' || partition || ' SELECT(public.' || TG_RELNAME || ' ' || quote_literal(NEW) || ').* RETURNING id;';
       RETURN NULL;

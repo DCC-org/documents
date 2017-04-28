@@ -25,24 +25,7 @@ BEGIN
 		INSERT INTO public.etl_master VALUES (
 		json_build_object(
 			'etlid', etlnumber::text,
-			'etlrowid', nextval('public.etl_master_etl_id')::text,
-			'update_at', current_timestamp::timestamp),
-		json_build_object(
-			'host',NEW.host::text,
-			'plugin',NEW.plugin::text,
-			'type_instance',NEW.type_instance::text,
-			'collectd_type',NEW.collectd_type::text,
-			'plugin_instance',NEW.plugin_instance::text,
-			'type',NEW.type::text)
-		);
-		
-	else
-		EXECUTE 'DELETE FROM public.etl_master where etldata->>''etlrowid'' = ''' || etlrownumber::text || ''':text ;';
-	
-		INSERT INTO public.etl_master VALUES (
-		json_build_object(
-			'etlid', etlnumber::text,
-			'etlrowid', nextval('public.etl_master_etl_id')::text,
+			'etlrowid', nextval('public.etl_master_etl_row_id')::text,
 			'update_at', current_timestamp::timestamp),
 		json_build_object(
 			'host',NEW.host::text,
