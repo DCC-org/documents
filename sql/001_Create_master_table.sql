@@ -1,3 +1,19 @@
+--- Create Error Log Table ---
+drop table if exists public.etl_error_log;
+create table public.etl_error_log
+(
+	error_info TEXT not null,
+	data TEXT not null
+);
+
+--- Create ETL Table - Last Objects ---
+drop table if exists public.etl_master;
+create table public.etl_master
+(
+	last_data_information json not null,
+	last_value double precision
+);
+
 -- Table: Master
 drop table if exists measurement_master;
 create table measurement_master
@@ -31,7 +47,6 @@ ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
 CREATE OR REPLACE FUNCTION reset_sequence_on_truncate() RETURNS trigger AS
   $BODY$
   BEGIN
-	-- https://github.com/DCC-org/documents/pull/190/commits/e1e6c552e6bd760981653ff820e4d81169c0acef
 	ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
 	RAISE NOTICE 'Reset SEQUENCE.';
     RETURN NULL;

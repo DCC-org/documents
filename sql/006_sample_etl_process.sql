@@ -1,8 +1,8 @@
 -- Testing ETL for partition
 
-DROP function if exists test_etl_process_partition();
+DROP function if exists run_etl_process_partition();
 
-CREATE OR REPLACE FUNCTION public.test_etl_process_partition()
+CREATE OR REPLACE FUNCTION public.run_etl_process_partition()
   RETURNS trigger AS $BODY$
  BEGIN
 	INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
@@ -32,14 +32,14 @@ END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION public.test_etl_process_partition()
+ALTER FUNCTION public.run_etl_process_partition()
   OWNER TO metrics;
 
 -- Active
-CREATE TRIGGER etl_process_sample AFTER INSERT ON log FOR EACH ROW EXECUTE PROCEDURE test_etl_process_partition();
+CREATE TRIGGER run_etl_process AFTER INSERT ON log FOR EACH ROW EXECUTE PROCEDURE run_etl_process_partition();
 
--- DROP TRIGGER etl_process_sample ON log;
+-- DROP TRIGGER run_etl_process ON log;
  
 -- Test
 INSERT INTO log (host, timestamp, type_instance, plugin_instance, plugin, collectd_type, type, value)
-VALUES('ci-slave2', CAST ('2017-04-01 02:39:13.034+02' AS timestamp), 'test', 'reserved', 'df_inodes', 'nikolai', 'collectd', CAST('0' AS FLOAT));
+VALUES('ci-slave2', CAST ('2017-04-01T19:27:13.035+02:00' AS timestamptz), 'test', 'reserved', 'df_inodes', 'nikolai', 'collectd', CAST('0' AS FLOAT));

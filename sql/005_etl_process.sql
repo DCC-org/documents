@@ -1,19 +1,3 @@
---- Create Error Log Table ---
-drop table if exists public.etl_error_log;
-create table public.etl_error_log
-(
-	error_info TEXT not null,
-	data TEXT not null
-);
-
---- Create ETL Table - Last Objects ---
-drop table if exists public.etl_master;
-create table public.etl_master
-(
-	last_data_information json not null,
-	last_value double precision
-);
-
 --- Create ETL Trigger - Last Object  DONT WORK YET :-( ---
 CREATE OR REPLACE FUNCTION update_last_data_information() RETURNS trigger AS
 $BODY$
@@ -40,13 +24,13 @@ BEGIN
 					,
 					round(cast(NEW.data->'value' as numeric),2)
 				);
-	RETURN NULL;
+	RETURN OLD;
 exception when others then
 	INSERT INTO public.etl_error_log VALUES (
 		'ERROR: '::text,
 		'Metadata: '::text
 	);
-	RETURN NULL;
+	RETURN OLD;
 END;
 $BODY$
 LANGUAGE plpgsql VOLATILE

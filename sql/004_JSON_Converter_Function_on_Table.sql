@@ -30,7 +30,7 @@ DECLARE
 					'value',r.value,
 					'version',r.version)
 				);
-		-- RAISE NOTICE 'Insert number: %', id_count; --> fucks the connection via pgAdmin3
+		RAISE NOTICE 'Insert number: %', id_count;
 		id_count := id_count + 1;
 	END LOOP;
 	
@@ -45,13 +45,4 @@ ALTER FUNCTION public.convert_input_data_to_json_cpu_table(integer)
 
 --- Test Function ---
 
-select convert_input_data_to_json_cpu_table(1000000);
-
-
--- DO NOT RUN THIS WITHOUT LIMIT -> Y SOFTWARE WILL CRASH
-select * from measurement_master LIMIT 10;
-SELECT id, data->>'host' AS name FROM measurement_master LIMIT 10;
--- data->'timestamps'->>'timestamp_one'
--- CREATE UNIQUE INDEX cpu_data_hostname ON cpu ((data->'host'));
--- SELECT data->>'host' AS hosts, count(hosts)
--- SUM(CAST(data->>'value' AS integer))
+select convert_input_data_to_json_cpu_table(10000);

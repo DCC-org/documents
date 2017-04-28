@@ -18,12 +18,18 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
       partition TEXT;
     BEGIN
 	  partition_date := NEW.data->'timestamp';
+	  partition_date := replace(partition_date,'+', '-');
+	  partition_date := to_char(partition_date::timestamptz at time zone 'UTC', 'YYYY-MM-DD HH24:MI:SS')::timestamp;
+	  NEW.data := replace(NEW.data::text, NEW.data->>'timestamp', partition_date)::json;
 	  new_timestamp	:= partition_date;
-      partition_date := substring(partition_date from 2 for 13);
+      partition_date := substring(partition_date from 1 for 13);
 	  partition_date := replace(partition_date,'-', '_');
-	  new_timestamp := replace(new_timestamp,'"', '');
+	  partition_date := replace(partition_date,' ', 't');
 	  new_timestamp := substring(new_timestamp from 1 for 13);
       partition := 'measurement_' || partition_date;
+	  
+	  RAISE notice 'Partition: %', partition_date::text;
+	  RAISE notice 'Timestamp: %', new_timestamp::text;
 	  
       IF NOT EXISTS(
 			SELECT b.nspname, a.relname
@@ -33,12 +39,19 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 				and b.nspname=prefix
 		) THEN
 		
-        RAISE NOTICE 'A partition has been created %', prefix || '.' || partition;
         EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (substring(data->>''timestamp''::text from 1 for 13) = ''' || new_timestamp || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
+		RAISE NOTICE 'A partition has been created % on %', prefix || '.' || partition, TG_RELNAME;
 		
       END IF;
+	  
+	  RAISE NOTICE 'Daten %', NEW;
+	  
       EXECUTE 'INSERT INTO ' || prefix || '.' || partition || ' SELECT(public.' || TG_RELNAME || ' ' || quote_literal(NEW) || ').* RETURNING id;';
       RETURN NULL;
+exception when others then
+	RAISE NOTICE 'Error';
+	raise notice '% %', SQLERRM, SQLSTATE;
+	RETURN NULL;
     END;
   $BODY$
 LANGUAGE plpgsql VOLATILE
@@ -65,18 +78,8 @@ WHERE parent.relname='measurement_master' ;
 
 select * from show_master_partitions;
 
+-- DROP VIEW show_master_partitions;
+
 -- Test
 -- Import 001_JSON_Converter_Function_on_Table
 select convert_input_data_to_json_cpu_table(10);
-
-select * from measurement_master;
-
-select * from show_master_partitions;
-
-select * from "partitions"."measurement_master_2017_02_15";
-
-drop table "partitions"."measurement_master_2017_02_15";
-
-truncate table measurement_master;
-
-select nextval('public.measurement_master_metadata_id');
