@@ -3,30 +3,79 @@
 DROP function if exists run_etl_process_partition();
 
 CREATE OR REPLACE FUNCTION public.run_etl_process_partition()
-  RETURNS trigger AS $BODY$
- BEGIN
+RETURNS trigger AS $BODY$
+DECLARE
+	etlnumber TEXT;
+	etlrownumber TEXT;
+BEGIN
+	
+	select etldata->>'etlid', etldata->>'etlrowid' into etlnumber, etlrownumber
+		from public.etl_master
+		where datacontent->>'host' = NEW.host::text
+		AND datacontent->>'plugin' = NEW.plugin::text
+		AND datacontent->>'type_instance' = NEW.type_instance::text
+		AND datacontent->>'collectd_type' = NEW.collectd_type::text
+		AND datacontent->>'plugin_instance' = NEW.plugin_instance::text
+		AND datacontent->>'type' = NEW.type::text;
+		
+	if etlnumber is null then
+		
+		etlnumber := nextval('public.etl_master_etl_id')::text;
+		
+		INSERT INTO public.etl_master VALUES (
+		json_build_object(
+			'etlid', etlnumber::text,
+			'etlrowid', nextval('public.etl_master_etl_id')::text,
+			'update_at', current_timestamp::timestamp),
+		json_build_object(
+			'host',NEW.host::text,
+			'plugin',NEW.plugin::text,
+			'type_instance',NEW.type_instance::text,
+			'collectd_type',NEW.collectd_type::text,
+			'plugin_instance',NEW.plugin_instance::text,
+			'type',NEW.type::text)
+		);
+		
+	else
+		EXECUTE 'DELETE FROM public.etl_master where etldata->>''etlrowid'' = ''' || etlrownumber::text || ''':text ;';
+	
+		INSERT INTO public.etl_master VALUES (
+		json_build_object(
+			'etlid', etlnumber::text,
+			'etlrowid', nextval('public.etl_master_etl_id')::text,
+			'update_at', current_timestamp::timestamp),
+		json_build_object(
+			'host',NEW.host::text,
+			'plugin',NEW.plugin::text,
+			'type_instance',NEW.type_instance::text,
+			'collectd_type',NEW.collectd_type::text,
+			'plugin_instance',NEW.plugin_instance::text,
+			'type',NEW.type::text)
+		);
+		
+	end if;
+	
 	INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
-			json_build_object(
-				'insert_at', current_timestamp::timestamp,
-				'aggregation_type', 'seconds',
-				'metadata_id', '1'),
-			json_build_object(
-				'host',NEW.host,
-				'timestamp',NEW."timestamp",
-				'plugin',NEW.plugin,
-				'type_instance',NEW.type_instance,
-				'collectd_type',NEW.collectd_type,
-				'plugin_instance',NEW.plugin_instance,
-				'type',NEW.type,
-				'value',NEW.value,
-				'version',NEW.version)
-			);
+										json_build_object(
+											'etlid', etlnumber::text,
+											'insert_at', current_timestamp::timestamp,
+											'aggregation_type', 'seconds'),
+										json_build_object(
+											'host',NEW.host,
+											'timestamp',NEW."timestamp",
+											'plugin',NEW.plugin,
+											'type_instance',NEW.type_instance,
+											'collectd_type',NEW.collectd_type,
+											'plugin_instance',NEW.plugin_instance,
+											'type',NEW.type,
+											'value',NEW.value,
+											'version',NEW.version)
+										);
+										
 	RETURN NULL;
 exception when others then
-	INSERT INTO public.etl_error_log VALUES (
-		'ERROR: ' || SQLERRM || SQLSTATE,
-		'Data: not implemented yet'
-	);
+	RAISE NOTICE 'Error';
+	raise notice '% %', SQLERRM, SQLSTATE;
 	RETURN NULL;
 END;
 $BODY$

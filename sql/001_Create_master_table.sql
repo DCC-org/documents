@@ -10,9 +10,29 @@ create table public.etl_error_log
 drop table if exists public.etl_master;
 create table public.etl_master
 (
-	last_data_information json not null,
-	last_value double precision
+	etldata json not null,
+	datacontent json not null
 );
+
+-- SEQUENCE etl_master_etl_id @ public.etl_master
+
+CREATE SEQUENCE etl_master_etl_id
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+-- ALTER SEQUENCE public.etl_master_etl_id RESTART WITH 1;
+
+-- SEQUENCE etl_master_etl_row_id @ public.etl_master
+
+CREATE SEQUENCE etl_master_etl_row_id
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+-- ALTER SEQUENCE public.etl_master_etl_row_id RESTART WITH 1;
 
 -- Table: Master
 drop table if exists measurement_master;
