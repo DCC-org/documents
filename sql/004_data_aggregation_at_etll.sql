@@ -1,4 +1,3 @@
-current_setting(from_value)
 CREATE TYPE return_type AS (is_same boolean, foundtimestamp timestamp, foundvalue text, foundrowid bigint );
 
 DROP FUNCTION public.check_if_last_value_is_same(timestamp,TEXT,TEXT);
@@ -23,26 +22,16 @@ BEGIN
 	partition := substring(zeit_new::text from 1 for 13);
 	partition := replace(partition,'-', '_');
 	partition := replace(partition,' ', 't');
+	partition := '.measurement_' || partition;
 	
-	from_value := prefix || '.measurement_' || partition;
+	from_value := prefix || partition;
 	
 	RAISE NOTICE '%', from_value;
-
-	SELECT to_timestamp(data->>'timestamp'::text, 'YYYY-MM-DD HH24:MI:SS')::timestamp,
-			id,
-			data->>'value'::text
-	INTO
-			result_record.foundtimestamp, result_record.foundrowid, result_record.foundvalue
-	FROM
-		:from_value
-	WHERE
-		metadata->>'etlid'::text = "etlmetaid"
-	AND
-		to_timestamp(data->>'timestamp'::text, 'YYYY-MM-DD HH24:MI:SS')::timestamp
-		<=
-		zeit_new::timestamp
-	ORDER BY data->>'timestamp' DESC
-	LIMIT 1;
+	
+	EXECUTE 'SELECT to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp, id, data->>''value''::text ' ||
+	'FROM ' || from_value || ' WHERE metadata->>''etlid''::text = ''' || etlmetaid || ''' AND ' ||
+	'to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || zeit_new || '''::timestamp ' ||
+	'ORDER BY data->>''timestamp'' DESC LIMIT 1;' INTO result_record.foundtimestamp, result_record.foundrowid, result_record.foundvalue;
 	
 	IF value_new = foundvalue THEN
 		result_record.is_same := true;
