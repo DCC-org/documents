@@ -44,7 +44,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
       EXECUTE 'INSERT INTO ' || prefix || '.' || partition || ' SELECT(public.' || TG_RELNAME || ' ' || quote_literal(NEW) || ').* RETURNING id;';
       RETURN NULL;
 exception when others then
-	RAISE NOTICE 'Error';
+	RAISE NOTICE 'Error create_partition_and_insert';
 	raise notice '% %', SQLERRM, SQLSTATE;
 	RETURN NULL;
     END;
@@ -78,3 +78,71 @@ select * from show_master_partitions;
 -- Test
 -- Import 001_JSON_Converter_Function_on_Table
 select convert_input_data_to_json_cpu_table(10);
+
+
+-- ETL Partition
+CREATE OR REPLACE FUNCTION create_etl_partition_and_insert() RETURNS trigger AS
+  $BODY$
+    DECLARE
+      prefix text := 'partitions';
+	  plugin TEXT;
+	  type_instance TEXT;
+      partition TEXT;
+    BEGIN
+		plugin := NEW.datacontent->>'plugin';
+		type_instance := NEW.datacontent->>'type_instance';
+		
+		IF type_instance is null then
+			type_instance := 'null';
+		end if;
+		
+		partition := 'etl_' || plugin || '_' || type_instance;
+	  
+		IF NOT EXISTS(
+			SELECT b.nspname, a.relname
+			FROM pg_class a, pg_catalog.pg_namespace b
+			WHERE relname=partition
+				and a.relnamespace = b.oid
+				and b.nspname=prefix
+		) THEN
+		
+		RAISE NOTICE '3 % % % %', plugin, type_instance, prefix || '.' || partition, TG_RELNAME;
+		
+        EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (datacontent->>''plugin''::text = ''' || plugin ||
+				'''::text AND datacontent->>''type_instance''::text = ''' || type_instance || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
+		RAISE NOTICE 'A partition has been created % on %', prefix || '.' || partition, TG_RELNAME;
+      END IF;
+	  
+      EXECUTE 'INSERT INTO ' || prefix || '.' || partition || ' SELECT(public.' || TG_RELNAME || ' ' || quote_literal(NEW) || ').* RETURNING id;';
+	  RETURN NULL;
+exception when others then
+	RAISE NOTICE 'Error ETL Partitionserstellung';
+	raise notice '% %', SQLERRM, SQLSTATE;
+	RETURN NULL;
+    END;
+  $BODY$
+LANGUAGE plpgsql VOLATILE
+COST 100;
+
+-- Create trigger
+CREATE TRIGGER run_etl_partition_and_insert BEFORE INSERT ON public.etl_master FOR EACH ROW EXECUTE PROCEDURE create_etl_partition_and_insert();
+
+--Disable Trigger
+-- DROP TRIGGER testing_partition_insert_trigger ON measurement_master;
+
+-- View: Showing all partitions for master table
+CREATE VIEW show_etl_partitions AS
+SELECT nmsp_parent.nspname AS parent_schema,
+       parent.relname AS parent,
+       nmsp_child.nspname AS child_schema,
+       child.relname AS child
+FROM pg_inherits
+JOIN pg_class parent ON pg_inherits.inhparent = parent.oid
+JOIN pg_class child ON pg_inherits.inhrelid = child.oid
+JOIN pg_namespace nmsp_parent ON nmsp_parent.oid = parent.relnamespace
+JOIN pg_namespace nmsp_child ON nmsp_child.oid = child.relnamespace
+WHERE parent.relname='etl_master' ;
+
+select * from show_etl_partitions;
+
+-- DROP VIEW show_master_partitions;

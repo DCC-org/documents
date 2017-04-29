@@ -10,6 +10,7 @@ create table public.etl_error_log
 drop table if exists public.etl_master;
 create table public.etl_master
 (
+	id bigint not null,
 	etldata json not null,
 	datacontent json not null
 );

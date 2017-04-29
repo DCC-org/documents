@@ -6,10 +6,10 @@ CREATE OR REPLACE FUNCTION public.run_etl_process_partition()
 RETURNS trigger AS $BODY$
 DECLARE
 	etlnumber TEXT;
-	etlrownumber TEXT;
+	etlrownumber bigint;
 BEGIN
 	
-	select etldata->>'etlid', etldata->>'etlrowid' into etlnumber, etlrownumber
+	select etldata->>'etlid', id into etlnumber, etlrownumber
 		from public.etl_master
 		where datacontent->>'host' = NEW.host::text
 		AND datacontent->>'plugin' = NEW.plugin::text
@@ -23,9 +23,9 @@ BEGIN
 		etlnumber := nextval('public.etl_master_etl_id')::text;
 		
 		INSERT INTO public.etl_master VALUES (
+		nextval('public.etl_master_etl_row_id'),
 		json_build_object(
 			'etlid', etlnumber::text,
-			'etlrowid', nextval('public.etl_master_etl_row_id')::text,
 			'update_at', current_timestamp::timestamp),
 		json_build_object(
 			'host',NEW.host::text,
@@ -57,7 +57,7 @@ BEGIN
 										
 	RETURN NULL;
 exception when others then
-	RAISE NOTICE 'Error';
+	RAISE NOTICE 'Error ETL Insert Log';
 	raise notice '% %', SQLERRM, SQLSTATE;
 	RETURN NULL;
 END;
