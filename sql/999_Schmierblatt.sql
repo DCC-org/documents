@@ -30,6 +30,10 @@ select * from log
 where substring(log.timestamp::text from 1 for 13) = '2017-02-15 19'
 order by log.timestamp;
 
+insert into log_backup
+select * from log
+LIMIT 1;
+
 EXPLAIN ANALYZE
 insert into log_backup
 select * from log

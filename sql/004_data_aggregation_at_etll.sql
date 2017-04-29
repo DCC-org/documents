@@ -1,4 +1,4 @@
-CREATE TYPE return_type AS (is_same boolean, foundtimestamp timestamp, foundvalue text, foundrowid bigint );
+CREATE TYPE return_type AS (is_same boolean, foundtimestamp timestamp, foundvalue text, foundrowid bigint);
 
 DROP FUNCTION public.check_if_last_value_is_same(timestamp,TEXT,TEXT);
 
@@ -22,25 +22,41 @@ BEGIN
 	partition := substring(zeit_new::text from 1 for 13);
 	partition := replace(partition,'-', '_');
 	partition := replace(partition,' ', 't');
-	partition := '.measurement_' || partition;
+	partition := 'measurement_' || partition;
 	
-	from_value := prefix || partition;
-	
-	RAISE NOTICE '%', from_value;
+	IF NOT EXISTS(
+			SELECT b.nspname, a.relname
+			FROM pg_class a, pg_catalog.pg_namespace b
+			WHERE relname=partition
+				and a.relnamespace = b.oid
+				and b.nspname=prefix
+		) THEN
+		result_record.is_same = false;
+		return result_record;
+	ELSE
+		from_value := prefix || '.' || partition;
+	END IF;
 	
 	EXECUTE 'SELECT to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp, id, data->>''value''::text ' ||
 	'FROM ' || from_value || ' WHERE metadata->>''etlid''::text = ''' || etlmetaid || ''' AND ' ||
 	'to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || zeit_new || '''::timestamp ' ||
 	'ORDER BY data->>''timestamp'' DESC LIMIT 1;' INTO result_record.foundtimestamp, result_record.foundrowid, result_record.foundvalue;
 	
-	IF value_new = foundvalue THEN
-		result_record.is_same := true;
+	IF result_record.foundvalue IS NULL THEN
+		result_record = null;
 	ELSE
-		result_record.is_same := false;
+		IF value_new = result_record.foundvalue THEN
+			result_record.is_same := true;
+		ELSE
+			result_record.is_same := false;
+		END IF;
 	END IF;
 	
 	return result_record;
-
+exception when others then
+	RAISE NOTICE 'Error check_if_last_value_is_same';
+	raise notice '% %', SQLERRM, SQLSTATE;
+	RETURN NULL;
 END;
 $BODY$
   LANGUAGE plpgsql VOLATILE

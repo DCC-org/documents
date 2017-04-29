@@ -17,6 +17,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 	  new_timestamp TEXT;
       partition TEXT;
 	  new_value TEXT;
+	  get_last_data return_type;
     BEGIN
 		new_value := round(cast(NEW.data->>'value'::text as numeric),2)::text;
 		IF new_value::numeric < 1 THEN --postgres crash if first char is 0 (0.53)
@@ -25,17 +26,22 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 		partition_date := NEW.data->'timestamp';
 		partition_date := replace(partition_date,'+', '-');
 		partition_date := to_char(partition_date::timestamptz at time zone 'UTC', 'YYYY-MM-DD HH24:MI:SS')::timestamp;
-		--NEW.data := replace(NEW.data::text, NEW.data->>'timestamp', partition_date)::json;
-		--NEW.data := replace(NEW.data::text, NEW.data->>'value', new_value)::json;
 		NEW.data := jsonb_set(to_jsonb(NEW.data), '{timestamp}', to_jsonb(partition_date), false)::json;
 		NEW.data := jsonb_set(to_jsonb(NEW.data), '{value}', to_jsonb(new_value), false)::json;
 		new_timestamp	:= partition_date;
 		partition_date := substring(partition_date from 1 for 13);
 		partition_date := replace(partition_date,'-', '_');
 		partition_date := replace(partition_date,' ', 't');
-		new_timestamp := substring(new_timestamp from 1 for 13);
 		partition := 'measurement_' || partition_date;
-	  
+		
+		get_last_data := public.check_if_last_value_is_same(new_timestamp::timestamp, NEW.metadata->>'etlid', new_value::text);
+		IF (get_last_data IS NOT NULL) OR (get_last_data.is_same::text = 't') THEN
+			RAISE NOTICE 'Wird nicht eingefügt';
+			RETURN NULL;
+		END IF;
+		RAISE NOTICE 'Wird eingefügt';
+		new_timestamp := substring(new_timestamp from 1 for 13);
+		
 		IF NOT EXISTS(
 			SELECT b.nspname, a.relname
 			FROM pg_class a, pg_catalog.pg_namespace b

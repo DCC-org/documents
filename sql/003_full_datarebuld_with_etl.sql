@@ -67,7 +67,6 @@ BEGIN
 			'plugin_instance',NEW.plugin_instance::text,
 			'type',NEW.type::text)
 		);
-		
 	end if;
 	
 	INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
