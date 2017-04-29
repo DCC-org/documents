@@ -70,7 +70,7 @@ BEGIN
 		
 	end if;
 	
-	INSERT INTO measurement_master VALUES (etlnumber,
+	INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
 										json_build_object(
 											'etlid', etlnumber::text,
 											'insert_at', current_timestamp::timestamp,

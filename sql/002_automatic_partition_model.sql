@@ -16,19 +16,27 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
       partition_date TEXT;
 	  new_timestamp TEXT;
       partition TEXT;
+	  new_value TEXT;
     BEGIN
-	  partition_date := NEW.data->'timestamp';
-	  partition_date := replace(partition_date,'+', '-');
-	  partition_date := to_char(partition_date::timestamptz at time zone 'UTC', 'YYYY-MM-DD HH24:MI:SS')::timestamp;
-	  NEW.data := replace(NEW.data::text, NEW.data->>'timestamp', partition_date)::json;
-	  new_timestamp	:= partition_date;
-      partition_date := substring(partition_date from 1 for 13);
-	  partition_date := replace(partition_date,'-', '_');
-	  partition_date := replace(partition_date,' ', 't');
-	  new_timestamp := substring(new_timestamp from 1 for 13);
-      partition := 'measurement_' || partition_date;
+		new_value := round(cast(NEW.data->>'value'::text as numeric),2)::text;
+		IF new_value::numeric < 1 THEN --postgres crash if first char is 0 (0.53)
+			new_value = '0';
+		END IF;
+		partition_date := NEW.data->'timestamp';
+		partition_date := replace(partition_date,'+', '-');
+		partition_date := to_char(partition_date::timestamptz at time zone 'UTC', 'YYYY-MM-DD HH24:MI:SS')::timestamp;
+		--NEW.data := replace(NEW.data::text, NEW.data->>'timestamp', partition_date)::json;
+		--NEW.data := replace(NEW.data::text, NEW.data->>'value', new_value)::json;
+		NEW.data := jsonb_set(to_jsonb(NEW.data), '{timestamp}', to_jsonb(partition_date), false)::json;
+		NEW.data := jsonb_set(to_jsonb(NEW.data), '{value}', to_jsonb(new_value), false)::json;
+		new_timestamp	:= partition_date;
+		partition_date := substring(partition_date from 1 for 13);
+		partition_date := replace(partition_date,'-', '_');
+		partition_date := replace(partition_date,' ', 't');
+		new_timestamp := substring(new_timestamp from 1 for 13);
+		partition := 'measurement_' || partition_date;
 	  
-      IF NOT EXISTS(
+		IF NOT EXISTS(
 			SELECT b.nspname, a.relname
 			FROM pg_class a, pg_catalog.pg_namespace b
 			WHERE relname=partition
@@ -46,6 +54,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 exception when others then
 	RAISE NOTICE 'Error create_partition_and_insert';
 	raise notice '% %', SQLERRM, SQLSTATE;
+	RAISE NOTICE '@ Data: %', NEW.data;
 	RETURN NULL;
     END;
   $BODY$
