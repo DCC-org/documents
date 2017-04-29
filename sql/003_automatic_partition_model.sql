@@ -106,8 +106,6 @@ CREATE OR REPLACE FUNCTION create_etl_partition_and_insert() RETURNS trigger AS
 				and b.nspname=prefix
 		) THEN
 		
-		RAISE NOTICE '3 % % % %', plugin, type_instance, prefix || '.' || partition, TG_RELNAME;
-		
         EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (datacontent->>''plugin''::text = ''' || plugin ||
 				'''::text AND datacontent->>''type_instance''::text = ''' || type_instance || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
 		RAISE NOTICE 'A partition has been created % on %', prefix || '.' || partition, TG_RELNAME;
