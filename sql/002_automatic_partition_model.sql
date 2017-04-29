@@ -89,6 +89,13 @@ CREATE OR REPLACE FUNCTION create_etl_partition_and_insert() RETURNS trigger AS
 	  type_instance TEXT;
       partition TEXT;
     BEGIN
+		-- Wenn Daten unvollständig abbrechen
+		IF NEW.datacontent->>'collectd_type' IS null
+			OR NEW.datacontent->>'plugin_instance' IS NULL
+			OR NEW.datacontent->>'type' IS NULL then
+			RETURN NULL;
+		END IF;
+		
 		plugin := NEW.datacontent->>'plugin';
 		type_instance := NEW.datacontent->>'type_instance';
 		

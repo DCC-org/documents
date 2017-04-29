@@ -25,16 +25,6 @@ CREATE SEQUENCE etl_master_etl_id
     CACHE 1;
 -- ALTER SEQUENCE public.etl_master_etl_id RESTART WITH 1;
 
--- SEQUENCE etl_master_etl_row_id @ public.etl_master
-
-CREATE SEQUENCE etl_master_etl_row_id
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
--- ALTER SEQUENCE public.etl_master_etl_row_id RESTART WITH 1;
-
 -- Table: Master
 drop table if exists measurement_master;
 create table measurement_master
@@ -59,9 +49,6 @@ CREATE SEQUENCE measurement_master_metadata_id
 ALTER TABLE measurement_master_metadata_id OWNER TO metrics;
 
 ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
-
--- Test SEQUENCE
--- SELECT nextval('public.measurement_master_metadata_id');
 
 -- Reset SEQUENCE @ truncate on measurement_master
 
