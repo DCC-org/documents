@@ -33,14 +33,12 @@ BEGIN
 				and a.relnamespace = b.oid
 				and b.nspname=prefix
 		) THEN	
-		RAISE NOTICE '1';
 		EXECUTE 'select id from ' || prefix || '.' || partition ||
 		' where datacontent->>''host'' = ''' || NEW.host::text || '''::text '
 		' AND datacontent->>''collectd_type'' = ''' || NEW.collectd_type::text || '''::text '
 		' AND datacontent->>''plugin_instance'' = ''' || NEW.plugin_instance::text || '''::text '
 		' AND datacontent->>''type'' = ''' || NEW.type::text || '''::text ;' into etlnumber;
 	ELSE
-		RAISE NOTICE '2';
 		partition := 'etl_master';
 		prefix := 'public';
 		EXECUTE 'select id from ' || prefix || '.' || partition ||
@@ -51,8 +49,6 @@ BEGIN
 		' AND datacontent->>''plugin'' = ''' || plugin::text || '''::text '
 		' AND datacontent->>''type'' = ''' || NEW.type::text || '''::text ;' into etlnumber;
 	END IF;
-	
-	RAISE NOTICE 'Data %', etlnumber;
 		
 	if etlnumber is null then
 		
