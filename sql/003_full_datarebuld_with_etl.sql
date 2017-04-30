@@ -107,7 +107,7 @@ CREATE TRIGGER run_etl_process AFTER INSERT ON log FOR EACH ROW EXECUTE PROCEDUR
 -- Test
 insert into log_backup
 select * from log
-where substring(log.timestamp::text from 1 for 13) = '2017-02-15 19'
+where log_date_trunc_hour(timestamp) = '2017-02-15 19:00:00'::timestamp;
 order by log.timestamp;
 
 INSERT INTO log (host, timestamp, type_instance, plugin_instance, plugin, collectd_type, type, value)
