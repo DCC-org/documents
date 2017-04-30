@@ -43,7 +43,7 @@ BEGIN
 	'ORDER BY data->>''timestamp'' DESC LIMIT 1;' INTO result_record.foundtimestamp, result_record.foundrowid, result_record.foundvalue;
 	
 	IF result_record.foundvalue IS NULL THEN
-		result_record = null;
+		result_record.is_same = false;
 	ELSE
 		IF value_new = result_record.foundvalue THEN
 			result_record.is_same := true;

@@ -34,12 +34,12 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 		partition_date := replace(partition_date,' ', 't');
 		partition := 'measurement_' || partition_date;
 		
+		RAISE NOTICE 'Working @ % % %', new_timestamp::timestamp, NEW.metadata->>'etlid', new_value::text;
 		get_last_data := public.check_if_last_value_is_same(new_timestamp::timestamp, NEW.metadata->>'etlid', new_value::text);
-		IF (get_last_data IS NOT NULL) OR (get_last_data.is_same::text = 't') THEN
-			RAISE NOTICE 'Wird nicht eingefügt';
+
+		IF get_last_data.is_same IS TRUE THEN
 			RETURN NULL;
 		END IF;
-		RAISE NOTICE 'Wird eingefügt';
 		new_timestamp := substring(new_timestamp from 1 for 13);
 		
 		IF NOT EXISTS(
