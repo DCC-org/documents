@@ -45,7 +45,7 @@ CREATE SEQUENCE measurement_master_metadata_id
     NO MAXVALUE
     CACHE 1;
 -- ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
-  
+
 ALTER TABLE measurement_master_metadata_id OWNER TO metrics;
 
 ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
@@ -68,3 +68,42 @@ CREATE TRIGGER trigger_reset_sequence_on_truncate AFTER TRUNCATE ON measurement_
 
 --Disable Trigger
 -- DROP TRIGGER trigger_reset_sequence_on_truncate ON measurement_master;
+
+--
+-- Name: log_date_trunc_hour(timestamp with time zone); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION log_date_trunc_hour(dt timestamp with time zone) RETURNS timestamp with time zone
+    LANGUAGE plpgsql IMMUTABLE STRICT
+    AS $$
+    BEGIN
+        RETURN date_trunc('hour', dt);
+    END;
+$$;
+
+
+ALTER FUNCTION public.log_date_trunc_hour(dt timestamp with time zone) OWNER TO metrics;
+
+--
+-- Name: log; Type: TABLE; Schema: public; Owner: metrics
+--
+CREATE TABLE log (
+    host character varying,
+    "timestamp" timestamp with time zone,
+    plugin character varying,
+    type_instance character varying,
+    collectd_type character varying,
+    plugin_instance character varying,
+    type character varying,
+    value double precision,
+    version character varying
+);
+
+
+ALTER TABLE log OWNER TO metrics;
+
+--
+-- Name: log_timestamp_trunc_hour_index; Type: INDEX; Schema: public; Owner: metrics
+--
+
+CREATE INDEX log_timestamp_trunc_hour_index ON log USING btree (log_date_trunc_hour("timestamp"));
