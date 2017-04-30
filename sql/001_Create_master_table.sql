@@ -60,9 +60,9 @@ ALTER FUNCTION public.date_trunc_hour_json(dt text) OWNER TO metrics;
 drop table if exists measurement_master;
 create table measurement_master
 (
-	id bigint not null,
-	metadata jsonb not null,
-	data jsonb not null
+  id bigint not null,
+  metadata jsonb not null,
+  data jsonb not null
 ) WITH ( OIDS=FALSE);
 
 ALTER TABLE measurement_master OWNER TO metrics;

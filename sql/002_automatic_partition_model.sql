@@ -1,7 +1,7 @@
 ﻿-- Schema: partitions
- 
+
 -- DROP SCHEMA partitions;
- 
+
 CREATE SCHEMA partitions
   AUTHORIZATION metrics;
 
@@ -33,7 +33,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
     partition_date := replace(partition_date,'-', '_');
     partition_date := replace(partition_date,' ', 't');
     partition := 'measurement_' || partition_date;
-    
+
     RAISE NOTICE 'Working @ % % %', new_timestamp::timestamp, NEW.metadata->>'etlid', new_value::text;
     get_last_data := public.check_if_last_value_is_same(new_timestamp::timestamp, NEW.metadata->>'etlid', new_value::text);
 
@@ -41,7 +41,7 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
       RETURN NULL;
     END IF;
     new_timestamp := substring(new_timestamp from 1 for 13);
-    
+
     IF NOT EXISTS(
       SELECT b.nspname, a.relname
       FROM pg_class a, pg_catalog.pg_namespace b
@@ -49,12 +49,12 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
         and a.relnamespace = b.oid
         and b.nspname=prefix
     ) THEN
-    
+
         EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (substring(data->>''timestamp''::text from 1 for 13) = ''' || new_timestamp || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
     RAISE NOTICE 'A partition has been created % on %', prefix || '.' || partition, TG_RELNAME;
 
       END IF;
-    
+
       EXECUTE 'INSERT INTO ' || prefix || '.' || partition || ' SELECT(public.' || TG_RELNAME || ' ' || quote_literal(NEW) || ').* RETURNING id;';
       RETURN NULL;
 exception when others then
