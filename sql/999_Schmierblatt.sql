@@ -27,7 +27,7 @@ select * from log LIMIT 1;
 -- Hour Insert;
 insert into log_backup
 select * from log
-where substring(log.timestamp::text from 1 for 13) = '2017-02-15 19'
+where substring(log.timestamp::text from 1 for 13) = '2017-02-16 19'
 order by log.timestamp;
 
 insert into log_backup
