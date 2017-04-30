@@ -83,9 +83,9 @@ BEGIN
 			hour := '0' || hour;
 		end if;
 		
-		akt_value := year || '-' || month || '-' || day || ' ' || hour;
+		akt_value := year || '-' || month || '-' || day || ' ' || hour || ':00:00';
 		
-		RAISE NOTICE '%', 'insert into log_backup select * from log where substring(log.timestamp::text from 1 for 13) = ''' || akt_value  || ''' order by log.timestamp;';
+		RAISE NOTICE '%', 'psql -U metrics -d metrics - c "insert into log_backup SELECT * FROM log WHERE log_date_trunc_hour(timestamp) = ''' || akt_value || '''::timestamp ORDER BY log.timestamp;"';
 		
 		in_start := in_start + '1 hour'::interval;
 		
@@ -97,4 +97,4 @@ BEGIN
 END;
 $$;
 
-SELECT get_text_insert('2017-02-15 19:00:00'::timestamp, '2017-04-30 14:00:00'::timestamp);
+SELECT get_text_insert('2017-02-15 19:00:00'::timestamp, '2017-05-01 00:00:00'::timestamp);

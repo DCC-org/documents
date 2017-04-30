@@ -26,8 +26,8 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
 		partition_date := NEW.data->'timestamp';
 		partition_date := replace(partition_date,'+', '-');
 		partition_date := to_char(partition_date::timestamptz at time zone 'UTC', 'YYYY-MM-DD HH24:MI:SS')::timestamp;
-		NEW.data := jsonb_set(to_jsonb(NEW.data), '{timestamp}', to_jsonb(partition_date), false)::json;
-		NEW.data := jsonb_set(to_jsonb(NEW.data), '{value}', to_jsonb(new_value), false)::json;
+		NEW.data := jsonb_set(to_jsonb(NEW.data), '{timestamp}', to_jsonb(partition_date), false)::jsonb;
+		NEW.data := jsonb_set(to_jsonb(NEW.data), '{value}', to_jsonb(new_value), false)::jsonb;
 		new_timestamp	:= partition_date;
 		partition_date := substring(partition_date from 1 for 13);
 		partition_date := replace(partition_date,'-', '_');
@@ -68,10 +68,10 @@ LANGUAGE plpgsql VOLATILE
 COST 100;
 
 -- Create trigger
-CREATE TRIGGER testing_partition_insert_trigger BEFORE INSERT ON measurement_master FOR EACH ROW EXECUTE PROCEDURE create_partition_and_insert();
+CREATE TRIGGER run_partition_insert_trigger BEFORE INSERT ON measurement_master FOR EACH ROW EXECUTE PROCEDURE create_partition_and_insert();
 
 --Disable Trigger
--- DROP TRIGGER testing_partition_insert_trigger ON measurement_master;
+-- DROP TRIGGER run_partition_insert_trigger ON measurement_master;
 
 -- View: Showing all partitions for master table
 CREATE VIEW show_master_partitions AS
