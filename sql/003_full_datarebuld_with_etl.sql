@@ -16,23 +16,23 @@ BEGIN
     OR NEW.type::text IS NULL then
     RETURN NULL;
   END IF;
-  
+
   plugin := NEW.plugin::text;
   type_instance := NEW.type_instance::text;
-  
+
   IF type_instance is null then
     type_instance := 'null';
   end if;
-  
+
   partition := 'etl_' || plugin || '_' || type_instance;
-  
+
   IF EXISTS(
       SELECT b.nspname, a.relname
       FROM pg_class a, pg_catalog.pg_namespace b
       WHERE relname=partition
         and a.relnamespace = b.oid
         and b.nspname=prefix
-    ) THEN  
+    ) THEN
     EXECUTE 'select id from ' || prefix || '.' || partition ||
     ' where datacontent->>''host'' = ''' || NEW.host::text || '''::text '
     ' AND datacontent->>''collectd_type'' = ''' || NEW.collectd_type::text || '''::text '
@@ -49,11 +49,11 @@ BEGIN
     ' AND datacontent->>''plugin'' = ''' || plugin::text || '''::text '
     ' AND datacontent->>''type'' = ''' || NEW.type::text || '''::text ;' into etlnumber;
   END IF;
-    
+
   if etlnumber is null then
-    
+
     etlnumber := nextval('public.etl_master_etl_id');
-    
+
     INSERT INTO public.etl_master VALUES (
     etlnumber,
     json_build_object(
@@ -68,7 +68,7 @@ BEGIN
       'type',NEW.type::text)
     );
   end if;
-  
+
   INSERT INTO measurement_master VALUES (nextval('public.measurement_master_metadata_id'),
                     json_build_object(
                       'etlid', etlnumber::text,
@@ -85,7 +85,7 @@ BEGIN
                       'value',NEW.value,
                       'version',NEW.version)
                     );
-                    
+
   RETURN NULL;
 exception when others then
   RAISE NOTICE 'Error run_etl_backup_process';
@@ -97,7 +97,7 @@ $BODY$
   COST 100;
 ALTER FUNCTION public.run_etl_backup_process()
   OWNER TO metrics;
-  
+
  -- Active
 CREATE TRIGGER run_etl_backup_process AFTER INSERT ON log_backup FOR EACH ROW EXECUTE PROCEDURE run_etl_backup_process();
 CREATE TRIGGER run_etl_process AFTER INSERT ON log FOR EACH ROW EXECUTE PROCEDURE run_etl_backup_process();
