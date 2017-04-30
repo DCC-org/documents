@@ -25,6 +25,37 @@ CREATE SEQUENCE etl_master_etl_id
     CACHE 1;
 -- ALTER SEQUENCE public.etl_master_etl_id RESTART WITH 1;
 
+--
+-- Name: date_trunc_hour(timestamp with time zone); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION date_trunc_hour(dt timestamp with time zone) RETURNS timestamp with time zone
+    LANGUAGE plpgsql IMMUTABLE STRICT
+    AS $$
+    BEGIN
+        RETURN date_trunc('hour', dt);
+    END;
+$$;
+
+
+ALTER FUNCTION public.date_trunc_hour(dt timestamp with time zone) OWNER TO metrics;
+
+
+--
+-- Name: date_trunc_hour_json(text); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION date_trunc_hour_json(dt text) RETURNS timestamp with time zone
+    LANGUAGE plpgsql IMMUTABLE STRICT
+    AS $$
+    BEGIN
+        RETURN date_trunc('hour', CAST(dt AS timestamptz));
+    END;
+$$;
+
+
+ALTER FUNCTION public.date_trunc_hour_json(dt text) OWNER TO metrics;
+
 -- Table: Master
 drop table if exists measurement_master;
 create table measurement_master
@@ -50,6 +81,12 @@ ALTER TABLE measurement_master_metadata_id OWNER TO metrics;
 
 ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
 
+--
+-- Name: measurement_master_timestamp_trunc_hour_idx; Type: INDEX; Schema: public; Owner: metrics
+--
+
+CREATE INDEX measurement_master_timestamp_trunc_hour_idx ON measurement_master USING btree (date_trunc_hour_json((data ->> 'timestamp'::text)));
+
 -- Reset SEQUENCE @ truncate on measurement_master
 
 CREATE OR REPLACE FUNCTION reset_sequence_on_truncate() RETURNS trigger AS
@@ -68,21 +105,6 @@ CREATE TRIGGER trigger_reset_sequence_on_truncate AFTER TRUNCATE ON measurement_
 
 --Disable Trigger
 -- DROP TRIGGER trigger_reset_sequence_on_truncate ON measurement_master;
-
---
--- Name: log_date_trunc_hour(timestamp with time zone); Type: FUNCTION; Schema: public; Owner: postgres
---
-
-CREATE FUNCTION log_date_trunc_hour(dt timestamp with time zone) RETURNS timestamp with time zone
-    LANGUAGE plpgsql IMMUTABLE STRICT
-    AS $$
-    BEGIN
-        RETURN date_trunc('hour', dt);
-    END;
-$$;
-
-
-ALTER FUNCTION public.log_date_trunc_hour(dt timestamp with time zone) OWNER TO metrics;
 
 --
 -- Name: log; Type: TABLE; Schema: public; Owner: metrics
@@ -106,4 +128,4 @@ ALTER TABLE log OWNER TO metrics;
 -- Name: log_timestamp_trunc_hour_index; Type: INDEX; Schema: public; Owner: metrics
 --
 
-CREATE INDEX log_timestamp_trunc_hour_index ON log USING btree (log_date_trunc_hour("timestamp"));
+CREATE INDEX log_timestamp_trunc_hour_index ON log USING btree (date_trunc_hour("timestamp"));
