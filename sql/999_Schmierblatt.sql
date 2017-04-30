@@ -7,7 +7,7 @@ select max(id)
 from measurement_master
 where substring(data->>'timestamp'::text from 1 for 13) = '2017-04-28 23'
   AND metadata->>'etlid' = '122'::text;
-  
+
 
 EXPLAIN ANALYZE
 select substring(data->>'timestamp'::text from 1 for 13)
@@ -18,7 +18,7 @@ id = 26468797;
 
 SELECT TIMESTAMP WITH TIME ZONE '2017-04-28T18:27:13.035+02:00' AT TIME ZONE 'UTC';
 
-SELECT 
+SELECT
 
 EXPLAIN ANALYZE
 insert into log_backup
@@ -63,13 +63,13 @@ FROM pg_class a, pg_catalog.pg_namespace b
 WHERE relname='partitions'::text
   and a.relnamespace = b.oid
   and b.nspname='etl_cpu_user';
-  
+
 'host' = NEW.host::text
     AND datacontent->>'collectd_type' = NEW.collectd_type::text
     AND datacontent->>'plugin_instance' = NEW.plugin_instance::text
     AND datacontent->>'type' = NEW.type::text;
-    
-  
+
+
 select datacontent->>'plugin_instance'::text as name, count(*) from etl_master group by datacontent->>'plugin_instance';
 select datacontent->>'plugin_instance'::text as name, count(*) from etl_master group by datacontent->>'plugin_instance';
 select datacontent->>'plugin_instance'::text as name, count(*) from etl_master group by datacontent->>'plugin_instance';
