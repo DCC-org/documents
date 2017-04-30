@@ -2,17 +2,17 @@
 drop table if exists public.etl_error_log;
 create table public.etl_error_log
 (
-	error_info TEXT not null,
-	data TEXT not null
+  error_info TEXT not null,
+  data TEXT not null
 );
 
 --- Create ETL Table - Last Objects ---
 drop table if exists public.etl_master;
 create table public.etl_master
 (
-	id bigint not null,
-	etldata json not null,
-	datacontent json not null
+  id bigint not null,
+  etldata json not null,
+  datacontent json not null
 );
 
 -- SEQUENCE etl_master_etl_id @ public.etl_master
@@ -45,7 +45,7 @@ CREATE SEQUENCE measurement_master_metadata_id
     NO MAXVALUE
     CACHE 1;
 -- ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
-	
+  
 ALTER TABLE measurement_master_metadata_id OWNER TO metrics;
 
 ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
@@ -55,8 +55,8 @@ ALTER SEQUENCE measurement_master_metadata_id OWNED BY measurement_master.id;
 CREATE OR REPLACE FUNCTION reset_sequence_on_truncate() RETURNS trigger AS
   $BODY$
   BEGIN
-	ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
-	RAISE NOTICE 'Reset SEQUENCE.';
+  ALTER SEQUENCE public.measurement_master_metadata_id RESTART WITH 1;
+  RAISE NOTICE 'Reset SEQUENCE.';
     RETURN NULL;
     END;
   $BODY$
