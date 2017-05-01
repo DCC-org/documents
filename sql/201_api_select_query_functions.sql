@@ -1,6 +1,6 @@
-DROP FUNCTION select_host_cpu_option_value(TEXT, TEXT, TEXT, int, int);
+DROP FUNCTION api_select_query_with_value(TEXT, TEXT, TEXT, int, int);
 
-CREATE OR REPLACE FUNCTION select_host_cpu_option_value(IN in_hostname TEXT, IN in_plugin TEXT, IN in_type_instance TEXT, IN in_start_time int, IN in_end_time int) 
+CREATE OR REPLACE FUNCTION api_select_query_with_value(IN in_hostname TEXT, IN in_plugin TEXT, IN in_type_instance TEXT, IN in_start_time int, IN in_end_time int) 
 RETURNS table (out_timestamp int, out_value float, out_plugin_instance TEXT, out_collectd_type TEXT)
 LANGUAGE plpgsql
 AS
@@ -47,16 +47,16 @@ BEGIN
     END IF;
   END LOOP;
 exception when others then
-  RAISE NOTICE 'Error select_host_cpu_option_value';
+  RAISE NOTICE 'Error api_select_query_with_value';
   raise notice '% %', SQLERRM, SQLSTATE;
   RETURN NEXT;
 END;
 $$;
 
-ALTER FUNCTION select_host_cpu_option_value(TEXT, TEXT, TEXT, int, int)
+ALTER FUNCTION api_select_query_with_value(TEXT, TEXT, TEXT, int, int)
   OWNER TO metrics;
 
-select select_host_cpu_option_value('ci-slave2', 'cpu', 'idle', 1487192700, 1487451900);
+select api_select_query_with_value('ci-slave2', 'cpu', 'idle', 1487192700, 1487451900);
 
  -- Create user api
 CREATE ROLE api LOGIN
@@ -65,4 +65,4 @@ CREATE ROLE api LOGIN
 
 
 -- Grand permission
-GRANT EXECUTE ON FUNCTION select_host_cpu_option_value(TEXT, TEXT, TEXT, int, int) TO api;
+GRANT EXECUTE ON FUNCTION api_select_query_with_value(TEXT, TEXT, TEXT, int, int) TO api;
