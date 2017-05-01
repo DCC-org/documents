@@ -51,7 +51,8 @@ exception when others then
   raise notice '% %', SQLERRM, SQLSTATE;
   RETURN NEXT;
 END;
-$$;
+$$
+EXTERNAL SECURITY DEFINER;
 
 ALTER FUNCTION api_select_query_with_value(TEXT, TEXT, TEXT, int, int)
   OWNER TO metrics;
