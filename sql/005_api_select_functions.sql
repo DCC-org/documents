@@ -9,7 +9,6 @@ DECLARE
   format_start_time timestamp;
   format_end_time timestamp;
   partition_start TEXT;
-  partition_end TEXT;
   prefix TEXT := 'partitions';
   temp_table TEXT := 'tmp_' || md5(''||now()::text||random()::text)::text;
   
@@ -27,21 +26,11 @@ BEGIN
   partition_start := substring(format_start_time::text from 1 for 13);
   partition_start := replace(partition_start,'-', '_');
   partition_start := replace(partition_start,' ', 't');
-  partition_start := 'measurement_' || partition_start;
-  
-  partition_end := substring(format_start_time::text from 1 for 13);
-  partition_end := replace(partition_end,'-', '_');
-  partition_end := replace(partition_end,' ', 't');
-  partition_end := 'measurement_' || partition_end;
-  
+  partition_start := 'measurement_' || partition_start;  
    
   EXECUTE 'create temporary table ' || temp_table || ' (etlid TEXT, out_timestamp int, out_value float, out_plugin_instance TEXT, out_collectd_type TEXT) on commit drop;';
 
-  EXECUTE 'INSERT INTO ' || temp_table || ' SELECT metadata->>''etlid'', extract(epoch from to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int, CAST(data->>''value'' AS FLOAT)::float, data->>''plugin_instance''::text, data->>''collectd_type''::text FROM ' || prefix || '.' || partition_start || ' WHERE metadata->>''etlid'' in (' || etlid || ') AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || format_end_time || '''::timestamp AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp >= ''' || format_start_time || '''::timestamp ORDER BY data->>''timestamp'';'; 
-  
-  IF partition_start != partition_end THEN
-    EXECUTE 'INSERT INTO ' || temp_table || ' SELECT metadata->>''etlid'', extract(epoch from to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int, CAST(data->>''value'' AS FLOAT)::float, data->>''plugin_instance''::text, data->>''collectd_type''::text FROM ' || prefix || '.' || partition_end || ' WHERE metadata->>''etlid'' in (' || etlid || ') AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || format_end_time || '''::timestamp AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp >= ''' || format_start_time || '''::timestamp ORDER BY data->>''timestamp'';'; 
-  END IF;
+  EXECUTE 'INSERT INTO ' || temp_table || ' SELECT metadata->>''etlid'', extract(epoch from to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int, CAST(data->>''value'' AS FLOAT)::float, data->>''plugin_instance''::text, data->>''collectd_type''::text FROM public.measurement_master WHERE metadata->>''etlid'' in (' || etlid || ') AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || format_end_time || '''::timestamp AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp >= ''' || format_start_time || '''::timestamp ORDER BY data->>''timestamp'';'; 
   
   FOR this_record IN
   EXECUTE 'SELECT COUNT(*)::int as anz_data, etlid as etl_id from ' || temp_table || ' group by etlid;' LOOP
@@ -64,15 +53,16 @@ exception when others then
 END;
 $$;
 
-to_timestamp(data->>'timestamp'::text, 'YYYY-MM-DD HH24:MI:SS')::timestamp
-select select_host_cpu_option_value('ci-slave2', 'cpu', 'idle', 1487192700, 1487193000);
-out_timestamp := in_start_time;
-out_value := 100.20;
-BEGIN;
-CREATE FUNCTION check_password(uname TEXT, pass TEXT) ... SECURITY DEFINER;
-REVOKE ALL ON FUNCTION check_password(uname TEXT, pass TEXT) FROM PUBLIC;
-GRANT EXECUTE ON FUNCTION check_password(uname TEXT, pass TEXT) TO admins;
-COMMIT;
+ALTER FUNCTION select_host_cpu_option_value(TEXT, TEXT, TEXT, int, int)
+  OWNER TO metrics;
 
-to_timestamp(1493641891)::timestamp
-insert into log_backup SELECT * FROM log WHERE log_date_trunc_hour(timestamp) = '2017-02-15 19:00:00'::timestamp ORDER BY log.timestamp;
+select select_host_cpu_option_value('ci-slave2', 'cpu', 'idle', 1487192700, 1487451900);
+
+ -- Create user api
+CREATE ROLE api LOGIN
+  ENCRYPTED PASSWORD ''
+  NOSUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+
+
+-- Grand permission
+GRANT EXECUTE ON FUNCTION select_host_cpu_option_value(TEXT, TEXT, TEXT, int, int) TO api;
