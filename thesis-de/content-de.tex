@@ -36,17 +36,17 @@ Abschnitt enthält am Ende das Kürzel des Autors, hierbei bedeutet:
 
 Die Zusammensetzung dieses Teams entstand während der regulären Unterrichtszeit
 im dritten Semester. Herr Meusel und Herr Luis sprachen während eines
-Abendessens über die Inhalte ihres täglichen Arbeitstages. Herr Meusel arbeitete
-zu diesem Zeitpunkt an einem Projekt im Bereich Cloud-Hosting und Herr Luis war
-im Bereich von Datenanalysen mit großen Datenmengen und dessen Methodiken
-beschäftigt. Sehr schnell entstand aus diesen beiden Gesprächsinhalten die
-Softwareidee, welche in diesem Dokument vorgestellt wird. Da Herrn Meusel und
-Herrn Luis der Aufwand dieser Lösung bewusst war und beide keine Expertise im
-Bereich Frontend-Entwicklung, bzw. Datenvisualisierung besaßen, stellten Sie
-die Idee ihren Mitstudenten vor. Herr Reuter zeigte dabei hohes Interesse und
-war vor allem vom englischsprachigen Teil des Projektes überzeugt. Die von den
-Dozenten definierten Vorgaben waren somit erfüllt und das Projekt konnte für
-das fünfte und sechste Semester angemeldet werden.
+Abendessens über die Inhalte ihres täglichen Arbeitstages. Herr Meusel
+arbeitete zu diesem Zeitpunkt im Bereich Cloud-Hosting und Herr Luis war mit
+Datenanalysen von großen Datenmengen und dessen Methodiken beschäftigt. Sehr
+schnell entstand aus diesen beiden Gesprächsinhalten die Softwareidee, welche
+in diesem Dokument vorgestellt wird. Da Herrn Meusel und Herrn Luis der Aufwand
+dieser Lösung bewusst war und beide keine Expertise im Bereich
+Frontend-Entwicklung, bzw. Datenvisualisierung besaßen, stellten Sie die Idee
+ihren Mitstudenten vor. Herr Reuter zeigte dabei hohes Interesse und war vor
+allem vom englischsprachigen Teil des Projektes überzeugt. Die von den Dozenten
+definierten Vorgaben waren somit erfüllt und das Projekt konnte für das fünfte
+und sechste Semester angemeldet werden.
 
 Die größte Hürde in einem Projekt von diesem Umfang ist die fehlende Zeit für
 die Projektarbeit. Alle drei Schüler führen die Weiterbildung nebenberuflich
@@ -57,13 +57,6 @@ jeder der Schüler auf sein eigenes Wohlbefinden achten. Ein zu schnelles
 Arbeitstempo würde einen Einzelnen unter der Last zusammenbrechen lassen und
 somit, wie auch bei einem zu langsamen Arbeitstempo, das Projektziel gefährden
 können.
-
-Bei der Durchführung des Projektes wurde bei jedem Projektmitglied der
-praktische Wissensschatz erweitert. Zum einem wurden neue Wissensinhalte zu
-Techniken und Arbeitsmethoden erschlossen, zum anderen Vorteile weiter
-fortgebildet und Nachteile erneut auf die Probe gestellt. Entsprechend wurde
-zum Beispiel die Belastbarkeit jedes Einzelnen erforscht und die
-Selbsteinschätzung somit weiter fortgebildet oder sogar korrigiert.
 
 In einer globalisierten Arbeitswelt stehen die Möglichkeiten von IT-Systemen
 und dessen verbundenen Werkzeugen, wie die Optimierungen von Arbeitsabläufen
@@ -92,8 +85,8 @@ werden. Jedoch handelt es sich dabei nur um ein Nebenprodukt und wird in dieser
 Projektarbeit und Dokumentation nicht betrachtet.
 
 Die Methodiken der Projektorganisation, sowie der vereinzelte Zugang zu
-Literatur, erarbeiten sich die Projektmitglieder über ein Selbststudium, Inhalte
-aus dem Unterricht oder Erfahrungsberichte vom Auftrageber. Dies
+Literatur, erarbeiten sich die Projektmitglieder über ein Selbststudium,
+Inhalte aus dem Unterricht oder Erfahrungsberichte vom Auftrageber. Dies
 beinhaltet auch die Beurteilung von den genutzten Quellen, welche für die
 Projektarbeit genutzt und zitiert werden. Es wird vorab bereits durch diese
 Wissensdatenbanken ein grober Projektvorgang herausgearbeitet, welcher jedoch
@@ -679,30 +672,11 @@ Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems und
 die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit Coreutils
 und Linux Bordmitteln ist es möglich alle benötigten Informationen lokal
 auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
-Hier ein Beispiel, um alle 30 Sekunden die gesendeten sowie empfangenen Daten
-des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
-\begin{listing}
-  \inputminted{bash}{../listings/coreutils-awk.txt}
-  \caption{/proc mit awk parsen}
-  \label{lst:aw}
-\end{listing}
-
-Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
-
-\begin{center}
-\begin{minted}{text}
-device,receive,transmit
-enp1s0,28932776123,1786084537
-enp1s0,28935220128,1786163375
-enp1s0,28939447268,1786302393
-enp1s0,28942260029,1786392663
-enp1s0,28946985781,1786547807
-enp1s0,28949168552,1786622616
-enp1s0,28951976308,1786708990
-\end{minted}
-\captionof{listing}{traffic stats enp1s0}
-\end{center}
+Unter Listing~\ref{lst:aw} gibt es ein Beispiel, welches alle 30 Sekunden die
+gesendeten sowie empfangenen Daten des Netzwerkadapters \texttt{enp1s0} in
+Bytes ausliest. Die generierte Ausgabe ähnelt einer \gls{CSV} Datenstruktur und
+ist unter Listing~\ref{lst:csv} zu sehen.
 
 Für das Auslesen all dieser Daten werden kleine Skripte wie das im
 Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken,
@@ -746,15 +720,10 @@ eine Vielzahl von Möglichkeiten, um Daten auf einem System zu ermitteln und
 diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
 Die Software ist in C geschrieben.
 
-\begin{center}
-    \inputminted{text}{../listings/collectd-clone.txt}
-    \captionof{listing}{collectd git clone}
-\end{center}
-
-Wie im obigen Listing zu sehen, haben 415 Leute 9059 Änderungen im
-Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
-und zählt somit als Open-Source-Software. Es kann flexibel mit Plugins
-erweitert werden. Hierbei wird zwischen mehreren Kategorien
+Wie im Listing~\ref{lst:collectd-clone} zu sehen, haben 415 Leute 9059
+Änderungen im Versionsverwaltungssystem durchgeführt.\ collectd steht unter der
+MIT Lizenz und zählt somit als Open-Source-Software. Es kann flexibel mit
+Plugins erweitert werden. Hierbei wird zwischen mehreren Kategorien
 unterschieden (vgl.~\cite{collectd_plugins}):
 
 \begin{outline}
@@ -802,21 +771,16 @@ austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
 unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die
 Open-Source-Software steht unter der MIT Lizenz (vgl.~\cite{python-diamond}).
 
-\begin{center}
-    \inputminted{text}{../listings/diamond-clone.txt}
-    \captionof{listing}{Diamond git clone}
-\end{center}
-
-Wie im obigen Listing zu sehen gibt es 2922 Beiträge im Versionskontrollsystem
-von 292 verschiedenen Personen. Diamond kann alle benötigten Daten lokal und
-vom Hypervisor über seine VMs ermitteln. Über das Netzwerk werden diese im
-\glslink{Carbon}{Graphite Format} geschickt. Über Plugins sind auch weitere
-Formate möglich. Der \gls{Backlog} bei Diamond ist sehr hoch. Die Software hat
-aktuell 88 offene Issues im Versionsverwaltungssystem. Dies ist eine Mischung
-aus gemeldeten Fehlern und Feature Requests. Außerdem gibt es 139 offene Pull
-Requests (siehe Listing~\ref{figure:diamond}. Dies sind Änderungen am
-Quellcode, welche die Community erstellt hat, aber noch nicht eingepflegt
-worden sind.
+Wie im Listing~\ref{lst:python-diamond-clone} zu sehen gibt es 2922 Beiträge im
+Versionskontrollsystem von 292 verschiedenen Personen. Diamond kann alle
+benötigten Daten lokal und vom Hypervisor über seine VMs ermitteln. Über das
+Netzwerk werden diese im \glslink{Carbon}{Graphite Format} geschickt. Über
+Plugins sind auch weitere Formate möglich. Der \gls{Backlog} bei Diamond ist
+sehr hoch. Die Software hat aktuell 88 offene Issues im
+Versionsverwaltungssystem. Dies ist eine Mischung aus gemeldeten Fehlern und
+Feature Requests. Außerdem gibt es 139 offene Pull Requests (siehe
+Listing~\ref{figure:diamond}. Dies sind Änderungen am Quellcode, welche die
+Community erstellt hat, aber noch nicht eingepflegt worden sind.
 \tm%
 
 \subsection{sysstat}
@@ -1111,14 +1075,9 @@ Daten, anschließend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV aus den Niederlanden finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
-\begin{center}
-    \inputminted{text}{../listings/elasticsearch-clone.txt}
-    \captionof{listing}{Diamond git clone}
-\end{center}
-
-Oben befindet sich eine kurze Analyse des \gls{Git}-
-\glslink{Repository}{Repositorys} vom 27.11.2016. Die Suchmaschine besteht
-hier aus 25989 Beiträgen von 869 verschiedenen Personen.
+Unter Listing~\ref{lst:elasticsearch-clone} befindet sich eine kurze Analyse
+des \gls{Git}-\glslink{Repository}{Repositorys} vom 27.11.2016. Die
+Suchmaschine besteht hier aus 25989 Beiträgen von 869 verschiedenen Personen.
 
 Elasticsearch erlaubt es, als verteiltes Cluster betrieben zu werden. Hierfür
 werden mindestens zwei Server benötigt. Eingehende Daten werden in Indexe
@@ -1275,17 +1234,13 @@ Die Community ist sehr aktiv, sie pflegt ein komplexes Wiki
 Einsteiger und Optimierungshilfen für Fortgeschrittene
 (vgl.~\cite{postgres_tutorial}).
 
-\begin{center}
-    \inputminted{text}{../listings/postgres-clone.txt}
-    \captionof{listing}{postgres git clone}
-\end{center}
-
-Wie in der obigen Shell-Ausgabe zu sehen, enthält das \gls{Git}-\gls{Repository}
-des Postgres Quellcodes am 26.11.2016 41366 einzelne \glslink{Commit}{Commits}
-von 41 verschiedenen Autoren. Aufgrund der Patchpolitik von Postgres werden
-Patches oftmals an Autoren aus dem Postgres-Team geschickt. Ein Teammitglied
-fügt danach den Patch in das Repository ein. Somit lässt sich nicht genau
-bestimmen, von wie vielen Leuten Code beigesteuert wurde.
+Wie in der Shell-Ausgabe unter Listing~\ref{lst:postgres-clone} zu sehen,
+enthält das \gls{Git}-\gls{Repository} des Postgres Quellcodes am 26.11.2016
+41366 einzelne \glslink{Commit}{Commits} von 41 verschiedenen Autoren. Aufgrund
+der Patchpolitik von Postgres werden Patches oftmals an Autoren aus dem
+Postgres-Team geschickt. Ein Teammitglied fügt danach den Patch in das
+Repository ein. Somit lässt sich nicht genau bestimmen, von wie vielen Leuten
+Code beigesteuert wurde.
 
 Die Postgres-Architektur sah lange Zeit vor, dass der Dienst auf einem einzigen
 Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten, die
@@ -3559,6 +3514,13 @@ Prototypen konnten Probleme im ersten Architektur-Prototyp schnell erkannt
 werden. Gemeinsam wurde stets eine Lösung gefunden. Diverse kleinere Bugs
 in der benutzen Software wurden vom Team behoben und mit zusätzlichen Unit
 Tests versehen. Alle Änderungen wurden an die jeweiligen Entwickler geschickt.
+
+Bei der Durchführung des Projektes wurde bei jedem Projektmitglied der
+praktische Wissensschatz erweitert. Zum einem wurden neue Wissensinhalte zu
+Techniken und Arbeitsmethoden erschlossen, zum anderen Vorteile weiter
+fortgebildet und Nachteile erneut auf die Probe gestellt. Entsprechend wurde
+zum Beispiel die Belastbarkeit jedes Einzelnen erforscht und die
+Selbsteinschätzung somit weiter fortgebildet oder sogar korrigiert.
 \all%
 
 %\appendix
