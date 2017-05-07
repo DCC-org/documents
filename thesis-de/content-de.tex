@@ -1414,7 +1414,7 @@ für ausgewählte Benutzeraccounts zur Benutzung freigeschaltet werden. Die in
 dem Data Warehouse bekannten „Data Marts“ fallen somit weg und werden durch
 den Aufbau der genannten Sichten ersetzt. Ein Data Mart ist eine von dem
 Datawarehouse getrennte Datenbank, welche genutzt wird, um für ausgewählte
-getrennte Daten Analysen und Reports zu erstellen. Diese können zum Beispeil
+getrennte Daten Analysen und Reports zu erstellen. Diese können zum Beispiel
 nach Abteilungen im Unternehmen getrennt werden, sodass das Marketing nur Daten
 zu Produkten und Beständen erhält, jedoch keine technisch orientierten Daten.
 Des weiteren werden Data Marts in der dritten Normalform und ein Datawarehouse
@@ -2804,7 +2804,7 @@ Er wird entsprechend als Dokumentationsbasis genutzt, sodass ein Nutzer genau
 nachvollziehen kann, in welcher Struktur und an welchem Ort die Daten in dem
 Datenhaltsungssystem abgespeichert sind. Gleichzeitig besitzt das Projektteam
 und der spätere Administrator im Wirkbetrieb die Möglichkeit den Dateninput
-über den ETL-Prozess zu kontrollieren. Darüber können zum Beispeil die Länge
+über den ETL-Prozess zu kontrollieren. Darüber können zum Beispiel die Länge
 von einzelnen Attributen, oder der Datentyp angepasst werden. Es kann jedoch
 sogar tiefer ins Detail gegangen werden und der genaue Inhalt eines Attributes
 bestimmt werden. Ist ein solches \gls{Repositorium} definiert, greift der
@@ -2824,7 +2824,7 @@ vollständig korrekten Datensatz an den Lade-Algorithmus. Neben dem eigentlichen
 Datensatz übermittelt dieser auch die Zieldatenbank und Zieltabelle, sodass
 der Lade-Algorithmus nun nur noch die Daten in das entsprechende Objekt
 einfügen muss. Dabei wird speziell auf die Auslastung des Zielobjektes
-geachtet. Ist die Tabelle zum Beispeil durch einen anderen Prozess belegt,
+geachtet. Ist die Tabelle zum Beispiel durch einen anderen Prozess belegt,
 wird dies von dem Lade-Algorithmus erkannt und das Einfügen der Daten
 hinten angestellt. Für diesen Teil besitzt die Postgres Datenbank bereits
 vorhandene Frameworks, welche von dem Projektteam genutzt werden. Somit muss
@@ -3439,6 +3439,78 @@ eigenen Datei, in der definiert ist, mit welcher virtuellen Maschine oder
 Container dieser Code ausgeführt werden soll. Im Anhang~\ref{lst:def-centos}
 ist eine solche Datei beigefügt.
 \mr%
+
+\section{API Test}
+\label{sec:api_test}
+Während der Entwicklung des API Systems wurde bei der Implementierung von einem
+neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie in
+Punkt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
+durchgeführt. Speziell bei der API wurden die Komponententests in einem
+parallelen Verzeichnis zu dem Source Code und in der gleichen
+Programmiersprache wie die API, also Java, verfasst. Das in dem in
+Punkt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“ bietet
+dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den zu
+einem Algorithmus zugehörigen Komponententest direkt im Programm bereit, sodass
+jeder Entwickler die zugehörigen Tests sofort erkennen kann und hierzu nicht
+danach suchen muss.
+
+Für das Ausführen der definierten Tests muss keine eigene Laufzeit
+Infrastruktur bereitgestellt werden. Echte Komponententests werden
+normalerweise extrem schnell ausgeführt und steigern durch die Integration in
+das genannte Entwicklerstudio die Produktivität der API Entwicklung um ein
+vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft, in
+diesem Fall nach jeder Änderung am Code, ausgeführt werden, ohne das längere
+Wartezeiten entstehen.
+
+Die von Swagger bereitgestellten Testbibliotheken sind dabei sehr umfangreich
+und bieten zu jeder API Funktion auch die passenden Testdefinitionen. Die
+bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
+Objekte sind in Testumgebungen Platzhalter für die im echten Code verwendeten
+Objektdefinitionen. Ein konkretes Beispiel dafür ist die „Bean“ Definition von
+Swagger. Mit dieser können verschiedene Definitionen von Objekten in eigenen
+Laufzeitumgebungen einfach simuliert und ausgewählt werden. In dem Projekt war
+dies zum Beispiel das nutzen von im Arbeitsspeicher gehaltene Daten zum testen
+während der Entwicklung versus dem Zugriff auf die Produktivdaten der
+Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in diese Art von
+Testbibliothek gehört, war das registrieren von verschiedenen API Profilen,
+welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu stellen,
+dass jeder dieser Profile so funktioniert, wie von dem Entwickler vorgegeben.
+
+Neben den vorgestellten Komponententests kann der Entwickler ebenfalls
+Integrationstest in der Swagger Testumgebung definieren. Bei diesen werden
+nicht einzeln definierte Algorithmen auf die Funktionsweise getestet, sondern
+eine aufeinander abgestimmte Reihe von Einzeltests. Dabei wird geprüft, ob die
+voneinander abhängigen Komponenten optimal miteinander zusammenarbeiten und
+vorhanden sind (vgl.~\cite{Spring_Testing}).
+
+Bei der Swagger Testbibliothek kann zum Beispiel das korrekte Caching von Daten
+getestet werden. Das Anfragen und Abholen von Daten bei einem
+Datenhaltungssystem kann je nach Abfrage sehr lange dauern, um diese Zeit zu
+verkürzen, nutzt Swagger die Methoden des Caching, welche mit diesem Test
+überprüft werden. Ein weiterer Testfall wäre die Prüfung von Abhängigkeiten,
+wenn zum Beispiel die API eine eigene Konfigurations-Datei besitzt, kann damit
+geprüft werden, ob diese vollständig und ohne Fehleinträge ist. Jedoch kann der
+Integrationstest auch für komplexere Inhalte verwendet werden. In diesem
+Projekt ist es die Prüfung der korrekten Transaktion von Daten mit der Nutzung
+von Backup-Transaktionen. Diese helfen vorallem wenn die API Daten in dem
+Datenhaltungssystem modifizieren, da nach der Modifizierung die Daten wieder
+auf den vorherigen Stand zurück gesetzt werden. Diese Tests sparen nicht nur
+Administrations-Zeit, sondern geben dem Entwickler auch einen umfangreichen
+Bericht zu den von dem Programm getätigten Inhalten, um zu prüfen, ob dies auch
+vollständig das gewollte Ergebnis ist.
+\nl%
+
+\section{ETL Test}
+\label{sec:etl_test}
+Für den in Punkt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
+Transformations- und Ladeprozess von der Datenhaltung wird neben den
+in Punkt~\ref{sec:unit_tests} erläuterteten Komponententests und
+in Punkt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
+noch ein Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das
+System reagiert, wenn eine vorher nicht definierte Situation eintritt.
+Dies könnte zum Beispiel das erhalten von anderen Daten sein, welche keine
+definierten Metadaten-Einträge besitzen.
+\nl%
 
 \chapter{Ausblick}
 \label{chapter:ausblick}
