@@ -487,11 +487,11 @@ oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
 erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
 nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
 Datenformate sind die weitverbreitetsten Formate auf dem Markt und können in
-vielen Frontend-Systemen ohne zusätzliche Entwicklungskosten angebunden
-werden. Sollte ein Drittsystem diese Formate nicht unterstützen, so ist der
-Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls gering, da
-diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist und keine
-neuen Strukturen erlernen muss.
+vielen Datenvisualisierungs-Systemen ohne zusätzliche Entwicklungskosten
+angebunden werden. Sollte ein Drittsystem diese Formate nicht unterstützen, so
+ist der Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls
+gering, da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist
+und keine neuen Strukturen erlernen muss.
 \nl%
 
 \section{Datenvisualisierung}
@@ -747,13 +747,14 @@ abrufen(vgl.~\cite{collectd_virt_plugins}).
 Die Firma Zabbix LLC wurde 2005 gegründet. Sie pflegt die Open-Source-Produkte
 zabbix-agent (im folgenden Abschnitt Agent genannt), zabbix-server und
 zabbix-frontend (siehe auch Abschnitt~\ref{subsubsec:zabbix-frontend} für die
-Analyse des Frontends). Alle Produkte sind unter der GPL2 lizenziert. Der Agent
-ist in C geschrieben. Er bietet die Möglichkeit, diverse Daten direkt aus dem
-lokalen System auszulesen und an den zabbix-server zu senden. Das Webinterface
-ist eine PHP-Applikation, welche die Daten visualisiert und direkt aus der
-Datenbank liest. Der Agent kann mit externen Skripten erweitert werden. In
-Kombination mit Coreutils kann er alle benötigten Informationen auslesen. Die
-Community bietet dafür fertige Skripte an (vgl.~\cite{zabbix_virt_plugins}).
+Analyse der Datenvisualisierung). Alle Produkte sind unter der GPL2 lizenziert.
+Der Agent ist in C geschrieben. Er bietet die Möglichkeit, diverse Daten direkt
+aus dem lokalen System auszulesen und an den zabbix-server zu senden. Das
+Webinterface ist eine PHP-Applikation, welche die Daten visualisiert und direkt
+aus der Datenbank liest. Der Agent kann mit externen Skripten erweitert werden.
+In Kombination mit Coreutils kann er alle benötigten Informationen auslesen.
+Die Community bietet dafür fertige Skripte an
+(vgl.~\cite{zabbix_virt_plugins}).
 
 Der Agent benutzt ein eigenes Binärprotokoll zur Kommunikation. Dieses wird
 nicht von anderen bekannten Programmen unterstützt. Deshalb muss der Agent
@@ -1686,9 +1687,9 @@ ausgeschlossen.
 
 \section{Datenvisualisierung}
 \label{sec:datenvisualisierung}
-Bevor das Projekt begann, musste eine Softwareliste mit möglichen Frontends
-erarbeitet werden. Bereits vorab wurden folgende Softwarelösungen in das
-Pflichtenheft aufgenommen:
+Bevor das Projekt begann, musste eine Softwareliste mit möglichen
+Datenvisualisierungslösungen erarbeitet werden. Bereits vorab wurden folgende
+Softwarelösungen in das Pflichtenheft aufgenommen:
 
 \begin{outline}
   \1 Grafana
@@ -1709,11 +1710,11 @@ Das Hinzufügen von weiteren Softwarelösungen während der Evaluierungsphase
 bedarf keiner weiteren Zustimmung durch den Auftraggeber, sondern konnten direkt
 mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
 mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
-Kriterienkatalog definiert, welche im späteren Verlauf der Planung für die
-Evaluierung der einzelnen Frontends verwendet werden. Die zu evaluierende
-Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
-einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und zum
-anderen aus Vorschlägen des Auftraggebers.
+Anforderungskatalog definiert, welche im späteren Verlauf der Planung für die
+Evaluierung der einzelnen Datenvisualisierungen verwendet werden. Die zu
+evaluierende Softwareliste besteht zum Teil aus Softwarelösungen, welche im
+Unternehmen von einzelnen Projektmitgliedern bereits erfolgreich eingesetzt
+werden und zum anderen aus Vorschlägen des Auftraggebers.
 \mr%
 
 \subsection{Definition eines Graphen}
@@ -1765,32 +1766,32 @@ werden:
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
   gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
   Weboberfläche selbst vor unautorisiertem Zugriff durch Dritte geschützt sein
-  muss. Ebenfalls muss die Verbindung, welche das Frontend nutzt, um die Daten
-  abgreifen zu können, vor Dritten so geschützt und gesichert werden. Der
-  Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung durch
-  \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch eigene
-  Client-Zertifikate zulassen. Die Anmeldung am Frontend kann entweder über
-  einen lokalen Administrator, als auch über eine LDAP-Anbindung (Lightweight
-  Directory Access Protocol) verfügen, um hier z.B. Unternehmensverzeichnisse
-  anbinden zu können.
+  muss. Ebenfalls muss die Verbindung, welche die Datenvisualisierung nutzt, um
+  die Daten abgreifen zu können, vor Dritten so geschützt und gesichert werden.
+  Der Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung
+  durch \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch
+  eigene Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
+  kann entweder über einen lokalen Administrator, als auch über eine
+  LDAP-Anbindung (Lightweight Directory Access Protocol) verfügen, um hier z.B.
+  Unternehmensverzeichnisse anbinden zu können.
   \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über die
   Datenvisualisierung. Der Auftraggeber und auch die Projektmitglieder selbst,
-  benötigen keine große Schulung mit dem Umgang des Frontends. Dies erleichtert
-  zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
-  wenn das Produkt bei einem Kunden eingesetzt wird.
+  benötigen keine große Schulung mit dem Umgang der Datenvisualisierung. Dies
+  erleichtert zum einen den späteren Betrieb, als auch die Wartung im späteren
+  Verlauf, wenn das Produkt bei einem Kunden eingesetzt wird.
   \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
   gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen schnell
   und einfach (endanwenderspezifisch) direkt angepasst werden können. Ebenso
   muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
   durchgeführt werden können.
-  \1 Die Datensicherung ist bei dem Frontend ein wesentlicher Aspekt. Dabei
-  muss die Weboberfläche bereits Möglichkeiten bieten, eine Datensicherung des
-  \glslink{Dashboard}{Dashboards} durchführen zu können. Das Dashboard
-  beinhaltet alle Graphen und vorkonfigurierten Werte. Diese sollen über zum
-  Beispiel ein externes System (Dateifreigabeserver oder ähnliches) abgelegt
-  werden und können somit einfach dupliziert und gesichert werden.
-  \1 Plugin-Erweiterung. Das Frontend muss eine Plugin-Erweiterung
+  \1 Die Datensicherung ist bei der Datenvisualisierung ein wesentlicher
+  Aspekt. Dabei muss die Weboberfläche bereits Möglichkeiten bieten, eine
+  Datensicherung des \glslink{Dashboard}{Dashboards} durchführen zu können. Das
+  Dashboard beinhaltet alle Graphen und vorkonfigurierten Werte. Diese sollen
+  über zum Beispiel ein externes System (Dateifreigabeserver oder ähnliches)
+  abgelegt werden und können somit einfach dupliziert und gesichert werden.
+  \1 Plugin-Erweiterung. Die Datenvisualisierung muss eine Plugin-Erweiterung
   unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
   eingegangen werden kann. Diese können dann mit schon zur Verfügung gestellten
