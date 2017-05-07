@@ -50,7 +50,8 @@ CREATE OR REPLACE FUNCTION create_partition_and_insert() RETURNS trigger AS
         and b.nspname=prefix
     ) THEN
 
-        EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (substring(data->>''timestamp''::text from 1 for 13) = ''' || new_timestamp || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
+		EXECUTE 'CREATE TABLE ' || prefix || '.' || partition || ' (check (substring(data->>''timestamp''::text from 1 for 13) = ''' || new_timestamp || '''::text)) INHERITS (public.' || TG_RELNAME || ');';
+		EXECUTE 'CREATE INDEX ' || partition || '_trunc_hour_idx ON ' || prefix || '.' || partition || ' USING btree (date_trunc_hour_json((data ->> ''timestamp''::text)));';
     RAISE NOTICE 'A partition has been created % on %', prefix || '.' || partition, TG_RELNAME;
 
       END IF;

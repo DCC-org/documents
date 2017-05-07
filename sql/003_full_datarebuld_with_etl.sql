@@ -103,6 +103,7 @@ CREATE TRIGGER run_etl_backup_process AFTER INSERT ON log_backup FOR EACH ROW EX
 CREATE TRIGGER run_etl_process AFTER INSERT ON log FOR EACH ROW EXECUTE PROCEDURE run_etl_backup_process();
 
 -- DROP TRIGGER run_etl_backup_process ON log_backup;
+-- DROP TRIGGER run_etl_process ON log;
 
 -- Test
 insert into log_backup

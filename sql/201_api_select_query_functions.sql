@@ -29,23 +29,15 @@ BEGIN
   partition_start := 'measurement_' || partition_start;  
    
   EXECUTE 'create temporary table ' || temp_table || ' (etlid TEXT, out_timestamp int, out_value float, out_plugin_instance TEXT, out_collectd_type TEXT) on commit drop;';
-
-  EXECUTE 'INSERT INTO ' || temp_table || ' SELECT metadata->>''etlid'', extract(epoch from to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int, CAST(data->>''value'' AS FLOAT)::float, data->>''plugin_instance''::text, data->>''collectd_type''::text FROM public.measurement_master WHERE metadata->>''etlid'' in (' || etlid || ') AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || format_end_time || '''::timestamp AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp >= ''' || format_start_time || '''::timestamp ORDER BY data->>''timestamp'';'; 
   
-  FOR this_record IN
-  EXECUTE 'SELECT COUNT(*)::int as anz_data, etlid as etl_id from ' || temp_table || ' group by etlid;' LOOP
-	RAISE NOTICE '% FOR %', this_record.anz_data, this_record.etl_id;
-	
-    IF this_record.anz_data = 0 THEN
-	  EXECUTE 'INSERT INTO ' || temp_table || ' SELECT metadata->>''etlid'', extract(epoch from to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int, CAST(data->>''value'' AS FLOAT)::float, data->>''plugin_instance''::text, data->>''collectd_type''::text FROM ' || prefix || '.' || partition_start || ' WHERE metadata->>''etlid'' in (' || etlid || ') AND to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp <= ''' || format_start_time || '''::timestamp AND etlid = ''' || this_record.etl_id || ''' ORDER BY data->>''timestamp'' LIMIT 1;';
-	  
-	  RETURN QUERY
-	  EXECUTE 'SELECT ''' || in_start_time || '''::int, out_value, out_plugin_instance, out_collectd_type FROM ' || temp_table || ';';
-    ELSE
-      RETURN QUERY
-      EXECUTE 'SELECT out_timestamp, out_value, out_plugin_instance, out_collectd_type FROM ' || temp_table || ' WHERE etlid = ''' || this_record.etl_id || ''';';
-    END IF;
-  END LOOP;
+  EXECUTE 'INSERT INTO ' || temp_table || ' SELECT metadata->>''etlid'', extract(epoch from to_timestamp(data->>''timestamp''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int, CAST(data->>''value'' AS FLOAT)::float, data->>''plugin_instance''::text, data->>''collectd_type''::text FROM public.measurement_master WHERE metadata->>''etlid'' in (' || etlid || ') AND date_trunc_hour_json(data->>''timestamp''::text) <= date_trunc_hour_json(''' || format_end_time || '''::text) AND date_trunc_hour_json(data->>''timestamp''::text) >= date_trunc_hour_json(''' || format_start_time || '''::text) ORDER BY data->>''timestamp'';';
+  
+  EXECUTE 'DELETE FROM ' || temp_table || ' WHERE out_timestamp > extract(epoch from to_timestamp(''' || format_end_time || '''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int;';
+  
+  EXECUTE 'DELETE FROM ' || temp_table || ' WHERE out_timestamp < extract(epoch from to_timestamp(''' || format_start_time || '''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int AND NOT etlid || ''_'' || out_timestamp in (SELECT etlid || ''_'' || max(out_timestamp) FROM ' || temp_table || ' WHERE out_timestamp < extract(epoch from to_timestamp(''' || format_start_time || '''::text, ''YYYY-MM-DD HH24:MI:SS'')::timestamp)::int GROUP BY etlid);';
+  
+  RETURN QUERY
+  EXECUTE 'SELECT out_timestamp, out_value, out_plugin_instance, out_collectd_type FROM ' || temp_table || ' ORDER BY etlid, out_timestamp;';
 exception when others then
   RAISE NOTICE 'Error api_select_query_with_value';
   raise notice '% %', SQLERRM, SQLSTATE;
@@ -57,7 +49,7 @@ EXTERNAL SECURITY DEFINER;
 ALTER FUNCTION api_select_query_with_value(TEXT, TEXT, TEXT, int, int)
   OWNER TO metrics;
 
-select api_select_query_with_value('ci-slave2', 'cpu', 'idle', 1487192700, 1487451900);
+select api_select_query_with_value('ci-slave2', 'cpu', 'idle', 1489745100, 1489746000); --03/17/2017 @ 10:20am (UTC)
 
  -- Create user api
 CREATE ROLE api LOGIN
