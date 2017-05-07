@@ -868,14 +868,9 @@ gleichen Schema ab:
   Jeder Aktion können Optionen mitgegeben werden.
 \end{outline}
 
-\begin{listing}
-  \inputminted{clojure}{../listings/riemann-config.txt}
-  \caption{Einfache Riemann Konfiguration}
-\end{listing}
-
-Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
-Sobald diese bei 75°C oder höher liegt, wird eine E-Mail an tim@bastelfreak.de
-geschickt.
+Unter Listing~\ref{lst:riemann} wird die Temperatur des ersten Prozessorkerns
+überprüft. Sobald diese bei 75°C oder höher liegt, wird eine E-Mail an
+tim@bastelfreak.de geschickt.
 
 Riemann besitzt eine lange Liste an vorhandenen Aktionen, die man nutzen kann.
 Dazu gehört auch der Export von Events in diverse Datenbanken. Dazu gehören
@@ -1191,23 +1186,19 @@ vorhandenen Nodes in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition
 eins auf dem ersten Node repliziert wird, Partition zwei auf dem zweiten Node
 und immer so weiter, bis das Verfahren den ersten Node wieder erreicht.
 
-\begin{center}
-    \inputminted{text}{../listings/cassandra-status.txt}
-    \captionof{listing}{cassandra status}
-\end{center}
-
-In der obigen Shell-Ausgabe wird ein während der Evaluierungsphase erstelltes
-Cassandra-System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
-welche für Testzwecke auf dem gleichen physischen Server betrieben werden. Im
-Produktivbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten,
-um die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu
-erkennen, dass beide Systeme einen Dateneigentum, in der Shellausgabe die
-Spalte „Owns“, von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
-jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
-zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun einer
-der beiden Nodes ausfallen, könnte der jeweils andere automatisch einen
-Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
-weiterarbeiten. Dies entspricht der \gls{Shared-Nothing-Architektur}.
+In der Shell-Ausgabe unter Listing~\ref{lst:cassandra} wird ein während der
+Evaluierungsphase erstelltes Cassandra-System dargestellt. Dabei besitzt der
+Prototyp zwei aktive Nodes, welche für Testzwecke auf dem gleichen physischen
+Server betrieben werden. Im Produktivbetrieb sollten diese auf zwei
+verschiedenen Serversystemen arbeiten, um die Ausfallsicherheit der Hardware zu
+gewährleisten. Es ist jedoch zu erkennen, dass beide Systeme einen
+Dateneigentum, in der Shellausgabe die Spalte „Owns“, von 50 Prozentpunkten
+besitzen. Dies bedeutet, dass jeder Node jeweils die Hälfte der
+Dateninformationen bereitstellt, jedoch auch die zugehörige Hälfte von dem
+anderen Node als Backup abspeichert. Sollte nun einer der beiden Nodes
+ausfallen, könnte der jeweils andere automatisch einen Dateneigentum von 100
+Prozentpunkten erstellen und ohne Verluste weiterarbeiten. Dies entspricht der
+\gls{Shared-Nothing-Architektur}.
 
 Je nach Node-Anzahl können die vorhandenen Replikations-Modelle in der
 Konfiguration eingestellt und eingesetzt werden. Cassandra bietet zudem drei

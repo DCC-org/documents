@@ -1,8 +1,8 @@
-stonecat@swoarly ~/cassandra $ bin/nodetool status
+$ bin/nodetool status
 Datacenter: datacenter1
 =======================
 Status=Up/Down
 |/ State=Normal/Leaving/Joining/Moving
---  Address    Load       Tokens  Owns (effective)  Host ID                Rack
-UN  127.0.0.1  692.18 MB  256     50.0%             95659096-693f19ad7679  rack2
-UN  127.0.0.1  1.02 GB    256     50.0%             25a0c51a-6899f36e8f3c  rack1
+--  Address    Load       Tokens  Owns   Host ID                Rack
+UN  127.0.0.1  692.18 MB  256     50.0%  95659096-693f19ad7679  rack2
+UN  127.0.0.1  1.02 GB    256     50.0%  25a0c51a-6899f36e8f3c  rack1
