@@ -2204,29 +2204,28 @@ Gesamt                        &   100\% &                       & 4,15 &        
 
 Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix-Frontend
 durchgeführt worden ist, hat das Zabbix-Frontend eine Gesamtpunktzahl von 3,50
-erhalten. Während der Evaulierung der Zabbix-Frontend Softwarelösung fiel auf,
-dass das Zabbix-Frontend ohne einen Zabbix-Server nicht verwendet werden kann.
-Der Zabbix-Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
-empfängt Metriken von Agents, bereitet diese auf und speichert diese Daten
-anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
-das Zabbix-Frontend maximal nur mit einer Datenbank gleichzeitig kommunizieren
-und verwendet werden kann. Anders als bei Grafana, welches mit mehreren
-Datenbanken gleichzeitig kommunizieren kann. Innerhalb der einzelnen Graphen
-werden hier mittels einer Abfrage die Datenbanken direkt angesprochen. Bei der
-Evaluierung der Graphite Softwarelösung, hat Graphite 3,75 Gesamtpunkte
-erhalten. Während der Implementierung von Graphite fiel auf, dass es deutlich
-komplexer ist als Grafana. Graphite besteht aus mehreren Diensten, welche bei
-der Installation konfiguriert und angepasst werden müssen, damit Graphite
-funktional ist. Wenn ein Dienst ausfallen sollte, so betrifft dies das gesamte
-Graphite-System und die Weboberfläche wäre nicht mehr erreichbar. Zusätzlich
-ist hier gerade in der Wartung der Dienste ein Mehraufwand, da der
-Administrator alle Dienste in Form von Abhängigkeit zueinander und
-Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
-Graphite auch mehr Systemressourcen als ein einzelner Dienst, wie es bei
-Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die weitere
-Implementierung nicht verwendet. Grafana hat in der Nutzwertanalyse die meisten
-Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von den Projektmitgliedern
-zuvor definierte Kriterien.
+erhalten. Während der Evaluierung der Zabbix-Frontend fiel auf, dass es ohne
+einen Zabbix-Server nicht verwendet werden kann. Der Zabbix-Server ist ein von
+Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
+bereitet diese auf und speichert diese Daten anschließend in einem
+Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
+maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
+kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
+kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
+Abfrage die Datenbanken direkt angesprochen. Bei der Evaluierung der Graphite
+Softwarelösung, hat Graphite 3,75 Gesamtpunkte erhalten. Während der
+Implementierung von Graphite fiel auf, dass es deutlich komplexer ist als
+Grafana. Graphite besteht aus mehreren Diensten, welche bei der Installation
+konfiguriert und angepasst werden müssen, damit Graphite funktional ist. Wenn
+ein Dienst ausfallen sollte, so betrifft dies das gesamte Graphite-System und
+die Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in der
+Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
+von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
+mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
+einzelner Dienst, wie es bei Grafana der Fall ist. Hierdurch bedingt, wird
+Graphite für die weitere Implementierung nicht verwendet. Grafana hat in der
+Nutzwertanalyse die meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von
+den Projektmitgliedern zuvor definierte Kriterien.
 \mr%
 
 \chapter{Userstories}
