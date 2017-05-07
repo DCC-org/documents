@@ -672,30 +672,11 @@ Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems und
 die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit Coreutils
 und Linux Bordmitteln ist es möglich alle benötigten Informationen lokal
 auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
-Hier ein Beispiel, um alle 30 Sekunden die gesendeten sowie empfangenen Daten
-des Netzwerkadapters \texttt{enp1s0} in Bytes auszulesen:
 
-\begin{listing}
-  \inputminted{bash}{../listings/coreutils-awk.txt}
-  \caption{/proc mit awk parsen}
-  \label{lst:aw}
-\end{listing}
-
-Dies erzeugt eine \gls{CSV} ähnliche Datenstruktur:
-
-\begin{center}
-\begin{minted}{text}
-device,receive,transmit
-enp1s0,28932776123,1786084537
-enp1s0,28935220128,1786163375
-enp1s0,28939447268,1786302393
-enp1s0,28942260029,1786392663
-enp1s0,28946985781,1786547807
-enp1s0,28949168552,1786622616
-enp1s0,28951976308,1786708990
-\end{minted}
-\captionof{listing}{traffic stats enp1s0}
-\end{center}
+Unter Listing~\ref{lst:aw} gibt es ein Beispiel, welches alle 30 Sekunden die
+gesendeten sowie empfangenen Daten des Netzwerkadapters \texttt{enp1s0} in
+Bytes ausliest. Die generierte Ausgabe ähnelt einer \gls{CSV} Datenstruktur und
+ist unter Listing~\ref{lst:csv} zu sehen.
 
 Für das Auslesen all dieser Daten werden kleine Skripte wie das im
 Figure~\ref{lst:aw} benötigt. Um die Daten über das Netzwerk zu verschicken,
