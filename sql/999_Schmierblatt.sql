@@ -80,3 +80,18 @@ FROM pg_class a, pg_catalog.pg_namespace b
 WHERE relname='partitions'
   and a.relnamespace = b.oid
   and b.nspname='etl_cpu_user';
+
+  
+-- Test Heatmap INDEX
+EXPLAIN ANALYZE 
+SELECT 
+  metadata->>'etlid',
+  extract(epoch from to_timestamp(data->>'timestamp'::text, 'YYYY-MM-DD HH24:MI:SS')::timestamp)::int,
+  CAST(data->>'value' AS FLOAT)::float,
+  data->>'plugin_instance'::text,
+  data->>'collectd_type'::text
+ FROM public.measurement_master
+ WHERE
+  metadata->>'etlid' in ('390', '423', '439') 
+  AND date_trunc_hour_json(data->>'timestamp'::text) = '2017-05-02 14:00:00'::timestamp
+ ORDER BY data->>'timestamp';
