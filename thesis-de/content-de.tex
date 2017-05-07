@@ -2675,13 +2675,8 @@ Ressourcen. Die wichtigsten sind:
 \end{outline}
 
 Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
-Ressource besteht aus drei Teilen:
-
-\begin{center}
-   \inputminted{puppet}{../listings/basic-resource.txt}
-   \captionof{listing}{Puppet package resource für htop}
-   \label{lst:puppet-resource}
-\end{center}
+Ressource besteht aus drei Teilen (Beispiel unter
+Listing~\ref{lst:puppet-resource}.
 
 Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
@@ -3365,27 +3360,21 @@ durchgeführt werden:
 bundle exec rake spec
 \end{minted}
 
-Die Tests für das Grafana-Profil sehen wie folgt aus:
-
-\begin{center}
-  \inputminted{ruby}{../listings/rspec-grafana.txt}
-  \captionof{listing}{Tests für das Grafana-Profil}
-\end{center}
-
-Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana-Profil auf
-diesen zu testen. Jedes Betriebssystem besitzt betriebssystemspezifische
-\glslink{Fact}{Facts}. Diese werden von rspec simuliert und mit Hilfe einer
-Liste der unterstützten Betriebssysteme auf dem entsprechenend Profil
-getestet. Diese Liste an Betriebssystemen wird aus der \texttt{metadata.json}
-ausgelesen und hierfür immer ein Katalog erstellt. Dieser zuvor erstellte
-Katalog wird anschließend geprüft. Unter anderem kann das rspec prüfen, ob
-benötigte Ressourcen wie \texttt{grafana\_dashboard} oder
+Die Tests für das Grafana-Profil befinden sich unter
+Listing~\ref{lst:rspec-grafana}.  Zuerst werden verschiedene Betriebssysteme
+simuliert, um das Grafana-Profil auf diesen zu testen. Jedes Betriebssystem
+besitzt betriebssystemspezifische \glslink{Fact}{Facts}. Diese werden von rspec
+simuliert und mit Hilfe einer Liste der unterstützten Betriebssysteme auf dem
+entsprechenend Profil getestet. Diese Liste an Betriebssystemen wird aus der
+\texttt{metadata.json} ausgelesen und hierfür immer ein Katalog erstellt.
+Dieser zuvor erstellte Katalog wird anschließend geprüft. Unter anderem kann
+das rspec prüfen, ob benötigte Ressourcen wie \texttt{grafana\_dashboard} oder
 \texttt{grafana\_datasources} in dem Profil enthalten sind. Diese Tests können
 für jedes Profil einzeln definiert werden, da jedes Profil unterschiedliche
 Ressourcen benötigt. Im Anhang befindet sich ein Auszug aus einem bestandenen
 Test. Es wurde bewusst darauf geachtet, dass jedes Modul nur seine eigenen
-Ressourcen auf Fehler prüft. Zusätzlich wurde jede einzelne Software
-von den Entwicklern auf Funktionalität und Sicherheit geprüft.
+Ressourcen auf Fehler prüft. Zusätzlich wurde jede einzelne Software von den
+Entwicklern auf Funktionalität und Sicherheit geprüft.
 
 Die Vorteile von solchen Unit-Tests mit rspec sind Folgende:
 
@@ -3413,19 +3402,13 @@ fehlerfrei läuft. Diese Szenarien prüfen beispielsweise, ob die Erhaltung der
 Daten, sowie speichern dieser Daten in der Datenbank und Visualisierung der
 Graphen funktioniert. Die Ausgabe erfolgt hier über einen booleschen Wert,
 welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend
-kann der Entwickler diesen Code erneut anpassen und testen. Nachfolgend sind
-zwei Tests für einen Akzeptanztest für das Modul collectd angehangen. Der
-vollständige Test ist dem Anhang~\ref{lst:collectd-test}beigefügt.
-
-\begin{listing}
-  \inputminted{ruby}{../listings/acceptance-test.txt}
-  \caption{Zwei Akzeptanztests für collectd}
-\end{listing}
+kann der Entwickler diesen Code erneut anpassen und testen. Die vollständigen
+Tests für das collectd Modul sind dem Anhang~\ref{lst:collectd-test}beigefügt.
 
 Wie auch auch bei Unit-Tests~\ref{sec:unit_tests} werden Akzeptanztests für
 verschiedene Betriebsysteme programmiert. Anders als bei
 Unit-Tests~\ref{sec:unit_tests} werden diese nicht in einer
-\texttt{Metadata.json} hinterlegt, sondern jedes Betriebssystem erhält eine
+\texttt{metadata.json} hinterlegt, sondern jedes Betriebssystem erhält eine
 eigenen Datei, in der definiert ist, mit welcher virtuellen Maschine oder
 Container dieser Code ausgeführt werden soll. Im Anhang~\ref{lst:def-centos}
 ist eine solche Datei beigefügt.
