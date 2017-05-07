@@ -746,15 +746,10 @@ eine Vielzahl von Möglichkeiten, um Daten auf einem System zu ermitteln und
 diese in diversen Formen über das Netzwerk auszutauschen oder lokal abzulegen.
 Die Software ist in C geschrieben.
 
-\begin{center}
-    \inputminted{text}{../listings/collectd-clone.txt}
-    \captionof{listing}{collectd git clone}
-\end{center}
-
-Wie im obigen Listing zu sehen, haben 415 Leute 9059 Änderungen im
-Versionsverwaltungssystem durchgeführt.\ collectd steht unter der MIT Lizenz
-und zählt somit als Open-Source-Software. Es kann flexibel mit Plugins
-erweitert werden. Hierbei wird zwischen mehreren Kategorien
+Wie im Listing~\ref{lst:collectd-clone} zu sehen, haben 415 Leute 9059
+Änderungen im Versionsverwaltungssystem durchgeführt.\ collectd steht unter der
+MIT Lizenz und zählt somit als Open-Source-Software. Es kann flexibel mit
+Plugins erweitert werden. Hierbei wird zwischen mehreren Kategorien
 unterschieden (vgl.~\cite{collectd_plugins}):
 
 \begin{outline}
@@ -802,21 +797,16 @@ austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem gibt es
 unregelmäßig neue Updates. Das letzte Release ist vom November 2016. Die
 Open-Source-Software steht unter der MIT Lizenz (vgl.~\cite{python-diamond}).
 
-\begin{center}
-    \inputminted{text}{../listings/diamond-clone.txt}
-    \captionof{listing}{Diamond git clone}
-\end{center}
-
-Wie im obigen Listing zu sehen gibt es 2922 Beiträge im Versionskontrollsystem
-von 292 verschiedenen Personen. Diamond kann alle benötigten Daten lokal und
-vom Hypervisor über seine VMs ermitteln. Über das Netzwerk werden diese im
-\glslink{Carbon}{Graphite Format} geschickt. Über Plugins sind auch weitere
-Formate möglich. Der \gls{Backlog} bei Diamond ist sehr hoch. Die Software hat
-aktuell 88 offene Issues im Versionsverwaltungssystem. Dies ist eine Mischung
-aus gemeldeten Fehlern und Feature Requests. Außerdem gibt es 139 offene Pull
-Requests (siehe Listing~\ref{figure:diamond}. Dies sind Änderungen am
-Quellcode, welche die Community erstellt hat, aber noch nicht eingepflegt
-worden sind.
+Wie im Listing~\ref{lst:python-diamond-clone} zu sehen gibt es 2922 Beiträge im
+Versionskontrollsystem von 292 verschiedenen Personen. Diamond kann alle
+benötigten Daten lokal und vom Hypervisor über seine VMs ermitteln. Über das
+Netzwerk werden diese im \glslink{Carbon}{Graphite Format} geschickt. Über
+Plugins sind auch weitere Formate möglich. Der \gls{Backlog} bei Diamond ist
+sehr hoch. Die Software hat aktuell 88 offene Issues im
+Versionsverwaltungssystem. Dies ist eine Mischung aus gemeldeten Fehlern und
+Feature Requests. Außerdem gibt es 139 offene Pull Requests (siehe
+Listing~\ref{figure:diamond}. Dies sind Änderungen am Quellcode, welche die
+Community erstellt hat, aber noch nicht eingepflegt worden sind.
 \tm%
 
 \subsection{sysstat}
@@ -1111,14 +1101,9 @@ Daten, anschließend ist dann eine Volltextsuche möglich. Die Firma
 Elasticsearch BV aus den Niederlanden finanziert die Entwicklung der
 Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
-\begin{center}
-    \inputminted{text}{../listings/elasticsearch-clone.txt}
-    \captionof{listing}{Diamond git clone}
-\end{center}
-
-Oben befindet sich eine kurze Analyse des \gls{Git}-
-\glslink{Repository}{Repositorys} vom 27.11.2016. Die Suchmaschine besteht
-hier aus 25989 Beiträgen von 869 verschiedenen Personen.
+Unter Listing~\ref{lst:elasticsearch-clone} befindet sich eine kurze Analyse
+des \gls{Git}-\glslink{Repository}{Repositorys} vom 27.11.2016. Die
+Suchmaschine besteht hier aus 25989 Beiträgen von 869 verschiedenen Personen.
 
 Elasticsearch erlaubt es, als verteiltes Cluster betrieben zu werden. Hierfür
 werden mindestens zwei Server benötigt. Eingehende Daten werden in Indexe
@@ -1275,17 +1260,13 @@ Die Community ist sehr aktiv, sie pflegt ein komplexes Wiki
 Einsteiger und Optimierungshilfen für Fortgeschrittene
 (vgl.~\cite{postgres_tutorial}).
 
-\begin{center}
-    \inputminted{text}{../listings/postgres-clone.txt}
-    \captionof{listing}{postgres git clone}
-\end{center}
-
-Wie in der obigen Shell-Ausgabe zu sehen, enthält das \gls{Git}-\gls{Repository}
-des Postgres Quellcodes am 26.11.2016 41366 einzelne \glslink{Commit}{Commits}
-von 41 verschiedenen Autoren. Aufgrund der Patchpolitik von Postgres werden
-Patches oftmals an Autoren aus dem Postgres-Team geschickt. Ein Teammitglied
-fügt danach den Patch in das Repository ein. Somit lässt sich nicht genau
-bestimmen, von wie vielen Leuten Code beigesteuert wurde.
+Wie in der Shell-Ausgabe unter Listing~\ref{lst:postgres-clone} zu sehen,
+enthält das \gls{Git}-\gls{Repository} des Postgres Quellcodes am 26.11.2016
+41366 einzelne \glslink{Commit}{Commits} von 41 verschiedenen Autoren. Aufgrund
+der Patchpolitik von Postgres werden Patches oftmals an Autoren aus dem
+Postgres-Team geschickt. Ein Teammitglied fügt danach den Patch in das
+Repository ein. Somit lässt sich nicht genau bestimmen, von wie vielen Leuten
+Code beigesteuert wurde.
 
 Die Postgres-Architektur sah lange Zeit vor, dass der Dienst auf einem einzigen
 Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten, die
