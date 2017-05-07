@@ -251,7 +251,7 @@ dass sie eine aktive Community haben und unter einer Open-Source-Lizenz stehen.
 Unterschiedliche Ausbaustufen für virtuelle Maschinen werden über mehrere
 verschiedene Ressourcen, die sich in ihrer Leistungsklasse unterscheiden,
 differenziert. Diese Typen müssen für jede virtuelle Maschine ausgelesen
-werden.  Als Referenz werden die Typen der größten deutschen Anbieter für
+werden. Als Referenz werden die Typen der größten deutschen Anbieter für
 virtuelle Maschinen genommen. Diese sind aktuell:
 
 \begin{outline}
@@ -296,9 +296,8 @@ definiert. Sie dienen als erster Leitpfaden der Softwarelösung und definierten
 sich wie folgt:
 
 \begin{outline}
-  \1 Zunächst muss das Datenhaltungssystem für das Abspeichern von mehreren
-  tausend Datensätzen in der Sekunde ausgelegt sein. Innerhalb des Projektes
-  wird mit 10.000 Datensätzen pro Sekunde gerechnet und getestet.
+  \1 Zunächst muss das Datenhaltungssystem für das Abspeichern von 10.000
+  Datensätzen in der Sekunde ausgelegt sein.
   \1 Gleichzeitig muss das Datenhaltungssystem über Analysewerkzeuge verfügen,
   sodass auf den gespeicherten Daten eine fachliche Logik aufgebaut werden
   kann.
@@ -311,8 +310,8 @@ sich wie folgt:
 Es soll in der Ziellösung eine stabile Schnittstelle im Gesamtsystem bilden
 und im Falle von einem Ausfall der beiden anderen Softwarekomponenten die
 Informationen weiterhin sicher und vollständig zur Verfügung stellen können.
-Eine konkretisierte Anforderungsübersicht an das Datenhaltungssystem kann aus
-Punkt~\ref{sec:datenhaltungssystem} entnommen werden.
+Eine konkretisierte Anforderungsübersicht an das Datenhaltungssystem kann dem
+Abschnitt~\ref{sec:datenhaltungssystem} entnommen werden.
 \nl%
 
 \subsection{Datenvisualisierung}
@@ -323,7 +322,7 @@ Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
 und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, dass sowohl die
 Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
 die Weboberfläche selbst gegen Zugriff von Unbekannten. Die Weboberfläche
-greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht uns, den
+greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht es, den
 Zugriff nur für die Datenvisualisierung auf die Datenbank gewährleisten zu
 können. Die Weboberfläche soll Administratoren bei Neukonfiguration von
 virtuellen Maschinen unterstützen und zeigt hier die Auslastung der einzelnen
@@ -512,8 +511,8 @@ den Datenhaltungssystem-Administrator gewährleistet.
 
 Neben der Verwendung eines Treibers in Verbindung mit einem
 Berechtigungskonzept, kann auch ein API-System zum Einsatz kommen. Die
-Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können aus
-Punkt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
+Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können dem
+Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
 Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
@@ -869,14 +868,9 @@ gleichen Schema ab:
   Jeder Aktion können Optionen mitgegeben werden.
 \end{outline}
 
-\begin{listing}
-  \inputminted{clojure}{../listings/riemann-config.txt}
-  \caption{Einfache Riemann Konfiguration}
-\end{listing}
-
-Im obigen Beispiel wird die Temperatur des ersten Prozessorkerns überprüft.
-Sobald diese bei 75°C oder höher liegt, wird eine E-Mail an tim@bastelfreak.de
-geschickt.
+Unter Listing~\ref{lst:riemann} wird die Temperatur des ersten Prozessorkerns
+überprüft. Sobald diese bei 75°C oder höher liegt, wird eine E-Mail an
+tim@bastelfreak.de geschickt.
 
 Riemann besitzt eine lange Liste an vorhandenen Aktionen, die man nutzen kann.
 Dazu gehört auch der Export von Events in diverse Datenbanken. Dazu gehören
@@ -1035,10 +1029,11 @@ aufgelistet:
 \subsection{Durchführung der Evaluierung}
 \label{subsec:durchfuehrung_der_evaluierung}
 Bei der Durchführung der Evaluation von den ausgewählten Datenhaltungssystemen
-aus der Liste in Punkt~\ref{sec:datenhaltungssystem} wurden die
-Evaluationskriterien aus Punkt~\ref{subsec:DBS_vorbereitung_der_evaluierung}
-verwendet. Diese dienten als Leitpfaden für jedes Datenhaltungssystem und
-wurden von jedem Projektmitglied beachtet.
+aus der Liste iim Abschnitt~\ref{sec:datenhaltungssystem} wurden die
+Evaluationskriterien aus
+Abschnitt~\ref{subsec:DBS_vorbereitung_der_evaluierung} verwendet. Diese
+dienten als Leitpfaden für jedes Datenhaltungssystem und wurden von jedem
+Projektmitglied beachtet.
 
 Zu Beginn der Durchführung teilte Herr Meusel als Projektleiter die zu
 evaluierenden Datenhaltungssysteme jedem Projektmitglied zu, um eine schnellere
@@ -1053,9 +1048,8 @@ Datendarstellung.
 
 Die daraus resultierenden Ergebnisse wurden Herrn Luis anschließend von den
 Projektmitgliedern bereitgestellt, sodass dieser einen Überblick im
-Projektbereich „Datenhaltung“ erschaffen konnte. Die resultierenden
-Ergebnisse und Erkenntnisse sind in dem nachfolgenden Punkt für jede
-Datenhaltungs-Software dokumentiert.
+Projektbereich „Datenhaltung“ erschaffen konnte. Die Ergebnisse sind im
+folgenden Abschnitt für jede Datenhaltungs-Software dokumentiert.
 \nl%
 
 \subsubsection{Elasticsearch}
@@ -1192,23 +1186,19 @@ vorhandenen Nodes in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition
 eins auf dem ersten Node repliziert wird, Partition zwei auf dem zweiten Node
 und immer so weiter, bis das Verfahren den ersten Node wieder erreicht.
 
-\begin{center}
-    \inputminted{text}{../listings/cassandra-status.txt}
-    \captionof{listing}{cassandra status}
-\end{center}
-
-In der obigen Shell-Ausgabe wird ein während der Evaluierungsphase erstelltes
-Cassandra-System dargestellt. Dabei besitzt der Prototyp zwei aktive Nodes,
-welche für Testzwecke auf dem gleichen physischen Server betrieben werden. Im
-Produktivbetrieb sollten diese auf zwei verschiedenen Serversystemen arbeiten,
-um die Ausfallsicherheit der Hardware zu gewährleisten. Es ist jedoch zu
-erkennen, dass beide Systeme einen Dateneigentum, in der Shellausgabe die
-Spalte „Owns“, von 50 Prozentpunkten besitzen. Dies bedeutet, dass jeder Node
-jeweils die Hälfte der Dateninformationen bereitstellt, jedoch auch die
-zugehörige Hälfte von dem anderen Node als Backup abspeichert. Sollte nun einer
-der beiden Nodes ausfallen, könnte der jeweils andere automatisch einen
-Dateneigentum von 100 Prozentpunkten erstellen und ohne Verluste
-weiterarbeiten. Dies entspricht der \gls{Shared-Nothing-Architektur}.
+In der Shell-Ausgabe unter Listing~\ref{lst:cassandra} wird ein während der
+Evaluierungsphase erstelltes Cassandra-System dargestellt. Dabei besitzt der
+Prototyp zwei aktive Nodes, welche für Testzwecke auf dem gleichen physischen
+Server betrieben werden. Im Produktivbetrieb sollten diese auf zwei
+verschiedenen Serversystemen arbeiten, um die Ausfallsicherheit der Hardware zu
+gewährleisten. Es ist jedoch zu erkennen, dass beide Systeme einen
+Dateneigentum, in der Shellausgabe die Spalte „Owns“, von 50 Prozentpunkten
+besitzen. Dies bedeutet, dass jeder Node jeweils die Hälfte der
+Dateninformationen bereitstellt, jedoch auch die zugehörige Hälfte von dem
+anderen Node als Backup abspeichert. Sollte nun einer der beiden Nodes
+ausfallen, könnte der jeweils andere automatisch einen Dateneigentum von 100
+Prozentpunkten erstellen und ohne Verluste weiterarbeiten. Dies entspricht der
+\gls{Shared-Nothing-Architektur}.
 
 Je nach Node-Anzahl können die vorhandenen Replikations-Modelle in der
 Konfiguration eingestellt und eingesetzt werden. Cassandra bietet zudem drei
@@ -1348,7 +1338,7 @@ Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 „Hadoop Common“ eingesetzt. Es handelt sich dabei um ein reines
 Schnittstellen-Modul, welches standardisierte Protokolle implementiert und
 betreibt. Es ermöglicht zum Beispiel die Anbindung der Software „Hive“ und
-„Impala“, welche in den Punkt~\ref{subsubsec:hadoop_beschreibung}
+„Impala“, welche in den Abschnitten~\ref{subsubsec:hadoop_beschreibung}
 und~\ref{subsubsec:impala_beschreibung} erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
@@ -1378,10 +1368,11 @@ Entwicklers entnommen werden (vgl.~\cite{Hadoop_related_projects}).
 \subsubsection{Beschreibung Hive}
 \label{subsubsec:hadoop_beschreibung}
 Das Apache-Hive-System ist eine Hadoop basierende Software und nutzt die im
-Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterten Schnittstellten für den
-Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem Hadoop-System
-aus und fällt somit nicht unter ein eigenständiges Datenhaltungssystem. In der
-Hadoop-Landschaft wird es unter dem Begriff „Hadoop Ecosystem“ eingeordnet.
+Abschnitt~\ref{subsubsec:hadoop_hive_impala} erläuterten Schnittstellten für
+den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
+Hadoop-System aus und fällt somit nicht unter ein eigenständiges
+Datenhaltungssystem. In der Hadoop-Landschaft wird es unter dem Begriff „Hadoop
+Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei die Implementierung von
 einem sogenannten „Data Warehouse“ (DWH) in dem Hadoop Netzwerk. Ein Data
@@ -1425,14 +1416,14 @@ nochmals fachlich aufzubereiten.
 \subsubsection{Beschreibung Impala}
 \label{subsubsec:impala_beschreibung}
 Das Apache-Impala-System ist eine Hadoop basierende Software und nutzt die
-im Punkt~\ref{subsubsec:hadoop_hive_impala} erläuterteten Schnittstellten
+im Abschnitt~\ref{subsubsec:hadoop_hive_impala} erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop-System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop-Landschaft wird es unter dem Begriff
 „Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
-Implementierung, wie in Punkt~\ref{subsubsec:hadoop_beschreibung}. Apache
+Implementierung, wie im Abschnitt~\ref{subsubsec:hadoop_beschreibung}. Apache
 Impala stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine
 spezialisierte Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf
 den konsolidierten Metadaten des Hadoop-Systems, benötigt jedoch auch die
@@ -1498,11 +1489,11 @@ Projektzeitraum nicht erbringen könnte.
 Nachdem alle Systeme von dem Projektteam auf die genannten Kriterien untersucht
 wurden, wurde gemeinsam abschließend eine normale Entscheidungstabelle
 angefertigt. Dabei kann jedes im
-Punkt~\ref{subsec:DBS_vorbereitung_der_evaluierung} definierte Kriterium einen
-Wert zwischen 0 und 10 erhalten. Zehn ist dabei die beste und Null die
-schlechteste Bewertung. Die Systeme mit der höchsten Gesamtpunktzahl würden
-anschließend in der engeren Auswahl beurteilt werden. Der Punkt Wissen
-bezieht sich auf vorhandenes Wissen innerhalb des Projektteams.
+Abschnitt~\ref{subsec:DBS_vorbereitung_der_evaluierung} definierte Kriterium
+einen Wert zwischen Null und Zehn erhalten. Zehn ist dabei die beste und Null
+die schlechteste Bewertung. Die Systeme mit der höchsten Gesamtpunktzahl würden
+anschließend in der engeren Auswahl beurteilt werden. Der Punkt Wissen bezieht
+sich auf vorhandenes Wissen innerhalb des Projektteams.
 
 Diese Entscheidungstabelle wurde wie folgt aufgebaut:
 \begin{center}
@@ -1647,7 +1638,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 \subsection{Durchführung der Evaluierung}
 \label{subsec:api_durchfuehrung_der_evaluierung}
 Bei der Evaluierung der API-Systeme wurden die in
-Punkt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
+im Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
 Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
 allgemeinen Eindruck über die aktuelle Marktsituation zu API-Systemen erhält.
@@ -1664,14 +1655,14 @@ Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene
 API-System in Hinsischt der Funktionen modifizieren durften.
 
 Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
-für ein API-System mit dem Namen „Swagger“ entschieden. Es ist aktuell neben den
-API-Systemen „RAML“ und „API-Blueprint“ das einzige API-System auf dem Markt,
-welches den Betrieb auf einer selbst administrierten Hardware-Umgebung zulässt.
-Für den Vergleich der drei Systeme wurde eine Entscheidungstabelle mit
-gewichteten Faktoren erstellt und ausgewertet. Die in der nachfolgenden
-Entscheidungstabelle genannten Faktoren wurden aus
-Punkt~\ref{subsec:api_vorbereitung_der_evaluierung} abgeleitet und können dort
-im Detail nachgeschaut werden. Jeder der definierten Kriterien kann einen
+für ein API-System mit dem Namen „Swagger“ entschieden. Es ist aktuell neben
+den API-Systemen „RAML“ und „API-Blueprint“ das einzige API-System auf dem
+Markt, welches den Betrieb auf einer selbst administrierten Hardware-Umgebung
+zulässt.  Für den Vergleich der drei Systeme wurde eine Entscheidungstabelle
+mit gewichteten Faktoren erstellt und ausgewertet. Die in der nachfolgenden
+Entscheidungstabelle genannten Faktoren wurden aus dem
+Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} abgeleitet und können
+dort im Detail nachgeschaut werden. Jeder der definierten Kriterien kann einen
 Wert zwischen 0 und 10 erhalten. Zehn ist dabei die beste und Null die
 schlechteste Bewertung. Die Faktoren bezüglich der selbst administrierbaren
 Hardwareumgebung, und die damit verbundenen externen Kosten sind bei allen drei
@@ -1833,7 +1824,8 @@ werden:
 Für die Durchführung der Evaluierung der ausgewählten Datenvisualisierungs
 Software aus der obigen Liste~\ref{sec:datenvisualisierung} wurden die
 entsprechenden Kriterien zur Evaluierung aus
-Punkt~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung} verwendet.
+Abschnitt~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
+verwendet.
 
 
 Bevor die Evaluierung der einzelnen Softwarelösungen durchgeführt werden
@@ -2229,7 +2221,7 @@ den Projektmitgliedern zuvor definierte Kriterien.
 \mr%
 
 \chapter{Userstories}
-Im Punkt~\ref{sec:agile_vorgehensweise} wurde bereits kurz auf Userstories
+Im Abschnitt~\ref{sec:agile_vorgehensweise} wurde bereits kurz auf Userstories
 eingegangen. Im Folgenden wird die generelle Vorgehensweise erklärt, sowie die
 Implementierung und Realisierung der Userstories in diesem Projekt.
 
@@ -2683,13 +2675,8 @@ Ressourcen. Die wichtigsten sind:
 \end{outline}
 
 Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
-Ressource besteht aus drei Teilen:
-
-\begin{center}
-   \inputminted{puppet}{../listings/basic-resource.txt}
-   \captionof{listing}{Puppet package resource für htop}
-   \label{lst:puppet-resource}
-\end{center}
+Ressource besteht aus drei Teilen (Beispiel unter
+Listing~\ref{lst:puppet-resource}.
 
 Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
@@ -2834,7 +2821,7 @@ selber entwickelt, sondern nur eingebunden werden.
 
 \subsection{Repositorium}
 \label{subsec:postgres_repositorium}
-Der in Punkt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
+Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
 diesem Projekt für die Metric-Daten jedes virtuellen Servers genutzt wird,
 wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.
 Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es
@@ -2857,8 +2844,7 @@ in jeweils eine eigene Tabelle ausgelagert werden.
 
 Da sich bei diesem Model die Geschwindigkeit der Datenabfragen mit der Menge
 der Daten in einer Tabelle verlangsamt, wird die automatische Partitionierung
-angewandt, welche im nachfolgendem Punkt~\ref{subsec:postgres_partition}
-beschrieben wird.
+angewandt, welche nachfolgend beschrieben wird.
 \nl%
 
 \subsection{Partitionierung}
@@ -2962,8 +2948,8 @@ Inhalt.
 Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
 Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API\@. Dies
 hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage bei
-dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die
-im Punkt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
+dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die im
+Abschnitt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
 auch in dem API-System integriert.
 \nl%
 
@@ -3374,27 +3360,21 @@ durchgeführt werden:
 bundle exec rake spec
 \end{minted}
 
-Die Tests für das Grafana-Profil sehen wie folgt aus:
-
-\begin{center}
-  \inputminted{ruby}{../listings/rspec-grafana.txt}
-  \captionof{listing}{Tests für das Grafana-Profil}
-\end{center}
-
-Zuerst werden verschiedene Betriebssysteme simuliert, um das Grafana-Profil auf
-diesen zu testen. Jedes Betriebssystem besitzt betriebssystemspezifische
-\glslink{Fact}{Facts}. Diese werden von rspec simuliert und mit Hilfe einer
-Liste der unterstützten Betriebssysteme auf dem entsprechenend Profil
-getestet. Diese Liste an Betriebssystemen wird aus der \texttt{metadata.json}
-ausgelesen und hierfür immer ein Katalog erstellt. Dieser zuvor erstellte
-Katalog wird anschließend geprüft. Unter anderem kann das rspec prüfen, ob
-benötigte Ressourcen wie \texttt{grafana\_dashboard} oder
+Die Tests für das Grafana-Profil befinden sich unter
+Listing~\ref{lst:rspec-grafana}.  Zuerst werden verschiedene Betriebssysteme
+simuliert, um das Grafana-Profil auf diesen zu testen. Jedes Betriebssystem
+besitzt betriebssystemspezifische \glslink{Fact}{Facts}. Diese werden von rspec
+simuliert und mit Hilfe einer Liste der unterstützten Betriebssysteme auf dem
+entsprechenend Profil getestet. Diese Liste an Betriebssystemen wird aus der
+\texttt{metadata.json} ausgelesen und hierfür immer ein Katalog erstellt.
+Dieser zuvor erstellte Katalog wird anschließend geprüft. Unter anderem kann
+das rspec prüfen, ob benötigte Ressourcen wie \texttt{grafana\_dashboard} oder
 \texttt{grafana\_datasources} in dem Profil enthalten sind. Diese Tests können
 für jedes Profil einzeln definiert werden, da jedes Profil unterschiedliche
 Ressourcen benötigt. Im Anhang befindet sich ein Auszug aus einem bestandenen
 Test. Es wurde bewusst darauf geachtet, dass jedes Modul nur seine eigenen
-Ressourcen auf Fehler prüft. Zusätzlich wurde jede einzelne Software
-von den Entwicklern auf Funktionalität und Sicherheit geprüft.
+Ressourcen auf Fehler prüft. Zusätzlich wurde jede einzelne Software von den
+Entwicklern auf Funktionalität und Sicherheit geprüft.
 
 Die Vorteile von solchen Unit-Tests mit rspec sind Folgende:
 
@@ -3422,19 +3402,13 @@ fehlerfrei läuft. Diese Szenarien prüfen beispielsweise, ob die Erhaltung der
 Daten, sowie speichern dieser Daten in der Datenbank und Visualisierung der
 Graphen funktioniert. Die Ausgabe erfolgt hier über einen booleschen Wert,
 welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend
-kann der Entwickler diesen Code erneut anpassen und testen. Nachfolgend sind
-zwei Tests für einen Akzeptanztest für das Modul collectd angehangen. Der
-vollständige Test ist dem Anhang~\ref{lst:collectd-test}beigefügt.
-
-\begin{listing}
-  \inputminted{ruby}{../listings/acceptance-test.txt}
-  \caption{Zwei Akzeptanztests für collectd}
-\end{listing}
+kann der Entwickler diesen Code erneut anpassen und testen. Die vollständigen
+Tests für das collectd Modul sind dem Anhang~\ref{lst:collectd-test}beigefügt.
 
 Wie auch auch bei Unit-Tests~\ref{sec:unit_tests} werden Akzeptanztests für
 verschiedene Betriebsysteme programmiert. Anders als bei
 Unit-Tests~\ref{sec:unit_tests} werden diese nicht in einer
-\texttt{Metadata.json} hinterlegt, sondern jedes Betriebssystem erhält eine
+\texttt{metadata.json} hinterlegt, sondern jedes Betriebssystem erhält eine
 eigenen Datei, in der definiert ist, mit welcher virtuellen Maschine oder
 Container dieser Code ausgeführt werden soll. Im Anhang~\ref{lst:def-centos}
 ist eine solche Datei beigefügt.
