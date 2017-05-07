@@ -1760,10 +1760,10 @@ Evaluierungsliste aufgenommen worden:
 \end{outline}
 
 Das Hinzufügen von weiteren Softwarelösungen während der Evaluierungsphase
-bedarf keiner weiteren Zustimmung durch den Auftraggeber, sondern konnte direkt
+bedarf keiner weiteren Zustimmung durch den Auftraggeber, sondern konnten direkt
 mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
 mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
-Anforderungskatalog definiert, welche im späteren Verlauf der Planung für die
+Kriterienkatalog definiert, welche im späteren Verlauf der Planung für die
 Evaluierung der einzelnen Frontends verwendet werden. Die zu evaluierende
 Softwareliste besteht zum Teil aus Softwarelösungen, welche im Unternehmen von
 einzelnen Projektmitgliedern bereits erfolgreich eingesetzt werden und zum
@@ -1799,19 +1799,21 @@ oder mehrere Timeseries~\ref{section:Begriffserklärung}.
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
-Damit die Evaluierungen der einzelnen Softwarelösungen durchgeführt werden
-können, mussten zuvor Kriterien mit dem Projektteam in einen
-Anforderungskatalog aufgenommen werden. Diese Kriterien, in Form von
-definierten Anforderungen, sollen für eine bessere Übersicht während der
-Evaluierung dienen. Bei den Kriterien musste darauf geachtet werden, dass
-diese während der Beurteilung der Anforderungen eine Mach- und
-Realisierbarkeit besitzen. Nachdem die einzelnen Kriterien zusammen mit dem
-Projektteam erstellt worden sind, wurden diese im Anschluss von jedem einzelnen
-Projektmitglied auf die Mach- und Realisierbarkeit geprüft. Erst hiernach
-wurden diese im Anforderungskatalog aufgenommen.
+Damit die Evaluierungen mittels einer Nutzwertanalyse der einzelnen
+Softwarelösungen durchgeführt werden können, müssen zuvor im ersten Schritt
+Kriterien mit dem Projektteam in einen Kriterienkatalog aufgenommen werden.
+Anschließend werden diesen Kriterien Gewichtungen zugewiesen. Bei den Kriterien
+musste darauf geachtet werden, dass diese während der Beurteilung der
+Anforderungen eine Realisierbarkeit besitzen. Nachdem die einzelnen Kriterien
+zusammen mit dem Projektteam erstellt worden sind, wurden diese im Anschluss
+von jedem einzelnen Projektmitglied auf die Mach- und Realisierbarkeit geprüft.
+Erst hiernach wurden diese in einem Kriterienkatalog aufgenommen.
 
-Die einzelnen Kriterien wurden im Nachhinein der Wichtigkeit absteigend,
-wie folgt aufgelistet:
+Die einzelnen Kriterien wurden im späteren Verlauf der Evaluierung
+zusammengefasst und Gewichtet. Die folgenden Kriterien wurde in die
+Nutzwertanalyse aufgenommen: Skalierbar, Kosten, Sicherheit, Performance und
+Dokumentation. Im nachfolgenden, können die einzelnen Kriterien entnommen
+werden:
 
 \begin{outline}
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
@@ -1889,14 +1891,19 @@ verkürzen.
 Nachdem die Analyse der Softwarelösungen von den einzelnen Projektmitgliedern
 abgeschlossen wurde, wurden die gesammelten Resultate Herrn Reuter zur
 Verfügung gestellt. Mit diesen Resultaten konnte Herr Reuter eine Auswertung
-aller Softwarelösungen durchführen, welche im nachfolgenden Punkt aufgelistet
-wurden.
+aller Softwarelösungen durchführen. Um die Nutzwertanalyse durchführen zu
+können, wurde jede Softwarelösung gegenübergestellt und auf den
+Kriterienkatalog geprüft. Hierfür wurde ein Punktesystem von Null bis Fünf
+festgelegt, wobei Null die schlechteste Punktzahl und Fünf die beste Punktzahl
+ist. Diese vergebenen Punkte, wurden anschließend mit der Gewichtung in eine
+Tabelle eingetragen und Multipliziert, welches dann die Gesamtpunktzahl ergibt.
+Die Tabellen, werden im Abschnitt~\ref{subsec:abschluss_evaluierung} genauer
+erklärt.
 
-Hierbei ist aufgefallen, dass für die Softwarelösung `Gridster-D3' eine
-kostenpflichtige jährliche Lizenz benötigt wird und der Quellcode nicht
-angepasst werden kann. Somit fällt diese Softwarelösung aus der weiteren
-Evaluierung aus, da diese Zwei Anforderungen bereits vorab schon ein
-Ausschlusskriterium sind.
+Während der Evaluierung der einzelnen Softwarelösungen ist aufgefallen, dass
+die Softwarelösung \texttt{Gridster-D3} keine direkte Visualisierungssoftware
+ist. Die entsprechende Evaluierung, von diesem Produkt, kann unter
+Punkt~\ref{subsubsec:gridster-d3} vollständig entnommen werden.
 
 Im Nachfolgenden Punkt sind die einzelnen Softwarelösungen mit den einzelnen
 Anforderungen und Evaluierungsergebnissen aufgelistet:
@@ -2171,9 +2178,47 @@ Negativ:
 
 \subsection{Abschluss der Evaluierung}
 \label{subsec:abschluss_evaluierung}
-Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für das Web
-Frontend sind folgende drei Weboberflächen in die nähere Auswahl genommen
-worden:
+Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für die
+Datenvisualisierung wurden diesen während der Evaluierung entsprechende
+Bewertungspunkte für die Kriterien von Null bis Fünf festgelegt. Damit eine
+Softwarelösung in die nähere Auswahl aufgenommen werden kann, muss es
+mindestens 3,00 Gesamtpunkte in der Nutzwertanalyse erhalten. In
+nachfolgender Tabelle, kann hier die Nutzwertanalyse der Softwarelösungen
+Datadog, Gridster-D3 und Netdata entnommen werden.
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\multicolumn{1}{c}{Kriterien} & Gewicht & \multicolumn{2}{c}{Datadog} & \multicolumn{2}{c}{Gridster-D3} & \multicolumn{2}{c}{Netdata} \\
+\midrule                                         &  & Bewertung & Gesamt           & Bewertung & Gesamt &           Bewertung & Gesamt \\
+                  Skalierbar  &    25\% &                     3 & 0,75                     & 0 & 0,00                     & 2 & 0,50 \\
+                       Kosten &    20\% &                     1 & 0,20                     & 0 & 0,00                     & 5 & 1,00 \\
+                   Sicherheit &    30\% &                     3 & 0,90                     & 0 & 0,00                     & 1 & 0,30 \\
+                  Performance &    15\% &                     4 & 0,60                     & 0 & 0,00                     & 1 & 0,15 \\
+                Dokumentation &    10\% &                     5 & 0,50                     & 0 & 0,00                     & 4 & 0,40 \\
+\midrule
+Gesamt                        &   100\% &                       & 2,95 &                       & 0,00 &                        & 2,35
+\end{tabular}%
+}
+\caption{Nutzwertanalyse Datadog, Gridster-D3 und Netdata}
+\label{nwa_dgn}
+\end{table}
+
+In der oben stehenden Tabelle, erhält die Softwarelösung Datadog nur 2,95
+Gesamtpunkte, da diese Softwarelösung eine Kostenpflichtige Lizenz benötigt.
+Dies ist innerhalb des Projektes ein Kernkriterium, weshalb es als
+Softwarelösung nicht weiter verwendet. Gridster-D3 ist bereits während der
+Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um eine
+Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem Grund,
+hat Gridster-D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im laufe der
+Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr unübersichtlich
+aufgebaut ist und keine Sicherheit gewährleisten kann. Alle drei
+Softwärelösungen sind damit ausgeschieden, da eine mindest Gesamtpunktzahl von
+3,00 nicht erreicht worden ist.
+
+Nachfolgend bleiben folgende drei Datenvisualisierungslösungen für die nähere
+Auswahl:
 
 \begin{outline}
   \1 Grafana
@@ -2181,28 +2226,53 @@ worden:
   \1 Zabbix-Frontend
 \end{outline}
 
-Alle drei Softwarelösungen erfüllen, die bei Beginn des Projektes definierten
-Anforderungskriterien, weshalb die Produkte in die nähere Analyse aufgenommen
-wurden. Hier wurde zunächst geschaut, ob ein System eine bestimmte Besonderheit
-oder Funktion aufweist. Dabei ist aufgefallen, dass das Zabbix-Frontend ohne
-einen Zabbix-Server nicht verwendet werden kann. Der Zabbix-Server ist ein von
-Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
-bereitet diese auf und speichert diese Daten anschließend in einem
-Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
-maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
-kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
-kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
-Abfrage die Datenbanken direkt angesprochen. Während der Implementierung von
-Graphite fiel auf, dass es deutlich komplexer ist als Grafana. Graphite besteht
-aus mehreren Diensten, welche bei der Installation konfiguriert und
-angepasst werden müssen, damit Graphite funktional ist. Wenn ein Dienst
-ausfallen sollte, so betrifft dies das gesamte Graphite-System und die
-Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in der
-Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
-von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
+Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster-D3 und Netdata,
+wurde auch hierfür eine Nutzwertanalyse durchgeführt, die wie folgt aussieht:
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\multicolumn{1}{c}{Kriterien} & Gewicht & \multicolumn{2}{c}{Grafana} & \multicolumn{2}{c}{Graphite} & \multicolumn{2}{c}{Zabbix-Frontend} \\
+\midrule                                         &  & Bewertung & Gesamt          & Bewertung & Gesamt              & Bewertung & Gesamt \\
+                   Skalierbar &    25\% &                     4 & 1,00                    & 3 & 0,75                        & 2 & 0,50 \\
+                       Kosten &    20\% &                     5 & 1,00                    & 5 & 1,00                        & 5 & 1,00 \\
+                   Sicherheit &    30\% &                     4 & 1,20                    & 4 & 1,20                        & 4 & 1,20 \\
+                  Performance &    15\% &                     3 & 0,45                    & 2 & 0,30                        & 2 & 0,30 \\
+                Dokumentation &    10\% &                     5 & 0,50                    & 5 & 0,50                        & 5 & 0,50 \\
+\midrule
+Gesamt                        &   100\% &                       & 4,15 &                      & 3,75 &                          & 3,50
+\end{tabular}%
+}
+\caption{Nutzwertanalyse Grafana, Graphite und Zabbix-Frontend}
+\label{nwa_ggz}
+\end{table}
+
+Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix-Frontend
+durchgeführt worden ist, hat die Zabbix-Frontend Softwarelösung eine
+Gesamtpunktzahl von 3,50 erhalten. Während der Evaulierung der Zabbix-Frontend
+Softwarelösung, fiel auf, dass das Zabbix-Frontend ohne einen Zabbix-Server
+nicht verwendet werden kann. Der Zabbix-Server ist ein von Zabbix LLC
+entwickelter Netzwerkdienst. Er empfängt Metriken von Agents, bereitet diese
+auf und speichert diese Daten anschließend in einem Datenhaltungssystem ab.
+Zusätzlich ist aufgefallen, dass das Zabbix-Frontend maximal nur mit einer
+Datenbank gleichzeitig kommunizieren und verwendet werden kann. Anders als bei
+Grafana, welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.
+Innerhalb der einzelnen Graphen werden hier mittels einer Abfrage die
+Datenbanken direkt angesprochen. Bei der Evaluierung der Graphite
+Softwarelösung, hat Graphite 3,75 Gesamtpunkte erhalten. Während der
+Implementierung von Graphite fiel auf, dass es deutlich komplexer ist als
+Grafana. Graphite besteht aus mehreren Diensten, welche bei der Installation
+konfiguriert und angepasst werden müssen, damit Graphite funktional ist. Wenn
+ein Dienst ausfallen sollte, so betrifft dies das gesamte Graphite-System und
+die Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in
+der Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in
+Form von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
 mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
 einzelner Dienst, wie es bei Grafana der Fall ist. Hierdurch bedingt, wird
-Graphite für die weitere Implementierung nicht verwendet.
+Graphite für die weitere Implementierung nicht verwendet. Grafana hat in der
+Nutzwertanalyse die meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von
+den Projektmitgliedern zuvor definierte Kriterien.
 \mr%
 
 \chapter{Userstories}
@@ -3442,7 +3512,7 @@ pro Prozess cached und diese dann gebündelt in einem SQL-Statement zur
 Datenbank schickt. Der Standardwert liegt bei 125 Werten und ist
 konfigurierbar. Es ist in bestimmten Konstellationen möglich, das Logstash
 mehrere Minuten lang Werte zwischenspeichert bevor sie zur Datenbank geschickt
-werden.  Dies passiert, wenn besonders viele Logstash Prozesse gestartet worden
+werden. Dies passiert, wenn besonders viele Logstash Prozesse gestartet worden
 sind und wenig Daten von den Hypervisors kommen (zum Beispiel weil gerade viel
 VMs deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur
 durchgeführt wird). Wenn ein Kunde live seine Auslastung visualisieren möchte,
