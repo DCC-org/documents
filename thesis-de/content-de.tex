@@ -2854,6 +2854,22 @@ beliebiger Verteiler darüber informiert. Anschließend kann ein Administrator
 den Fehler beseitigen oder die Daten manuell in das Datenhaltsungssystem
 überführen.
 
+Neben den angesprochenen Inhalten wurde im Transformations-Teil eine
+Aggregation der Daten zugunsten des Speicherplatzes definiert. Dabei
+vergleicht der Algorithmus den neuen Datensatz mit dem aktuellsten
+Datensatz in der gleichen Stunde. Voraussetzung dabei ist, dass der
+aktuellste Datensatz in der Datenhaltung die gleichen Eigenschaften besitzt wie
+der neue Datensatz. Sollte dabei der Wert „Value“, dass ist der Wert
+in welchem der aktuelle Verbrauch der CPU, RAM, et cetera, identisch sein,
+wird der neue Datensatz fallen gelassen und nicht in die Datenbank geschrieben.
+Dies hat den Effekt, dass wenn der Server zum Beispiel für 1 Minute eine Auslastung
+von Null Prozent besitzt, für diese Minute nur ein einziger Datensatz in der
+Datenhaltung existiert. Die dort fehlende Werte kann man entsprechend bei der
+Ausgabe zurück rechnen. Dadurch das jede Stunde mindestens ein Datensatz von
+jedem angebunden Server in die Datenhaltung geschrieben wird, kann schnell
+zwischen einem ausgeschaltenden Server und einem Server ohne Nutzung
+unterschieden werden.
+
 Ist der Transformations-Teil bei einem Datensatz vollständig durchgelaufen,
 beginnt der Lade-Teil. Dabei übergibt der Transformations-Algorithmus den
 vollständig korrekten Datensatz an den Lade-Algorithmus. Neben dem eigentlichen
@@ -2981,7 +2997,8 @@ definieren und durchführen kann.
 
 Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
 definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
-von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt. Da
+von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt.
+(siehe auch Abschnitt~\ref{subsec:zusammenspiel_api_frontend}) Da
 sich das Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert,
 wurde mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet
 Grafana nur mit vier URL's (Endpunkte) der API\@. Die erste ist dafür zuständig
@@ -2992,7 +3009,9 @@ zweiten URL, aus und liefert die zu anzeigenden Daten zurück. Die letztere
 ermöglicht es, einzelne Informationen in einem Graphen hervor zu heben. Alle
 vier URL's besitzen eine eigene Anfrage-Methode und Datenstruktur an der API
 und erwarten auch unterschiedliche Antworten von der API in Struktur und
-Inhalt.
+Inhalt. Neben diesen vier URL's wurde ebenfalls das extrahieren der in
+Abschnitt~\ref{subsec:zusammenspiel_api_frontend} erläuterten
+Organisations-ID implementiert.
 
 Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
 Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API\@. Dies
