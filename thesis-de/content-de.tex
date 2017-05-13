@@ -1839,11 +1839,13 @@ werden:
   nur die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
   abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
   durch die Weboberfläche verursacht werden können.
-  \1 Die verwendete Datenvisualisierungssoftware muss API Anfragen ausführen
-  können. Dies dient zum einen der Sicherheit, da auf die Datenhaltung nur
-  lesender Zugriff gewährleistet werden kann, so können hier Daten in der
-  Datenhaltung nicht verändert oder angepasst werden werden und zum anderen
-  kann hier bereits die Performance der Datenvisualisierung verbessert werden.
+  \1 Die verwendete Datenvisualisierungssoftware muss mit einem API-System
+  interagieren können. Dies dient der Sicherheit, da innerhalb der
+  Datenvisualisierung die Datenhaltungsanfragen nicht eigenmächtig modifiziert
+  werden können. Entsprechend können Daten in der Datenhaltung nicht verändert,
+  angepasst oder sogar gelöscht werden. Zum anderen kann über das API-System
+  durch verschiedene Methoden die Performance der Datenvisualisierung
+  verbessert werden.
   \1 Plugin-Erweiterung. Die Datenvisualisierung muss eine Plugin-Erweiterung
   unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
