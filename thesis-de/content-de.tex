@@ -540,15 +540,15 @@ Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
 welche mit der Weboberfläche arbeiten möchten, nur unstrukturierte Daten
 erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
 erhält somit einen direkten und schnellen Überblick in Form eines Graphens,
-siehe Abschnitt "Definition eines Graphen~\ref{definition_eines_graphen}" oder
+siehe Abschnitt~\ref{definition_eines_graphen} oder
 Diagramms über die gesamten Datenressourcen der Infrastruktur. Diese können bei
 Bedarf vom Anwender oder dem Administrator exportiert und als Abbild
 festgehalten werden. Hiermit können anschließend Personen, welche keinen
-direkten Zugriff auf das System besitzen, Analysen oder Statistiken
-durchführen. Die Übertragung der Daten zwischen den Benutzern und dem Webserver
-erfolgt mit \gls{HTTPS}. Dies dient zum einem der Verschlüsselung der
-Verbindung von Client zu Weboberfläche und zurück und zum anderen damit die
-Weboberfläche selber authentifiziert werden kann.
+direkten Zugriff auf das System besitzen, Analysen durchführen oder Statistiken
+beurteilen. Die Übertragung der Daten zwischen den Benutzern und dem Webserver
+erfolgt mit \gls{HTTPS}. Dabei wird die Kommunikation zwischen Browser und
+Webserver verschlüsselt, sodass diese durch dritte nicht abgegriffen werden
+kann, wie es bei einer (Man-in-the-middle) Attacke der Fall wäre.
 \mr%
 
 \chapter{Analyse von Softwarekomponenten}
