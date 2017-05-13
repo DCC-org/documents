@@ -319,28 +319,32 @@ Abschnitt~\ref{sec:datenhaltungssystem} entnommen werden.
 \nl%
 
 \subsection{Datenvisualisierung}
-Die Datenvisualisierung ist zueständig, für die Visualisierung der erhaltenen
-verbrauchten oder freien Ressourcen, wie zum Beispiel CPU\hyp{}Auslastung oder
-RAM\hyp{}Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
-Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
-und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, dass sowohl die
-Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
-die Weboberfläche selbst gegen Zugriff von Unbekannten. Die Weboberfläche
-greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht es, den
-Zugriff nur für die Datenvisualisierung auf die Datenbank gewährleisten zu
-können. Die Weboberfläche soll Administratoren bei Neukonfiguration von
-virtuellen Maschinen unterstützen und zeigt hier die Auslastung der einzelnen
-physischen Systeme. Der Administrator kann so gezielt die einzelnen physischen
-Maschinen besser auslasten und verteilen. Ebenfalls kann die
-Datenvisualisierung eine Schnittstelle für komplexe Abfragen und Analysen
-bereitstellen. Bei Bedarf können diese auch visuell ausgegeben werden.
-Schnittstelle für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf
-können diese auch visuell ausgegeben werden.
+Die Datenvisualisierung ist zuständig, für die Visualisierung der in diesem
+Projekt erfassten Daten.  Dabei soll dem Benutzer eine Übersicht über die
+verbrauchten oder freien Ressourcen, wie zum Beispiel CPU\hyp{]Auslastung oder
+RAM-Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
+Bei der Datenvisualisierung werden mit unter sensible Daten verarbeitet,
+weshalb hier auf die Sicherheit in anbetracht auf der Authentifizierung,
+Authentisierung und Autorisierung geachtet werden muss. Innerhalb der
+Projektmeetings wurde die Sicherheit der Daten diskutiert, dabei ging es hier
+speziell darum, wie die Daten am sichersten geschützt werden. Dabei wurde
+festgelegt, das ein User Management mit Rechtevergabe, sowie die Anbindung an
+die Datenbank über eine API Schnittstelle(siehe
+Abschnitt~\ref{subsec:zusammenspiel_api_frontend} realisiert werden muss.
+Dabei muss die Datenvisualisierung Abfragen über eine API stellen können. Dies
+ermöglicht es, den Zugriff nur für die Datenvisualisierung auf die sensibelen
+Daten gewährleisten zu können. Das Webinterface soll Administratoren bei einer
+Neukonfiguration von virtuellen Maschinen unterstützen und visualisiert die
+Auslastung der einzelnen physischen Systemen in Form von Graphen(siehe
+Abschnitt~\ref{subsec:definition_eines_graphen})Der Administrator kann so
+gezielt die einzelnen physischen Maschinen besser auslasten und verteilen.
+Zusätzlich kann die Datenvisualisierung eine Schnittstelle für komplexe
+Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch visuell
+ausgegeben werden.
 
 Eine genaue detaillierte Auflistung aller Kriterien an die Datenvisualisierung,
-die für eine spätere Nutzwertanalyse verwendet wurden, kann dem Abschnitt
-"Vorbereitung der Evaluierung für die
-Datenvisualisierung"~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
+die für eine spätere Nutzwertanalyse verwendet wurden, kann dem
+Abschnitt~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
 entnommen werden.
 
 \mr%
@@ -1802,7 +1806,7 @@ während der Evaluierung aufgefallen sind.
 \mr%
 
 \subsection{Definition eines Graphen}
-\label{definition_eines_graphen}
+\label{subsec:definition_eines_graphen}
 Ein Graph besteht im Wesentlichen aus mehreren Knoten und Kanten, welche auf
 einem Koordinatensystem angelegt sind. Mit Hilfe von zwei Knoten, bestehend
 jeweils aus einer Koordinate (x/y), werden diese eindeutig zu einer Kante
