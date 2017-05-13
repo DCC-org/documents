@@ -1638,8 +1638,8 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 
 \subsection{Durchführung der Evaluierung}
 \label{subsec:api_durchfuehrung_der_evaluierung}
-Bei der Evaluierung der API-Systeme wurden die
-im Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
+Bei der Evaluierung der API-Systeme wurden die im
+Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
 Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
 allgemeinen Eindruck über die aktuelle Marktsituation zu API-Systemen erhält.
@@ -1711,26 +1711,29 @@ zurück gesendet werden sollen.
 Um diese Problematik zu lösen, hat das Projektteam den sogenannten
 „Header“-Bereich (auf Deutsch Kopf-Bereich), welcher bei jeder Internetanfrage
 vorhanden ist, genauer untersucht. In diesem steht in der Regel die Herkunft
-der Anfrage und weitere Informationen wie der genutze Browser. Speziell bei
-der Anfrage von der Datenvisualisierung an die API steht in dem Header-Bereich
-immer die Organisations-ID von dem anfragenden Benutzer. Die Organisations-ID
-ist bei der für das Projekt ausgewählten Datenvisualisierungs-Software eine
-Abgrenzung der Zugriffsrechte. Das heißt sie definiert, welche Daten der
-eingeloggte Benutzer sehen darf und welche nicht.
+der Webseiten-Anfrage und weitere Informationen wie der genutze Browser des
+Internetbenutzers. Speziell bei der Anfrage von der Datenvisualisierung an die
+API steht in dem Header-Bereich immer die Organisations-ID von dem anfragenden
+Benutzer. Die Organisations-ID ist bei der für das Projekt ausgewählten
+Datenvisualisierungs-Software eine Abgrenzung der Zugriffsrechte. Das heißt
+sie definiert, welche Daten, beziehungsweise Dashboards der eingeloggte
+Benutzer sehen darf und welche nicht.
 
 Für die Ziellösung wurde entsprechend von dem Projektteam festgelegt, dass die
 Datenhaltung neben den eigentlichen Daten auch eine Mapping Tabelle besitzen
 soll. Diese Mapping Tabelle besitzt entsprechend die Information, welche
-Organisations-ID zu welchen Server gehört. Sollte die Datenvisualisierung
-Daten bei der API anfordern, würde diese vor der eigentlichen Datenabfrage
-bei der Datenhaltung die vorhandene Organisations-ID in den Server-Namen
-übersetzen. Mit dieser Übersetzung kann die API anschließend regulär die
-Daten von der Datenhaltung anfordern und an die Datenvisualisierung liefern.
+Organisations-ID zu welcher virtuellen Instanz, beziehungsweise Host-Server
+gehört. Sollte die Datenvisualisierung Daten bei der API anfordern, würde
+diese vor der eigentlichen Datenabfrage bei der Datenhaltung die vorhandene
+Organisations-ID in den Server-Namen übersetzen. Mit dieser Übersetzung kann
+die API anschließend regulär die Daten von der Datenhaltung anfordern und
+an die Datenvisualisierung liefern.
 
 Diese Lösung hat zusätzlich noch den Vorteil einer weiteren Datensicherheit.
 Die genannte Organisations-ID kann ausschließlich im Backend der
 Datenvisualisierung verändert werden. Einem Benutzer ist es nicht möglich
-diese ID in irgendeiner Weise zu verändern und somit andere Daten zu erhalten.
+den Wert dieser ID in irgendeiner Weise zu verändern und somit andere Daten
+zu erhalten.
 \nl%
 
 \section{Datenvisualisierung}
@@ -2867,13 +2870,13 @@ aktuellste Datensatz in der Datenhaltung die gleichen Eigenschaften besitzt wie
 der neue Datensatz. Sollte dabei der Wert „Value“, dass ist der Wert
 in welchem der aktuelle Verbrauch der CPU, RAM, et cetera, identisch sein,
 wird der neue Datensatz fallen gelassen und nicht in die Datenbank geschrieben.
-Dies hat den Effekt, dass wenn der Server zum Beispiel für 1 Minute eine Auslastung
-von Null Prozent besitzt, für diese Minute nur ein einziger Datensatz in der
-Datenhaltung existiert. Die dort fehlende Werte kann man entsprechend bei der
-Ausgabe zurück rechnen. Dadurch das jede Stunde mindestens ein Datensatz von
-jedem angebunden Server in die Datenhaltung geschrieben wird, kann schnell
-zwischen einem ausgeschaltenden Server und einem Server ohne Nutzung
-unterschieden werden.
+Dies hat den Effekt, dass wenn der Server zum Beispiel für eine Minute eine
+Auslastung von Null Prozent besitzt, für diese Minute nur ein einziger
+Datensatz in der Datenhaltung existiert. Die in dem ETL Prozess fallen
+gelassenen Werte kann man entsprechend bei der Ausgabe wieder berechnen.
+Dadurch das jede Stunde mindestens ein Datensatz von jedem angebunden Server
+in die Datenhaltung geschrieben wird, kann ebenfalls zwischen einem
+ausgeschaltenden Server und einem Server ohne Nutzung unterschieden werden.
 
 Ist der Transformations-Teil bei einem Datensatz vollständig durchgelaufen,
 beginnt der Lade-Teil. Dabei übergibt der Transformations-Algorithmus den
