@@ -1905,12 +1905,12 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   Webinterface verursacht werden können. Ein wichtiges Kernkriterium ist hier,
   dass der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher
   die Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
-  werden können.  Dies dient dazu, dass das Datenhaltsungssystem nicht mit
+  werden können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
   Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
-  Acht unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
-  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen Werten.
-  Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
-  Datenhaltungssystem senden werden.
+  Acht unterschiedliche Benutzer greifen gleichzeitig auf die Weboberfläche zu
+  und visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen
+  Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage
+  an das Datenhaltungssystem senden werden.
 \end{outline}
 
 \textbf{Dokumentation}
@@ -2072,20 +2072,19 @@ Negativ:
 \subsubsection{Zabbix-Frontend}
 \label{subsubsec:zabbix-frontend}
 Zabbix\hyp{}Frontend ist eine von Zabbix LCC entwickelte Softwarelösung, welche
-dem User/Administrator eine leichte und einfache Konfiguration von einzelnen
+dem Benutzer oder Administrator eine leichte und einfache Konfiguration von einzelnen
 Graphen ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, in
 der viele Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur
-Erläuterungen von jedem Button enthalten sind. Das Zabbix\hyp{}Frontend
-benötigt keinerlei Plugins, da hier bereits viele Funktionen in der
-eigentlichen Software enthalten sind. Plugins können dennoch in der
-Programmiersprache Java entwickelt und implementiert werden. Es ist darauf
-ausgelegt bei verschiedenen Events, beispielsweise das Erreichen eines
-kritischen Festplattenstands, eine E\hyp{}Mail an den Administrator oder
-weitere User zu versenden, weshalb Zabbix sehr häufig gerade in großen
-Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche kann
-wahlweise mit einem lokalen User mit Benutzername und Kennwort oder mit einer
-LDAP\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
-beziehungsweise der User lediglich seine
+Erläuterungen von jedem Button enthalten sind. Das Zabbix-Frontend benötigt
+keinerlei Plugins, da hier bereits viele Funktionen in der eigentlichen
+Software enthalten sind. Plugins können dennoch in der Programmiersprache Java
+entwickelt und implementiert werden. Es ist darauf ausgelegt bei verschiedenen
+Events, beispielsweise das Erreichen eines kritischen Festplattenstands, eine
+E-Mail an den Administrator oder weitere Benutzer zu versenden, weshalb Zabbix sehr
+häufig gerade in großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der
+Weboberfläche kann wahlweise mit lokalen Benutzer mit Benutzername und
+Kennwort oder mit einer LDAP-Anbindung durchgeführt werden. So benötigt der
+Administrator beziehungsweise der Benutzer lediglich seine
 Active\hyp{}Directory\hyp{}Benutzerdaten zur Authentifizierung. Zabbix ist
 zudem mit API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatibel.
 So können hier Graphen mit API\hyp{}Abfragen visualisiert werden. Sollte keine
@@ -2370,14 +2369,14 @@ einzelnen Tickets arbeiten können.
 \textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame Hard Disk
 Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
 sorgt dies für einen schnelleren Datenzugriff. \glslink{SSD}{SSDs} haben
-jedoch, wie auch\glslink{HDD}{HDDs}, einen Lebenszyklus, der bei \glslink{SSD}{SSDs}
-schneller erreicht werden kann, als bei handelsüblichen \glslink{HDD}{HDDs}. Der Administrator
-soll darüber benachrichtigt werden, sobald von einer \gls{SSD} ein kritischer
-Schreib- oder Lesezyklus erreicht worden ist, um die \gls{SSD} bereits vor dem
-Ausfall proaktiv austauschen zu können.  Ebenfalls soll eine Statistik
-ausgegeben werden können, welche \gls{SSD} von welchem Hersteller in der
-Wahrscheinlichkeit am häufigsten ausfällt. Im Folgenden finden sich die
-Akzeptanzkriterien:
+jedoch, wie auch\glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
+\glslink{SSD}{SSDs} schneller erreicht werden kann, als bei handelsüblichen
+\glslink{HDD}{HDDs}. Der Administrator soll darüber benachrichtigt werden,
+sobald von einer \gls{SSD} ein kritischer Schreib- oder Lesezyklus erreicht
+worden ist, um die \gls{SSD} bereits vor dem Ausfall proaktiv austauschen zu
+können.  Ebenfalls soll eine Statistik ausgegeben werden können, welche
+\gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
+ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
@@ -2479,7 +2478,7 @@ entnommen werden.
 \textbf{Name der Story:} Der Administrator möchte eine Visualisierung der
 erhaltenen Daten zur weiteren Verwendung.
 
-\textbf{Beschreibung:} Dem Administrator oder dem User soll es ermöglicht
+\textbf{Beschreibung:} Dem Administrator oder der Benutzer soll es ermöglicht
 werden, eine visualisierte Ausgabe in Form von Graphen zu erhalten. Diese
 sollen Aufschluss über die Auslastung der einzelnen Systeme geben können. Im
 Folgenden finden sich die Akzeptanzkriterien:
@@ -3152,7 +3151,7 @@ wird hier „Home“ angezeigt und die Übersicht der einzelnen Dashboards. Soll
 der Administrator in den Einstellungen unter Datasources sein, so wird hier
 Data Sources eingeblendet. Dies soll dem Administrator zusätzlich helfen, eine
 bessere Übersichtlichkeit zu erhalten. Auf der rechten Seite des jeweiligen
-Dashboards hat der Administrator oder User die Möglichkeit, den
+Dashboards hat der Administrator oder Benutzer die Möglichkeit, den
 Aktualisierungstimer der anzuzeigenen Daten zu verändern. Standardmäßig steht
 dieser auf sechs Stunden, kann aber beliebig angepasst werden. Eine Darstellung
 des Dashboards, kann dem Anhang~\ref{figure:grafana_dashboard} entnommen
@@ -3214,34 +3213,19 @@ Schritt Anleitung zur Installation dieses Plugins. Die Plugins werden hier über
 einen Kommandozeilenbefehl installiert.
 
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
-werden. Um weiteren Benutzern Zugriff zu dem Dashboard zu gewähren, können unter
-dem Reiter Admin > Global Users weitere User angelegt werden und
+werden. Um weiteren Benutzern Zugriff zu dem Dashboard zu gewähren, können
+unter dem Reiter Admin > Global Users weitere Benutzer angelegt werden und
 Zugriff auf das Webinterface von Grafana erhalten. Insbesondere hier kann
-beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
-Dies wird in Grafana mit der Organisations-ID realisiert. Ein neu angelegter
-Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies ist in
-diesem Projekt zum Beispiel für einen einzelnen Kunden von einer virtuellen
-Instanz vorgesehen. Durch die in
-Abschnitt~\ref{subsec:zusammenspiel_api_frontend} erläuterte Mapping-Tabelle
-wird sichergestellt, dass der Benutzer nur die zu Ihm zugeordneten Daten sehen
-kann. Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum
-Beispiel ein Kundenberater, erhalten mehrere Zuordnungen von Organisations-IDs.
-Somit erhalten diese Zugriff auf die Dateninhalte des Kunden und können somit
-Ihre Aufgaben, wie die Beratung auf ein neues Produkt, oder Verbesserung der
-Gesamtperformance, durchführen. Andersherum muss für einen Kunden mit mehreren
-gemieteten virtuellen Instanzen kein neuer Benutzer angelegt werden,
-stattdessen wird seinem bestehenden Benutzer eine weitere Organisations-ID
-hinzugefügt.
-
-Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
-für lokale User als auch für LDAP\hyp{}User vergeben werden. Sollte ein Unternehmen
-Unternehmen die LDAP\hyp{}Anbindung für die Authentifizierung an Grafana
-wünschen, so muss hier in dem Verzeichnis von der Grafana\hyp{}Installation die
+beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
+können. Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
+sowohl für lokale Benutzer als auch für LDAP-Benutzer vergeben werden. Sollte
+ein Unternehmen die LDAP-Anbindung für die Authentifizierung an Grafana
+wünschen, so muss hier in dem Verzeichnis von der Grafana-Installation die
 Datei grafana.ini angepasst werden. Alle Einstellungen, die hier vorgenommen
 werden, beziehen sich auf die Servereinstellungen, welche vom Kunden
 individuell angepasst werden kann.  Nachdem die Änderungen hier abgeschlossen
-sind, muss der Grafana\hyp{}Dienst neu gestartet werden. Dies wird mit
-folgendem Befehl durchgefüht:
+sind, muss der Grafana-Dienst neu gestartet werden. Dies wird mit folgendem
+Befehl durchgefüht:
 
 \begin{minted}{text}
 systemctl restart grafana.service
