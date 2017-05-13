@@ -2796,19 +2796,20 @@ zu nutzen und nach dem Client-Server Prinzip zu arbeiten.
 Für die Implementierung der Postgres Datenbank wurde zunächst ein einzelner
 Server für die Bearbeitung der Anforderung aufgebaut und mit vier Nutzern
 ausgestattet. Ersterer ist der Administrator, oder auch root genannt, welcher
-nur genutzt wird um Änderungen (Punkt~\ref{subsec:postgres_partition}) am
+nur genutzt wird um Änderungen (Abschnitt~\ref{subsec:postgres_partition}) am
 System vorzunehmen. Mit diesem werden ebenfalls die Zugriffsrechte der
 einzelnen Nutzer geregelt. Der zweite Nutzer besitzt die Berechtigungen in
 einem definierten Bereich innerhalb des Postgres-Systems die
 Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
-Prozesse aus Punkt~\ref{subsec:postgres_etl} und
-Punkt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
-von dem in Punkt~\ref{sec:api_system} definierte API-System verwendet. Dieser
-besitzt keinen direkten Lese- oder Schreibezugriffe auf die in dem definierten
-Datentopf vorhandenen Tabellen. Er erhält lediglich ausführende Rechte auf die
-im Punkt~\ref{subsec:postgres_datenschutz} erstellten Funktionen. Vierter
-Nutzer wird für den im Punkt~\ref{subsec:postgres_etl} beschriebenen ETL-Prozess
-im Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
+Prozesse aus Abschnitt~\ref{subsec:postgres_etl} und
+Abschnitt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
+von dem in Abschnitt~\ref{sec:api_system} definierte API-System verwendet.
+Dieser besitzt keinen direkten Lese- oder Schreibezugriffe auf die in dem
+definierten Datentopf vorhandenen Tabellen. Er erhält lediglich ausführende
+Rechte auf die im Abschnitt~\ref{subsec:postgres_datenschutz} erstellten
+Funktionen. Vierter Nutzer wird für den im Abschnitt~\ref{subsec:postgres_etl}
+beschriebenen ETL-Prozess im Wirkbetrieb genutzt. Er besitzt ausschließlich
+schreibende Rechte.
 
 Neben den durchgeführten Aufgaben an dem Postgres-Server wurde bei
 den Teammitgliedern jeweils die benötigte Entwicklerumgebung aufgesetzt
@@ -3512,15 +3513,15 @@ ist eine solche Datei beigefügt.
 \label{sec:api_test}
 Während der Entwicklung des API Systems wurde bei der Implementierung von einem
 neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie in
-Punkt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
+Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
 durchgeführt. Speziell bei der API wurden die Komponententests in einem
 parallelen Verzeichnis zu dem Source Code und in der gleichen
 Programmiersprache wie die API, also Java, verfasst. Das in dem in
-Punkt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“ bietet
-dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den zu
-einem Algorithmus zugehörigen Komponententest direkt im Programm bereit, sodass
-jeder Entwickler die zugehörigen Tests sofort erkennen kann und hierzu nicht
-danach suchen muss.
+Abschnitt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“
+bietet dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den
+zu einem Algorithmus zugehörigen Komponententest direkt im Programm bereit,
+sodass jeder Entwickler die zugehörigen Tests sofort erkennen kann und hierzu
+nicht danach suchen muss.
 
 Für das Ausführen der definierten Tests muss keine eigene Laufzeit
 Infrastruktur bereitgestellt werden. Echte Komponententests werden
@@ -3570,10 +3571,10 @@ vollständig das gewollte Ergebnis ist.
 
 \section{ETL Test}
 \label{sec:etl_test}
-Für den in Punkt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
+Für den in Abschnitt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
 Transformations- und Ladeprozess von der Datenhaltung wird neben den
-in Punkt~\ref{sec:unit_tests} erläuterteten Komponententests und
-in Punkt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
+in Abschnitt~\ref{sec:unit_tests} erläuterteten Komponententests und
+in Abschnitt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
 noch ein Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das
 System reagiert, wenn eine vorher nicht definierte Situation eintritt.
 Dies könnte zum Beispiel das erhalten von anderen Daten sein, welche keine
