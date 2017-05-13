@@ -319,22 +319,30 @@ Abschnitt~\ref{sec:datenhaltungssystem} entnommen werden.
 \nl%
 
 \subsection{Datenvisualisierung}
-Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
+Die Datenvisualisierung ist zueständig, für die Visualisierung der erhaltenen
 verbrauchten oder freien Ressourcen, wie zum Beispiel CPU\hyp{}Auslastung oder
-RAM\hyp{}Auslastung einzelner virtueller oder physischer Maschinen
-bereitstellen.  Hierbei ist wichtig, dass die Sicherheit (Authentisierung,
-Authentifizierung und Autorisierung) der Daten gewährleistet wird. Dies
-bedeutet, dass sowohl die Verbindung zwischen Datenbank und Weboberfläche
-gesichert sein muss, als auch die Weboberfläche selbst gegen Zugriff von
-Unbekannten. Die Weboberfläche greift hier mittels API\hyp{}Abfragen auf die
-Datenbank zu. Dies ermöglicht es, den Zugriff nur für die Datenvisualisierung
-auf die Datenbank gewährleisten zu können. Die Weboberfläche soll
-Administratoren bei Neukonfiguration von virtuellen Maschinen unterstützen und
-zeigt hier die Auslastung der einzelnen physischen Systeme. Der Administrator
-kann so gezielt die einzelnen physischen Maschinen besser auslasten und
-verteilen. Ebenfalls kann die Datenvisualisierung eine Schnittstelle für
-komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
-visuell ausgegeben werden.
+RAM\hyp{}Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
+Hierbei ist wichtig, dass die Sicherheit (Authentisierung, Authentifizierung
+und Autorisierung) der Daten gewährleistet wird. Dies bedeutet, dass sowohl die
+Verbindung zwischen Datenbank und Weboberfläche gesichert sein muss, als auch
+die Weboberfläche selbst gegen Zugriff von Unbekannten. Die Weboberfläche
+greift hier mittels API-Abfragen auf die Datenbank zu. Dies ermöglicht es, den
+Zugriff nur für die Datenvisualisierung auf die Datenbank gewährleisten zu
+können. Die Weboberfläche soll Administratoren bei Neukonfiguration von
+virtuellen Maschinen unterstützen und zeigt hier die Auslastung der einzelnen
+physischen Systeme. Der Administrator kann so gezielt die einzelnen physischen
+Maschinen besser auslasten und verteilen. Ebenfalls kann die
+Datenvisualisierung eine Schnittstelle für komplexe Abfragen und Analysen
+bereitstellen. Bei Bedarf können diese auch visuell ausgegeben werden.
+Schnittstelle für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf
+können diese auch visuell ausgegeben werden.
+
+Eine genaue detaillierte Auflistung aller Kriterien an die Datenvisualisierung,
+die für eine spätere Nutzwertanalyse verwendet wurden, kann dem Abschnitt
+"Vorbereitung der Evaluierung für die
+Datenvisualisierung"~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
+entnommen werden.
+
 \mr%
 
 \chapter{Projektmanagement}
@@ -501,15 +509,16 @@ und keine neuen Strukturen erlernen muss.
 \nl%
 
 \section{Datenvisualisierung}
-Die Weboberfläche besitzt zwei Schnittstellen, welche aufgeteilt sind. Zum
-einen die Abfrage der Daten an dem Datenhaltungssystem und zum anderen die der
-Ausgabe und Anzeige für den User beziehungsweise den Administrator. Eine
-Schnittstelle auf einem Webinterface dient in erster Linie der Anzeige von
-Daten, die über ein anderes System (Backend) erhalten wurden.
+Eine Schnittstelle auf einem Webinterface dient in erser Linie zur Anzeige von
+Daten, die über ein anderes System, beispielsweise aus dem Backend erhalten
+wurden. In diesem Projekt werden bewusst zwei Schnittstellen verwendet, damit
+hier die Sicherheit der Datenhaltung, wie auch die eigentliche
+Datenvisualisierung gewährleistet werden können. Im nachfolgendem werden beide
+Schnittstellen erläutert.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
-Liefert der Weboberfläche alle nötigen Funktionen und Werkzeuge zur
+liefert dem Webinterface alle nötigen Funktionen und Werkzeuge zur
 Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
 Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein rein lesender
 Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird durch den
@@ -517,6 +526,9 @@ Datenhaltungssystem\hyp{}Administrator gewährleistet.
 
 Neben der Verwendung eines Treibers in Verbindung mit einem
 Berechtigungskonzept, kann auch ein API\hyp{}System zum Einsatz kommen. Die
+Vorteile, sowie die Rolle dieser Schnittstelle innerhalb dieses Projektes,
+können dem Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen
+werden.
 Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können dem
 Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
@@ -524,15 +536,16 @@ Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
 Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
 welche mit der Weboberfläche arbeiten möchten, nur unstrukturierte Daten
 erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
-erhält somit einen direkten und schnellen Überblick in Form eines
-Graphens~\ref{definition_eines_graphen} oder Diagramms über die gesamten
-Datenressourcen der Infrastruktur. Diese können bei Bedarf vom Anwender oder
-dem Administrator exportiert und als Abbild festgehalten werden. Hiermit können
-anschließend Personen, welche keinen direkten Zugriff auf das System besitzen,
-Analysen oder Statistiken durchführen. Die Übertragung der Daten zwischen den
-Benutzern und dem Webserver erfolgt mit \gls{HTTPS}. Dies dient zum einem der
-Verschlüsselung der Verbindung von Client zu Weboberfläche und zurück und zum
-anderen damit die Weboberfläche selber authentifiziert werden kann.
+erhält somit einen direkten und schnellen Überblick in Form eines Graphens,
+siehe Abschnitt "Definition eines Graphen~\ref{definition_eines_graphen}" oder
+Diagramms über die gesamten Datenressourcen der Infrastruktur. Diese können bei
+Bedarf vom Anwender oder dem Administrator exportiert und als Abbild
+festgehalten werden. Hiermit können anschließend Personen, welche keinen
+direkten Zugriff auf das System besitzen, Analysen oder Statistiken
+durchführen. Die Übertragung der Daten zwischen den Benutzern und dem Webserver
+erfolgt mit \gls{HTTPS}. Dies dient zum einem der Verschlüsselung der
+Verbindung von Client zu Weboberfläche und zurück und zum anderen damit die
+Weboberfläche selber authentifiziert werden kann.
 \mr%
 
 \chapter{Analyse von Softwarekomponenten}
@@ -1765,8 +1778,9 @@ Softwarelösungen in das Pflichtenheft aufgenommen:
   \1 Zabbix\hyp{}Frontend
 \end{outline}
 
-Nach Absprache mit dem Projektteam sind noch folgende Systeme in die
-Evaluierungsliste aufgenommen worden:
+Während der ersten Recherchen für die oben aufgelisteten
+Datenvisualisierungslösungen, wurden nach Absprache mit dem Projektteam noch
+folgende Systeme in die Evaluierungsliste aufgenommen:
 
 \begin{outline}
   \1 Datadog
@@ -1775,14 +1789,16 @@ Evaluierungsliste aufgenommen worden:
 \end{outline}
 
 Das Hinzufügen von weiteren Softwarelösungen während der Evaluierungsphase
-bedarf keiner weiteren Zustimmung durch den Auftraggeber, sondern konnten direkt
-mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der Liste
-mit den einzelnen Softwarelösungen, wurden verschiedene Anforderungen in einem
-Anforderungskatalog definiert, welche im späteren Verlauf der Planung für die
-Evaluierung der einzelnen Datenvisualisierungen verwendet werden. Die zu
-evaluierende Softwareliste besteht zum Teil aus Softwarelösungen, welche im
-Unternehmen von einzelnen Projektmitgliedern bereits erfolgreich eingesetzt
-werden und zum anderen aus Vorschlägen des Auftraggebers.
+bedarf keiner weiteren Zustimmung durch den Auftraggeber, sondern konnten
+direkt mit dem Projektteam besprochen und aufgenommen werden. Zusätzlich zu der
+Liste mit den einzelnen Softwarelösungen, wurden verschiedene Kriterien, welche
+die Datenvisualisierung erfüllen muss, in einem Kritierienkatalog definiert und
+aufgenommen. Diese werden für die eigentliche Durchführung der Evaluierung und
+zusätzlich für die Anfertigung einer Nutzwertanalyse für den Abschluss der
+Evaluierung benötigt. Die zu evaluierende Softwareliste besteht zum Teil aus
+Softwarelösungen, welche im Unternehmen von einzelnen Projektmitgliedern
+bereits erfolgreich eingesetzt werden und zum anderen aus Recherchen, welche
+während der Evaluierung aufgefallen sind.
 \mr%
 
 \subsection{Definition eines Graphen}
@@ -1798,77 +1814,78 @@ sind. Bei einem ungerichteten Graphen ist sowohl der Knoten A mit dem Knoten B,
 als auch der Knoten B mit Knoten A als Kante miteinander
 verbunden (vgl.~\cite{kaiser2008c}).
 
-Auf der Weboberfläche werden dem User oder dem Administrator einzelne Graphen
-von z.B. CPU\hyp{}Auslastung, RAM\hyp{}Auslastung oder SSD\hyp{}Schreibzugriffe
-angezeigt. Diese Graphen werden entweder in Linerar- oder Balkenform
-dargestellt. Lineare Graphen haben eine X- und Y\hyp{}Achse und besitzen
-zusätzlich einen Anfang und einen wachsenden Endpunkt. Er wird mittels
-Metrik~\ref{section:Begriffserklärung}, welche die Weboberfläche aus den
-Datenhaltungssystemen abgreift, erstellt und kann vom Administrator ebenfalls
-nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
-eine X\hyp{}Achse, wo der gewünschte Analysewert eingetragen ist und werden
-z.B. für ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden
-über die Metrik aus dem Datenhaltungssystem abgegriffen und dem Administrator
-über eine Übersicht angezeigt. Ein Graph- bzw. Balkendiagramm visualisiert
-immer eine oder mehrere Timeseries~\ref{section:Begriffserklärung}.
+Innerhalb der Datenvisualisierungslösung werden dem User oder dem Administrator
+von z.B. CPU\hyp{}Auslastung, RAM\hyp{}Auslastung oder SSD-Schreibzugriffe angezeigt.
+Diese Graphen werden entweder in Linerar- oder Balkenform dargestellt. Lineare
+Graphen haben eine X- und Y-Achse und besitzen zusätzlich einen Anfang und
+einen wachsenden Endpunkt. Er wird mittels
+mittels Metrik (siehe Abschnitt~\ref{section:Begriffserklärung}), welche die
+Weboberfläche aus den Datenhaltungssystemen abgreift, erstellt und kann vom
+Administrator ebenfalls nur für eine definierte Zeitspanne angezeigt werden.
+eine X\hyp{}Achse, wo der gewünschte Analysewert eingetragen ist und werden z.B. für
+ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese werden über die
+Metrik aus dem Datenhaltungssystem abgegriffen und dem Administrator über eine
+Übersicht angezeigt. Ein Graph- bzw. Balkendiagramm visualisiert immer eine
+oder mehrere Timeseries~\ref{section:Begriffserklärung}.
+Abschnitt~\ref{section:Begriffserklärung}).
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
 Damit die Evaluierungen mittels einer Nutzwertanalyse der einzelnen
 Softwarelösungen durchgeführt werden können, müssen zuvor im ersten Schritt
 Kriterien mit dem Projektteam in einen Kriterienkatalog aufgenommen werden.
-Anschließend werden diesen Kriterien Gewichtungen zugewiesen. Bei den Kriterien
-musste darauf geachtet werden, dass diese während der Beurteilung der
-Anforderungen eine Realisierbarkeit besitzen. Nachdem die einzelnen Kriterien
-zusammen mit dem Projektteam erstellt worden sind, wurden diese im Anschluss
-von jedem einzelnen Projektmitglied auf die Mach- und Realisierbarkeit geprüft.
+Anschließend werden diesen Kriterien entsprechende Gewichtungen zugewiesen. Bei
+den Kriterien musste darauf geachtet werden, dass diese während der Beurteilung
+der Anforderungen eine Realisierbarkeit besitzen. Nachdem die einzelnen
+Kriterien zusammen mit dem Projektteam erstellt worden sind, wurden diese im
+Anschluss Herrn Reuter zur abschließenden Überprüfung zur Verfügung gestellt.
 Erst hiernach wurden diese in einem Kriterienkatalog aufgenommen.
 
 Die einzelnen Kriterien wurden im späteren Verlauf der Evaluierung
-zusammengefasst und Gewichtet. Die folgenden Kriterien wurde in die
-Nutzwertanalyse aufgenommen: Skalierbar, Kosten, Sicherheit, Performance und
-Dokumentation. Im nachfolgenden, können die einzelnen Kriterien entnommen
-werden:
+zusammengefasst und Gewichtet. Nachfolgenden können die einzelnen Kriterien
+entnommen werden. Der Oberbegriff definiert jeweils immer die Kategorie zu der
+das Kriterium zugewiesen ist. Folgende Kategorien wurden der Nutzwertanalyse
+hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
+Kosten
 \begin{outline}
-  \1 Die genutzten Softwarelösungen müssen eine Open\hyp{}Source\hyp{}Lizenz
-  besitzen, um hier unabhängig von kostenpflichtigen Lizenzen und
-  Copyright\hyp{}Rechten zu sein.  Ebenfalls ist eine
-  Open\hyp{}Source\hyp{}Software nötig, da hier der Quelltext der Software
-  angepasst und verändert werden darf.
-  \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
-  gewährleistet werden. Dies bedeutet, dass die Daten und damit auch die
-  Weboberfläche selbst vor unautorisiertem Zugriff durch Dritte geschützt sein
-  muss. Ebenfalls muss die Verbindung, welche die Datenvisualisierung nutzt, um
-  die Daten abgreifen zu können, vor Dritten so geschützt und gesichert werden.
-  Der Zugriff auf die Weboberfläche soll mit einer Transportverschlüsselung
-  durch \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch
-  eigene Client\hyp{}Zertifikate zulassen. Die Anmeldung an der
-  Datenvisualisierung kann entweder über einen lokalen Administrator, als auch
-  über eine LDAP\hyp{}Anbindung (Lightweight Directory Access Protocol)
-  verfügen, um hier z.B.  Unternehmensverzeichnisse anbinden zu können.
-  \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
-  Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
-  der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher die
-  Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
-  werden können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
-  Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
-  Acht unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
-  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen
-  Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an
-  das Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht
-  nur die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
-  abzuspeichern, kann es hier zu massiven Performance\hyp{}Problemen kommen,
-  die durch die Weboberfläche verursacht werden können.
-  \1 Um die Sicherheit der Datenvisualisierung zusätzlich schützen zu können,
-  muss diese mit einem \GLS{API}\hyp{}System interagieren können, damit
-  eigenmächtige Modifizierungen der Daten wie das verändern, anpassen oder
-  sogar löschen unterbunden sind. Zusätzlich wird die Performance der
-  Datenvisualisierung, durch ein \GLS{API}\hyp{}System gesteigert.
-  \1 Plugin\hyp{}Erweiterung. Die Datenvisualisierung muss eine
-  Plugin\hyp{}Erweiterung unterstützen. Es dient dazu, dass im späteren
-  Verlauf, wenn das Produkt bereits beim Kunden eingesetzt wird, auf bestimmte
-  Kundenwünsche direkt eingegangen werden kann. Diese können dann mit schon zur
+  \1 Die genutzten Softwarelösungen müssen eine Open\hyp{}Source\hyp{}Lizenz besitzen, um
+  hier unabhängig von kostenpflichtigen Lizenzen und Copyright\hyp{}Rechten zu sein.
+  Ebenfalls ist eine Open\hyp{}Source\hyp{}Software nötig, da hier der Quelltext der
+  Software angepasst und verändert werden darf.
+\end{outline}
+
+Sicherheit
+\begin{outline}
+  \1 Um die Sicherheit und den zugriff auf das Webinterface gewährleisten zu
+  können, muss an die Datenvisualisierung die Anforderung gestellt werden, das
+  sie eine Authentisierung, Authentifizierung und Autorisierung unterstützt.
+  eigene Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
+  kann entweder über einen lokalen Administrator, als auch über eine
+  LDAP\hyp{}Anbindung (Lightweight Directory Access Protocol) verfügen, um hier z.B.
+  Unternehmensverzeichnisse anbinden zu können.
+  Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung kann
+  entweder über einen lokalen Administrator, als auch über eine LDAP-Anbindung
+  (Lightweight Directory Access Protocol) verfügen, um hier zum Beispiel
+  Unternehmensverzeichnisse der Kunden anbinden zu können. Hierrüber soll
+  ebenfalls eine Rechtevergabe innerhalb der Datenvisualisierung möglich sein.
+\end{outline}
+
+Skalierung
+\begin{outline}
+  \1 Die Datenvisualisierung muss eine Plugin-Erweiterung unterstützen. Es
+  dient dazu, dass im späteren Verlauf, wenn das Produkt bereits beim Kunden
+  abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
+  durch die Weboberfläche verursacht werden können.
+  \1 Plugin\hyp{}Erweiterung. Die Datenvisualisierung muss eine Plugin\hyp{}Erweiterung
+  unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
+  bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
+  eingegangen werden kann. Diese können dann mit schon zur Verfügung gestellten
+  Plugins zum Beispiel in der Community oder aber durch selbst programmierte
+  Plugins realisiert werden. Die Weboberfläche sollte jedoch auch andere
+  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern
+  gewährleisten zu können. Unternehmen müssen so nicht auf spezielle Entwickler
+  von bestimmten Sprachen zurückgreifen.
   Verfügung gestellten Plugins zum Beispiel in der Community oder aber durch
   selbst programmierte Plugins realisiert werden. Die Weboberfläche sollte
   jedoch auch andere Sprachen unterstützen, um so eine Unabhängigkeit von
@@ -1882,10 +1899,31 @@ werden:
   und können somit einfach dupliziert und gesichert werden.
   \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
-  gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen schnell
-  und einfach (Endanwenderspezifisch) direkt angepasst werden können. Ebenso
-  muss die Anbindung an eventuell schon vorhandene Datenbanksysteme einfach
+  gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen
+  Endanwenderspezifisch schnell und einfach angepasst werden können. Ebenso
+  muss die Anbindung an eventuell schon vorhandene Datenbanksysteme beim Kunden
   durchgeführt werden können.
+\end{outline}
+
+Performance
+\begin{outline}
+  \1 Die Performance der Datenvisualisierung darf nicht außer acht gelassen
+  werden. Ein wichtiges Kernkriterium ist hierbei, dass der Administrator eine
+  gewisse Zeitspanne vordefinieren kann, in welcher die Graphen neu
+  visualisiert und Daten aus dem Datenhaltungssystem abgerufen werden können.
+  Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen überlastet
+  wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
+  unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
+  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen Werten.
+  Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
+  Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht nur
+  die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
+  abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
+  durch die Weboberfläche verursacht werden können.
+\end{outline}
+
+Dokumentation
+\begin{outline}
   \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über die
   Software. Der Auftraggeber und auch die Projektmitglieder selbst, benötigen
   keine große Schulung mit dem Umgang der Datenvisualisierung. Dies erleichtert
@@ -1896,12 +1934,11 @@ werden:
 
 \subsection{Durchführung der Evaluierung}
 \label{subsec:durchfuehrung_evaluierung_datenvisualisierung}
-Für die Durchführung der Evaluierung der ausgewählten Datenvisualisierungs
-Software aus der obigen Liste~\ref{sec:datenvisualisierung} wurden die
+Für die Durchführung der Evaluierung der Datenvisualisierungslösungen aus der
+in Abschnitt~\ref{sec:datenvisualisierung} definierten Liste, wurden die
 entsprechenden Kriterien zur Evaluierung aus
 Abschnitt~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
 verwendet.
-
 
 Bevor die Evaluierung der einzelnen Softwarelösungen durchgeführt werden
 konnte, wurden vorab bereits eine Vielzahl an Informationen über die einzelnen
@@ -1910,25 +1947,25 @@ Zusätzlich wurden die einzelnen Softwarelösungen auf zwei Projektmitglieder
 aufgeteilt, um die Evaluierung und damit auch die Projektplanung zeitlich zu
 verkürzen.
 
-Nachdem die Analyse der Softwarelösungen von den einzelnen Projektmitgliedern
+Nachdem die Analyse der Softwarelösungen von den Projektmitgliedern
 abgeschlossen wurde, wurden die gesammelten Resultate Herrn Reuter zur
-Verfügung gestellt. Mit diesen Resultaten konnte Herr Reuter eine Auswertung
-aller Softwarelösungen durchführen. Um die Nutzwertanalyse durchführen zu
-können, wurde jede Softwarelösung gegenübergestellt und auf den
-Kriterienkatalog geprüft. Hierfür wurde ein Punktesystem von Null bis Fünf
-festgelegt, wobei Null die schlechteste Punktzahl und Fünf die beste Punktzahl
-ist. Diese vergebenen Punkte wurden anschließend mit der Gewichtung in eine
-Tabelle eingetragen und Multipliziert, welches dann die Gesamtpunktzahl ergibt.
-Die Tabellen werden im Abschnitt~\ref{subsec:abschluss_evaluierung} genauer
-erklärt.
+Verfügung gestellt. Mit diesen Resultaten konnte Herr Reuter bereits eine
+Vorauswertung aller Softwarelösungen durchführen. Um die Nutzwertanalyse
+durchführen zu können, wurde jede Softwarelösung gegenübergestellt und auf den
+zuvor erstellten Kriterienkatalog geprüft. Hierfür wurde ein Punktesystem von
+Null bis Fünf festgelegt, wobei Null die schlechteste Punktzahl und Fünf die
+beste Punktzahl ist. Diese vergebenen Punkte wurden anschließend mit der
+Gewichtung in eine Tabelle eingetragen und Multipliziert, welches dann die
+Gesamtpunktzahl ergibt.  Die Tabellen werden im
+Abschnitt~\ref{subsec:abschluss_evaluierung} genauer erklärt.
 
 Während der Evaluierung der einzelnen Softwarelösungen ist aufgefallen, dass
 die Softwarelösung Gridster\hyp{}D3 keine direkte Visualisierungssoftware
-ist. Die entsprechende Evaluierung, von diesem Produkt, kann im
+entsprechende Evaluierung, von diesem Produkt, kann im
 Abschnitt~\ref{subsubsec:gridster-d3} vollständig entnommen werden.
 
-Im Nachfolgenden Punkt sind die einzelnen Softwarelösungen mit den einzelnen
-Anforderungen und Evaluierungsergebnissen aufgelistet:
+Im Nachfolgenden sind die einzelnen Datenvisualisierungslösungen mit einer
+kurzen Zusammenfassung, sowie Vor- und Nachteile aufgeführt:
 \mr%
 
 \subsubsection{Grafana}
@@ -2205,11 +2242,11 @@ Negativ:
 \subsection{Abschluss der Evaluierung}
 \label{subsec:abschluss_evaluierung}
 Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für die
-Datenvisualisierung wurden diesen während der Evaluierung entsprechende
-Bewertungspunkte für die Kriterien von Null bis Fünf festgelegt. Damit eine
-Softwarelösung in die nähere Auswahl aufgenommen werden kann, muss es
-mindestens 3,00 Gesamtpunkte in der Nutzwertanalyse erhalten. In
-nachfolgender Tabelle kann hier die Nutzwertanalyse der Softwarelösungen
+Datenvisualisierung wurden diesen entsprechende Bewertungspunkte für die
+Kriterien von Null bis Fünf vergeben. Damit eine Softwarelösung in die nähere
+Auswahl aufgenommen werden kann, muss diese mindestens 3,00 Gesamtpunkte in der
+Nutzwertanalyse erhalten. In nachfolgender Tabelle kann hier die
+Nutzwertanalyse der Softwarelösungen Datadog, Gridster-D3 und Netdata entnommen
 Datadog, Gridster\hyp{}D3 und Netdata entnommen werden.
 
 \begin{table}[H]
@@ -2235,13 +2272,13 @@ In der oben stehenden Tabelle erhält die Softwarelösung Datadog nur 2,95
 Gesamtpunkte, da diese Softwarelösung eine Kostenpflichtige Lizenz benötigt.
 Dies ist innerhalb des Projektes ein Kernkriterium, weshalb es als
 Softwarelösung nicht weiter verwendet. Gridster\hyp{}D3 ist bereits während der
-Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um eine
-Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem Grund
+während der Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um
+eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem
 hat Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe der
-Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr unübersichtlich
-aufgebaut ist und keine Sicherheit gewährleisten kann. Alle drei
-Softwärelösungen sind damit ausgeschieden, da eine Gesamtpunktzahl von 3,00
-nicht erreicht worden ist.
+Laufe der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
+unübersichtlich aufgebaut ist und keine Sicherheit gewährleisten kann. Alle
+drei Softwärelösungen sind damit ausgeschieden, da eine Gesamtpunktzahl von
+3,00 nicht erreicht worden ist.
 
 Nachfolgend bleiben drei Datenvisualisierungslösungen für die nähere Auswahl:
 
@@ -2252,7 +2289,7 @@ Nachfolgend bleiben drei Datenvisualisierungslösungen für die nähere Auswahl:
 \end{outline}
 
 Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata,
-wurde auch hierfür eine Nutzwertanalyse durchgeführt, die wie folgt aussieht:
+wurde auch hier eine Nutzwertanalyse durchgeführt, die wie folgt aufgebaut ist:
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2281,23 +2318,23 @@ Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
 empfängt Metriken von Agents, bereitet diese auf und speichert diese Daten
 anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
 das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
-kommunizieren und verwendet werden kann. Anders als bei Grafana, welches mit
-mehreren Datenbanken gleichzeitig kommunizieren kann. Innerhalb der einzelnen
-Graphen werden hier mittels einer Abfrage die Datenbanken direkt angesprochen.
+kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
 Bei der Evaluierung der Graphite Softwarelösung, hat Graphite 3,75 Gesamtpunkte
-erhalten. Während der Implementierung von Graphite fiel auf, dass es deutlich
-komplexer ist als Grafana. Graphite besteht aus mehreren Diensten, welche bei
-der Installation konfiguriert und angepasst werden müssen, damit Graphite
-funktional ist. Wenn ein Dienst ausfallen sollte, so betrifft dies das gesamte
-Graphite\hyp{}System und die Weboberfläche wäre nicht mehr erreichbar.
-Zusätzlich ist hier gerade in der Wartung der Dienste ein Mehraufwand, da der
-Administrator alle Dienste in Form von Abhängigkeit zueinander und
-Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
-Graphite auch mehr Systemressourcen als ein einzelner Dienst, wie es bei
-Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die weitere
-Implementierung nicht verwendet. Grafana hat in der Nutzwertanalyse die meisten
-Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von den Projektmitgliedern
-zuvor definierte Kriterien.
+Abfrage die Datenbanken direkt angesprochen. Bei der Evaluierung der Graphite
+Softwarelösung, hat Graphite 3,75 Gesamtpunkte erhalten. Während der
+Implementierung von Graphite fiel auf, dass es deutlich komplexer ist als
+Grafana. Graphite besteht aus mehreren Diensten, welche bei der Installation
+konfiguriert und angepasst werden müssen, damit Graphite funktional ist. Wenn
+ein Dienst ausfallen sollte, so betrifft dies das gesamte Graphite-System und
+die Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in der
+Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
+von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
+mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
+einzelner Dienst, wie es bei Grafana der Fall ist. Hierdurch bedingt, wird
+Graphite für die weitere Implementierung nicht verwendet. Grafana hat in der
+Nutzwertanalyse die meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von
+den Projektmitgliedern zuvor definierte Kriterien.
+Projektmitgliedern zuvor definierte Kriterien.
 \mr%
 
 \chapter{Userstories}
@@ -2337,16 +2374,16 @@ einzelnen Tickets arbeiten können.
 \textbf{Name der Story:} Der Administrator möchte eine Anzeige der SSDs, welche
 einen Hardwaredefekt haben könnten.
 
-\textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame
-Hard Disk Drives durch schnellere Solid State Disks ausgetauscht. Gerade im
-Serverbetrieb sorgt dies für einen schnelleren Datenzugriff. SSDs haben
-jedoch, wie auch HDDs, einen Lebenszyklus, der bei SSDs schneller erreicht
-werden kann, als bei handelsüblichen HDDs. Der Administrator soll hier darüber
-benachrichtigt werden, sobald von einer SSD ein kritischer Schreib- oder
-Lesezyklus erreicht worden ist, um die SSD bereits vor dem Ausfall austauschen
-zu können. Ebenfalls soll hier auch eine Statistik ausgegeben werden, welche
-SSD von welchem Hersteller in der Wahrscheinlichkeit am häufigsten ausfallen
-könne. Im Folgenden finden sich die Akzeptanzkriterien:
+\textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame Hard Disk
+Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
+sorgt dies für einen schnelleren Datenzugriff. SSDs haben jedoch, wie auch
+HDDs, einen Lebenszyklus, der bei SSDs schneller erreicht werden kann, als bei
+handelsüblichen HDDs. Der Administrator soll hier darüber benachrichtigt
+werden, sobald von einer SSD ein kritischer Schreib- oder Lesezyklus erreicht
+worden ist, um die SSD bereits vor dem Ausfall proaktiv austauschen zu können.
+Ebenfalls soll eine Statistik ausgegeben werden können, welche SSD von welchem
+Hersteller in der Wahrscheinlichkeit am häufigsten ausfällt. Im Folgenden
+finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
@@ -2369,13 +2406,13 @@ CPU\hyp{}Auslastung jeder Instanz, um Engpässe zu erkennen.
 
 \textbf{Beschreibung:} Die CPUs der heutigen Zeit werden in der Taktrate und
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
-virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des
-Host\hyp{}Systems mehrere virtuelle CPU\hyp{}Kerne emuliert und einer Instanz
-zugewiesen. So kann eine VM 2 virtuelle CPU\hyp{}Kerne mit z.B.
-2,5\si{\giga\hertz} Taktrate zugewiesen haben. Auf jeder Instanz laufen andere
-Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt haben kann. Hier kann
-es vorkommen, dass eine VM mehr CPU\hyp{}Leistung benötigt, als ihr selbst
-zugewiesen ist. Um dies frühestmöglich zu erkennen, benötigt der Administrator
+virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des Host-Systems
+mehrere virtuelle CPU-Kerne emuliert und einer Instanz zugewiesen. So kann eine
+VM 2 virtuelle CPU-Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
+haben. Auf jeder Instanz laufen andere Dienste, weshalb jede VM
+unterschiedliche CPUs zugeteilt haben kann. Hier kann es vorkommen, dass eine
+VM mehr CPU-Leistung benötigt, als ihr selbst zugewiesen ist. Um dies
+frühestmöglich erkennen zu können, benötigt der Administrator eine detaillierte
 eine detaillierte Übersicht in Form eines Graphen, wie viel CPU\hyp{}Leistung
 von einer virtuellen Instanz verwendet wird und auf dem System verfügbar ist.
 Im Folgenden finden sich die Akzeptanzkriterien:
@@ -2383,8 +2420,8 @@ Im Folgenden finden sich die Akzeptanzkriterien:
 \begin{outline}
   \1 Visualisierung der Auslastung und Verfügbarkeit der CPU\hyp{}Leistung für
   jede einzelne Instanz
-  \1 Alle Werte der CPU, \gls{Soft-IRQ},\gls{iowait} oder \gls{Interrupt}
-  müssen visualisiert werden
+  \1 Alle Werte der CPU, wie beispielsweise \gls{Soft-IRQ},\gls{iowait} oder
+  \gls{Interrupt} müssen visualisiert werden
   \1 Eine frühestmögliche Erkennung von einem Engpass einer virtuellen Maschine
 \end{outline}
 
@@ -2400,10 +2437,10 @@ Arbeitsspeicherauslastung von jeder Instanz, um Engpässe zu erkennen.
 es auch eine ähnliche Thematik zur Auslastung bei dem verwendeten
 Arbeitsspeicher.  Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
 entscheidend, sondern eher wie viel Arbeitsspeicher einer virtuellen Maschine
-zugewiesen ist.  Hier kann es ebenfalls wie auch bei
-der~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
-virtuellen Maschine bei der Verteilung des Arbeitsspeichers kommen kann. Im
-Folgenden finden sich die Akzeptanzkriterien:
+zugewiesen ist.Hier kann es ebenfalls wie auch bei der~\ref{section:CPU_Userstory}
+vorkommen, dass es zu Engpässen auf der virtuellen Maschine bei der Verteilung
+des Arbeitsspeichers kommen kann. Im Folgenden finden sich die
+Akzeptanzkriterien:
 
 \begin{outline}
   \1 Ausgabe und Visualisierung in Form eines Graphen für den verwendeten,
@@ -2429,14 +2466,14 @@ des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeine
 zu verbessern. So können zum Beispiel bestimmten virtuellen Maschinen zu einem
 gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
 die Ressourcen verwenden können. In den Monaten in dem keine große Nachfrage
-der Webseite besteht, können hier dann weniger Ressourcen vergeben werden. Dies
-hat den Vorteil, dass spezielle Vertäge dem Kunden angeboten werden können. Im
-Folgenden finden sich die Akzeptanzkriterien:
+der Webseite besteht, können hier weniger Ressourcen dr virtuellen Maschine
+zugewiesen werden. Dies hat den Vorteil, dass spezielle Vertäge dem Kunden
+angeboten werden können. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
   dargestellt werden
-  \1 Ressourcen, welche benötigt werden, können direkt bereits ab Beginn
+  \1 Ressourcen, welche benötigt werden können direkt bereits ab Beginn
   zugewiesen werden
 \end{outline}
 
@@ -2444,8 +2481,8 @@ Das dazugehörige Wireframe, kann dem Anhang~\ref{figure:timeframeuserstory}
 entnommen werden.
 \mr%
 
-\section{Weboberfläche Userstory}
-\textbf{Name der Story:} Der Administrator möchte die Visualisierung der
+\section{Webinterface Userstory}
+\textbf{Name der Story:} Der Administrator möchte eine Visualisierung der
 erhaltenen Daten zur weiteren Verwendung.
 
 \textbf{Beschreibung:} Dem Administrator oder dem User soll es ermöglicht
@@ -2456,8 +2493,8 @@ Folgenden finden sich die Akzeptanzkriterien:
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
   \1 Zeitspanne der Visualisierung kann über den Benutzer angepasst werden
-  \1 Die Graphen, welche visualisiert wurden, können vom Benutzer individuell
-  angepasst werden
+  \1 Die Graphen, der Visualisierung kann über den benutzer oder dem
+  Administrator angepasst werden
 \end{outline}
 
 Das dazugehörige Wireframe, kann dem Anhang~\ref{figure:uiuserstory}
@@ -3061,22 +3098,28 @@ Rückrechnung der Daten integriert.
 
 \section{Realisierung Grafana}
 \label{sec:realisierung_grafana}
-Nachdem nun die
-Evaluierung~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
+Nachdem nun die Evaluierung aus
+Abschnitt~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
 abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
-begonnen werden. Damit die eigentliche Konfiguration durchgeführt werden
-konnte, musste zuvor das Installationspaket von Grafana heruntergeladen und
-installiert werden. Auf einem ArchLinux\hyp{}Betriebssystem wird dieses Paket
-mit folgendem Befehl installiert:
+begonnen werden. Die Installation von Grafana wird nachfolgend für die Linux
+Distribution ArchLinux beschrieben. Grafana unterstützt ebenfalls auch andere
+Distributionen, jedoch können hier die entsprechenden unten aufgeführten
+Befehle abweichen. Die zu unterstützen Distributionen, können der Grafana
+Evaluierung aus Abschnitt~\ref{subsubsec:grafana} entnommen werden.  Damit die
+eigentliche Konfiguration durchgeführt werden konnte, musste zuvor das
+Installationspaket von Grafana heruntergeladen und installiert werden. Auf
+einem ArchLinux\hyp{}Betriebssystem wird dieses Paket mit folgendem Befehl
+installiert:
 
 \begin{minted}{text}
 sudo pacman -S grafana
 \end{minted}
 
 Pacman ist ein Paketinstaller mit dem weitere Software aus einem Repository
-heruntergeladen und installiert werden kann. Er durchsucht hier die gesamten
-vordefinierten Repository URLs nach Grafana und installiert hier die aktuellste
-vorliegende Version auf dem Archlinux\hyp{}Betriebssystem.
+heruntergeladen und installiert werden kann. Dabei durchsucht der
+Paketinstaller die gesamten vordefinierten Repository URLs nach Grafana und
+installiert hier die aktuellste vorliegende Version auf der entsprechenden
+Distribution.
 
 Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
 dieses mit folgendem Befehl gestartet und falls gewünscht im Autostart von
@@ -3091,10 +3134,11 @@ Um Grafana im Autostart zu hinterlegen, wird folgender Befehl benötigt:
 systemctl enable grafana.service
 \end{minted}
 
-Nun ist Grafana gestartet und kann über die Weboberfläche mit Port 3000
-bereits aufgerufen und konfiguriert werden. Bei der Installation von Grafana
-wird bereits ein vordefinierter Administrator User mit Passwort festgelegt. Die
-Zugangsdaten hierzu lauten:
+Nachdem der \texttt{grafana.service} gestartet wurde, kann das Webinterface
+über einen Browser bereits aufgerufen werden. Der Aufruf hierzu lautet wie
+folgt: \texttt{http://<FQDN-of-your-grafana-server>:3000}. Bei der Installation
+von Grafana wird bereits ein vordefinierter Administrator User mit Passwort
+festgelegt. Die Zugangsdaten hierzu lauten:
 
 \begin{outline}
   \1 Benutzername: admin
@@ -3103,21 +3147,22 @@ Zugangsdaten hierzu lauten:
 
 Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
 werden. Anschließend sieht man hier bereits das Home Dashboard von wo aus die
-einzelnen Einstellungen durchgeführt werden können.
+Datenvisualisierung konfiguriert werden kann.
 
-Das Home Dashboard ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
-worüber alle Einstellungen, wie Plugin\hyp{}Verwaltung, Datenquellen
-(Datasources) oder Benutzereinstellungen durchgeführt werden können. Rechts
-neben dem Grafana Symbol wird immer die aktuelle Ebene angezeigt auf der der
-Administrator sich befindet. Wenn der Administrator sich hier auf dem Home
-Dashboard befindet, so wird hier „Home“ angezeigt und die Übersicht der
-einzelnen Dashboards. Sollte der Administrator in den Einstellungen unter
-Datasources sein, so wird hier Data Sources eingeblendet. Dies soll dem
-Administrator zusätzlich helfen, eine bessere Übersichtlichkeit zu erhalten.
-Auf der rechten Seite des Home Dashboards hat der Administrator oder User die
-Möglichkeit, den Aktualisierungstimer der anzuzeigenen Daten zu verändern.
-Standardmäßig steht dieser auf sechs Stunden, kann aber beliebig angepasst
-werden~\ref{figure:grafana_dashboard}.
+Das Dashboard ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
+worüber alle Konfigurationen, wie Plugin\hyp{}Verwaltung, Datenquellen oder
+Benutzereinstellungen konfiguriert werden können. Rechts neben dem Grafana
+Symbol wird immer die aktuelle Ebene angezeigt auf der der Administrator sich
+befindet. Wenn der Administrator sich hier auf dem Home Dashboard befindet, so
+wird hier „Home“ angezeigt und die Übersicht der einzelnen Dashboards. Sollte
+der Administrator in den Einstellungen unter Datasources sein, so wird hier
+Data Sources eingeblendet. Dies soll dem Administrator zusätzlich helfen, eine
+bessere Übersichtlichkeit zu erhalten. Auf der rechten Seite des jeweiligen
+Dashboards hat der Administrator oder User die Möglichkeit, den
+Aktualisierungstimer der anzuzeigenen Daten zu verändern. Standardmäßig steht
+dieser auf sechs Stunden, kann aber beliebig angepasst werden. Eine Darstellung
+des Dashboards, kann dem Anhang~\ref{figure:grafana_dashboard} entnommen
+werden.
 
 
 Zu Beginn sollte hier zuerst die Datenquelle von der Grafana die ermittelten
@@ -3128,26 +3173,30 @@ bietet bereits eine Vielzahl an Auswahlmöglichkeiten von Datenhaltungssystemen
 an. Diese können nach Belieben durch Plugins erweitert werden. Hierauf wird im
 weiteren Verlauf der Implementierung eingegangen. Nachdem hier alle Werte
 ausgefüllt worden sind, kann die Datenquelle über die Schaltfläche „Add“
-hinzugefügt werden. Grafana prüft bereits beim Speichern der Datenquelle, ob
-diese erreichbar ist.
+hinzugefügt werden. Grafana prüft bereits beim Speichern einer jeden
+Datenquelle, ob diese erreichbar ist und Daten abgerufen werden können.
 
 Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues Dashboard
 angelegt werden, damit die Graphen definiert werden können. Das neue Dashboard
-kann unter dem Home Dashboard angelegt werden. Anschließend erhält der
-Administrator bereits eine Vielzahl von vordefinierten Auswahlmöglichkeiten von
-Graphen, Tabellen oder auch \glslink{singlestat}{Singlestats}. Diese können je
-nach Verwendungszweck hinzugefügt werden. Eine Beschränkung, wieviele Graphen
-maximal auf einem Dashboard angelegt werden können, gibt es nicht.
+kann unter dem Reiter Dashboard angelegt werden. Anschließend erhält der
+Administrator bereits eine vordefinierte Auswahlmöglichkeiten von Graphen,
+Tabellen oder auch \glslink{singlestat}{Singlestats}. Diese können je nach
+Verwendungszweck hinzugefügt werden. Eine Beschränkung, wieviele Graphen
+maximal auf einem Dashboard angelegt werden können, ist laut der Dokumentation
+von Grafana nicht definiert, jedoch kann dies die Performance des Webinterfaces
+für den Administrator oder User negativ beeinflussen.
 
 Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
 werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
 „edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein Menü, wo der
-grundsätzliche Aufbau, die Metrik, die Axen und diverse andere Einstellungen
-für diesen Graphen definiert werden können. Hier wird zunächst die Metrik des
-Graphen angepasst, damit der Graph Werte visualisieren kann. Unter dem
-Abschnitt~\ref{subsec:graphen-definieren} wird hier genauer auf die Erstellung
-von Graphen eingegangen. Im nachfolgenden ist ein Beispiel für eine solche
-Abfrage:
+grundsätzliche Aufbau, die Metrik, die Axen und diverse weitere
+Konfigurationsmöglichkeiten Einstellungen für diesen Graphen definiert werden
+können. Hier wird zunächst die Metrik des Graphen angepasst, damit die ersten
+Graphen visuell dargestellt werden können. Unter dem Abschnitt "Graphen
+definieren~\ref{subsec:graphen-definieren}" wird hier genauer auf die
+Erstellung von Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage
+für die Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die
+hier abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 \begin{figure}[H]
   \centering
@@ -3156,18 +3205,24 @@ Abfrage:
 \label{figure:graph}
 \end{figure}
 
-Anschließend können noch diverse Feineinstellungen für den Graphen vorgenommen
-werden. Dieses Vorgehen wird nun für jeden Graphen erstellt, dessen Werte
-visualisiert werden sollen. Nachdem alle Graphen erstellt worden sind, muss das
-Dashboard abgespeichert werden, damit Einstellungen nicht verloren gehen
-können. Sollte das Speichern vom Administrator vergessen werden, so warnt
-Grafana bei dem Wechsel eines Dashboards, ob die Einstellungen gespeichert
-werden sollen.
+Nachstehend können noch diverse Feinkonfigurationen für einen Graphen
+spezifisch vorgenommen werden. Dieses Vorgehen wird nun für jeden Graphen
+erstellt, dessen Werte visualisiert werden sollen. Nachdem alle Graphen
+erstellt worden sind, muss das Dashboard abgespeichert werden, damit die
+Konfigurationn nicht verloren gehen können. Sollte das Speichern vom
+Administrator vergessen werden, so warnt Grafana bei dem Wechsel eines
+Dashboards, das die Konfigurationen verloren gehen, falls diese nicht
+abgespeichert werden.  Damit wie in dem Projekt gefordert eine API
+Schnittstelle angesprochen werden kann, benötigt dies eine Plugininstallation.
+Es stehen viele verschiedene Plugins auf der Grafana Webseite zur Verfügung. Zu
+jedem Plugin gibt es hier eine kurze Erläuterung, sowie eine Schritt für
+Schritt Anleitung zur Installation dieses Plugins. Die Plugins werden hier über
+einen Kommandozeilenbefehl installiert.
 
-Die Grundeinstellungen sind nun abgeschlossen und Grafana kann verwendet
+Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
 werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
-dem Grafana Symbol > Admin > Global Users weitere User angelegt werden und
-Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
+dem Reiter Admin > Global Users weitere User angelegt werden und
+Zugriff auf das Webinterface von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
 Dies wird in Grafana mit der Organisations-ID realisiert. Ein neu angelegter
 Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies ist in
@@ -3230,10 +3285,10 @@ Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation stellte sich
 heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
-übergeben. Das Puppet Profil prüft hier den Login auf die Weboberfläche nicht,
-da es davon ausgeht, dass die Weboberfläche nach dem Neustart von Grafana
-unmittelbar danach erreichbar ist. Das Problem liegt hier nicht in der
-grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
+übergeben. Das Puppet Profil prüft hier den Login auf das Webinterface nicht,
+da es davon ausgeht, dass das die Anmeldemaske des Webinterface unmittelbar
+nach dem Neustart von Grafana erreichbar ist. Das Problem liegt hier nicht in
+der grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
 bereitstellt. Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
 erstellt (vgl.~\cite{grafana-issue}).
@@ -3241,57 +3296,47 @@ erstellt (vgl.~\cite{grafana-issue}).
 
 \subsection{Graphen definieren}
 \label{subsec:graphen-definieren}
-Soabld die Grundkonfiguration von Grafana wie in~\ref{sec:realisierung_grafana}
-beschrieben durchgeführt worden ist, können als nächstes Graphen visualisiert
-werden.
+Soabld die Grundkonfiguration von Grafana wie im Abschnitt "Realisierung
+Grafana~\ref{sec:realisierung_grafana}" beschrieben durchgeführt worden ist,
+können als nächstes Graphen visualisiert werden.
 \mr%
 
 \subsubsection{General}
-Zu Beginn wird hier unter dem Punkt \texttt{General} ein
-aussagekräftiger Titel, sowie Beschreibung des Graphen hinterlegt. In dem
-Beispiel, welches im Anhang~\ref{figure:grafana_general} enthalten ist, wird
-der Graph für die Prozessor Auslastung definiert. Unter dem Punkt
-\texttt{General} können alle Einstellungen für das Aussehen des Graphen
-hinterlegt und angepasst werden. Ebenfalls können Verlinkungen zu anderen
-Dashboards oder direkten URL Adressen hinterlegt werden. Diese werden
-anschließend, wie im Anhang~\ref{figure:grafana_description} dargestellt. Dies
-dient zur besseren Übersichtlichkeit, wenn ein Administrator oder die
-Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt werden nun
-die einzelnen Graphen definiert.
+Zu Beginn wird unter dem Reiter \texttt{General} ein aussagekräftiger Titel,
+sowie Beschreibung des Graphen hinterlegt. In dem Beispiel, welches im
+Anhang~\ref{figure:grafana_general} enthalten ist, wird der Graph für die
+Prozessor Auslastung definiert. Unter dem Reiter \texttt{General} können alle
+Konfigurationen für das Aussehen des Graphen hinterlegt und angepasst werden.
+Ebenfalls können Verlinkungen zu anderen Dashboards oder direkten URL Adressen
+zu Webseiten hinterlegt werden. Diese werden anschließend, wie im
+Anhang~\ref{figure:grafana_description} auf der Dashboard Übersicht
+dargestellt. Dies dient zur besseren Übersichtlichkeit, wenn ein Administrator
+oder die Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt
+werden nun die einzelnen Graphen definiert.
 \mr%
 
 \subsubsection{Metrics}
-Hierzu muss unter \texttt{Metrics} zunächst ausgewählt werden, von welcher
-Datenquelle die erhaltenen Daten stammen und anschließend über \texttt{Add
-Query} hinzugefügt werden. Grafana unterstützt unter anderem viele verschiedene
-Datenquellen, wie zum Beipsiel OpenTSDB (siehe
+Hierzu muss unter dem Reiter \texttt{Metrics} zunächst ausgewählt werden, von
+welcher Datenquelle die erhaltenen Daten stammen und anschließend über die
+Schaltfläche \texttt{Add Query} hinzugefügt werden. Grafana unterstützt unter
+anderem viele verschiedene Datenquellen, wie zum Beipsiel OpenTSDB (siehe
 Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch (siehe
 Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
-Erhaltung eine HTTPS\hyp{}API~\gls{API} Schnittstelle verwendet, welche im
-Laufe des Projektes entwickelt und entworfen worden ist. Die HTTPS\hyp{}API
-liefert hier ein \gls{JSON}\hyp{}Objekt zurück. Damit Grafana dieses als
-Datenquelle verwenden kann, muss hier zuvor noch ein Plugin installiert werden.
-Es stehen viele verschiedene Plugins auf der Grafana Webseite zur Verfügung. Zu
-jedem Plugin gibt es hier eine kurze Erläuterung, sowie eine Schritt für
-Schritt Anleitung zur Installation dieses Plugins. Die Plugins werden hier über
-einen Kommandozeilenbefehl installiert. Anschließend kann unter Datenquelle die
-HTTPS\hyp{}API angesprochen werden. Sie wird nicht mittels einer
-SQL\hyp{}Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle.
-Innerhalb der API werden bereits vordefinierte Werte zurückgegeben. Wenn hier
-als Datenquelle eine Datenbank angesprochen werden soll, so kann hier zunächst
-eine Art \texttt{SELECT} \gls{SQL}\hyp{}Abfrage hinterlegt werden. Innerhalb
-der SQL\hyp{}Abfrage wird definiert, von wo die erhaltenen Daten stammen, sowie
-welche Werte abgerufen werden sollen. Ebenfalls kann diese SQL Abfrage mit
-anderen SQL Abfragen innerhalb einer Gruppe zusammen definiert werden. Ein
-Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
-
-Nun sind bereits einzelne Werte im Graphen visualisiert. Nachdem nun
-die Grundeinstellung für die Graphen konfiguriert wurde, können anschließend
-weitere Feineinstellungen durchgeführt werden.
+Erhaltung eine HTTPS-~\gls{API} Schnittstelle verwendet, welche im Laufe des
+Projektes entwickelt und entworfen worden ist. Die HTTPS-API liefert hier ein
+\gls{JSON}-Objekt zurück. Sie wird nicht mittels einer SQL-Abfrage abgerufen,
+sondern über eine \gls{HTTPS} Schnittstelle. Innerhalb der API werden bereits
+vordefinierte Werte zurückgegeben. Wenn hier als Datenquelle eine Datenbank
+angesprochen werden soll, so kann hier zunächst eine Art \texttt{SELECT}
+\gls{SQL}-Abfrage hinterlegt werden. Innerhalb der SQL-Abfrage wird definiert,
+von wo die erhaltenen Daten stammen, sowie welche Werte abgerufen werden
+sollen. Ebenfalls kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb
+einer Gruppe zusammengefasst werden. Ein Beispiel hierzu ist dem
+Anhang~\ref{figure:grafana_metrics} beigefügt.
 \mr%
 
 \subsubsection{Axes}
-Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine
+Im nebenstehendem Reiter \texttt{Axes} kann definiert werden, ob eine
 Beschriftung für die X- oder Y\hyp{}Achse benötigt wird. Zur Verdeutlichung ist
 dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
 hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
@@ -3304,10 +3349,11 @@ Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
 definiert. Eingestellt werden kann hier welchen Minimalen, Maximalen, Aktuellen
 und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
 Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
-unmittelbar unterhalb des Graphen und soll für eine bessere Übersichtlichkeit
-für den Administrator dienen, da dieser die Minimalen- und Maximalenwerte
-welche innerhalb der Analyse ausgegeben worden sind sehen kann. Ein Beispiel
-hierzu ist dem Anhang~\ref{figure:grafana_legend} beigefügt.
+unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für den
+Administrator dienen, da dieser die Minimalen- und Maximalenwerte, sowie
+Aktuellen- und Durchnittswerte welche innerhalb der Analyse ausgegeben worden
+sind sehen kann. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_legend}
+beigefügt.
 \mr%
 
 \subsubsection{Display}
@@ -3327,36 +3373,38 @@ Einstellungen, welche ebenfalls in \texttt{Draw options} definiert werden
 können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es zu
 diesem Menüpunkt noch den Punkt \texttt{Thresholds}.Dies sind Markierungen,
 innerhalb des Graphens, wenn ein kritischer Wert erreicht worden ist. Diese
-dienen dazu auf einem Blick zu erkennen, ob es hier Probleme gibt, oder alles
-in Ordnung ist. Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild
-beigefügt, welches dies einmal verdeutlicht.
+dienen dazu auf einem Blick zu erkennen, ob ein Problem der instanz vorliegt.
+Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild beigefügt, welches dies
+einmal verdeutlicht.
 \mr%
 
 \subsubsection{Alert}
-Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden
-und können bei einem kritischen Wert eine Benachrichtgung versenden. Damit
-diese Funktion verwendet werden kann, muss zum einen dies unter dem Grafana
-Symbol oben Links Alerting konfiguriert werden und zum anderen muss dies die
-Datenquelle ebenfalls unterstützen. Die Benachrichtigung hierzu kann
-anschließend beispielsweise über Email oder die Messenger Telegram oder Threema
-erfolgen. Weitere Kommunikationswege sind hier ebenfalls möglich. Innerhalb der
-\texttt{Alert} Konfiguration, kann für jeden Graphen individuell die Kriterien
-für die Benachrichtigung definiert werden. Ein Beispiel hierzu ist dem
-Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung, die Konfiguriert
-werden kann, muss entwender einen Min-, Max- oder Durschchnittswert
-beeinhalten, ab wann diese Bedingung erfüllt ist. Sobald diese Bedingung
-erfüllt ist, wird entsprechend eine Benachrichtigung versendet. Diese wird
-entweder mit einem Standardtext versendet oder kann über den Punkt
-\texttt{Notifications} individuell angepasst werden. Hier kann ebenfalls
-hinterlegt werden, über welchen Weg die Benachrichtung erfolgen soll.
+Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden,
+wodurch bei einem kritischen Wert eine Benachrichtigung versendet werden kann.
+Damit diese Funktion verwendet werden kann, muss diese Funktion zum einen in
+der Allgemeinen Konfiguration unter dem Reiter Alerting konfiguriert werden und
+zum anderen muss dies die Datenquelle unterstützen. Die Benachrichtigung hierzu
+kann anschließend beispielsweise über Email oder die Messenger Telegram oder
+Threema erfolgen. Weitere Kommunikationswege sind hier ebenfalls möglich.
+Innerhalb der \texttt{Alert} Konfiguration, kann für jeden Graphen individuell
+die Kriterien definiert werden, bei denen eine Benachrichtigung ausgelöst
+werden kann. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_alert}
+beigefügt. Die Bedingung, die Konfiguriert werden kann, muss entwender einen
+Min-, Max- oder Durschchnittswert beeinhalten, ab wann diese Bedingung erfüllt
+ist. Diese wird entweder mit einem Standardtext versendet oder kann über den
+Konfigurationsmenüpunkt \texttt{Notifications} individuell angepasst werden.
+Zusätzlich kann definiert werden, über welchen Kommunikationsweg die
+Benachrichtigung erfolgen soll.
 \mr%
 
 \subsubsection{Time range}
-Im letzten Punkt \texttt{Time range} kann der Intervall der Visualisierung für
-den Graphen definiert werden. Auf dem Grafana Dashboard oben Rechts, kann die
-allgemeine Zeit definiert werden, wie lange alle Graphen auf dem Dashboard
-Werte abrufen können. Diese Einstellung kann individuell für jeden einzelnen
-Graphen unter \texttt{Time range} überschrieben werden.
+Im letzten Punkt \texttt{Time range} kann der Intervall der zu anzeigenden
+visualisierten Graphen definiert werden. Innerhalb der Dashboardübersicht in
+der rechten Oberen Hälfte von Grafana kann die Allgemeine zu visualisierende
+Zeit definiert werden. Diese gilt für alle Graphen innerhalb eines Dashboards.
+Diese Einstellung kann individuell für jeden einzelnen Graphen under
+\texttt{Time range} überschrieben werden und gilt dann nur für den aktuell
+bearbeiteten Graphen.
 \mr%
 
 \section{Logstash und collectd}
@@ -3466,12 +3514,12 @@ richtigen Stelle ist.
 
 \section{Unit-Tests}
 \label{sec:unit_tests}
-Für die Tests und Qualitätsicherung wurden unter anderem Unit\hyp{}Tests
-verwendet.  Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann
-verwendet, wenn jeweils die Kernfunktion von einem Quellcode geprüft werden
-soll. Rspec ist das Framework und stellt eine \gls{DSL} zur Verfügung, in der
-Testszenarien definiert werden können. Die Puppet Module, die in diesem Projekt
-verwendet werden, wie zum Beispiel Grafana, besitzen schon einige Tests, welche
+Für die Tests und Qualitätsicherung wurden unter anderem Unit-Tests verwendet.
+Unit-Tests sind Software-Tests und werden immer dann verwendet, wenn jeweils
+die Kernfunktion von einem Quellcode geprüft werden soll. Rspec ist das
+Framework und stellt eine \gls{DSL} zur Verfügung, in der Testszenarien
+definiert werden können. Die Puppet Module, die in diesem Projekt verwendet
+werden, wie Beispielsweise Grafana, besitzen schon einige Tests, welche
 erweitert worden sind. Man kann hier mit einem Test zum Beispiel prüfen, ob das
 Profil auf unterschiedlichen Betriebssystemen ausgeführt werden könnte oder ob
 bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn müssen
@@ -3483,8 +3531,8 @@ durchgeführt werden:
 bundle exec rake spec
 \end{minted}
 
-Die Tests für das Grafana\hyp{}Profil befinden sich unter
-Listing~\ref{lst:rspec-grafana}.  Zuerst werden verschiedene Betriebssysteme
+Die vollständigen Tests für das Grafana\hyp{}Profil befinden sich unter
+dem Anhang~\ref{lst:rspec-grafana}. Zuerst werden verschiedene Betriebssysteme
 simuliert, um das Grafana\hyp{}Profil auf diesen zu testen. Jedes
 Betriebssystem besitzt betriebssystemspezifische \glslink{Fact}{Facts}. Diese
 werden von rspec simuliert und mit Hilfe einer Liste der unterstützten
@@ -3521,7 +3569,7 @@ Betriebssystem auf die Funktionalität der einzelnen Module. Hierzu wurden schon
 bereits vorhandene Test Szenarien von \gls{testkitchen} und \gls{serverspec}
 verwendet und diese auf die im Projekt verwendeten Module angepasst. Der Code
 wird innerhalb dieser Tests ausgeführt und geprüft, ob die Grundfunktion, sowie
-die Funktionalität der einzelnen Module und ob das Puppet Modul idempotent und
+die Funktionalität der einzelnen Module und das Puppet Modul idempotent und
 fehlerfrei läuft. Diese Szenarien prüfen beispielsweise, ob die Erhaltung der
 Daten, sowie speichern dieser Daten in der Datenbank und Visualisierung der
 Graphen funktioniert. Die Ausgabe erfolgt hier über einen booleschen Wert,
@@ -3529,13 +3577,12 @@ welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend
 kann der Entwickler diesen Code erneut anpassen und testen. Die vollständigen
 Tests für das collectd Modul sind dem Anhang~\ref{lst:collectd-test}beigefügt.
 
-Wie auch auch bei Unit\hyp{}Tests~\ref{sec:unit_tests} werden Akzeptanztests für
-verschiedene Betriebsysteme programmiert. Anders als bei
-Unit\hyp{}Tests~\ref{sec:unit_tests} werden diese nicht in einer
-\texttt{metadata.json} hinterlegt, sondern jedes Betriebssystem erhält eine
-eigenen Datei, in der definiert ist, mit welcher virtuellen Maschine oder
-Container dieser Code ausgeführt werden soll. Im Anhang~\ref{lst:def-centos}
-ist eine solche Datei beigefügt.
+Wie auch auch bei Unit\hyp{}Tests, aus Abschnitt~\ref{sec:unit_tests} werden
+Akzeptanztests für verschiedene Betriebsysteme programmiert. Anders als bei
+Unit\hyp{}Tests werden diese nicht in einer \texttt{metadata.json} hinterlegt,
+sondern jedes Betriebssystem erhält eine eigenen Datei, in der definiert ist,
+mit welcher virtuellen Maschine oder Container dieser Code ausgeführt werden
+soll. Im Anhang~\ref{lst:def-centos} ist eine solche Datei beigefügt.
 \mr%
 
 \section{API Test}
