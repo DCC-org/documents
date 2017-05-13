@@ -3301,13 +3301,12 @@ Zu Beginn wird unter dem Reiter \texttt{General} ein aussagekräftiger Titel,
 sowie Beschreibung des Graphen hinterlegt. In dem Beispiel, welches im
 Anhang~\ref{figure:grafana_general} enthalten ist, wird der Graph für die
 Prozessor Auslastung definiert. Unter dem Reiter \texttt{General} können alle
-Konfigurationen für das Aussehen des Graphen hinterlegt und angepasst werden.
-Ebenfalls können Verlinkungen zu anderen Dashboards oder direkten URL Adressen
-zu Webseiten hinterlegt werden. Diese werden anschließend, wie im
-Anhang~\ref{figure:grafana_description} auf der Dashboard Übersicht
-dargestellt. Dies dient zur besseren Übersichtlichkeit, wenn ein Administrator
-oder die Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt
-werden nun die einzelnen Graphen definiert.
+Konfigurationen für das Aussehen des Graphen, sowie Verlinkungen zu anderen
+Dashboards oder direkten URL Adressen zu Webseiten hinterlegt werden. Diese
+werden anschließend, wie im Anhang~\ref{figure:grafana_description} auf der
+Dashboard Übersicht dargestellt. Dies dient der besseren Übersichtlichkeit,
+wenn ein Administrator oder die Führungsebene diese Graphen analysieren
+möchten. Im zweiten Schritt werden nun die einzelnen Graphen definiert.
 \mr%
 
 \subsubsection{Metrics}
@@ -3317,17 +3316,17 @@ Schaltfläche \texttt{Add Query} hinzugefügt werden. Grafana unterstützt unter
 anderem viele verschiedene Datenquellen, wie zum Beipsiel OpenTSDB (siehe
 Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch (siehe
 Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
-Erhaltung eine HTTPS-~\gls{API} Schnittstelle verwendet, welche im Laufe des
-Projektes entwickelt und entworfen worden ist. Die HTTPS-API liefert hier ein
-\gls{JSON}-Objekt zurück. Sie wird nicht mittels einer SQL-Abfrage abgerufen,
-sondern über eine \gls{HTTPS} Schnittstelle. Innerhalb der API werden bereits
-vordefinierte Werte zurückgegeben. Wenn hier als Datenquelle eine Datenbank
-angesprochen werden soll, so kann hier zunächst eine Art \texttt{SELECT}
-\gls{SQL}-Abfrage hinterlegt werden. Innerhalb der SQL-Abfrage wird definiert,
-von wo die erhaltenen Daten stammen, sowie welche Werte abgerufen werden
-sollen. Ebenfalls kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb
-einer Gruppe zusammengefasst werden. Ein Beispiel hierzu ist dem
-Anhang~\ref{figure:grafana_metrics} beigefügt.
+Erhaltung eine \gls{HTTPS}-\gls{API} Schnittstelle verwendet, welche im Laufe
+des Projektes entwickelt und entworfen worden ist. Die \gls{HTTPS}-\gls{API}
+liefert hier ein \gls{JSON}-Objekt zurück. Sie wird nicht mittels einer
+SQL-Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle. Innerhalb
+der \gls{API} werden bereits vordefinierte Werte zurückgegeben. Wenn hier als
+Datenquelle eine Datenbank angesprochen werden soll, so kann hier zunächst eine
+Art \texttt{SELECT} \gls{SQL}-Abfrage hinterlegt werden. Innerhalb der
+\gls{SQL}-Abfrage wird definiert, von wo die erhaltenen Daten stammen, sowie
+welche Werte abgerufen werden sollen. Ebenfalls kann diese \gls{SQL}-Abfrage
+mit anderen \gls{SQL} Abfragen innerhalb einer Gruppe zusammengefasst werden.
+Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 \mr%
 
 \subsubsection{Axes}
@@ -3345,9 +3344,9 @@ definiert. Eingestellt werden kann hier welchen Minimalen, Maximalen, Aktuellen
 und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
 Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
 unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für den
-Administrator dienen, da dieser die Minimalen- und Maximalenwerte, sowie
-Aktuellen- und Durchnittswerte welche innerhalb der Analyse ausgegeben worden
-sind sehen kann. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_legend}
+Administrator dienen, da dieser die Minimal- und Maximalenwerte, sowie
+Aktuelle- und Durchnittswerte welche innerhalb der Analyse ausgegeben worden
+sind, sehen kann. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_legend}
 beigefügt.
 \mr%
 
@@ -3366,7 +3365,7 @@ Visualisierung durchgeführt. Um dies für jeden einzelnen Graphen anpassen zu
 können, gibt es den Punkt \texttt{Series Overrides}. In diesem können die
 Einstellungen, welche ebenfalls in \texttt{Draw options} definiert werden
 können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es zu
-diesem Menüpunkt noch den Punkt \texttt{Thresholds}.Dies sind Markierungen,
+diesem Menüpunkt noch den Punkt \texttt{Thresholds}. Dies sind Markierungen,
 innerhalb des Graphens, wenn ein kritischer Wert erreicht worden ist. Diese
 dienen dazu auf einem Blick zu erkennen, ob ein Problem der instanz vorliegt.
 Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild beigefügt, welches dies
@@ -3375,27 +3374,26 @@ einmal verdeutlicht.
 
 \subsubsection{Alert}
 Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden,
-wodurch bei einem kritischen Wert eine Benachrichtigung versendet werden kann.
-Damit diese Funktion verwendet werden kann, muss diese Funktion zum einen in
-der Allgemeinen Konfiguration unter dem Reiter Alerting konfiguriert werden und
-zum anderen muss dies die Datenquelle unterstützen. Die Benachrichtigung hierzu
-kann anschließend beispielsweise über Email oder die Messenger Telegram oder
-Threema erfolgen. Weitere Kommunikationswege sind hier ebenfalls möglich.
-Innerhalb der \texttt{Alert} Konfiguration, kann für jeden Graphen individuell
-die Kriterien definiert werden, bei denen eine Benachrichtigung ausgelöst
-werden kann. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_alert}
-beigefügt. Die Bedingung, die Konfiguriert werden kann, muss entwender einen
+wodurch bei einem kritischen Wert eine Benachrichtigung versendet wird. Damit
+diese Funktion verwendet werden kann, muss diese Funktion zum einen in der
+allgemeinen Konfiguration unter dem Reiter Alerting konfiguriert werden und zum
+anderen muss dies die Datenquelle unterstützen. Die Benachrichtigung hierzu
+kann anschließend beispielsweise über Email oder den Messenger Telegram,
+Threema erfolgen. Innerhalb der \texttt{Alert} Konfiguration, kann für jeden
+Graphen individuell die Kriterien definiert werden, bei denen eine
+Benachrichtigung ausgelöst werden soll. Ein Beispiel hierzu ist dem
+Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss entwender einen
 Min-, Max- oder Durschchnittswert beeinhalten, ab wann diese Bedingung erfüllt
 ist. Diese wird entweder mit einem Standardtext versendet oder kann über den
 Konfigurationsmenüpunkt \texttt{Notifications} individuell angepasst werden.
-Zusätzlich kann definiert werden, über welchen Kommunikationsweg die
-Benachrichtigung erfolgen soll.
+Zudem wird definiert, über welchen Kommunikationsweg die Benachrichtigung
+erfolgen soll.
 \mr%
 
 \subsubsection{Time range}
 Im letzten Punkt \texttt{Time range} kann der Intervall der zu anzeigenden
 visualisierten Graphen definiert werden. Innerhalb der Dashboardübersicht in
-der rechten Oberen Hälfte von Grafana kann die Allgemeine zu visualisierende
+der rechten oberen Hälfte von Grafana kann die Allgemeine zu visualisierende
 Zeit definiert werden. Diese gilt für alle Graphen innerhalb eines Dashboards.
 Diese Einstellung kann individuell für jeden einzelnen Graphen under
 \texttt{Time range} überschrieben werden und gilt dann nur für den aktuell
