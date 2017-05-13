@@ -3141,13 +3141,19 @@ werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
 dem Grafana Symbol > Admin > Global Users weitere User angelegt werden und
 Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
-Für die im Projekt verwendete Datenerhaltung, welche über eine API
-Schnittstelle realisiert wurde, ist die Erstellung eines eigenen Users pro
-Kunde wichtig, da jeweils pro User eine OrgID für die Dashboards definiert
-werden. Diese OrgID ist für die API, wie in
-Abschnitt~\ref{subsec:zusammenspiel_api_frontend} die eindeutige Zuordnung zum
-Kunden, damit hier ein Kunde nur seine eigenen Server und nicht die von anderen
-Kunden einsehen kann.
+Dies wird in Grafana mit der Organisations-ID realisiert. Ein neu angelegter
+Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies ist in
+diesem Projekt zum Beispiel für einen einzelnen Kunden von einer virtuellen
+Instanz vorgesehen. Durch die in Punkt ~\ref{subsec:zusammenspiel_api_frontend}
+erläuterte Mapping-Tabelle wird sichergestellt, dass der Benutzer nur die
+zu Ihm zugeordneten Daten sehen kann. Administratoren oder andere Mitarbeiter
+eines Unternehmens, wie zum Beispiel ein Kundenberater, erhalten mehrere
+Zuordnungen von Organisations-IDs. Somit erhalten diese Zugriff auf die
+Dateninhalte des Kunden und können somit Ihre Aufgaben, wie die Beratung
+auf ein neues Produkt, oder Verbesserung der Gesamtperformance, durchführen.
+Andersherum muss für einen Kunden mit mehreren gemieteten virtuellen Instanzen
+kein neuer Benutzer angelegt werden, stattdessen wird seinem bestehenden
+Benutzer eine weitere Organisations-ID hinzugefügt.
 
 Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
 für lokale User als auch für LDAP-User vergeben werden.  Sollte ein Unternehmen
