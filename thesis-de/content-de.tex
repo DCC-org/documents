@@ -2260,7 +2260,7 @@ Gesamt                        &   100\% &                       & 2,95 &        
 In der oben stehenden Tabelle erhält die Softwarelösung Datadog nur 2,95
 Gesamtpunkte, da diese Softwarelösung eine Kostenpflichtige Lizenz benötigt.
 Dies ist innerhalb des Projektes ein Kernkriterium, weshalb es als
-Softwarelösung nicht weiter verwendet. Gridster\hyp{}D3 ist bereits während der
+Softwarelösung nicht weiter verwendet werden kann. Gridster\hyp{}D3 ist bereits
 während der Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um
 eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem
 hat Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe der
@@ -2299,30 +2299,32 @@ Gesamt                        &   100\% &                       & 4,15 &        
 \label{nwa_ggz}
 \end{table}
 
-Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix\hyp{}Frontend
-durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von
-3,50 erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass
-es ohne einen Zabbix\hyp{}Server nicht verwendet werden kann. Der
-Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
-empfängt Metriken von Agents, bereitet diese auf und speichert diese Daten
-anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
-das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
-kann. Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
-Bei der Evaluierung der Graphite Softwarelösung, hat Graphite 3,75 Gesamtpunkte
-Abfrage die Datenbanken direkt angesprochen. Bei der Evaluierung der Graphite
-Softwarelösung, hat Graphite 3,75 Gesamtpunkte erhalten. Während der
-Implementierung von Graphite fiel auf, dass es deutlich komplexer ist als
-Grafana. Graphite besteht aus mehreren Diensten, welche bei der Installation
-konfiguriert und angepasst werden müssen, damit Graphite funktional ist. Wenn
-ein Dienst ausfallen sollte, so betrifft dies das gesamte Graphite-System und
-die Weboberfläche wäre nicht mehr erreichbar. Zusätzlich ist hier gerade in der
-Wartung der Dienste ein Mehraufwand, da der Administrator alle Dienste in Form
-von Abhängigkeit zueinander und Konfiguration kennen muss. Da Graphite aus
-mehreren Diensten besteht, benötigt Graphite auch mehr Systemressourcen als ein
-einzelner Dienst, wie es bei Grafana der Fall ist. Hierdurch bedingt, wird
-Graphite für die weitere Implementierung nicht verwendet. Grafana hat in der
-Nutzwertanalyse die meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von
-den Projektmitgliedern zuvor definierte Kriterien.
+Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix-Frontend
+durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von 3,50
+erhalten. Während der Evaluierung der Zabbix-Frontend fiel auf, dass es ohne
+einen Zabbix-Server nicht verwendet werden kann. Der Zabbix-Server ist ein von
+Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
+bereitet diese auf und speichert diese Daten anschließend in einem
+Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
+maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
+kann, somit besteht bei der Zabbix-Frontend Softwarelösung eine Abhängigkeit zu
+anderen Diensten, weshalb diese im Fehlerfall Probleme verursachen könnte.
+Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
+kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
+Abfrage die Datenbanken direkt angesprochen, nachdem diese in der Konfiguration
+hinzugefügt wurde. Bei der Evaluierung der Graphite Softwarelösung, hat
+Graphite 3,75 Gesamtpunkte erhalten. Während der Implementierung von Graphite
+fiel auf, dass es deutlich komplexer ist als Grafana. Graphite besteht aus
+mehreren Diensten, welche bei der Installation konfiguriert und angepasst
+werden müssen, damit Graphite funktional ist. Wenn ein Dienst ausfallen sollte,
+ betrifft dies das gesamte Graphite-System und die Weboberfläche wäre nicht
+mehr erreichbar. Zusätzlich ist gerade in der Wartung der Dienste ein
+Mehraufwand, da der Administrator alle Dienste in Form von Abhängigkeit
+zueinander und Konfiguration kennen muss. Da Graphite aus mehreren Diensten
+besteht, benötigt Graphite auch mehr Systemressourcen als ein einzelner Dienst,
+wie es bei Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die
+weitere Implementierung nicht verwendet. Grafana hat in der Nutzwertanalyse die
+meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von den
 Projektmitgliedern zuvor definierte Kriterien.
 \mr%
 
@@ -2367,7 +2369,7 @@ einen Hardwaredefekt haben könnten.
 Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
 sorgt dies für einen schnelleren Datenzugriff. SSDs haben jedoch, wie auch
 HDDs, einen Lebenszyklus, der bei SSDs schneller erreicht werden kann, als bei
-handelsüblichen HDDs. Der Administrator soll hier darüber benachrichtigt
+handelsüblichen HDDs. Der Administrator soll darüber benachrichtigt
 werden, sobald von einer SSD ein kritischer Schreib- oder Lesezyklus erreicht
 worden ist, um die SSD bereits vor dem Ausfall proaktiv austauschen zu können.
 Ebenfalls soll eine Statistik ausgegeben werden können, welche SSD von welchem
