@@ -1839,6 +1839,11 @@ werden:
   nur die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
   abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
   durch die Weboberfläche verursacht werden können.
+  \1 Die verwendete Datenvisualisierungssoftware muss API Anfragen ausführen
+  können. Dies dient zum einen der Sicherheit, da auf die Datenhaltung nur
+  lesender Zugriff gewährleistet werden kann, so können hier Daten in der
+  Datenhaltung nicht verändert oder angepasst werden werden und zum anderen
+  kann hier bereits die Performance der Datenvisualisierung verbessert werden.
   \1 Plugin-Erweiterung. Die Datenvisualisierung muss eine Plugin-Erweiterung
   unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
   bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
@@ -3134,6 +3139,14 @@ werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
 dem Grafana Symbol > Admin > Global Users weitere User angelegt werden und
 Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
+Für die im Projekt verwendete Datenerhaltung, welche über eine API
+Schnittstelle realisiert wurde, ist die Erstellung eines eigenen Users pro
+Kunde wichtig, da jeweils pro User eine OrgID für die Dashboards definiert
+werden. Diese OrgID ist für die API, wie in
+Abschnitt~\ref{subsec:zusammenspiel_api_frontend} die eindeutige Zuordnung zum
+Kunden, damit hier ein Kunde nur seine eigenen Server und nicht die von anderen
+Kunden einsehen kann.
+
 Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
 für lokale User als auch für LDAP-User vergeben werden.  Sollte ein Unternehmen
 die LDAP-Anbindung für die Authentifizierung an Grafana wünschen, so muss hier
