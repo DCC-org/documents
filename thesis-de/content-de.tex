@@ -2458,14 +2458,14 @@ des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeine
 zu verbessern. So können zum Beispiel bestimmten virtuellen Maschinen zu einem
 gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
 die Ressourcen verwenden können. In den Monaten in dem keine große Nachfrage
-der Webseite besteht, können hier weniger Ressourcen dr virtuellen Maschine
+der Webseite besteht, können hier weniger Ressourcen der virtuellen Maschine
 zugewiesen werden. Dies hat den Vorteil, dass spezielle Vertäge dem Kunden
 angeboten werden können. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
   dargestellt werden
-  \1 Ressourcen, welche benötigt werden können direkt bereits ab Beginn
+  \1 Ressourcen, welche benötigt werden, können direkt bereits ab Beginn
   zugewiesen werden
 \end{outline}
 
@@ -2485,7 +2485,7 @@ Folgenden finden sich die Akzeptanzkriterien:
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
   \1 Zeitspanne der Visualisierung kann über den Benutzer angepasst werden
-  \1 Die Graphen, der Visualisierung kann über den benutzer oder dem
+  \1 Die Graphen, der Visualisierung kann über den Benutzer oder dem
   Administrator angepasst werden
 \end{outline}
 
@@ -3129,7 +3129,7 @@ systemctl enable grafana.service
 Nachdem der \texttt{grafana.service} gestartet wurde, kann das Webinterface
 über einen Browser bereits aufgerufen werden. Der Aufruf hierzu lautet wie
 folgt: \texttt{http://<FQDN-of-your-grafana-server>:3000}. Bei der Installation
-von Grafana wird bereits ein vordefinierter Administrator User mit Passwort
+von Grafana wird bereits ein vordefinierter Administrator Benutzer mit Passwort
 festgelegt. Die Zugangsdaten hierzu lauten:
 
 \begin{outline}
@@ -3176,7 +3176,7 @@ Tabellen oder auch \glslink{singlestat}{Singlestats}. Diese können je nach
 Verwendungszweck hinzugefügt werden. Eine Beschränkung, wieviele Graphen
 maximal auf einem Dashboard angelegt werden können, ist laut der Dokumentation
 von Grafana nicht definiert, jedoch kann dies die Performance des Webinterfaces
-für den Administrator oder User negativ beeinflussen.
+für den Administrator oder Benutzer negativ beeinflussen.
 
 Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
 werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
@@ -3184,11 +3184,11 @@ werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
 grundsätzliche Aufbau, die Metrik, die Axen und diverse weitere
 Konfigurationsmöglichkeiten Einstellungen für diesen Graphen definiert werden
 können. Hier wird zunächst die Metrik des Graphen angepasst, damit die ersten
-Graphen visuell dargestellt werden können. Unter dem Abschnitt "Graphen
-definieren~\ref{subsec:graphen-definieren}" wird hier genauer auf die
+Graphen visuell dargestellt werden können. Unter dem
+Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die
 Erstellung von Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage
 für die Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die
-hier abgefragten Daten wurden aus einer InfluxDB erhalten:
+in dem Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 \begin{figure}[H]
   \centering
@@ -3201,10 +3201,10 @@ Nachstehend können noch diverse Feinkonfigurationen für einen Graphen
 spezifisch vorgenommen werden. Dieses Vorgehen wird nun für jeden Graphen
 erstellt, dessen Werte visualisiert werden sollen. Nachdem alle Graphen
 erstellt worden sind, muss das Dashboard abgespeichert werden, damit die
-Konfigurationn nicht verloren gehen können. Sollte das Speichern vom
+Konfigurationn nicht verloren gehen. Sollte das Speichern vom
 Administrator vergessen werden, so warnt Grafana bei dem Wechsel eines
 Dashboards, das die Konfigurationen verloren gehen, falls diese nicht
-abgespeichert werden.  Damit wie in dem Projekt gefordert eine API
+abgespeichert werden. Damit wie in dem Projekt gefordert eine API
 Schnittstelle angesprochen werden kann, benötigt dies eine Plugininstallation.
 Es stehen viele verschiedene Plugins auf der Grafana Webseite zur Verfügung. Zu
 jedem Plugin gibt es hier eine kurze Erläuterung, sowie eine Schritt für
@@ -3212,7 +3212,7 @@ Schritt Anleitung zur Installation dieses Plugins. Die Plugins werden hier über
 einen Kommandozeilenbefehl installiert.
 
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
-werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
+werden. Um weiteren Benutzern Zugriff zu dem Dashboard zu gewähren, können unter
 dem Reiter Admin > Global Users weitere User angelegt werden und
 Zugriff auf das Webinterface von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
@@ -3232,7 +3232,7 @@ stattdessen wird seinem bestehenden Benutzer eine weitere Organisations-ID
 hinzugefügt.
 
 Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
-für lokale User als auch für LDAP\hyp{}User vergeben werden.  Sollte ein
+für lokale User als auch für LDAP\hyp{}User vergeben werden. Sollte ein Unternehmen
 Unternehmen die LDAP\hyp{}Anbindung für die Authentifizierung an Grafana
 wünschen, so muss hier in dem Verzeichnis von der Grafana\hyp{}Installation die
 Datei grafana.ini angepasst werden. Alle Einstellungen, die hier vorgenommen
@@ -3277,8 +3277,8 @@ Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation stellte sich
 heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
-übergeben. Das Puppet Profil prüft hier den Login auf das Webinterface nicht,
-da es davon ausgeht, dass das die Anmeldemaske des Webinterface unmittelbar
+übergeben. Das Puppet Profil prüft den Login auf das Webinterface nicht,
+da es davon ausgeht, dass die Anmeldemaske des Webinterface unmittelbar
 nach dem Neustart von Grafana erreichbar ist. Das Problem liegt hier nicht in
 der grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
@@ -3288,9 +3288,10 @@ erstellt (vgl.~\cite{grafana-issue}).
 
 \subsection{Graphen definieren}
 \label{subsec:graphen-definieren}
-Soabld die Grundkonfiguration von Grafana wie im Abschnitt "Realisierung
-Grafana~\ref{sec:realisierung_grafana}" beschrieben durchgeführt worden ist,
-können als nächstes Graphen visualisiert werden.
+Soabld die Grundkonfiguration von Grafana wie im
+Abschnitt~\ref{sec:realisierung_grafana}" beschrieben durchgeführt worden ist,
+können als nächstes die Graphen konfiguriert werden, damit diese Graphen
+visualisieren können.
 \mr%
 
 \subsubsection{General}
