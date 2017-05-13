@@ -1820,18 +1820,18 @@ verbunden (vgl.~\cite{kaiser2008c}).
 
 Innerhalb der Datenvisualisierungslösung werden dem Benutzer oder dem
 Administrator verschiedene Graphen von beispielsweise CPU\hyp{}Auslastung,
-RAM-Auslastung oder SSD\hyp{}Schreibzugriffe visualisiert. Diese Graphen können
-entweder in Linerar- oder Balkenform dargestellt werden. Lineare Graphen haben
-eine X- und Y-Achse und besitzen zusätzlich einen Anfang und einen wachsenden
-Endpunkt. Er wird mittels Metrik (siehe
+RAM\hyp{}Auslastung oder \gls{SSD}-Schreibzugriffe visualisiert. Diese Graphen
+können entweder in Linerar- oder Balkenform dargestellt werden. Lineare Graphen
+haben eine X- und Y-Achse und besitzen zusätzlich einen Anfang und einen
+wachsenden Endpunkt. Er wird mittels Metrik (siehe
 Abschnitt~\ref{section:Begriffserklärung}), welche das Webinterface aus den
-Datenhaltungssystemen abgreift, erstellt. Diese kann vom Administrator ebenfalls
-nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme haben nur
-eine X-Achse, bei der der gewünschte Analysewert eingetragen ist und werden zum
-Beispiel für ausgefallene SSDs in einem bestimmten Zeitraum verwendet. Diese
-werden über die Metrik aus dem Datenhaltungssystem abgegriffen und dem
-Administrator über eine Übersicht angezeigt. Ein Graph- bzw. Balkendiagramm
-visualisiert immer eine oder mehrere Timeseries (siehe
+Datenhaltungssystemen abgreift, erstellt. Diese kann vom Administrator
+ebenfalls nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme
+haben nur eine X-Achse, bei der der gewünschte Analysewert eingetragen ist und
+werden zum Beispiel für ausgefallene \glslink{SSD}SSDs in einem bestimmten
+Zeitraum verwendet. Diese werden über die Metrik aus dem Datenhaltungssystem
+abgegriffen und dem Administrator über eine Übersicht angezeigt. Ein Graph-
+bzw. Balkendiagramm visualisiert immer eine oder mehrere Timeseries (siehe
 Abschnitt~\ref{section:Begriffserklärung}).
 
 \subsection{Vorbereitung der Evaluierung}
@@ -2363,19 +2363,20 @@ einzelnen Tickets arbeiten können.
 \tm%
 
 \section{SSD Userstory}
-\textbf{Name der Story:} Der Administrator möchte eine Anzeige der SSDs, welche
-einen Hardwaredefekt haben könnten.
+\textbf{Name der Story:} Der Administrator möchte eine Anzeige der
+\glslink{SSD}{SSDs}, welche einen Hardwaredefekt haben könnten.
 
 \textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame Hard Disk
 Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
-sorgt dies für einen schnelleren Datenzugriff. SSDs haben jedoch, wie auch
-HDDs, einen Lebenszyklus, der bei SSDs schneller erreicht werden kann, als bei
-handelsüblichen HDDs. Der Administrator soll darüber benachrichtigt
-werden, sobald von einer SSD ein kritischer Schreib- oder Lesezyklus erreicht
-worden ist, um die SSD bereits vor dem Ausfall proaktiv austauschen zu können.
-Ebenfalls soll eine Statistik ausgegeben werden können, welche SSD von welchem
-Hersteller in der Wahrscheinlichkeit am häufigsten ausfällt. Im Folgenden
-finden sich die Akzeptanzkriterien:
+sorgt dies für einen schnelleren Datenzugriff. \glslink{SSD}{SSDs} haben
+jedoch, wie auch\glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
+\glslink{SSD}{SSDs} schneller erreicht werden kann, als bei handelsüblichen
+\glslink{HDD}{HDDs}. Der Administrator soll darüber benachrichtigt werden,
+sobald von einer \gls{SSD} ein kritischer Schreib- oder Lesezyklus erreicht
+worden ist, um die \gls{SSD} bereits vor dem Ausfall proaktiv austauschen zu
+können.  Ebenfalls soll eine Statistik ausgegeben werden können, welche
+\gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
+ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
