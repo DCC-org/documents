@@ -1855,77 +1855,60 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
 Kosten
 \begin{outline}
-  \1 Die genutzten Softwarelösungen müssen eine Open\hyp{}Source\hyp{}Lizenz besitzen, um
-  hier unabhängig von kostenpflichtigen Lizenzen und Copyright\hyp{}Rechten zu sein.
-  Ebenfalls ist eine Open\hyp{}Source\hyp{}Software nötig, da hier der Quelltext der
-  Software angepasst und verändert werden darf.
+  \1 Wie bereits in der Grundanforderung unter
+  Abschnitt~\ref{section:anforderungen} definiert, muss die zu evaluieriende
+  Softwarelösung eine Open\hyp{}Source\hyp{}Lizenz besitzen, damit der Quellcode
+  angepasst werden kann und keine (Folge-)Kosten innerhalb des Projekts und
+  somit beim Kunden anfallen können.
 \end{outline}
 
 Sicherheit
 \begin{outline}
-  \1 Um die Sicherheit und den zugriff auf das Webinterface gewährleisten zu
-  können, muss an die Datenvisualisierung die Anforderung gestellt werden, das
-  sie eine Authentisierung, Authentifizierung und Autorisierung unterstützt.
-  eigene Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
-  kann entweder über einen lokalen Administrator, als auch über eine
-  LDAP\hyp{}Anbindung (Lightweight Directory Access Protocol) verfügen, um hier z.B.
-  Unternehmensverzeichnisse anbinden zu können.
+  \1 Um den Zugriff und damit auch die Sicherheit des Webinterfaces zu
+  schützen, muss eine Authentisierung, Authentifizierung und Autorisierung
+  seitens von der Datenvisualisierung unterstützt werden.  Diese dienen in
+  erster Linie die Daten, sowie die Anmeldung an dem Webinterface selbst vor
+  unautorisiertem Zugriff durch Dritte zu schützen. Der Zugriff auf das
+  Webinterface soll mit einer Transportverschlüsselung durch \gls{HTTPS}
+  durchgeführt werden und je nach Kundenanforderung auch eigene
   Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung kann
-  entweder über einen lokalen Administrator, als auch über eine LDAP-Anbindung
-  (Lightweight Directory Access Protocol) verfügen, um hier zum Beispiel
-  Unternehmensverzeichnisse der Kunden anbinden zu können. Hierrüber soll
-  ebenfalls eine Rechtevergabe innerhalb der Datenvisualisierung möglich sein.
+  entweder über einen lokalen Administrator, als auch über eine
+  \gls{LDAP}-Anbindung verfügen, um zum Beispiel Unternehmensverzeichnisse der
+  Kunden anbinden zu können. Hierrüber soll ebenfalls eine Rechtevergabe
+  innerhalb der Datenvisualisierung möglich sein.
 \end{outline}
 
 Skalierung
 \begin{outline}
   \1 Die Datenvisualisierung muss eine Plugin-Erweiterung unterstützen. Es
   dient dazu, dass im späteren Verlauf, wenn das Produkt bereits beim Kunden
-  abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
-  durch die Weboberfläche verursacht werden können.
-  \1 Plugin\hyp{}Erweiterung. Die Datenvisualisierung muss eine Plugin\hyp{}Erweiterung
-  unterstützen. Es dient dazu, dass im späteren Verlauf, wenn das Produkt
-  bereits beim Kunden eingesetzt wird, auf bestimmte Kundenwünsche direkt
-  eingegangen werden kann. Diese können dann mit schon zur Verfügung gestellten
-  Plugins zum Beispiel in der Community oder aber durch selbst programmierte
-  Plugins realisiert werden. Die Weboberfläche sollte jedoch auch andere
-  Sprachen unterstützen, um so eine Unabhängigkeit von Entwicklern
-  gewährleisten zu können. Unternehmen müssen so nicht auf spezielle Entwickler
-  von bestimmten Sprachen zurückgreifen.
-  Verfügung gestellten Plugins zum Beispiel in der Community oder aber durch
-  selbst programmierte Plugins realisiert werden. Die Weboberfläche sollte
-  jedoch auch andere Sprachen unterstützen, um so eine Unabhängigkeit von
-  Entwicklern gewährleisten zu können. Unternehmen müssen so nicht auf
-  spezielle Entwickler von bestimmten Sprachen zurückgreifen.
-  \1 Die Datensicherung ist bei der Datenvisualisierung ein wesentlicher
-  Aspekt. Dabei muss die Weboberfläche bereits Möglichkeiten bieten, eine
-  Datensicherung des \glslink{Dashboard}{Dashboards} durchführen zu können. Das
-  Dashboard beinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen
-  über ein externes System (Dateifreigabeserver oder ähnlichem) abgelegt werden
-  und können somit einfach dupliziert und gesichert werden.
+  eingesetzt wird, auf bestimmte Kundenwünsche direkt eingehen zu können. Es
+  sollte bereits schon eine Auswahl von Pluginerweiterungen in der Community
+  für die Datenvisualisierung geben. Ebenso sollte es möglich sein, eigene
+  Plugins entwickeln und implementieren zu können.
   \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
   gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen
   Endanwenderspezifisch schnell und einfach angepasst werden können. Ebenso
-  muss die Anbindung an eventuell schon vorhandene Datenbanksysteme beim Kunden
-  durchgeführt werden können.
+  soll die Anbindung an eventuell schon vorhandenen Datenbanksystemen beim
+  Kunden realisiert werden können, welche keinen direkten Bezug zu diesem
+  Projekt haben.
 \end{outline}
 
 Performance
 \begin{outline}
-  \1 Die Performance der Datenvisualisierung darf nicht außer acht gelassen
-  werden. Ein wichtiges Kernkriterium ist hierbei, dass der Administrator eine
-  gewisse Zeitspanne vordefinieren kann, in welcher die Graphen neu
-  visualisiert und Daten aus dem Datenhaltungssystem abgerufen werden können.
-  Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen überlastet
-  wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
-  unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
+  \1 Da auf das Datenhaltungssystem nicht nur das Webinterface zugreift,
+  sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es hier
+  zu massiven Performance-Problemen kommen, die durch die Schnittstelle des
+  Webinterface verursacht werden können. Ein wichtiges Kernkriterium ist hier,
+  dass der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher
+  die Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
+  werden können.  Dies dient dazu, dass das Datenhaltsungssystem nicht mit
+  Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
+  Acht unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
   visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen Werten.
   Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
-  Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht nur
-  die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
-  abzuspeichern, kann es hier zu massiven Performance-Problemen kommen, die
-  durch die Weboberfläche verursacht werden können.
+  Datenhaltungssystem senden werden.
 \end{outline}
 
 Dokumentation
