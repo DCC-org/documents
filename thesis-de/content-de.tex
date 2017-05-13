@@ -1690,10 +1690,12 @@ ausgeschlossen.
 Nachdem die Evaluierung der Datenvisualisierung im
 Abschnitt~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
 abgeschlossen war, wurde dessen Zusammenspiel mit der API überprüft.
-Dabei schaute sich Herr Luis speziell die Syntax zwischen den beiden
-Softwareprodukten an. Die Syntax definiert dabei den Aufbau einer Datenanfrage
-und die daraus resultierende Datenzulieferung. Beide Definitionen muss die API
-eins zu eins übernehmen, andernfalls wäre eine Kommunikation der beiden
+Dabei schaute sich Herr Luis speziell die Kommunikation zwischen den beiden
+Softwareprodukten an. Mit der Kommunikation ist der Aufbau einer Datenanfrage
+und die daraus resultierende Datenzulieferung gemeint. Der von der
+Datenvisualisierungs-Software definierte Kommunikations-Aufbau muss die API
+eins zu eins übernehmen, andernfalls wäre eine vollständige Kommunikation,
+und somit die Übertragung der benötigten Informationen, der beiden
 Softwareprodukte nicht möglich.
 
 Neben der technischen Syntax wurde ebenfalls die Informationsinhalte, welche
@@ -1708,10 +1710,10 @@ einen Administrator, welcher zum Beispiel alle Server sehen darf, oder ob Daten
 an einen Kunden, welcher zum Beispiel nur seinen eigenen Server sehen darf,
 zurück gesendet werden sollen.
 
-Um diese Problematik zu lösen, hat das Projektteam den sogenannten
-„Header“-Bereich (auf Deutsch Kopf-Bereich), welcher bei jeder Internetanfrage
-vorhanden ist, genauer untersucht. In diesem steht in der Regel die Herkunft
-der Webseiten-Anfrage und weitere Informationen wie der genutze Browser des
+Um diese Problematik zu lösen, hat das Projektteam den „Header“-Bereich
+(auf Deutsch Kopf-Bereich), welcher bei jeder \gls{HTTP}- oder
+\gls{HTTPS}-Anfrage vorhanden ist, genauer untersucht. In diesem steht
+die Herkunft der Anfrage und weitere Informationen wie der genutze Browser des
 Internetbenutzers. Speziell bei der Anfrage von der Datenvisualisierung an die
 API steht in dem Header-Bereich immer die Organisations-ID von dem anfragenden
 Benutzer. Die Organisations-ID ist bei der für das Projekt ausgewählten
@@ -2803,9 +2805,9 @@ einem definierten Bereich innerhalb des Postgres-Systems die
 Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
 Prozesse aus Abschnitt~\ref{subsec:postgres_etl} und
 Abschnitt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
-von dem in Abschnitt~\ref{sec:api_system} definierte API-System verwendet.
-Dieser besitzt keinen direkten Lese- oder Schreibezugriffe auf die in dem
-definierten Datentopf vorhandenen Tabellen. Er erhält lediglich ausführende
+von dem in Abschnitt~\ref{sec:api_system} definierten API-System verwendet.
+Dieser besitzt keine direkten Lese- oder Schreibrechte auf die in der
+definierten Bibiliothek vorhandenen Tabellen. Er erhält lediglich ausführende
 Rechte auf die im Abschnitt~\ref{subsec:postgres_datenschutz} erstellten
 Funktionen. Vierter Nutzer wird für den im Abschnitt~\ref{subsec:postgres_etl}
 beschriebenen ETL-Prozess im Wirkbetrieb genutzt. Er besitzt ausschließlich
@@ -2864,20 +2866,18 @@ den Fehler beseitigen oder die Daten manuell in das Datenhaltsungssystem
 überführen.
 
 Neben den angesprochenen Inhalten wurde im Transformations-Teil eine
-Aggregation der Daten zugunsten des Speicherplatzes definiert. Dabei
-vergleicht der Algorithmus den neuen Datensatz mit dem aktuellsten
-Datensatz in der gleichen Stunde. Voraussetzung dabei ist, dass der
-aktuellste Datensatz in der Datenhaltung die gleichen Eigenschaften besitzt wie
-der neue Datensatz. Sollte dabei der Wert „Value“, dass ist der Wert
-in welchem der aktuelle Verbrauch der CPU, RAM, et cetera, identisch sein,
-wird der neue Datensatz fallen gelassen und nicht in die Datenbank geschrieben.
-Dies hat den Effekt, dass wenn der Server zum Beispiel für eine Minute eine
-Auslastung von Null Prozent besitzt, für diese Minute nur ein einziger
-Datensatz in der Datenhaltung existiert. Die in dem ETL Prozess fallen
-gelassenen Werte kann man entsprechend bei der Ausgabe wieder berechnen.
-Dadurch das jede Stunde mindestens ein Datensatz von jedem angebunden Server
-in die Datenhaltung geschrieben wird, kann ebenfalls zwischen einem
-ausgeschaltenden Server und einem Server ohne Nutzung unterschieden werden.
+Aggregation der Daten zugunsten des Speicherplatzes definiert. Sofern
+bei aufeinanderfolgenden Datensätzen innerhalb einer Stunde der
+Ressourcentyp, das System und der Wert identisch ist, wird nur der erste
+Datensatz gespeichert. Oftmals laufen Systeme über Stunden ohne eine messbare
+Auslastung, somit kann bei der Speicherung auf diese Datensätze verzichtet
+werden. Das selbe Prinzip wird für Systeme angewandt, welche eine konstante
+gleiche Auslastung besitzen. Bei diesen muss ebenfalls nur der erste Datensatz
+innerhalb der Stunde gespeichert werden. Bei der Datenabfrage werden die
+fehlenden Datensätze dynamisch errechnet. Dadurch das jede Stunde mindestens
+ein Datensatz von jedem angebunden Server in die Datenhaltung gespeichert wird,
+kann ebenfalls zwischen einem ausgeschaltenden Server und einem Server ohne
+Nutzung unterschieden werden.
 
 Ist der Transformations-Teil bei einem Datensatz vollständig durchgelaufen,
 beginnt der Lade-Teil. Dabei übergibt der Transformations-Algorithmus den
@@ -3006,8 +3006,8 @@ definieren und durchführen kann.
 
 Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
 definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
-von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt.
-(siehe auch Abschnitt~\ref{subsec:zusammenspiel_api_frontend}) Da
+von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt
+(siehe auch Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da
 sich das Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert,
 wurde mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet
 Grafana nur mit vier URL's (Endpunkte) der API\@. Die erste ist dafür zuständig
