@@ -2825,17 +2825,17 @@ dabei auf jedem System, welches verwaltet werden soll. Unterstützt werden neben
 Linux\hyp{}Distributionen auch Windows, BSD, sowie diverse Hersteller von
 Netzwerkequipment. Periodisch ermittelt der Agent \glslink{Fact}{Facts} und
 sendet diese über eine \gls{HTTPS}-Verbindung zum Puppetserver. Anhand dieser
-Facts wird entschieden, welche Module zu einem Katalog zusammenkompiliert
-werden. Der Katalog wird dem Agent zurückgeschickt. Dieser analysiert sein
-vorhandenes System und gleicht es mit den Beschreibungen im Katalog ab. Sobald
-es hier zu Differenzen kommt, wird das System dem Katalog angeglichen. Jede
-durchgeführte Aktion kann reportet werden. Reports können lokal gespeichert
-oder zu einer zentralen Datenbank gesendet werden. Die Firma Puppet bietet
-außerdem die quelloffene PuppetDB an. Diese kann Reports speichern. Über eine
-\gls{RESTful} \gls{API} kann man alle Reports analysieren und Abfragen.
-Zusätzlich können alle Facts dort gespeichert werden. Ein „Puppet Run“
-beschreibt den kompletten Ablauf vom Auslesen der Facts bis zum Erstellen
-des Reports.
+\glslink{Fact}{Facts} wird entschieden, welche Module zu einem Katalog
+zusammenkompiliert werden. Der Katalog wird dem Agent zurückgeschickt. Dieser
+analysiert sein vorhandenes System und gleicht es mit den Beschreibungen im
+Katalog ab. Sobald es hier zu Differenzen kommt, wird das System dem Katalog
+angeglichen. Jede durchgeführte Aktion kann reportet werden. Reports können
+lokal gespeichert oder zu einer zentralen Datenbank gesendet werden. Die Firma
+Puppet bietet außerdem die quelloffene PuppetDB an. Diese kann Reports
+speichern. Über eine \gls{RESTful} \gls{API} kann man alle Reports analysieren
+und Abfragen. Zusätzlich können alle \glslink{Fact}{Facts} dort gespeichert
+werden. Ein „Puppet Run“ beschreibt den kompletten Ablauf vom Auslesen der
+\glslink{Fact}{Facts} bis zum Erstellen des Reports.
 
 Puppet kann auch ohne Puppetserver genutzt werden. Hier erfolgt der komplette
 Ablauf dann lokal. Die Module müssen auf dem Server vorhanden sein auf dem auch
