@@ -851,7 +851,8 @@ Transformationen und Ausgabemöglichkeiten ist Logstash sehr flexibel und passt
 sich an jede Situation an. Dadurch dass Daten über mehrere Ausgänge parallel
 verarbeitet werden können, ist die Software sehr zukunftssicher. Bei geänderten
 Anforderungen lassen sich die Daten zum Beispiel anstatt in eine
-SQL\hyp{}basierte Datenbank in eine No\hyp{}SQL\hyp{}Datenbank schreiben.
+\gls{SQL}\hyp{}basierte Datenbank in eine No\hyp{}\gls{SQL}\hyp{}Datenbank
+schreiben.
 \tm%
 
 \subsection{Riemann}
@@ -1074,14 +1075,14 @@ Elasticsearch ist eine in Java geschriebene, verteilte Suchmaschine mit einer
 Die komplette Interaktion mit der Suchmaschine erfolgt über
 \glslink{RESTful}{REST}, hierzu zählt nicht nur das eigentliche Suchen, sondern
 auch die Administration der Software selbst und das Eintragen neuer Daten.
-Elasticsearch beschreibt sich selbst als eine dokumentenbasierte No\hyp{}SQL
-Datenbank. Dies bedeutet, das es keine Tabellen mit Relationen gibt. Jeder
-Datensatz ist ein Dokument, welches als \gls{JSON} gespeichert wird. Ein
-Dokument basiert aus Key->Value Paaren, diese können auch geschachtelt sein.
-Elasticsearch erzeugt mit Hilfe der \gls{Lucene} Bibliothek Indexe auf diesen
-Daten, anschließend ist dann eine Volltextsuche möglich. Die Firma
-Elasticsearch BV aus den Niederlanden finanziert die Entwicklung der Software.
-Als Lizenz hat sich die Firma für die Apache License entschieden.
+Elasticsearch beschreibt sich selbst als eine dokumentenbasierte
+No\hyp{}\gls{SQL} Datenbank. Dies bedeutet, das es keine Tabellen mit
+Relationen gibt. Jeder Datensatz ist ein Dokument, welches als \gls{JSON}
+gespeichert wird. Ein Dokument basiert aus Key->Value Paaren, diese können auch
+geschachtelt sein. Elasticsearch erzeugt mit Hilfe der \gls{Lucene} Bibliothek
+Indexe auf diesen Daten, anschließend ist dann eine Volltextsuche möglich. Die
+Firma Elasticsearch BV aus den Niederlanden finanziert die Entwicklung der
+Software. Als Lizenz hat sich die Firma für die Apache License entschieden.
 
 Unter Listing~\ref{lst:elasticsearch-clone} befindet sich eine kurze Analyse
 des \gls{Git}-\glslink{Repository}{Repositorys} vom 27.11.2016. Die
@@ -1408,7 +1409,7 @@ Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
 Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop\hyp{}Systems.
 Dies ist zum einem die Bereitstellung von einem standardisierten Treiber für
 den externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit
-dem bekannten Namen „SQL“. Jedoch implementiert Apache Hive auf dem
+dem bekannten Namen „\gls{SQL}“. Jedoch implementiert Apache Hive auf dem
 Hadoop\hyp{}System auch Funktionen wie das Reporten von Inhalten über eine
 wählbare Schnittstelle wie zum Beispiel dem Versand einer eMail oder Anzeige
 auf einer Internetwebseite.
@@ -1441,9 +1442,9 @@ Datenhaltungssystem. In der Hadoop\hyp{}Landschaft wird es unter dem Begriff
 Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
 Implementierung, wie im Abschnitt~\ref{subsubsec:hadoop_beschreibung}. Apache
 Impala stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine
-spezialisierte Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf
-den konsolidierten Metadaten des Hadoop\hyp{}Systems, benötigt jedoch auch die
-Verknüpfung (Interface) eines Strukturmodells. In den meisten Fällen kommt
+spezialisierte Abfragesprache auf Basis von „\gls{SQL}“. Apache Impala arbeitet
+auf den konsolidierten Metadaten des Hadoop\hyp{}Systems, benötigt jedoch auch
+die Verknüpfung (Interface) eines Strukturmodells. In den meisten Fällen kommt
 dabei Apache Hive zum Einsatz. Apache Impala kann die Inhalte von Apache Hive
 Eins\hyp{}zu\hyp{}eins übernehmen und ausführen. Es kann jedoch auch ohne einem
 Apache Hive Systems ausgeführt werden.
@@ -1452,25 +1453,25 @@ Apache Impala wird eingesetzt, um die Schnelligkeit der Datenabfragen auf einem
 Hadoop\hyp{}System zu verbessern. Es wird dabei auf jedem Data Node
 installiert.  Dabei erhalten die Data Nodes neben der eigentlichen
 Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
-Datenbankabfragen (SQL). Konkret wird auf jedem Data Node ein „Query Planer“,
-„Query Coordinator“ und „Query Executor“ bereitgestellt. Der Query Planer hält
-dabei die Kommunikation mit der SQL\hyp{}Applikation innerhalb des Netzwerkes.
-Dieser gibt definierte Datenabfragen von Benutzern an einen beliebigen Data
-Node weiter. Nachdem der Query Planer die Datenabfrage erhalten hat,
-kommuniziert er dies an den Query Coordinator, welcher wiederrum alle
-umliegenden Data Nodes um Unterstützung bei der Datenabfrage bittet. Dies
+Datenbankabfragen (\gls{SQL}). Konkret wird auf jedem Data Node ein
+„Query Planer“, „Query Coordinator“ und „Query Executor“ bereitgestellt. Der
+Query Planer hält dabei die Kommunikation mit der \gls{SQL}\hyp{}Applikation
+innerhalb des Netzwerkes. Dieser gibt definierte Datenabfragen von Benutzern an
+einen beliebigen Data Node weiter. Nachdem der Query Planer die Datenabfrage
+erhalten hat, kommuniziert er dies an den Query Coordinator, welcher wiederrum
+alle umliegenden Data Nodes um Unterstützung bei der Datenabfrage bittet. Dies
 geschieht über den Query Executor, welcher, wie schon der Name sagt, die
 Abfrage auf dem Hadoop\hyp{}HDFS\hyp{}System ausführt und die Daten zurück an
 den Query Coordinator liefert. Die von dem Query Coordinator zusammengesetzten
-Daten liefert dieser anschließend an die SQL\hyp{}Applikation zurück und der
-gesamte Prozess ist abgeschlossen.
+Daten liefert dieser anschließend an die \gls{SQL}\hyp{}Applikation zurück und
+der gesamte Prozess ist abgeschlossen.
 
 Durch das Nutzen von dem Arbeitsspeicher auf den Data Nodes, sowie der
 gleichzeitigen Nutzung des Hadoop\hyp{}Map\hyp{}Reduce\hyp{}Verfahrens, werden
 die Datenabfragen um ein Vielfaches beschleunigt. Da die Leistung des Clusters
 durch mehrere Faktoren beeinflusst wird, kann keine exakte Angabe der
 Performanceverbesserung geliefert werden. Diese Faktoren sind zum Beispiel die
-Schreibweise der SQL\hyp{}Syntax, da ein nicht optimierter Code die
+Schreibweise der \gls{SQL}\hyp{}Syntax, da ein nicht optimierter Code die
 Performanceverbesserung wieder mindern kann. Fakt ist jedoch, dass mit einem
 korrekt aufgesetzten Cluster System der Einsatz von Apache Impala die
 Performance der Datenlandschaft optimiert.
@@ -2528,12 +2529,13 @@ Message\hyp{}Bus\hyp{}Software RabbitMQ, weshalb diese für den ersten
 Prototypen gewählt wurde.
 
 Der Messagebus wird zwischen collectd und der Datenbank installiert. Collectd
-ist nicht in der Lage, direkt SQL zu sprechen. SQL ist allerdings die einzige
-Schnittstelle, welche von Postgres bereitgestellt wird. Die Daten müssen also
-transformiert werden. Hierfür bietet sich das bereits zuvor evaluierte Logstash
-an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin, um vom Bus zu lesen
-(vgl~\cite{logstash-rabbitmq}). Zusätzlich existiert ein Plugin, um über JDBC
-mit Datenbanken zu kommunizieren (vgl.~\cite{logstash-jdbc}).
+ist nicht in der Lage, direkt \gls{SQL} zu sprechen. \gls{SQL} ist allerdings
+die einzige Schnittstelle, welche von Postgres bereitgestellt wird. Die
+Daten müssen also transformiert werden. Hierfür bietet sich das bereits zuvor
+evaluierte Logstash an (~\ref{subsec:logstash}). Logstash besitzt ein Plugin,
+um vom Bus zu lesen (vgl~\cite{logstash-rabbitmq}). Zusätzlich existiert ein
+Plugin, um über JDBC mit Datenbanken zu kommunizieren
+(vgl.~\cite{logstash-jdbc}).
 \tm%
 
 \section{JVM}
@@ -2592,8 +2594,8 @@ Die Vorteile sind:
   \1 Sehr einfache Implementierung der JDBC, da ein Großteil der Arbeit von
   der ODBC übernommen wird.
   \1 Sehr einfacher Austausch der ODBC, da die Schnittstelle generisch ist.
-  \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC\hyp{}Schnittstelle, somit
-  ergibt sich eine lange Liste an alternativen \gls{DBMS}, welche genutzt
+  \1 Jede Datenbank, die \gls{SQL} nutzt, bietet eine ODBC\hyp{}Schnittstelle,
+  somit ergibt sich eine lange Liste an alternativen \gls{DBMS}, welche genutzt
   werden können.
 \end{outline}
 
@@ -2635,8 +2637,8 @@ werden.
 Die Vorteile sind:
 
 \begin{outline}
-  \1 Die Middleware kann sich dediziert um SQL kümmern und von Fachleuten auf
-  dem Gebiet entwickelt werden.
+  \1 Die Middleware kann sich dediziert um \gls{SQL} kümmern und von Fachleuten
+  auf dem Gebiet entwickelt werden.
   \1 Datenbanklogik muss nicht in der eigentlichen Applikation implementiert
   werden. Die Entwickler der Applikation können sich auf die Features der
   Applikation konzentrieren.
@@ -3285,15 +3287,15 @@ Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung,
 sowie eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die
 Plugins werden hier über einen Kommandozeilenbefehl installiert. Anschließend
 kann unter Datenquelle die HTTPS\hyp{}~\gls{API} angesprochen werden. Sie wird
-nicht mittels einer SQL\hyp{}Abfrage abgerufen, sondern über eine \gls{HTTPS}
-Schnittstelle. Innerhalb der ~\gls{API} werden bereits vordefinierte Werte
-zurückgegeben. Wenn hier als Datenquelle eine Datenbank angesprochen werden
-soll, so kann hier zunächst eine Art \texttt{SELECT} \gls{SQL}\hyp{}Abfrage
-hinterlegt werden. Innerhalb der SQL\hyp{}Abfrage wird definiert, von wo die
-erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen. Ebenfalls
-kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb einer Gruppe zusammen
-definiert werden. Ein Beispiel hierzu ist dem
-Anhang~\ref{figure:grafana_metrics} beigefügt.
+nicht mittels einer \gls{SQL}\hyp{}Abfrage abgerufen, sondern über eine
+\gls{HTTPS} Schnittstelle. Innerhalb der ~\gls{API} werden bereits
+vordefinierte Werte zurückgegeben. Wenn hier als Datenquelle eine Datenbank
+angesprochen werden soll, so kann hier zunächst eine Art \texttt{SELECT}
+\gls{SQL}\hyp{}Abfrage hinterlegt werden. Innerhalb der \gls{SQL}\hyp{}Abfrage
+wird definiert, von wo die erhaltenen Daten stammen, sowie welche Werte
+abgerufen werden sollen. Ebenfalls kann diese \gls{SQL} Abfrage mit anderen
+\gls{SQL} Abfragen innerhalb einer Gruppe zusammen definiert werden. Ein
+Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 
 Nun sind bereits einzelne Werte im Graphen visualisiert. Nachdem nun
 die Grundeinstellung für die Graphen konfiguriert wurde, können anschließend
@@ -3642,8 +3644,8 @@ größere Instanz verkaufen kann.
 
 \section{Quality of Service}
 Logstash arbeitet im \texttt{Batch-Mode}. Dies bedeutet, das es mehrere Werte
-pro Prozess cached und diese dann gebündelt in einem SQL\hyp{}Statement zur
-Datenbank schickt. Der Standardwert liegt bei 125 Werten und ist
+pro Prozess cached und diese dann gebündelt in einem \gls{SQL}\hyp{}Statement
+zur Datenbank schickt. Der Standardwert liegt bei 125 Werten und ist
 konfigurierbar. Es ist in bestimmten Konstellationen möglich, das Logstash
 mehrere Minuten lang Werte zwischenspeichert bevor sie zur Datenbank geschickt
 werden. Dies passiert, wenn besonders viele Logstash Prozesse gestartet worden
@@ -3652,16 +3654,17 @@ VMs deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur
 durchgeführt wird). Wenn ein Kunde live seine Auslastung visualisieren möchte,
 dauert dies eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten.
 Zum einen kann der Zwischenspeicher verringert werden. Dies erhöht allerdings
-die Last auf der Datenbank, da dies zu wesentlich mehr SQL\hyp{}Statements
-führt.  Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht
-werden.  Hierbei wird auf die eingehenden Daten ein \gls{Grok} Filter gelegt.
-Dieser erlaubt es Daten zu filtern und in Kategorien einzuordnen. Für jede
-Kategorie kann die Größe des Zwischenspeichers definiert werden. Diese Filter
-kann man auch dynamisch aktivieren. Sobald ein Kunde eine
-Live\hyp{}Visualisierung im Grafana startet, kann ein Grok Filter aktiviert
-werden. Dieser filtert Daten dieses Kunden heraus kategorisiert diese in eine
-QoS Queue mit einem Zwischenspeicher von 0. Somit wird jeder Datensatz von
-diesem Kunden direkt an die Datenbank weitergeleitet.
+die Last auf der Datenbank, da dies zu wesentlich mehr
+\gls{SQL}\hyp{}Statements führt.  Alternativ kann mit Logstash
+\glslink{Quality of Service}{QoS} gemacht werden.  Hierbei wird auf die
+eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser erlaubt es Daten zu
+filtern und in Kategorien einzuordnen. Für jede Kategorie kann die Größe des
+Zwischenspeichers definiert werden. Diese Filter kann man auch dynamisch
+aktivieren. Sobald ein Kunde eine Live\hyp{}Visualisierung im Grafana startet,
+kann ein Grok Filter aktiviert werden. Dieser filtert Daten dieses Kunden
+heraus kategorisiert diese in eine QoS Queue mit einem Zwischenspeicher von 0.
+Somit wird jeder Datensatz von diesem Kunden direkt an die Datenbank
+weitergeleitet.
 \tm%
 
 \section{Cache Invalidation}
