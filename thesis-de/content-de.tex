@@ -61,7 +61,7 @@ können.
 In einer globalisierten Arbeitswelt stehen die Möglichkeiten von
 IT\hyp{}Systemen und dessen verbundenen Werkzeugen, wie die Optimierungen von
 Arbeitsabläufen mit Hilfe von Analysen und Erkenntnissen, sehr stark im
-Vordergrund.  Gleichzeitig beschäftigen sich Computersystem\hyp{}Anbieter mit
+Vordergrund. Gleichzeitig beschäftigen sich Computersystem\hyp{}Anbieter mit
 der optimalen Auslastung ihrer Serverfarmen (Hardware) und den damit
 verbundenen Kostenoptimierungen. Durch einen neu entstandenen Trend des
 \gls{Cloud}\hyp{}Hostings ist die optimale Auslastung der Hardwaremittel
@@ -322,7 +322,7 @@ Abschnitt~\ref{sec:datenhaltungssystem} entnommen werden.
 Die Weboberfläche muss ausgewählten Benutzern eine Übersicht über die
 verbrauchten oder freien Ressourcen, wie zum Beispiel CPU\hyp{}Auslastung oder
 RAM\hyp{}Auslastung einzelner virtueller oder physischer Maschinen
-bereitstellen.  Hierbei ist wichtig, dass die Sicherheit (Authentisierung,
+bereitstellen. Hierbei ist wichtig, dass die Sicherheit (Authentisierung,
 Authentifizierung und Autorisierung) der Daten gewährleistet wird. Dies
 bedeutet, dass sowohl die Verbindung zwischen Datenbank und Weboberfläche
 gesichert sein muss, als auch die Weboberfläche selbst gegen Zugriff von
@@ -577,7 +577,7 @@ genommen und folgende Funktionen angewendet:
 
 Außerdem gibt es die Möglichkeit, die erhobenen Daten in Relation zur Zeit zu
 setzen. Hierbei wird die Differenz zwischen zwei aufeinander folgenden
-Messpunkten betrachtet.  Beispiel: Das Betriebssystem misst die geschriebene
+Messpunkten betrachtet. Beispiel: Das Betriebssystem misst die geschriebene
 Datenmenge auf einem Datenträger seit dem Startvorgang in Bytes. Interessant
 für den Anwender ist aber der Datendurchsatz in \si{\mega\byte\per\second} oder
 \si{\giga\byte\per\second}. Dies kann wie folgt berechnet werden:
@@ -777,7 +777,7 @@ Somit ist der zabbix\hyp{}agent nicht im Projekt nutzbar
 
 \subsection{python-diamond}
 Python\hyp{}diamond (auch Diamond genannt) ist ein in Python geschriebener
-Dienst.  Er kann auf Linux Systemen diverse Daten erheben und diese über das
+Dienst. Er kann auf Linux Systemen diverse Daten erheben und diese über das
 Netzwerk austauschen. Die erste Veröffentlichung ist vom Juli 2012. Seitdem
 gibt es unregelmäßig neue Updates. Das letzte Release ist vom November 2016.
 Die Open\hyp{}Source\hyp{}Software steht unter der MIT Lizenz
@@ -801,7 +801,7 @@ Performance\hyp{}Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz.
 Das älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
 erscheinen jedes Jahr mehrere Updates. Entwickelt wird das Projekt
 von (vgl.~\cite{systat_releases}). Die Liste der Features von sysstat ist sehr
-umfangreich.  Neben den geforderten Kriterien zur lokalen Datenerfassung
+umfangreich. Neben den geforderten Kriterien zur lokalen Datenerfassung
 liefert es auch viele weitere Details. Hierzu zählen zum Beispiel Statistiken
 zum Verhalten des Arbeitsspeichers. Die \gls{Interrupt}\hyp{}Verarbeitung des
 Prozessors und detaillierte Netzwerkinformationen. Ermittelte Daten können als
@@ -859,7 +859,7 @@ schreiben.
 \subsection{Riemann}
 Riemann ist ein junges Softwareprojekt. Das erste Release erfolgte im März
 2012. Die Open\hyp{}Source\hyp{}Software steht unter der Eclipse Public Lizenz
-Version 1.  Die aktuellste Veröffentlichung trägt die Versionsnummer 0.2.12 und
+Version 1. Die aktuellste Veröffentlichung trägt die Versionsnummer 0.2.12 und
 wurde im Dezember 2016 veröffentlicht. Das Versionsschema von Riemann hält sich
 an die Regeln von \gls{Semantic Versioning}, somit sind erst dann Releases zum
 produktiven Einsatz empfohlen, wenn sie die Nummer 1.0.0 oder höher enthalten.
@@ -1115,7 +1115,7 @@ wenigsten Hersteller und Communitys gehen so offen mit Problemen um.
 
 Der letzte \gls{Jepsen}\hyp{}Test zeigt leider, dass Elasticsearch immer noch
 Probleme bei Netzwerkausfällen und starker Systemlast hat
-(vgl.~\cite{jepsen_elastic}).  Aufgrund der Größe solcher Setups ist es üblich,
+(vgl.~\cite{jepsen_elastic}). Aufgrund der Größe solcher Setups ist es üblich,
 dass jeder Node im Cluster über zwei Netzwerkverbindungen verfügt. Eine davon
 ist zur internen Cluster\hyp{}Kommunikation und zum Verteilen der Replikas, die
 andere für die Kommunikation mit der Außenwelt (Bereitstellung der
@@ -1237,7 +1237,7 @@ Die initiale Arbeit an Postgres begann 1986 (vgl.~\cite{old_postgres}). Mit
 über 30 Jahren Entwicklung ist es eines der ältesten und am weitesten
 verbreitetsten \gls{DBMS} (vgl.~\cite{db_ranking}). Es steht unter einer
 eigenen Open\hyp{}Source\hyp{}Lizenz und darf frei genutzt werden
-(vgl.~\cite{postgres_license}).  Die Community ist sehr aktiv, sie pflegt ein
+(vgl.~\cite{postgres_license}). Die Community ist sehr aktiv, sie pflegt ein
 komplexes Wiki (vgl.~\cite{postgres_wiki}), sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für Fortgeschrittene
 (vgl.~\cite{postgres_tutorial}).
@@ -1364,7 +1364,7 @@ Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 „Hadoop Map Reduce“ zum Einsatz. Diese ist von dem gleichnamigen
 Programmiermodell abgeleitet. Es handelt sich dabei um ein
 Hadoop\hyp{}YARN\hyp{}basiertes System, welches ein paralleles Abarbeiten von
-Aufgaben ermöglicht.  Dabei werden Analyseanfragen nun nicht mehr in mehreren
+Aufgaben ermöglicht. Dabei werden Analyseanfragen nun nicht mehr in mehreren
 Server\hyp{}Threads auf einem einzelnen System aufgeteilt, sondern auf mehreren
 Data Nodes, welche wiederum die Aufgaben in mehreren Threads abarbeiten können.
 Gleichzeitig besitzt diese Hadoop\hyp{}Komponente einen Data Node, welcher aus
@@ -1453,7 +1453,7 @@ Apache Hive Systems ausgeführt werden.
 
 Apache Impala wird eingesetzt, um die Schnelligkeit der Datenabfragen auf einem
 Hadoop\hyp{}System zu verbessern. Es wird dabei auf jedem Data Node
-installiert.  Dabei erhalten die Data Nodes neben der eigentlichen
+installiert. Dabei erhalten die Data Nodes neben der eigentlichen
 Datenspeicherung noch zusätzlich die Funktionen zur Ausübung von
 Datenbankabfragen (\gls{SQL}). Konkret wird auf jedem Data Node ein
 „Query Planer“, „Query Coordinator“ und „Query Executor“ bereitgestellt. Der
@@ -1497,7 +1497,7 @@ Hadoop\hyp{}Ecosystem bereitstellen konnte und zum anderen die Masse an
 Dokumentationen und dem damit verbundenen Konfigurationsaufwand. Hinzu kommt
 noch die darauf folgende fachliche Definition von Datenstrukturen. Diese hätte
 durch die breite Auswahl an Methodiken auf einem Hadoop\hyp{}System ebenfalls
-wieder viel Zeit beansprucht.  Zunächst hätte eines der verfügbaren
+wieder viel Zeit beansprucht. Zunächst hätte eines der verfügbaren
 Softwareelemente des Hadoop\hyp{}Ecosystems evaluiert und ausgewählt werden
 gemusst. Zusammengefasst wäre das System den technischen Anforderungen an dem
 Projekt gewachsen, jedoch wäre der Einsatz mit einem zu großen Aufwand
@@ -1614,7 +1614,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   Lösung über einen Cloudprovider nicht möglich wäre. Externe Systeme sind in
   diesem Projekt Geräte, welche außerhalb des Unternehmens betrieben werden.
   \1 Die \gls{API}\hyp{}Software muss vollständig konfigurierbar und
-  administrierbar sein.  Entsprechend soll die Software nur eine leere Hülle
+  administrierbar sein. Entsprechend soll die Software nur eine leere Hülle
   mit Standardfunktionen einer \gls{API} zur Verfügung stellen. Eine
   Konfiguration von einzelnen Parametern ist dabei erwünscht. Zu diesen
   Parametern gehört als Beispiel der Port, auf welchem das
@@ -1627,7 +1627,7 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
   den Vorteil, dass der zuständige Entwickler im Projekt keine weitere
   Einarbeitungszeit für die neue Entwicklersprache benötigt.
   \1 Das \gls{API}\hyp{}System sollte innerhalb des Projektes keine Kosten
-  verursachen.  Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei
+  verursachen. Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei
   externen Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
   Anforderung nicht mit inbegriffen. Grundsätzlich gilt für das ganze Projekt,
   dass nur Software mit einer Open\hyp{}Source\hyp{}Lizenz genutzt werden darf.
@@ -1684,7 +1684,7 @@ Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
 für ein \gls{API}\hyp{}System mit dem Namen „Swagger“ entschieden. Es ist
 aktuell neben den \gls{API}\hyp{}Systemen „RAML“ und „API\hyp{}Blueprint“ das
 einzige \gls{API}\hyp{}System auf dem Markt, welches den Betrieb auf einer
-selbst administrierten Hardware\hyp{}Umgebung zulässt.  Für den Vergleich der
+selbst administrierten Hardware\hyp{}Umgebung zulässt. Für den Vergleich der
 drei Systeme wurde eine Entscheidungstabelle mit gewichteten Faktoren erstellt
 und ausgewertet. Die in der nachfolgenden Entscheidungstabelle genannten
 Faktoren wurden aus dem Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung}
@@ -1844,7 +1844,7 @@ werden:
 \begin{outline}
   \1 Die genutzten Softwarelösungen müssen eine Open\hyp{}Source\hyp{}Lizenz
   besitzen, um hier unabhängig von kostenpflichtigen Lizenzen und
-  Copyright\hyp{}Rechten zu sein.  Ebenfalls ist eine
+  Copyright\hyp{}Rechten zu sein. Ebenfalls ist eine
   Open\hyp{}Source\hyp{}Software nötig, da hier der Quelltext der Software
   angepasst und verändert werden darf.
   \1 Es muss eine Authentisierung, Authentifizierung und Autorisierung
@@ -1857,7 +1857,7 @@ werden:
   eigene Client\hyp{}Zertifikate zulassen. Die Anmeldung an der
   Datenvisualisierung kann entweder über einen lokalen Administrator, als auch
   über eine \GLS{LDAP}\hyp{}Anbindung (Lightweight Directory Access Protocol)
-  verfügen, um hier z.B.  Unternehmensverzeichnisse anbinden zu können.
+  verfügen, um hier z.B. Unternehmensverzeichnisse anbinden zu können.
   \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
   Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
   der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher die
@@ -1967,7 +1967,7 @@ stellen kann und hiermit Graphen visualisieren kann. Grafana kann über einen
 Datenhaltungssystem durchführen, um die Daten abzugreifen.
 Es ist zusätzlich eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode
 angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen.  Dadurch entstehen auch keine
+an bestimmte Kundenumgebungen. Dadurch entstehen auch keine
 Support\hyp{}Kosten, da die Software nicht als ein Dienst angeboten wird.
 Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
 Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
@@ -2193,7 +2193,7 @@ Authentifizierung auf der Weboberfläche durchzuführen. Ebenso werden alle
 Graphen, welche abgefragt werden, auf einer Seite angezeigt, weshalb die
 Übersicht stark eingeschränkt ist. Graphen können bei Netdata nicht einfach
 angepasst werden, da diese im Quellcode verändert und angepasst werden müssen.
-Das Netdata läuft ebenfalls nur auf Linux\hyp{}Oberflächen.  Ein Support von
+Das Netdata läuft ebenfalls nur auf Linux\hyp{}Oberflächen. Ein Support von
 Microsoft Windows ist hier unterstützt. Ein klarer Nachteil ist allerdings,
 dass diese Softwarelösung jeweils nur eine Instanz gleichzeitig überwachen kann
 und der Vorteil bei Netdata, dass kein weiteres Datenhaltungssystem oder
@@ -2348,7 +2348,7 @@ Ziel des Ganzen ist es, eine komplexe Userstory, die einen einzelnen erfahrenen
 Entwickler lange mit der Implementierung beschäftigt, möglichst weit
 herunterzubrechen. Die entstandenen Teilaufgaben erfordern größtenteils keinen
 erfahrenen Entwickler. Dieser ist nur noch für einige, wenige Tickets
-notwendig.  Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den
+notwendig. Ein weiterer Vorteil ist, dass nun mehrere Leute parallel an den
 einzelnen Tickets arbeiten können.
 \tm%
 
@@ -2417,9 +2417,9 @@ Arbeitsspeicherauslastung von jeder Instanz, um Engpässe zu erkennen.
 
 \textbf{Beschreibung:} Vergleichbar wie auch bei der CPU\hyp{}Auslastung, gibt
 es auch eine ähnliche Thematik zur Auslastung bei dem verwendeten
-Arbeitsspeicher.  Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
+Arbeitsspeicher. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
 entscheidend, sondern eher wie viel Arbeitsspeicher einer virtuellen Maschine
-zugewiesen ist.  Hier kann es ebenfalls wie auch bei
+zugewiesen ist. Hier kann es ebenfalls wie auch bei
 der~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
 virtuellen Maschine bei der Verteilung des Arbeitsspeichers kommen kann. Im
 Folgenden finden sich die Akzeptanzkriterien:
@@ -2950,17 +2950,17 @@ sondern nur eingebunden werden.
 \label{subsec:postgres_repositorium}
 Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
 diesem Projekt für die Metric\hyp{}Daten jedes virtuellen Servers genutzt wird,
-wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.  Dabei
+wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen. Dabei
 wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es handelt sich
 um die Verwendung von einer einzelnen Datentabelle, welche nur zwei Attribute
 besitzt. Bei beiden Attributen handelt es sich um ein \gls{JSON} Objekt.
-Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz.  Das ist zum Beispiel
+Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz. Das ist zum Beispiel
 eine generierte ID, um den Datensatz spezifisch selektieren zu können, oder die
 Informationen seit wann der Datensatz in der Datenhaltung existiert,
 beziehungsweise wann und von welchem System angefasst wurde. Zweites \gls{JSON}
 Objekt/Attribut beinhaltet den eigentlichen Datensatz, also die werthaltigen
 Informationen, welche auch später analysiert werden. Die Inhalte des Attributes
-werden klar in dem Metadatensatz definiert.  Der Vorteil dieser
+werden klar in dem Metadatensatz definiert. Der Vorteil dieser
 Datenspeicherung ist zum einen die Effizienz des Speicherplatzes sowie
 Geschwindigkeit und zum anderen das Zusammenhalten der zugehörigen
 Informationen. Desweiteren können in diesem Model sehr einfach neue
@@ -2996,7 +2996,7 @@ Attribut angewendet werden, sodass zum Beispiel auch noch CPU\hyp{}Daten von
 RAM\hyp{}Daten getrennt werden. Der Anwender oder Analyst der Haupttabelle
 merkt dabei nicht, dass die verwendete Tabelle partitioniert ist. Für die
 vollständige Implementierung wurden von dem Projektteam jedoch auch noch
-weitere Funktionen programmiert und implementiert.  Darunter ist zum Beispiel
+weitere Funktionen programmiert und implementiert. Darunter ist zum Beispiel
 das Verhalten der Datenbank bei dem Einfügen von Daten mit einem älteren
 Zeitstempel.
 
@@ -3222,7 +3222,7 @@ Unternehmen die \GLS{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana
 wünschen, so muss hier in dem Verzeichnis von der Grafana\hyp{}Installation die
 Datei grafana.ini angepasst werden. Alle Einstellungen, die hier vorgenommen
 werden, beziehen sich auf die Servereinstellungen, welche vom Kunden
-individuell angepasst werden kann.  Nachdem die Änderungen hier abgeschlossen
+individuell angepasst werden kann. Nachdem die Änderungen hier abgeschlossen
 sind, muss der Grafana\hyp{}Dienst neu gestartet werden. Dies wird mit
 folgendem Befehl durchgefüht:
 
@@ -3349,7 +3349,7 @@ Nachdem nun die Axenbeschriftung und Legende angepasst worden sind, gibt es
 unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten, \texttt{Draw
 options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau hiervon
 kann dem Anhang~\ref{figure:grafana_display} entnommen werden. Unter dem Punkt
-\texttt{Draw options} kann das Aussehen des Graphen angepasst werden.  So kann
+\texttt{Draw options} kann das Aussehen des Graphen angepasst werden. So kann
 bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt hinterlegt
 werden. Ebenso kann definiert werden, ob der Graph zur besseren
 Übersichtlichkeit mit Farbe gefüllt werden soll oder die Breite der Linien des
@@ -3503,7 +3503,7 @@ richtigen Stelle ist.
 \section{Unit-Tests}
 \label{sec:unit_tests}
 Für die Tests und Qualitätsicherung wurden unter anderem Unit\hyp{}Tests
-verwendet.  Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann
+verwendet. Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann
 verwendet, wenn jeweils die Kernfunktion von einem Quellcode geprüft werden
 soll. Rspec ist das Framework und stellt eine \gls{DSL} zur Verfügung, in der
 Testszenarien definiert werden können. Die Puppet Module, die in diesem Projekt
@@ -3520,13 +3520,13 @@ bundle exec rake spec
 \end{minted}
 
 Die Tests für das Grafana\hyp{}Profil befinden sich unter
-Listing~\ref{lst:rspec-grafana}.  Zuerst werden verschiedene Betriebssysteme
+Listing~\ref{lst:rspec-grafana}. Zuerst werden verschiedene Betriebssysteme
 simuliert, um das Grafana\hyp{}Profil auf diesen zu testen. Jedes
 Betriebssystem besitzt betriebssystemspezifische \glslink{Fact}{Facts}. Diese
 werden von rspec simuliert und mit Hilfe einer Liste der unterstützten
 Betriebssysteme auf dem entsprechenend Profil getestet. Diese Liste an
 Betriebssystemen wird aus der \texttt{metadata.json} ausgelesen und hierfür
-immer ein Katalog erstellt.  Dieser zuvor erstellte Katalog wird anschließend
+immer ein Katalog erstellt. Dieser zuvor erstellte Katalog wird anschließend
 geprüft. Unter anderem kann das rspec prüfen, ob benötigte Ressourcen wie
 \texttt{grafana\_dashboard} oder \texttt{grafana\_datasources} in dem Profil
 enthalten sind. Diese Tests können für jedes Profil einzeln definiert werden,
