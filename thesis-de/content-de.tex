@@ -1232,8 +1232,8 @@ sicher ist, dass keine Fehler oder Datenleichen entstehen können.
 Postgres, oder auch PostgreSQL genannt, ist ein \gls{SQL} basiertes \gls{DBMS}.
 Die initiale Arbeit an Postgres begann 1986 (vgl.~\cite{old_postgres}). Mit
 über 30 Jahren Entwicklung ist es eines der ältesten und am weitesten
-verbreitetsten DBMS (vgl.~\cite{db_ranking}). Es steht unter einer eigenen
-Open\hyp{}Source\hyp{}Lizenz und darf frei genutzt werden
+verbreitetsten \gls{DBMS} (vgl.~\cite{db_ranking}). Es steht unter einer
+eigenen Open\hyp{}Source\hyp{}Lizenz und darf frei genutzt werden
 (vgl.~\cite{postgres_license}).  Die Community ist sehr aktiv, sie pflegt ein
 komplexes Wiki (vgl.~\cite{postgres_wiki}), sowie eine eigene Seite mit
 Anleitungen für Einsteiger und Optimierungshilfen für Fortgeschrittene
@@ -2567,8 +2567,8 @@ Datenbanken. Sie stellt generische Funktionen bereit, um mit Datenbanken zu
 kommunizieren. Für jede Datenbank mit der kommuniziert werden soll, wird ein
 Treiber benötigt. Dieser beschreibt die spezifischen Eigenschaften eines
 bestimmten \gls{DBMS} für die JDBC\@. Er kommuniziert auf der einen Seite mit
-dem DBMS und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es ein
-Plugin, welches die JDBC\hyp{}Schnittstelle innerhalb des JRuby Bytecodes
+dem \gls{DBMS} und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es
+ein Plugin, welches die JDBC\hyp{}Schnittstelle innerhalb des JRuby Bytecodes
 nutzbar macht. Somit ist Logstash in der Lage, in eine Datenbank zu schreiben.
 Hierfür musste ausschließlich die Kommunikation mit der JDBC programmiert
 werden. Postgres bietet einen Treiber für JDBC an (vgl.~\cite{postgres-jdbc}).
@@ -2581,7 +2581,7 @@ Folgenden sind die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
 
 \subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC\hyp{}Schnittstelle einen sehr generischen \gls{ODBC}
-Treiber an. Dieser kommuniziert mit einer Bibliothek des DBMS\@. Der
+Treiber an. Dieser kommuniziert mit einer Bibliothek des \gls{DBMS}\@. Der
 ODBC\hyp{}Treiber muss auf jedem System vorhanden sein, welches die
 JVM\hyp{}Applikation ausführt. Die Bibliothek kann, zusammen mit der Datenbank
 selbst, auf einem anderen System im Netzwerk oder auch lokal betrieben werden.
@@ -2593,8 +2593,8 @@ Die Vorteile sind:
   der ODBC übernommen wird.
   \1 Sehr einfacher Austausch der ODBC, da die Schnittstelle generisch ist.
   \1 Jede Datenbank, die SQL nutzt, bietet eine ODBC\hyp{}Schnittstelle, somit
-  ergibt sich eine lange Liste an alternativen DBMS, welche genutzt werden
-  können.
+  ergibt sich eine lange Liste an alternativen \gls{DBMS}, welche genutzt
+  werden können.
 \end{outline}
 
 Die Nachteile sind:
@@ -2603,14 +2603,14 @@ Die Nachteile sind:
   \1 Durch die große Anzahl an Komponenten, durch die die Daten fließen,
   ergeben sich viele Fehlerquellen.
   \1 Da alle Schnittstellen sehr generisch sind, kann dort keine Optimierung
-  auf ein spezifisches DBMS erfolgen.
+  auf ein spezifisches \gls{DBMS} erfolgen.
 \end{outline}
 
 \subsection{Nativer API-Treiber}
 Die JDBC\hyp{}Schnittstelle spricht hier über den Treiber direkt die Bibliothek
-des DBMS an. Dafür muss der Treiber als auch die Bibiliothek auf dem gleichen
-System vorhanden sein, wie die JVM\hyp{}Applikation. Die Datenbank selbst kann auf
-dem gleichen Server oder über das Netzwerk angesprochen werden.
+des \gls{DBMS} an. Dafür muss der Treiber als auch die Bibiliothek auf dem
+gleichen System vorhanden sein, wie die JVM\hyp{}Applikation. Die Datenbank
+selbst kann auf dem gleichen Server oder über das Netzwerk angesprochen werden.
 
 Die Vorteile im Vergleich zum JDBC\hyp{}ODBC\hyp{}Treiber:
 
@@ -2666,7 +2666,7 @@ Die Vorteile sind:
 
 \begin{outline}
   \1 Dieser Treiber bietet die größtmögliche Performance, da er Anfragen von
-  der JDBC auf das spezifische DBMS optimieren kann.
+  der JDBC auf das spezifische \gls{DBMS} optimieren kann.
   \1 Der Overhead wurde auf ein Minimum reduziert.
   \1 Es werden keine zusätzlichen Schnittstellen benötigt, was die
   Fehleranfälligkeit reduziert.
@@ -2674,7 +2674,7 @@ Die Vorteile sind:
 
 Diese Art von Treiber bietet aus Sicht des Nutzers keine bekannten Nachteile.
 Die Entwicklung benötigt für diese Art die meiste Arbeit, weshalb nicht jedes
-DBMS solche Treiber zur Verfügung stellt. Für Postgres existieren solche
+\gls{DBMS} solche Treiber zur Verfügung stellt. Für Postgres existieren solche
 Treiber. Logstash ist somit in der Lage, besonders effizient auf die Datenbank
 zuzugreifen.
 \tm%
