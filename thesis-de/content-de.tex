@@ -2023,13 +2023,14 @@ hinzufügen zu können, wie es beispielsweise Grafana~\ref{subsubsec:grafana}
 kann. Hierzu muss der Quellcode von Graphite massiv angepasst werden, wodurch
 gute Kenntniss der einzelnen Dienste erforderlich sind. Graphite ist ein
 System, welches aus mehreren Diensten besteht. Der Graphite\hyp{}Webdienst ist
-für die Anzeige der Weboberfläche zuständig. Der Carbon\hyp{}Cache\hyp{}Dienst
-wird verwendet, um die Daten, welche vom Datenerfassungsystem ermittelt worden
-sind, aufzuarbeiten. Dies wird benötigt, damit Graphite diese für die
-Visualisierung verwenden kann. Grundsätzlich installiert sich mit der
-Installation von Graphite noch eine Whisper\hyp{}Datenbank, welche jedoch durch
-eine beliebige, wie OpenTSDB~\ref{subsubsec:opentsdb} oder InfluxDB,
-ausgetauscht werden kann (vgl.~\cite{graphite}).
+für die Anzeige der Weboberfläche zuständig. Der
+\gls{Carbon}\hyp{}Cache\hyp{}Dienst wird verwendet, um die Daten, welche vom
+Datenerfassungsystem ermittelt worden sind, aufzuarbeiten. Dies wird benötigt,
+damit Graphite diese für die Visualisierung verwenden kann. Grundsätzlich
+installiert sich mit der Installation von Graphite noch eine
+Whisper\hyp{}Datenbank, welche jedoch durch eine beliebige, wie
+OpenTSDB~\ref{subsubsec:opentsdb} oder InfluxDB, ausgetauscht werden kann
+(vgl.~\cite{graphite}).
 
 Zusammenfassung:
 
@@ -2295,9 +2296,9 @@ durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von
 3,50 erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass
 es ohne einen Zabbix\hyp{}Server nicht verwendet werden kann. Der
 Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
-empfängt Metriken von Agents, bereitet diese auf und speichert diese Daten
-anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
-das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
+empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert diese
+Daten anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen,
+dass das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
 kommunizieren und verwendet werden kann. Anders als bei Grafana, welches mit
 mehreren Datenbanken gleichzeitig kommunizieren kann. Innerhalb der einzelnen
 Graphen werden hier mittels einer Abfrage die Datenbanken direkt angesprochen.
