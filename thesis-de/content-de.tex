@@ -42,7 +42,7 @@ mit Datenanalysen von großen Datenmengen und dessen Methodiken beschäftigt.
 Sehr schnell entstand aus diesen beiden Gesprächsinhalten die Softwareidee,
 welche in diesem Dokument vorgestellt wird. Da Herrn Meusel und Herrn Luis der
 Aufwand dieser Lösung bewusst war und beide keine Expertise im Bereich
-Frontend\hyp{}Entwicklung, bzw. Datenvisualisierung besaßen, stellten Sie die
+Frontend\hyp{}Entwicklung, bzw.\ Datenvisualisierung besaßen, stellten Sie die
 Idee ihren Mitstudenten vor. Herr Reuter zeigte dabei hohes Interesse und war
 vor allem vom englischsprachigen Teil des Projektes überzeugt. Die von den
 Dozenten definierten Vorgaben waren somit erfüllt und das Projekt konnte für
@@ -1654,8 +1654,8 @@ Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 
 \subsection{Durchführung der Evaluierung}
 \label{subsec:api_durchfuehrung_der_evaluierung}
-Bei der Evaluierung der API\hyp{}Systeme wurden die in
-im Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
+Bei der Evaluierung der API\hyp{}Systeme wurden die im
+Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
 Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
 allgemeinen Eindruck über die aktuelle Marktsituation zu API\hyp{}Systemen erhält.
@@ -1699,6 +1699,58 @@ dem Projektteam aus der Bewertung ausgeschlossen.
 \end{tabular}
 \captionof{table}{Gesamtbewertung der API\hyp{}Systeme}
 \end{center}
+\nl%
+
+\subsection{Zusammenspiel API und Frontend}
+\label{subsec:zusammenspiel_api_frontend}
+Nachdem die Evaluierung der Datenvisualisierung im
+Abschnitt~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
+abgeschlossen war, wurde dessen Zusammenspiel mit der API überprüft.  Dabei
+schaute sich Herr Luis speziell die Kommunikation zwischen den beiden
+Softwareprodukten an. Mit der Kommunikation ist der Aufbau einer Datenanfrage
+und die daraus resultierende Datenzulieferung gemeint. Der von der
+Datenvisualisierungs\hyp{}Software definierte Kommunikations\hyp{}Aufbau muss
+die API eins zu eins übernehmen, andernfalls wäre eine vollständige
+Kommunikation, und somit die Übertragung der benötigten Informationen, der
+beiden Softwareprodukte nicht möglich.
+
+Neben der technischen Kommunikation wurde ebenfalls die Informationsinhalte,
+welche die API von der Datenvisualisierung erhält und zurück sendet, auf den
+fachlichen Inhalt bewertet. Dabei konnte das Projektteam erkennen, dass bei der
+Verwendung eines API Systems, der Datenvisualisierungs\hyp{}Administrator keine
+optionalen Datenfilterungen an die API übergeben kann. Speziell in diesem
+Projekt entstand dabei die Problematik, dass bei der Datenanfrage an der API
+nicht ersichtlich war, um welchen Kunden, bzw.\ eingeloggten Benutzer es sich
+handelt. Entsprechend würde die API nicht wissen ob Daten an einen
+Administrator, welcher alle Server sehen darf, oder ob Daten an einen Kunden,
+welcher nur seine eigenen Server sehen darf, zurück gesendet werden sollen.
+
+Um diese Problematik zu lösen, hat das Projektteam den „Header“\hyp{}Bereich
+(auf Deutsch Kopf\hyp{}Bereich), welcher bei jeder \gls{HTTP}- oder
+\gls{HTTPS}\hyp{}Anfrage vorhanden ist, genauer untersucht. In diesem steht die
+Herkunft der Anfrage und weitere Informationen wie der genutze Browser des
+Internetbenutzers. Speziell bei der Anfrage von der Datenvisualisierung an die
+API steht in dem Header\hyp{}Bereich immer die Organisations\hyp{}ID von dem
+anfragenden Benutzer. Die Organisations\hyp{}ID ist bei der für das Projekt
+ausgewählten Datenvisualisierungs\hyp{}Software eine Abgrenzung der
+Zugriffsrechte. Das heißt sie definiert, welche Daten, beziehungsweise
+Dashboards der eingeloggte Benutzer sehen darf und welche nicht.
+
+Für die Ziellösung wurde entsprechend von dem Projektteam festgelegt, dass die
+Datenhaltung neben den eigentlichen Daten auch eine Mapping Tabelle besitzen
+soll. Diese Mapping Tabelle besitzt entsprechend die Information, welche
+Organisations\hyp{}ID zu welcher virtuellen Instanz, beziehungsweise
+Host\hyp{}Server gehört. Sollte die Datenvisualisierung Daten bei der API
+anfordern, würde diese vor der eigentlichen Datenabfrage bei der Datenhaltung
+die vorhandene Organisations\hyp{}ID in den Server\hyp{}Namen übersetzen. Mit
+dieser Übersetzung kann die API anschließend regulär die Daten von der
+Datenhaltung anfordern und an die Datenvisualisierung liefern.
+
+Diese Lösung hat zusätzlich noch den Vorteil einer weiteren Datensicherheit.
+Die genannte Organisations\hyp{}ID kann ausschließlich im Backend der
+Datenvisualisierung verändert werden. Einem Benutzer ist es nicht möglich den
+Wert dieser ID in irgendeiner Weise zu verändern und somit andere Daten zu
+erhalten.
 \nl%
 
 \section{Datenvisualisierung}
@@ -1802,12 +1854,17 @@ werden:
   werden können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
   Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
   Acht unterschiedliche User greifen gleichzeitig auf die Weboberfläche zu und
-  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen Werten.
-  Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
-  Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht nur
-  die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
+  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen
+  Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an
+  das Datenhaltungssystem senden werden. Da auf das Datenhaltungssystem nicht
+  nur die Weboberfläche zugreift, sondern auch die Datenerfassung, um Daten
   abzuspeichern, kann es hier zu massiven Performance\hyp{}Problemen kommen,
   die durch die Weboberfläche verursacht werden können.
+  \1 Um die Sicherheit der Datenvisualisierung zusätzlich schützen zu können,
+  muss diese mit einem \GLS{API}\hyp{}System interagieren können, damit
+  eigenmächtige Modifizierungen der Daten wie das verändern, anpassen oder
+  sogar löschen unterbunden sind. Zusätzlich wird die Performance der
+  Datenvisualisierung, durch ein \GLS{API}\hyp{}System gesteigert.
   \1 Plugin\hyp{}Erweiterung. Die Datenvisualisierung muss eine
   Plugin\hyp{}Erweiterung unterstützen. Es dient dazu, dass im späteren
   Verlauf, wenn das Produkt bereits beim Kunden eingesetzt wird, auf bestimmte
@@ -2764,19 +2821,20 @@ zu nutzen und nach dem Client\hyp{}Server Prinzip zu arbeiten.
 Für die Implementierung der Postgres Datenbank wurde zunächst ein einzelner
 Server für die Bearbeitung der Anforderung aufgebaut und mit vier Nutzern
 ausgestattet. Ersterer ist der Administrator, oder auch root genannt, welcher
-nur genutzt wird um Änderungen (Punkt~\ref{subsec:postgres_partition}) am
+nur genutzt wird um Änderungen (Abschnitt~\ref{subsec:postgres_partition}) am
 System vorzunehmen. Mit diesem werden ebenfalls die Zugriffsrechte der
 einzelnen Nutzer geregelt. Der zweite Nutzer besitzt die Berechtigungen in
-einem definierten Bereich innerhalb des Postgres\hyp{}Systems die Daten und
-dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die Prozesse aus
-Punkt~\ref{subsec:postgres_etl} und Punkt~\ref{subsec:postgres_datenschutz}
-durchgeführt. Dritter Nutzer wird von dem in Punkt~\ref{sec:api_system}
-definierte API\hyp{}System verwendet. Dieser besitzt keinen direkten Lese- oder
-Schreibezugriffe auf die in dem definierten Datentopf vorhandenen Tabellen. Er
-erhält lediglich ausführende Rechte auf die im
-Punkt~\ref{subsec:postgres_datenschutz} erstellten Funktionen. Vierter Nutzer
-wird für den im Punkt~\ref{subsec:postgres_etl} beschriebenen ETL\hyp{}Prozess
-im Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
+einem definierten Bereich innerhalb des Postgres\hyp{}Systems die
+Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
+Prozesse aus Abschnitt~\ref{subsec:postgres_etl} und
+Abschnitt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
+von dem in Abschnitt~\ref{sec:api_system} definierten \GLS{API}\hyp{}System
+verwendet. Dieser besitzt keine direkten Lese\hyp{} oder Schreibrechte auf die
+in der definierten Bibiliothek vorhandenen Tabellen. Er erhält lediglich
+ausführende Rechte auf die im Abschnitt~\ref{subsec:postgres_datenschutz}
+erstellten Funktionen. Vierter Nutzer wird für den im
+Abschnitt~\ref{subsec:postgres_etl} beschriebenen ETL\hyp{}Prozess im
+Wirkbetrieb genutzt. Er besitzt ausschließlich schreibende Rechte.
 
 Neben den durchgeführten Aufgaben an dem Postgres\hyp{}Server wurde bei den
 Teammitgliedern jeweils die benötigte Entwicklerumgebung aufgesetzt und
@@ -2823,25 +2881,40 @@ Attributes bestimmt werden. Ist ein solches \gls{Repositorium} definiert,
 greift der Transformations\hyp{}Algorithmus darauf zu und püft die neuen Daten
 nach den Definitionen. Sollte bei der Prüfung ein Konflikt entstehen, so kann
 der Prozess diesen eigenständig lösen und die neuen Daten an die Definition
-anpassen. Bei schwerwiegenden Fehlern, welche nicht von dem Algorithmus gelöst
-werden können, wurde von dem Projektteam ein Fehlerreport definiert.  Dabei
-werden die auf Fehler gelaufenen Daten nicht entfernt und ein beliebiger
-Verteiler darüber informiert. Anschließend kann ein Administrator den Fehler
-beseitigen oder die Daten manuell in das Datenhaltsungssystem überführen.
+anpassen. Bei schwerwiegenden Fehlern, welche nicht von dem Algorithmus
+gelöst werden können, wurde von dem Projektteam ein Fehlerreport definiert.
+Dabei werden die auf Fehler gelaufenen Daten nicht entfernt und ein
+beliebiger Verteiler darüber informiert. Anschließend kann ein Administrator
+den Fehler beseitigen oder die Daten manuell in das Datenhaltsungssystem
+überführen.
+
+Neben den angesprochenen Inhalten wurde im Transformations\hyp{}Teil eine
+Aggregation der Daten zugunsten des Speicherplatzes definiert. Sofern
+bei aufeinanderfolgenden Datensätzen innerhalb einer Stunde der
+Ressourcentyp, das System und der Wert identisch ist, wird nur der erste
+Datensatz gespeichert. Oftmals laufen Systeme über Stunden ohne eine messbare
+Auslastung, somit kann bei der Speicherung auf diese Datensätze verzichtet
+werden. Das selbe Prinzip wird für Systeme angewandt, welche eine konstante
+gleiche Auslastung besitzen. Bei diesen muss ebenfalls nur der erste Datensatz
+innerhalb der Stunde gespeichert werden. Bei der Datenabfrage werden die
+fehlenden Datensätze dynamisch errechnet. Dadurch das jede Stunde mindestens
+ein Datensatz von jedem angebunden Server in die Datenhaltung gespeichert wird,
+kann ebenfalls zwischen einem ausgeschaltenden Server und einem Server ohne
+Nutzung unterschieden werden.
 
 Ist der Transformations\hyp{}Teil bei einem Datensatz vollständig
 durchgelaufen, beginnt der Lade\hyp{}Teil. Dabei übergibt der
 Transformations\hyp{}Algorithmus den vollständig korrekten Datensatz an den
-Lade\hyp{}Algorithmus. Neben dem eigentlichen Datensatz übermittelt dieser auch
-die Zieldatenbank und Zieltabelle, sodass der Lade\hyp{}Algorithmus nun nur
-noch die Daten in das entsprechende Objekt einfügen muss. Dabei wird speziell
-auf die Auslastung des Zielobjektes geachtet. Ist die Tabelle zum Beispiel
-durch einen anderen Prozess belegt, wird dies von dem Lade\hyp{}Algorithmus
-erkannt und das Einfügen der Daten hinten angestellt. Für diesen Teil besitzt
-die Postgres Datenbank bereits vorhandene Frameworks, welche von dem
-Projektteam genutzt werden. Somit muss das Management der Prozessabarbeitung
-innerhalb des Datenhaltsungssystem nicht selber entwickelt, sondern nur
-eingebunden werden.
+Lade\hyp{}Algorithmus. Neben dem eigentlichen Datensatz übermittelt dieser
+auch die Zieldatenbank und Zieltabelle, sodass der Lade\hyp{}Algorithmus nun
+nur noch die Daten in das entsprechende Objekt einfügen muss. Dabei wird
+speziell auf die Auslastung des Zielobjektes geachtet. Ist die Tabelle zum
+Beispiel durch einen anderen Prozess belegt, wird dies von dem
+Lade\hyp{}Algorithmus erkannt und das Einfügen der Daten hinten angestellt. Für
+diesen Teil besitzt die Postgres Datenbank bereits vorhandene Frameworks,
+welche von dem Projektteam genutzt werden. Somit muss das Management der
+Prozessabarbeitung innerhalb des Datenhaltsungssystem nicht selber entwickelt,
+sondern nur eingebunden werden.
 \nl%
 
 \subsection{Repositorium}
@@ -2959,25 +3032,31 @@ definieren und durchführen kann.
 
 Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
 definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
-von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt. Da
+von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt
+(siehe auch Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da
 sich das Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert,
 wurde mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet
 Grafana nur mit vier URL's (Endpunkte) der API\@. Die erste ist dafür zuständig
-zu prüfen, ob das API\hyp{}System überhaupt erreichbar, beziehungsweise
-vorhanden ist. Die zweite wird genutzt, um an dem API System anzufragen, welche
-Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen, basierend
-auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück. Die
-letztere ermöglicht es, einzelne Informationen in einem Graphen hervor zu
+zu prüfen, ob das \GLS{API}\hyp{}System überhaupt erreichbar, beziehungsweise
+vorhanden ist. Die zweite wird genutzt, um an dem \GLS{API} System anzufragen,
+welche Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen,
+basierend auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück.
+Die letztere ermöglicht es, einzelne Informationen in einem Graphen hervor zu
 heben. Alle vier URL's besitzen eine eigene Anfrage\hyp{}Methode und
-Datenstruktur an der API und erwarten auch unterschiedliche Antworten von der
-API in Struktur und Inhalt.
+Datenstruktur an der \GLS{API} und erwarten auch unterschiedliche Antworten von
+der \GLS{API} in Struktur und Inhalt. Neben diesen vier URL's wurde ebenfalls
+das extrahieren der in Abschnitt~\ref{subsec:zusammenspiel_api_frontend}
+erläuterten Organisations\hyp{}ID implementiert.
 
 Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
 Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API\@. Dies
 hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage bei
 dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die im
-Abschnitt~\ref{subsec:postgres_datenschutz} definierten
-Postgres\hyp{}Funktionen nun auch in dem API\hyp{}System integriert.
+Abschnitt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
+auch in dem \GLS{API}\hyp{}System integriert.
+
+Zusätzlich wurde die in Abschnitt~\ref{subsec:postgres_etl} erläuterte
+Rückrechnung der Daten integriert.
 \nl%
 
 \section{Realisierung Grafana}
@@ -3090,6 +3169,21 @@ werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
 dem Grafana Symbol > Admin > Global Users weitere User angelegt werden und
 Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
+Dies wird in Grafana mit der Organisations-ID realisiert. Ein neu angelegter
+Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies ist in
+diesem Projekt zum Beispiel für einen einzelnen Kunden von einer virtuellen
+Instanz vorgesehen. Durch die in
+Abschnitt~\ref{subsec:zusammenspiel_api_frontend} erläuterte Mapping-Tabelle
+wird sichergestellt, dass der Benutzer nur die zu Ihm zugeordneten Daten sehen
+kann. Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum
+Beispiel ein Kundenberater, erhalten mehrere Zuordnungen von Organisations-IDs.
+Somit erhalten diese Zugriff auf die Dateninhalte des Kunden und können somit
+Ihre Aufgaben, wie die Beratung auf ein neues Produkt, oder Verbesserung der
+Gesamtperformance, durchführen. Andersherum muss für einen Kunden mit mehreren
+gemieteten virtuellen Instanzen kein neuer Benutzer angelegt werden,
+stattdessen wird seinem bestehenden Benutzer eine weitere Organisations-ID
+hinzugefügt.
+
 Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
 für lokale User als auch für LDAP\hyp{}User vergeben werden.  Sollte ein
 Unternehmen die LDAP\hyp{}Anbindung für die Authentifizierung an Grafana
@@ -3448,15 +3542,15 @@ ist eine solche Datei beigefügt.
 \label{sec:api_test}
 Während der Entwicklung des API Systems wurde bei der Implementierung von einem
 neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie in
-Punkt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
+Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
 durchgeführt. Speziell bei der API wurden die Komponententests in einem
 parallelen Verzeichnis zu dem Source Code und in der gleichen
 Programmiersprache wie die API, also Java, verfasst. Das in dem in
-Punkt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“ bietet
-dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den zu
-einem Algorithmus zugehörigen Komponententest direkt im Programm bereit, sodass
-jeder Entwickler die zugehörigen Tests sofort erkennen kann und hierzu nicht
-danach suchen muss.
+Abschnitt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“
+bietet dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den
+zu einem Algorithmus zugehörigen Komponententest direkt im Programm bereit,
+sodass jeder Entwickler die zugehörigen Tests sofort erkennen kann und hierzu
+nicht danach suchen muss.
 
 Für das Ausführen der definierten Tests muss keine eigene Laufzeit
 Infrastruktur bereitgestellt werden. Echte Komponententests werden
@@ -3506,10 +3600,10 @@ prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
 
 \section{ETL Test}
 \label{sec:etl_test}
-Für den in Punkt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
+Für den in Abschnitt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
 Transformations- und Ladeprozess von der Datenhaltung wird neben den
-in Punkt~\ref{sec:unit_tests} erläuterteten Komponententests und
-in Punkt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
+in Abschnitt~\ref{sec:unit_tests} erläuterteten Komponententests und
+in Abschnitt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
 noch ein Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das
 System reagiert, wenn eine vorher nicht definierte Situation eintritt.
 Dies könnte zum Beispiel das erhalten von anderen Daten sein, welche keine
