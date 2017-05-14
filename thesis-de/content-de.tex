@@ -1245,8 +1245,8 @@ enthält das \gls{Git}-\gls{Repository} des Postgres Quellcodes am 26.11.2016
 41366 einzelne \glslink{Commit}{Commits} von 41 verschiedenen Autoren. Aufgrund
 der Patchpolitik von Postgres werden Patches oftmals an Autoren aus dem
 Postgres\hyp{}Team geschickt. Ein Teammitglied fügt danach den Patch in das
-Repository ein. Somit lässt sich nicht genau bestimmen, von wie vielen Leuten
-Code beigesteuert wurde.
+\gls{Repository} ein. Somit lässt sich nicht genau bestimmen, von wie vielen
+Leuten Code beigesteuert wurde.
 
 Die Postgres\hyp{}Architektur sah lange Zeit vor, dass der Dienst auf einem
 einzigen Server betrieben wird. Mittlerweile gibt es mehrere Möglichkeiten, die
@@ -3084,10 +3084,11 @@ mit folgendem Befehl installiert:
 sudo pacman -S grafana
 \end{minted}
 
-Pacman ist ein Paketinstaller mit dem weitere Software aus einem Repository
-heruntergeladen und installiert werden kann. Er durchsucht hier die gesamten
-vordefinierten Repository URLs nach Grafana und installiert hier die aktuellste
-vorliegende Version auf dem Archlinux\hyp{}Betriebssystem.
+Pacman ist ein Paketinstaller mit dem weitere Software aus einem
+\gls{Repository} heruntergeladen und installiert werden kann. Er durchsucht
+hier die gesamten vordefinierten \gls{Repository} URLs nach Grafana und
+installiert hier die aktuellste vorliegende Version auf dem
+Archlinux\hyp{}Betriebssystem.
 
 Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
 dieses mit folgendem Befehl gestartet und falls gewünscht im Autostart von
@@ -3390,8 +3391,8 @@ Dies installiert collectd, richtet dann das Netzwerk\hyp{}Plugin ein, um Daten
 zu Logstash schicken zu können. Im Anschluss werden die verschiedenen Plugins
 zum Sammeln der Metriken aktiviert. Hierbei wurde festgestellt, dass das Puppet
 Modul für collectd keine sinnvollen Standardwerte für das Konfigurieren des
-collectd Repositorys besitzt. Dies wurde behoben und der Fix wieder den
-Entwicklern zur Verfügung gestellt (vgl.~\cite{collectd-bug}).
+collectd \glslink{Repository}{Repositorys} besitzt. Dies wurde behoben und der
+Fix wieder den Entwicklern zur Verfügung gestellt (vgl.~\cite{collectd-bug}).
 \tm%
 
 \chapter{Tests und Qualitätssicherung}
@@ -3443,10 +3444,11 @@ Travis ist eine Plattform für Continuous Integration. Sie ist kostenlos nutzbar
 und stellt verschiedene virtuelle Maschinen und Container bereit, in denen
 Tests ausgeführt werden können. GitHub kann bei neuen Pull Requests eine
 Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM und
-klont das entsprechende GitHub Repository und den \texttt{Feature Branch}.
-Danach wird eine definierte Testmatrix ausgeführt. Travis schickt eine
-Benachrichtigung an GitHub, nachdem die Tests beendet wurden. Somit ist in der
-Weboberfläche ersichtlich, ob die Tests erfolgreich waren oder nicht.
+klont das entsprechende GitHub \gls{Repository} und den
+\texttt{Feature Branch}. Danach wird eine definierte Testmatrix ausgeführt.
+Travis schickt eine Benachrichtigung an GitHub, nachdem die Tests beendet
+wurden. Somit ist in der Weboberfläche ersichtlich, ob die Tests erfolgreich
+waren oder nicht.
 
 Dieses Verfahren ermöglicht es, eine reproduzierbare Testumgebung zu nutzen.
 Diese wird immer auotmatisch gestartet. Es ist nicht mehr notwendig, jeden Test
