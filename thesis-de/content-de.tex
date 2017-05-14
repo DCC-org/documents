@@ -308,7 +308,7 @@ sich wie folgt:
   \1 Die daraus resultierenden Analyseergebnisse sollten anschließend über im
   Projekt definierte Schnittstellen an verschiedene Systeme weitergeliefert
   werden können. Entsprechend soll das Datenhaltungssystem die dafür
-  notwendigen Treiber und Schnittstellen mitliefern.
+  notwendigen \GLS{Treiber} und Schnittstellen mitliefern.
 \end{outline}
 
 Es soll in der Ziellösung eine stabile Schnittstelle im Gesamtsystem bilden
@@ -508,15 +508,15 @@ Ausgabe und Anzeige für den User beziehungsweise den Administrator. Eine
 Schnittstelle auf einem Webinterface dient in erster Linie der Anzeige von
 Daten, die über ein anderes System (Backend) erhalten wurden.
 
-Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
-welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
-Liefert der Weboberfläche alle nötigen Funktionen und Werkzeuge zur
-Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
-Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein rein lesender
-Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird durch den
-Datenhaltungssystem\hyp{}Administrator gewährleistet.
+Die erste Schnittstelle der Weboberfläche ist ein standardisierter
+\GLS{Treiber}, welchen man verwenden kann, um auf ein Datenhaltungssystem
+zuzugreifen. Dieser Liefert der Weboberfläche alle nötigen Funktionen und
+Werkzeuge zur Datenextraktion, Datenmanipulation und der Rechteverwaltung
+auf einem Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein
+rein lesender Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird
+durch den Datenhaltungssystem\hyp{}Administrator gewährleistet.
 
-Neben der Verwendung eines Treibers in Verbindung mit einem
+Neben der Verwendung eines \glslink{Treiber}{Treibers} in Verbindung mit einem
 Berechtigungskonzept, kann auch ein \gls{API}\hyp{}System zum Einsatz kommen.
 Die Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können
 dem Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
@@ -1292,19 +1292,19 @@ nicht aber zu Datenverlust oder Erreichbarkeitsproblemen des Verbunds.
 OpenTSDB ist ein Zeitreihen\hyp{}basiertes Programm, auf Englisch „Time Series
 Daemon (TSD)“, und arbeitet mit dem Open\hyp{}Source\hyp{}Programm \gls{DBMS}
 „HBase“ zusammen. Es verfügt über die Funktionen von einem
-Konsolen\hyp{}basierten Zugang, sowie verschiedenen Treibern für den Zugriff
-und Austausch von Informationen zwischen anderen Netzwerkgeräten. Es übernimmt
-nicht die Aufgabe der Datenspeicherung. Dazu wird das zugehörige \gls{DBMS}
-„HBase“ zwingend benötigt. OpenTSDB wird genutzt, um einzelne und unabhängige
-Systeme für den Datenzugriff bereitzustellen. Dabei können beliebig viele
-Systeme (Deamons) an einem HBase\hyp{}System angebunden sein. Es existiert
-keinerlei Informationsaustausch zwischen den einzelnen Deamons, sondern sie
-nutzen lediglich alle die gleiche Datengrundlage des HBase\hyp{}Systems.
-Dennoch kann man durch dieses Verfahren die Analyseperformance dynamisch
-anpassen, da das HBase\hyp{}System stark auf die Aggregation und niedrigen
-Speicherplatzbedarf optimiert wurde. Die einzelnen Deamons kommunizieren dabei
-mit dem HBase\hyp{}System über einfache Protokolle wie Telnet oder \gls{HTTP}
-(\gls{API}).
+Konsolen\hyp{}basierten Zugang, sowie verschiedenen \glslink{Treiber}{Treibern}
+für den Zugriff und Austausch von Informationen zwischen anderen
+Netzwerkgeräten. Es übernimmt nicht die Aufgabe der Datenspeicherung. Dazu
+wird das zugehörige \gls{DBMS} „HBase“ zwingend benötigt. OpenTSDB wird
+genutzt, um einzelne und unabhängige Systeme für den Datenzugriff
+bereitzustellen. Dabei können beliebig viele Systeme (Deamons) an einem
+HBase\hyp{}System angebunden sein. Es existiert keinerlei Informationsaustausch
+zwischen den einzelnen Deamons, sondern sie nutzen lediglich alle die gleiche
+Datengrundlage des HBase\hyp{}Systems. Dennoch kann man durch dieses Verfahren
+die Analyseperformance dynamisch anpassen, da das HBase\hyp{}System stark auf
+die Aggregation und niedrigen Speicherplatzbedarf optimiert wurde. Die
+einzelnen Deamons kommunizieren dabei mit dem HBase\hyp{}System über einfache
+Protokolle wie Telnet oder \gls{HTTP} (\gls{API}).
 
 Da die Dateninhalte immer in Verbindung mit einem Zeit- und Datumswert stehen,
 ist dieses \gls{DBMS} durch die Optimierung des Verarbeitens der Zeit- und
@@ -1408,9 +1408,9 @@ Dadurch das in dem Hadoop\hyp{}System keinerlei Struktur der Daten existiert,
 übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
 Lesen, Schreiben und Managen von Dateninformationen. Es beginnt dabei mit
 Werkzeugen für den Zugriff auf die Daten innerhalb des Hadoop\hyp{}Systems.
-Dies ist zum einem die Bereitstellung von einem standardisierten Treiber für
-den externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache mit
-dem bekannten Namen „\gls{SQL}“. Jedoch implementiert Apache Hive auf dem
+Dies ist zum einem die Bereitstellung von einem standardisierten \gls{Treiber}
+für den externen Zugriff auf die Daten, sowie die Vorgabe einer Abfragesprache
+mit dem bekannten Namen „\gls{SQL}“. Jedoch implementiert Apache Hive auf dem
 Hadoop\hyp{}System auch Funktionen wie das Reporten von Inhalten über eine
 wählbare Schnittstelle wie zum Beispiel dem Versand einer eMail oder Anzeige
 auf einer Internetwebseite.
@@ -1959,19 +1959,19 @@ Beispiel dann benötigt, wenn weitere Graphen, Analysen oder unterstützte
 Datenquellen erweitert werden sollen. Dies bedeutet, dass das
 Datenhaltungssystem \gls{API} Statements zur Verfügung stellen kann und hiermit
 Graphen visualisieren kann. Grafana kann über einen \gls{Datenbanktreiber} oder
-eine Schnittstelle in Form eines Treibers einfache Statements auf das
-Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
-eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode angepasst und
-verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte
-Kundenumgebungen.  Dadurch entstehen auch keine Support\hyp{}Kosten, da die
-Software nicht als ein Dienst angeboten wird. Grafana hat eine stetig wachsende
-Community mit sämtlichen Dokumenten zur Einrichtung oder Erweiterung des
-Systems. Der gesamte Quellcode ist auf GitHub veröffentlicht, somit haben auch
-andere Mitglieder von GitHub die Möglichkeit, das Produkt zu verbessern und
-neue Funktionen zu implementieren. Die vom Anwender erstellten Dashboards mit
-allen Graphen und Statements können vom System, wie auch vom Anwender selbst,
-auf einen externen Dateifreigabeserver oder lokal abgespeichert werden
-(vgl.~\cite{grafana}).
+eine Schnittstelle in Form eines \glslink{Treiber}{Treibers} einfache
+Statements auf das Datenhaltungssystem durchführen, um die Daten abzugreifen.
+Es ist zusätzlich eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode
+angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
+an bestimmte Kundenumgebungen.  Dadurch entstehen auch keine
+Support\hyp{}Kosten, da die Software nicht als ein Dienst angeboten wird.
+Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
+Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
+veröffentlicht, somit haben auch andere Mitglieder von GitHub die Möglichkeit,
+das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
+Anwender erstellten Dashboards mit allen Graphen und Statements können vom
+System, wie auch vom Anwender selbst, auf einen externen Dateifreigabeserver
+oder lokal abgespeichert werden (vgl.~\cite{grafana}).
 
 Zusammenfassung:
 
@@ -2568,24 +2568,26 @@ Prozessorkernen (vgl.~\cite{jruby}).
 \gls{JDBC} (Java Database Connectivity) ist die Schnittstelle der JVM zu
 Datenbanken. Sie stellt generische Funktionen bereit, um mit Datenbanken zu
 kommunizieren. Für jede Datenbank mit der kommuniziert werden soll, wird ein
-Treiber benötigt. Dieser beschreibt die spezifischen Eigenschaften eines
+\gls{Treiber} benötigt. Dieser beschreibt die spezifischen Eigenschaften eines
 bestimmten \gls{DBMS} für die JDBC\@. Er kommuniziert auf der einen Seite mit
 dem \gls{DBMS} und auf der anderen Seite mit der JDBC\@. Für Logstash gibt es
 ein Plugin, welches die JDBC\hyp{}Schnittstelle innerhalb des JRuby Bytecodes
 nutzbar macht. Somit ist Logstash in der Lage, in eine Datenbank zu schreiben.
 Hierfür musste ausschließlich die Kommunikation mit der JDBC programmiert
-werden. Postgres bietet einen Treiber für JDBC an (vgl.~\cite{postgres-jdbc}).
+werden. Postgres bietet einen \gls{Treiber} für JDBC an
+(vgl.~\cite{postgres-jdbc}).
 \tm%
 
 \subsection{JDBC Treiber Typen}
-Es gibt vier verschiedene Typen von JDBC\hyp{}Treibern. Typ vier ist besonders
-effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
-Folgenden sind die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
+Es gibt vier verschiedene Typen von JDBC\hyp{}\glslink{Treiber}{Treibern}. Typ
+vier ist besonders effizient, dieser wird auch von den Postgres Entwicklern
+bereitgestellt. Im Folgenden sind die einzelnen Typen erklärt
+(vgl.~\cite{jdbc-types}).
 
 \subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC\hyp{}Schnittstelle einen sehr generischen \gls{ODBC}
-Treiber an. Dieser kommuniziert mit einer Bibliothek des \gls{DBMS}\@. Der
-ODBC\hyp{}Treiber muss auf jedem System vorhanden sein, welches die
+\gls{Treiber} an. Dieser kommuniziert mit einer Bibliothek des \gls{DBMS}\@.
+Der ODBC\hyp{}\gls{Treiber} muss auf jedem System vorhanden sein, welches die
 JVM\hyp{}Applikation ausführt. Die Bibliothek kann, zusammen mit der Datenbank
 selbst, auf einem anderen System im Netzwerk oder auch lokal betrieben werden.
 
@@ -2610,23 +2612,24 @@ Die Nachteile sind:
 \end{outline}
 
 \subsection{Nativer API-Treiber}
-Die JDBC\hyp{}Schnittstelle spricht hier über den Treiber direkt die Bibliothek
-des \gls{DBMS} an. Dafür muss der Treiber als auch die Bibiliothek auf dem
-gleichen System vorhanden sein, wie die JVM\hyp{}Applikation. Die Datenbank
-selbst kann auf dem gleichen Server oder über das Netzwerk angesprochen werden.
+Die JDBC\hyp{}Schnittstelle spricht hier über den \gls{Treiber} direkt die
+Bibliothek des \gls{DBMS} an. Dafür muss der \gls{Treiber} als auch die
+Bibiliothek auf dem gleichen System vorhanden sein, wie die
+JVM\hyp{}Applikation. Die Datenbank selbst kann auf dem gleichen Server oder
+über das Netzwerk angesprochen werden.
 
-Die Vorteile im Vergleich zum JDBC\hyp{}ODBC\hyp{}Treiber:
+Die Vorteile im Vergleich zum JDBC\hyp{}ODBC\hyp{}\gls{Treiber}:
 
 \begin{outline}
   \1 Eine höhere Performance, da Teile direkt in Java geschrieben sind.
   \1 Geringere Fehleranfälligkeit, da eine Komponente weniger vorhanden ist.
 \end{outline}
 
-Die Performance ist besser als beim JDBC\hyp{}ODBC\hyp{}Treiber, aber noch
-nicht optimal.  Außerdem ist es nicht immer möglich, Zusatzsoftware, wie die
-Bibliotheken, auf dem gewünschten System zu installieren. Es gibt Firmen, die
-dies untersagen.  Dies trifft allerdings nicht in diesem Projekt zu, weshalb es
-nicht als Negativpunkt gewertet wird.
+Die Performance ist besser als beim JDBC\hyp{}ODBC\hyp{}\gls{Treiber}, aber
+noch nicht optimal.  Außerdem ist es nicht immer möglich, Zusatzsoftware, wie
+die Bibliotheken, auf dem gewünschten System zu installieren. Es gibt Firmen,
+die dies untersagen.  Dies trifft allerdings nicht in diesem Projekt zu,
+weshalb es nicht als Negativpunkt gewertet wird.
 
 \subsection{Netzwerkprotokolltreiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
@@ -2652,13 +2655,13 @@ Die Nachteile sind:
   \1 Die eigentliche Applikation benötigt zwingend eine Netzwerkfunktionalität.
   \1 Die Datenbankoperationen erfolgen über zwei Netzwerkverbindungen, was
   zu einem Overhead führt.
-  \1 Der Entwicklungsaufwand ist bedeutend komplexer als bei anderen Treibern,
-  sofern man die Middleware selbst implementiert und nicht auf fertige Lösungen
-  zurückgreifen kann.
+  \1 Der Entwicklungsaufwand ist bedeutend komplexer als bei anderen
+  \glslink{Treiber}{Treibern}, sofern man die Middleware selbst implementiert
+  und nicht auf fertige Lösungen zurückgreifen kann.
 \end{outline}
 
 \subsection{Nativer JDBC-Treiber}
-Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, dass
+Hier liefern die Datenbankentwickler einen nativen \gls{Treiber}. Dies bedeutet, dass
 er komplett in Java geschrieben ist. Er wird beim Starten der Applikation
 geladen und erlaubt es der JDBC\hyp{}Schnittstelle, direkt mit der Datenbank zu
 kommunizieren. Es werden keine weiteren Bibliotheken benötigt. Die Datenbank
@@ -2668,18 +2671,18 @@ Netzwerk angesprochen werden.
 Die Vorteile sind:
 
 \begin{outline}
-  \1 Dieser Treiber bietet die größtmögliche Performance, da er Anfragen von
-  der JDBC auf das spezifische \gls{DBMS} optimieren kann.
+  \1 Dieser \gls{Treiber} bietet die größtmögliche Performance, da er Anfragen
+  von der JDBC auf das spezifische \gls{DBMS} optimieren kann.
   \1 Der Overhead wurde auf ein Minimum reduziert.
   \1 Es werden keine zusätzlichen Schnittstellen benötigt, was die
   Fehleranfälligkeit reduziert.
 \end{outline}
 
-Diese Art von Treiber bietet aus Sicht des Nutzers keine bekannten Nachteile.
-Die Entwicklung benötigt für diese Art die meiste Arbeit, weshalb nicht jedes
-\gls{DBMS} solche Treiber zur Verfügung stellt. Für Postgres existieren solche
-Treiber. Logstash ist somit in der Lage, besonders effizient auf die Datenbank
-zuzugreifen.
+Diese Art von \gls{Treiber} bietet aus Sicht des Nutzers keine bekannten
+Nachteile. Die Entwicklung benötigt für diese Art die meiste Arbeit, weshalb
+nicht jedes \gls{DBMS} solche \gls{Treiber} zur Verfügung stellt. Für Postgres
+existieren solche \gls{Treiber}. Logstash ist somit in der Lage, besonders
+effizient auf die Datenbank zuzugreifen.
 \tm%
 
 \section{JDBC in Kombination mit der JVM}
@@ -3380,8 +3383,8 @@ beide existiert ein fertiges Puppetmodul, außerdem sind die
 Konfigurationsoptionen überschaubar. Für Logstash wurde ein eigenes Puppet
 Profil geschrieben, dieses befindet sich unter~\ref{lst:logstash-profile}. Es
 installiert Logstash und anschließend das JDBC Plugin für die Kommunikation mit
-der Datenbank. Hierfür wird noch der Postgres Treiber benötigt, dieser wird von
-der Postgres Webseite heruntergeladen. Zum Schluss wird die Logstash
+der Datenbank. Hierfür wird noch der Postgres \gls{Treiber} benötigt, dieser
+wird von der Postgres Webseite heruntergeladen. Zum Schluss wird die Logstash
 Konfiguration aus~\ref{lst:logstash} erzeugt und Logstash gestartet. Hierbei
 stellte sich heraus, dass das Puppet Modul für Logstash nicht zu 100\% auf
 Archlinux funktioniert. Dies wurde vom Projektteam behoben. Der Fix wurde den
