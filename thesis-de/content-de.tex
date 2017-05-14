@@ -42,7 +42,7 @@ mit Datenanalysen von großen Datenmengen und dessen Methodiken beschäftigt.
 Sehr schnell entstand aus diesen beiden Gesprächsinhalten die Softwareidee,
 welche in diesem Dokument vorgestellt wird. Da Herrn Meusel und Herrn Luis der
 Aufwand dieser Lösung bewusst war und beide keine Expertise im Bereich
-Frontend\hyp{}Entwicklung, bzw. Datenvisualisierung besaßen, stellten Sie die
+Frontend\hyp{}Entwicklung, bzw.\ Datenvisualisierung besaßen, stellten Sie die
 Idee ihren Mitstudenten vor. Herr Reuter zeigte dabei hohes Interesse und war
 vor allem vom englischsprachigen Teil des Projektes überzeugt. Die von den
 Dozenten definierten Vorgaben waren somit erfüllt und das Projekt konnte für
@@ -1705,53 +1705,52 @@ dem Projektteam aus der Bewertung ausgeschlossen.
 \label{subsec:zusammenspiel_api_frontend}
 Nachdem die Evaluierung der Datenvisualisierung im
 Abschnitt~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
-abgeschlossen war, wurde dessen Zusammenspiel mit der API überprüft.
-Dabei schaute sich Herr Luis speziell die Kommunikation zwischen den beiden
+abgeschlossen war, wurde dessen Zusammenspiel mit der API überprüft.  Dabei
+schaute sich Herr Luis speziell die Kommunikation zwischen den beiden
 Softwareprodukten an. Mit der Kommunikation ist der Aufbau einer Datenanfrage
 und die daraus resultierende Datenzulieferung gemeint. Der von der
-Datenvisualisierungs-Software definierte Kommunikations-Aufbau muss die API
-eins zu eins übernehmen, andernfalls wäre eine vollständige Kommunikation,
-und somit die Übertragung der benötigten Informationen, der beiden
-Softwareprodukte nicht möglich.
+Datenvisualisierungs\hyp{}Software definierte Kommunikations\hyp{}Aufbau muss
+die API eins zu eins übernehmen, andernfalls wäre eine vollständige
+Kommunikation, und somit die Übertragung der benötigten Informationen, der
+beiden Softwareprodukte nicht möglich.
 
 Neben der technischen Kommunikation wurde ebenfalls die Informationsinhalte,
 welche die API von der Datenvisualisierung erhält und zurück sendet, auf den
-fachlichen Inhalt bewertet. Dabei konnte das Projektteam erkennen, dass bei
-der Verwendung eines API Systems, der Datenvisualisierungs-Administrator
-keine optionalen Datenfilterungen an die API übergeben kann. Speziell in
-diesem Projekt entstand dabei die Problematik, dass bei der Datenanfrage
-an der API nicht ersichtlich war, um welchen Kunden, bzw. eingeloggten Benutzer
-es sich handelt. Entsprechend würde die API nicht wissen ob Daten an
-einen Administrator, welcher alle Server sehen darf, oder ob Daten
-an einen Kunden, welcher nur seine eigenen Server sehen darf,
-zurück gesendet werden sollen.
+fachlichen Inhalt bewertet. Dabei konnte das Projektteam erkennen, dass bei der
+Verwendung eines API Systems, der Datenvisualisierungs\hyp{}Administrator keine
+optionalen Datenfilterungen an die API übergeben kann. Speziell in diesem
+Projekt entstand dabei die Problematik, dass bei der Datenanfrage an der API
+nicht ersichtlich war, um welchen Kunden, bzw.\ eingeloggten Benutzer es sich
+handelt. Entsprechend würde die API nicht wissen ob Daten an einen
+Administrator, welcher alle Server sehen darf, oder ob Daten an einen Kunden,
+welcher nur seine eigenen Server sehen darf, zurück gesendet werden sollen.
 
-Um diese Problematik zu lösen, hat das Projektteam den „Header“-Bereich
-(auf Deutsch Kopf-Bereich), welcher bei jeder \gls{HTTP}- oder
-\gls{HTTPS}-Anfrage vorhanden ist, genauer untersucht. In diesem steht
-die Herkunft der Anfrage und weitere Informationen wie der genutze Browser des
+Um diese Problematik zu lösen, hat das Projektteam den „Header“\hyp{}Bereich
+(auf Deutsch Kopf\hyp{}Bereich), welcher bei jeder \gls{HTTP}- oder
+\gls{HTTPS}\hyp{}Anfrage vorhanden ist, genauer untersucht. In diesem steht die
+Herkunft der Anfrage und weitere Informationen wie der genutze Browser des
 Internetbenutzers. Speziell bei der Anfrage von der Datenvisualisierung an die
-API steht in dem Header-Bereich immer die Organisations-ID von dem anfragenden
-Benutzer. Die Organisations-ID ist bei der für das Projekt ausgewählten
-Datenvisualisierungs-Software eine Abgrenzung der Zugriffsrechte. Das heißt
-sie definiert, welche Daten, beziehungsweise Dashboards der eingeloggte
-Benutzer sehen darf und welche nicht.
+API steht in dem Header\hyp{}Bereich immer die Organisations\hyp{}ID von dem
+anfragenden Benutzer. Die Organisations\hyp{}ID ist bei der für das Projekt
+ausgewählten Datenvisualisierungs\hyp{}Software eine Abgrenzung der
+Zugriffsrechte. Das heißt sie definiert, welche Daten, beziehungsweise
+Dashboards der eingeloggte Benutzer sehen darf und welche nicht.
 
 Für die Ziellösung wurde entsprechend von dem Projektteam festgelegt, dass die
 Datenhaltung neben den eigentlichen Daten auch eine Mapping Tabelle besitzen
 soll. Diese Mapping Tabelle besitzt entsprechend die Information, welche
-Organisations-ID zu welcher virtuellen Instanz, beziehungsweise Host-Server
-gehört. Sollte die Datenvisualisierung Daten bei der API anfordern, würde
-diese vor der eigentlichen Datenabfrage bei der Datenhaltung die vorhandene
-Organisations-ID in den Server-Namen übersetzen. Mit dieser Übersetzung kann
-die API anschließend regulär die Daten von der Datenhaltung anfordern und
-an die Datenvisualisierung liefern.
+Organisations\hyp{}ID zu welcher virtuellen Instanz, beziehungsweise
+Host\hyp{}Server gehört. Sollte die Datenvisualisierung Daten bei der API
+anfordern, würde diese vor der eigentlichen Datenabfrage bei der Datenhaltung
+die vorhandene Organisations\hyp{}ID in den Server\hyp{}Namen übersetzen. Mit
+dieser Übersetzung kann die API anschließend regulär die Daten von der
+Datenhaltung anfordern und an die Datenvisualisierung liefern.
 
 Diese Lösung hat zusätzlich noch den Vorteil einer weiteren Datensicherheit.
-Die genannte Organisations-ID kann ausschließlich im Backend der
-Datenvisualisierung verändert werden. Einem Benutzer ist es nicht möglich
-den Wert dieser ID in irgendeiner Weise zu verändern und somit andere Daten
-zu erhalten.
+Die genannte Organisations\hyp{}ID kann ausschließlich im Backend der
+Datenvisualisierung verändert werden. Einem Benutzer ist es nicht möglich den
+Wert dieser ID in irgendeiner Weise zu verändern und somit andere Daten zu
+erhalten.
 \nl%
 
 \section{Datenvisualisierung}
