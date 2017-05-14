@@ -1118,7 +1118,7 @@ Probleme bei Netzwerkausfällen und starker Systemlast hat
 dass jeder Node im Cluster über zwei Netzwerkverbindungen verfügt. Eine davon
 ist zur internen Cluster\hyp{}Kommunikation und zum Verteilen der Replikas, die
 andere für die Kommunikation mit der Außenwelt (Bereitstellung der
-RESTful\hyp{}Schnittstelle).
+\gls{RESTful}\hyp{}Schnittstelle).
 
 Gegeben ist ein Teilausfall des internen Netzwerks (zum Beispiel ein
 Kabelbruch):
@@ -1134,7 +1134,8 @@ Kabelbruch):
 Dieses Verhalten ist mit dem \gls{Jepsen}\hyp{}Test reproduzierbar
 (vgl.~\cite{es_jepsen_iso}). Während Elasticsearch Replikas von Shards eines
 ausgefallenen Nodes aktiv setzt, werden neue Daten weiterhin über die
-RESTful\hyp{}Schnittstelle angenommen und dann ohne Rückmeldung verworfen.
+\gls{RESTful}\hyp{}Schnittstelle angenommen und dann ohne Rückmeldung
+verworfen.
 
 Das nächste Problem ist das Verhalten von Elasticsearch unter hoher Systemlast.
 Ein Prozess unter Linux kann pausiert und wieder gestartet werden.
@@ -1151,7 +1152,7 @@ möchte.
   \1 Der Prozess wird wieder gestartet
   \1 Der Prozess prüft nicht, ob er noch aktiv ist für seine Shards
   \1 Der Prozess akzeptiert eingehende Schreibanfragen über die
-  RESTful\hyp{}Schnittstelle und updated seine Shards
+  \gls{RESTful}\hyp{}Schnittstelle und updated seine Shards
   \1 Der Prozess meldet zurück, dass er die Daten erfolgreich geschrieben hat
   \1 Sobald das Netzwerkproblem behoben ist, erhält der Node Anweisungen aus
   dem Cluster, um seine Shards auf den Stand der Kopien im Netzwerk zu bringen
