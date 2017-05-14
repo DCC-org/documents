@@ -1743,7 +1743,8 @@ Internetbenutzers. Speziell bei der Anfrage von der Datenvisualisierung an die
 dem anfragenden Benutzer. Die Organisations\hyp{}ID ist bei der für das Projekt
 ausgewählten Datenvisualisierungs\hyp{}Software eine Abgrenzung der
 Zugriffsrechte. Das heißt sie definiert, welche Daten, beziehungsweise
-Dashboards der eingeloggte Benutzer sehen darf und welche nicht.
+\glslink{Dashboard}{Dashboards} der eingeloggte Benutzer sehen darf und welche
+nicht.
 
 Für die Ziellösung wurde entsprechend von dem Projektteam festgelegt, dass die
 Datenhaltung neben den eigentlichen Daten auch eine Mapping Tabelle besitzen
@@ -1886,9 +1887,9 @@ werden:
   \1 Die Datensicherung ist bei der Datenvisualisierung ein wesentlicher
   Aspekt. Dabei muss die Weboberfläche bereits Möglichkeiten bieten, eine
   Datensicherung des \glslink{Dashboard}{Dashboards} durchführen zu können. Das
-  Dashboard beinhaltet alle Graphen und vorkonfigurierte Werte. Diese sollen
-  über ein externes System (Dateifreigabeserver oder ähnlichem) abgelegt werden
-  und können somit einfach dupliziert und gesichert werden.
+  \gls{Dashboard} beinhaltet alle Graphen und vorkonfigurierte Werte. Diese
+  sollen über ein externes System (Dateifreigabeserver oder ähnlichem) abgelegt
+  werden und können somit einfach dupliziert und gesichert werden.
   \1 Eine leichte Anpassung, Konfiguration und direkte Ausgabe der
   Visualisierung von CPU, RAM, Netzwerk oder ähnlichen Datenwerten. Hiermit ist
   gemeint, dass gewährleistet werden muss, dass die einzelnen Graphen schnell
@@ -1971,7 +1972,7 @@ Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
 Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf GitHub
 veröffentlicht, somit haben auch andere Mitglieder von GitHub die Möglichkeit,
 das Produkt zu verbessern und neue Funktionen zu implementieren. Die vom
-Anwender erstellten Dashboards mit allen Graphen und
+Anwender erstellten \glslink{Dashboard}{Dashboards} mit allen Graphen und
 \glslink{Statement}{Statements} können vom System, wie auch vom Anwender selbst,
 auf einen externen Dateifreigabeserver oder lokal abgespeichert werden
 (vgl.~\cite{grafana}).
@@ -1984,7 +1985,8 @@ Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
   \1 Gute Community und eine Vielzahl an Dokumentationen
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
-  \1 Dashboards können auf externen Server oder lokal gesichert werden
+  \1 \glslink{Dashboard}{Dashboards} können auf externen Server oder lokal
+  gesichert werden
   \1 \gls{API}\hyp{}Unterstüzung
   \1 Plugin\hyp{}Erweiterung möglich (Java)
   \1 Open\hyp{}Source\hyp{}Softwarelösung
@@ -2012,9 +2014,9 @@ Dokumentationen enthalten sind. Graphen können leicht mittels
 \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder
 direkt an das Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der
 WebOberfläche mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist
-ebenfalls möglich. Es können einzelne Graphen, wie auch das gesamte Dashboard,
-auf externe Server oder lokal abgespeichert werden, um einem Verlust von
-einzelnen Graphen vorbeugen zu können. Graphite ist, wie auch
+ebenfalls möglich. Es können einzelne Graphen, wie auch das gesamte
+\gls{Dashboard}, auf externe Server oder lokal abgespeichert werden, um einem
+Verlust von einzelnen Graphen vorbeugen zu können. Graphite ist, wie auch
 Grafana~\ref{subsubsec:grafana}, kompatibel zu Timeseries
 Datenhaltungssystemen. Es bietet keine einfache Möglichkeit, weitere Plugins
 hinzufügen zu können, wie es beispielsweise Grafana~\ref{subsubsec:grafana}
@@ -2037,8 +2039,8 @@ Positiv:
   \1 Authentisierung, Authentifizierung und Autorisierung
   \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
   \1 \gls{API}\hyp{}Unterstützung
-  \1 Dashboards und einzelne Graphen können auf externen Servern oder lokal
-  abgespeichert werden
+  \1 \glslink{Dashboard}{Dashboards} und einzelne Graphen können auf externen
+  Servern oder lokal abgespeichert werden
   \1 Open\hyp{}Source\hyp{}Softwarelösung
   \1 Dienste können hochverfügbar und auf unterschiedliche Server aufgeteilt
   werden
@@ -2077,7 +2079,7 @@ werden. Sollte keine Abfrage über eine \gls{API} gewünscht sein, so kann dies
 ebenfalls mittels \gls{Statement} direkt auf dem Datenhaltungssystem
 durchgeführt werden. Um die Datensicherheit und Ausfallsicherheit
 gewährleisten zu können, bietet Zabbix die Möglichkeit, einzelne Graphen mit
-Statements, wie auch das gesamte Dashboard exportieren und importieren zu
+Statements, wie auch das gesamte \gls{Dashboard} exportieren und importieren zu
 können (vgl.~\cite{zabbix-frontend}).
 
 
@@ -2091,8 +2093,8 @@ Positiv:
   eines Wikis
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 \gls{API}\hyp{}Unterstützung
-  \1 Dashboards und einzelne Graphen können auf externe Servern oder lokal
-  abgespeichert werden
+  \1 \glslink{Dashboard}{Dashboards} und einzelne Graphen können auf externe
+  Servern oder lokal abgespeichert werden
   \1 Bringt bereits eine Softwarelösung mit, womit Daten von virtuellen
   Maschinen exportiert werden können
   \1 Benötigt keine Plugins
@@ -2120,20 +2122,22 @@ hier nur maximal 5 virtuelle Instanzen abgefragt werden und die Daten werden
 maximal einen Tag zurückgehalten. Die teuerste Lizenz kostet hier 23 Dollar und
 beinhaltet alle Hosts, welche der Kunde anbinden möchte. Zusätzlich bietet
 diese Lizenz einen E\hyp{}Mail\hyp{}, Chat- oder Telefonsupport. Dieser ist
-nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch Dashboards können in
-Datadog einfach vom Administrator erstellt werden. Um die Anmeldung an der
-Weboberfläche durchführen zu können, wird ein Benutzer und Kennwort benötigt.
-Es ist hier nicht möglich, ein \GLS{LDAP} an die Weboberfläche anbinden zu
-können. Innerhalb eines Graphen können bestimmte Teilabschnitte mit zum
-Beispiel Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt
-werden. Datadog bietet zudem eventbasierte Mitteilungen, welche vom
-Administrator festgelegt werden können. Datadog hat eine vollständige
+nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
+\glslink{Dashboard}{Dashboards} können in Datadog einfach vom Administrator
+erstellt werden. Um die Anmeldung an der Weboberfläche durchführen zu können,
+wird ein Benutzer und Kennwort benötigt. Es ist hier nicht möglich, ein
+\GLS{LDAP} an die Weboberfläche anbinden zu können. Innerhalb eines Graphen
+können bestimmte Teilabschnitte mit zum Beispiel
+Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt werden.
+Datadog bietet zudem eventbasierte Mitteilungen, welche vom Administrator
+festgelegt werden können. Datadog hat eine vollständige
 \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
-Dashboards können vom Administrator exportiert werden. Eine Möglichkeit,
-Graphen zu exportieren, bietet Datadog hier nicht. Die Community, in der viele
-inhaltliche Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche
-eine Pro\hyp{}Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC-Channel}, um
-direkt Kontakt mit dem Support aufnehmen zu können (vgl.~\cite{datadog}).
+\glslink{Dashboard}{Dashboards} können vom Administrator exportiert werden.
+Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Die
+Community, in der viele inhaltliche Dokumente enthalten sind, sind hier nur
+für Kunden bestimmt, welche eine Pro\hyp{}Lizenz besitzen. Ebenso gibt es
+hier einen \gls{IRC-Channel}, um direkt Kontakt mit dem Support aufnehmen zu
+können (vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2141,7 +2145,7 @@ Positiv:
 
 \begin{outline}
   \1 Authentisierung, Authentifizierung, Autorisierung
-  \1 Leichte Anpassung an Graphen, Dashboard und Einstellungen möglich
+  \1 Leichte Anpassung an Graphen, \gls{Dashboard} und Einstellungen möglich
   \1 \gls{API}\hyp{}Unterstützung
   \1 Gute inhaltliche Community mit IRC\hyp{}Channel und Telefonsupport (steht
   nur in der Kauflizenz zur Verfügung)
@@ -2167,7 +2171,7 @@ Gridster ist eine von Anmol Koul entwickelte Java\hyp{}Bibliothek, welche auf
 Software, stellte sich heraus, dass es sich hierbei nicht direkt um eine
 Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
 das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer
-Weboberfläche. Mit dieser hat man die Möglichkeit, ein Dashboard, welches
+Weboberfläche. Mit dieser hat man die Möglichkeit, ein \gls{Dashboard}, welches
 selbst entwickelt worden ist, individuell anpassen zu
 können (vgl.~\cite{gridster-d3}).
 
@@ -2785,15 +2789,15 @@ verschiedene Typen. Diese sind fest in puppet verankert und werden von der
 Firma Puppet gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden.
 Für jeden Typen gibt es einen Provider. Dieser implementiert den Typen auf
 einer bestimmten Plattform. Das Grafana\hyp{}Modul besitzt eigene Typen, welche
-Dashboards und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt
-nicht über normale Textdateien, sondern über eine \gls{API} oder Weboberfläche.
-Über die eigenen Typen kann Puppet auch hiermit interagieren und nicht nur die
-Installation, sondern auch die komplette Konfiguration automatisieren
-(vgl.~\cite{puppet-resource-types}). Da puppet deklarativ und nicht imperativ
-arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter analysiert
-alle Ressourcen, erkennt automatisch Abhängigkeiten und sortiert diese zu einem
-gerichteten Graphen. Die Ressourcen werden deshalb nicht in der Reihenfolge
-abgearbeitet, in der sie notiert sind.
+\glslink{Dashboard}{Dashboards} und Datenquellen verwalten. Die Konfiguration
+von eben jenen erfolgt nicht über normale Textdateien, sondern über eine
+\gls{API} oder Weboberfläche. Über die eigenen Typen kann Puppet auch hiermit
+interagieren und nicht nur die Installation, sondern auch die komplette
+Konfiguration automatisieren (vgl.~\cite{puppet-resource-types}). Da puppet
+deklarativ und nicht imperativ arbeitet, ist die Anordnung der Ressourcen egal.
+Der Interpreter analysiert alle Ressourcen, erkennt automatisch Abhängigkeiten
+und sortiert diese zu einem gerichteten Graphen. Die Ressourcen werden deshalb
+nicht in der Reihenfolge abgearbeitet, in der sie notiert sind.
 
 Dieses modulare Konzept ermöglicht es, puppet auf einer großen Anzahl von
 verschiedenen Betriebssystemen und Hardwaretypen zu betreiben. Durch die
@@ -2806,7 +2810,7 @@ Profil wird einem oder mehreren Nodes zugewiesen. Im Rahmen des Projekts werden
 diverse Profile erzeugt, um die einzelnen benötigten Komponenten gebündelt zu
 automatisieren. Ein beispielhaftes Profil für Grafana findet sich
 unter~\ref{lst:grafana}. Dies installiert Grafana und richtet außerdem ein
-Dashboard und eine Datenquelle ein.
+\gls{Dashboard} und eine Datenquelle ein.
 \tm%
 
 \subsection{Ablauf eines Puppet Runs}
@@ -3122,22 +3126,22 @@ Zugangsdaten hierzu lauten:
 \end{outline}
 
 Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
-werden. Anschließend sieht man hier bereits das Home Dashboard von wo aus die
-einzelnen Einstellungen durchgeführt werden können.
+werden. Anschließend sieht man hier bereits das Home \gls{Dashboard} von wo
+aus die einzelnen Einstellungen durchgeführt werden können.
 
-Das Home Dashboard ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
-worüber alle Einstellungen, wie Plugin\hyp{}Verwaltung, Datenquellen
+Das Home \gls{Dashboard} ist wie folgt aufgebaut: Links gibt es ein Grafana
+Symbol, worüber alle Einstellungen, wie Plugin\hyp{}Verwaltung, Datenquellen
 (Datasources) oder Benutzereinstellungen durchgeführt werden können. Rechts
 neben dem Grafana Symbol wird immer die aktuelle Ebene angezeigt auf der der
 Administrator sich befindet. Wenn der Administrator sich hier auf dem Home
-Dashboard befindet, so wird hier „Home“ angezeigt und die Übersicht der
-einzelnen Dashboards. Sollte der Administrator in den Einstellungen unter
-Datasources sein, so wird hier Data Sources eingeblendet. Dies soll dem
-Administrator zusätzlich helfen, eine bessere Übersichtlichkeit zu erhalten.
-Auf der rechten Seite des Home Dashboards hat der Administrator oder User die
-Möglichkeit, den Aktualisierungstimer der anzuzeigenen Daten zu verändern.
-Standardmäßig steht dieser auf sechs Stunden, kann aber beliebig angepasst
-werden~\ref{figure:grafana_dashboard}.
+\gls{Dashboard} befindet, so wird hier „Home“ angezeigt und die Übersicht der
+einzelnen \glslink{Dashboard}{Dashboards}. Sollte der Administrator in den
+Einstellungen unter Datasources sein, so wird hier Data Sources eingeblendet.
+Dies soll dem Administrator zusätzlich helfen, eine bessere Übersichtlichkeit
+zu erhalten. Auf der rechten Seite des Home \glslink{Dashboard}{Dashboards} hat
+der Administrator oder User die Möglichkeit, den Aktualisierungstimer der
+anzuzeigenen Daten zu verändern. Standardmäßig steht dieser auf sechs Stunden,
+kann aber beliebig angepasst werden~\ref{figure:grafana_dashboard}.
 
 
 Zu Beginn sollte hier zuerst die Datenquelle von der Grafana die ermittelten
@@ -3151,13 +3155,14 @@ ausgefüllt worden sind, kann die Datenquelle über die Schaltfläche „Add“
 hinzugefügt werden. Grafana prüft bereits beim Speichern der Datenquelle, ob
 diese erreichbar ist.
 
-Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues Dashboard
-angelegt werden, damit die Graphen definiert werden können. Das neue Dashboard
-kann unter dem Home Dashboard angelegt werden. Anschließend erhält der
-Administrator bereits eine Vielzahl von vordefinierten Auswahlmöglichkeiten von
-Graphen, Tabellen oder auch \glslink{singlestat}{Singlestats}. Diese können je
-nach Verwendungszweck hinzugefügt werden. Eine Beschränkung, wieviele Graphen
-maximal auf einem Dashboard angelegt werden können, gibt es nicht.
+Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues
+\gls{Dashboard} angelegt werden, damit die Graphen definiert werden können.
+Das neue \gls{Dashboard} kann unter dem Home \gls{Dashboard} angelegt werden.
+Anschließend erhält der Administrator bereits eine Vielzahl von vordefinierten
+Auswahlmöglichkeiten von Graphen, Tabellen oder auch
+\glslink{singlestat}{Singlestats}. Diese können je nach Verwendungszweck
+hinzugefügt werden. Eine Beschränkung, wieviele Graphen maximal auf einem
+\gls{Dashboard} angelegt werden können, gibt es nicht.
 
 Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
 werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
@@ -3179,15 +3184,15 @@ Abfrage:
 Anschließend können noch diverse Feineinstellungen für den Graphen vorgenommen
 werden. Dieses Vorgehen wird nun für jeden Graphen erstellt, dessen Werte
 visualisiert werden sollen. Nachdem alle Graphen erstellt worden sind, muss das
-Dashboard abgespeichert werden, damit Einstellungen nicht verloren gehen
+\gls{Dashboard} abgespeichert werden, damit Einstellungen nicht verloren gehen
 können. Sollte das Speichern vom Administrator vergessen werden, so warnt
-Grafana bei dem Wechsel eines Dashboards, ob die Einstellungen gespeichert
-werden sollen.
+Grafana bei dem Wechsel eines \glslink{Dashboard}{Dashboards}, ob die
+Einstellungen gespeichert werden sollen.
 
 Die Grundeinstellungen sind nun abgeschlossen und Grafana kann verwendet
-werden. Um weiteren Usern Zugriff zu dem Dashboard zu gewähren, können unter
-dem Grafana Symbol > Admin > Global Users weitere User angelegt werden und
-Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
+werden. Um weiteren Usern Zugriff zu dem \gls{Dashboard} zu gewähren, können
+unter dem Grafana Symbol > Admin > Global Users weitere User angelegt werden
+und Zugriff auf die Weboberfläche von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche User welche Einstellungen und Graphen sehen können.
 Dies wird in Grafana mit der Organisations-ID realisiert. Ein neu angelegter
 Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies ist in
@@ -3235,16 +3240,16 @@ sudo puppet apply grafana.pp
 
 Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließend
 mit dem Puppet Profil aufgerufen. In dieser ist definiert mit welcher Version
-Grafana installiert, welche Datenquelle verwendet oder welches Dashboard
+Grafana installiert, welche Datenquelle verwendet oder welches \gls{Dashboard}
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
 verschiedene andere Parameter, wie \GLS{LDAP}\hyp{}Anbindung übergeben werden.
 Dies erleichtert dem Administrator die Konfiguration, da dieses Profil nur
 einmal auf dem Betriebssystem ausgeführt werden muss, um Grafana zu
 installieren und zu konfigurieren. Eine zusätzliche Konfiguration nach der
 Installation von Grafana wird nur dann benötigt, wenn spezielle Anforderungen
-vom Kunden gewünscht sind. Dashboards werden in der Konfigurationsdatei des
-Puppet Moduls für Grafana als \gls{JSON} definiert und können im Nachhinein
-angepasst werden.
+vom Kunden gewünscht sind. \glslink{Dashboard}{Dashboards} werden in der
+Konfigurationsdatei des Puppet Moduls für Grafana als \gls{JSON} definiert
+und können im Nachhinein angepasst werden.
 
 Im Anhang~\ref{lst:grafana} befindet sich ein Beispiel für eine solche
 Konfigurationsdatei.
@@ -3274,11 +3279,11 @@ Beispiel, welches im Anhang~\ref{figure:grafana_general} enthalten ist, wird
 der Graph für die Prozessor Auslastung definiert. Unter dem Punkt
 \texttt{General} können alle Einstellungen für das Aussehen des Graphen
 hinterlegt und angepasst werden. Ebenfalls können Verlinkungen zu anderen
-Dashboards oder direkten URL Adressen hinterlegt werden. Diese werden
-anschließend, wie im Anhang~\ref{figure:grafana_description} dargestellt. Dies
-dient zur besseren Übersichtlichkeit, wenn ein Administrator oder die
-Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt werden nun
-die einzelnen Graphen definiert.
+\glslink{Dashboard}{Dashboards} oder direkten URL Adressen hinterlegt werden.
+Diese werden anschließend, wie im Anhang~\ref{figure:grafana_description}
+dargestellt. Dies dient zur besseren Übersichtlichkeit, wenn ein Administrator
+oder die Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt
+werden nun die einzelnen Graphen definiert.
 \mr%
 
 \subsubsection{Metrics}
@@ -3375,10 +3380,10 @@ hinterlegt werden, über welchen Weg die Benachrichtung erfolgen soll.
 
 \subsubsection{Time range}
 Im letzten Punkt \texttt{Time range} kann der Intervall der Visualisierung für
-den Graphen definiert werden. Auf dem Grafana Dashboard oben Rechts, kann die
-allgemeine Zeit definiert werden, wie lange alle Graphen auf dem Dashboard
-Werte abrufen können. Diese Einstellung kann individuell für jeden einzelnen
-Graphen unter \texttt{Time range} überschrieben werden.
+den Graphen definiert werden. Auf dem Grafana \gls{Dashboard} oben Rechts, kann
+die allgemeine Zeit definiert werden, wie lange alle Graphen auf dem
+\gls{Dashboard} Werte abrufen können. Diese Einstellung kann individuell für
+jeden einzelnen Graphen unter \texttt{Time range} überschrieben werden.
 \mr%
 
 \section{Logstash und collectd}
