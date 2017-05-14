@@ -33,9 +33,10 @@
 \usepackage{siunitx}
 \sisetup{per-mode=symbol,binary-units=true}
 \usepackage{csquotes}
+\usepackage[unicode=true]{hyperref}
 \usepackage[toc,numberedsection,xindy]{glossaries}
 \usepackage[newfloat,chapter]{minted}
-\usepackage[unicode=true]{hyperref}
+\usepackage{hyphenat}
 %%\ifluatex\usepackage{pdftexcmds}\makeatletter\let\pdfstrcmp\pdf@strcmp\let\pdffilemoddate\pdf@filemoddate\makeatother\fi
 \makeglossaries
 \input{../glossary.tex}
@@ -59,10 +60,12 @@
 \renewcommand{\arraystretch}{1.5}
 
 \newcommand{\spacedlowsmallcaps}[1]{\textsc{\MakeTextLowercase{#1}}}
-\newcommand{\tm}{\hfill{\scriptsize[TM]}}
-\newcommand{\mr}{\hfill{\scriptsize[MR]}}
-\newcommand{\nl}{\hfill{\scriptsize[NL]}}
-\newcommand{\all}{\hfill{\scriptsize[MR,~NL,~TM]}}
+\def\autortag#1{\hspace{\fill}\mbox{}\linebreak[0]\hspace*{\fill}{\scriptsize[#1]}}
+\def\tm{\autortag{TM}}
+\def\nl{\autortag{NL}}
+\def\mr{\autortag{MR}}
+\def\all{\autortag{TM,~NL,~MR}}
+
 
 \graphicspath{{../figures/}}
 
