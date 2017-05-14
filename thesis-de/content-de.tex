@@ -1823,7 +1823,7 @@ Innerhalb der Datenvisualisierungslösung werden dem Benutzer oder dem
 Administrator verschiedene Graphen von beispielsweise CPU\hyp{}Auslastung,
 RAM\hyp{}Auslastung oder \gls{SSD}-Schreibzugriffe visualisiert. Diese Graphen
 können entweder in Linerar- oder Balkenform dargestellt werden. Lineare Graphen
-haben eine X- und Y-Achse und besitzen zusätzlich einen Anfang und einen
+haben eine X- und Y\hyp{}Achse und besitzen zusätzlich einen Anfang und einen
 wachsenden Endpunkt. Er wird mittels Metrik (siehe
 Abschnitt~\ref{section:Begriffserklärung}), welche das Webinterface aus den
 Datenhaltungssystemen abgreift, erstellt. Diese kann vom Administrator
@@ -1901,7 +1901,7 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 \begin{outline}
   \1 Da auf das Datenhaltungssystem nicht nur das Webinterface zugreift,
   sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es hier
-  zu massiven Performance-Problemen kommen, die durch die Schnittstelle des
+  zu massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle des
   Webinterface verursacht werden können. Ein wichtiges Kernkriterium ist hier,
   dass der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher
   die Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
@@ -2236,7 +2236,7 @@ Datenvisualisierung wurden diesen entsprechende Bewertungspunkte für die
 Kriterien von Null bis Fünf vergeben. Damit eine Softwarelösung in die nähere
 Auswahl aufgenommen werden kann, muss diese mindestens 3,00 Gesamtpunkte in der
 Nutzwertanalyse erhalten. In nachfolgender Tabelle kann hier die
-Nutzwertanalyse der Softwarelösungen Datadog, Gridster-D3 und Netdata entnommen
+Nutzwertanalyse der Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata entnommen
 Datadog, Gridster\hyp{}D3 und Netdata entnommen werden.
 
 \begin{table}[H]
@@ -2300,15 +2300,15 @@ Gesamt                        &   100\% &                       & 4,15 &        
 \label{nwa_ggz}
 \end{table}
 
-Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix-Frontend
+Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix\hyp{}Frontend
 durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von 3,50
-erhalten. Während der Evaluierung der Zabbix-Frontend fiel auf, dass es ohne
-einen Zabbix-Server nicht verwendet werden kann. Der Zabbix-Server ist ein von
+erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass es ohne
+einen Zabbix\hyp{}Server nicht verwendet werden kann. Der Zabbix\hyp{}Server ist ein von
 Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
 bereitet diese auf und speichert diese Daten anschließend in einem
-Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix-Frontend
+Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix\hyp{}Frontend
 maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
-kann, somit besteht bei der Zabbix-Frontend Softwarelösung eine Abhängigkeit zu
+kann, somit besteht bei der Zabbix\hyp{}Frontend Softwarelösung eine Abhängigkeit zu
 anderen Diensten, weshalb diese im Fehlerfall Probleme verursachen könnte.
 Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
 kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
@@ -2400,11 +2400,11 @@ CPU\hyp{}Auslastung jeder Instanz, um Engpässe zu erkennen.
 \textbf{Beschreibung:} Die CPUs der heutigen Zeit werden in der Taktrate und
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
 virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des Host-Systems
-mehrere virtuelle CPU-Kerne emuliert und einer Instanz zugewiesen. So kann eine
-VM 2 virtuelle CPU-Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
+mehrere virtuelle CPU\hyp{}Kerne emuliert und einer Instanz zugewiesen. So kann eine
+VM 2 virtuelle CPU\hyp{}Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate zugewiesen
 haben. Auf jeder Instanz laufen andere Dienste, weshalb jede VM
 unterschiedliche CPUs zugeteilt haben kann. Hier kann es vorkommen, dass eine
-VM mehr CPU-Leistung benötigt, als ihr selbst zugewiesen ist. Um dies
+VM mehr CPU\hyp{}Leistung benötigt, als ihr selbst zugewiesen ist. Um dies
 frühestmöglich erkennen zu können, benötigt der Administrator eine detaillierte
 eine detaillierte Übersicht in Form eines Graphen, wie viel CPU\hyp{}Leistung
 von einer virtuellen Instanz verwendet wird und auf dem System verfügbar ist.
@@ -3218,13 +3218,13 @@ unter dem Reiter Admin > Global Users weitere Benutzer angelegt werden und
 Zugriff auf das Webinterface von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
 können. Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
-sowohl für lokale Benutzer als auch für LDAP-Benutzer vergeben werden. Sollte
+sowohl für lokale Benutzer als auch für LDAP\hyp{}Benutzer vergeben werden. Sollte
 ein Unternehmen die LDAP-Anbindung für die Authentifizierung an Grafana
-wünschen, so muss hier in dem Verzeichnis von der Grafana-Installation die
+wünschen, so muss hier in dem Verzeichnis von der Grafana\hyp{}Installation die
 Datei grafana.ini angepasst werden. Alle Einstellungen, die hier vorgenommen
 werden, beziehen sich auf die Servereinstellungen, welche vom Kunden
 individuell angepasst werden kann.  Nachdem die Änderungen hier abgeschlossen
-sind, muss der Grafana-Dienst neu gestartet werden. Dies wird mit folgendem
+sind, muss der Grafana\hyp{}Dienst neu gestartet werden. Dies wird mit folgendem
 Befehl durchgefüht:
 
 \begin{minted}{text}
@@ -3491,8 +3491,8 @@ richtigen Stelle ist.
 
 \section{Unit-Tests}
 \label{sec:unit_tests}
-Für die Tests und Qualitätsicherung wurden unter anderem Unit-Tests verwendet.
-Unit-Tests sind Software-Tests und werden immer dann verwendet, wenn jeweils
+Für die Tests und Qualitätsicherung wurden unter anderem Unit\hyp{}Tests verwendet.
+Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann verwendet, wenn jeweils
 die Kernfunktion von einem Quellcode geprüft werden soll. Rspec ist das
 Framework und stellt eine \gls{DSL} zur Verfügung, in der Testszenarien
 definiert werden können. Die Puppet Module, die in diesem Projekt verwendet
