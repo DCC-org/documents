@@ -666,18 +666,18 @@ werden, um Metriken zu ermitteln (vgl.~\cite{procps}). Über das Programm
 \texttt{free} oder die Datei \texttt{/proc/meminfo} erhält man dann die Menge
 des vorhandenen sowie zur Zeit benutzten Arbeitsspeichers. Die Anzahl der
 Prozessorkerne liefert das Programm nproc oder die Datei
-\texttt{/proc/cpuinfo}. \texttt{/proc/diskstats} liefert Informationen über die
-Anzahl der Schreib- und Lesevorgänge auf allen Datenträgern. Außerdem listet
-die Datei die geschriebene als auch gelesene Datenmenge. Die Informationen
-beziehen sich auf die Zeit seit dem letzten Startvorgang des Servers bis zum
-Ausgeben der Datei. Ein kontinuierliches Ausgeben ermöglicht die Berechnung des
-Durchsatzes pro Sekunde. Diese Aufgabe wird von der Datenbank übernommen und
-ist näher im Abschnitt~\ref{section:Begriffserklärung} erklärt. Das gleiche
-gilt für die Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des
-Systems und die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit
-Coreutils und Linux Bordmitteln ist es möglich alle benötigten Informationen
-lokal auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt
-werden.
+\texttt{/proc/cpuinfo}. Über die Datei \texttt{/proc/diskstats} erhält man
+Informationen über die Anzahl der Schreib- und Lesevorgänge auf allen
+Datenträgern. Außerdem listet die Datei die geschriebene als auch gelesene
+Datenmenge. Die Informationen beziehen sich auf die Zeit seit dem letzten
+Startvorgang des Servers bis zum Ausgeben der Datei. Ein kontinuierliches
+Ausgeben ermöglicht die Berechnung des Durchsatzes pro Sekunde. Diese Aufgabe
+wird von der Datenbank übernommen und ist näher im
+Abschnitt~\ref{section:Begriffserklärung} erklärt. Das gleiche gilt für die
+Datei \texttt{/proc/net/dev}. Sie listet alle Netzwerkadapter des Systems und
+die übertragene Datenmenge (Senden und Empfangen) pro Adapter. Mit Coreutils
+und Linux Bordmitteln ist es möglich alle benötigten Informationen lokal
+auszulesen. Die Aufbereitung der Daten muss allerdings selbst erledigt werden.
 
 Unter Listing~\ref{lst:aw} gibt es ein Beispiel, welches alle 30 Sekunden die
 gesendeten sowie empfangenen Daten des Netzwerkadapters \texttt{enp1s0} in
