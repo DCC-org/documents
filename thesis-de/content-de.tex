@@ -308,7 +308,7 @@ sich wie folgt:
   \1 Die daraus resultierenden Analyseergebnisse sollten anschließend über im
   Projekt definierte Schnittstellen an verschiedene Systeme weitergeliefert
   werden können. Entsprechend soll das Datenhaltungssystem die dafür
-  notwendigen \GLS{Treiber} und Schnittstellen mitliefern.
+  notwendigen \gls{Treiber} und Schnittstellen mitliefern.
 \end{outline}
 
 Es soll in der Ziellösung eine stabile Schnittstelle im Gesamtsystem bilden
@@ -509,7 +509,7 @@ Schnittstelle auf einem Webinterface dient in erster Linie der Anzeige von
 Daten, die über ein anderes System (Backend) erhalten wurden.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter
-\GLS{Treiber}, welchen man verwenden kann, um auf ein Datenhaltungssystem
+\gls{Treiber}, welchen man verwenden kann, um auf ein Datenhaltungssystem
 zuzugreifen. Dieser Liefert der Weboberfläche alle nötigen Funktionen und
 Werkzeuge zur Datenextraktion, Datenmanipulation und der Rechteverwaltung
 auf einem Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein
@@ -1856,7 +1856,7 @@ werden:
   durch \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch
   eigene Client\hyp{}Zertifikate zulassen. Die Anmeldung an der
   Datenvisualisierung kann entweder über einen lokalen Administrator, als auch
-  über eine \GLS{LDAP}\hyp{}Anbindung (Lightweight Directory Access Protocol)
+  über eine \gls{LDAP}\hyp{}Anbindung (Lightweight Directory Access Protocol)
   verfügen, um hier z.B. Unternehmensverzeichnisse anbinden zu können.
   \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
   Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
@@ -1872,10 +1872,10 @@ werden:
   abzuspeichern, kann es hier zu massiven Performance\hyp{}Problemen kommen,
   die durch die Weboberfläche verursacht werden können.
   \1 Um die Sicherheit der Datenvisualisierung zusätzlich schützen zu können,
-  muss diese mit einem \GLS{API}\hyp{}System interagieren können, damit
+  muss diese mit einem \gls{API}\hyp{}System interagieren können, damit
   eigenmächtige Modifizierungen der Daten wie das verändern, anpassen oder
   sogar löschen unterbunden sind. Zusätzlich wird die Performance der
-  Datenvisualisierung, durch ein \GLS{API}\hyp{}System gesteigert.
+  Datenvisualisierung, durch ein \gls{API}\hyp{}System gesteigert.
   \1 Plugin\hyp{}Erweiterung. Die Datenvisualisierung muss eine
   Plugin\hyp{}Erweiterung unterstützen. Es dient dazu, dass im späteren
   Verlauf, wenn das Produkt bereits beim Kunden eingesetzt wird, auf bestimmte
@@ -2072,7 +2072,7 @@ kritischen Festplattenstands, eine E\hyp{}Mail an den Administrator oder
 weitere User zu versenden, weshalb Zabbix sehr häufig gerade in großen
 Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche kann
 wahlweise mit einem lokalen User mit Benutzername und Kennwort oder mit einer
-\GLS{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
+\gls{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
 beziehungsweise der User lediglich seine
 Active\hyp{}Directory\hyp{}Benutzerdaten zur Authentifizierung. Zabbix ist
 zudem mit \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Abfragen
@@ -2128,7 +2128,7 @@ nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
 \glslink{Dashboard}{Dashboards} können in Datadog einfach vom Administrator
 erstellt werden. Um die Anmeldung an der Weboberfläche durchführen zu können,
 wird ein Benutzer und Kennwort benötigt. Es ist hier nicht möglich, ein
-\GLS{LDAP} an die Weboberfläche anbinden zu können. Innerhalb eines Graphen
+\gls{LDAP} an die Weboberfläche anbinden zu können. Innerhalb eines Graphen
 können bestimmte Teilabschnitte mit zum Beispiel
 Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt werden.
 Datadog bietet zudem eventbasierte Mitteilungen, welche vom Administrator
@@ -2857,7 +2857,7 @@ einem definierten Bereich innerhalb des Postgres\hyp{}Systems die
 Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
 Prozesse aus Abschnitt~\ref{subsec:postgres_etl} und
 Abschnitt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
-von dem in Abschnitt~\ref{sec:api_system} definierten \GLS{API}\hyp{}System
+von dem in Abschnitt~\ref{sec:api_system} definierten \gls{API}\hyp{}System
 verwendet. Dieser besitzt keine direkten Lese\hyp{} oder Schreibrechte auf die
 in der definierten Bibiliothek vorhandenen Tabellen. Er erhält lediglich
 ausführende Rechte auf die im Abschnitt~\ref{subsec:postgres_datenschutz}
@@ -3067,14 +3067,14 @@ Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da sich das Projekt auf die
 Zusammenarbeit mit dem Grafana System konzentriert, wurde mit der Modellierung
 dieser Datenstrukturen begonnen. Dabei arbeitet Grafana nur mit vier URL's
 (Endpunkte) der \hyp{}\@. Die erste ist dafür zuständig zu prüfen, ob das
-\GLS{API}\hyp{}System überhaupt erreichbar, beziehungsweise
-vorhanden ist. Die zweite wird genutzt, um an dem \GLS{API} System anzufragen,
+\gls{API}\hyp{}System überhaupt erreichbar, beziehungsweise
+vorhanden ist. Die zweite wird genutzt, um an dem \gls{API} System anzufragen,
 welche Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen,
 basierend auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück.
 Die letztere ermöglicht es, einzelne Informationen in einem Graphen hervor zu
 heben. Alle vier URL's besitzen eine eigene Anfrage\hyp{}Methode und
-Datenstruktur an der \GLS{API} und erwarten auch unterschiedliche Antworten von
-der \GLS{API} in Struktur und Inhalt. Neben diesen vier URL's wurde ebenfalls
+Datenstruktur an der \gls{API} und erwarten auch unterschiedliche Antworten von
+der \gls{API} in Struktur und Inhalt. Neben diesen vier URL's wurde ebenfalls
 das extrahieren der in Abschnitt~\ref{subsec:zusammenspiel_api_frontend}
 erläuterten Organisations\hyp{}ID implementiert.
 
@@ -3083,7 +3083,7 @@ Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der \hyp{}\@.
 Dies hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage
 bei dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden
 die im Abschnitt~\ref{subsec:postgres_datenschutz} definierten
-Postgres\hyp{}Funktionen nun auch in dem \GLS{API}\hyp{}System integriert.
+Postgres\hyp{}Funktionen nun auch in dem \gls{API}\hyp{}System integriert.
 
 Zusätzlich wurde die in Abschnitt~\ref{subsec:postgres_etl} erläuterte
 Rückrechnung der Daten integriert.
@@ -3217,8 +3217,8 @@ stattdessen wird seinem bestehenden Benutzer eine weitere Organisations-ID
 hinzugefügt.
 
 Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
-für lokale User als auch für \GLS{LDAP}\hyp{}User vergeben werden. Sollte ein
-Unternehmen die \GLS{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana
+für lokale User als auch für \gls{LDAP}\hyp{}User vergeben werden. Sollte ein
+Unternehmen die \gls{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana
 wünschen, so muss hier in dem Verzeichnis von der Grafana\hyp{}Installation die
 Datei grafana.ini angepasst werden. Alle Einstellungen, die hier vorgenommen
 werden, beziehen sich auf die Servereinstellungen, welche vom Kunden
@@ -3249,7 +3249,7 @@ Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließen
 mit dem Puppet Profil aufgerufen. In dieser ist definiert mit welcher Version
 Grafana installiert, welche Datenquelle verwendet oder welches \gls{Dashboard}
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
-verschiedene andere Parameter, wie \GLS{LDAP}\hyp{}Anbindung übergeben werden.
+verschiedene andere Parameter, wie \gls{LDAP}\hyp{}Anbindung übergeben werden.
 Dies erleichtert dem Administrator die Konfiguration, da dieses Profil nur
 einmal auf dem Betriebssystem ausgeführt werden muss, um Grafana zu
 installieren und zu konfigurieren. Eine zusätzliche Konfiguration nach der
