@@ -277,7 +277,7 @@ Virtualisierungssoftware direkt verwaltet. Außerdem ist auf dem Host nicht
 ersichtlich, wofür Ressourcen in den VMs genutzt werden. So kann zum Beispiel
 ermittelt werden, wie viel CPU\hyp{}Zeit einer Instanz zur Verfügung gestellt
 wird, aber nicht wofür die Leistung genutzt wird (zum
-Beispiel~\glslink{Soft-IRQ}{Soft-IRQs}, \glslink{Interrupt}{Interrupts},
+Beispiel \glslink{Soft-IRQ}{Soft-IRQs}, \glslink{Interrupt}{Interrupts},
 \gls{iowait}). Um detaillierte Daten für eine bessere Analyse zu bekommen, muss
 deshalb auch in den virtuellen Maschinen eine Datenerfassung erfolgen, sofern
 Zugriff vorhanden ist.
@@ -692,7 +692,7 @@ Server ausgeführt werden, um seine lokalen Statistiken zu erfassen oder direkt
 in virtuellen Maschinen.\ libvirt, eine Bibliothek zum Verwalten virtueller
 Maschinen, stellt auf einem Hostsystem Informationen über die lokalen Instanzen
 bereit.\ libvirt kümmert sich hier um die Interaktion mit
-diversen~\glslink{Hypervisor}{Hypervisors} und bietet eine einheitliche
+diversen \glslink{Hypervisor}{Hypervisors} und bietet eine einheitliche
 Schnittstelle an. Dies ermöglicht es Coreutils, vom Host aus Daten der VMs zu
 ermitteln.
 \tm%
@@ -785,8 +785,8 @@ Die Open\hyp{}Source\hyp{}Software steht unter der MIT Lizenz
 
 Wie im Listing~\ref{lst:python-diamond-clone} zu sehen gibt es 2922 Beiträge im
 Versionskontrollsystem von 292 verschiedenen Personen. Diamond kann alle
-benötigten Daten lokal und vom Hypervisor über seine VMs ermitteln. Über das
-Netzwerk werden diese im \glslink{Carbon}{Graphite Format} geschickt. Über
+benötigten Daten lokal und vom \gls{Hypervisor} über seine VMs ermitteln. Über
+das Netzwerk werden diese im \glslink{Carbon}{Graphite Format} geschickt. Über
 Plugins sind auch weitere Formate möglich. Der \gls{Backlog} bei Diamond ist
 sehr hoch. Die Software hat aktuell 88 offene Issues im
 Versionsverwaltungssystem. Dies ist eine Mischung aus gemeldeten Fehlern und
@@ -924,8 +924,8 @@ Maschine oder auf einem Hostsystem.
 \end{center}
 
 In der nachfolgenden Tabelle wird verglichen, welche Datenerfassungssysteme auf
-einem Hypervisor Daten über virtuelle Maschinen erfassen können, ohne in eben
-diesen selbst zu laufen:
+einem \gls{Hypervisor} Daten über virtuelle Maschinen erfassen können, ohne in
+eben diesen selbst zu laufen:
 
 \begin{center}
 \begin{tabular}{lcccc}
@@ -2503,19 +2503,20 @@ Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
 und Grafana zur Visualisierung. Hinzu kommt eine selbst entwickelte \gls{API}
 für komplexe Abfragen und Fragestellungen. Die erste Idee der Umsetzung ist
 unter~\ref{figure:draft1} visualisiert. Die Architektur ist in drei Teile
-gegliedert. Im ersten Teil befinden sich alle Hypervisors und virtuellen
-Maschinen, welche Daten via collectd verschicken. Jede Instanz von collectd
-soll ihre Daten in der zentralen Postgres Datenbank speichern. Für Tests wird
-mit einer einzelnen Postgres Datenbank gearbeitet, diese kann bei Bedarf um
-weitere Server erweitert werden, um einen hochverfügbaren Betrieb zu
-realisieren. Komplexe Datenbankabfragen über die \gls{API} können, gerade bei
-großen Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, dass in
-dieser Zeit eingehende Daten von collectd nicht direkt gespeichert werden
-können. Die Daten würden dann verloren gehen. Sofern die Postgres Installation
-nicht hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei
-regulären Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den
-genannten Problemen entgegen zu wirken, kam die Idee auf, einen Message Bus
-(auch Message Queue genannt) zu installieren.
+gegliedert. Im ersten Teil befinden sich alle
+ \glslink{Hypervisor}{Hypervisors} und virtuellen Maschinen, welche Daten via
+collectd verschicken. Jede Instanz von collectd soll ihre Daten in der
+zentralen Postgres Datenbank speichern. Für Tests wird mit einer einzelnen
+Postgres Datenbank gearbeitet, diese kann bei Bedarf um weitere Server
+erweitert werden, um einen hochverfügbaren Betrieb zu realisieren. Komplexe
+Datenbankabfragen über die \gls{API} können, gerade bei großen Datenmengen,
+eine unerwartet hohe Last erzeugen. Es ist möglich, dass in dieser Zeit
+eingehende Daten von collectd nicht direkt gespeichert werden können. Die Daten
+würden dann verloren gehen. Sofern die Postgres Installation nicht
+hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
+Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
+Problemen entgegen zu wirken, kam die Idee auf, einen Message Bus (auch Message
+Queue genannt) zu installieren.
 \tm%
 
 \section{Message Bus}
@@ -3673,22 +3674,22 @@ pro Prozess cached und diese dann gebündelt in einem
 bei 125 Werten und ist konfigurierbar. Es ist in bestimmten Konstellationen
 möglich, das Logstash mehrere Minuten lang Werte zwischenspeichert bevor sie
 zur Datenbank geschickt werden. Dies passiert, wenn besonders viele Logstash
-Prozesse gestartet worden sind und wenig Daten von den Hypervisors kommen
-(zum Beispiel weil gerade viel VMs deaktiviert sind oder Wartungsarbeiten an
-Teilen der Infrastruktur durchgeführt wird). Wenn ein Kunde live seine
-Auslastung visualisieren möchte, dauert dies eventuell zu lange. Zur
-Optimierung gibt es zwei Möglichkeiten. Zum einen kann der Zwischenspeicher
-verringert werden. Dies erhöht allerdings die Last auf der Datenbank, da dies
-zu wesentlich mehr \gls{SQL}\hyp{}Statements führt.  Alternativ kann mit
-Logstash \glslink{Quality of Service}{QoS} gemacht werden.  Hierbei wird auf
-die eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser erlaubt es Daten zu
-filtern und in Kategorien einzuordnen. Für jede Kategorie kann die Größe des
-Zwischenspeichers definiert werden. Diese Filter kann man auch dynamisch
-aktivieren. Sobald ein Kunde eine Live\hyp{}Visualisierung im Grafana startet,
-kann ein \gls{Grok} Filter aktiviert werden. Dieser filtert Daten dieses Kunden
-heraus kategorisiert diese in eine QoS Queue mit einem Zwischenspeicher von 0.
-Somit wird jeder Datensatz von diesem Kunden direkt an die Datenbank
-weitergeleitet.
+Prozesse gestartet worden sind und wenig Daten von den
+ \glslink{Hypervisor}{Hypervisors} kommen (zum Beispiel weil gerade viel VMs
+deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur durchgeführt
+wird). Wenn ein Kunde live seine Auslastung visualisieren möchte, dauert dies
+eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten. Zum einen kann
+der Zwischenspeicher verringert werden. Dies erhöht allerdings die Last auf der
+Datenbank, da dies zu wesentlich mehr \gls{SQL}\hyp{}Statements führt.
+Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden. 
+Hierbei wird auf die eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser
+erlaubt es Daten zu filtern und in Kategorien einzuordnen. Für jede Kategorie
+kann die Größe des Zwischenspeichers definiert werden. Diese Filter kann man
+auch dynamisch aktivieren. Sobald ein Kunde eine Live\hyp{}Visualisierung im
+Grafana startet, kann ein \gls{Grok} Filter aktiviert werden. Dieser filtert
+Daten dieses Kunden heraus kategorisiert diese in eine QoS Queue mit einem
+Zwischenspeicher von 0. Somit wird jeder Datensatz von diesem Kunden direkt
+an die Datenbank weitergeleitet.
 \tm%
 
 \section{Cache Invalidation}
@@ -3708,10 +3709,10 @@ Abschnitt~\ref{section:anforderungen}. Nicht nur können alle Userstorys über
 Grafana visualisiert werden, auch die ~\gls{API} stellt einen passenden
 Placement Algorithmus zur Verfügung und bietet somit mehr Features als
 Telemetry. Das Softwareprojekt ist äußerst flexibel gehalten und kann in
-beliebige Umgebungen mit Linux Hypervisors integiert werden. Aufgrund des
-modularen Konzepts und den offenen Schnittstellen gibt es auch mehrere
-Möglichkeiten für zukünftige Erweiterungen oder Spezialisierungen für bestimmte
-Umgebungen, wie im Abschnitt~\ref{chapter:ausblick} dargestellt.
+beliebige Umgebungen mit Linux  \glslink{Hypervisor}{Hypervisors} integiert
+werden. Aufgrund des modularen Konzepts und den offenen Schnittstellen gibt es
+auch mehrere Möglichkeiten für zukünftige Erweiterungen oder Spezialisierungen
+für bestimmte Umgebungen, wie im Abschnitt~\ref{chapter:ausblick} dargestellt.
 
 Das Projektteam hat nicht nur viel über Software Engineering, sondern auch über
 agiles Projektmanagement und kollaboratives Arbeiten gelernt. Währen der
