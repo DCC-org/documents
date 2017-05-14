@@ -1853,7 +1853,7 @@ werden:
   durch \gls{HTTPS} durchgeführt werden und je nach Kundenanforderung auch
   eigene Client\hyp{}Zertifikate zulassen. Die Anmeldung an der
   Datenvisualisierung kann entweder über einen lokalen Administrator, als auch
-  über eine LDAP\hyp{}Anbindung (Lightweight Directory Access Protocol)
+  über eine \GLS{LDAP}\hyp{}Anbindung (Lightweight Directory Access Protocol)
   verfügen, um hier z.B.  Unternehmensverzeichnisse anbinden zu können.
   \1 Bei der Evaluierung der Weboberfläche muss auf die Performance der
   Weboberfläche geachtet werden. Ein wichtiges Kernkriterium ist dabei, dass
@@ -2064,7 +2064,7 @@ kritischen Festplattenstands, eine E\hyp{}Mail an den Administrator oder
 weitere User zu versenden, weshalb Zabbix sehr häufig gerade in großen
 Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche kann
 wahlweise mit einem lokalen User mit Benutzername und Kennwort oder mit einer
-LDAP\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
+\GLS{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
 beziehungsweise der User lediglich seine
 Active\hyp{}Directory\hyp{}Benutzerdaten zur Authentifizierung. Zabbix ist
 zudem mit \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Abfragen
@@ -2119,11 +2119,11 @@ diese Lizenz einen E\hyp{}Mail\hyp{}, Chat- oder Telefonsupport. Dieser ist
 nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch Dashboards können in
 Datadog einfach vom Administrator erstellt werden. Um die Anmeldung an der
 Weboberfläche durchführen zu können, wird ein Benutzer und Kennwort benötigt.
-Es ist hier nicht möglich, ein LDAP an die Weboberfläche anbinden zu können.
-Innerhalb eines Graphen können bestimmte Teilabschnitte mit zum Beispiel
-Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt werden.
-Datadog bietet zudem eventbasierte Mitteilungen, welche vom Administrator
-festgelegt werden können. Datadog hat eine vollständige
+Es ist hier nicht möglich, ein \GLS{LDAP} an die Weboberfläche anbinden zu
+können. Innerhalb eines Graphen können bestimmte Teilabschnitte mit zum
+Beispiel Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt
+werden. Datadog bietet zudem eventbasierte Mitteilungen, welche vom
+Administrator festgelegt werden können. Datadog hat eine vollständige
 \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
 Dashboards können vom Administrator exportiert werden. Eine Möglichkeit,
 Graphen zu exportieren, bietet Datadog hier nicht. Die Community, in der viele
@@ -3198,8 +3198,8 @@ stattdessen wird seinem bestehenden Benutzer eine weitere Organisations-ID
 hinzugefügt.
 
 Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann sowohl
-für lokale User als auch für LDAP\hyp{}User vergeben werden.  Sollte ein
-Unternehmen die LDAP\hyp{}Anbindung für die Authentifizierung an Grafana
+für lokale User als auch für \GLS{LDAP}\hyp{}User vergeben werden. Sollte ein
+Unternehmen die \GLS{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana
 wünschen, so muss hier in dem Verzeichnis von der Grafana\hyp{}Installation die
 Datei grafana.ini angepasst werden. Alle Einstellungen, die hier vorgenommen
 werden, beziehen sich auf die Servereinstellungen, welche vom Kunden
@@ -3230,13 +3230,14 @@ Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließen
 mit dem Puppet Profil aufgerufen. In dieser ist definiert mit welcher Version
 Grafana installiert, welche Datenquelle verwendet oder welches Dashboard
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
-verschiedene andere Parameter, wie LDAP\hyp{}Anbindung übergeben werden. Dies
-erleichtert dem Administrator die Konfiguration, da dieses Profil nur einmal
-auf dem Betriebssystem ausgeführt werden muss, um Grafana zu installieren und
-zu konfigurieren. Eine zusätzliche Konfiguration nach der Installation von
-Grafana wird nur dann benötigt, wenn spezielle Anforderungen vom Kunden
-gewünscht sind. Dashboards werden in der Konfigurationsdatei des Puppet Moduls
-für Grafana als \gls{JSON} definiert und können im Nachhinein angepasst werden.
+verschiedene andere Parameter, wie \GLS{LDAP}\hyp{}Anbindung übergeben werden.
+Dies erleichtert dem Administrator die Konfiguration, da dieses Profil nur
+einmal auf dem Betriebssystem ausgeführt werden muss, um Grafana zu
+installieren und zu konfigurieren. Eine zusätzliche Konfiguration nach der
+Installation von Grafana wird nur dann benötigt, wenn spezielle Anforderungen
+vom Kunden gewünscht sind. Dashboards werden in der Konfigurationsdatei des
+Puppet Moduls für Grafana als \gls{JSON} definiert und können im Nachhinein
+angepasst werden.
 
 Im Anhang~\ref{lst:grafana} befindet sich ein Beispiel für eine solche
 Konfigurationsdatei.
