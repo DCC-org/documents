@@ -1111,7 +1111,7 @@ Elasticsearch BV eine Übersichtsseite erstellt mit allen offenen Problemen und
 Szenarien, die zu Datenverlust führen können (vgl.~\cite{es_resiliency}). Die
 wenigsten Hersteller und Communitys gehen so offen mit Problemen um.
 
-Der letzte Jepsen\hyp{}Test zeigt leider, dass Elasticsearch immer noch
+Der letzte \gls{Jepsen}\hyp{}Test zeigt leider, dass Elasticsearch immer noch
 Probleme bei Netzwerkausfällen und starker Systemlast hat
 (vgl.~\cite{jepsen_elastic}).  Aufgrund der Größe solcher Setups ist es üblich,
 dass jeder Node im Cluster über zwei Netzwerkverbindungen verfügt. Eine davon
@@ -1130,7 +1130,7 @@ Kabelbruch):
   \1 Die neuen Daten wurden nicht geschrieben und sind verloren
 \end{outline}
 
-Dieses Verhalten ist mit dem Jepsen\hyp{}Test reproduzierbar
+Dieses Verhalten ist mit dem \gls{Jepsen}\hyp{}Test reproduzierbar
 (vgl.~\cite{es_jepsen_iso}). Während Elasticsearch Replikas von Shards eines
 ausgefallenen Nodes aktiv setzt, werden neue Daten weiterhin über die
 RESTful\hyp{}Schnittstelle angenommen und dann ohne Rückmeldung verworfen.
@@ -1167,11 +1167,11 @@ am Rand der Leistungsgrenze arbeitet und der Kernel einen Absturz erwartet,
 weil die Hardware bald überfordet ist, dann kann er einzelne Prozesse
 kurzzeitig pausieren.
 
-Dieser Datenverlust ist ebenfalls mit einem Jepsen\hyp{}Test reproduzierbar
-(vgl.~\cite{es_jepsen_pause}). In großen Setups ist es sehr realistisch, dass
-Server in einem Rechnerverbund (auch Cluster genannt) eine starke Last
-aufweisen. Sofern es hier zu Lastspitzen kommt, die eine Überlast andeuten, ist
-ein Datenverlust sehr wahrscheinlich.
+Dieser Datenverlust ist ebenfalls mit einem \gls{Jepsen}\hyp{}Test
+reproduzierbar (vgl.~\cite{es_jepsen_pause}). In großen Setups ist es sehr
+realistisch, dass Server in einem Rechnerverbund (auch Cluster genannt) eine
+starke Last aufweisen. Sofern es hier zu Lastspitzen kommt, die eine Überlast
+andeuten, ist ein Datenverlust sehr wahrscheinlich.
 
 Beide Probleme sind äußerst kritisch für dieses Projekt. In der Theorie ist die
 Architektur sehr gut geeignet, denn sie ist skalierbar und hochverfügbar. In
