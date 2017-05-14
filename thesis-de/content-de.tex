@@ -2597,20 +2597,21 @@ die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
 \subsection{JDBC-ODBC Treiber}
 Hierbei spricht die \gls{JDBC}\hyp{}Schnittstelle einen sehr generischen
 \gls{ODBC} \gls{Treiber} an. Dieser kommuniziert mit einer Bibliothek des
-\gls{DBMS}\@. Der ODBC\hyp{}\gls{Treiber} muss auf jedem System vorhanden sein,
-welches die \gls{JVM}\hyp{}Applikation ausführt. Die Bibliothek kann, zusammen
-mit der Datenbank selbst, auf einem anderen System im Netzwerk oder auch lokal
-betrieben werden.
+\gls{DBMS}\@. Der \gls{ODBC}\hyp{}\gls{Treiber} muss auf jedem System vorhanden
+sein, welches die \gls{JVM}\hyp{}Applikation ausführt. Die Bibliothek kann,
+zusammen mit der Datenbank selbst, auf einem anderen System im Netzwerk oder
+auch lokal betrieben werden.
 
 Die Vorteile sind:
 
 \begin{outline}
   \1 Sehr einfache Implementierung der \gls{JDBC}, da ein Großteil der Arbeit
-  von der ODBC übernommen wird.
-  \1 Sehr einfacher Austausch der ODBC, da die Schnittstelle generisch ist.
-  \1 Jede Datenbank, die \gls{SQL} nutzt, bietet eine ODBC\hyp{}Schnittstelle,
-  somit ergibt sich eine lange Liste an alternativen \gls{DBMS}, welche genutzt
-  werden können.
+  von der \gls{ODBC} übernommen wird.
+  \1 Sehr einfacher Austausch der \gls{ODBC}, da die Schnittstelle generisch
+  ist.
+  \1 Jede Datenbank, die \gls{SQL} nutzt, bietet eine
+  \gls{ODBC}\hyp{}Schnittstelle, somit ergibt sich eine lange Liste an
+  alternativen \gls{DBMS}, welche genutzt werden können.
 \end{outline}
 
 Die Nachteile sind:
@@ -2629,18 +2630,19 @@ Bibiliothek auf dem gleichen System vorhanden sein, wie die
 \gls{JVM}\hyp{}Applikation. Die Datenbank selbst kann auf dem gleichen Server
 oder über das Netzwerk angesprochen werden.
 
-Die Vorteile im Vergleich zum \gls{JDBC}\hyp{}ODBC\hyp{}\gls{Treiber}:
+Die Vorteile im Vergleich zum \gls{JDBC}\hyp{}\gls{ODBC}\hyp{}\gls{Treiber}:
 
 \begin{outline}
   \1 Eine höhere Performance, da Teile direkt in Java geschrieben sind.
   \1 Geringere Fehleranfälligkeit, da eine Komponente weniger vorhanden ist.
 \end{outline}
 
-Die Performance ist besser als beim \gls{JDBC}\hyp{}ODBC\hyp{}\gls{Treiber},
-aber noch nicht optimal.  Außerdem ist es nicht immer möglich, Zusatzsoftware,
-wie die Bibliotheken, auf dem gewünschten System zu installieren. Es gibt
-Firmen, die dies untersagen.  Dies trifft allerdings nicht in diesem Projekt
-zu, weshalb es nicht als Negativpunkt gewertet wird.
+Die Performance ist besser als beim
+\gls{JDBC}\hyp{}\gls{ODBC}\hyp{}\gls{Treiber}, aber noch nicht optimal.
+Außerdem ist es nicht immer möglich, Zusatzsoftware, wie die Bibliotheken,
+auf dem gewünschten System zu installieren. Es gibt Firmen, die dies
+untersagen. Dies trifft allerdings nicht in diesem Projekt zu, weshalb es
+nicht als Negativpunkt gewertet wird.
 
 \subsection{Netzwerkprotokolltreiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
