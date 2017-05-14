@@ -326,15 +326,15 @@ bereitstellen.  Hierbei ist wichtig, dass die Sicherheit (Authentisierung,
 Authentifizierung und Autorisierung) der Daten gewährleistet wird. Dies
 bedeutet, dass sowohl die Verbindung zwischen Datenbank und Weboberfläche
 gesichert sein muss, als auch die Weboberfläche selbst gegen Zugriff von
-Unbekannten. Die Weboberfläche greift hier mittels API\hyp{}Abfragen auf die
-Datenbank zu. Dies ermöglicht es, den Zugriff nur für die Datenvisualisierung
-auf die Datenbank gewährleisten zu können. Die Weboberfläche soll
-Administratoren bei Neukonfiguration von virtuellen Maschinen unterstützen und
-zeigt hier die Auslastung der einzelnen physischen Systeme. Der Administrator
-kann so gezielt die einzelnen physischen Maschinen besser auslasten und
-verteilen. Ebenfalls kann die Datenvisualisierung eine Schnittstelle für
-komplexe Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch
-visuell ausgegeben werden.
+Unbekannten. Die Weboberfläche greift hier mittels \gls{API}\hyp{}Abfragen auf
+die Datenbank zu. Dies ermöglicht es, den Zugriff nur für die
+Datenvisualisierung auf die Datenbank gewährleisten zu können. Die
+Weboberfläche soll Administratoren bei Neukonfiguration von virtuellen
+Maschinen unterstützen und zeigt hier die Auslastung der einzelnen physischen
+Systeme. Der Administrator kann so gezielt die einzelnen physischen Maschinen
+besser auslasten und verteilen. Ebenfalls kann die Datenvisualisierung eine
+Schnittstelle für komplexe Abfragen und Analysen bereitstellen. Bei Bedarf
+können diese auch visuell ausgegeben werden.
 \mr%
 
 \chapter{Projektmanagement}
@@ -474,30 +474,31 @@ erforderlich, dass Menschen mit den beiden Schnittstellen kommunizieren.
 \tm%
 
 \section{Datenhaltungssystem / API}
-Das Datenhaltungssystem, sowie die mit inbegriffene API, ist eine zentrale
-Schnittstelle des Gesamtsystems. Im Gegensatz zu dem Datenerfassungssystem,
-welches nur über die Informationen eines einzelnen physischen Servers verfügt,
-besitzt das Datenhaltungssystem eine Gesamtsicht über alle angebundenen
-Informationsquellen. Darunter fallen zunächst alle am System angebundenen
-physischen Server, welche aktiv die Nutzungsdaten an das Datenhaltungssystem
-liefern. Jedoch kann dies auf Wunsch des jeweiligen Kunden auch um weitere
-Informationen erweitert werden, ein Beispiel wären die Kundendaten mit dem
-jeweiligen Bestand. In der Ziellösung wird diese Art von Erweiterung jedoch
-zunächst nicht beachtet und wurde auch nicht vom Auftraggeber angefordert,
-sodass eine Anpassung in einem Folgeauftrag erledigt werden müsste.
+Das Datenhaltungssystem, sowie die mit inbegriffene \gls{API}, ist eine
+zentrale Schnittstelle des Gesamtsystems. Im Gegensatz zu dem
+Datenerfassungssystem, welches nur über die Informationen eines einzelnen
+physischen Servers verfügt, besitzt das Datenhaltungssystem eine Gesamtsicht
+über alle angebundenen Informationsquellen. Darunter fallen zunächst alle am
+System angebundenen physischen Server, welche aktiv die Nutzungsdaten an das
+Datenhaltungssystem liefern. Jedoch kann dies auf Wunsch des jeweiligen Kunden
+auch um weitere Informationen erweitert werden, ein Beispiel wären die
+Kundendaten mit dem jeweiligen Bestand. In der Ziellösung wird diese Art von
+Erweiterung jedoch zunächst nicht beachtet und wurde auch nicht vom
+Auftraggeber angefordert, sodass eine Anpassung in einem Folgeauftrag erledigt
+werden müsste.
 
-Die API ist ebenfalls eine essentielle Schnittstelle des Gesamtsystems. Durch
-die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische Daten
-innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die API
-oftmals auf einer Webapplikation, sodass diese von einem beliebigen Endgerät
-erreicht werden kann. Zudem liefert sie die Daten in Form von Text aus, welcher
-nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut ist. Die beiden
-Datenformate sind die weitverbreitetsten Formate auf dem Markt und können in
-vielen Datenvisualisierungs\hyp{}Systemen ohne zusätzliche Entwicklungskosten
-angebunden werden. Sollte ein Drittsystem diese Formate nicht unterstützen, so
-ist der Implementierungsaufwand bei einem erfahrenen Entwickler ebenfalls
-gering, da diese oftmals mit den Datenformaten bereits in Kontakt gekommen ist
-und keine neuen Strukturen erlernen muss.
+Die \gls{API} ist ebenfalls eine essentielle Schnittstelle des Gesamtsystems.
+Durch die direkte Anbindung an das Datenhaltungssystem kann sie zeitkritische
+Daten innerhalb kürzester Zeit an Drittsysteme liefern. Dabei arbeitet die
+\gls{API} oftmals auf einer Webapplikation, sodass diese von einem beliebigen
+Endgerät erreicht werden kann. Zudem liefert sie die Daten in Form von Text
+aus, welcher nach den Datenformaten des \gls{JSON} oder \gls{XML} aufgebaut
+ist. Die beiden Datenformate sind die weitverbreitetsten Formate auf dem Markt
+und können in vielen Datenvisualisierungs\hyp{}Systemen ohne zusätzliche
+Entwicklungskosten angebunden werden. Sollte ein Drittsystem diese Formate
+nicht unterstützen, so ist der Implementierungsaufwand bei einem erfahrenen
+Entwickler ebenfalls gering, da diese oftmals mit den Datenformaten bereits in
+Kontakt gekommen ist und keine neuen Strukturen erlernen muss.
 \nl%
 
 \section{Datenvisualisierung}
@@ -516,9 +517,9 @@ Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird durch den
 Datenhaltungssystem\hyp{}Administrator gewährleistet.
 
 Neben der Verwendung eines Treibers in Verbindung mit einem
-Berechtigungskonzept, kann auch ein API\hyp{}System zum Einsatz kommen. Die
-Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können dem
-Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
+Berechtigungskonzept, kann auch ein \gls{API}\hyp{}System zum Einsatz kommen.
+Die Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können
+dem Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
 Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
@@ -1300,7 +1301,8 @@ nutzen lediglich alle die gleiche Datengrundlage des HBase\hyp{}Systems.
 Dennoch kann man durch dieses Verfahren die Analyseperformance dynamisch
 anpassen, da das HBase\hyp{}System stark auf die Aggregation und niedrigen
 Speicherplatzbedarf optimiert wurde. Die einzelnen Deamons kommunizieren dabei
-mit dem HBase\hyp{}System über einfache Protokolle wie Telnet oder HTTP (API).
+mit dem HBase\hyp{}System über einfache Protokolle wie Telnet oder HTTP
+(\gls{API}).
 
 Da die Dateninhalte immer in Verbindung mit einem Zeit- und Datumswert stehen,
 ist dieses \gls{DBMS} durch die Optimierung des Verarbeitens der Zeit- und
@@ -1539,153 +1541,156 @@ für dieses Projekt verwendet.
 \section{Schnittstelle - Datenbereitstellung}
 \label{sec:schnittstelle_datenbereitstellung}
 Neben der herkömmlichen Methode zur Datenabfrage von Datenbank\hyp{}Systemen
-über einen Datenbanktreiber, existiert noch die Möglichkeit einer API\@.
+über einen Datenbanktreiber, existiert noch die Möglichkeit einer \gls{API}\@.
 
-Die Verwendung von einer API\hyp{}Schnittstelle besitzt Nachteile sowie
+Die Verwendung von einer \gls{API}\hyp{}Schnittstelle besitzt Nachteile sowie
 Vorteile, beziehungsweise verbirgt gewisse Gefahren in Hinsicht auf den
 späteren Einsatz im Produktivsystem. Eine dieser Gefahren ist das
-Vernachlässigen der Dokumentation einer API\@. Dadurch dass während der
-Entwicklung einer API bereits definiert wird, welche Fähigkeiten und Methodiken
-die API besitzen soll, ist eine nicht vorhandene oder unvollständige
-Dokumentation suboptimal. Darum muss bei der Auswahl des genutzten
-API\hyp{}Systems darauf geachtet werden, dass die Dokumentation von
-Softwarekomponenten für den Entwickler so einfach wie möglich erfolgt.
+Vernachlässigen der Dokumentation einer \gls{API}\@. Dadurch dass während der
+Entwicklung einer \gls{API} bereits definiert wird, welche Fähigkeiten und
+Methodiken die \gls{API} besitzen soll, ist eine nicht vorhandene oder
+unvollständige Dokumentation suboptimal. Darum muss bei der Auswahl des
+genutzten \gls{API}\hyp{}Systems darauf geachtet werden, dass die Dokumentation
+von Softwarekomponenten für den Entwickler so einfach wie möglich erfolgt.
 
-Wenn die Dokumentation einer API vollständig und das ausführende System den
-Performance\hyp{}Anforderungen gerecht ist, bringt die Nutzung eines
-API\hyp{}Systems Vorteile. Darunter ist eine bessere Verwaltung von
+Wenn die Dokumentation einer \gls{API} vollständig und das ausführende System
+den Performance\hyp{}Anforderungen gerecht ist, bringt die Nutzung eines
+\gls{API}\hyp{}Systems Vorteile. Darunter ist eine bessere Verwaltung von
 Zugriffsrechten und somit auch gleichzeitig eine Verbesserung der
-Systemsicherheit. Durch den vorab festgelegten Funktionsumfang der API kann der
-Systeminhaber gezielt kontrollieren, welche Inhalte ein Benutzer sehen oder
-modifizieren kann. Dabei können grobe Einschränkungen, wie das Lesen oder
+Systemsicherheit. Durch den vorab festgelegten Funktionsumfang der \gls{API}
+kann der Systeminhaber gezielt kontrollieren, welche Inhalte ein Benutzer sehen
+oder modifizieren kann. Dabei können grobe Einschränkungen, wie das Lesen oder
 Schreiben auf der gesamten Datenbank, oder auch detaillierte Einschränkungen,
 wie das Lesen oder Schreiben von einer einzelnen Tabelle in der Datenbank,
 kontrolliert werden. Anders als bei der Verbindung über einen Datenbanktreiber
-kann bei der API der potentielle Angreifer keine eigenen Datenbankbefehle
+kann bei der \gls{API} der potentielle Angreifer keine eigenen Datenbankbefehle
 definieren und ausführen. Somit wird das Risiko der Datenmanipulation durch
 eine zusätzliche Schicht (Layer) verringert.
 
 Oftmals benötigen die Systeme, welche auf die Daten des Datenhaltungssystems
 zugreifen, die Daten in einer anderen Struktur als diese abgespeichert sind.
-Durch die Programmiermöglichkeiten einer API können während der Abfrage der
-Informationen auf dem Datenhaltungssystem bereits Datenanpassungen vorgenommen
-werden. Diese Anpassungen können zum Beispiel Funktionen, wie das anonymisieren
-oder pseudonymisieren sein, welche das Datenhaltungssystem nicht ausführen
-kann. Die API kann jedoch auch zum Beispiel die Daten vor der Auslieferung
-beliebig anpassen und somit auf ein weiteres System optimal anpassen, ohne
-dabei die Ursprungsdaten zu verändern.
+Durch die Programmiermöglichkeiten einer \gls{API} können während der Abfrage
+der Informationen auf dem Datenhaltungssystem bereits Datenanpassungen
+vorgenommen werden. Diese Anpassungen können zum Beispiel Funktionen, wie das
+anonymisieren oder pseudonymisieren sein, welche das Datenhaltungssystem nicht
+ausführen kann. Die \gls{API} kann jedoch auch zum Beispiel die Daten vor der
+Auslieferung beliebig anpassen und somit auf ein weiteres System optimal
+anpassen, ohne dabei die Ursprungsdaten zu verändern.
 \nl%
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:api_vorbereitung_der_evaluierung}
 Anders als bei der Evalierung der Datenbanksysteme wurde bei der Evaluierung
-der möglichen API\hyp{}Systeme keine Liste im Voraus erstellt. Dies lag daran,
-dass keines der Projektmitglieder oder keiner der Interessenten an dem Projekt
-Erfahrungen mit API\hyp{}Systemen im Vorhinein besaß und dies erst während der
-Projektphase angeeignet werden musste.
+der möglichen \gls{API}\hyp{}Systeme keine Liste im Voraus erstellt. Dies lag
+daran, dass keines der Projektmitglieder oder keiner der Interessenten an dem
+Projekt Erfahrungen mit \gls{API}\hyp{}Systemen im Vorhinein besaß und dies
+erst während der Projektphase angeeignet werden musste.
 
 Aufgrund dessen wurde entschieden, eine Liste von Anforderungen an das
-API\hyp{}System zu erstellen und im Anschluss während der Evaluierungsphase
-Softwarelösungen zu suchen, welche die Anforderungen am besten erfüllen können.
+\gls{API}\hyp{}System zu erstellen und im Anschluss während der
+Evaluierungsphase Softwarelösungen zu suchen, welche die Anforderungen am
+besten erfüllen können.
 
 Die festgehaltenen Anforderungen sind nun nach Relevanz absteigend aufgelistet:
 
 \begin{outline}
-  \1 Die API Software muss auf einer selbst administrierten
+  \1 Die \gls{API} Software muss auf einer selbst administrierten
   Hardware\hyp{}Umgebung betrieben werden können. Das Verwenden eines fertigen
-  API\hyp{}Softwarepakets eines Cloudanbieters, bei welchem der Administrator
-  alle Konfigurationen über ein Web\hyp{}Interface des Providers vornimmt und
-  der Cloudanbieter die vollständige Hardware\hyp{}Umgebung administriert, ist
-  ein absolutes Ausschlusskriterium. Es ist vorgesehen, dass das
-  API\hyp{}System möglichst nah an dem Datenhaltungssystem liegt, um mögliche
-  Latenzen zwischen den beiden Systemen so niedrig wie möglich zu halten. Zudem
-  sollen externe Cloudanbieter keinen Zugriff auf die teilweise kundenbezogenen
-  Daten der Datenhaltung erhalten, auch wenn das System nur
+  \gls{API}\hyp{}Softwarepakets eines Cloudanbieters, bei welchem der
+  Administrator alle Konfigurationen über ein Web\hyp{}Interface des Providers
+  vornimmt und der Cloudanbieter die vollständige Hardware\hyp{}Umgebung
+  administriert, ist ein absolutes Ausschlusskriterium. Es ist vorgesehen, dass
+  das \gls{API}\hyp{}System möglichst nah an dem Datenhaltungssystem liegt, um
+  mögliche Latenzen zwischen den beiden Systemen so niedrig wie möglich zu
+  halten. Zudem sollen externe Cloudanbieter keinen Zugriff auf die teilweise
+  kundenbezogenen Daten der Datenhaltung erhalten, auch wenn das System nur
   Performance\hyp{}Daten ohne Kundenbezug ausliefern soll. Außerdem kann
   während des Projekts entschieden werden, dass das Datenhaltungssystem nicht
   von externen Systemen erreichbar sein soll, sodass die damit verbundene
   Lösung über einen Cloudprovider nicht möglich wäre. Externe Systeme sind in
   diesem Projekt Geräte, welche außerhalb des Unternehmens betrieben werden.
-  \1 Die API\hyp{}Software muss vollständig konfigurierbar und administrierbar
-  sein.  Entsprechend soll die Software nur eine leere Hülle mit
-  Standardfunktionen einer API zur Verfügung stellen. Eine Konfiguration von
-  einzelnen Parametern ist dabei erwünscht. Zu diesen Parametern gehört als
-  Beispiel der Port, auf welchem das API\hyp{}System betrieben und von anderen
-  Systemen erreicht werden kann. Zur Hilfe der Admnistration soll das
-  API\hyp{}System ein Framework für Entwickler bereitstellen. Mit diesem können
-  wir als Projektmitglieder anschließend die Logik in das System implementieren
-  und somit definieren, welche Funktionen die API ausüben darf. Ein Framework
-  in einer bekannten Entwicklersprache ist dabei erwünscht. Dies hat den
-  Vorteil, dass der zuständige Entwickler im Projekt keine weitere
+  \1 Die \gls{API}\hyp{}Software muss vollständig konfigurierbar und
+  administrierbar sein.  Entsprechend soll die Software nur eine leere Hülle
+  mit Standardfunktionen einer \gls{API} zur Verfügung stellen. Eine
+  Konfiguration von einzelnen Parametern ist dabei erwünscht. Zu diesen
+  Parametern gehört als Beispiel der Port, auf welchem das
+  \gls{API}\hyp{}System betrieben und von anderen Systemen erreicht werden
+  kann. Zur Hilfe der Admnistration soll das \gls{API}\hyp{}System ein
+  Framework für Entwickler bereitstellen. Mit diesem können wir als
+  Projektmitglieder anschließend die Logik in das System implementieren
+  und somit definieren, welche Funktionen die \gls{API} ausüben darf. Ein
+  Framework in einer bekannten Entwicklersprache ist dabei erwünscht. Dies hat
+  den Vorteil, dass der zuständige Entwickler im Projekt keine weitere
   Einarbeitungszeit für die neue Entwicklersprache benötigt.
-  \1 Das API\hyp{}System sollte innerhalb des Projektes keine Kosten
+  \1 Das \gls{API}\hyp{}System sollte innerhalb des Projektes keine Kosten
   verursachen.  Dazu gehören Lizenzkosten sowie laufende Betriebskosten bei
   externen Cloudanbietern. Spätere Kosten bei dem Auftraggeber sind in dieser
   Anforderung nicht mit inbegriffen. Grundsätzlich gilt für das ganze Projekt,
   dass nur Software mit einer Open\hyp{}Source\hyp{}Lizenz genutzt werden darf.
-  \1 Die Erstellung von späteren Anwendungshandbüchern der API soll dem API
-  Entwickler so einfach wie möglich fallen. Eine sehr beliebte
+  \1 Die Erstellung von späteren Anwendungshandbüchern der \gls{API} soll dem
+  \gls{API} Entwickler so einfach wie möglich fallen. Eine sehr beliebte
   Dokumentationsmöglichkeit ist dabei das Dokumentieren von wichtigen
-  Informationen direkt in dem Quellcode des API\hyp{}Systems. Entwickler können
-  dabei über die Kommentierungsfunktion der jeweiligen Entwicklersprache eine
-  Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden im
-  Anschluss während des Kompiliervorgangs in einem strukturierten Dokument
-  festgehalten und neben der eigentlichen API\hyp{}Software mit ausgeliefert.
-  Dieses separate Dokument ist oftmals in Form einer HTML oder PDF und kann auf
-  gängigen Computersystemen eingesehen werden. Die beschriebene oder ähnliche
-  Dokumentationsmöglichkeit sollte die API\hyp{}Software zur Verfügung stellen.
-  Alternativ kann auch erst die Dokumentation geschrieben werden und darauf
-  basierend Quellcode generiert werden. Beide Verfahren nennt man „One Source
-  of Truth Prinzip“. Hierbei wird sichergestellt, dass es nur eine autoritative
-  Quelle gibt und der zugehörige Pendant auf der Quelle beruht. Dies vermeidet
-  Dokumentation die nicht mit den eigentlichen Funktionen der Software
-  übereinstimmen.
-  \1 Bereits vorhandenes Wissen über das API\hyp{}System. Dazu gehört, dass
-  diese eine umfangreiche Dokumentation besitzt und eine aktive und große
+  Informationen direkt in dem Quellcode des \gls{API}\hyp{}Systems. Entwickler
+  können dabei über die Kommentierungsfunktion der jeweiligen Entwicklersprache
+  eine Beschreibung sowie Ein- und Ausgabe von Werten festlegen. Diese werden
+  im Anschluss während des Kompiliervorgangs in einem strukturierten Dokument
+  festgehalten und neben der eigentlichen \gls{API}\hyp{}Software mit
+  ausgeliefert. Dieses separate Dokument ist oftmals in Form einer HTML oder
+  PDF und kann auf gängigen Computersystemen eingesehen werden. Die
+  beschriebene oder ähnliche Dokumentationsmöglichkeit sollte die
+  \gls{API}\hyp{}Software zur Verfügung stellen. Alternativ kann auch erst die
+  Dokumentation geschrieben werden und darauf basierend Quellcode generiert
+  werden. Beide Verfahren nennt man „One Source of Truth Prinzip“. Hierbei wird
+  sichergestellt, dass es nur eine autoritative Quelle gibt und der zugehörige
+  Pendant auf der Quelle beruht. Dies vermeidet Dokumentation die nicht mit den
+  eigentlichen Funktionen der Software übereinstimmen.
+  \1 Bereits vorhandenes Wissen über das \gls{API}\hyp{}System. Dazu gehört,
+  dass diese eine umfangreiche Dokumentation besitzt und eine aktive und große
   Community für Diskussionen und Fragen vorhanden ist. Die dazugehörige
-  Programmiersprache der API sollte ebenfalls für die Projektmitglieder
+  Programmiersprache der \gls{API} sollte ebenfalls für die Projektmitglieder
   nachvollziehbar sein sowie eine umfangreiche Dokumentation und aktive
   Community für Diskussionen und Fragen besitzen.
-  \1 Das API\hyp{}System sollte nicht von einem einzelnem Betriebssystem
-  abhängig sein. Das bedeutet, dass die API auf jedem beliebigen Betriebssystem
-  vollständig und zuverlässig ausgeführt und arbeiten kann.
+  \1 Das \gls{API}\hyp{}System sollte nicht von einem einzelnem Betriebssystem
+  abhängig sein. Das bedeutet, dass die \gls{API} auf jedem beliebigen
+  Betriebssystem vollständig und zuverlässig ausgeführt und arbeiten kann.
 \end{outline}
 \nl%
 
 \subsection{Durchführung der Evaluierung}
 \label{subsec:api_durchfuehrung_der_evaluierung}
-Bei der Evaluierung der API\hyp{}Systeme wurden die im
+Bei der Evaluierung der \gls{API}\hyp{}Systeme wurden die im
 Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
-Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
-Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
-allgemeinen Eindruck über die aktuelle Marktsituation zu API\hyp{}Systemen erhält.
-Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
-Fachzeitschriften gelesen. Die dort angesprochenen API\hyp{}Systeme wurden
-anschließend mit den bereits definierten Anforderungen abgeglichen und
-aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten
-API\hyp{}Systeme von Cloudprovidern nur in bereits vorkonfigurierten Paketen mit
-einem monatlichen Festpreis angeboten werden. Beides ist ein absolutes
-Ausschlusskriterium für den späteren Produktivbetrieb sowie Nutzung der
-Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine eigene
-Definition von Funktionen komplett verboten. Lediglich ein einzelner
-Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene
-API\hyp{}System in Hinsischt der Funktionen modifizieren durften.
+Anforderungen der \gls{API} als Leitlinie für die Durchführung verwendet. Als
+ersten Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
+allgemeinen Eindruck über die aktuelle Marktsituation zu
+\gls{API}\hyp{}Systemen erhält. Dabei wurden im Internet mehrere Blogs, Foren
+sowie Artikel von Fachzeitschriften gelesen. Die dort angesprochenen
+\gls{API}\hyp{}Systeme wurden anschließend mit den bereits definierten
+Anforderungen abgeglichen und aussortiert. Dabei stellten die Projektmitglieder
+fest, dass die meisten \gls{API}\hyp{}Systeme von Cloudprovidern nur in bereits
+vorkonfigurierten Paketen mit einem monatlichen Festpreis angeboten werden.
+Beides ist ein absolutes Ausschlusskriterium für den späteren Produktivbetrieb
+sowie Nutzung der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen
+eine eigene Definition von Funktionen komplett verboten. Lediglich ein
+einzelner Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das
+betriebene \gls{API}\hyp{}System in Hinsischt der Funktionen modifizieren
+durften.
 
 Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
-für ein API\hyp{}System mit dem Namen „Swagger“ entschieden. Es ist aktuell
-neben den API\hyp{}Systemen „RAML“ und „API\hyp{}Blueprint“ das einzige
-API\hyp{}System auf dem Markt, welches den Betrieb auf einer selbst
-administrierten Hardware\hyp{}Umgebung zulässt.  Für den Vergleich der drei
-Systeme wurde eine Entscheidungstabelle mit gewichteten Faktoren erstellt und
-ausgewertet. Die in der nachfolgenden Entscheidungstabelle genannten Faktoren
-wurden aus dem Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung}
+für ein \gls{API}\hyp{}System mit dem Namen „Swagger“ entschieden. Es ist
+aktuell neben den \gls{API}\hyp{}Systemen „RAML“ und „API\hyp{}Blueprint“ das
+einzige \gls{API}\hyp{}System auf dem Markt, welches den Betrieb auf einer
+selbst administrierten Hardware\hyp{}Umgebung zulässt.  Für den Vergleich der
+drei Systeme wurde eine Entscheidungstabelle mit gewichteten Faktoren erstellt
+und ausgewertet. Die in der nachfolgenden Entscheidungstabelle genannten
+Faktoren wurden aus dem Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung}
 abgeleitet und können dort im Detail nachgeschaut werden. Jeder der definierten
 Kriterien kann einen Wert zwischen 0 und 10 erhalten. Zehn ist dabei die beste
 und Null die schlechteste Bewertung. Die Faktoren bezüglich der selbst
 administrierbaren Hardwareumgebung, und die damit verbundenen externen Kosten
-sind bei allen drei genannten API\hyp{}Systemen gegeben und werden nicht
-berücksichtigt. API\hyp{}Systeme bei denen dies nicht gegeben ist, wurden von
-dem Projektteam aus der Bewertung ausgeschlossen.
+sind bei allen drei genannten \gls{API}\hyp{}Systemen gegeben und werden nicht
+berücksichtigt. \gls{API}\hyp{}Systeme bei denen dies nicht gegeben ist, wurden
+von dem Projektteam aus der Bewertung ausgeschlossen.
 
 \begin{center}
 \begin{tabular}{lccccc}
@@ -1697,7 +1702,7 @@ dem Projektteam aus der Bewertung ausgeschlossen.
   API\hyp{}Blueprint  & 8             & 6     & 5       & 9             & 28 \\
   \bottomrule
 \end{tabular}
-\captionof{table}{Gesamtbewertung der API\hyp{}Systeme}
+\captionof{table}{Gesamtbewertung der \gls{API}\hyp{}Systeme}
 \end{center}
 \nl%
 
@@ -1705,33 +1710,34 @@ dem Projektteam aus der Bewertung ausgeschlossen.
 \label{subsec:zusammenspiel_api_frontend}
 Nachdem die Evaluierung der Datenvisualisierung im
 Abschnitt~\ref{subsec:durchfuehrung_evaluierung_datenvisualisierung}
-abgeschlossen war, wurde dessen Zusammenspiel mit der API überprüft.  Dabei
-schaute sich Herr Luis speziell die Kommunikation zwischen den beiden
+abgeschlossen war, wurde dessen Zusammenspiel mit der \gls{API} überprüft.
+Dabei schaute sich Herr Luis speziell die Kommunikation zwischen den beiden
 Softwareprodukten an. Mit der Kommunikation ist der Aufbau einer Datenanfrage
 und die daraus resultierende Datenzulieferung gemeint. Der von der
 Datenvisualisierungs\hyp{}Software definierte Kommunikations\hyp{}Aufbau muss
-die API eins zu eins übernehmen, andernfalls wäre eine vollständige
+die \gls{API} eins zu eins übernehmen, andernfalls wäre eine vollständige
 Kommunikation, und somit die Übertragung der benötigten Informationen, der
 beiden Softwareprodukte nicht möglich.
 
 Neben der technischen Kommunikation wurde ebenfalls die Informationsinhalte,
-welche die API von der Datenvisualisierung erhält und zurück sendet, auf den
-fachlichen Inhalt bewertet. Dabei konnte das Projektteam erkennen, dass bei der
-Verwendung eines API Systems, der Datenvisualisierungs\hyp{}Administrator keine
-optionalen Datenfilterungen an die API übergeben kann. Speziell in diesem
-Projekt entstand dabei die Problematik, dass bei der Datenanfrage an der API
-nicht ersichtlich war, um welchen Kunden, bzw.\ eingeloggten Benutzer es sich
-handelt. Entsprechend würde die API nicht wissen ob Daten an einen
-Administrator, welcher alle Server sehen darf, oder ob Daten an einen Kunden,
-welcher nur seine eigenen Server sehen darf, zurück gesendet werden sollen.
+welche die \gls{API} von der Datenvisualisierung erhält und zurück sendet, auf
+den fachlichen Inhalt bewertet. Dabei konnte das Projektteam erkennen, dass bei
+der Verwendung eines \gls{API} Systems, der
+Datenvisualisierungs\hyp{}Administrator keine optionalen Datenfilterungen an
+die \gls{API} übergeben kann. Speziell in diesem Projekt entstand dabei die
+Problematik, dass bei der Datenanfrage an der \gls{API} nicht ersichtlich war,
+um welchen Kunden, beziehungsweise eingeloggten Benutzer es sich handelt.
+Entsprechend würde die \gls{API} nicht wissen ob Daten an einen Administrator,
+welcher alle Server sehen darf, oder ob Daten an einen Kunden, welcher nur
+seine eigenen Server sehen darf, zurück gesendet werden sollen.
 
 Um diese Problematik zu lösen, hat das Projektteam den „Header“\hyp{}Bereich
 (auf Deutsch Kopf\hyp{}Bereich), welcher bei jeder \gls{HTTP}- oder
 \gls{HTTPS}\hyp{}Anfrage vorhanden ist, genauer untersucht. In diesem steht die
 Herkunft der Anfrage und weitere Informationen wie der genutze Browser des
 Internetbenutzers. Speziell bei der Anfrage von der Datenvisualisierung an die
-API steht in dem Header\hyp{}Bereich immer die Organisations\hyp{}ID von dem
-anfragenden Benutzer. Die Organisations\hyp{}ID ist bei der für das Projekt
+\gls{API} steht in dem Header\hyp{}Bereich immer die Organisations\hyp{}ID von
+dem anfragenden Benutzer. Die Organisations\hyp{}ID ist bei der für das Projekt
 ausgewählten Datenvisualisierungs\hyp{}Software eine Abgrenzung der
 Zugriffsrechte. Das heißt sie definiert, welche Daten, beziehungsweise
 Dashboards der eingeloggte Benutzer sehen darf und welche nicht.
@@ -1740,10 +1746,10 @@ Für die Ziellösung wurde entsprechend von dem Projektteam festgelegt, dass die
 Datenhaltung neben den eigentlichen Daten auch eine Mapping Tabelle besitzen
 soll. Diese Mapping Tabelle besitzt entsprechend die Information, welche
 Organisations\hyp{}ID zu welcher virtuellen Instanz, beziehungsweise
-Host\hyp{}Server gehört. Sollte die Datenvisualisierung Daten bei der API
+Host\hyp{}Server gehört. Sollte die Datenvisualisierung Daten bei der \gls{API}
 anfordern, würde diese vor der eigentlichen Datenabfrage bei der Datenhaltung
 die vorhandene Organisations\hyp{}ID in den Server\hyp{}Namen übersetzen. Mit
-dieser Übersetzung kann die API anschließend regulär die Daten von der
+dieser Übersetzung kann die \gls{API} anschließend regulär die Daten von der
 Datenhaltung anfordern und an die Datenvisualisierung liefern.
 
 Diese Lösung hat zusätzlich noch den Vorteil einer weiteren Datensicherheit.
@@ -1943,13 +1949,13 @@ Berechtigungen vergeben werden. Somit können zum Beispiel Mitarbeiter aus der
 Führungsebene eingeschränkte Zugriffe auf das System erhalten, um hier zum
 Beispiel Analysen durchführen zu können. Grafana arbeitet mit fast jedem
 Timeseries Datenhaltungssystem, wie z.B. InfluxDB zusammen. Zusätzlich kann es
-über Plugins erweitert werden. Damit Grafana API Systeme (siehe auch
+über Plugins erweitert werden. Damit Grafana \gls{API} Systeme (siehe auch
 Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) ansprechen kann, wird
 hier ein solches Plugin benötigt. Plugins werden zur Erweiterung der Software
 in der Programmiersprache Java entwickelt und installiert. Diese werden zum
 Beispiel dann benötigt, wenn weitere Graphen, Analysen oder unterstützte
 Datenquellen erweitert werden sollen. Dies bedeutet, dass das
-Datenhaltungssystem API Statements zur Verfügung stellen kann und hiermit
+Datenhaltungssystem \gls{API} Statements zur Verfügung stellen kann und hiermit
 Graphen visualisieren kann. Grafana kann über einen \gls{Datenbanktreiber} oder
 eine Schnittstelle in Form eines Treibers einfache Statements auf das
 Datenhaltungssystem durchführen, um die Daten abzugreifen. Es ist zusätzlich
@@ -1974,7 +1980,7 @@ Positiv:
   \1 Gute Community und eine Vielzahl an Dokumentationen
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 Dashboards können auf externen Server oder lokal gesichert werden
-  \1 API\hyp{}Unterstüzung
+  \1 \gls{API}\hyp{}Unterstüzung
   \1 Plugin\hyp{}Erweiterung möglich (Java)
   \1 Open\hyp{}Source\hyp{}Softwarelösung
 \end{outline}
@@ -1997,8 +2003,8 @@ Open\hyp{}Source\hyp{}Lösung und ermöglicht es dem Anwender, die Software
 bearbeiten und anpassen zu können. Es verfügt über eine inhaltlich gute und
 umfangreiche Community mit einem eigenem Wiki\hyp{}Board, wo alle relevanten
 Dokumentationen enthalten sind. Graphen können leicht mittels Statements über
-eine API~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder direkt
-an das Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der
+eine \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder
+direkt an das Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der
 WebOberfläche mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist
 ebenfalls möglich. Es können einzelne Graphen, wie auch das gesamte Dashboard,
 auf externe Server oder lokal abgespeichert werden, um einem Verlust von
@@ -2024,7 +2030,7 @@ Positiv:
 \begin{outline}
   \1 Authentisierung, Authentifizierung und Autorisierung
   \1 Gute Community und eine vielzahl an Dokumenten innerhalb eines Wiki
-  \1 API\hyp{}Unterstützung
+  \1 \gls{API}\hyp{}Unterstützung
   \1 Dashboards und einzelne Graphen können auf externen Servern oder lokal
   abgespeichert werden
   \1 Open\hyp{}Source\hyp{}Softwarelösung
@@ -2059,13 +2065,14 @@ wahlweise mit einem lokalen User mit Benutzername und Kennwort oder mit einer
 LDAP\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
 beziehungsweise der User lediglich seine
 Active\hyp{}Directory\hyp{}Benutzerdaten zur Authentifizierung. Zabbix ist
-zudem mit API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatibel.
-So können hier Graphen mit API\hyp{}Abfragen visualisiert werden. Sollte keine
-Abfrage über eine API gewünscht sein, so kann dies ebenfalls mittels Statement
-direkt auf dem Datenhaltungssystem durchgeführt werden. Um die Datensicherheit
-und Ausfallsicherheit gewährleisten zu können, bietet Zabbix die Möglichkeit,
-einzelne Graphen mit Statements, wie auch das gesamte Dashboard exportieren und
-importieren zu können (vgl.~\cite{zabbix-frontend}).
+zudem mit \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Abfragen
+kompatibel. So können hier Graphen mit \gls{API}\hyp{}Abfragen visualisiert
+werden. Sollte keine Abfrage über eine \gls{API} gewünscht sein, so kann dies
+ebenfalls mittels Statement direkt auf dem Datenhaltungssystem durchgeführt
+werden. Um die Datensicherheit und Ausfallsicherheit gewährleisten zu können,
+bietet Zabbix die Möglichkeit, einzelne Graphen mit Statements, wie auch das
+gesamte Dashboard exportieren und importieren zu können
+(vgl.~\cite{zabbix-frontend}).
 
 
 Zusammenfassung:
@@ -2077,7 +2084,7 @@ Positiv:
   \1 Gute inhaltliche Community und eine Vielzahl an Dokumenten innerhalb
   eines Wikis
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
-  \1 API\hyp{}Unterstützung
+  \1 \gls{API}\hyp{}Unterstützung
   \1 Dashboards und einzelne Graphen können auf externe Servern oder lokal
   abgespeichert werden
   \1 Bringt bereits eine Softwarelösung mit, womit Daten von virtuellen
@@ -2115,11 +2122,11 @@ Innerhalb eines Graphen können bestimmte Teilabschnitte mit zum Beispiel
 Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt werden.
 Datadog bietet zudem eventbasierte Mitteilungen, welche vom Administrator
 festgelegt werden können. Datadog hat eine vollständige
-API~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und Dashboards
-können vom Administrator exportiert werden. Eine Möglichkeit, Graphen zu
-exportieren, bietet Datadog hier nicht. Die Community, in der viele inhaltliche
-Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche eine
-Pro\hyp{}Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC-Channel}, um
+\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
+Dashboards können vom Administrator exportiert werden. Eine Möglichkeit,
+Graphen zu exportieren, bietet Datadog hier nicht. Die Community, in der viele
+inhaltliche Dokumente enthalten sind, sind hier nur für Kunden bestimmt, welche
+eine Pro\hyp{}Lizenz besitzen. Ebenso gibt es hier einen \gls{IRC-Channel}, um
 direkt Kontakt mit dem Support aufnehmen zu können (vgl.~\cite{datadog}).
 
 Zusammenfassung:
@@ -2129,7 +2136,7 @@ Positiv:
 \begin{outline}
   \1 Authentisierung, Authentifizierung, Autorisierung
   \1 Leichte Anpassung an Graphen, Dashboard und Einstellungen möglich
-  \1 API\hyp{}Unterstützung
+  \1 \gls{API}\hyp{}Unterstützung
   \1 Gute inhaltliche Community mit IRC\hyp{}Channel und Telefonsupport (steht
   nur in der Kauflizenz zur Verfügung)
   \1 Benötigt keine zusätzlichen Plugins
@@ -2196,7 +2203,7 @@ Negativ:
   \1 Sehr unübersichtlich vom Aufbau der Weboberfläche
   \1 Authentisierung, Authentifizierung und Autorisierung kann nicht
   gewährleistet werden
-  \1 Bietet keine API\hyp{}Unterstützung
+  \1 Bietet keine \gls{API}\hyp{}Unterstützung
   \1 Kann keine zusätzliche Datenbank ansprechen, somit ist eine Datensicherung
   nicht gewährleistet
 \end{outline}
@@ -2481,22 +2488,22 @@ Ubuntu und CentOS durchgeführt.
 
 \section{Prototyp 1}
 Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
-und Grafana zur Visualisierung. Hinzu kommt eine selbst entwickelte API für
-komplexe Abfragen und Fragestellungen. Die erste Idee der Umsetzung ist
+und Grafana zur Visualisierung. Hinzu kommt eine selbst entwickelte \gls{API}
+für komplexe Abfragen und Fragestellungen. Die erste Idee der Umsetzung ist
 unter~\ref{figure:draft1} visualisiert. Die Architektur ist in drei Teile
 gegliedert. Im ersten Teil befinden sich alle Hypervisors und virtuellen
 Maschinen, welche Daten via collectd verschicken. Jede Instanz von collectd
 soll ihre Daten in der zentralen Postgres Datenbank speichern. Für Tests wird
 mit einer einzelnen Postgres Datenbank gearbeitet, diese kann bei Bedarf um
 weitere Server erweitert werden, um einen hochverfügbaren Betrieb zu
-realisieren. Komplexe Datenbankabfragen über die API können, gerade bei großen
-Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, dass in dieser
-Zeit eingehende Daten von collectd nicht direkt gespeichert werden können. Die
-Daten würden dann verloren gehen. Sofern die Postgres Installation nicht
-hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei regulären
-Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den genannten
-Problemen entgegen zu wirken, kam die Idee auf, einen Message Bus (auch Message
-Queue genannt) zu installieren.
+realisieren. Komplexe Datenbankabfragen über die \gls{API} können, gerade bei
+großen Datenmengen, eine unerwartet hohe Last erzeugen. Es ist möglich, dass in
+dieser Zeit eingehende Daten von collectd nicht direkt gespeichert werden
+können. Die Daten würden dann verloren gehen. Sofern die Postgres Installation
+nicht hochverfügbar ausgelegt ist, kann es auch zu einem Datenverlust bei
+regulären Wartungsarbeiten oder Ausfällen an dem Datenbankserver kommen. Um den
+genannten Problemen entgegen zu wirken, kam die Idee auf, einen Message Bus
+(auch Message Queue genannt) zu installieren.
 \tm%
 
 \section{Message Bus}
@@ -2679,7 +2686,7 @@ Bei einer zu hohen Last werden die Anzahl der Prozesse limitiert was in weniger
 Anfragen zur Datenbank resultiert. Sobald die Datenbank wieder eine geringere
 Auslastung hat, kann die JVM eigenständig mehr Prozesse starten und die
 Datenmenge erhöhen. Somit verhindert man Performanceprobleme auf der Datenbank
-bei komplexen Abfragen, welche über die API gestellt werden.
+bei komplexen Abfragen, welche über die \gls{API} gestellt werden.
 
 Anstatt die Datenbank als limitierenden Faktor zu nutzen (dem Ziel von
 Logstash), kann dies auch mit der Quelle erfolgen. Der Message Bus ist
@@ -2710,12 +2717,12 @@ Bus genutzt werden kann.
 
 Bei der Analyse von Grafana hat sich herausgestellt, das dort keine granulare
 Rechteverwaltung möglich ist, wenn direkt mit einer Datenbank interagiert wird.
-Da die selbst entwickelte API bereits Endpunkte für Analysen bereitstellen
-muss, kann diese simpel erweitert werden, um auch Daten an Grafana zu liefern.
-Somit liefert nun die API Daten an Grafana und Grafana kann nicht mehr direkt
-mit der Datenbank sprechen. Die API ist in der Lage, alle Anfragen von Grafana
-passend zu filtern und zu validieren. Eine Visualisierung des Prototypen
-findet sich unter~\ref{figure:draft2}.
+Da die selbst entwickelte \gls{API} bereits Endpunkte für Analysen
+bereitstellen muss, kann diese simpel erweitert werden, um auch Daten an
+Grafana zu liefern. Somit liefert nun die \gls{API} Daten an Grafana und
+Grafana kann nicht mehr direkt mit der Datenbank sprechen. Die \gls{API} ist in
+der Lage, alle Anfragen von Grafana passend zu filtern und zu validieren. Eine
+Visualisierung des Prototypen findet sich unter~\ref{figure:draft2}.
 \tm%
 
 \section{Automatisierung mit Puppet}
@@ -2769,8 +2776,8 @@ Firma Puppet gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden.
 Für jeden Typen gibt es einen Provider. Dieser implementiert den Typen auf
 einer bestimmten Plattform. Das Grafana\hyp{}Modul besitzt eigene Typen, welche
 Dashboards und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt
-nicht über normale Textdateien, sondern über eine API oder Weboberfläche. Über
-die eigenen Typen kann Puppet auch hiermit interagieren und nicht nur die
+nicht über normale Textdateien, sondern über eine \gls{API} oder Weboberfläche.
+Über die eigenen Typen kann Puppet auch hiermit interagieren und nicht nur die
 Installation, sondern auch die komplette Konfiguration automatisieren
 (vgl.~\cite{puppet-resource-types}). Da puppet deklarativ und nicht imperativ
 arbeitet, ist die Anordnung der Ressourcen egal. Der Interpreter analysiert
@@ -2805,9 +2812,10 @@ es hier zu Differenzen kommt, wird das System dem Katalog angeglichen. Jede
 durchgeführte Aktion kann reportet werden. Reports können lokal gespeichert
 oder zu einer zentralen Datenbank gesendet werden. Die Firma Puppet bietet
 außerdem die quelloffene PuppetDB an. Diese kann Reports speichern. Über eine
-\gls{RESTful} API kann man alle Reports analysieren und Abfragen. Zusätzlich
-können alle Facts dort gespeichert werden. Ein „Puppet Run“ beschreibt den
-kompletten Ablauf vom Auslesen der Facts bis zum Erstellen des Reports.
+\gls{RESTful} \gls{API} kann man alle Reports analysieren und Abfragen.
+Zusätzlich können alle Facts dort gespeichert werden. Ein „Puppet Run“
+beschreibt den kompletten Ablauf vom Auslesen der Facts bis zum Erstellen
+des Reports.
 
 Puppet kann auch ohne Puppetserver genutzt werden. Hier erfolgt der komplette
 Ablauf dann lokal. Die Module müssen auf dem Server vorhanden sein auf dem auch
@@ -2859,7 +2867,7 @@ zunächst einfach auf, sodass diese nicht verloren gehen. Sollten dabei Daten
 nicht vollständig übermittelt werden oder während der Übertragung die
 Datenquelle ausfallen, beziehungsweise andere Fehler entstehen, ist dies
 zunächst für den eigentlichen Wirkbetrieb, also das Halten der vollständigen
-Daten und dem Ausliefern der Daten an andere Systeme/API, nicht relevant.
+Daten und dem Ausliefern der Daten an andere Systeme/\gls{API}, nicht relevant.
 Durch die Trennung der Systeme, beziehungsweise den einzelnen Aufgabenfeldern,
 ist nur der Verlust von neuen Daten das größte Risiko. Ein Systemabsturz durch
 dauerhafte Fehler beim Datenschreiben ist somit vermieden.
@@ -3002,8 +3010,8 @@ keinen direkten Zugriff auf Tabellen im Datenhaltsungssystem erhält.
 Stattdessen wird für jeden Anwendungsfall, also jede Datenbankabfrage,
 beziehungsweise analytische Fragestellung, eine eigene Postgres\hyp{}Funktion
 bereitgestellt. Der Systembenutzer kann dabei ausschließlich die für ihn
-freigeschalteten Funktionen ausführen. Bei dem Systembenutzer für die API sind
-dies zum Beispiel nur Funktionen zur Abfrage von definierten Daten.
+freigeschalteten Funktionen ausführen. Bei dem Systembenutzer für die \gls{API}
+sind dies zum Beispiel nur Funktionen zur Abfrage von definierten Daten.
 
 Dieses Verfahren hat den großen Vorteil, dass wenn einer der Systembenutzer
 entfremdet wird, dieser keinen Schaden an dem Datenhaltsungssystem ausüben
@@ -3016,28 +3024,29 @@ verschiedenen Implementierungsweisen, vermieden wird.
 
 \section{API-System}
 \label{sec:api_system}
-Bei der Entwicklung des API\hyp{}Systems wurde sich zunächst auf die
+Bei der Entwicklung des \gls{API}\hyp{}Systems wurde sich zunächst auf die
 Implementierung der Postgres und Grafana Anbindung konzentriert. Voraussetzung
 für die eigentliche Entwicklung ist eine funktionierende und auch möglich dem
-Entwickler vertraute Entwicklungsumgebung. Bei der Swagger API wurde dazu die
-Umgebung mit dem Namen „Spring Tool Suite“ verwendet. Diese basiert auf dem
-Entwicklerstudio „Eclipse“ und war dem Projektteam bereits bekannt. Die Spring
-Tool Suite ist dabei für die Entwicklung einer Swagger API optimiert und
-liefert alle benötigten Grundlagen mit. Für die Einbindung weiterer Funktionen
-wurden die entsprechenden Maven\hyp{}Abhängigkeiten eingefügt. Diese
-ermöglichen die einfache Integration von benötigten Bibliotheken oder
-Code\hyp{}Algorithmen. Das Spring Tool Suite liefert ebenfalls eine eigene
-Testumgebung mit, in welcher der Entwickler für das Projekt angepasste Tests
-definieren und durchführen kann.
+Entwickler vertraute Entwicklungsumgebung. Bei der Swagger \gls{API} wurde
+dazu die Umgebung mit dem Namen „Spring Tool Suite“ verwendet. Diese basiert
+auf dem Entwicklerstudio „Eclipse“ und war dem Projektteam bereits bekannt. Die
+Spring Tool Suite ist dabei für die Entwicklung einer Swagger \gls{API}
+optimiert und liefert alle benötigten Grundlagen mit. Für die Einbindung
+weiterer Funktionen wurden die entsprechenden Maven\hyp{}Abhängigkeiten
+eingefügt. Diese ermöglichen die einfache Integration von benötigten
+Bibliotheken oder Code\hyp{}Algorithmen. Das Spring Tool Suite liefert
+ebenfalls eine eigene Testumgebung mit, in welcher der Entwickler für das
+Projekt angepasste Tests definieren und durchführen kann.
 
-Nach der Einrichtung des Entwicklerstudios wurde zunächst das API Model
-definiert. Es handelt sich dabei um die Datenstruktur, welche das API System
-von einem anderem System zugeschickt bekommt, beziehungsweise zuschickt
-(siehe auch Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da
-sich das Projekt auf die Zusammenarbeit mit dem Grafana System konzentriert,
-wurde mit der Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet
-Grafana nur mit vier URL's (Endpunkte) der API\@. Die erste ist dafür zuständig
-zu prüfen, ob das \GLS{API}\hyp{}System überhaupt erreichbar, beziehungsweise
+Nach der Einrichtung des Entwicklerstudios wurde zunächst das \gls{API} Model
+definiert. Es handelt sich dabei um die Datenstruktur, welche das
+\gls{API}\hyp{}System von einem anderem System zugeschickt bekommt,
+beziehungsweise zuschickt (siehe auch
+Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da sich das Projekt auf die
+Zusammenarbeit mit dem Grafana System konzentriert, wurde mit der Modellierung
+dieser Datenstrukturen begonnen. Dabei arbeitet Grafana nur mit vier URL's
+(Endpunkte) der \hyp{}\@. Die erste ist dafür zuständig zu prüfen, ob das
+\GLS{API}\hyp{}System überhaupt erreichbar, beziehungsweise
 vorhanden ist. Die zweite wird genutzt, um an dem \GLS{API} System anzufragen,
 welche Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen,
 basierend auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück.
@@ -3049,11 +3058,11 @@ das extrahieren der in Abschnitt~\ref{subsec:zusammenspiel_api_frontend}
 erläuterten Organisations\hyp{}ID implementiert.
 
 Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
-Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der API\@. Dies
-hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage bei
-dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden die im
-Abschnitt~\ref{subsec:postgres_datenschutz} definierten Postgres-Funktionen nun
-auch in dem \GLS{API}\hyp{}System integriert.
+Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der \hyp{}\@.
+Dies hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage
+bei dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden
+die im Abschnitt~\ref{subsec:postgres_datenschutz} definierten
+Postgres\hyp{}Funktionen nun auch in dem \GLS{API}\hyp{}System integriert.
 
 Zusätzlich wurde die in Abschnitt~\ref{subsec:postgres_etl} erläuterte
 Rückrechnung der Daten integriert.
@@ -3267,23 +3276,24 @@ Query} hinzugefügt werden. Grafana unterstützt unter anderem viele verschieden
 Datenquellen, wie zum Beipsiel OpenTSDB (siehe
 Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch (siehe
 Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
-Erhaltung eine HTTPS\hyp{}API~\gls{API} Schnittstelle verwendet, welche im
-Laufe des Projektes entwickelt und entworfen worden ist. Die HTTPS\hyp{}API
-liefert hier ein \gls{JSON}\hyp{}Objekt zurück. Damit Grafana dieses als
-Datenquelle verwenden kann, muss hier zuvor noch ein Plugin installiert werden.
-Es stehen viele verschiedene Plugins auf der Grafana Webseite zur Verfügung. Zu
-jedem Plugin gibt es hier eine kurze Erläuterung, sowie eine Schritt für
-Schritt Anleitung zur Installation dieses Plugins. Die Plugins werden hier über
-einen Kommandozeilenbefehl installiert. Anschließend kann unter Datenquelle die
-HTTPS\hyp{}API angesprochen werden. Sie wird nicht mittels einer
-SQL\hyp{}Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle.
-Innerhalb der API werden bereits vordefinierte Werte zurückgegeben. Wenn hier
-als Datenquelle eine Datenbank angesprochen werden soll, so kann hier zunächst
-eine Art \texttt{SELECT} \gls{SQL}\hyp{}Abfrage hinterlegt werden. Innerhalb
-der SQL\hyp{}Abfrage wird definiert, von wo die erhaltenen Daten stammen, sowie
-welche Werte abgerufen werden sollen. Ebenfalls kann diese SQL Abfrage mit
-anderen SQL Abfragen innerhalb einer Gruppe zusammen definiert werden. Ein
-Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
+Erhaltung eine HTTPS\hyp{}~\gls{API} Schnittstelle verwendet, welche im
+Laufe des Projektes entwickelt und entworfen worden ist. Die
+HTTPS\hyp{}~\gls{API} liefert hier ein \gls{JSON}\hyp{}Objekt zurück. Damit
+Grafana dieses als Datenquelle verwenden kann, muss hier zuvor noch ein Plugin
+installiert werden. Es stehen viele verschiedene Plugins auf der Grafana
+Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung,
+sowie eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die
+Plugins werden hier über einen Kommandozeilenbefehl installiert. Anschließend
+kann unter Datenquelle die HTTPS\hyp{}~\gls{API} angesprochen werden. Sie wird
+nicht mittels einer SQL\hyp{}Abfrage abgerufen, sondern über eine \gls{HTTPS}
+Schnittstelle. Innerhalb der ~\gls{API} werden bereits vordefinierte Werte
+zurückgegeben. Wenn hier als Datenquelle eine Datenbank angesprochen werden
+soll, so kann hier zunächst eine Art \texttt{SELECT} \gls{SQL}\hyp{}Abfrage
+hinterlegt werden. Innerhalb der SQL\hyp{}Abfrage wird definiert, von wo die
+erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen. Ebenfalls
+kann diese SQL Abfrage mit anderen SQL Abfragen innerhalb einer Gruppe zusammen
+definiert werden. Ein Beispiel hierzu ist dem
+Anhang~\ref{figure:grafana_metrics} beigefügt.
 
 Nun sind bereits einzelne Werte im Graphen visualisiert. Nachdem nun
 die Grundeinstellung für die Graphen konfiguriert wurde, können anschließend
@@ -3295,8 +3305,8 @@ Im nachfolgenden Punkt \texttt{Axes} kann definiert werden, ob eine
 Beschriftung für die X- oder Y\hyp{}Achse benötigt wird. Zur Verdeutlichung ist
 dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
 hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
-erhaltenen Werte aus der Datenbank oder der API sind meist nur Ganz- oder
-Kommazahlen Werte, welche keine Einheiten übergeben bekommen.
+erhaltenen Werte aus der Datenbank oder der ~\gls{API} sind meist nur
+Ganz\hyp{} oder Kommazahlen Werte, welche keine Einheiten übergeben bekommen.
 \mr%
 
 \subsubsection{Legend}
@@ -3540,12 +3550,12 @@ ist eine solche Datei beigefügt.
 
 \section{API Test}
 \label{sec:api_test}
-Während der Entwicklung des API Systems wurde bei der Implementierung von einem
-neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie in
-Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
-durchgeführt. Speziell bei der API wurden die Komponententests in einem
+Während der Entwicklung des ~\gls{API} Systems wurde bei der Implementierung
+von einem neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie
+in Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
+durchgeführt. Speziell bei der ~\gls{API} wurden die Komponententests in einem
 parallelen Verzeichnis zu dem Source Code und in der gleichen
-Programmiersprache wie die API, also Java, verfasst. Das in dem in
+Programmiersprache wie die ~\gls{API}, also Java, verfasst. Das in dem in
 Abschnitt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“
 bietet dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den
 zu einem Algorithmus zugehörigen Komponententest direkt im Programm bereit,
@@ -3555,14 +3565,14 @@ nicht danach suchen muss.
 Für das Ausführen der definierten Tests muss keine eigene Laufzeit
 Infrastruktur bereitgestellt werden. Echte Komponententests werden
 normalerweise extrem schnell ausgeführt und steigern durch die Integration in
-das genannte Entwicklerstudio die Produktivität der API Entwicklung um ein
-vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft, in
-diesem Fall nach jeder Änderung am Code, ausgeführt werden, ohne das längere
+das genannte Entwicklerstudio die Produktivität der ~\gls{API} Entwicklung um
+ein vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft,
+in diesem Fall nach jeder Änderung am Code, ausgeführt werden, ohne das längere
 Wartezeiten entstehen.
 
 Die von Swagger bereitgestellten Testbibliotheken sind dabei sehr umfangreich
-und bieten zu jeder API Funktion auch die passenden Testdefinitionen. Die
-bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
+und bieten zu jeder ~\gls{API} Funktion auch die passenden Testdefinitionen.
+Die bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
 Objekte sind in Testumgebungen Platzhalter für die im echten Code verwendeten
 Objektdefinitionen. Ein konkretes Beispiel dafür ist die „Bean“ Definition von
 Swagger. Mit dieser können verschiedene Definitionen von Objekten in eigenen
@@ -3570,9 +3580,10 @@ Laufzeitumgebungen einfach simuliert und ausgewählt werden. In dem Projekt war
 dies zum Beispiel das nutzen von im Arbeitsspeicher gehaltene Daten zum testen
 während der Entwicklung versus dem Zugriff auf die Produktivdaten der
 Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in diese Art von
-Testbibliothek gehört, war das registrieren von verschiedenen API Profilen,
-welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu stellen,
-dass jeder dieser Profile so funktioniert, wie von dem Entwickler vorgegeben.
+Testbibliothek gehört, war das registrieren von verschiedenen ~\gls{API}
+Profilen, welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu
+stellen, dass jeder dieser Profile so funktioniert, wie von dem Entwickler
+vorgegeben.
 
 Neben den vorgestellten Komponententests kann der Entwickler ebenfalls
 Integrationstest in der Swagger Testumgebung definieren. Bei diesen werden
@@ -3586,16 +3597,16 @@ getestet werden. Das Anfragen und Abholen von Daten bei einem
 Datenhaltungssystem kann je nach Abfrage sehr lange dauern, um diese Zeit zu
 verkürzen, nutzt Swagger die Methoden des Caching, welche mit diesem Test
 überprüft werden. Ein weiterer Testfall wäre die Prüfung von Abhängigkeiten,
-wenn zum Beispiel die API eine eigene Konfigurations\hyp{}Datei besitzt, kann
-damit geprüft werden, ob diese vollständig und ohne Fehleinträge ist. Jedoch
-kann der Integrationstest auch für komplexere Inhalte verwendet werden. In
-diesem Projekt ist es die Prüfung der korrekten Transaktion von Daten mit der
-Nutzung von Backup\hyp{}Transaktionen. Diese helfen vorallem wenn die API Daten
-in dem Datenhaltungssystem modifizieren, da nach der Modifizierung die Daten
-wieder auf den vorherigen Stand zurück gesetzt werden. Diese Tests sparen nicht
-nur Administrations\hyp{}Zeit, sondern geben dem Entwickler auch einen
-umfangreichen Bericht zu den von dem Programm getätigten Inhalten, um zu
-prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
+wenn zum Beispiel die ~\gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
+kann damit geprüft werden, ob diese vollständig und ohne Fehleinträge ist.
+Jedoch kann der Integrationstest auch für komplexere Inhalte verwendet werden.
+In diesem Projekt ist es die Prüfung der korrekten Transaktion von Daten mit
+der Nutzung von Backup\hyp{}Transaktionen. Diese helfen vorallem wenn die
+~\gls{API} Daten in dem Datenhaltungssystem modifizieren, da nach der
+Modifizierung die Daten wieder auf den vorherigen Stand zurück gesetzt werden.
+Diese Tests sparen nicht nur Administrations\hyp{}Zeit, sondern geben dem
+Entwickler auch einen umfangreichen Bericht zu den von dem Programm getätigten
+Inhalten, um zu prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
 \nl%
 
 \section{ETL Test}
@@ -3667,13 +3678,13 @@ In vielen Monaten Arbeit wurde ein neues Softwareprojekt geschaffen, welches
 eine sehr gute Alternative zu Telemetry aus dem OpenStack Projekt darstellt.
 Die erarbeitete Lösung erfüllt alle definierten Anforderungen aus
 Abschnitt~\ref{section:anforderungen}. Nicht nur können alle Userstorys über
-Grafana visualisiert werden, auch die API stellt einen passenden Placement
-Algorithmus zur Verfügung und bietet somit mehr Features als Telemetry. Das
-Softwareprojekt ist äußerst flexibel gehalten und kann in beliebige Umgebungen
-mit Linux Hypervisors integiert werden. Aufgrund des modularen Konzepts und
-den offenen Schnittstellen gibt es auch mehrere Möglichkeiten für zukünftige
-Erweiterungen oder Spezialisierungen für bestimmte Umgebungen, wie im
-Abschnitt~\ref{chapter:ausblick} dargestellt.
+Grafana visualisiert werden, auch die ~\gls{API} stellt einen passenden
+Placement Algorithmus zur Verfügung und bietet somit mehr Features als
+Telemetry. Das Softwareprojekt ist äußerst flexibel gehalten und kann in
+beliebige Umgebungen mit Linux Hypervisors integiert werden. Aufgrund des
+modularen Konzepts und den offenen Schnittstellen gibt es auch mehrere
+Möglichkeiten für zukünftige Erweiterungen oder Spezialisierungen für bestimmte
+Umgebungen, wie im Abschnitt~\ref{chapter:ausblick} dargestellt.
 
 Das Projektteam hat nicht nur viel über Software Engineering, sondern auch über
 agiles Projektmanagement und kollaboratives Arbeiten gelernt. Währen der
