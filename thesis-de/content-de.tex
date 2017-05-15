@@ -2993,7 +2993,7 @@ Partionierung einstellen muss. Die genaue Implementierung der Methode kann aus
 dem Postgres\hyp{}Code im Projektanhang entnommen werden.
 \nl%
 
-\subsection{Datenschutz}
+\subsection{Datenschutz und Analysen}
 \label{subsec:postgres_datenschutz}
 Für den Zugriff auf die in dem Datenhaltsungssystem vorhandenen Daten wurde von
 dem Projektteam eine weitere Sicherheitsebene eingefügt. Diese definiert, dass
@@ -3011,7 +3011,11 @@ kann. Desweiteren kann der Systemadministrator genau kontrollieren, wer auf
 welche Daten Zugriff haben soll. Ein weiterer Vorteil ist, dass durch die
 vordefinierten analytischen Fragestellungen bei jedem Benutzer die gleichen
 Daten ausgegeben werden, und somit eine falsch Aussage, aufgrund von
-verschiedenen Implementierungsweisen, vermieden wird.
+verschiedenen Implementierungsweisen, vermieden wird. Zu diesen analytischen
+Fragestellungen gehört ebenfalls die beschriebene Trendgenerierung aus
+Abschnitt~\ref{section:Begriffserklärung} und das in
+Abschnitt~\ref{subsec:postgres_etl} erläuterte dynamisch errechnen der
+im ETL verzichteten Datensätze.
 \nl%
 
 \section{API-System}
