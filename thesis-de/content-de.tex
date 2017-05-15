@@ -319,12 +319,11 @@ Abschnitt~\ref{sec:datenhaltungssystem} entnommen werden.
 \nl%
 
 \subsection{Datenvisualisierung}
-Die Datenvisualisierung ist zuständig, für die Visualisierung der in diesem
-Projekt erfassten Daten.  Dabei soll dem Benutzer eine Übersicht über die
-verbrauchten oder freien Ressourcen, wie zum Beispiel CPU\hyp{]Auslastung oder
+Die Datenvisualisierung soll dem Benutzer eine Übersicht über die
+verbrauchten oder freien Ressourcen, wie zum Beispiel CPU\hyp{}Auslastung oder
 RAM-Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
 Bei der Datenvisualisierung werden mit unter sensible Daten verarbeitet,
-weshalb hier auf die Sicherheit in anbetracht auf der Authentifizierung,
+weshalb hier auf die Sicherheit in anbetracht auf die Authentifizierung,
 Authentisierung und Autorisierung geachtet werden muss. Innerhalb der
 Projektmeetings wurde die Sicherheit der Daten diskutiert, dabei ging es hier
 speziell darum, wie die Daten am sichersten geschützt werden. Dabei wurde
@@ -332,21 +331,17 @@ festgelegt, das eine Benutzerverwaltung mit Rechtevergabe, sowie die Anbindung
 an die Datenbank über eine API Schnittstelle, (siehe
 Abschnitt~\ref{subsec:zusammenspiel_api_frontend}) realisiert werden muss.
 Dabei muss die Datenvisualisierung Abfragen über eine API stellen können. Dies
-ermöglicht es, den Zugriff nur für die Datenvisualisierung auf die sensibelen
+ermöglicht es, den Zugriff nur für die Datenvisualisierung auf die sensiblen
 Daten gewährleisten zu können. Das Webinterface soll Administratoren bei einer
 Neukonfiguration von virtuellen Maschinen unterstützen und visualisiert die
-Auslastung der einzelnen physischen Systemen in Form von Graphen(siehe
-Abschnitt~\ref{subsec:definition_eines_graphen})Der Administrator kann so
+Auslastung der einzelnen physischen Systemen in Form von Graphen (siehe
+Abschnitt~\ref{subsec:definition_eines_graphen}). Der Administrator kann so
 gezielt die einzelnen physischen Maschinen besser auslasten und verteilen.
-Zusätzlich kann die Datenvisualisierung eine Schnittstelle für komplexe
-Abfragen und Analysen bereitstellen. Bei Bedarf können diese auch visuell
-ausgegeben werden.
 
 Eine genaue detaillierte Auflistung aller Kriterien an die Datenvisualisierung,
 die für eine spätere Nutzwertanalyse verwendet wurden, kann dem
 Abschnitt~\ref{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
 entnommen werden.
-
 \mr%
 
 \chapter{Projektmanagement}
@@ -515,9 +510,10 @@ und keine neuen Strukturen erlernen muss.
 \section{Datenvisualisierung}
 Eine Schnittstelle auf einem Webinterface dient in erster Linie zur Anzeige von
 Daten, die über ein anderes System erhalten wurden. In diesem Projekt werden
-bewusst zwei Schnittstellen verwendet, damit hier die Sicherheit der
-Datenhaltung, wie auch die eigentliche Datenvisualisierung gewährleistet werden
-können. Im nachfolgendem werden beide Schnittstellen erläutert.
+bewusst zwei Schnittstellen verwendet, damit hier die Daten innerhalb des
+Datenhaltungssystem geschützt sind, wie auch die Sicherheit der eigentliche
+Datenvisualisierung gewährleistet werden kann. Im nachfolgendem werden beide
+Schnittstellen erläutert.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
@@ -547,9 +543,9 @@ festgehalten werden. Hiermit können anschließend Personen, welche keinen
 direkten Zugriff auf das System besitzen, Analysen durchführen oder Statistiken
 beurteilen. Die Übertragung der Daten zwischen den Benutzern und dem Webserver
 erfolgt mit \gls{HTTPS}. Dabei wird die Kommunikation zwischen Browser und
-Webserver verschlüsselt, sodass diese durch dritte nicht abgegriffen werden
-kann. Das abgreifen der Kommunikation wird im Fachkreis auch Man-in-the-middle
-genannt.
+Webserver verschlüsselt, sodass diese durch Dritte nicht abgegriffen werden
+kann. Das abgreifen der Kommunikation wird im Fachkreis auch
+Man\hyp{}in\hyp{}the\hyp{}middle\hyp{}Angriff genannt.
 \mr%
 
 \chapter{Analyse von Softwarekomponenten}
@@ -1819,12 +1815,12 @@ sind. Bei einem ungerichteten Graphen ist sowohl der Knoten A mit dem Knoten B,
 als auch der Knoten B mit Knoten A als Kante miteinander
 verbunden (vgl.~\cite{kaiser2008c}).
 
-Innerhalb der Datenvisualisierungslösung werden dem Benutzer oder dem
-Administrator verschiedene Graphen von beispielsweise CPU\hyp{}Auslastung,
-RAM\hyp{}Auslastung oder \gls{SSD}-Schreibzugriffe visualisiert. Diese Graphen
-können entweder in Linerar- oder Balkenform dargestellt werden. Lineare Graphen
-haben eine X- und Y\hyp{}Achse und besitzen zusätzlich einen Anfang und einen
-wachsenden Endpunkt. Er wird mittels Metrik (siehe
+Innerhalb der Datenvisualisierungslösung werden dem Benutzer verschiedene
+Graphen von beispielsweise CPU\hyp{}Auslastung, RAM\hyp{}Auslastung oder
+\gls{SSD}-Schreibzugriffe visualisiert. Diese Graphen können entweder in
+Linerar- oder Balkenform dargestellt werden. Lineare Graphen haben eine X- und
+Y\hyp{}Achse und besitzen zusätzlich einen Anfang und einen wachsenden
+Endpunkt. Er wird mittels Metrik (siehe
 Abschnitt~\ref{section:Begriffserklärung}), welche das Webinterface aus den
 Datenhaltungssystemen abgreift, erstellt. Diese kann vom Administrator
 ebenfalls nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme
@@ -1842,7 +1838,7 @@ Softwarelösungen durchgeführt werden können, müssen zuvor im ersten Schritt
 Kriterien mit dem Projektteam in einen Kriterienkatalog aufgenommen werden.
 Anschließend werden diesen Kriterien entsprechende Gewichtungen zugewiesen. Bei
 den Kriterien muss während der Beurteilung beachtet werden, dass diese
-innerhalb dem im Projekt zur Verfügung stehenden Zeit realisierbar sind. Dabei
+innerhalb der im Projekt zur Verfügung stehenden Zeit realisierbar sind. Dabei
 wird das Prüfen, Testen, sowie Realisieren der Zeitlichen Abschätzung der
 einzelnen Kriterien beachtet. Nachdem die einzelnen Kriterien zusammen mit dem
 Projektteam erstellt worden sind, wurden diese im Anschluss Herrn Reuter zur
@@ -1857,19 +1853,19 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
 \textbf{Kosten}
 \begin{outline}
-  \1 Wie bereits in der Grundanforderung unter
-  Abschnitt~\ref{section:anforderungen} definiert, muss die zu evaluieriende
-  Softwarelösung eine Open\hyp{}Source\hyp{}Lizenz besitzen, damit der Quellcode
-  angepasst werden kann und keine (Folge-)Kosten innerhalb des Projekts und
-  somit beim Kunden anfallen können.
+  \1 In der Grundanforderung unter Abschnitt~\ref{section:anforderungen} ist
+  definiert, dass die zu evaluieriende Softwarelösung eine
+  Open\hyp{}Source\hyp{}Lizenz besitzen muss, damit der Quellcode angepasst
+  werden und keine (Folge-)Kosten innerhalb des Projekts und somit beim Kunden
+  anfallen können.
 \end{outline}
 
 \textbf{Sicherheit}
 \begin{outline}
   \1 Um den Zugriff und damit auch die Sicherheit des Webinterfaces zu
   schützen, muss eine Authentisierung, Authentifizierung und Autorisierung
-  seitens von der Datenvisualisierung unterstützt werden.  Diese dienen in
-  erster Linie die Daten, sowie die Anmeldung an dem Webinterface selbst vor
+  seitens von der Datenvisualisierung unterstützt werden. Diese dienen in
+  erster Linie den Daten, bei der Anmeldung am Webinterface selbst vor
   unautorisiertem Zugriff durch Dritte zu schützen. Der Zugriff auf das
   Webinterface soll mit einer Transportverschlüsselung durch \gls{HTTPS}
   durchgeführt werden und je nach Kundenanforderung auch eigene
@@ -1900,17 +1896,17 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 \textbf{Performance}
 \begin{outline}
   \1 Da auf das Datenhaltungssystem nicht nur das Webinterface zugreift,
-  sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es hier
-  zu massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle des
-  Webinterface verursacht werden können. Ein wichtiges Kernkriterium ist hier,
-  dass der Administrator eine gewisse Zeitspanne vordefinieren kann, in welcher
-  die Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
-  werden können. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
-  Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
-  Acht unterschiedliche Benutzer greifen gleichzeitig auf die Weboberfläche zu
-  und visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen
-  Werten. Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage
-  an das Datenhaltungssystem senden werden.
+  sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es zu
+  massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle des
+  Webinterface verursacht werden können. Ein wichtiges Kernkriterium ist, dass
+  der Administrator eine Zeitspanne vordefinieren kann, in welcher die Graphen
+  neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen werden
+  sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
+  überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
+  unterschiedliche Benutzer greifen gleichzeitig auf die Weboberfläche zu und
+  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen Werten.
+  Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
+  Datenhaltungssystem senden werden.
 \end{outline}
 
 \textbf{Dokumentation}
@@ -2301,32 +2297,33 @@ Gesamt                        &   100\% &                       & 4,15 &        
 \end{table}
 
 Nachdem die Nutzwertanalyse für Grafana, Graphite und Zabbix\hyp{}Frontend
-durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von 3,50
-erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass es ohne
-einen Zabbix\hyp{}Server nicht verwendet werden kann. Der Zabbix\hyp{}Server ist ein von
-Zabbix LLC entwickelter Netzwerkdienst. Er empfängt Metriken von Agents,
-bereitet diese auf und speichert diese Daten anschließend in einem
-Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass das Zabbix\hyp{}Frontend
-maximal nur mit einer Datenbank gleichzeitig kommunizieren und verwendet werden
-kann, somit besteht bei der Zabbix\hyp{}Frontend Softwarelösung eine Abhängigkeit zu
-anderen Diensten, weshalb diese im Fehlerfall Probleme verursachen könnte.
-Anders als bei Grafana, welches mit mehreren Datenbanken gleichzeitig
-kommunizieren kann. Innerhalb der einzelnen Graphen werden hier mittels einer
-Abfrage die Datenbanken direkt angesprochen, nachdem diese in der Konfiguration
-hinzugefügt wurde. Bei der Evaluierung der Graphite Softwarelösung, hat
-Graphite 3,75 Gesamtpunkte erhalten. Während der Implementierung von Graphite
-fiel auf, dass es deutlich komplexer ist als Grafana. Graphite besteht aus
-mehreren Diensten, welche bei der Installation konfiguriert und angepasst
-werden müssen, damit Graphite funktional ist. Wenn ein Dienst ausfallen sollte,
- betrifft dies das gesamte Graphite-System und die Weboberfläche wäre nicht
-mehr erreichbar. Zusätzlich ist gerade in der Wartung der Dienste ein
-Mehraufwand, da der Administrator alle Dienste in Form von Abhängigkeit
-zueinander und Konfiguration kennen muss. Da Graphite aus mehreren Diensten
-besteht, benötigt Graphite auch mehr Systemressourcen als ein einzelner Dienst,
-wie es bei Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die
-weitere Implementierung nicht verwendet. Grafana hat in der Nutzwertanalyse die
-meisten Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von den
-Projektmitgliedern zuvor definierte Kriterien.
+durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von
+3,50 erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass
+es ohne einen Zabbix\hyp{}Server nicht verwendet werden kann. Der
+Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
+empfängt Metriken von Agents, bereitet diese auf und speichert diese Daten
+anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
+das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
+kommunizieren und verwendet werden kann, somit besteht bei der
+Zabbix\hyp{}Frontend Softwarelösung eine Abhängigkeit zu anderen Diensten,
+weshalb diese im Fehlerfall Probleme verursachen könnte. Anders als bei
+Grafana, welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.
+Innerhalb der einzelnen Graphen werden hier mittels einer Abfrage die
+Datenbanken direkt angesprochen, nachdem diese in der Konfiguration hinzugefügt
+wurde. Bei der Evaluierung der Graphite Softwarelösung, hat Graphite 3,75
+Gesamtpunkte erhalten. Während der Implementierung von Graphite wurde klar,
+dass es deutlich komplexer ist als Grafana. Graphite besteht aus mehreren
+Diensten, welche bei der Installation konfiguriert und angepasst werden müssen,
+damit Graphite funktional ist. Wenn ein Dienst ausfallen sollte, betrifft dies
+das gesamte Graphite-System und die Weboberfläche wäre nicht mehr erreichbar.
+Zusätzlich ist gerade in der Wartung der Dienste ein Mehraufwand, da der
+Administrator alle Dienste in Form von Abhängigkeit zueinander und
+Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
+Graphite auch mehr Systemressourcen als ein einzelner Dienst, wie es bei
+Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die weitere
+Implementierung nicht verwendet. Grafana hat in der Nutzwertanalyse die meisten
+Gesamtpunkte mit 4,15 erhalten. Es erfüllt alle von den Projektmitgliedern
+zuvor definierte Kriterien.
 \mr%
 
 \chapter{Userstories}
@@ -3275,9 +3272,8 @@ erstellt (vgl.~\cite{grafana-issue}).
 \subsection{Graphen definieren}
 \label{subsec:graphen-definieren}
 Soabld die Grundkonfiguration von Grafana wie im
-Abschnitt~\ref{sec:realisierung_grafana}" beschrieben durchgeführt worden ist,
-können als nächstes die Graphen konfiguriert werden, damit diese Graphen
-visualisieren können.
+Abschnitt~\ref{sec:realisierung_grafana} beschrieben durchgeführt worden ist,
+können als nächstes die Graphen konfiguriert werden.
 \mr%
 
 \subsubsection{General}
@@ -3302,15 +3298,15 @@ Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch (siehe
 Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
 Erhaltung eine \gls{HTTPS}-\gls{API} Schnittstelle verwendet, welche im Laufe
 des Projektes entwickelt und entworfen worden ist. Die \gls{HTTPS}-\gls{API}
-liefert hier ein \gls{JSON}-Objekt zurück. Sie wird nicht mittels einer
-SQL-Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle. Innerhalb
-der \gls{API} werden bereits vordefinierte Werte zurückgegeben. Wenn hier als
-Datenquelle eine Datenbank angesprochen werden soll, so kann hier zunächst eine
-Art \texttt{SELECT} \gls{SQL}-Abfrage hinterlegt werden. Innerhalb der
-\gls{SQL}-Abfrage wird definiert, von wo die erhaltenen Daten stammen, sowie
-welche Werte abgerufen werden sollen. Ebenfalls kann diese \gls{SQL}-Abfrage
-mit anderen \gls{SQL} Abfragen innerhalb einer Gruppe zusammengefasst werden.
-Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
+liefert dabei ein \gls{JSON}-Objekt. Sie wird nicht mittels einer SQL-Abfrage
+abgerufen, sondern über eine \gls{HTTPS} Schnittstelle. Innerhalb der \gls{API}
+werden bereits vordefinierte Werte zurückgegeben. Wenn als Datenquelle eine
+Datenbank angesprochen werden soll, so kann zunächst eine Art \texttt{SELECT}
+\gls{SQL}-Abfrage hinterlegt werden. Innerhalb der \gls{SQL}-Abfrage wird
+definiert, von wo die erhaltenen Daten stammen, sowie welche Werte abgerufen
+werden sollen. Ebenfalls kann diese \gls{SQL}-Abfrage mit anderen \gls{SQL}
+Abfragen innerhalb einer Gruppe zusammengefasst werden. Ein Beispiel hierzu
+ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 \mr%
 
 \subsubsection{Axes}
