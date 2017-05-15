@@ -2478,6 +2478,7 @@ Betriebssystem Archlinux durchgeführt, da hier die meiste Erfahrung im Team
 vorhanden ist. Um eine große Kompatibilität sicherzustellen wurden allerdings
 alle Tests nicht nur für Archlinux, sondern auch für die Distributionen Debian,
 Ubuntu und CentOS durchgeführt.
+\all%
 
 \section{Prototyp 1}
 Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
@@ -2571,6 +2572,7 @@ werden. Postgres bietet einen Treiber für JDBC an (vgl.~\cite{postgres-jdbc}).
 Es gibt vier verschiedene Typen von JDBC\hyp{}Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
 Folgenden sind die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
+\tm%
 
 \subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC\hyp{}Schnittstelle einen sehr generischen \gls{ODBC}
@@ -2598,6 +2600,7 @@ Die Nachteile sind:
   \1 Da alle Schnittstellen sehr generisch sind, kann dort keine Optimierung
   auf ein spezifisches DBMS erfolgen.
 \end{outline}
+\tm%
 
 \subsection{Nativer API-Treiber}
 Die JDBC\hyp{}Schnittstelle spricht hier über den Treiber direkt die Bibliothek
@@ -2617,6 +2620,7 @@ nicht optimal.  Außerdem ist es nicht immer möglich, Zusatzsoftware, wie die
 Bibliotheken, auf dem gewünschten System zu installieren. Es gibt Firmen, die
 dies untersagen.  Dies trifft allerdings nicht in diesem Projekt zu, weshalb es
 nicht als Negativpunkt gewertet wird.
+\tm%
 
 \subsection{Netzwerkprotokolltreiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
@@ -2646,6 +2650,7 @@ Die Nachteile sind:
   sofern man die Middleware selbst implementiert und nicht auf fertige Lösungen
   zurückgreifen kann.
 \end{outline}
+\tm%
 
 \subsection{Nativer JDBC-Treiber}
 Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, dass
