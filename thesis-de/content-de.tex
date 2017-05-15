@@ -2921,7 +2921,11 @@ Lade\hyp{}Algorithmus erkannt und das Einfügen der Daten hinten angestellt. Fü
 diesen Teil besitzt die Postgres Datenbank bereits vorhandene Frameworks,
 welche von dem Projektteam genutzt werden. Somit muss das Management der
 Prozessabarbeitung innerhalb des Datenhaltsungssystem nicht selber entwickelt,
-sondern nur eingebunden werden.
+sondern nur eingebunden werden. Desweiteren prüft der Lade\hyp{}Teil, ob eine
+in dem Abschnitt\ref{subsec:postgres_partition} erläuterte Partionierung
+existiert. Sollte dies nicht der Fall sein, so wird vor dem eigentlichen
+Einfügen der Daten, eine neue Partition angelegt und der Haupttabelle
+mitgeteilt.
 \nl%
 
 \subsection{Repositorium}
