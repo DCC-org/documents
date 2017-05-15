@@ -796,21 +796,22 @@ Community erstellt hat, aber noch nicht eingepflegt worden sind.
 
 \subsection{sysstat}
 Die Softwaresammlung sysstat ist eine Kollektion an kleinen Programmen zur
-Performance\hyp{}Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz. Das
-älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
+Performance\hyp{}Analyse unter Linux. Die Sammlung steht unter der GPL2 Lizenz.
+Das älteste verfügbare Release ist die Version 5.0.5 vom Juni 2004. Seitdem
 erscheinen jedes Jahr mehrere Updates. Entwickelt wird das Projekt
 von (vgl.~\cite{systat_releases}). Die Liste der Features von sysstat ist sehr
 umfangreich.  Neben den geforderten Kriterien zur lokalen Datenerfassung
 liefert es auch viele weitere Details. Hierzu zählen zum Beispiel Statistiken
-zum Verhalten des Arbeitsspeichers. Die Interrupt\hyp{}Verarbeitung des Prozessors
-und detaillierte Netzwerkinformationen. Ermittelte Daten können als \gls{CSV},
-\gls{XML} oder \gls{JSON} gespeichert werden (vgl.~\cite{sysstat_features}).
+zum Verhalten des Arbeitsspeichers. Die Interrupt\hyp{}Verarbeitung des
+Prozessors und detaillierte Netzwerkinformationen. Ermittelte Daten können als
+\gls{CSV}, \gls{XML} oder \gls{JSON} gespeichert werden
+(vgl.~\cite{sysstat_features}).
 
 Die Software sysstat bietet keine Möglichkeit, um Daten von virtuellen
 Maschinen über den Host zu ermitteln. Die bereitgestellten Informationen sind
-aber in einer sehr guten Struktur dank des XML\hyp{}Schemas. Das Einbinden in andere
-Programme und das Interpretieren ist somit sehr einfach. Es werden nicht alle
-Anforderungen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
+aber in einer sehr guten Struktur dank des XML\hyp{}Schemas. Das Einbinden in
+andere Programme und das Interpretieren ist somit sehr einfach. Es werden nicht
+alle Anforderungen von sysstat erfüllt, es kann aber eventuell als Ergänzung zu
 anderen Programmen genutzt werden.
 \tm%
 
@@ -1184,8 +1185,8 @@ Nodes ist nicht garantiert, dass Daten wirklich persistent geschrieben werden.
 Cassandra ist ein \gls{SQL} und Java basiertes \gls{DBMS} und wurde ausgelegt
 für die Datenhaltung von großen Datenmengen und dessen verbundenem
 Management der Arbeitsauslastung auf dem Server. Dazu nutzt die Software ein
-Cluster\hyp{}System über mehrere Server (Nodes), um ein vollständiges Versagen durch
-den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
+Cluster\hyp{}System über mehrere Server (Nodes), um ein vollständiges Versagen
+durch den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
 Dateninformationen auf mehrere Server verteilt und verwaltet. Im
 Cassandra\hyp{}Umfeld wird dies über das von dem Hersteller definierte Protokoll
@@ -1270,9 +1271,9 @@ Vorteile:
 
 Der aktive Server muss somit nur noch Schreibanfragen beantworten. Das
 Hinzufügen von passiven Nodes oder das Umschwenken der Schreibanfragen auf
-einen von ihnen kann im laufenden Betrieb erfolgen. Die Postgres\hyp{}Konfiguration
-lässt sich zur Laufzeit anpassen, um dem Dienst mehr Ressourcen des physischen
-Hosts zuzuweisen.
+einen von ihnen kann im laufenden Betrieb erfolgen. Die
+Postgres\hyp{}Konfiguration lässt sich zur Laufzeit anpassen, um dem Dienst mehr
+Ressourcen des physischen Hosts zuzuweisen.
 
 Mit den Erweiterungen \gls{Pgpool-II} und \gls{Postgres-XC} kann ebenfalls ein
 hochverfügbarer Betrieb realisiert werden. Außerdem ermöglichen sie eine
@@ -1430,8 +1431,8 @@ nochmals fachlich aufzubereiten.
 
 \subsubsection{Beschreibung Impala}
 \label{subsubsec:impala_beschreibung}
-Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und nutzt die
-im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
+Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und nutzt
+die im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop\hyp{}System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop\hyp{}Landschaft wird es unter dem Begriff
@@ -1658,8 +1659,8 @@ Bei der Evaluierung der API\hyp{}Systeme wurden die im
 Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der API als Leitlinie für die Durchführung verwendet. Als ersten
 Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
-allgemeinen Eindruck über die aktuelle Marktsituation zu API\hyp{}Systemen erhält.
-Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
+allgemeinen Eindruck über die aktuelle Marktsituation zu API\hyp{}Systemen
+erhält. Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
 Fachzeitschriften gelesen. Die dort angesprochenen API\hyp{}Systeme wurden
 anschließend mit den bereits definierten Anforderungen abgeglichen und
 aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten
@@ -1690,7 +1691,7 @@ dem Projektteam aus der Bewertung ausgeschlossen.
 \begin{center}
 \begin{tabular}{lccccc}
   \toprule
-  System              & Modifizierbar & Doku  & Wissen  & Abhängigkeit  & Gesamt \\
+  System           & Modifizierbar & Doku  & Wissen  & Abhängigkeit  & Gesamt \\
   \midrule
   Swagger             & 10            & 9     & 10      & 10            & 39 \\
   RAML                & 10            & 8     & 7       & 10            & 35 \\
@@ -2237,9 +2238,9 @@ Dies ist innerhalb des Projektes ein Kernkriterium, weshalb es als
 Softwarelösung nicht weiter verwendet. Gridster\hyp{}D3 ist bereits während der
 Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um eine
 Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem Grund
-hat Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe der
-Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr unübersichtlich
-aufgebaut ist und keine Sicherheit gewährleisten kann. Alle drei
+hat Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe
+der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
+unübersichtlich aufgebaut ist und keine Sicherheit gewährleisten kann. Alle drei
 Softwärelösungen sind damit ausgeschieden, da eine Gesamtpunktzahl von 3,00
 nicht erreicht worden ist.
 
@@ -2251,8 +2252,9 @@ Nachfolgend bleiben drei Datenvisualisierungslösungen für die nähere Auswahl:
   \1 Zabbix\hyp{}Frontend
 \end{outline}
 
-Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata,
-wurde auch hierfür eine Nutzwertanalyse durchgeführt, die wie folgt aussieht:
+Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und
+Netdata, wurde auch hierfür eine Nutzwertanalyse durchgeführt, die wie folgt
+aussieht:
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2602,8 +2604,8 @@ Die Nachteile sind:
 \subsection{Nativer API-Treiber}
 Die JDBC\hyp{}Schnittstelle spricht hier über den Treiber direkt die Bibliothek
 des DBMS an. Dafür muss der Treiber als auch die Bibiliothek auf dem gleichen
-System vorhanden sein, wie die JVM\hyp{}Applikation. Die Datenbank selbst kann auf
-dem gleichen Server oder über das Netzwerk angesprochen werden.
+System vorhanden sein, wie die JVM\hyp{}Applikation. Die Datenbank selbst kann
+auf dem gleichen Server oder über das Netzwerk angesprochen werden.
 
 Die Vorteile im Vergleich zum JDBC\hyp{}ODBC\hyp{}Treiber:
 
