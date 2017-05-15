@@ -332,7 +332,7 @@ die Anbindung an die Datenbank über eine \gls{API} Schnittstelle, (siehe
 Abschnitt~\ref{subsec:zusammenspiel_api_frontend}) realisiert werden muss.
 Dabei muss die Datenvisualisierung Abfragen über eine \gls{API} stellen können.
 Dies ermöglicht es, den Zugriff nur für die Datenvisualisierung auf die
-sensiblen Daten gewährleisten zu können. Das Webinterface soll Administratoren
+sensiblen Daten gewährleisten zu können. Die Webseite soll Administratoren
 bei einer Neukonfiguration von virtuellen Maschinen unterstützen und
 visualisiert die Auslastung der einzelnen physischen Systemen in Form von
 Graphen (siehe Abschnitt~\ref{subsec:definition_eines_graphen}). Der
@@ -509,18 +509,19 @@ und keine neuen Strukturen erlernen muss.
 \nl%
 
 \section{Datenvisualisierung}
-Eine Schnittstelle auf einem Webinterface dient in erster Linie zur Anzeige von
-Daten in Form von Graphen. In diesem Projekt werden bewusst zwei Schnittstellen
-verwendet, damit die Daten innerhalb des Datenhaltungssystem geschützt sind,
-wie auch die Sicherheit der eigentliche Datenvisualisierung gewährleistet
-werden kann. Im nachfolgendem werden beide Schnittstellen erläutert.
+Eine Schnittstelle auf einer Webseite dient in erster Linie zur Anzeige
+von Daten in Form von Graphen. In diesem Projekt werden bewusst zwei
+Schnittstellen verwendet, damit die Daten innerhalb des Datenhaltungssystem
+geschützt sind, wie auch die Sicherheit der eigentliche Datenvisualisierung
+gewährleistet werden kann. Im nachfolgendem werden beide Schnittstellen
+erläutert.
 
-Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
+Die erste Schnittstelle der Webseite ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Diese
-liefert dem Webinterface alle nötigen Funktionen und Werkzeuge zur
+liefert der Webseite alle nötigen Funktionen und Werkzeuge zur
 Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
 Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein rein lesender
-Datenhaltungszugriff für die Weboberfläche vorgesehen. Dies wird durch den
+Datenhaltungszugriff für die Webseite vorgesehen. Dies wird durch den
 Datenhaltungssystem\hyp{}Administrator gewährleistet.
 
 Neben der Verwendung eines Treibers in Verbindung mit einem
@@ -533,7 +534,7 @@ Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
 Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
-welche mit der Weboberfläche arbeiten möchten, nur unstrukturierte Daten
+welche mit der Webseite arbeiten möchten, nur unstrukturierte Daten
 erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
 erhält somit einen direkten und schnellen Überblick in Form eines Graphens,
 siehe Abschnitt~\ref{subsec:definition_eines_graphen} oder
@@ -1821,7 +1822,7 @@ Graphen von beispielsweise CPU\hyp{}Auslastung, RAM\hyp{}Auslastung oder
 Linerar\hyp{} oder Balkenform dargestellt werden. Lineare Graphen haben eine
 X\hyp{} und Y\hyp{}Achse und besitzen zusätzlich einen Anfang und einen
 wachsenden Endpunkt. Er wird mittels Metrik (siehe
-Abschnitt~\ref{section:Begriffserklärung}), welche das Webinterface aus den
+Abschnitt~\ref{section:Begriffserklärung}), welche die Webseite aus den
 Datenhaltungssystemen abgreift, erstellt. Diese kann vom Administrator
 ebenfalls nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme
 haben nur eine X\hyp{}Achse, bei der der gewünschte Analysewert eingetragen ist
@@ -1862,12 +1863,12 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
 \textbf{Sicherheit}
 \begin{outline}
-  \1 Um den Zugriff und damit auch die Sicherheit des Webinterfaces zu
+  \1 Um den Zugriff und damit auch die Sicherheit der Webseite zu
   schützen, muss eine Authentisierung, Authentifizierung und Autorisierung
   seitens von der Datenvisualisierung unterstützt werden. Diese dienen in
-  erster Linie für den Schutz der Daten. Speziell die Anmeldung am Webinterface
-  schützt den unaitorisierten Zugriff durch Dritte. Der Zugriff auf das
-  Webinterface soll mit einer Transportverschlüsselung durch \gls{HTTPS}
+  erster Linie für den Schutz der Daten. Speziell die Anmeldung an der Webseite
+  schützt den unautorisierten Zugriff durch Dritte. Der Zugriff auf die
+  Webseite soll mit einer Transportverschlüsselung durch \gls{HTTPS}
   durchgeführt werden und je nach Kundenanforderung auch eigene
   Client\hyp{}Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
   kann entweder über einen lokalen Administrator, als auch über eine
@@ -1895,15 +1896,15 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
 \textbf{Performance}
 \begin{outline}
-  \1 Da auf das Datenhaltungssystem nicht nur das Webinterface zugreift,
+  \1 Da auf das Datenhaltungssystem nicht nur die Webseite zugreift,
   sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es zu
-  massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle des
-  Webinterface verursacht werden können. Ein wichtiges Kernkriterium ist, dass
+  massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle der
+  Webseite verursacht werden können. Ein wichtiges Kernkriterium ist, dass
   der Administrator eine Zeitspanne vordefinieren kann, in welcher die Graphen
   neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen werden
   sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
   überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
-  unterschiedliche Benutzer greifen gleichzeitig auf die Weboberfläche zu und
+  unterschiedliche Benutzer greifen gleichzeitig auf die Webseite zu und
   visualisieren im Fallbeispiel acht Graphen mit unterschiedlichen Werten.  Nun
   sind insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
   Datenhaltungssystem senden werden.
@@ -1960,7 +1961,7 @@ kurzen Zusammenfassung, sowie Vor\hyp{} und Nachteile aufgeführt:
 Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte
 Open\hyp{}Source\hyp{}Visualisierungssoftware. Sie bietet neben einfachen
 Visualisierungsgraphen noch weitere Ereignisfunktionen. Um die Anmeldung an der
-Weboberfläche durchführen zu können, kann hier wahlweise die Anmeldung mit
+Webseite durchführen zu können, kann hier wahlweise die Anmeldung mit
 einem \gls{Active Directory} Konto oder lokalen Benutzer plus
 Kennwortkombination durchgeführt werden. Hinzu können verschiedene
 Berechtigungen vergeben werden. Somit können zum Beispiel Mitarbeiter aus der
@@ -2033,7 +2034,7 @@ hinzufügen zu können, wie es beispielsweise Grafana~\ref{subsubsec:grafana}
 kann. Hierzu muss der Quellcode von Graphite massiv angepasst werden, wodurch
 gute Kenntniss der einzelnen Dienste erforderlich sind. Graphite ist ein
 System, welches aus mehreren Diensten besteht. Der Graphite\hyp{}Webdienst ist
-für die Anzeige der Weboberfläche zuständig. Der Carbon\hyp{}Cache\hyp{}Dienst
+für die Anzeige der Webseite zuständig. Der Carbon\hyp{}Cache\hyp{}Dienst
 wird verwendet, um die Daten, welche vom Datenerfassungsystem ermittelt worden
 sind, aufzuarbeiten. Dies wird benötigt, damit Graphite diese für die
 Visualisierung verwenden kann. Grundsätzlich installiert sich mit der
@@ -2077,7 +2078,7 @@ enthalten sind. Plugins können dennoch in der Programmiersprache Java
 entwickelt und implementiert werden. Es ist darauf ausgelegt bei verschiedenen
 Events, beispielsweise das Erreichen eines kritischen Festplattenstands, eine
 E\hyp{}Mail an den Benutzer zu versenden, weshalb Zabbix sehr häufig gerade in
-großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche
+großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Webseite
 kann wahlweise mit lokalen Benutzer mit Benutzername und Kennwort oder mit
 einer \gls{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der
 Administrator beziehungsweise der Benutzer lediglich seine
@@ -2132,8 +2133,8 @@ beinhaltet alle Hosts, welche der Kunde anbinden möchte. Zusätzlich bietet
 diese Lizenz einen E\hyp{}Mail\hyp{}, Chat- oder Telefonsupport. Dieser ist
 nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch Dashboards können in
 Datadog einfach vom Administrator erstellt werden. Um die Anmeldung an der
-Weboberfläche durchführen zu können, wird ein Benutzer und Kennwort benötigt.
-Es ist hier nicht möglich, ein LDAP an die Weboberfläche anbinden zu können.
+Webseite durchführen zu können, wird ein Benutzer und Kennwort benötigt.
+Es ist hier nicht möglich, ein LDAP an die Webseite anbinden zu können.
 Innerhalb eines Graphen können bestimmte Teilabschnitte mit zum Beispiel
 Social\hyp{}Media\hyp{}Plattformen wie Facebook oder Twitter geteilt werden.
 Datadog bietet zudem eventbasierte Mitteilungen, welche vom Administrator
@@ -2177,7 +2178,7 @@ Gridster ist eine von Anmol Koul entwickelte Java\hyp{}Bibliothek, welche auf
 Software, stellte sich heraus, dass es sich hierbei nicht direkt um eine
 Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
 das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer
-Weboberfläche. Mit dieser hat man die Möglichkeit, ein Dashboard, welches
+Webseite. Mit dieser hat man die Möglichkeit, ein Dashboard, welches
 selbst entwickelt worden ist, individuell anpassen zu
 können (vgl.~\cite{gridster-d3}).
 
@@ -2193,7 +2194,7 @@ vollständige Code steht auf GitHub, worüber auch die Community gepflegt wird.
 Andere Mitglieder der GitHub\hyp{}Community haben hier die Möglichkeit,
 Quelltext anzupassen und zu verändern, jedoch müssen diese von anderen
 Mitgliedern bestätigt werden. Es bietet nicht die Möglichkeit, eine
-Authentifizierung auf der Weboberfläche durchzuführen. Ebenso werden alle
+Authentifizierung auf der Webseite durchzuführen. Ebenso werden alle
 Graphen, welche abgefragt werden, auf einer Seite angezeigt, weshalb die
 Übersicht stark eingeschränkt ist. Graphen können bei Netdata nicht einfach
 angepasst werden, da diese im Quellcode verändert und angepasst werden müssen.
@@ -2216,7 +2217,7 @@ Positiv:
 Negativ:
 
 \begin{outline}
-  \1 Sehr unübersichtlich vom Aufbau der Weboberfläche
+  \1 Sehr unübersichtlich vom Aufbau der Webseite
   \1 Authentisierung, Authentifizierung und Autorisierung kann nicht
   gewährleistet werden
   \1 Bietet keine API\hyp{}Unterstützung
@@ -2315,7 +2316,7 @@ Gesamtpunkte erhalten. Während der Implementierung von Graphite wurde klar,
 dass es deutlich komplexer ist als Grafana. Graphite besteht aus mehreren
 Diensten, welche bei der Installation konfiguriert und angepasst werden müssen,
 damit Graphite funktional ist. Wenn ein Dienst ausfallen sollte, betrifft dies
-das gesamte Graphite-System und die Weboberfläche wäre nicht mehr erreichbar.
+das gesamte Graphite-System und die Webseite wäre nicht mehr erreichbar.
 Zusätzlich ist gerade in der Wartung der Dienste ein Mehraufwand, da der
 Administrator alle Dienste in Form von Abhängigkeit zueinander und
 Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
@@ -2797,7 +2798,7 @@ Firma Puppet gepflegt. Außerdem kann puppet mit eigenen Typen erweitert werden.
 Für jeden Typen gibt es einen Provider. Dieser implementiert den Typen auf
 einer bestimmten Plattform. Das Grafana\hyp{}Modul besitzt eigene Typen, welche
 Dashboards und Datenquellen verwalten. Die Konfiguration von eben jenen erfolgt
-nicht über normale Textdateien, sondern über eine API oder Weboberfläche. Über
+nicht über normale Textdateien, sondern über eine API oder Webseite. Über
 die eigenen Typen kann Puppet auch hiermit interagieren und nicht nur die
 Installation, sondern auch die komplette Konfiguration automatisieren
 (vgl.~\cite{puppet-resource-types}). Da puppet deklarativ und nicht imperativ
@@ -3125,7 +3126,7 @@ Um Grafana im Autostart zu hinterlegen, wird folgender Befehl benötigt:
 systemctl enable grafana.service
 \end{minted}
 
-Nachdem der \texttt{grafana.service} gestartet wurde, kann das Webinterface
+Nachdem der \texttt{grafana.service} gestartet wurde, kann die Webseite
 über einen Browser bereits aufgerufen werden. Der Aufruf hierzu lautet wie
 folgt: \texttt{http://<FQDN-of-your-grafana-server>:3000}. Bei der Installation
 von Grafana wird bereits ein vordefinierter Administrator Benutzer mit Passwort
@@ -3175,7 +3176,7 @@ Administrator bereits eine vordefinierte Auswahlmöglichkeiten von Graphen,
 Tabellen oder auch \glslink{singlestat}{Singlestats}. Diese können je nach
 Verwendungszweck hinzugefügt werden. Eine Beschränkung, wieviele Graphen
 maximal auf einem \gls{Dashboard} angelegt werden können, ist laut der Dokumentation
-von Grafana nicht definiert, jedoch kann dies die Performance des Webinterfaces
+von Grafana nicht definiert, jedoch kann dies die Performance der Webseite
 für den Administrator oder Benutzer negativ beeinflussen.
 
 Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
@@ -3214,7 +3215,7 @@ werden über einen Kommandozeilenbefehl installiert.
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
 werden. Um weiteren Benutzern Zugriff zu dem \gls{Dashboard} zu gewähren,
 können unter dem Reiter Admin > Global Users weitere Benutzer angelegt werden
-und Zugriff auf das Webinterface von Grafana erhalten. Insbesondere hier kann
+und Zugriff auf die Webseite von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
 können. Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
 sowohl für lokale Benutzer als auch für \gls{LDAP}\hyp{}Benutzer vergeben
@@ -3262,8 +3263,8 @@ Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation stellte sich
 heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
-übergeben. Das Puppet Profil prüft den Login auf das Webinterface nicht,
-da es davon ausgeht, dass die Anmeldemaske des Webinterface unmittelbar
+übergeben. Das Puppet Profil prüft den Login auf die Webseite nicht,
+da es davon ausgeht, dass die Anmeldemaske der Webseite unmittelbar
 nach dem Neustart von Grafana erreichbar ist. Das Problem liegt nicht in
 der grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
