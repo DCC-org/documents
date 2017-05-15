@@ -510,11 +510,10 @@ und keine neuen Strukturen erlernen muss.
 
 \section{Datenvisualisierung}
 Eine Schnittstelle auf einem Webinterface dient in erster Linie zur Anzeige von
-Daten, die über ein anderes System erhalten wurden. In diesem Projekt werden
-bewusst zwei Schnittstellen verwendet, damit hier die Daten innerhalb des
-Datenhaltungssystem geschützt sind, wie auch die Sicherheit der eigentliche
-Datenvisualisierung gewährleistet werden kann. Im nachfolgendem werden beide
-Schnittstellen erläutert.
+Daten in Form von Graphen. In diesem Projekt werden bewusst zwei Schnittstellen
+verwendet, damit die Daten innerhalb des Datenhaltungssystem geschützt sind,
+wie auch die Sicherheit der eigentliche Datenvisualisierung gewährleistet
+werden kann. Im nachfolgendem werden beide Schnittstellen erläutert.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
 welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
@@ -1818,19 +1817,19 @@ verbunden (vgl.~\cite{kaiser2008c}).
 
 Innerhalb der Datenvisualisierungslösung werden dem Benutzer verschiedene
 Graphen von beispielsweise CPU\hyp{}Auslastung, RAM\hyp{}Auslastung oder
-\gls{SSD}-Schreibzugriffe visualisiert. Diese Graphen können entweder in
-Linerar- oder Balkenform dargestellt werden. Lineare Graphen haben eine X- und
-Y\hyp{}Achse und besitzen zusätzlich einen Anfang und einen wachsenden
-Endpunkt. Er wird mittels Metrik (siehe
+\gls{SSD}\hyp{}Schreibzugriffe visualisiert. Diese Graphen können entweder in
+Linerar\hyp{} oder Balkenform dargestellt werden. Lineare Graphen haben eine
+X\hyp{} und Y\hyp{}Achse und besitzen zusätzlich einen Anfang und einen
+wachsenden Endpunkt. Er wird mittels Metrik (siehe
 Abschnitt~\ref{section:Begriffserklärung}), welche das Webinterface aus den
 Datenhaltungssystemen abgreift, erstellt. Diese kann vom Administrator
 ebenfalls nur für eine definierte Zeitspanne angezeigt werden. Balkendiagramme
-haben nur eine X-Achse, bei der der gewünschte Analysewert eingetragen ist und
-werden zum Beispiel für ausgefallene \glslink{SSD}{SSDs} in einem bestimmten
-Zeitraum verwendet. Diese werden über die Metrik aus dem Datenhaltungssystem
-abgegriffen und dem Administrator über eine Übersicht angezeigt. Ein Graph-
-bzw. Balkendiagramm visualisiert immer eine oder mehrere Timeseries (siehe
-Abschnitt~\ref{section:Begriffserklärung}).
+haben nur eine X\hyp{}Achse, bei der der gewünschte Analysewert eingetragen ist
+und werden zum Beispiel für ausgefallene \glslink{SSD}{SSDs} in einem
+bestimmten Zeitraum verwendet. Diese werden über die Metrik aus dem
+Datenhaltungssystem abgegriffen und dem Administrator über eine Übersicht
+angezeigt. Ein Graph\hyp{} beziehungsweise Balkendiagramm visualisiert immer
+eine oder mehrere Timeseries (siehe Abschnitt~\ref{section:Begriffserklärung}).
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
@@ -1840,7 +1839,7 @@ Kriterien mit dem Projektteam in einen Kriterienkatalog aufgenommen werden.
 Anschließend werden diesen Kriterien entsprechende Gewichtungen zugewiesen. Bei
 den Kriterien muss während der Beurteilung beachtet werden, dass diese
 innerhalb der im Projekt zur Verfügung stehenden Zeit realisierbar sind. Dabei
-wird das Prüfen, Testen, sowie Realisieren der Zeitlichen Abschätzung der
+wird das Prüfen, Testen, sowie Realisieren in den zeitlichen Abschätzungen der
 einzelnen Kriterien beachtet. Nachdem die einzelnen Kriterien zusammen mit dem
 Projektteam erstellt worden sind, wurden diese im Anschluss Herrn Reuter zur
 abschließenden Überprüfung zur Verfügung gestellt. Erst hiernach wurden diese
@@ -1856,9 +1855,9 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 \begin{outline}
   \1 In der Grundanforderung unter Abschnitt~\ref{section:anforderungen} ist
   definiert, dass die zu evaluieriende Softwarelösung eine
-  Open\hyp{}Source\hyp{}Lizenz besitzen muss, damit der Quellcode angepasst
-  werden und keine (Folge-)Kosten innerhalb des Projekts und somit beim Kunden
-  anfallen können.
+  Open\hyp{}Source\hyp{}Lizenz besitzen muss. Damit der Quellcode angepasst
+  werden und keine (Folge\hyp{})Kosten innerhalb des Projekts und somit beim
+  Kunden anfallen können.
 \end{outline}
 
 \textbf{Sicherheit}
@@ -1866,14 +1865,14 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   \1 Um den Zugriff und damit auch die Sicherheit des Webinterfaces zu
   schützen, muss eine Authentisierung, Authentifizierung und Autorisierung
   seitens von der Datenvisualisierung unterstützt werden. Diese dienen in
-  erster Linie den Daten, bei der Anmeldung am Webinterface selbst vor
-  unautorisiertem Zugriff durch Dritte zu schützen. Der Zugriff auf das
+  erster Linie für den Schutz der Daten. Speziell die Anmeldung am Webinterface
+  schützt den unaitorisierten Zugriff durch Dritte. Der Zugriff auf das
   Webinterface soll mit einer Transportverschlüsselung durch \gls{HTTPS}
   durchgeführt werden und je nach Kundenanforderung auch eigene
-  Client-Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung kann
-  entweder über einen lokalen Administrator, als auch über eine
-  \gls{LDAP}-Anbindung verfügen, um zum Beispiel Unternehmensverzeichnisse der
-  Kunden anbinden zu können. Hierrüber soll ebenfalls eine Rechtevergabe
+  Client\hyp{}Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
+  kann entweder über einen lokalen Administrator, als auch über eine
+  \gls{LDAP}\hyp{}Anbindung verfügen, um zum Beispiel Unternehmensverzeichnisse
+  der Kunden anbinden zu können. Hierrüber soll ebenfalls eine Rechtevergabe
   innerhalb der Datenvisualisierung möglich sein.
 \end{outline}
 
@@ -1905,8 +1904,8 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
   überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
   unterschiedliche Benutzer greifen gleichzeitig auf die Weboberfläche zu und
-  visualisieren hier im Fallbeispiel acht Graphen mit unterschiedlichen Werten.
-  Nun sind hier insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
+  visualisieren im Fallbeispiel acht Graphen mit unterschiedlichen Werten.  Nun
+  sind insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
   Datenhaltungssystem senden werden.
 \end{outline}
 
@@ -1943,8 +1942,8 @@ durchführen zu können, wurde jede Softwarelösung gegenübergestellt und auf d
 zuvor erstellten Kriterienkatalog geprüft. Hierfür wurde ein Punktesystem von
 Null bis Fünf festgelegt, wobei Null die schlechteste Punktzahl und Fünf die
 beste Punktzahl ist. Diese vergebenen Punkte wurden anschließend mit der
-Gewichtung in eine Tabelle eingetragen und Multipliziert, welches dann die
-Gesamtpunktzahl ergibt.  Die Tabellen werden im
+Gewichtung in eine Tabelle eingetragen und multipliziert, welches dann die
+Gesamtpunktzahl ergibt. Die Tabellen werden im
 Abschnitt~\ref{subsec:abschluss_evaluierung} genauer erklärt.
 
 Während der Evaluierung der einzelnen Softwarelösungen ist aufgefallen, dass
@@ -1953,7 +1952,7 @@ entsprechende Evaluierung, von diesem Produkt, kann im
 Abschnitt~\ref{subsubsec:gridster-d3} vollständig entnommen werden.
 
 Im Nachfolgenden sind die einzelnen Datenvisualisierungslösungen mit einer
-kurzen Zusammenfassung, sowie Vor- und Nachteile aufgeführt:
+kurzen Zusammenfassung, sowie Vor\hyp{} und Nachteile aufgeführt:
 \mr%
 
 \subsubsection{Grafana}
@@ -2077,11 +2076,11 @@ Zabbix-Frontend benötigt keinerlei Plugins, da hier bereits viele Funktionen in
 der eigentlichen Software enthalten sind. Plugins können dennoch in der
 Programmiersprache Java entwickelt und implementiert werden. Es ist darauf
 ausgelegt bei verschiedenen Events, beispielsweise das Erreichen eines
-kritischen Festplattenstands, eine E-Mail an den Administrator oder weitere
+kritischen Festplattenstands, eine E\hyp{}Mail an den Administrator oder weitere
 Benutzer zu versenden, weshalb Zabbix sehr häufig gerade in großen
 Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche kann
 wahlweise mit lokalen Benutzer mit Benutzername und Kennwort oder mit einer
-\gls{LDAP}-Anbindung durchgeführt werden. So benötigt der Administrator
+\gls{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
 beziehungsweise der Benutzer lediglich seine
 Active\hyp{}Directory\hyp{}Benutzerdaten zur Authentifizierung. Zabbix ist
 zudem mit API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatibel.
@@ -2233,7 +2232,7 @@ Nach Abschluss der Evaluierung der einzelnen Softwarelösungen für die
 Datenvisualisierung wurden diesen entsprechende Bewertungspunkte für die
 Kriterien von Null bis Fünf vergeben. Damit eine Softwarelösung in die nähere
 Auswahl aufgenommen werden kann, muss diese mindestens 3,00 Gesamtpunkte in der
-Nutzwertanalyse erhalten. In nachfolgender Tabelle kann hier die
+Nutzwertanalyse erhalten. In nachfolgender Tabelle kann die
 Nutzwertanalyse der Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata
 entnommen Datadog, Gridster\hyp{}D3 und Netdata entnommen werden.
 
@@ -2263,7 +2262,7 @@ Softwarelösung nicht weiter verwendet werden kann. Gridster\hyp{}D3 ist bereits
 während der Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um
 eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem hat
 Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe
-der Laufe der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
+der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
 unübersichtlich aufgebaut ist und keine Sicherheit gewährleisten kann. Alle
 drei Softwärelösungen sind damit ausgeschieden, da eine Gesamtpunktzahl von
 3,00 nicht erreicht worden ist.
@@ -2371,10 +2370,10 @@ sorgt dies für einen schnelleren Datenzugriff. \glslink{SSD}{SSDs} haben
 jedoch, wie auch\glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
 \glslink{SSD}{SSDs} schneller erreicht werden kann, als bei handelsüblichen
 \glslink{HDD}{HDDs}. Der Administrator soll darüber benachrichtigt werden,
-sobald von einer \gls{SSD} ein kritischer Schreib- oder Lesezyklus erreicht
-worden ist, um die \gls{SSD} bereits vor dem Ausfall proaktiv austauschen zu
-können.  Ebenfalls soll eine Statistik ausgegeben werden können, welche
-\gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
+sobald von einer \gls{SSD} ein kritischer Schreib\hyp{} oder Lesezyklus
+erreicht worden ist, um die \gls{SSD} bereits vor dem Ausfall proaktiv
+austauschen zu können. Ebenfalls soll eine Statistik ausgegeben werden können,
+welche \gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
 ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
@@ -2398,16 +2397,17 @@ CPU\hyp{}Auslastung jeder Instanz, um Engpässe zu erkennen.
 
 \textbf{Beschreibung:} Die CPUs der heutigen Zeit werden in der Taktrate und
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
-virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des Host-Systems
-mehrere virtuelle CPU\hyp{}Kerne emuliert und einer Instanz zugewiesen. So kann
-eine VM 2 virtuelle CPU\hyp{}Kerne mit z.B. 2,5\si{\giga\hertz} Taktrate
-zugewiesen haben. Auf jeder Instanz laufen andere Dienste, weshalb jede VM
-unterschiedliche CPUs zugeteilt haben kann. Hier kann es vorkommen, dass eine
-VM mehr CPU\hyp{}Leistung benötigt, als ihr selbst zugewiesen ist. Um dies
-frühestmöglich erkennen zu können, benötigt der Administrator eine detaillierte
-eine detaillierte Übersicht in Form eines Graphen, wie viel CPU\hyp{}Leistung
-von einer virtuellen Instanz verwendet wird und auf dem System verfügbar ist.
-Im Folgenden finden sich die Akzeptanzkriterien:
+virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des
+Host\hyp{}Systems mehrere virtuelle CPU\hyp{}Kerne emuliert und einer Instanz
+zugewiesen. So kann eine VM Zwei virtuelle CPU\hyp{}Kerne mit z.B.
+2,5\si{\giga\hertz} Taktrate zugewiesen haben. Auf jeder Instanz laufen andere
+Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt haben kann. Hier kann
+es vorkommen, dass eine VM mehr CPU\hyp{}Leistung benötigt, als ihr selbst
+zugewiesen ist. Um dies frühestmöglich erkennen zu können, benötigt der
+Administrator eine detaillierte eine detaillierte Übersicht in Form eines
+Graphen, wie viel CPU\hyp{}Leistung von einer virtuellen Instanz verwendet wird
+und auf dem System verfügbar ist. Im Folgenden finden sich die
+Akzeptanzkriterien:
 
 \begin{outline}
   \1 Visualisierung der Auslastung und Verfügbarkeit der CPU\hyp{}Leistung für
@@ -2427,12 +2427,12 @@ Arbeitsspeicherauslastung von jeder Instanz, um Engpässe zu erkennen.
 
 \textbf{Beschreibung:} Vergleichbar wie auch bei der CPU\hyp{}Auslastung, gibt
 es auch eine ähnliche Thematik zur Auslastung bei dem verwendeten
-Arbeitsspeicher.  Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
+Arbeitsspeicher. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
 entscheidend, sondern eher wie viel Arbeitsspeicher einer virtuellen Maschine
-zugewiesen ist.Hier kann es ebenfalls wie auch bei der~\ref{section:CPU_Userstory}
-vorkommen, dass es zu Engpässen auf der virtuellen Maschine bei der Verteilung
-des Arbeitsspeichers kommen kann. Im Folgenden finden sich die
-Akzeptanzkriterien:
+zugewiesen ist. Hier kann es ebenfalls wie auch bei
+der~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
+virtuellen Maschine bei der Verteilung des Arbeitsspeichers kommen kann. Im
+Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Ausgabe und Visualisierung in Form eines Graphen für den verwendeten,
@@ -3097,7 +3097,7 @@ begonnen werden. Die Installation von Grafana wird nachfolgend für die Linux
 Distribution ArchLinux beschrieben. Grafana unterstützt ebenfalls auch andere
 Distributionen, jedoch können hier die entsprechenden unten aufgeführten
 Befehle abweichen. Die zu unterstützen Distributionen, können der Grafana
-Evaluierung aus Abschnitt~\ref{subsubsec:grafana} entnommen werden.  Damit die
+Evaluierung aus Abschnitt~\ref{subsubsec:grafana} entnommen werden. Damit die
 eigentliche Konfiguration durchgeführt werden konnte, musste zuvor das
 Installationspaket von Grafana heruntergeladen und installiert werden. Auf
 einem ArchLinux\hyp{}Betriebssystem wird dieses Paket mit folgendem Befehl
@@ -3208,9 +3208,9 @@ vergessen werden, so warnt Grafana bei dem Wechsel eines
 diese nicht abgespeichert werden. Damit wie in dem Projekt gefordert eine
 \gls{API} Schnittstelle angesprochen werden kann, benötigt dies eine
 Plugininstallation. Es stehen viele verschiedene Plugins auf der Grafana
-Webseite zur Verfügung. Zu jedem Plugin gibt es hier eine kurze Erläuterung,
-sowie eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die
-Plugins werden hier über einen Kommandozeilenbefehl installiert.
+Webseite zur Verfügung. Zu jedem Plugin gibt es eine kurze Erläuterung, sowie
+eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die Plugins
+werden über einen Kommandozeilenbefehl installiert.
 
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
 werden. Um weiteren Benutzern Zugriff zu dem \gls{Dashboard} zu gewähren,
@@ -3219,13 +3219,13 @@ und Zugriff auf das Webinterface von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
 können. Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
 sowohl für lokale Benutzer als auch für \gls{LDAP}\hyp{}Benutzer vergeben
-werden. Sollte ein Unternehmen die \gls{LDAP}-Anbindung für die
-Authentifizierung an Grafana wünschen, so muss hier in dem Verzeichnis von der
+werden. Sollte ein Unternehmen die \gls{LDAP}\hyp{}Anbindung für die
+Authentifizierung an Grafana wünschen, so muss in dem Verzeichnis von der
 Grafana\hyp{}Installation die Datei grafana.ini angepasst werden. Alle
-Einstellungen, die hier vorgenommen werden, beziehen sich auf die
+Einstellungen, die in der Datei vorgenommen werden, beziehen sich auf die
 Servereinstellungen, welche vom Kunden individuell angepasst werden kann.
-Nachdem die Änderungen hier abgeschlossen sind, muss der Grafana\hyp{}Dienst
-neu gestartet werden. Dies wird mit folgendem Befehl durchgefüht:
+Nachdem die Änderungen abgeschlossen sind, muss der Grafana\hyp{}Dienst neu
+gestartet werden. Dies wird mit folgendem Befehl durchgefüht:
 
 \begin{minted}{text}
 systemctl restart grafana.service
@@ -3265,7 +3265,7 @@ Während der ersten Tests für die Automatisierung der Installation stellte sich
 heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
 übergeben. Das Puppet Profil prüft den Login auf das Webinterface nicht,
 da es davon ausgeht, dass die Anmeldemaske des Webinterface unmittelbar
-nach dem Neustart von Grafana erreichbar ist. Das Problem liegt hier nicht in
+nach dem Neustart von Grafana erreichbar ist. Das Problem liegt nicht in
 der grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
 Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
 bereitstellt. Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
@@ -3285,7 +3285,7 @@ sowie Beschreibung des Graphen hinterlegt. In dem Beispiel, welches im
 Anhang~\ref{figure:grafana_general} enthalten ist, wird der Graph für die
 Prozessor Auslastung definiert. Unter dem Reiter \texttt{General} können alle
 Konfigurationen für das Aussehen des Graphen, sowie Verlinkungen zu anderen
-\glslink{Dashboard}{Dashboards}oder direkten URL Adressen zu Webseiten
+\glslink{Dashboard}{Dashboards} oder direkten URL Adressen zu Webseiten
 hinterlegt werden. Diese werden anschließend, wie im
 Anhang~\ref{figure:grafana_description} auf der \gls{Dashboard} Übersicht
 dargestellt. Dies dient der besseren Übersichtlichkeit, wenn ein Administrator
@@ -3300,17 +3300,18 @@ Schaltfläche \texttt{Add Query} hinzugefügt werden. Grafana unterstützt unter
 anderem viele verschiedene Datenquellen, wie zum Beipsiel OpenTSDB (siehe
 Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch (siehe
 Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
-Erhaltung eine \gls{HTTPS}-\gls{API} Schnittstelle verwendet, welche im Laufe
-des Projektes entwickelt und entworfen worden ist. Die \gls{HTTPS}-\gls{API}
-liefert dabei ein \gls{JSON}-Objekt. Sie wird nicht mittels einer
-\gls{SQL}-Abfrage abgerufen, sondern über eine \gls{HTTPS} Schnittstelle.
-Innerhalb der \gls{API} werden bereits vordefinierte Werte zurückgegeben. Wenn
-als Datenquelle eine Datenbank angesprochen werden soll, so kann zunächst eine
-Art \texttt{SELECT} \gls{SQL}-Abfrage hinterlegt werden. Innerhalb der
-\gls{SQL}-Abfrage wird definiert, von wo die erhaltenen Daten stammen, sowie
-welche Werte abgerufen werden sollen. Ebenfalls kann diese \gls{SQL}-Abfrage
-mit anderen \gls{SQL} Abfragen innerhalb einer Gruppe zusammengefasst werden.
-Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
+Erhaltung eine \gls{HTTPS}\hyp{}\gls{API} Schnittstelle verwendet, welche im
+Laufe des Projektes entwickelt und entworfen worden ist. Die
+\gls{HTTPS}\hyp{}\gls{API} liefert dabei ein \gls{JSON}\hyp{}Objekt. Sie wird
+nicht mittels einer \gls{SQL}\hyp{}Abfrage abgerufen, sondern über eine
+\gls{HTTPS} Schnittstelle. Innerhalb der \gls{API} werden bereits
+vordefinierte Werte zurückgegeben. Wenn als Datenquelle eine Datenbank
+angesprochen werden soll, so kann zunächst eine Art \texttt{SELECT}
+\gls{SQL}\hyp{}Abfrage hinterlegt werden. Innerhalb der \gls{SQL}\hyp{}Abfrage
+wird definiert, von wo die erhaltenen Daten stammen, sowie welche Werte
+abgerufen werden sollen. Ebenfalls kann diese \gls{SQL}\hyp{}Abfrage mit
+anderen \gls{SQL} Abfragen innerhalb einer Gruppe zusammengefasst werden.  Ein
+Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 \mr%
 
 \subsubsection{Axes}
@@ -3328,10 +3329,10 @@ definiert. Eingestellt werden kann hier welchen Minimalen, Maximalen, Aktuellen
 und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
 Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
 unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für den
-Administrator dienen, da dieser die Minimal- und Maximalenwerte, sowie
-Aktuelle- und Durchnittswerte welche innerhalb der Analyse ausgegeben worden
-sind, sehen kann. Ein Beispiel hierzu ist dem Anhang~\ref{figure:grafana_legend}
-beigefügt.
+Administrator dienen, da dieser die Minimal\hyp{} und Maximalenwerte, sowie
+Aktuelle\hyp{} und Durchnittswerte welche innerhalb der Analyse ausgegeben
+worden sind, sehen kann. Ein Beispiel hierzu ist dem
+Anhang~\ref{figure:grafana_legend} beigefügt.
 \mr%
 
 \subsubsection{Display}
@@ -3367,11 +3368,11 @@ Threema erfolgen. Innerhalb der \texttt{Alert} Konfiguration, kann für jeden
 Graphen individuell die Kriterien definiert werden, bei denen eine
 Benachrichtigung ausgelöst werden soll. Ein Beispiel hierzu ist dem
 Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss entwender einen
-Min-, Max- oder Durschchnittswert beeinhalten, ab wann diese Bedingung erfüllt
-ist. Diese wird entweder mit einem Standardtext versendet oder kann über den
-Konfigurationsmenüpunkt \texttt{Notifications} individuell angepasst werden.
-Zudem wird definiert, über welchen Kommunikationsweg die Benachrichtigung
-erfolgen soll.
+Min\hyp{}, Max\hyp{} oder Durschchnittswert beeinhalten, ab wann diese
+Bedingung erfüllt ist. Diese wird entweder mit einem Standardtext versendet
+oder kann über den Konfigurationsmenüpunkt \texttt{Notifications} individuell
+angepasst werden. Zudem wird definiert, über welchen Kommunikationsweg die
+Benachrichtigung erfolgen soll.
 \mr%
 
 \subsubsection{Time range}
