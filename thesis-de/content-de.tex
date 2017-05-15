@@ -321,14 +321,14 @@ Abschnitt~\ref{sec:datenhaltungssystem} entnommen werden.
 \subsection{Datenvisualisierung}
 Die Datenvisualisierung soll dem Benutzer eine Übersicht über die verbrauchten
 oder freien Ressourcen, wie zum Beispiel CPU\hyp{}Auslastung oder
-RAM-Auslastung einzelner virtueller oder physischer Maschinen bereitstellen.
-Bei der Datenvisualisierung werden mit unter sensible Daten verarbeitet,
-weshalb hier auf die Sicherheit in anbetracht auf die Authentifizierung,
-Authentisierung und Autorisierung geachtet werden muss. Innerhalb der
-Projektmeetings wurde die Sicherheit der Daten diskutiert, dabei ging es hier
-speziell darum, wie die Daten am sichersten geschützt werden. Dabei wurde
-festgelegt, das eine Benutzerverwaltung mit Rechtevergabe, sowie die Anbindung
-an die Datenbank über eine \gls{API} Schnittstelle, (siehe
+RAM\hyp{}Auslastung einzelner virtueller oder physischer Maschinen
+bereitstellen. Bei der Datenvisualisierung werden mit unter sensible Daten
+verarbeitet, weshalb hier auf die Sicherheit in anbetracht auf die
+Authentifizierung, Authentisierung und Autorisierung geachtet werden muss.
+Innerhalb der Projektmeetings wurde die Sicherheit der Daten diskutiert, dabei
+ging es hier speziell darum, wie die Daten am sichersten geschützt werden.
+Dabei wurde festgelegt, das eine Benutzerverwaltung mit Rechtevergabe, sowie
+die Anbindung an die Datenbank über eine \gls{API} Schnittstelle, (siehe
 Abschnitt~\ref{subsec:zusammenspiel_api_frontend}) realisiert werden muss.
 Dabei muss die Datenvisualisierung Abfragen über eine \gls{API} stellen können.
 Dies ermöglicht es, den Zugriff nur für die Datenvisualisierung auf die
@@ -516,7 +516,7 @@ wie auch die Sicherheit der eigentliche Datenvisualisierung gewährleistet
 werden kann. Im nachfolgendem werden beide Schnittstellen erläutert.
 
 Die erste Schnittstelle der Weboberfläche ist ein standardisierter Treiber,
-welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Dieser
+welchen man verwenden kann, um auf ein Datenhaltungssystem zuzugreifen. Diese
 liefert dem Webinterface alle nötigen Funktionen und Werkzeuge zur
 Datenextraktion, Datenmanipulation und der Rechteverwaltung auf einem
 Datenhaltungssystem. In der Ziellösung von diesem Projekt ist ein rein lesender
@@ -2068,20 +2068,19 @@ Negativ:
 \subsubsection{Zabbix-Frontend}
 \label{subsubsec:zabbix-frontend}
 Zabbix\hyp{}Frontend ist eine von Zabbix LCC entwickelte Softwarelösung, welche
-dem Benutzer oder Administrator eine leichte und einfache Konfiguration von
-einzelnen Graphen ermöglicht. Es bietet zudem eine inhaltlich gute
-Wissensdatenbank, in der viele Dokumente zur Konfiguration von einzelnen
-Funktionen bis hin zur Erläuterungen von jedem Button enthalten sind. Das
-Zabbix-Frontend benötigt keinerlei Plugins, da hier bereits viele Funktionen in
-der eigentlichen Software enthalten sind. Plugins können dennoch in der
-Programmiersprache Java entwickelt und implementiert werden. Es ist darauf
-ausgelegt bei verschiedenen Events, beispielsweise das Erreichen eines
-kritischen Festplattenstands, eine E\hyp{}Mail an den Administrator oder weitere
-Benutzer zu versenden, weshalb Zabbix sehr häufig gerade in großen
-Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche kann
-wahlweise mit lokalen Benutzer mit Benutzername und Kennwort oder mit einer
-\gls{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der Administrator
-beziehungsweise der Benutzer lediglich seine
+dem Benutzer eine leichte und einfache Konfiguration von einzelnen Graphen
+ermöglicht. Es bietet zudem eine inhaltlich gute Wissensdatenbank, in der viele
+Dokumente zur Konfiguration von einzelnen Funktionen bis hin zur Erläuterungen
+von jedem Button enthalten sind. Das Zabbix\hyp{}Frontend benötigt keinerlei
+Plugins, da hier bereits viele Funktionen in der eigentlichen Software
+enthalten sind. Plugins können dennoch in der Programmiersprache Java
+entwickelt und implementiert werden. Es ist darauf ausgelegt bei verschiedenen
+Events, beispielsweise das Erreichen eines kritischen Festplattenstands, eine
+E\hyp{}Mail an den Benutzer zu versenden, weshalb Zabbix sehr häufig gerade in
+großen Infrastrukturen zum Einsatz kommt. Die Anmeldung an der Weboberfläche
+kann wahlweise mit lokalen Benutzer mit Benutzername und Kennwort oder mit
+einer \gls{LDAP}\hyp{}Anbindung durchgeführt werden. So benötigt der
+Administrator beziehungsweise der Benutzer lediglich seine
 Active\hyp{}Directory\hyp{}Benutzerdaten zur Authentifizierung. Zabbix ist
 zudem mit API~\ref{sec:schnittstelle_datenbereitstellung} Abfragen kompatibel.
 So können hier Graphen mit API\hyp{}Abfragen visualisiert werden. Sollte keine
@@ -2367,7 +2366,7 @@ einzelnen Tickets arbeiten können.
 \textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame Hard Disk
 Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
 sorgt dies für einen schnelleren Datenzugriff. \glslink{SSD}{SSDs} haben
-jedoch, wie auch\glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
+jedoch, wie auch \glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
 \glslink{SSD}{SSDs} schneller erreicht werden kann, als bei handelsüblichen
 \glslink{HDD}{HDDs}. Der Administrator soll darüber benachrichtigt werden,
 sobald von einer \gls{SSD} ein kritischer Schreib\hyp{} oder Lesezyklus
