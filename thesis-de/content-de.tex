@@ -549,10 +549,10 @@ Zeitreihe (englischer Fachausdruck: Timeseries) ist.
 Eine Metrik ist die Kombination aus:
 
 \begin{outline}
-  \1 Der Wert eines bestimmten Ressourcetypen zu einer bestimmten Zeit
-  (Momentaufnahme).
-  \1 Der Zeitstempel der Aufnahme
-  \1 Der Name des Ressourcetypen
+  \1 Dem Wert eines bestimmten Ressourcetypen zu einer bestimmten Zeit
+  (Momentaufnahme)
+  \1 Dem Zeitstempel der Aufnahme
+  \1 Dem Namen des Ressourcetypen
 \end{outline}
 
 Eine Metrik wird periodisch als Ganzzahl ermittelt. Die Kombination mehrerer
@@ -626,12 +626,12 @@ Dies benötigt Rechenkapazitäten, bringt aber diverse Vorteile:
 
 \begin{outline}
   \1 Trends können nicht nur über eine Metrik eines Servers erstellt werden,
-  sondern auch über mehrere Server hinweg.
+  sondern auch über mehrere Server hinweg
   \1 Trends können erstellt werden, wenn diese angefordert werden
   (Eventbasiert)
   \1 Trends können über verschiedenste Zeitrahmen erstellt werden. Außerdem
   lässt sich dieser einfacher ändern, da er nur zentral konfiguriert ist und
-  nicht auf jedem Server,
+  nicht auf jedem Server
 \end{outline}
 
 Aufgrund der Flexibilität der Trendgenerierung auf der Datenbank entschied sich
@@ -1123,11 +1123,11 @@ Gegeben ist ein Teilausfall des internen Netzwerks (zum Beispiel ein
 Kabelbruch):
 
 \begin{outline}
-  \1 Die Nodes merken, dass einer von ihnen nicht erreichbar ist
-  \1 Replikas der fehlenden Shards werden aktiv gesetzt
-  \1 Das Cluster nimmt weiter Daten an, sofern Replikas zur Verfügung stehen
-  \1 Elasticsearch meldet, dass die neuen Daten erfolgreich geschrieben wurden
-  \1 Die neuen Daten wurden nicht geschrieben und sind verloren
+  \1 Die Nodes merken, dass einer von ihnen nicht erreichbar ist.
+  \1 Replikas der fehlenden Shards werden aktiv gesetzt.
+  \1 Das Cluster nimmt weiter Daten an, sofern Replikas zur Verfügung stehen.
+  \1 Elasticsearch meldet, dass die neuen Daten erfolgreich geschrieben wurden.
+  \1 Die neuen Daten wurden nicht geschrieben und sind verloren.
 \end{outline}
 
 Dieses Verhalten ist mit dem Jepsen\hyp{}Test reproduzierbar
@@ -2144,7 +2144,7 @@ Negativ:
   \1 Keine Open\hyp{}Source\hyp{}Lizenz. Lizenzen sind hier nach Anwendungsfall
   gestaffelt
   \1 Keine Möglichkeit der Anbindung an einen externen Verzeichnisdienst zur
-  Benutzerauthentifizierung.
+  Benutzerauthentifizierung
 \end{outline}
 \mr%
 
