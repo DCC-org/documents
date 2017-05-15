@@ -1006,11 +1006,12 @@ Die in der Liste aufgenommen Systeme sind folgende:
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:DBS_vorbereitung_der_evaluierung}
 Als Vorbereitung für die Evaluation der Datenhaltungssysteme wurden mehrere
-Kriterien definiert, welche einen Leitpfaden für die spätere Arbeit geben.
-Während der Auswahl und Definition, der von dem Datenbanksystem zu erfüllenden
-Kriterien, wurde darauf geachtet, dass diese sich aus dem späteren Zielsystem
-ableiten lassen und ebenfalls realistisch erfüllbar sind. Anschließend wurde
-die Relevanz jedes Kriteriums von den Teammitgliedern beurteilt und festgelegt.
+Kriterien definiert, welche einen Leitpfaden für die spätere Arbeit geben
+sollen. Während der Auswahl und Definition, der von dem Datenbanksystem zu
+erfüllenden Kriterien, wurde darauf geachtet, dass diese sich aus dem späteren
+Zielsystem ableiten lassen und ebenfalls realistisch erfüllbar sind.
+Anschließend wurde die Relevanz jedes Kriteriums von den Teammitgliedern
+beurteilt und festgelegt.
 
 Die daraus resultierten Kriterien sind nun nach Relevanz absteigend
 aufgelistet:
@@ -1057,10 +1058,10 @@ Analyseergebnis erbringen kann.
 \subsection{Durchführung der Evaluierung}
 \label{subsec:durchfuehrung_der_evaluierung}
 Bei der Durchführung der Evaluation von den ausgewählten Datenhaltungssystemen
-aus der Liste iim Abschnitt~\ref{sec:datenhaltungssystem} wurden die
+aus der Liste im Abschnitt~\ref{sec:datenhaltungssystem} wurden die
 Evaluationskriterien aus
 Abschnitt~\ref{subsec:DBS_vorbereitung_der_evaluierung} verwendet. Diese
-dienten als Leitpfaden für jedes Datenhaltungssystem und wurden von jedem
+dienen als Leitpfaden für jedes Datenhaltungssystem und wurden von jedem
 Projektmitglied beachtet.
 
 Zu Beginn der Durchführung teilte Herr Meusel als Projektleiter die zu
@@ -1367,8 +1368,8 @@ Für die Anbindung späterer Systeme und Methodiken der Datenanalyse, wird
 „Hadoop Common“ eingesetzt. Es handelt sich dabei um ein reines
 Schnittstellen\hyp{}Modul, welches standardisierte Protokolle implementiert und
 betreibt. Es ermöglicht zum Beispiel die Anbindung der Software „Hive“ und
-„Impala“, welche in den Abschnitten~\ref{subsubsec:hadoop_beschreibung}
-und~\ref{subsubsec:impala_beschreibung} erläutert werden.
+„Impala“, welche in den nachfolgenden Abschnitten „Beschreibung Hive“
+und „Beschreibung Impala“ erläutert werden.
 
 Für die Bearbeitung und Analyse von zeitkritischen Daten kommt die Komponente
 „Hadoop Map Reduce“ zum Einsatz. Diese ist von dem gleichnamigen
@@ -1395,9 +1396,9 @@ Entwicklers entnommen werden (vgl.~\cite{Hadoop_related_projects}).
 \nl%
 
 \subsubsection{Beschreibung Hive}
-\label{subsubsec:hadoop_beschreibung}
+\label{subsubsec:hive_beschreibung}
 Das Apache\hyp{}Hive\hyp{}System ist eine Hadoop basierende Software und nutzt
-die im Abschnitt~\ref{subsubsec:hadoop_hive_impala} erläuterten Schnittstellten
+die im Abschnitt „Hadoop / Hive / Impala“ erläuterten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop\hyp{}System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop\hyp{}Landschaft wird es unter dem Begriff
@@ -1413,7 +1414,7 @@ Transformations- und Ladeprozesses (ETL) werden die unterschiedlich
 abgespeicherten Informationen von jedem einzelnen Kassensystem ausgelesen und
 anschließend dem Aufbau der Tabellen (Schema/Datenhaltungsstruktur) von dem
 Data Warehouse angepasst und somit die vollständige Speicherung im System
-gewährleistet.
+gewährleistet (siehe auch Abschnitt~\ref{subsec:postgres_etl}).
 
 Dadurch das in dem Hadoop\hyp{}System keinerlei Struktur der Daten existiert,
 übernimmt Apache Hive mit Hilfe der Methodiken von dem Data Warehouse das
@@ -1445,14 +1446,14 @@ nochmals fachlich aufzubereiten.
 \subsubsection{Beschreibung Impala}
 \label{subsubsec:impala_beschreibung}
 Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und nutzt
-die im Abschnitt~\ref{subsubsec:hadoop_hive_impala} erläuterteten
-Schnittstellten für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe
-auf dem Hadoop\hyp{}System aus und fällt somit nicht unter ein eigenständiges
+die im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
+für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
+Hadoop\hyp{}System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop\hyp{}Landschaft wird es unter dem Begriff
 „Hadoop Ecosystem“ eingeordnet.
 
 Die angesprochene spezialisierte Aufgabe ist dabei eine ähnliche
-Implementierung, wie im Abschnitt~\ref{subsubsec:hadoop_beschreibung}. Apache
+Implementierung, wie im Abschnitt „Beschreibung Hive“. Apache
 Impala stellt ebenfalls eine Reihe von Werkzeugen bereit, darunter eine
 spezialisierte Abfragesprache auf Basis von „SQL“. Apache Impala arbeitet auf
 den konsolidierten Metadaten des Hadoop\hyp{}Systems, benötigt jedoch auch die
@@ -1585,10 +1586,9 @@ zugreifen, die Daten in einer anderen Struktur als diese abgespeichert sind.
 Durch die Programmiermöglichkeiten einer API können während der Abfrage der
 Informationen auf dem Datenhaltungssystem bereits Datenanpassungen vorgenommen
 werden. Diese Anpassungen können zum Beispiel Funktionen, wie das anonymisieren
-oder pseudonymisieren sein, welche das Datenhaltungssystem nicht ausführen
-kann. Die API kann jedoch auch zum Beispiel die Daten vor der Auslieferung
-beliebig anpassen und somit auf ein weiteres System optimal anpassen, ohne
-dabei die Ursprungsdaten zu verändern.
+oder pseudonymisieren sein. Die API kann jedoch auch zum Beispiel die Daten vor
+der Auslieferung beliebig anpassen und somit auf ein weiteres System optimal
+zuschneiden, ohne dabei die Ursprungsdaten zu verändern.
 \nl%
 
 \subsection{Vorbereitung der Evaluierung}
@@ -2507,6 +2507,7 @@ Betriebssystem Archlinux durchgeführt, da hier die meiste Erfahrung im Team
 vorhanden ist. Um eine große Kompatibilität sicherzustellen wurden allerdings
 alle Tests nicht nur für Archlinux, sondern auch für die Distributionen Debian,
 Ubuntu und CentOS durchgeführt.
+\all%
 
 \section{Prototyp 1}
 Entschieden wurde sich für Postgres als Datenbank, collectd zur Datenerfassung
@@ -2600,6 +2601,7 @@ werden. Postgres bietet einen Treiber für JDBC an (vgl.~\cite{postgres-jdbc}).
 Es gibt vier verschiedene Typen von JDBC\hyp{}Treibern. Typ vier ist besonders
 effizient, dieser wird auch von den Postgres Entwicklern bereitgestellt. Im
 Folgenden sind die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
+\tm%
 
 \subsection{JDBC-ODBC Treiber}
 Hierbei spricht die JDBC\hyp{}Schnittstelle einen sehr generischen \gls{ODBC}
@@ -2627,6 +2629,7 @@ Die Nachteile sind:
   \1 Da alle Schnittstellen sehr generisch sind, kann dort keine Optimierung
   auf ein spezifisches DBMS erfolgen.
 \end{outline}
+\tm%
 
 \subsection{Nativer API-Treiber}
 Die JDBC\hyp{}Schnittstelle spricht hier über den Treiber direkt die Bibliothek
@@ -2646,6 +2649,7 @@ nicht optimal.  Außerdem ist es nicht immer möglich, Zusatzsoftware, wie die
 Bibliotheken, auf dem gewünschten System zu installieren. Es gibt Firmen, die
 dies untersagen.  Dies trifft allerdings nicht in diesem Projekt zu, weshalb es
 nicht als Negativpunkt gewertet wird.
+\tm%
 
 \subsection{Netzwerkprotokolltreiber}
 Datenbankoperationen werden an eine weitere, auch in Java geschriebene,
@@ -2675,6 +2679,7 @@ Die Nachteile sind:
   sofern man die Middleware selbst implementiert und nicht auf fertige Lösungen
   zurückgreifen kann.
 \end{outline}
+\tm%
 
 \subsection{Nativer JDBC-Treiber}
 Hier liefern die Datenbankentwickler einen nativen Treiber. Dies bedeutet, dass
@@ -2943,24 +2948,28 @@ Lade\hyp{}Algorithmus erkannt und das Einfügen der Daten hinten angestellt. Fü
 diesen Teil besitzt die Postgres Datenbank bereits vorhandene Frameworks,
 welche von dem Projektteam genutzt werden. Somit muss das Management der
 Prozessabarbeitung innerhalb des Datenhaltsungssystem nicht selber entwickelt,
-sondern nur eingebunden werden.
+sondern nur eingebunden werden. Desweiteren prüft der Lade\hyp{}Teil, ob eine
+in dem Abschnitt\ref{subsec:postgres_partition} erläuterte Partionierung
+existiert. Sollte dies nicht der Fall sein, so wird vor dem eigentlichen
+Einfügen der Daten, eine neue Partition angelegt und der Haupttabelle
+mitgeteilt.
 \nl%
 
 \subsection{Repositorium}
 \label{subsec:postgres_repositorium}
-Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
-diesem Projekt für die Metric\hyp{}Daten jedes virtuellen Servers genutzt wird,
-wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.  Dabei
-wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es handelt sich
-um die Verwendung von einer einzelnen Datentabelle, welche nur zwei Attribute
-besitzt. Bei beiden Attributen handelt es sich um ein JSON Objekt. Ersteres
-beinhaltet Metadaten zu dem einzelnen Datensatz.  Das ist zum Beispiel eine
-generierte ID, um den Datensatz spezifisch selektieren zu können, oder die
+Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz welcher
+in diesem Projekt für die Metric\hyp{}Daten jedes virtuellen Servers genutzt
+wird, wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.
+Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es handelt
+sich um die Verwendung von einer einzelnen Datentabelle, welche nur zwei
+Attribute besitzt. Bei beiden Attributen handelt es sich um ein JSON Objekt.
+Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz. Das ist zum Beispiel
+eine generierte ID, um den Datensatz spezifisch selektieren zu können, oder die
 Informationen seit wann der Datensatz in der Datenhaltung existiert,
 beziehungsweise wann und von welchem System angefasst wurde. Zweites JSON
 Objekt/Attribut beinhaltet den eigentlichen Datensatz, also die werthaltigen
 Informationen, welche auch später analysiert werden. Die Inhalte des Attributes
-werden klar in dem Metadatensatz definiert.  Der Vorteil dieser
+werden klar in dem Metadatensatz definiert. Der Vorteil dieser
 Datenspeicherung ist zum einen die Effizienz des Speicherplatzes sowie
 Geschwindigkeit und zum anderen das Zusammenhalten der zugehörigen
 Informationen. Desweiteren können in diesem Model sehr einfach neue
@@ -2996,7 +3005,7 @@ Attribut angewendet werden, sodass zum Beispiel auch noch CPU\hyp{}Daten von
 RAM\hyp{}Daten getrennt werden. Der Anwender oder Analyst der Haupttabelle
 merkt dabei nicht, dass die verwendete Tabelle partitioniert ist. Für die
 vollständige Implementierung wurden von dem Projektteam jedoch auch noch
-weitere Funktionen programmiert und implementiert.  Darunter ist zum Beispiel
+weitere Funktionen programmiert und implementiert. Darunter ist zum Beispiel
 das Verhalten der Datenbank bei dem Einfügen von Daten mit einem älteren
 Zeitstempel.
 
@@ -3018,11 +3027,15 @@ verringert sich der administrative Aufwand deutlich.
 Das Projektteam hat sich entschieden die automatische Partionierung zu wählen.
 Dies gewährleistet nicht nur eine dauerhaft schnelle Datenhaltung, sondern ist
 auch Kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für die
-Partionierung einstellen muss. Die genaue Implementierung der Methode kann aus
-dem Postgres\hyp{}Code im Projektanhang entnommen werden.
+Partionierung einstellen muss. Speziell in diesem Projekt wurde sich zuletzt
+auf die Partitionierung in Bezug auf die Zeit des Datensatzes geeinigt. Dabei
+wird für jede Stunde am Tag eine eigene Partionierung erstellt. Somit wird ein
+CPU\hyp{}Wert um 20:13 Uhr am 22.04.2017 in der Partition
+„measurement_2017_04_22t20“ gespeichert. Die genaue Implementierung der Methode
+kann aus dem Postgres\hyp{}Code im Projektanhang entnommen werden.
 \nl%
 
-\subsection{Datenschutz}
+\subsection{Datenschutz und Analysen}
 \label{subsec:postgres_datenschutz}
 Für den Zugriff auf die in dem Datenhaltsungssystem vorhandenen Daten wurde von
 dem Projektteam eine weitere Sicherheitsebene eingefügt. Diese definiert, dass
@@ -3040,7 +3053,22 @@ kann. Desweiteren kann der Systemadministrator genau kontrollieren, wer auf
 welche Daten Zugriff haben soll. Ein weiterer Vorteil ist, dass durch die
 vordefinierten analytischen Fragestellungen bei jedem Benutzer die gleichen
 Daten ausgegeben werden, und somit eine falsch Aussage, aufgrund von
-verschiedenen Implementierungsweisen, vermieden wird.
+verschiedenen Implementierungsweisen, vermieden wird. Zu diesen analytischen
+Fragestellungen gehört ebenfalls die beschriebene Trendgenerierung aus
+Abschnitt~\ref{section:Begriffserklärung} und das in
+Abschnitt~\ref{subsec:postgres_etl} erläuterte dynamisch errechnen der
+im ETL verzichteten Datensätze.
+
+Zusätzlich wurde ein Benutzer mit vollständigen oder kritischen Zugriffsrechten
+auf der Datenbank eingerichtet, dass diese sich nur lokal auf dem
+Datenbankserver verbinden können. Das bedeutet, dass mit diesen Benutzern nicht
+von anderen Systemen direkt auf die Datenbanktreiber zugegriffen werden kann.
+Dazu ist zunächst eine SSH\hyp{}Verbindung auf dem Server von nöten. SSH ist ein
+speziell geschütztes Protokoll für die Fernadministration von Rechnersystemen.
+Man kann dabei einrichten, dass das einloggen nicht mit einem Passwort, sondern
+ausschließlich mit einem, von dem System\hyp{}Administrator bereitgestellten,
+Key\hyp{}Dokument möglich ist. Dies bringt einen weiteren Sicherheitsfaktor zum
+Schutz der Daten auf dem Datenbanksystem.
 \nl%
 
 \section{API-System}
@@ -3440,7 +3468,7 @@ Softwareentwicklung. Hierbei wird für jede Änderung eine zuvor definierte
 Testmatrix durchlaufen, um sicherzustellen, dass die Software weiterhin intakt
 ist. Dies setzt vorraus, dass Tests vor dem eigentlichen Code entwickelt werden
 (Test Driven Development) oder parallel zur Entwicklung des Codes. Ersteres
-stellt sicher, dass ausschlieslich das implementiert wird, das gefordert ist.
+stellt sicher, dass ausschließlich das implementiert wird, das gefordert ist.
 In den Tests wird definiert, wie eine Software zu funktionieren hat, danach
 wird so lange am Code entwickelt bis die Tests erfolgreich sind. Wenn man die
 Tests parallel zum Code entwickelt, ist es möglich, dass der Code mehr als die
