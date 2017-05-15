@@ -3031,6 +3031,17 @@ Fragestellungen gehört ebenfalls die beschriebene Trendgenerierung aus
 Abschnitt~\ref{section:Begriffserklärung} und das in
 Abschnitt~\ref{subsec:postgres_etl} erläuterte dynamisch errechnen der
 im ETL verzichteten Datensätze.
+
+Zusätzlich wurde für Benutzer mit vollständigen oder kritischen Zugriffsrechten
+auf der Datenbank eingerichtet, dass diese sich nur lokal auf dem
+Datenbankserver verbinden können. Das bedeuter, dass mit diesen Benutzern nicht
+von anderen Systemen direkt auf die Datenbanktreiber zugegriffen werden kann.
+Dazu ist zunächst eine SSH\hyp{}Verbindung auf den Server von nöten. SSH ist ein
+speziell geschütztes Protokoll für die Fernadministration von Rechnersystemen.
+Man kann dabei einrichten, dass das einloggen nicht mit einem Passwort, sondern
+ausschlieslich mit einem, von dem System\hyp{}Administrator bereitgestellten,
+Key\hyp{}Dokument möglich ist. Dies bringt einen weiteren Sicherheitsfaktor zum
+Schutz der Daten auf dem Datenbanksystem. 
 \nl%
 
 \section{API-System}
