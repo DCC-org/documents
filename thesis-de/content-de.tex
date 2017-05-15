@@ -2942,7 +2942,7 @@ Informationen seit wann der Datensatz in der Datenhaltung existiert,
 beziehungsweise wann und von welchem System angefasst wurde. Zweites JSON
 Objekt/Attribut beinhaltet den eigentlichen Datensatz, also die werthaltigen
 Informationen, welche auch später analysiert werden. Die Inhalte des Attributes
-werden klar in dem Metadatensatz definiert.  Der Vorteil dieser
+werden klar in dem Metadatensatz definiert. Der Vorteil dieser
 Datenspeicherung ist zum einen die Effizienz des Speicherplatzes sowie
 Geschwindigkeit und zum anderen das Zusammenhalten der zugehörigen
 Informationen. Desweiteren können in diesem Model sehr einfach neue
@@ -2978,7 +2978,7 @@ Attribut angewendet werden, sodass zum Beispiel auch noch CPU\hyp{}Daten von
 RAM\hyp{}Daten getrennt werden. Der Anwender oder Analyst der Haupttabelle
 merkt dabei nicht, dass die verwendete Tabelle partitioniert ist. Für die
 vollständige Implementierung wurden von dem Projektteam jedoch auch noch
-weitere Funktionen programmiert und implementiert.  Darunter ist zum Beispiel
+weitere Funktionen programmiert und implementiert. Darunter ist zum Beispiel
 das Verhalten der Datenbank bei dem Einfügen von Daten mit einem älteren
 Zeitstempel.
 
@@ -3000,7 +3000,11 @@ verringert sich der administrative Aufwand deutlich.
 Das Projektteam hat sich entschieden die automatische Partionierung zu wählen.
 Dies gewährleistet nicht nur eine dauerhaft schnelle Datenhaltung, sondern ist
 auch Kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für die
-Partionierung einstellen muss. Die genaue Implementierung der Methode kann aus
+Partionierung einstellen muss. Speziell in diesem Projekt wurde sich zuletzt
+auf die Partitionierung in Bezug auf die Zeit des Datensatzes geeinigt. Dabei
+wird für jede Stunde am Tag eine eigene Partionierung erstellt. Somit wird ein
+CPU Wert um 20:13 Uhr am 22.04.2017 in der Partition „measurement_2017_04_22t20“
+gespeichert. Die genaue Implementierung der Methode kann aus
 dem Postgres\hyp{}Code im Projektanhang entnommen werden.
 \nl%
 
