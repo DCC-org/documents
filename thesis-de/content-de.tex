@@ -2930,14 +2930,14 @@ mitgeteilt.
 
 \subsection{Repositorium}
 \label{subsec:postgres_repositorium}
-Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz der in
-diesem Projekt für die Metric\hyp{}Daten jedes virtuellen Servers genutzt wird,
-wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.  Dabei
-wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es handelt sich
-um die Verwendung von einer einzelnen Datentabelle, welche nur zwei Attribute
-besitzt. Bei beiden Attributen handelt es sich um ein JSON Objekt. Ersteres
-beinhaltet Metadaten zu dem einzelnen Datensatz.  Das ist zum Beispiel eine
-generierte ID, um den Datensatz spezifisch selektieren zu können, oder die
+Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz welcher
+in diesem Projekt für die Metric\hyp{}Daten jedes virtuellen Servers genutzt
+wird, wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.
+Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es handelt
+sich um die Verwendung von einer einzelnen Datentabelle, welche nur zwei
+Attribute besitzt. Bei beiden Attributen handelt es sich um ein JSON Objekt.
+Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz. Das ist zum Beispiel
+eine generierte ID, um den Datensatz spezifisch selektieren zu können, oder die
 Informationen seit wann der Datensatz in der Datenhaltung existiert,
 beziehungsweise wann und von welchem System angefasst wurde. Zweites JSON
 Objekt/Attribut beinhaltet den eigentlichen Datensatz, also die werthaltigen
