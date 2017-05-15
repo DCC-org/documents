@@ -3003,9 +3003,9 @@ auch Kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für die
 Partionierung einstellen muss. Speziell in diesem Projekt wurde sich zuletzt
 auf die Partitionierung in Bezug auf die Zeit des Datensatzes geeinigt. Dabei
 wird für jede Stunde am Tag eine eigene Partionierung erstellt. Somit wird ein
-CPU Wert um 20:13 Uhr am 22.04.2017 in der Partition „measurement_2017_04_22t20“
-gespeichert. Die genaue Implementierung der Methode kann aus
-dem Postgres\hyp{}Code im Projektanhang entnommen werden.
+CPU\hyp{}Wert um 20:13 Uhr am 22.04.2017 in der Partition
+„measurement_2017_04_22t20“ gespeichert. Die genaue Implementierung der Methode
+kann aus dem Postgres\hyp{}Code im Projektanhang entnommen werden.
 \nl%
 
 \subsection{Datenschutz und Analysen}
@@ -3032,11 +3032,11 @@ Abschnitt~\ref{section:Begriffserklärung} und das in
 Abschnitt~\ref{subsec:postgres_etl} erläuterte dynamisch errechnen der
 im ETL verzichteten Datensätze.
 
-Zusätzlich wurde für Benutzer mit vollständigen oder kritischen Zugriffsrechten
+Zusätzlich wurde ein Benutzer mit vollständigen oder kritischen Zugriffsrechten
 auf der Datenbank eingerichtet, dass diese sich nur lokal auf dem
-Datenbankserver verbinden können. Das bedeuter, dass mit diesen Benutzern nicht
+Datenbankserver verbinden können. Das bedeutet, dass mit diesen Benutzern nicht
 von anderen Systemen direkt auf die Datenbanktreiber zugegriffen werden kann.
-Dazu ist zunächst eine SSH\hyp{}Verbindung auf den Server von nöten. SSH ist ein
+Dazu ist zunächst eine SSH\hyp{}Verbindung auf dem Server von nöten. SSH ist ein
 speziell geschütztes Protokoll für die Fernadministration von Rechnersystemen.
 Man kann dabei einrichten, dass das einloggen nicht mit einem Passwort, sondern
 ausschließlich mit einem, von dem System\hyp{}Administrator bereitgestellten,
