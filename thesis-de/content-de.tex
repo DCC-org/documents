@@ -1882,6 +1882,11 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   \gls{LDAP}\hyp{}Anbindung verfügen, um zum Beispiel Unternehmensverzeichnisse
   der Kunden anbinden zu können. Über diese soll ebenfalls eine Rechtevergabe
   innerhalb der Datenvisualisierung möglich sein.
+  \1 Um die Sicherheit der Datenvisualisierung zusätzlich schützen zu können,
+  muss diese mit einem \GLS{API}\hyp{}System interagieren können, damit
+  eigenmächtige Modifizierungen der Daten wie das verändern, anpassen oder
+  sogar löschen unterbunden sind. Zusätzlich wird die Performance der
+  Datenvisualisierung, durch ein API System gesteigert.
 \end{outline}
 
 \textbf{Skalierung}
@@ -3272,7 +3277,22 @@ werden. Um weiteren Benutzern Zugriff zu dem \gls{Dashboard} zu gewähren,
 können unter dem Reiter Admin > Global Users weitere Benutzer angelegt werden
 und Zugriff auf die Webseite von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
-können. Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
+können.Dies wird in Grafana mit der Organisations\hyp{}ID realisiert. Ein neu
+angelegter Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies
+ist in diesem Projekt zum Beispiel für einen einzelnen Kunden von einer
+virtuellen Instanz vorgesehen. Durch die in Punkt
+~\ref{subsec:zusammenspiel_api_frontend} erläuterte Mapping\hyp{}Tabelle wird
+sichergestellt, dass der Benutzer nur die zu Ihm zugeordneten Daten sehen kann.
+Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum Beispiel
+ein Kundenberater, erhalten mehrere Zuordnungen von Organisations\hyp{}IDs.
+Somit erhalten diese Zugriff auf die Dateninhalte des Kunden und können somit
+Ihre Aufgaben, wie die Beratung auf ein neues Produkt, oder Verbesserung der
+Gesamtperformance, durchführen. Andersherum muss für einen Kunden mit mehreren
+gemieteten virtuellen Instanzen kein neuer Benutzer angelegt werden,
+stattdessen wird seinem bestehenden Benutzer eine weitere Organisations\hyp{}ID
+hinzugefügt.
+
+Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
 sowohl für lokale Benutzer als auch für \gls{LDAP}\hyp{}Benutzer vergeben
 werden. Sollte ein Unternehmen die \gls{LDAP}\hyp{}Anbindung für die
 Authentifizierung an Grafana wünschen, so muss in dem Verzeichnis von der
