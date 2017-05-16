@@ -2147,24 +2147,24 @@ Open\hyp{}Source\hyp{}Produkt und wird in verschiedenen Lizenzen von der Anzahl
 der entsprechenden virtuellen Instanzen, welche abgegriffen werden sollen,
 gestaffelt. Die Basis\hyp{}Lizenz gibt es hier bereits kostenlos, jedoch können
 hier nur maximal 5 virtuelle Instanzen abgefragt werden und die Daten werden
-maximal einen Tag zurückgehalten. Die teuerste Lizenz kostet hier 23 Dollar und
+maximal einen Tag zurückgehalten. Die teuerste Lizenz kostet 23 Dollar und
 beinhaltet alle Hosts, welche der Kunde anbinden möchte. Zusätzlich bietet
-diese Lizenz einen E\hyp{}Mail\hyp{}, Chat- oder Telefonsupport. Dieser ist
-nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
+diese Lizenz einen E\hyp{}Mail\hyp{}, Chat\hyp{} oder Telefonsupport. Dieser
+ist nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
 \glslink{Dashboard}{Dashboards} können in Datadog einfach vom Administrator
 erstellt werden. Um die Anmeldung an der Webseite durchführen zu können, wird
-ein Benutzer und Kennwort benötigt. Es ist hier nicht möglich, ein \gls{LDAP}
-an die Webseite anbinden zu können. Innerhalb eines Graphen können bestimmte
-Teilabschnitte mit zum Beispiel Social\hyp{}Media\hyp{}Plattformen wie Facebook
-oder Twitter geteilt werden. Datadog bietet zudem eventbasierte Mitteilungen,
-welche vom Administrator festgelegt werden können. Datadog hat eine vollständige
-\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
-\glslink{Dashboard}{Dashboards} können vom Administrator exportiert werden.
-Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Die
-Community, in der viele inhaltliche Dokumente enthalten sind, sind hier nur
-für Kunden bestimmt, welche eine Pro\hyp{}Lizenz besitzen. Ebenso gibt es
-hier einen \gls{IRC-Channel}, um direkt Kontakt mit dem Support aufnehmen zu
-können (vgl.~\cite{datadog}).
+ein Benutzer und Kennwort benötigt. Ebenfalls besteht die Möglichkeit ein
+\gls{LDAP} an Datadog anbinden zu können. Innerhalb eines Graphen können
+bestimmte Teilabschnitte mit zum Beispiel Social\hyp{}Media\hyp{}Plattformen
+wie Facebook oder Twitter geteilt werden. Datadog bietet zudem eventbasierte
+Mitteilungen, welche vom Administrator festgelegt werden können. Datadog hat
+eine vollständige \gls{API}~\ref{sec:schnittstelle_datenbereitstellung}
+Unterstützung und \glslink{Dashboard}{Dashboards} können vom Administrator
+exportiert werden. Eine Möglichkeit, Graphen zu exportieren, bietet Datadog
+hier nicht. Die Community, in der viele inhaltliche Dokumente enthalten sind,
+sind hier nur für Kunden bestimmt, welche eine Pro\hyp{}Lizenz besitzen. Ebenso
+gibt es hier einen \gls{IRC-Channel}, um direkt Kontakt mit dem Support
+aufnehmen zu können (vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2186,21 +2186,19 @@ Negativ:
 \begin{outline}
   \1 Keine Open\hyp{}Source\hyp{}Lizenz. Lizenzen sind hier nach Anwendungsfall
   gestaffelt
-  \1 Keine Möglichkeit der Anbindung an einen externen Verzeichnisdienst zur
-  Benutzerauthentifizierung
 \end{outline}
 \mr%
 
 \subsubsection{Gridster-D3}
 \label{subsubsec:gridster-d3}
 Gridster ist eine von Anmol Koul entwickelte Java\hyp{}Bibliothek, welche auf
-\gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von dieser
-Software, stellte sich heraus, dass es sich hierbei nicht direkt um eine
+\gls{GitHub} einsehbar und dokumentiert ist. Während der ersten Recherchen
+stellete sich heraus, dass es sich hierbei nicht direkt um eine
 Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
-das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer
-Webseite. Mit dieser hat man die Möglichkeit, ein \gls{Dashboard}, welches
-selbst entwickelt worden ist, individuell anpassen zu
-können (vgl.~\cite{gridster-d3}).
+das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer Webseite.
+Mit dieser besteht die Möglichkeit, ein \gls{Dashboard}, welches selbst
+entwickelt worden ist, individuell anpassen zu können
+(vgl.~\cite{gridster-d3}).
 
 Somit fällt Gridster\hyp{}D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt, aus der weiteren Evaluierung heraus.
@@ -2214,15 +2212,14 @@ vollständige Code steht auf \gls{GitHub}, worüber auch die Community gepflegt
 wird. Andere Mitglieder der \gls{GitHub}\hyp{}Community haben hier die
 Möglichkeit, Quelltext anzupassen und zu verändern, jedoch müssen diese von
 anderen Mitgliedern bestätigt werden. Es bietet nicht die Möglichkeit, eine
-Authentifizierung auf der Webseite durchzuführen. Ebenso werden alle
-Graphen, welche abgefragt werden, auf einer Seite angezeigt, weshalb die
-Übersicht stark eingeschränkt ist. Graphen können bei Netdata nicht einfach
-angepasst werden, da diese im Quellcode verändert und angepasst werden müssen.
-Das Netdata läuft ebenfalls nur auf Linux\hyp{}Oberflächen. Ein Support von
-Microsoft Windows ist hier unterstützt. Ein klarer Nachteil ist allerdings,
-dass diese Softwarelösung jeweils nur eine Instanz gleichzeitig überwachen kann
-und der Vorteil bei Netdata, dass kein weiteres Datenhaltungssystem oder
-ähnliches benötigt wird (vgl.~\cite{netdata}).
+Authentifizierung auf der Webseite durchzuführen. Ebenso werden alle Graphen,
+welche abgefragt werden, auf einer Seite angezeigt, weshalb die Übersicht stark
+eingeschränkt ist. Graphen können bei Netdata nicht einfach angepasst werden,
+da diese im Quellcode der Webseite verändert und angepasst werden müssen.  Ein
+klarer Nachteil ist allerdings, dass diese Softwarelösung jeweils nur eine
+Instanz gleichzeitig überwachen kann und der Vorteil bei Netdata, dass kein
+weiteres Datenhaltungssystem oder ähnliches benötigt wird
+(vgl.~\cite{netdata}).
 
 Zusammenfassung:
 
@@ -2254,7 +2251,7 @@ Kriterien von Null bis Fünf vergeben. Damit eine Softwarelösung in die nähere
 Auswahl aufgenommen werden kann, muss diese mindestens 3,00 Gesamtpunkte in der
 Nutzwertanalyse erhalten. In nachfolgender Tabelle kann die
 Nutzwertanalyse der Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata
-entnommen Datadog, Gridster\hyp{}D3 und Netdata entnommen werden.
+entnommen werden.
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2280,9 +2277,9 @@ Gesamtpunkte, da diese Softwarelösung eine Kostenpflichtige Lizenz benötigt.
 Dies ist innerhalb des Projektes ein Kernkriterium, weshalb es als
 Softwarelösung nicht weiter verwendet werden kann. Gridster\hyp{}D3 ist bereits
 während der Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um
-eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem hat
-Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe
-der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
+eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem
+Grund hat Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten.
+Im Laufe der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
 unübersichtlich aufgebaut ist und keine Sicherheit gewährleisten kann. Alle
 drei Softwärelösungen sind damit ausgeschieden, da eine Gesamtpunktzahl von
 3,00 nicht erreicht worden ist.
@@ -2295,8 +2292,9 @@ Nachfolgend bleiben drei Datenvisualisierungslösungen für die nähere Auswahl:
   \1 Zabbix\hyp{}Frontend
 \end{outline}
 
-Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata,
-wurde auch hier eine Nutzwertanalyse durchgeführt, die wie folgt aufgebaut ist:
+Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und
+Netdata, wurde auch hier eine Nutzwertanalyse durchgeführt, die wie folgt
+aufgebaut ist:
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2322,23 +2320,23 @@ durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von
 3,50 erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass
 es ohne einen Zabbix\hyp{}Server nicht verwendet werden kann. Der
 Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
-empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert diese Daten
-anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
-das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
-kommunizieren und verwendet werden kann, somit besteht bei der
+empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert diese
+Daten anschließend in einem Datenhaltungssystem ab. Somit besteht bei der
 Zabbix\hyp{}Frontend Softwarelösung eine Abhängigkeit zu anderen Diensten,
-weshalb diese im Fehlerfall Probleme verursachen könnte. Anders als bei
-Grafana, welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.
-Innerhalb der einzelnen Graphen werden hier mittels einer Abfrage die
-Datenbanken direkt angesprochen, nachdem diese in der Konfiguration hinzugefügt
-wurde. Bei der Evaluierung der Graphite Softwarelösung, hat Graphite 3,75
-Gesamtpunkte erhalten. Während der Implementierung von Graphite wurde klar,
+weshalb diese im Fehlerfall Probleme verursachen könnte. Zusätzlich ist
+aufgefallen, dass das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank
+gleichzeitig kommunizieren und verwendet werden kann. Anders als bei Grafana,
+welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.  Innerhalb
+der einzelnen Graphen werden hier mittels einer Abfrage die Datenbanken direkt
+angesprochen, nachdem diese in der Konfiguration hinzugefügt wurde. Bei der
+Evaluierung der Graphite Softwarelösung, hat Graphite 3,75 Gesamtpunkte in der
+Nutzwertanalyse erhalten. Während der Implementierung von Graphite wurde klar,
 dass es deutlich komplexer ist als Grafana. Graphite besteht aus mehreren
 Diensten, welche bei der Installation konfiguriert und angepasst werden müssen,
 damit Graphite funktional ist. Wenn ein Dienst ausfallen sollte, betrifft dies
-das gesamte Graphite-System und die Webseite wäre nicht mehr erreichbar.
-Zusätzlich ist gerade in der Wartung der Dienste ein Mehraufwand, da der
-Administrator alle Dienste in Form von Abhängigkeit zueinander und
+das gesamte Graphite\hyp{}System und die Datenvisualisierung wäre nicht mehr
+erreichbar. Zusätzlich ist gerade in der Wartung der Dienste ein Mehraufwand,
+da der Administrator alle Dienste in Form von Abhängigkeit zueinander und
 Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
 Graphite auch mehr Systemressourcen als ein einzelner Dienst, wie es bei
 Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die weitere
@@ -2385,25 +2383,25 @@ einzelnen Tickets arbeiten können.
 \glslink{SSD}{SSDs}, welche einen Hardwaredefekt haben könnten.
 
 \textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame Hard Disk
-Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
-sorgt dies für einen schnelleren Datenzugriff. \glslink{SSD}{SSDs} haben
-jedoch, wie auch \glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
-\glslink{SSD}{SSDs} schneller erreicht werden kann, als bei handelsüblichen
-\glslink{HDD}{HDDs}. Der Administrator soll darüber benachrichtigt werden,
-sobald von einer \gls{SSD} ein kritischer Schreib\hyp{} oder Lesezyklus
-erreicht worden ist, um die \gls{SSD} bereits vor dem Ausfall proaktiv
-austauschen zu können. Ebenfalls soll eine Statistik ausgegeben werden können,
-welche \gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
-ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
+Drives im weiteren \gls{HDD} durch schnellere Solid State Disks im weiteren\gls
+SSD} ausgetauscht. Gerade im Serverbetrieb sorgt dies für einen schnelleren
+Datenzugriff. \glslink{SSD}{SSDs} haben jedoch, wie auch \glslink{HDD}{HDDs},
+einen Lebenszyklus, der bei \glslink{SSD}{SSDs} schneller erreicht werden kann,
+als bei handelsüblichen \glslink{HDD}{HDDs}. Der Administrator soll darüber
+benachrichtigt werden, sobald von einer \gls{SSD} ein kritischer Schreib\hyp{}
+oder Lesezyklus erreicht worden ist, um die \gls{SSD} bereits vor dem Ausfall
+proaktiv austauschen zu können. Ebenfalls soll eine Statistik ausgegeben werden
+können, welche \gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am
+häufigsten ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
-  \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
+  \1 Die Ausgabe und Visualisierung in einem Balken\hyp{} oder Graphendiagramm
   für jede einzelne Instanz
   \1 Auflistung einer Statistik in Form eines Balkendiagramms über die
   Hersteller, welche am wahrscheinlich häufigsten in den Instanzen ausfallen
   \1 Eine Benachrichtigung, ob per E\hyp{}Mail oder auf anderen
-  Kommunikationswegen, wenn ein kritischer Schreib- oder Lesezyklus erreicht
-  worden ist
+  Kommunikationswegen, wenn ein kritischer Schreib\hyp{} oder Lesezyklus
+  erreicht worden ist
 \end{outline}
 
 Das dazugehörige Wireframe, kann dem Anhang~\ref{figure:ssduserstory} entnommen
@@ -2419,15 +2417,14 @@ CPU\hyp{}Auslastung jeder Instanz, um Engpässe zu erkennen.
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
 virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des
 Host\hyp{}Systems mehrere virtuelle CPU\hyp{}Kerne emuliert und einer Instanz
-zugewiesen. So kann eine VM Zwei virtuelle CPU\hyp{}Kerne mit z.B.
+zugewiesen. So kann eine VM Zwei virtuelle CPU\hyp{}Kerne mit zum Beispiel
 2,5\si{\giga\hertz} Taktrate zugewiesen haben. Auf jeder Instanz laufen andere
 Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt haben kann. Hier kann
 es vorkommen, dass eine VM mehr CPU\hyp{}Leistung benötigt, als ihr selbst
 zugewiesen ist. Um dies frühestmöglich erkennen zu können, benötigt der
-Administrator eine detaillierte eine detaillierte Übersicht in Form eines
-Graphen, wie viel CPU\hyp{}Leistung von einer virtuellen Instanz verwendet wird
-und auf dem System verfügbar ist. Im Folgenden finden sich die
-Akzeptanzkriterien:
+Administrator eine detaillierte Übersicht in Form eines Graphen, wie viel
+CPU\hyp{}Leistung von einer virtuellen Instanz verwendet wird und auf dem
+System verfügbar ist. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Visualisierung der Auslastung und Verfügbarkeit der CPU\hyp{}Leistung für
@@ -2449,8 +2446,8 @@ Arbeitsspeicherauslastung von jeder Instanz, um Engpässe zu erkennen.
 es auch eine ähnliche Thematik zur Auslastung bei dem verwendeten
 Arbeitsspeicher. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
 entscheidend, sondern eher wie viel Arbeitsspeicher einer virtuellen Maschine
-zugewiesen ist. Hier kann es ebenfalls wie auch bei
-der~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
+zugewiesen ist. Hier kann es ebenfalls wie auch bei der CPU
+Userstory~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
 virtuellen Maschine bei der Verteilung des Arbeitsspeichers kommen kann. Im
 Folgenden finden sich die Akzeptanzkriterien:
 
@@ -2467,7 +2464,7 @@ entnommen werden.
 \mr%
 
 \section{Zeitdefinierte Analyse Userstory}
-\textbf{Name der Story:} Der Administrator möchte eine Angabe über die im
+\textbf{Name der Story:} Der Administrator möchte eine Auswertung über die im
 vergangenen Jahr verwendeten Ressourcen einer virtuellen Maschine.
 
 \textbf{Beschreibung:} Ein Onlineshop für zum Beispiel saisonale Ware, wie
@@ -2476,11 +2473,11 @@ vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei Beginn
 richtig skalieren zu können. Dies dient in erster Linie, um die Erreichbarkeit
 des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeinen
 zu verbessern. So können zum Beispiel bestimmten virtuellen Maschinen zu einem
-gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
-die Ressourcen verwenden können. In den Monaten in dem keine große Nachfrage
-der Webseite besteht, können hier weniger Ressourcen der virtuellen Maschine
-zugewiesen werden. Dies hat den Vorteil, dass spezielle Vertäge dem Kunden
-angeboten werden können. Im Folgenden finden sich die Akzeptanzkriterien:
+gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden. In den Monaten
+in dem keine große Nachfrage der Webseite besteht, können hier weniger
+Ressourcen der virtuellen Maschine zugewiesen werden. Dies hat den Vorteil,
+dass spezielle Vertäge dem Kunden angeboten werden können. Im Folgenden finden
+sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
@@ -2505,8 +2502,7 @@ Folgenden finden sich die Akzeptanzkriterien:
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
   \1 Zeitspanne der Visualisierung kann über den Benutzer angepasst werden
-  \1 Die Graphen, der Visualisierung kann über den Benutzer oder dem
-  Administrator angepasst werden
+  \1 Die Graphen, der Visualisierung kann über den Benutzer angepasst werden
 \end{outline}
 
 Das dazugehörige Wireframe, kann dem Anhang~\ref{figure:uiuserstory}
@@ -2783,7 +2779,7 @@ Visualisierung des Prototypen findet sich unter~\ref{figure:draft2}.
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
-Konfigurationsmanagement- und Automatisierungssoftware. Sie erlaubt es in
+Konfigurationsmanagement\hyp{} und Automatisierungssoftware. Sie erlaubt es in
 einer \glslink{Deklarative Programmiersprache}{deklarativen} \gls{DSL}, den
 gewünschten Systemzustand zu beschreiben. Die Software realisiert dies. In
 Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
@@ -3197,7 +3193,7 @@ festgelegt. Die Zugangsdaten hierzu lauten:
 \end{outline}
 
 Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
-werden. Anschließend sieht man hier bereits das Home \gls{Dashboard} von wo aus
+werden. Anschließend wird bereits das Home \gls{Dashboard} angezeigt von wo aus
 die Datenvisualisierung konfiguriert werden kann.
 
 Das \gls{Dashboard} ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
@@ -3207,15 +3203,14 @@ Symbol wird immer die aktuelle Ebene angezeigt auf der der Administrator sich
 befindet. Wenn der Administrator sich hier auf dem Home \gls{Dashboard}
 befindet, so wird hier „Home“ angezeigt und die Übersicht der einzelnen
 \glslink{Dashboard}{Dashboards}. Sollte der Administrator in den Einstellungen
-unter Datasources sein, so wird hier Data Sources eingeblendet. Dies soll dem
-Administrator zusätzlich helfen, eine bessere Übersichtlichkeit zu erhalten.
-Auf der rechten Seite des jeweiligen \glslink{Dashboard}{Dashboards} hat der
-Administrator oder Benutzer die Möglichkeit, den Aktualisierungstimer der
-anzuzeigenen Daten zu verändern. Standardmäßig steht dieser auf sechs Stunden,
-kann aber beliebig angepasst werden. Eine Darstellung des
+unter „Data Sources“ sein, so wird hier „Data Sources“ eingeblendet. Dies soll
+dem Administrator zusätzlich helfen, eine bessere Übersichtlichkeit zu
+erhalten. Auf der rechten Seite des jeweiligen \glslink{Dashboard}{Dashboards}
+hat der Administrator oder Benutzer die Möglichkeit, den Aktualisierungstimer
+der anzuzeigenen Daten zu verändern. Standardmäßig steht dieser auf sechs
+Stunden, kann aber beliebig angepasst werden. Eine Darstellung des
 \glslink{Dashboard}{Dashboards}, kann dem Anhang~\ref{figure:grafana_dashboard}
 entnommen werden.
-
 
 Zu Beginn sollte hier zuerst die Datenquelle von der Grafana die ermittelten
 Daten erhält, konfiguriert werden. Hierzu navigiert der Administrator auf das
@@ -3237,19 +3232,19 @@ Auswahlmöglichkeiten von Graphen, Tabellen oder auch
 hinzugefügt werden. Eine Beschränkung, wieviele Graphen maximal auf einem
 \gls{Dashboard} angelegt werden können, ist laut der Dokumentation von Grafana
 nicht definiert, jedoch kann dies die Performance der Webseite für den
-Administrator oder Benutzer negativ beeinflussen.
+Benutzer negativ beeinflussen.
 
-Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
-werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
-„edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein Menü, wo der
-grundsätzliche Aufbau, die Metrik, die Axen und diverse weitere
-Konfigurationsmöglichkeiten Einstellungen für diesen Graphen definiert werden
-können. Hier wird zunächst die Metrik des Graphen angepasst, damit die ersten
+Nachdem der gewünschte Graph ausgewählt worden ist, kann dieser angepasst und
+bearbeitet werden. Hierzu wird der zu editierende Graph ausgewählt und
+anschließend auf „edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein
+Menü, wo der grundsätzliche Aufbau, die Metrik, die Axen und diverse weitere
+Konfigurationsmöglichkeiten für diesen Graphen definiert werden
+können. Zunächst wird die Metrik des Graphen angepasst, damit die ersten
 Graphen visuell dargestellt werden können. Unter dem
-Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die
-Erstellung von Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage
-für die Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die
-in dem Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
+Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die Erstellung von
+Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage für die
+Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die in dem
+Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 \begin{figure}[H]
   \centering
@@ -3260,7 +3255,7 @@ in dem Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 Nachstehend können noch diverse Feinkonfigurationen für einen Graphen
 spezifisch vorgenommen werden. Dieses Vorgehen wird nun für jeden Graphen
-erstellt, dessen Werte visualisiert werden sollen. Nachdem alle Graphen
+durchgeführt, dessen Werte visualisiert werden sollen. Nachdem alle Graphen
 erstellt worden sind, muss das \gls{Dashboard} abgespeichert werden, damit die
 Konfigurationn nicht verloren gehen. Sollte das Speichern vom Administrator
 vergessen werden, so warnt Grafana bei dem Wechsel eines
@@ -3270,37 +3265,38 @@ diese nicht abgespeichert werden. Damit wie in dem Projekt gefordert eine
 Plugininstallation. Es stehen viele verschiedene Plugins auf der Grafana
 Webseite zur Verfügung. Zu jedem Plugin gibt es eine kurze Erläuterung, sowie
 eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die Plugins
-werden über einen Kommandozeilenbefehl installiert.
+werden über einen Kommandozeilenbefehl installiert und sind anschließend über
+die Grafana Oberfläche verfügbar.
 
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
 werden. Um weiteren Benutzern Zugriff zu dem \gls{Dashboard} zu gewähren,
 können unter dem Reiter Admin > Global Users weitere Benutzer angelegt werden
 und Zugriff auf die Webseite von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
-können.Dies wird in Grafana mit der Organisations\hyp{}ID realisiert. Ein neu
+können. Dies wird in Grafana mit der Organisations\hyp{}ID realisiert. Ein neu
 angelegter Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies
 ist in diesem Projekt zum Beispiel für einen einzelnen Kunden von einer
-virtuellen Instanz vorgesehen. Durch die in Punkt
-~\ref{subsec:zusammenspiel_api_frontend} erläuterte Mapping\hyp{}Tabelle wird
-sichergestellt, dass der Benutzer nur die zu Ihm zugeordneten Daten sehen kann.
-Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum Beispiel
-ein Kundenberater, erhalten mehrere Zuordnungen von Organisations\hyp{}IDs.
-Somit erhalten diese Zugriff auf die Dateninhalte des Kunden und können somit
-Ihre Aufgaben, wie die Beratung auf ein neues Produkt, oder Verbesserung der
-Gesamtperformance, durchführen. Andersherum muss für einen Kunden mit mehreren
-gemieteten virtuellen Instanzen kein neuer Benutzer angelegt werden,
-stattdessen wird seinem bestehenden Benutzer eine weitere Organisations\hyp{}ID
-hinzugefügt.
+virtuellen Instanz vorgesehen. Durch die in
+Punkt~\ref{subsec:zusammenspiel_api_frontend} erläuterte Mapping\hyp{}Tabelle
+wird sichergestellt, dass der Benutzer nur die zu ihm zugeordneten Daten sehen
+kann. Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum
+Beispiel ein Kundenberater, erhalten mehrere Zuordnungen von
+Organisations\hyp{}IDs. Somit erhalten diese Zugriff auf die Dateninhalte des
+Kunden und können somit ihre Aufgaben, wie die Beratung auf ein neues Produkt,
+oder Verbesserung der Gesamtperformance, durchführen. Andersherum muss für
+einen Kunden mit mehreren gemieteten virtuellen Instanzen kein neuer Benutzer
+angelegt werden, stattdessen wird seinem bestehenden Benutzer eine weitere
+Organisations\hyp{}ID hinzugefügt.
 
-Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
-sowohl für lokale Benutzer als auch für \gls{LDAP}\hyp{}Benutzer vergeben
-werden. Sollte ein Unternehmen die \gls{LDAP}\hyp{}Anbindung für die
-Authentifizierung an Grafana wünschen, so muss in dem Verzeichnis von der
-Grafana\hyp{}Installation die Datei grafana.ini angepasst werden. Alle
-Einstellungen, die in der Datei vorgenommen werden, beziehen sich auf die
-Servereinstellungen, welche vom Kunden individuell angepasst werden kann.
-Nachdem die Änderungen abgeschlossen sind, muss der Grafana\hyp{}Dienst neu
-gestartet werden. Dies wird mit folgendem Befehl durchgefüht:
+Weitere Administrator Benutzerrollen können an zum Beispiel lokale Benutzer
+oder auch für \gls{LDAP}\hyp{}Benutzer vergeben werden. Sollte ein Unternehmen
+die \gls{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana wünschen, so
+muss in dem Verzeichnis von der Grafana\hyp{}Installation die Datei
+\texttt{grafana.ini} angepasst werden. Alle Einstellungen, die in dieser Datei
+vorgenommen werden, beziehen sich auf die Servereinstellungen, welche vom
+Kunden individuell angepasst werden kann. Nachdem die Änderungen abgeschlossen
+sind, muss der Grafana\hyp{}Dienst neu gestartet werden. Dies wird mit
+folgendem Befehl durchgefüht:
 
 \begin{minted}{text}
 systemctl restart grafana.service
@@ -3313,7 +3309,7 @@ automatisiert werden.
 
 Die Automatisierung erfolgt mit einem Puppet Profil. Das Puppet Profil hat
 verschiedene Vorteile. So ist dieses Betriebsystem unabhängig, Versionen von
-Grafana können vorgegeben werden und Konfiguration werden direkt während der
+Grafana können vorgegeben und Konfiguration werden direkt während der
 Installation in die Software implementiert. Um das Puppet Profil aufrufen zu
 können, wird folgender Befehl benötigt:
 
