@@ -513,7 +513,7 @@ Kontakt gekommen ist und keine neuen Strukturen erlernen muss.
 Eine Schnittstelle auf einer Webseite dient in erster Linie zur Anzeige
 von Daten in Form von Graphen. In diesem Projekt werden bewusst zwei
 Schnittstellen verwendet, damit die Daten innerhalb des Datenhaltungssystem
-geschützt sind, wie auch die Sicherheit der eigentliche Datenvisualisierung
+geschützt sind, wie auch die Sicherheit der eigentlichen Datenvisualisierung
 gewährleistet werden kann. Im nachfolgendem werden beide Schnittstellen
 erläutert.
 
@@ -534,7 +534,7 @@ werden.
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
 Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
 welche mit der Webseite arbeiten möchten, nur unstrukturierte Daten
-erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
+erhalten und können diese nicht zur weiteren Analyse verwenden. Der Anwender
 erhält somit einen direkten und schnellen Überblick in Form eines Graphens,
 siehe Abschnitt~\ref{subsec:definition_eines_graphen} oder
 Diagramms über die gesamten Datenressourcen der Infrastruktur. Diese können bei
@@ -1880,13 +1880,13 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   Client\hyp{}Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
   kann entweder über einen lokalen Administrator, als auch über eine
   \gls{LDAP}\hyp{}Anbindung verfügen, um zum Beispiel Unternehmensverzeichnisse
-  der Kunden anbinden zu können. Hierrüber soll ebenfalls eine Rechtevergabe
+  der Kunden anbinden zu können. Über diese soll ebenfalls eine Rechtevergabe
   innerhalb der Datenvisualisierung möglich sein.
 \end{outline}
 
 \textbf{Skalierung}
 \begin{outline}
-  \1 Die Datenvisualisierung muss eine Plugin-Erweiterung unterstützen. Es
+  \1 Die Datenvisualisierung muss eine Plugin\hyp{}Erweiterung unterstützen. Es
   dient dazu, dass im späteren Verlauf, wenn das Produkt bereits beim Kunden
   eingesetzt wird, auf bestimmte Kundenwünsche direkt eingehen zu können. Es
   sollte bereits schon eine Auswahl von Pluginerweiterungen in der Community
@@ -1903,24 +1903,25 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
 \textbf{Performance}
 \begin{outline}
-  \1 Da auf das Datenhaltungssystem nicht nur die Webseite zugreift,
+  \1 Da auf das Datenhaltungssystem nicht nur die Datenvisualisierung zugreift,
   sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es zu
   massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle der
-  Webseite verursacht werden können. Ein wichtiges Kernkriterium ist, dass
-  der Administrator eine Zeitspanne vordefinieren kann, in welcher die Graphen
-  neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen werden
-  sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
-  überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
-  unterschiedliche Benutzer greifen gleichzeitig auf die Webseite zu und
-  visualisieren im Fallbeispiel acht Graphen mit unterschiedlichen Werten.  Nun
-  sind insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
-  Datenhaltungssystem senden werden.
+  Datenvisualisierung verursacht werden können. Ein wichtiges Kernkriterium
+  ist, dass der Administrator eine Zeitspanne vordefinieren kann, in welcher
+  die Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
+  werden sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
+  Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
+  Acht unterschiedliche Benutzer greifen gleichzeitig auf die
+  Datenvisualisierung zu und visualisieren im Fallbeispiel acht Graphen mit
+  unterschiedlichen Werten.Dies sind insgesamt 64 Graphen, welche sekündlich
+  eine Abfrage an das Datenhaltungssystem senden werden.
 \end{outline}
 
 \textbf{Dokumentation}
 \begin{outline}
-  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über die
-  Software. Der Auftraggeber und auch die Projektmitglieder selbst, benötigen
+  \1  In der Grundanforderung unter Abschnitt~\ref{section:anforderungen} ist
+  definiert, dass eine Aktive und inhaltlich gute Community vorrausgesetzt
+  wird. Der Auftraggeber und auch die Projektmitglieder selbst, benötigen
   keine große Schulung mit dem Umgang der Datenvisualisierung. Dies erleichtert
   zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
   wenn das Produkt bei einem Kunden eingesetzt wird.
@@ -1955,8 +1956,8 @@ Gesamtpunktzahl ergibt. Die Tabellen werden im
 Abschnitt~\ref{subsec:abschluss_evaluierung} genauer erklärt.
 
 Während der Evaluierung der einzelnen Softwarelösungen ist aufgefallen, dass
-die Softwarelösung Gridster\hyp{}D3 keine direkte Visualisierungssoftware
-entsprechende Evaluierung, von diesem Produkt, kann im
+die Softwarelösung Gridster\hyp{}D3 keine direkte Visualisierungssoftware ist.
+Die entsprechende Evaluierung, von diesem Produkt, kann im
 Abschnitt~\ref{subsubsec:gridster-d3} vollständig entnommen werden.
 
 Im Nachfolgenden sind die einzelnen Datenvisualisierungslösungen mit einer
@@ -1988,7 +1989,7 @@ stellen kann und hiermit Graphen visualisieren kann. Grafana kann über einen
 Datenhaltungssystem durchführen, um die Daten abzugreifen.
 Es ist zusätzlich eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode
 angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen. Dadurch entstehen auch keine
+an bestimmte Kundenumgebungen. Dadurch entstehen keine
 Support\hyp{}Kosten, da die Software nicht als ein Dienst angeboten wird.
 Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
 Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
@@ -2009,7 +2010,7 @@ Positiv:
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 \glslink{Dashboard}{Dashboards} können auf externen Server oder lokal
   gesichert werden
-  \1 \gls{API}\hyp{}Unterstüzung
+  \1 \gls{API}\hyp{}Unterstüzung nach Plugin installation
   \1 Plugin\hyp{}Erweiterung möglich (Java)
   \1 Open\hyp{}Source\hyp{}Softwarelösung
 \end{outline}
@@ -2017,9 +2018,10 @@ Positiv:
 Negativ:
 
 \begin{outline}
-  \1 Plugin\hyp{}Erweiterung nur in Programmiersprache Java möglich
+  \1 Plugin\hyp{}Erweiterung nur in Programmiersprache Java möglich, weshalb
+  Abhängikeit zu speziellen Entwicklern besteht
   \1 Webdesign kann nicht angepasst werden
-  \1 Nur zwei \glslink{Templates}{Webtemplates} verfügbar (dark/white)
+  \1 Nur zwei Design \glslink{Templates}{Webtemplates} verfügbar (dark/white)
 \end{outline}
 \mr%
 
@@ -3726,7 +3728,7 @@ wird). Wenn ein Kunde live seine Auslastung visualisieren möchte, dauert dies
 eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten. Zum einen kann
 der Zwischenspeicher verringert werden. Dies erhöht allerdings die Last auf der
 Datenbank, da dies zu wesentlich mehr \gls{SQL}\hyp{}Statements führt.
-Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden. 
+Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden.
 Hierbei wird auf die eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser
 erlaubt es Daten zu filtern und in Kategorien einzuordnen. Für jede Kategorie
 kann die Größe des Zwischenspeichers definiert werden. Diese Filter kann man
