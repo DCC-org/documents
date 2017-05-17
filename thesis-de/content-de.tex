@@ -3323,7 +3323,7 @@ Grafana installiert, welche Datenquelle verwendet oder welches \gls{Dashboard}
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
 verschiedene andere Parameter, wie \gls{LDAP}\hyp{}Anbindung übergeben werden.
 Dies erleichtert dem Administrator die Konfiguration, da dieses Profil nur
-einmal auf dem Betriebssystem ausgeführt werden muss, um Grafana zu
+einmal auf der Distribution ausgeführt werden muss, um Grafana zu
 installieren und zu konfigurieren. Eine zusätzliche Konfiguration nach der
 Installation von Grafana wird nur dann benötigt, wenn spezielle Anforderungen
 vom Kunden gewünscht sind. \glslink{Dashboard}{Dashboards} werden in der
@@ -3346,7 +3346,7 @@ erstellt (vgl.~\cite{grafana-issue}).
 
 \subsection{Graphen definieren}
 \label{subsec:graphen-definieren}
-Soabld die Grundkonfiguration von Grafana wie im
+Sobald die Grundkonfiguration von Grafana wie in
 Abschnitt~\ref{sec:realisierung_grafana} beschrieben durchgeführt worden ist,
 können als nächstes die Graphen konfiguriert werden.
 \mr%
@@ -3388,20 +3388,21 @@ Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 
 \subsubsection{Axes}
 Im nebenstehendem Reiter \texttt{Axes} kann definiert werden, ob eine
-Beschriftung für die X- oder Y\hyp{}Achse benötigt wird. Zur Verdeutlichung ist
-dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
-hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
-erhaltenen Werte aus der Datenbank oder der ~\gls{API} sind meist nur
-Ganz\hyp{} oder Kommazahlen Werte, welche keine Einheiten übergeben bekommen.
+Beschriftung für die X\hyp{} oder Y\hyp{}Achse benötigt wird. Zur
+Verdeutlichung ist dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu
+beigefügt. Zusätzlich kann hier auch die entsprechende Einheit für diese Werte
+definiert werden, denn die erhaltenen Werte aus der Datenbank oder der
+\gls{API} sind meist nur Ganz\hyp{} oder Kommazahlen Werte, welche keine
+Einheiten übergeben bekommen.
 \mr%
 
 \subsubsection{Legend}
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
-definiert. Eingestellt werden kann hier welchen Minimalen, Maximalen, Aktuellen
-und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
-Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
-unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für den
-Administrator dienen, da dieser die Minimal\hyp{} und Maximalenwerte, sowie
+definiert. Eingestellt werden kann hier welchen Minimal\hyp{}, Maximal\hyp{},
+Aktuell\hyp{} und Durschnittswert innerhalb der Analyse ausgegeben worden ist
+und ob diese Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt
+direkt unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für
+den Administrator dienen, da dieser die Minimal\hyp{} und Maximalenwerte, sowie
 Aktuelle\hyp{} und Durchnittswerte welche innerhalb der Analyse ausgegeben
 worden sind, sehen kann. Ein Beispiel hierzu ist dem
 Anhang~\ref{figure:grafana_legend} beigefügt.
@@ -3410,13 +3411,13 @@ Anhang~\ref{figure:grafana_legend} beigefügt.
 \subsubsection{Display}
 Nachdem nun die Axenbeschriftung und Legende angepasst worden sind, gibt es
 unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten, \texttt{Draw
-options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau hiervon
+options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau
 kann dem Anhang~\ref{figure:grafana_display} entnommen werden. Unter dem Punkt
 \texttt{Draw options} kann das Aussehen des Graphen angepasst werden. So kann
 bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt hinterlegt
 werden. Ebenso kann definiert werden, ob der Graph zur besseren
 Übersichtlichkeit mit Farbe gefüllt werden soll oder die Breite der Linien des
-Graphen. Hier gibt es ebenfalls noch den Punkt, den Graphen als Balkendiagramm
+Graphen. Hier gibt es ebenfalls noch die Option, den Graphen als Balkendiagramm
 zu visualisieren. Diese Einstellungen werden für alle Graphen innerhalb der
 Visualisierung durchgeführt. Um dies für jeden einzelnen Graphen anpassen zu
 können, gibt es den Punkt \texttt{Series Overrides}. In diesem können die
@@ -3424,7 +3425,7 @@ Einstellungen, welche ebenfalls in \texttt{Draw options} definiert werden
 können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es zu
 diesem Menüpunkt noch den Punkt \texttt{Thresholds}. Dies sind Markierungen,
 innerhalb des Graphens, wenn ein kritischer Wert erreicht worden ist. Diese
-dienen dazu auf einem Blick zu erkennen, ob ein Problem der instanz vorliegt.
+dienen dazu auf einem Blick zu erkennen, ob ein Problem der Instanz vorliegt.
 Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild beigefügt, welches dies
 einmal verdeutlicht.
 \mr%
@@ -3433,18 +3434,18 @@ einmal verdeutlicht.
 Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden,
 wodurch bei einem kritischen Wert eine Benachrichtigung versendet wird. Damit
 diese Funktion verwendet werden kann, muss diese Funktion zum einen in der
-allgemeinen Konfiguration unter dem Reiter Alerting konfiguriert werden und zum
-anderen muss dies die Datenquelle unterstützen. Die Benachrichtigung hierzu
-kann anschließend beispielsweise über Email oder den Messenger Telegram,
-Threema erfolgen. Innerhalb der \texttt{Alert} Konfiguration, kann für jeden
-Graphen individuell die Kriterien definiert werden, bei denen eine
-Benachrichtigung ausgelöst werden soll. Ein Beispiel hierzu ist dem
-Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss entwender einen
-Min\hyp{}, Max\hyp{} oder Durschchnittswert beeinhalten, ab wann diese
-Bedingung erfüllt ist. Diese wird entweder mit einem Standardtext versendet
-oder kann über den Konfigurationsmenüpunkt \texttt{Notifications} individuell
-angepasst werden. Zudem wird definiert, über welchen Kommunikationsweg die
-Benachrichtigung erfolgen soll.
+allgemeinen Konfiguration unter dem Reiter \texttt{Alerting} konfiguriert
+werden und zum anderen muss dies die Datenquelle unterstützen. Die
+Benachrichtigung hierzu kann anschließend beispielsweise über Email oder den
+Messenger Telegram oder Threema erfolgen. Innerhalb der \texttt{Alert}
+Konfiguration, kann für jeden Graphen individuell die Kriterien definiert
+werden, bei denen eine Benachrichtigung ausgelöst werden soll. Ein Beispiel
+hierzu ist dem Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss
+entweder einen Min\hyp{} oder Maximalwert eines Graphen beeinhalten, ab wann
+diese Bedingung erfüllt ist. Diese wird entweder mit einem Standardtext
+versendet oder kann über den Konfigurationsmenüpunkt \texttt{Notifications}
+individuell angepasst werden. Zudem wird definiert, über welchen
+Kommunikationsweg die Benachrichtigungen erfolgen soll.
 \mr%
 
 \subsubsection{Time range}
@@ -3453,7 +3454,7 @@ visualisierten Graphen definiert werden. Innerhalb der Dashboardübersicht in
 der rechten oberen Hälfte von Grafana kann die Allgemeine zu visualisierende
 Zeit definiert werden. Diese gilt für alle Graphen innerhalb eines
 \glslink{Dashboard}{Dashboards}. Diese Einstellung kann individuell für jeden
-einzelnen Graphen under \texttt{Time range} überschrieben werden und gilt dann
+einzelnen Graphen unter \texttt{Time range} überschrieben werden und gilt dann
 nur für den aktuell bearbeiteten Graphen.
 \mr%
 
@@ -3570,10 +3571,10 @@ Für die Tests und Qualitätsicherung wurden unter anderem Unit\hyp{}Tests
 verwendet. Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann
 verwendet, wenn jeweils die Kernfunktion von einem Quellcode geprüft werden
 soll. Rspec ist das Framework und stellt eine \gls{DSL} zur Verfügung, in der
-Testszenarien definiert werden können. Die Puppet Module, die in diesem Projekt
-verwendet werden, wie Beispielsweise Grafana, besitzen schon einige Tests,
-welche erweitert worden sind. Man kann hier mit einem Test zum Beispiel prüfen,
-ob das Profil auf unterschiedlichen Betriebssystemen ausgeführt werden könnte
+Testszenarien definiert werden können. Die Puppet Module welche in diesem
+Projekt verwendet werden, wie Beispielsweise Grafana, besitzen schon einige
+Tests, welche erweitert worden sind. Mit einem Test kann beispielsweise geprüft
+werden, ob das Profil auf unterschiedlichen Betriebssystemen ausgeführt werden
 oder ob bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn
 müssen diese vorab mit rspec in dem Katalog kompiliert und definiert werden,
 damit diese verwendet werden können. Mit folgendem Befehl können die Tests
@@ -3604,13 +3605,13 @@ Die Vorteile von solchen Unit\hyp{}Tests mit rspec sind Folgende:
 
 \begin{outline}
   \1 Verschiedene Tests, wie Funktionalität des Profiles, können gleichzeitig
-  geprüft werden.
-  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung.
-  \1 Tests können für alle Profile gleich definiert werden.
+  geprüft werden
+  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung
+  \1 Tests können für alle Profile gleich definiert werden
   \1 Die Tests können gleichzeitig für unterschiedliche Profile durchgeführt
-  werden.
+  werden
   \1 Das Framework erlaubt es auf einfache Art und Weise, viele verschiedene
-  Betriebssysteme mit einem Test zu testen.
+  Betriebssysteme mit einem Test zu testen
 \end{outline}
 \mr%
 
@@ -3639,12 +3640,12 @@ soll. Im Anhang~\ref{lst:def-centos} ist eine solche Datei beigefügt.
 
 \section{API Test}
 \label{sec:api_test}
-Während der Entwicklung des ~\gls{API} Systems wurde bei der Implementierung
+Während der Entwicklung des \gls{API} Systems wurde bei der Implementierung
 von einem neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie
 in Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
-durchgeführt. Speziell bei der ~\gls{API} wurden die Komponententests in einem
+durchgeführt. Speziell bei der \gls{API} wurden die Komponententests in einem
 parallelen Verzeichnis zu dem Source Code und in der gleichen
-Programmiersprache wie die ~\gls{API}, also Java, verfasst. Das in dem in
+Programmiersprache wie die \gls{API}, also Java, verfasst. Das in dem in
 Abschnitt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“
 bietet dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den
 zu einem Algorithmus zugehörigen Komponententest direkt im Programm bereit,
@@ -3654,13 +3655,13 @@ nicht danach suchen muss.
 Für das Ausführen der definierten Tests muss keine eigene Laufzeit
 Infrastruktur bereitgestellt werden. Echte Komponententests werden
 normalerweise extrem schnell ausgeführt und steigern durch die Integration in
-das genannte Entwicklerstudio die Produktivität der ~\gls{API} Entwicklung um
+das genannte Entwicklerstudio die Produktivität der \gls{API} Entwicklung um
 ein vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft,
 in diesem Fall nach jeder Änderung am Code, ausgeführt werden, ohne das längere
 Wartezeiten entstehen.
 
 Die von Swagger bereitgestellten Testbibliotheken sind dabei sehr umfangreich
-und bieten zu jeder ~\gls{API} Funktion auch die passenden Testdefinitionen.
+und bieten zu jeder \gls{API} Funktion auch die passenden Testdefinitionen.
 Die bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
 Objekte sind in Testumgebungen Platzhalter für die im echten Code verwendeten
 Objektdefinitionen. Ein konkretes Beispiel dafür ist die „Bean“ Definition von
@@ -3669,7 +3670,7 @@ Laufzeitumgebungen einfach simuliert und ausgewählt werden. In dem Projekt war
 dies zum Beispiel das nutzen von im Arbeitsspeicher gehaltene Daten zum testen
 während der Entwicklung versus dem Zugriff auf die Produktivdaten der
 Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in diese Art von
-Testbibliothek gehört, war das registrieren von verschiedenen ~\gls{API}
+Testbibliothek gehört, war das registrieren von verschiedenen \gls{API}
 Profilen, welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu
 stellen, dass jeder dieser Profile so funktioniert, wie von dem Entwickler
 vorgegeben.
@@ -3686,12 +3687,12 @@ getestet werden. Das Anfragen und Abholen von Daten bei einem
 Datenhaltungssystem kann je nach Abfrage sehr lange dauern, um diese Zeit zu
 verkürzen, nutzt Swagger die Methoden des Caching, welche mit diesem Test
 überprüft werden. Ein weiterer Testfall wäre die Prüfung von Abhängigkeiten,
-wenn zum Beispiel die ~\gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
+wenn zum Beispiel die \gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
 kann damit geprüft werden, ob diese vollständig und ohne Fehleinträge ist.
 Jedoch kann der Integrationstest auch für komplexere Inhalte verwendet werden.
 In diesem Projekt ist es die Prüfung der korrekten \gls{Transaktion} von Daten
 mit der Nutzung von Backup\hyp{}\glslink{Transaktion}{Transaktionen}. Diese
-helfen vorallem wenn die ~\gls{API} Daten in dem Datenhaltungssystem
+helfen vorallem wenn die \gls{API} Daten in dem Datenhaltungssystem
 modifizieren, da nach der Modifizierung die Daten wieder auf den vorherigen
 Stand zurück gesetzt werden. Diese Tests sparen nicht nur
 Administrations\hyp{}Zeit, sondern geben dem Entwickler auch einen
@@ -3738,7 +3739,7 @@ bei 125 Werten und ist konfigurierbar. Es ist in bestimmten Konstellationen
 möglich, das Logstash mehrere Minuten lang Werte zwischenspeichert bevor sie
 zur Datenbank geschickt werden. Dies passiert, wenn besonders viele Logstash
 Prozesse gestartet worden sind und wenig Daten von den
- \glslink{Hypervisor}{Hypervisors} kommen (zum Beispiel weil gerade viel VMs
+\glslink{Hypervisor}{Hypervisors} kommen (zum Beispiel weil gerade viel VMs
 deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur durchgeführt
 wird). Wenn ein Kunde live seine Auslastung visualisieren möchte, dauert dies
 eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten. Zum einen kann
@@ -3769,7 +3770,7 @@ In vielen Monaten Arbeit wurde ein neues Softwareprojekt geschaffen, welches
 eine sehr gute Alternative zu Telemetry aus dem OpenStack Projekt darstellt.
 Die erarbeitete Lösung erfüllt alle definierten Anforderungen aus
 Abschnitt~\ref{section:anforderungen}. Nicht nur können alle Userstorys über
-Grafana visualisiert werden, auch die ~\gls{API} stellt einen passenden
+Grafana visualisiert werden, auch die \gls{API} stellt einen passenden
 Placement Algorithmus zur Verfügung und bietet somit mehr Features als
 Telemetry. Das Softwareprojekt ist äußerst flexibel gehalten und kann in
 beliebige Umgebungen mit Linux  \glslink{Hypervisor}{Hypervisors} integiert
