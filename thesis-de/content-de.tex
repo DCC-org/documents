@@ -1885,8 +1885,7 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   \1 Um die Sicherheit der Datenvisualisierung zusätzlich schützen zu können,
   muss diese mit einem \GLS{API}\hyp{}System interagieren können, damit
   eigenmächtige Modifizierungen der Daten wie das verändern, anpassen oder
-  sogar löschen unterbunden sind. Zusätzlich wird die Performance der
-  Datenvisualisierung, durch ein API System gesteigert.
+  sogar löschen unterbunden sind.
 \end{outline}
 
 \textbf{Skalierung}
@@ -1925,11 +1924,11 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 \textbf{Dokumentation}
 \begin{outline}
   \1  In der Grundanforderung unter Abschnitt~\ref{section:anforderungen} ist
-  definiert, dass eine Aktive und inhaltlich gute Community vorrausgesetzt
-  wird. Der Auftraggeber und auch die Projektmitglieder selbst, benötigen
-  keine große Schulung mit dem Umgang der Datenvisualisierung. Dies erleichtert
-  zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
-  wenn das Produkt bei einem Kunden eingesetzt wird.
+  definiert, dass eine aktive und qualitativ hochwertige Community
+  vorrausgesetzt wird. Der Auftraggeber und auch die Projektmitglieder selbst,
+  benötigen keine große Schulung mit den Umgang der Datenvisualisierung. Dies
+  erleichtert zum einen den späteren Betrieb, als auch die Wartung im späteren
+  Verlauf, wenn das Produkt bei einem Kunden eingesetzt wird.
 \end{outline}
 \mr%
 
@@ -2155,16 +2154,16 @@ ist nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
 erstellt werden. Um die Anmeldung an der Webseite durchführen zu können, wird
 ein Benutzer und Kennwort benötigt. Ebenfalls besteht die Möglichkeit ein
 \gls{LDAP} an Datadog anbinden zu können. Innerhalb eines Graphen können
-bestimmte Teilabschnitte mit zum Beispiel Social\hyp{}Media\hyp{}Plattformen
-wie Facebook oder Twitter geteilt werden. Datadog bietet zudem eventbasierte
-Mitteilungen, welche vom Administrator festgelegt werden können. Datadog hat
-eine vollständige \gls{API}~\ref{sec:schnittstelle_datenbereitstellung}
-Unterstützung und \glslink{Dashboard}{Dashboards} können vom Administrator
-exportiert werden. Eine Möglichkeit, Graphen zu exportieren, bietet Datadog
-hier nicht. Die Community, in der viele inhaltliche Dokumente enthalten sind,
-sind hier nur für Kunden bestimmt, welche eine Pro\hyp{}Lizenz besitzen. Ebenso
-gibt es hier einen \gls{IRC-Channel}, um direkt Kontakt mit dem Support
-aufnehmen zu können (vgl.~\cite{datadog}).
+bestimmte Teilabschnitte mit zum Beispiel Soziale Netzwerke, wie Facebook
+geteilt werden. Datadog bietet zudem eventbasierte Mitteilungen, welche vom
+Administrator festgelegt werden können. Datadog hat eine vollständige
+\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
+\glslink{Dashboard}{Dashboards} können vom Administrator exportiert werden.
+Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Die
+Community, in der viele inhaltliche Dokumente enthalten sind, sind hier nur für
+Kunden bestimmt, welche eine Pro\hyp{}Lizenz besitzen. Ebenso gibt es
+einen \gls{IRC-Channel}, um direkt Kontakt mit dem Support aufnehmen zu können
+(vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2215,9 +2214,9 @@ anderen Mitgliedern bestätigt werden. Es bietet nicht die Möglichkeit, eine
 Authentifizierung auf der Webseite durchzuführen. Ebenso werden alle Graphen,
 welche abgefragt werden, auf einer Seite angezeigt, weshalb die Übersicht stark
 eingeschränkt ist. Graphen können bei Netdata nicht einfach angepasst werden,
-da diese im Quellcode der Webseite verändert und angepasst werden müssen.  Ein
+da diese im Quellcode der Webseite verändert und angepasst werden müssen. Ein
 klarer Nachteil ist allerdings, dass diese Softwarelösung jeweils nur eine
-Instanz gleichzeitig überwachen kann und der Vorteil bei Netdata, dass kein
+Instanz gleichzeitig überwachen kann und der Vorteil bei Netdata ist, dass kein
 weiteres Datenhaltungssystem oder ähnliches benötigt wird
 (vgl.~\cite{netdata}).
 
@@ -2293,7 +2292,7 @@ Nachfolgend bleiben drei Datenvisualisierungslösungen für die nähere Auswahl:
 \end{outline}
 
 Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und
-Netdata, wurde auch hier eine Nutzwertanalyse durchgeführt, die wie folgt
+Netdata, wurde ebenfalls eine Nutzwertanalyse durchgeführt, die wie folgt
 aufgebaut ist:
 
 \begin{table}[H]
@@ -2320,13 +2319,13 @@ durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von
 3,50 erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass
 es ohne einen Zabbix\hyp{}Server nicht verwendet werden kann. Der
 Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
-empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert diese
+empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert die
 Daten anschließend in einem Datenhaltungssystem ab. Somit besteht bei der
 Zabbix\hyp{}Frontend Softwarelösung eine Abhängigkeit zu anderen Diensten,
 weshalb diese im Fehlerfall Probleme verursachen könnte. Zusätzlich ist
 aufgefallen, dass das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank
 gleichzeitig kommunizieren und verwendet werden kann. Anders als bei Grafana,
-welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.  Innerhalb
+welches mit mehreren Datenbanken gleichzeitig kommunizieren kann. Innerhalb
 der einzelnen Graphen werden hier mittels einer Abfrage die Datenbanken direkt
 angesprochen, nachdem diese in der Konfiguration hinzugefügt wurde. Bei der
 Evaluierung der Graphite Softwarelösung, hat Graphite 3,75 Gesamtpunkte in der
@@ -2383,16 +2382,16 @@ einzelnen Tickets arbeiten können.
 \glslink{SSD}{SSDs}, welche einen Hardwaredefekt haben könnten.
 
 \textbf{Beschreibung:} In der heutigen Zeit werden vermehrt langsame Hard Disk
-Drives im weiteren \gls{HDD} durch schnellere Solid State Disks im weiteren\gls
-SSD} ausgetauscht. Gerade im Serverbetrieb sorgt dies für einen schnelleren
-Datenzugriff. \glslink{SSD}{SSDs} haben jedoch, wie auch \glslink{HDD}{HDDs},
-einen Lebenszyklus, der bei \glslink{SSD}{SSDs} schneller erreicht werden kann,
-als bei handelsüblichen \glslink{HDD}{HDDs}. Der Administrator soll darüber
-benachrichtigt werden, sobald von einer \gls{SSD} ein kritischer Schreib\hyp{}
-oder Lesezyklus erreicht worden ist, um die \gls{SSD} bereits vor dem Ausfall
-proaktiv austauschen zu können. Ebenfalls soll eine Statistik ausgegeben werden
-können, welche \gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am
-häufigsten ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
+Drives durch schnellere Solid State Disks ausgetauscht. Gerade im Serverbetrieb
+sorgt dies für einen schnelleren Datenzugriff. \glslink{SSD}{SSDs} haben
+jedoch, wie auch \glslink{HDD}{HDDs}, einen Lebenszyklus, der bei
+\glslink{SSD}{SSDs} schneller erreicht werden kann, als bei handelsüblichen
+\glslink{HDD}{HDDs}. Der Administrator soll darüber benachrichtigt werden,
+sobald von einer \gls{SSD} ein kritischer Schreib\hyp{} oder Lesezyklus
+erreicht worden ist, um die \gls{SSD} bereits vor dem Ausfall proaktiv
+austauschen zu können. Ebenfalls soll eine Statistik ausgegeben werden können,
+welche \gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
+ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Die Ausgabe und Visualisierung in einem Balken\hyp{} oder Graphendiagramm
@@ -3237,10 +3236,10 @@ Benutzer negativ beeinflussen.
 Nachdem der gewünschte Graph ausgewählt worden ist, kann dieser angepasst und
 bearbeitet werden. Hierzu wird der zu editierende Graph ausgewählt und
 anschließend auf „edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein
-Menü, wo der grundsätzliche Aufbau, die Metrik, die Axen und diverse weitere
-Konfigurationsmöglichkeiten für diesen Graphen definiert werden
-können. Zunächst wird die Metrik des Graphen angepasst, damit die ersten
-Graphen visuell dargestellt werden können. Unter dem
+Menü, in dem der grundsätzliche Aufbau, die Metrik, die Axen und diverse
+weitere Konfigurationsmöglichkeiten für diesen Graphen definiert werden können.
+Zunächst wird die Metrik des Graphen angepasst, damit die ersten Graphen
+visuell dargestellt werden können. Unter dem
 Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die Erstellung von
 Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage für die
 Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die in dem
@@ -3390,7 +3389,7 @@ Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 Im nebenstehendem Reiter \texttt{Axes} kann definiert werden, ob eine
 Beschriftung für die X\hyp{} oder Y\hyp{}Achse benötigt wird. Zur
 Verdeutlichung ist dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu
-beigefügt. Zusätzlich kann hier auch die entsprechende Einheit für diese Werte
+beigefügt. Zusätzlich kann auch die entsprechende Einheit für diese Werte
 definiert werden, denn die erhaltenen Werte aus der Datenbank oder der
 \gls{API} sind meist nur Ganz\hyp{} oder Kommazahlen Werte, welche keine
 Einheiten übergeben bekommen.
@@ -3398,13 +3397,13 @@ Einheiten übergeben bekommen.
 
 \subsubsection{Legend}
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
-definiert. Eingestellt werden kann hier welchen Minimal\hyp{}, Maximal\hyp{},
-Aktuell\hyp{} und Durschnittswert innerhalb der Analyse ausgegeben worden ist
-und ob diese Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt
-direkt unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für
-den Administrator dienen, da dieser die Minimal\hyp{} und Maximalenwerte, sowie
-Aktuelle\hyp{} und Durchnittswerte welche innerhalb der Analyse ausgegeben
-worden sind, sehen kann. Ein Beispiel hierzu ist dem
+definiert. Es kann dort eingestellt werden welchen Minimal\hyp{},
+Maximal\hyp{}, Aktuell\hyp{} und Durschnittswert innerhalb der Analyse
+ausgegeben worden ist und ob diese Werte als Tabelle ausgegeben werden sollen.
+Diese Ausgabe erfolgt direkt unterhalb des Graphen und soll für eine bessere
+Übersichtlichkeit für den Administrator dienen, da dieser die Minimal\hyp{} und
+Maximalenwerte, sowie Aktuelle\hyp{} und Durchnittswerte welche innerhalb der
+Analyse ausgegeben worden sind, sehen kann. Ein Beispiel hierzu ist dem
 Anhang~\ref{figure:grafana_legend} beigefügt.
 \mr%
 
