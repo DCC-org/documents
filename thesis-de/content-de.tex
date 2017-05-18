@@ -513,7 +513,7 @@ Kontakt gekommen ist und keine neuen Strukturen erlernen muss.
 Eine Schnittstelle auf einer Webseite dient in erster Linie zur Anzeige
 von Daten in Form von Graphen. In diesem Projekt werden bewusst zwei
 Schnittstellen verwendet, damit die Daten innerhalb des Datenhaltungssystem
-geschützt sind, wie auch die Sicherheit der eigentliche Datenvisualisierung
+geschützt sind, wie auch die Sicherheit der eigentlichen Datenvisualisierung
 gewährleistet werden kann. Im nachfolgendem werden beide Schnittstellen
 erläutert.
 
@@ -530,13 +530,11 @@ Berechtigungskonzept, kann auch ein \gls{API}\hyp{}System zum Einsatz kommen.
 Die Vorteile, sowie die Rolle dieser Schnittstelle innerhalb dieses Projektes,
 können dem Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen
 werden.
-Vorteile, sowie die Rolle dieses Systems innerhalb dieses Projektes, können dem
-Abschnitt~\ref{sec:schnittstelle_datenbereitstellung} entnommen werden.
 
 Die zweite Schnittstelle dient zur Anzeige und Ausgabe der durch das
 Datenhaltungssystem erhaltenen Daten. Ohne diese Schnittstelle würden Anwender,
 welche mit der Webseite arbeiten möchten, nur unstrukturierte Daten
-erhalten und könnten diese nicht zur weiteren Analyse verwenden. Der Anwender
+erhalten und können diese nicht zur weiteren Analyse verwenden. Der Anwender
 erhält somit einen direkten und schnellen Überblick in Form eines Graphens,
 siehe Abschnitt~\ref{subsec:definition_eines_graphen} oder
 Diagramms über die gesamten Datenressourcen der Infrastruktur. Diese können bei
@@ -1882,13 +1880,17 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   Client\hyp{}Zertifikate zulassen. Die Anmeldung an der Datenvisualisierung
   kann entweder über einen lokalen Administrator, als auch über eine
   \gls{LDAP}\hyp{}Anbindung verfügen, um zum Beispiel Unternehmensverzeichnisse
-  der Kunden anbinden zu können. Hierrüber soll ebenfalls eine Rechtevergabe
+  der Kunden anbinden zu können. Über diese soll ebenfalls eine Rechtevergabe
   innerhalb der Datenvisualisierung möglich sein.
+  \1 Um die Sicherheit der Datenvisualisierung zusätzlich schützen zu können,
+  muss diese mit einem \GLS{API}\hyp{}System interagieren können, damit
+  eigenmächtige Modifizierungen der Daten wie das verändern, anpassen oder
+  sogar löschen unterbunden sind.
 \end{outline}
 
 \textbf{Skalierung}
 \begin{outline}
-  \1 Die Datenvisualisierung muss eine Plugin-Erweiterung unterstützen. Es
+  \1 Die Datenvisualisierung muss eine Plugin\hyp{}Erweiterung unterstützen. Es
   dient dazu, dass im späteren Verlauf, wenn das Produkt bereits beim Kunden
   eingesetzt wird, auf bestimmte Kundenwünsche direkt eingehen zu können. Es
   sollte bereits schon eine Auswahl von Pluginerweiterungen in der Community
@@ -1905,27 +1907,28 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
 \textbf{Performance}
 \begin{outline}
-  \1 Da auf das Datenhaltungssystem nicht nur die Webseite zugreift,
+  \1 Da auf das Datenhaltungssystem nicht nur die Datenvisualisierung zugreift,
   sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es zu
   massiven Performance\hyp{}Problemen kommen, die durch die Schnittstelle der
-  Webseite verursacht werden können. Ein wichtiges Kernkriterium ist, dass
-  der Administrator eine Zeitspanne vordefinieren kann, in welcher die Graphen
-  neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen werden
-  sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit Anfragen
-  überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen. Acht
-  unterschiedliche Benutzer greifen gleichzeitig auf die Webseite zu und
-  visualisieren im Fallbeispiel acht Graphen mit unterschiedlichen Werten.  Nun
-  sind insgesamt 64 Graphen, welche sekündlich eine Abfrage an das
-  Datenhaltungssystem senden werden.
+  Datenvisualisierung verursacht werden können. Ein wichtiges Kernkriterium
+  ist, dass der Administrator eine Zeitspanne vordefinieren kann, in welcher
+  die Graphen neu visualisiert und Daten aus dem Datenhaltungssystem abgerufen
+  werden sollen. Dies dient dazu, dass das Datenhaltsungssystem nicht mit
+  Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
+  Acht unterschiedliche Benutzer greifen gleichzeitig auf die
+  Datenvisualisierung zu und visualisieren im Fallbeispiel acht Graphen mit
+  unterschiedlichen Werten.Dies sind insgesamt 64 Graphen, welche sekündlich
+  eine Abfrage an das Datenhaltungssystem senden werden.
 \end{outline}
 
 \textbf{Dokumentation}
 \begin{outline}
-  \1 Eine inhaltlich gute und umfangreiche Community und Dokumentation über die
-  Software. Der Auftraggeber und auch die Projektmitglieder selbst, benötigen
-  keine große Schulung mit dem Umgang der Datenvisualisierung. Dies erleichtert
-  zum einen den späteren Betrieb, als auch die Wartung im späteren Verlauf,
-  wenn das Produkt bei einem Kunden eingesetzt wird.
+  \1  In der Grundanforderung unter Abschnitt~\ref{section:anforderungen} ist
+  definiert, dass eine aktive und qualitativ hochwertige Community
+  vorrausgesetzt wird. Der Auftraggeber und auch die Projektmitglieder selbst,
+  benötigen keine große Schulung für den Umgang der Datenvisualisierung. Dies
+  erleichtert zum einen den späteren Betrieb, als auch die Wartung im späteren
+  Verlauf, wenn das Produkt bei einem Kunden eingesetzt wird.
 \end{outline}
 \mr%
 
@@ -1957,8 +1960,8 @@ Gesamtpunktzahl ergibt. Die Tabellen werden im
 Abschnitt~\ref{subsec:abschluss_evaluierung} genauer erklärt.
 
 Während der Evaluierung der einzelnen Softwarelösungen ist aufgefallen, dass
-die Softwarelösung Gridster\hyp{}D3 keine direkte Visualisierungssoftware
-entsprechende Evaluierung, von diesem Produkt, kann im
+die Softwarelösung Gridster\hyp{}D3 keine direkte Visualisierungssoftware ist.
+Die entsprechende Evaluierung, von diesem Produkt, kann im
 Abschnitt~\ref{subsubsec:gridster-d3} vollständig entnommen werden.
 
 Im Nachfolgenden sind die einzelnen Datenvisualisierungslösungen mit einer
@@ -1990,7 +1993,7 @@ stellen kann und hiermit Graphen visualisieren kann. Grafana kann über einen
 Datenhaltungssystem durchführen, um die Daten abzugreifen.
 Es ist zusätzlich eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode
 angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen. Dadurch entstehen auch keine
+an bestimmte Kundenumgebungen. Dadurch entstehen keine
 Support\hyp{}Kosten, da die Software nicht als ein Dienst angeboten wird.
 Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
 Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
@@ -2011,7 +2014,7 @@ Positiv:
   \1 Leichte Anpassungen an Graphen und Einstellungen möglich
   \1 \glslink{Dashboard}{Dashboards} können auf externen Server oder lokal
   gesichert werden
-  \1 \gls{API}\hyp{}Unterstüzung
+  \1 \gls{API}\hyp{}Unterstüzung nach Plugin installation
   \1 Plugin\hyp{}Erweiterung möglich (Java)
   \1 Open\hyp{}Source\hyp{}Softwarelösung
 \end{outline}
@@ -2019,9 +2022,10 @@ Positiv:
 Negativ:
 
 \begin{outline}
-  \1 Plugin\hyp{}Erweiterung nur in Programmiersprache Java möglich
+  \1 Plugin\hyp{}Erweiterung nur in Programmiersprache Java möglich, weshalb
+  Abhängikeit zu speziellen Entwicklern besteht
   \1 Webdesign kann nicht angepasst werden
-  \1 Nur zwei \glslink{Templates}{Webtemplates} verfügbar (dark/white)
+  \1 Nur zwei Design \glslink{Templates}{Webtemplates} verfügbar (dark/white)
 \end{outline}
 \mr%
 
@@ -2142,24 +2146,22 @@ Open\hyp{}Source\hyp{}Produkt und wird in verschiedenen Lizenzen von der Anzahl
 der entsprechenden virtuellen Instanzen, welche abgegriffen werden sollen,
 gestaffelt. Die Basis\hyp{}Lizenz gibt es hier bereits kostenlos, jedoch können
 hier nur maximal 5 virtuelle Instanzen abgefragt werden und die Daten werden
-maximal einen Tag zurückgehalten. Die teuerste Lizenz kostet hier 23 Dollar und
+maximal einen Tag zurückgehalten. Die teuerste Lizenz kostet 23 Dollar und
 beinhaltet alle Hosts, welche der Kunde anbinden möchte. Zusätzlich bietet
-diese Lizenz einen E\hyp{}Mail\hyp{}, Chat- oder Telefonsupport. Dieser ist
-nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
+diese Lizenz einen E\hyp{}Mail\hyp{}, Chat\hyp{} oder Telefonsupport. Dieser
+ist nicht in der Basis\hyp{}Lizenz vorhanden. Graphen und auch
 \glslink{Dashboard}{Dashboards} können in Datadog einfach vom Administrator
 erstellt werden. Um die Anmeldung an der Webseite durchführen zu können, wird
-ein Benutzer und Kennwort benötigt. Es ist hier nicht möglich, ein \gls{LDAP}
-an die Webseite anbinden zu können. Innerhalb eines Graphen können bestimmte
-Teilabschnitte mit zum Beispiel Social\hyp{}Media\hyp{}Plattformen wie Facebook
-oder Twitter geteilt werden. Datadog bietet zudem eventbasierte Mitteilungen,
-welche vom Administrator festgelegt werden können. Datadog hat eine vollständige
+ein Benutzer und Kennwort benötigt. Ebenfalls besteht die Möglichkeit ein
+\gls{LDAP} an Datadog anbinden zu können. Innerhalb eines Graphen können
+bestimmte Teilabschnitte mit zum Beispiel Soziale Netzwerke, wie Facebook
+geteilt werden. Datadog bietet zudem eventbasierte Mitteilungen, welche vom
+Administrator festgelegt werden können. Datadog hat eine vollständige
 \gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
 \glslink{Dashboard}{Dashboards} können vom Administrator exportiert werden.
-Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Die
-Community, in der viele inhaltliche Dokumente enthalten sind, sind hier nur
-für Kunden bestimmt, welche eine Pro\hyp{}Lizenz besitzen. Ebenso gibt es
-hier einen \gls{IRC-Channel}, um direkt Kontakt mit dem Support aufnehmen zu
-können (vgl.~\cite{datadog}).
+Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Auf die
+Community, sowie für den \gls{IRC-Channel}  haben nur Kunden Zuriff, welche
+eine Pro\hyp{}Lizenz gekauft haben (vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2181,21 +2183,19 @@ Negativ:
 \begin{outline}
   \1 Keine Open\hyp{}Source\hyp{}Lizenz. Lizenzen sind hier nach Anwendungsfall
   gestaffelt
-  \1 Keine Möglichkeit der Anbindung an einen externen Verzeichnisdienst zur
-  Benutzerauthentifizierung
 \end{outline}
 \mr%
 
 \subsubsection{Gridster-D3}
 \label{subsubsec:gridster-d3}
 Gridster ist eine von Anmol Koul entwickelte Java\hyp{}Bibliothek, welche auf
-\gls{GitHub} einsehbar und dokumentiert ist. Während der Evaluierung von dieser
-Software, stellte sich heraus, dass es sich hierbei nicht direkt um eine
+\gls{GitHub} einsehbar und dokumentiert ist. Während der ersten Recherchen
+stellete sich heraus, dass es sich hierbei nicht direkt um eine
 Visualisierungssoftware handelt, sondern lediglich um eine Funktion, nämlich
-das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer
-Webseite. Mit dieser hat man die Möglichkeit, ein \gls{Dashboard}, welches
-selbst entwickelt worden ist, individuell anpassen zu
-können (vgl.~\cite{gridster-d3}).
+das Drag \& Drop von einzelnen Graphen oder Elementen innerhalb einer Webseite.
+Mit dieser besteht die Möglichkeit, ein \gls{Dashboard}, welches selbst
+entwickelt worden ist, individuell anpassen zu können
+(vgl.~\cite{gridster-d3}).
 
 Somit fällt Gridster\hyp{}D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt, aus der weiteren Evaluierung heraus.
@@ -2209,15 +2209,14 @@ vollständige Code steht auf \gls{GitHub}, worüber auch die Community gepflegt
 wird. Andere Mitglieder der \gls{GitHub}\hyp{}Community haben hier die
 Möglichkeit, Quelltext anzupassen und zu verändern, jedoch müssen diese von
 anderen Mitgliedern bestätigt werden. Es bietet nicht die Möglichkeit, eine
-Authentifizierung auf der Webseite durchzuführen. Ebenso werden alle
-Graphen, welche abgefragt werden, auf einer Seite angezeigt, weshalb die
-Übersicht stark eingeschränkt ist. Graphen können bei Netdata nicht einfach
-angepasst werden, da diese im Quellcode verändert und angepasst werden müssen.
-Das Netdata läuft ebenfalls nur auf Linux\hyp{}Oberflächen. Ein Support von
-Microsoft Windows ist hier unterstützt. Ein klarer Nachteil ist allerdings,
-dass diese Softwarelösung jeweils nur eine Instanz gleichzeitig überwachen kann
-und der Vorteil bei Netdata, dass kein weiteres Datenhaltungssystem oder
-ähnliches benötigt wird (vgl.~\cite{netdata}).
+Authentifizierung auf der Webseite durchzuführen. Ebenso werden alle Graphen,
+welche abgefragt werden, auf einer Seite angezeigt, weshalb die Übersicht stark
+eingeschränkt ist. Graphen können bei Netdata nicht einfach angepasst werden,
+da diese im Quellcode der Webseite verändert und angepasst werden müssen. Ein
+klarer Nachteil ist allerdings, dass diese Softwarelösung jeweils nur eine
+Instanz gleichzeitig überwachen kann und der Vorteil bei Netdata ist, dass kein
+weiteres Datenhaltungssystem oder ähnliches benötigt wird
+(vgl.~\cite{netdata}).
 
 Zusammenfassung:
 
@@ -2249,7 +2248,7 @@ Kriterien von Null bis Fünf vergeben. Damit eine Softwarelösung in die nähere
 Auswahl aufgenommen werden kann, muss diese mindestens 3,00 Gesamtpunkte in der
 Nutzwertanalyse erhalten. In nachfolgender Tabelle kann die
 Nutzwertanalyse der Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata
-entnommen Datadog, Gridster\hyp{}D3 und Netdata entnommen werden.
+entnommen werden.
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2275,9 +2274,9 @@ Gesamtpunkte, da diese Softwarelösung eine Kostenpflichtige Lizenz benötigt.
 Dies ist innerhalb des Projektes ein Kernkriterium, weshalb es als
 Softwarelösung nicht weiter verwendet werden kann. Gridster\hyp{}D3 ist bereits
 während der Evaluierungsphase ausgeschieden, da es sich hierbei nicht direkt um
-eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem hat
-Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten. Im Laufe
-der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
+eine Softwarelösung handelt sondern lediglich um eine Funktion. Aus diesem
+Grund hat Gridster\hyp{}D3 0,00 Gesamtpunkte in der Nutzwertanalyse erhalten.
+Im Laufe der Evaluierung hat Netdata 2,35 Gesamtpunkte erhalten, da es sehr
 unübersichtlich aufgebaut ist und keine Sicherheit gewährleisten kann. Alle
 drei Softwärelösungen sind damit ausgeschieden, da eine Gesamtpunktzahl von
 3,00 nicht erreicht worden ist.
@@ -2290,8 +2289,9 @@ Nachfolgend bleiben drei Datenvisualisierungslösungen für die nähere Auswahl:
   \1 Zabbix\hyp{}Frontend
 \end{outline}
 
-Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und Netdata,
-wurde auch hier eine Nutzwertanalyse durchgeführt, die wie folgt aufgebaut ist:
+Ebenfalls wie auch bei den Softwarelösungen Datadog, Gridster\hyp{}D3 und
+Netdata, wurde ebenfalls eine Nutzwertanalyse durchgeführt, die wie folgt
+aufgebaut ist:
 
 \begin{table}[H]
 \resizebox{\textwidth}{!}{%
@@ -2317,23 +2317,23 @@ durchgeführt worden ist, hat das Zabbix\hyp{}Frontend eine Gesamtpunktzahl von
 3,50 erhalten. Während der Evaluierung der Zabbix\hyp{}Frontend fiel auf, dass
 es ohne einen Zabbix\hyp{}Server nicht verwendet werden kann. Der
 Zabbix\hyp{}Server ist ein von Zabbix LLC entwickelter Netzwerkdienst. Er
-empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert diese Daten
-anschließend in einem Datenhaltungssystem ab. Zusätzlich ist aufgefallen, dass
-das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank gleichzeitig
-kommunizieren und verwendet werden kann, somit besteht bei der
+empfängt Metriken von \gls{Agents}, bereitet diese auf und speichert die
+Daten anschließend in einem Datenhaltungssystem ab. Somit besteht bei der
 Zabbix\hyp{}Frontend Softwarelösung eine Abhängigkeit zu anderen Diensten,
-weshalb diese im Fehlerfall Probleme verursachen könnte. Anders als bei
-Grafana, welches mit mehreren Datenbanken gleichzeitig kommunizieren kann.
-Innerhalb der einzelnen Graphen werden hier mittels einer Abfrage die
-Datenbanken direkt angesprochen, nachdem diese in der Konfiguration hinzugefügt
-wurde. Bei der Evaluierung der Graphite Softwarelösung, hat Graphite 3,75
-Gesamtpunkte erhalten. Während der Implementierung von Graphite wurde klar,
+weshalb diese im Fehlerfall Probleme verursachen könnte. Zusätzlich ist
+aufgefallen, dass das Zabbix\hyp{}Frontend maximal nur mit einer Datenbank
+gleichzeitig kommunizieren und verwendet werden kann. Anders als bei Grafana,
+welches mit mehreren Datenbanken gleichzeitig kommunizieren kann. Innerhalb
+der einzelnen Graphen werden hier mittels einer Abfrage die Datenbanken direkt
+angesprochen, nachdem diese in der Konfiguration hinzugefügt wurde. Bei der
+Evaluierung der Graphite Softwarelösung, hat Graphite 3,75 Gesamtpunkte in der
+Nutzwertanalyse erhalten. Während der Implementierung von Graphite wurde klar,
 dass es deutlich komplexer ist als Grafana. Graphite besteht aus mehreren
 Diensten, welche bei der Installation konfiguriert und angepasst werden müssen,
 damit Graphite funktional ist. Wenn ein Dienst ausfallen sollte, betrifft dies
-das gesamte Graphite-System und die Webseite wäre nicht mehr erreichbar.
-Zusätzlich ist gerade in der Wartung der Dienste ein Mehraufwand, da der
-Administrator alle Dienste in Form von Abhängigkeit zueinander und
+das gesamte Graphite\hyp{}System und die Datenvisualisierung wäre nicht mehr
+erreichbar. Zusätzlich ist gerade in der Wartung der Dienste ein Mehraufwand,
+da der Administrator alle Dienste in Form von Abhängigkeit zueinander und
 Konfiguration kennen muss. Da Graphite aus mehreren Diensten besteht, benötigt
 Graphite auch mehr Systemressourcen als ein einzelner Dienst, wie es bei
 Grafana der Fall ist. Hierdurch bedingt, wird Graphite für die weitere
@@ -2392,13 +2392,13 @@ welche \gls{SSD} von welchem Hersteller in der Wahrscheinlichkeit am häufigsten
 ausfällt. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
-  \1 Die Ausgabe und Visualisierung in einem Balken- oder Graphendiagramm
+  \1 Die Ausgabe und Visualisierung in einem Balken\hyp{} oder Graphendiagramm
   für jede einzelne Instanz
   \1 Auflistung einer Statistik in Form eines Balkendiagramms über die
   Hersteller, welche am wahrscheinlich häufigsten in den Instanzen ausfallen
   \1 Eine Benachrichtigung, ob per E\hyp{}Mail oder auf anderen
-  Kommunikationswegen, wenn ein kritischer Schreib- oder Lesezyklus erreicht
-  worden ist
+  Kommunikationswegen, wenn ein kritischer Schreib\hyp{} oder Lesezyklus
+  erreicht worden ist
 \end{outline}
 
 Das dazugehörige Wireframe, kann dem Anhang~\ref{figure:ssduserstory} entnommen
@@ -2414,15 +2414,14 @@ CPU\hyp{}Auslastung jeder Instanz, um Engpässe zu erkennen.
 Verarbeitungsgeschwindigkeit der Prozesse immer schneller und besser. Bei
 virtuellen Maschinen werden aus einem physischen CPU\hyp{}Kern des
 Host\hyp{}Systems mehrere virtuelle CPU\hyp{}Kerne emuliert und einer Instanz
-zugewiesen. So kann eine VM Zwei virtuelle CPU\hyp{}Kerne mit z.B.
+zugewiesen. So kann eine VM Zwei virtuelle CPU\hyp{}Kerne mit zum Beispiel
 2,5\si{\giga\hertz} Taktrate zugewiesen haben. Auf jeder Instanz laufen andere
 Dienste, weshalb jede VM unterschiedliche CPUs zugeteilt haben kann. Hier kann
 es vorkommen, dass eine VM mehr CPU\hyp{}Leistung benötigt, als ihr selbst
 zugewiesen ist. Um dies frühestmöglich erkennen zu können, benötigt der
-Administrator eine detaillierte eine detaillierte Übersicht in Form eines
-Graphen, wie viel CPU\hyp{}Leistung von einer virtuellen Instanz verwendet wird
-und auf dem System verfügbar ist. Im Folgenden finden sich die
-Akzeptanzkriterien:
+Administrator eine detaillierte Übersicht in Form eines Graphen, wie viel
+CPU\hyp{}Leistung von einer virtuellen Instanz verwendet wird und auf dem
+System verfügbar ist. Im Folgenden finden sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Visualisierung der Auslastung und Verfügbarkeit der CPU\hyp{}Leistung für
@@ -2444,8 +2443,8 @@ Arbeitsspeicherauslastung von jeder Instanz, um Engpässe zu erkennen.
 es auch eine ähnliche Thematik zur Auslastung bei dem verwendeten
 Arbeitsspeicher. Meist ist hier jedoch nicht die Taktrate des Arbeitsspeichers
 entscheidend, sondern eher wie viel Arbeitsspeicher einer virtuellen Maschine
-zugewiesen ist. Hier kann es ebenfalls wie auch bei
-der~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
+zugewiesen ist. Hier kann es ebenfalls wie auch bei der CPU
+Userstory~\ref{section:CPU_Userstory} vorkommen, dass es zu Engpässen auf der
 virtuellen Maschine bei der Verteilung des Arbeitsspeichers kommen kann. Im
 Folgenden finden sich die Akzeptanzkriterien:
 
@@ -2462,7 +2461,7 @@ entnommen werden.
 \mr%
 
 \section{Zeitdefinierte Analyse Userstory}
-\textbf{Name der Story:} Der Administrator möchte eine Angabe über die im
+\textbf{Name der Story:} Der Administrator möchte eine Auswertung über die im
 vergangenen Jahr verwendeten Ressourcen einer virtuellen Maschine.
 
 \textbf{Beschreibung:} Ein Onlineshop für zum Beispiel saisonale Ware, wie
@@ -2471,11 +2470,11 @@ vergangenen Jahr, um hier im kommenden Jahr die Ressourcen bereits bei Beginn
 richtig skalieren zu können. Dies dient in erster Linie, um die Erreichbarkeit
 des Onlineshop gewährleisten zu können, wie auch die Performance im Allgemeinen
 zu verbessern. So können zum Beispiel bestimmten virtuellen Maschinen zu einem
-gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden, damit diese
-die Ressourcen verwenden können. In den Monaten in dem keine große Nachfrage
-der Webseite besteht, können hier weniger Ressourcen der virtuellen Maschine
-zugewiesen werden. Dies hat den Vorteil, dass spezielle Vertäge dem Kunden
-angeboten werden können. Im Folgenden finden sich die Akzeptanzkriterien:
+gewissen Zeitraum mehr Ressourcen zur Verfügung gestellt werden. In den Monaten
+in dem keine große Nachfrage der Webseite besteht, können hier weniger
+Ressourcen der virtuellen Maschine zugewiesen werden. Dies hat den Vorteil,
+dass spezielle Vertäge dem Kunden angeboten werden können. Im Folgenden finden
+sich die Akzeptanzkriterien:
 
 \begin{outline}
   \1 Es soll eine Ausgabe in visualisierter Form über einen bestimmten Monat
@@ -2500,8 +2499,7 @@ Folgenden finden sich die Akzeptanzkriterien:
 \begin{outline}
   \1 Visualisierung erfolgt für jeden einzelnen abgegriffenen Wert
   \1 Zeitspanne der Visualisierung kann über den Benutzer angepasst werden
-  \1 Die Graphen, der Visualisierung kann über den Benutzer oder dem
-  Administrator angepasst werden
+  \1 Die Graphen, der Visualisierung kann über den Benutzer angepasst werden
 \end{outline}
 
 Das dazugehörige Wireframe, kann dem Anhang~\ref{figure:uiuserstory}
@@ -2778,7 +2776,7 @@ Visualisierung des Prototypen findet sich unter~\ref{figure:draft2}.
 
 \section{Automatisierung mit Puppet}
 Die Firma Puppet Inc.\ entwickelt die Software puppet. Es ist eine quelloffene
-Konfigurationsmanagement- und Automatisierungssoftware. Sie erlaubt es in
+Konfigurationsmanagement\hyp{} und Automatisierungssoftware. Sie erlaubt es in
 einer \glslink{Deklarative Programmiersprache}{deklarativen} \gls{DSL}, den
 gewünschten Systemzustand zu beschreiben. Die Software realisiert dies. In
 Modulen wird der puppet Code gebündelt. Jedes Modul enthält Code, welcher zur
@@ -3192,7 +3190,7 @@ festgelegt. Die Zugangsdaten hierzu lauten:
 \end{outline}
 
 Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
-werden. Anschließend sieht man hier bereits das Home \gls{Dashboard} von wo aus
+werden. Anschließend wird bereits das Home \gls{Dashboard} angezeigt von wo aus
 die Datenvisualisierung konfiguriert werden kann.
 
 Das \gls{Dashboard} ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
@@ -3202,15 +3200,14 @@ Symbol wird immer die aktuelle Ebene angezeigt auf der der Administrator sich
 befindet. Wenn der Administrator sich hier auf dem Home \gls{Dashboard}
 befindet, so wird hier „Home“ angezeigt und die Übersicht der einzelnen
 \glslink{Dashboard}{Dashboards}. Sollte der Administrator in den Einstellungen
-unter Datasources sein, so wird hier Data Sources eingeblendet. Dies soll dem
-Administrator zusätzlich helfen, eine bessere Übersichtlichkeit zu erhalten.
-Auf der rechten Seite des jeweiligen \glslink{Dashboard}{Dashboards} hat der
-Administrator oder Benutzer die Möglichkeit, den Aktualisierungstimer der
-anzuzeigenen Daten zu verändern. Standardmäßig steht dieser auf sechs Stunden,
-kann aber beliebig angepasst werden. Eine Darstellung des
-\glslink{Dashboard}{Dashboards}, kann dem Anhang~\ref{figure:grafana_dashboard}
-entnommen werden.
-
+unter „Data Sources“ sein, so wird an der vorgesehenen Stelle „Data Sources“
+eingeblendet. Dies soll dem Administrator zusätzlich helfen, eine bessere
+Übersichtlichkeit zu erhalten. Auf der rechten Seite des jeweiligen
+\glslink{Dashboard}{Dashboards} hat der Administrator oder Benutzer die
+Möglichkeit, den Aktualisierungstimer der anzuzeigenen Daten zu verändern.
+Standardmäßig steht dieser auf sechs Stunden, kann aber beliebig angepasst
+werden. Eine Darstellung des \glslink{Dashboard}{Dashboards}, kann dem
+Anhang~\ref{figure:grafana_dashboard} entnommen werden.
 
 Zu Beginn sollte hier zuerst die Datenquelle von der Grafana die ermittelten
 Daten erhält, konfiguriert werden. Hierzu navigiert der Administrator auf das
@@ -3232,19 +3229,19 @@ Auswahlmöglichkeiten von Graphen, Tabellen oder auch
 hinzugefügt werden. Eine Beschränkung, wieviele Graphen maximal auf einem
 \gls{Dashboard} angelegt werden können, ist laut der Dokumentation von Grafana
 nicht definiert, jedoch kann dies die Performance der Webseite für den
-Administrator oder Benutzer negativ beeinflussen.
+Benutzer negativ beeinflussen.
 
-Nachdem der Graph ausgewählt worden ist, kann dieser angepasst und bearbeitet
-werden. Hierzu wird der zu editierende Graph ausgewählt und anschließend auf
-„edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein Menü, wo der
-grundsätzliche Aufbau, die Metrik, die Axen und diverse weitere
-Konfigurationsmöglichkeiten Einstellungen für diesen Graphen definiert werden
-können. Hier wird zunächst die Metrik des Graphen angepasst, damit die ersten
-Graphen visuell dargestellt werden können. Unter dem
-Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die
-Erstellung von Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage
-für die Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die
-in dem Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
+Nachdem der gewünschte Graph ausgewählt worden ist, kann dieser angepasst und
+bearbeitet werden. Hierzu wird der zu editierende Graph ausgewählt und
+anschließend auf „edit“ geklickt. Unterhalb des Graphen öffnet sich dann ein
+Menü, in dem der grundsätzliche Aufbau, die Metrik, die Axen und diverse
+weitere Konfigurationsmöglichkeiten für diesen Graphen definiert werden können.
+Zunächst wird die Metrik des Graphen angepasst, damit die ersten Graphen
+visuell dargestellt werden können. Unter dem
+Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die Erstellung von
+Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage für die
+Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die in dem
+Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 \begin{figure}[H]
   \centering
@@ -3255,7 +3252,7 @@ in dem Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 Nachstehend können noch diverse Feinkonfigurationen für einen Graphen
 spezifisch vorgenommen werden. Dieses Vorgehen wird nun für jeden Graphen
-erstellt, dessen Werte visualisiert werden sollen. Nachdem alle Graphen
+durchgeführt, dessen Werte visualisiert werden sollen. Nachdem alle Graphen
 erstellt worden sind, muss das \gls{Dashboard} abgespeichert werden, damit die
 Konfigurationn nicht verloren gehen. Sollte das Speichern vom Administrator
 vergessen werden, so warnt Grafana bei dem Wechsel eines
@@ -3265,22 +3262,38 @@ diese nicht abgespeichert werden. Damit wie in dem Projekt gefordert eine
 Plugininstallation. Es stehen viele verschiedene Plugins auf der Grafana
 Webseite zur Verfügung. Zu jedem Plugin gibt es eine kurze Erläuterung, sowie
 eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die Plugins
-werden über einen Kommandozeilenbefehl installiert.
+werden über einen Kommandozeilenbefehl installiert und sind anschließend über
+die Grafana Oberfläche verfügbar.
 
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
 werden. Um weiteren Benutzern Zugriff zu dem \gls{Dashboard} zu gewähren,
 können unter dem Reiter Admin > Global Users weitere Benutzer angelegt werden
 und Zugriff auf die Webseite von Grafana erhalten. Insbesondere hier kann
 beschränkt werden, welche Benutzer welche Einstellungen und Graphen sehen
-können. Ebenso ist es möglich, weitere Administratoren zu erstellen. Dies kann
-sowohl für lokale Benutzer als auch für \gls{LDAP}\hyp{}Benutzer vergeben
-werden. Sollte ein Unternehmen die \gls{LDAP}\hyp{}Anbindung für die
-Authentifizierung an Grafana wünschen, so muss in dem Verzeichnis von der
-Grafana\hyp{}Installation die Datei grafana.ini angepasst werden. Alle
-Einstellungen, die in der Datei vorgenommen werden, beziehen sich auf die
-Servereinstellungen, welche vom Kunden individuell angepasst werden kann.
-Nachdem die Änderungen abgeschlossen sind, muss der Grafana\hyp{}Dienst neu
-gestartet werden. Dies wird mit folgendem Befehl durchgefüht:
+können. Dies wird in Grafana mit der Organisations\hyp{}ID realisiert. Ein neu
+angelegter Benutzer wird dabei mindestens einer Organisation zugeordnet. Dies
+ist in diesem Projekt zum Beispiel für einen einzelnen Kunden von einer
+virtuellen Instanz vorgesehen. Durch die in
+Punkt~\ref{subsec:zusammenspiel_api_frontend} erläuterte Mapping\hyp{}Tabelle
+wird sichergestellt, dass der Benutzer nur die zu ihm zugeordneten Daten sehen
+kann. Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum
+Beispiel ein Kundenberater, erhalten mehrere Zuordnungen von
+Organisations\hyp{}IDs. Somit erhalten diese Zugriff auf die Dateninhalte des
+Kunden und können somit ihre Aufgaben, wie die Beratung auf ein neues Produkt,
+oder Verbesserung der Gesamtperformance, durchführen. Andersherum muss für
+einen Kunden mit mehreren gemieteten virtuellen Instanzen kein neuer Benutzer
+angelegt werden, stattdessen wird seinem bestehenden Benutzer eine weitere
+Organisations\hyp{}ID hinzugefügt.
+
+Weitere Administrator Benutzerrollen können an zum Beispiel lokale Benutzer
+oder auch für \gls{LDAP}\hyp{}Benutzer vergeben werden. Sollte ein Unternehmen
+die \gls{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana wünschen, so
+muss in dem Verzeichnis von der Grafana\hyp{}Installation die Datei
+\texttt{grafana.ini} angepasst werden. Alle Einstellungen, die in dieser Datei
+vorgenommen werden, beziehen sich auf die Servereinstellungen, welche vom
+Kunden individuell angepasst werden kann. Nachdem die Änderungen abgeschlossen
+sind, muss der Grafana\hyp{}Dienst neu gestartet werden. Dies wird mit
+folgendem Befehl durchgefüht:
 
 \begin{minted}{text}
 systemctl restart grafana.service
@@ -3293,7 +3306,7 @@ automatisiert werden.
 
 Die Automatisierung erfolgt mit einem Puppet Profil. Das Puppet Profil hat
 verschiedene Vorteile. So ist dieses Betriebsystem unabhängig, Versionen von
-Grafana können vorgegeben werden und Konfiguration werden direkt während der
+Grafana können vorgegeben und Konfiguration werden direkt während der
 Installation in die Software implementiert. Um das Puppet Profil aufrufen zu
 können, wird folgender Befehl benötigt:
 
@@ -3307,7 +3320,7 @@ Grafana installiert, welche Datenquelle verwendet oder welches \gls{Dashboard}
 bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
 verschiedene andere Parameter, wie \gls{LDAP}\hyp{}Anbindung übergeben werden.
 Dies erleichtert dem Administrator die Konfiguration, da dieses Profil nur
-einmal auf dem Betriebssystem ausgeführt werden muss, um Grafana zu
+einmal auf der Distribution ausgeführt werden muss, um Grafana zu
 installieren und zu konfigurieren. Eine zusätzliche Konfiguration nach der
 Installation von Grafana wird nur dann benötigt, wenn spezielle Anforderungen
 vom Kunden gewünscht sind. \glslink{Dashboard}{Dashboards} werden in der
@@ -3330,7 +3343,7 @@ erstellt (vgl.~\cite{grafana-issue}).
 
 \subsection{Graphen definieren}
 \label{subsec:graphen-definieren}
-Soabld die Grundkonfiguration von Grafana wie im
+Sobald die Grundkonfiguration von Grafana wie in
 Abschnitt~\ref{sec:realisierung_grafana} beschrieben durchgeführt worden ist,
 können als nächstes die Graphen konfiguriert werden.
 \mr%
@@ -3372,35 +3385,36 @@ Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
 
 \subsubsection{Axes}
 Im nebenstehendem Reiter \texttt{Axes} kann definiert werden, ob eine
-Beschriftung für die X- oder Y\hyp{}Achse benötigt wird. Zur Verdeutlichung ist
-dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu beigefügt. Zusätzlich kann
-hier auch die entsprechende Einheit für diese Werte definiert werden, denn die
-erhaltenen Werte aus der Datenbank oder der ~\gls{API} sind meist nur
-Ganz\hyp{} oder Kommazahlen Werte, welche keine Einheiten übergeben bekommen.
+Beschriftung für die X\hyp{} oder Y\hyp{}Achse benötigt wird. Zur
+Verdeutlichung ist dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu
+beigefügt. Zusätzlich kann auch die entsprechende Einheit für diese Werte
+definiert werden, denn die erhaltenen Werte aus der Datenbank oder der
+\gls{API} sind meist nur Ganz\hyp{} oder Kommazahlen Werte, welche keine
+Einheiten übergeben bekommen.
 \mr%
 
 \subsubsection{Legend}
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
-definiert. Eingestellt werden kann hier welchen Minimalen, Maximalen, Aktuellen
-und Durschnitts Wert innerhalb der Analyse ausgegeben worden ist und ob diese
-Werte als Tabelle ausgegeben werden sollen. Diese Ausgabe erfolgt direkt
-unterhalb des Graphen und soll für eine bessere Übersichtlichkeit für den
-Administrator dienen, da dieser die Minimal\hyp{} und Maximalenwerte, sowie
-Aktuelle\hyp{} und Durchnittswerte welche innerhalb der Analyse ausgegeben
-worden sind, sehen kann. Ein Beispiel hierzu ist dem
+definiert. Es kann dort eingestellt werden welchen Minimal\hyp{},
+Maximal\hyp{}, Aktuell\hyp{} und Durschnittswert innerhalb der Analyse
+ausgegeben worden ist und ob diese Werte als Tabelle ausgegeben werden sollen.
+Diese Ausgabe erfolgt direkt unterhalb des Graphen und soll für eine bessere
+Übersichtlichkeit für den Administrator dienen, da dieser die Minimal\hyp{} und
+Maximalenwerte, sowie Aktuelle\hyp{} und Durchnittswerte welche innerhalb der
+Analyse ausgegeben worden sind, sehen kann. Ein Beispiel hierzu ist dem
 Anhang~\ref{figure:grafana_legend} beigefügt.
 \mr%
 
 \subsubsection{Display}
 Nachdem nun die Axenbeschriftung und Legende angepasst worden sind, gibt es
 unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten, \texttt{Draw
-options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau hiervon
+options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau
 kann dem Anhang~\ref{figure:grafana_display} entnommen werden. Unter dem Punkt
 \texttt{Draw options} kann das Aussehen des Graphen angepasst werden. So kann
 bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt hinterlegt
 werden. Ebenso kann definiert werden, ob der Graph zur besseren
 Übersichtlichkeit mit Farbe gefüllt werden soll oder die Breite der Linien des
-Graphen. Hier gibt es ebenfalls noch den Punkt, den Graphen als Balkendiagramm
+Graphen. Hier gibt es ebenfalls noch die Option, den Graphen als Balkendiagramm
 zu visualisieren. Diese Einstellungen werden für alle Graphen innerhalb der
 Visualisierung durchgeführt. Um dies für jeden einzelnen Graphen anpassen zu
 können, gibt es den Punkt \texttt{Series Overrides}. In diesem können die
@@ -3408,7 +3422,7 @@ Einstellungen, welche ebenfalls in \texttt{Draw options} definiert werden
 können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es zu
 diesem Menüpunkt noch den Punkt \texttt{Thresholds}. Dies sind Markierungen,
 innerhalb des Graphens, wenn ein kritischer Wert erreicht worden ist. Diese
-dienen dazu auf einem Blick zu erkennen, ob ein Problem der instanz vorliegt.
+dienen dazu auf einem Blick zu erkennen, ob ein Problem der Instanz vorliegt.
 Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild beigefügt, welches dies
 einmal verdeutlicht.
 \mr%
@@ -3417,18 +3431,18 @@ einmal verdeutlicht.
 Im vorletzten Punkt \texttt{Alert} können bestimmte Graphen überwacht werden,
 wodurch bei einem kritischen Wert eine Benachrichtigung versendet wird. Damit
 diese Funktion verwendet werden kann, muss diese Funktion zum einen in der
-allgemeinen Konfiguration unter dem Reiter Alerting konfiguriert werden und zum
-anderen muss dies die Datenquelle unterstützen. Die Benachrichtigung hierzu
-kann anschließend beispielsweise über Email oder den Messenger Telegram,
-Threema erfolgen. Innerhalb der \texttt{Alert} Konfiguration, kann für jeden
-Graphen individuell die Kriterien definiert werden, bei denen eine
-Benachrichtigung ausgelöst werden soll. Ein Beispiel hierzu ist dem
-Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss entwender einen
-Min\hyp{}, Max\hyp{} oder Durschchnittswert beeinhalten, ab wann diese
-Bedingung erfüllt ist. Diese wird entweder mit einem Standardtext versendet
-oder kann über den Konfigurationsmenüpunkt \texttt{Notifications} individuell
-angepasst werden. Zudem wird definiert, über welchen Kommunikationsweg die
-Benachrichtigung erfolgen soll.
+allgemeinen Konfiguration unter dem Reiter \texttt{Alerting} konfiguriert
+werden und zum anderen muss dies die Datenquelle unterstützen. Die
+Benachrichtigung hierzu kann anschließend beispielsweise über Email oder den
+Messenger Telegram oder Threema erfolgen. Innerhalb der \texttt{Alert}
+Konfiguration, kann für jeden Graphen individuell die Kriterien definiert
+werden, bei denen eine Benachrichtigung ausgelöst werden soll. Ein Beispiel
+hierzu ist dem Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss
+entweder einen Min\hyp{} oder Maximalwert eines Graphen beeinhalten, ab wann
+diese Bedingung erfüllt ist. Diese wird entweder mit einem Standardtext
+versendet oder kann über den Konfigurationsmenüpunkt \texttt{Notifications}
+individuell angepasst werden. Zudem wird definiert, über welchen
+Kommunikationsweg die Benachrichtigungen erfolgen soll.
 \mr%
 
 \subsubsection{Time range}
@@ -3437,7 +3451,7 @@ visualisierten Graphen definiert werden. Innerhalb der Dashboardübersicht in
 der rechten oberen Hälfte von Grafana kann die Allgemeine zu visualisierende
 Zeit definiert werden. Diese gilt für alle Graphen innerhalb eines
 \glslink{Dashboard}{Dashboards}. Diese Einstellung kann individuell für jeden
-einzelnen Graphen under \texttt{Time range} überschrieben werden und gilt dann
+einzelnen Graphen unter \texttt{Time range} überschrieben werden und gilt dann
 nur für den aktuell bearbeiteten Graphen.
 \mr%
 
@@ -3554,10 +3568,10 @@ Für die Tests und Qualitätsicherung wurden unter anderem Unit\hyp{}Tests
 verwendet. Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann
 verwendet, wenn jeweils die Kernfunktion von einem Quellcode geprüft werden
 soll. Rspec ist das Framework und stellt eine \gls{DSL} zur Verfügung, in der
-Testszenarien definiert werden können. Die Puppet Module, die in diesem Projekt
-verwendet werden, wie Beispielsweise Grafana, besitzen schon einige Tests,
-welche erweitert worden sind. Man kann hier mit einem Test zum Beispiel prüfen,
-ob das Profil auf unterschiedlichen Betriebssystemen ausgeführt werden könnte
+Testszenarien definiert werden können. Die Puppet Module welche in diesem
+Projekt verwendet werden, wie Beispielsweise Grafana, besitzen schon einige
+Tests, welche erweitert worden sind. Mit einem Test kann beispielsweise geprüft
+werden, ob das Profil auf unterschiedlichen Betriebssystemen ausgeführt werden
 oder ob bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn
 müssen diese vorab mit rspec in dem Katalog kompiliert und definiert werden,
 damit diese verwendet werden können. Mit folgendem Befehl können die Tests
@@ -3588,13 +3602,13 @@ Die Vorteile von solchen Unit\hyp{}Tests mit rspec sind Folgende:
 
 \begin{outline}
   \1 Verschiedene Tests, wie Funktionalität des Profiles, können gleichzeitig
-  geprüft werden.
-  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung.
-  \1 Tests können für alle Profile gleich definiert werden.
+  geprüft werden
+  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung
+  \1 Tests können für alle Profile gleich definiert werden
   \1 Die Tests können gleichzeitig für unterschiedliche Profile durchgeführt
-  werden.
+  werden
   \1 Das Framework erlaubt es auf einfache Art und Weise, viele verschiedene
-  Betriebssysteme mit einem Test zu testen.
+  Betriebssysteme mit einem Test zu testen
 \end{outline}
 \mr%
 
@@ -3623,12 +3637,12 @@ soll. Im Anhang~\ref{lst:def-centos} ist eine solche Datei beigefügt.
 
 \section{API Test}
 \label{sec:api_test}
-Während der Entwicklung des ~\gls{API} Systems wurde bei der Implementierung
+Während der Entwicklung des \gls{API} Systems wurde bei der Implementierung
 von einem neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie
 in Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
-durchgeführt. Speziell bei der ~\gls{API} wurden die Komponententests in einem
+durchgeführt. Speziell bei der \gls{API} wurden die Komponententests in einem
 parallelen Verzeichnis zu dem Source Code und in der gleichen
-Programmiersprache wie die ~\gls{API}, also Java, verfasst. Das in dem in
+Programmiersprache wie die \gls{API}, also Java, verfasst. Das in dem in
 Abschnitt~\ref{sec:api_system} genannte Entwicklerstudio „Spring Tool Suite“
 bietet dabei eine benutzerfreundliche Darstellung und Verwendung. Es stellt den
 zu einem Algorithmus zugehörigen Komponententest direkt im Programm bereit,
@@ -3638,13 +3652,13 @@ nicht danach suchen muss.
 Für das Ausführen der definierten Tests muss keine eigene Laufzeit
 Infrastruktur bereitgestellt werden. Echte Komponententests werden
 normalerweise extrem schnell ausgeführt und steigern durch die Integration in
-das genannte Entwicklerstudio die Produktivität der ~\gls{API} Entwicklung um
+das genannte Entwicklerstudio die Produktivität der \gls{API} Entwicklung um
 ein vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft,
 in diesem Fall nach jeder Änderung am Code, ausgeführt werden, ohne das längere
 Wartezeiten entstehen.
 
 Die von Swagger bereitgestellten Testbibliotheken sind dabei sehr umfangreich
-und bieten zu jeder ~\gls{API} Funktion auch die passenden Testdefinitionen.
+und bieten zu jeder \gls{API} Funktion auch die passenden Testdefinitionen.
 Die bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
 Objekte sind in Testumgebungen Platzhalter für die im echten Code verwendeten
 Objektdefinitionen. Ein konkretes Beispiel dafür ist die „Bean“ Definition von
@@ -3653,7 +3667,7 @@ Laufzeitumgebungen einfach simuliert und ausgewählt werden. In dem Projekt war
 dies zum Beispiel das nutzen von im Arbeitsspeicher gehaltene Daten zum testen
 während der Entwicklung versus dem Zugriff auf die Produktivdaten der
 Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in diese Art von
-Testbibliothek gehört, war das registrieren von verschiedenen ~\gls{API}
+Testbibliothek gehört, war das registrieren von verschiedenen \gls{API}
 Profilen, welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu
 stellen, dass jeder dieser Profile so funktioniert, wie von dem Entwickler
 vorgegeben.
@@ -3670,12 +3684,12 @@ getestet werden. Das Anfragen und Abholen von Daten bei einem
 Datenhaltungssystem kann je nach Abfrage sehr lange dauern, um diese Zeit zu
 verkürzen, nutzt Swagger die Methoden des Caching, welche mit diesem Test
 überprüft werden. Ein weiterer Testfall wäre die Prüfung von Abhängigkeiten,
-wenn zum Beispiel die ~\gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
+wenn zum Beispiel die \gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
 kann damit geprüft werden, ob diese vollständig und ohne Fehleinträge ist.
 Jedoch kann der Integrationstest auch für komplexere Inhalte verwendet werden.
 In diesem Projekt ist es die Prüfung der korrekten \gls{Transaktion} von Daten
 mit der Nutzung von Backup\hyp{}\glslink{Transaktion}{Transaktionen}. Diese
-helfen vorallem wenn die ~\gls{API} Daten in dem Datenhaltungssystem
+helfen vorallem wenn die \gls{API} Daten in dem Datenhaltungssystem
 modifizieren, da nach der Modifizierung die Daten wieder auf den vorherigen
 Stand zurück gesetzt werden. Diese Tests sparen nicht nur
 Administrations\hyp{}Zeit, sondern geben dem Entwickler auch einen
@@ -3722,13 +3736,13 @@ bei 125 Werten und ist konfigurierbar. Es ist in bestimmten Konstellationen
 möglich, das Logstash mehrere Minuten lang Werte zwischenspeichert bevor sie
 zur Datenbank geschickt werden. Dies passiert, wenn besonders viele Logstash
 Prozesse gestartet worden sind und wenig Daten von den
- \glslink{Hypervisor}{Hypervisors} kommen (zum Beispiel weil gerade viel VMs
+\glslink{Hypervisor}{Hypervisors} kommen (zum Beispiel weil gerade viel VMs
 deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur durchgeführt
 wird). Wenn ein Kunde live seine Auslastung visualisieren möchte, dauert dies
 eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten. Zum einen kann
 der Zwischenspeicher verringert werden. Dies erhöht allerdings die Last auf der
 Datenbank, da dies zu wesentlich mehr \gls{SQL}\hyp{}Statements führt.
-Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden. 
+Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden.
 Hierbei wird auf die eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser
 erlaubt es Daten zu filtern und in Kategorien einzuordnen. Für jede Kategorie
 kann die Größe des Zwischenspeichers definiert werden. Diese Filter kann man
@@ -3753,7 +3767,7 @@ In vielen Monaten Arbeit wurde ein neues Softwareprojekt geschaffen, welches
 eine sehr gute Alternative zu Telemetry aus dem OpenStack Projekt darstellt.
 Die erarbeitete Lösung erfüllt alle definierten Anforderungen aus
 Abschnitt~\ref{section:anforderungen}. Nicht nur können alle Userstorys über
-Grafana visualisiert werden, auch die ~\gls{API} stellt einen passenden
+Grafana visualisiert werden, auch die \gls{API} stellt einen passenden
 Placement Algorithmus zur Verfügung und bietet somit mehr Features als
 Telemetry. Das Softwareprojekt ist äußerst flexibel gehalten und kann in
 beliebige Umgebungen mit Linux  \glslink{Hypervisor}{Hypervisors} integiert
