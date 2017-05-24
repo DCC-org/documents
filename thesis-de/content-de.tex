@@ -3118,19 +3118,19 @@ beziehungsweise zuschickt (siehe auch
 Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da sich das Projekt auf die
 Zusammenarbeit mit dem Grafana\hyp{}System konzentriert, wurde mit der
 Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet Grafana nur mit
-vier URL's (Endpunkte) der \hyp{}\@. Die erste ist dafür zuständig zu prüfen,
+vier URLs (Endpunkte) der \hyp{}\@. Die erste ist dafür zuständig zu prüfen,
 ob das \gls{API}\hyp{}System überhaupt erreichbar, beziehungsweise vorhanden
 ist. Die zweite wird genutzt, um bei dem \gls{API} System anzufragen, welche
 Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen, basierend
 auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück. Die
 letztere ermöglicht es, einzelne Informationen in einem Graphen hervor zu
-heben. Alle vier URL's besitzen eine eigene Anfrage\hyp{}Methode und
+heben. Alle vier URLs besitzen eine eigene Anfrage\hyp{}Methode und
 Datenstruktur an der \gls{API} und erwarten auch unterschiedliche Antworten von
-der \gls{API} in Struktur und Inhalt. Neben diesen vier URL's wurde ebenfalls
+der \gls{API} in Struktur und Inhalt. Neben diesen vier URLs wurde ebenfalls
 das Extrahieren der in Abschnitt~\ref{subsec:zusammenspiel_api_frontend}
 erläuterten Organisations\hyp{}ID implementiert.
 
-Nachdem diese URL's und Modellstrukturen definiert wurden, schaute das
+Nachdem diese URLs und Modellstrukturen definiert wurden, schaute das
 Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der \hyp{}\@.
 Dies hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage
 bei dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden
