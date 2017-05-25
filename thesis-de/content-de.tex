@@ -1974,14 +1974,14 @@ kurzen Zusammenfassung, sowie Vor\hyp{} und Nachteile aufgeführt:
 Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte
 Open\hyp{}Source\hyp{}Visualisierungssoftware. Sie bietet neben einfachen
 Visualisierungsgraphen noch weitere Ereignisfunktionen. Um die Anmeldung an der
-Webseite durchführen zu können, kann hier wahlweise die Anmeldung mit
-einem \gls{Active Directory} Konto oder lokalen Benutzer plus
-Kennwortkombination durchgeführt werden. Hinzu können verschiedene
-Berechtigungen vergeben werden. Somit können zum Beispiel Mitarbeiter aus der
-Führungsebene eingeschränkte Zugriffe auf das System erhalten, um hier zum
-Beispiel Analysen durchführen zu können. Grafana arbeitet mit fast jedem
-Timeseries Datenhaltungssystem, wie z.B. InfluxDB zusammen. Zusätzlich kann es
-über Plugins erweitert werden. Damit Grafana \gls{API} Systeme (siehe auch
+Webseite durchführen zu können, kann hier wahlweise die Anmeldung mit einem
+\gls{Active Directory} Konto oder lokalen Benutzer plus Kennwortkombination
+durchgeführt werden. Hinzu können verschiedene Berechtigungen vergeben werden.
+Somit können zum Beispiel Mitarbeiter aus der Führungsebene eingeschränkte
+Zugriffe auf das System erhalten, um hier zum Beispiel Analysen durchführen zu
+können. Grafana arbeitet mit fast jedem Timeseries Datenhaltungssystem, wie
+z.B. InfluxDB zusammen. Zusätzlich kann es über Plugins erweitert werden. Damit
+Grafana \gls{API} Systeme (siehe auch
 Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) ansprechen kann, wird
 hier ein solches Plugin benötigt. Plugins werden zur Erweiterung der Software
 in der Programmiersprache Java entwickelt und installiert. Diese werden zum
@@ -1991,15 +1991,14 @@ Datenhaltungssystem \gls{API} \glslink{Statement}{Statements} zur Verfügung
 stellen kann und hiermit Graphen visualisieren kann. Grafana kann über einen
 \gls{Datenbanktreiber} oder eine Schnittstelle in Form eines
 \glslink{Treiber}{Treibers} einfache \glslink{Statement}{Statements} auf das
-Datenhaltungssystem durchführen, um die Daten abzugreifen.
-Es ist zusätzlich eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode
-angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen. Dadurch entstehen keine
-Support\hyp{}Kosten, da die Software nicht als ein Dienst angeboten wird.
-Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
-Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
-\gls{GitHub} veröffentlicht, somit haben auch andere Mitglieder von
-\gls{GitHub} die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
+Datenhaltungssystem durchführen, um die Daten abzugreifen.  Es ist zusätzlich
+eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode angepasst und
+verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte
+Kundenumgebungen. Dadurch entstehen keine Support\hyp{}Kosten, da die Software
+nicht als ein Dienst angeboten wird.  Grafana hat eine stetig wachsende
+Community mit sämtlichen Dokumenten zur Einrichtung oder Erweiterung des
+Systems. Der gesamte Quellcode ist auf \gls{GitHub} veröffentlicht, somit hat
+jeder die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
 implementieren. Die vom Anwender erstellten \glslink{Dashboard}{Dashboards} mit
 allen Graphen und \glslink{Statement}{Statements} können vom System, wie auch
 vom Anwender selbst, auf einen externen Dateifreigabeserver oder lokal
@@ -2039,26 +2038,24 @@ Open\hyp{}Source\hyp{}Lösung und ermöglicht es dem Anwender, die Software
 bearbeiten und anpassen zu können. Es verfügt über eine inhaltlich gute und
 umfangreiche Community mit einem eigenem Wiki\hyp{}Board, wo alle relevanten
 Dokumentationen enthalten sind. Graphen können leicht mittels
-\glslink{Statement}{Statements} über eine
-\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder
+\glslink{Statement}{Statements} über eine \gls{API}\hyp{}Datenabfrage oder
 direkt an das Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der
 WebOberfläche mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist
 ebenfalls möglich. Es können einzelne Graphen, wie auch das gesamte
 \gls{Dashboard}, auf externe Server oder lokal abgespeichert werden, um einem
 Verlust von einzelnen Graphen vorbeugen zu können. Graphite ist, wie auch
-Grafana~\ref{subsubsec:grafana}, kompatibel zu Timeseries
-Datenhaltungssystemen. Es bietet keine einfache Möglichkeit, weitere Plugins
-hinzufügen zu können, wie es beispielsweise Grafana~\ref{subsubsec:grafana}
-kann. Hierzu muss der Quellcode von Graphite massiv angepasst werden, wodurch
-gute Kenntniss der einzelnen Dienste erforderlich sind. Graphite ist ein
-System, welches aus mehreren Diensten besteht. Der Graphite\hyp{}Webdienst ist
-für die Anzeige der Webseite zuständig. Der \gls{Carbon}\hyp{}Cache\hyp{}Dienst
-wird verwendet, um die Daten, welche vom Datenerfassungsystem ermittelt worden
-sind, aufzuarbeiten. Dies wird benötigt, damit Graphite diese für die
-Visualisierung verwenden kann. Grundsätzlich installiert sich mit der
-Installation von Graphite noch eine Whisper\hyp{}Datenbank, welche jedoch durch
-eine beliebige, wie OpenTSDB~\ref{subsubsec:opentsdb} oder InfluxDB,
-ausgetauscht werden kann (vgl.~\cite{graphite}).
+Grafana, kompatibel zu Timeseries Datenhaltungssystemen. Es bietet keine
+einfache Möglichkeit, weitere Plugins hinzufügen zu können, wie es
+beispielsweise Grafana kann. Hierzu muss der Quellcode von Graphite massiv
+angepasst werden, wodurch gute Kenntniss der einzelnen Dienste erforderlich
+sind. Graphite ist ein System, welches aus mehreren Diensten besteht. Der
+Graphite\hyp{}Webdienst ist für die Anzeige der Webseite zuständig. Der
+\gls{Carbon}\hyp{}Cache\hyp{}Dienst wird verwendet, um die Daten, welche vom
+Datenerfassungsystem ermittelt worden sind, aufzuarbeiten. Dies wird benötigt,
+damit Graphite diese für die Visualisierung verwenden kann. Grundsätzlich
+installiert sich mit der Installation von Graphite noch eine
+Whisper\hyp{}Datenbank, welche jedoch durch eine beliebige, wie OpenTSDB oder
+InfluxDB, ausgetauscht werden kann (vgl.~\cite{graphite}).
 
 Zusammenfassung:
 
@@ -2157,12 +2154,11 @@ ein Benutzer und Kennwort benötigt. Ebenfalls besteht die Möglichkeit ein
 \gls{LDAP} an Datadog anbinden zu können. Innerhalb eines Graphen können
 bestimmte Teilabschnitte mit zum Beispiel Soziale Netzwerke, wie Facebook
 geteilt werden. Datadog bietet zudem eventbasierte Mitteilungen, welche vom
-Administrator festgelegt werden können. Datadog hat eine vollständige
-\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
-\glslink{Dashboard}{Dashboards} können vom Administrator exportiert werden.
-Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Auf die
-Community, sowie für den \gls{IRC-Channel}  haben nur Kunden Zuriff, welche
-eine Pro\hyp{}Lizenz gekauft haben (vgl.~\cite{datadog}).
+Administrator festgelegt werden können. Datadog hat eine vollständige \gls{API}
+Unterstützung und \glslink{Dashboard}{Dashboards} können vom Administrator
+exportiert werden. Eine Möglichkeit, Graphen zu exportieren, bietet Datadog
+hier nicht. Auf die Community, sowie für den \gls{IRC-Channel}  haben nur
+Kunden Zuriff, welche eine Pro\hyp{}Lizenz gekauft haben (vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2816,7 +2812,7 @@ Typen von Ressourcen. Die wichtigsten sind:
 
 Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
 Ressource besteht aus drei Teilen (Beispiel unter
-Listing~\ref{lst:puppet-resource}.
+Listing~\ref{lst:puppet-resource}).
 
 Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
