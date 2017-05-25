@@ -753,8 +753,8 @@ unterschieden (vgl.~\cite{collectd_plugins}):
   \1 Binding, ein Metaplugin, welches den Interpreter bestimmter Skriptsprachen
   einbindet. Dies erlaubt es, eigene Plugins in beliebigen Skriptsprachen zu
   schreiben
-  \1 Logging, erlaubt es, collectd interne Fehler und Warnungen in verschiedenen
-  Formen zu speichern und auszugeben
+  \1 Logging, erlaubt es, collectd interne Fehler und Warnungen in
+  verschiedenen Formen zu speichern und auszugeben
 \end{outline}
 
 Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann
@@ -920,16 +920,16 @@ Maschine oder auf einem Hostsystem.
 \begin{center}
 \begin{tabular}{lcccc}
   \toprule
-  Programme           & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  Programme          & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
-  Coreutils           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  atop                & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  zabbix\hyp{}agent   & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  collectd            & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  python\hyp{}diamond & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  sysstat             & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  Logstash            & \~{}             & \~{}      & \~{}        & \~{}     \\
-  Riemann             & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Coreutils          & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  atop               & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  zabbix\hyp{}agent  & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  collectd           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  python\hyp{}diamond & \cmark{}        & \cmark{}  & \cmark{}    & \cmark{} \\
+  sysstat            & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  Logstash           & \~{}             & \~{}      & \~{}        & \~{}     \\
+  Riemann            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   \bottomrule
 \end{tabular}
 \captionof{table}{Ermittlung von lokalen Daten}
@@ -942,16 +942,16 @@ eben diesen selbst zu laufen:
 \begin{center}
 \begin{tabular}{lcccc}
   \toprule
-  Programme           & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  Programme          & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
-  Coreutils           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  atop                & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  zabbix\hyp{}agent   & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  collectd            & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  python\hyp{}diamond & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  sysstat             & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  Logstash            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  Riemann             & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Coreutils          & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  atop               & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  zabbix\hyp{}agent  & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  collectd           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  python\hyp{}diamond & \cmark{}        & \cmark{}  & \cmark{}    & \cmark{} \\
+  sysstat            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Logstash           & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Riemann            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   \bottomrule
 \end{tabular}
 \captionof{table}{Ermittlung von VM Daten}
@@ -1204,18 +1204,19 @@ Cluster\hyp{}System über mehrere Server (Nodes), um ein vollständiges Versagen
 durch den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
 Dateninformationen auf mehrere Server verteilt und verwaltet. Im
-Cassandra\hyp{}Umfeld wird dies über das von dem Hersteller definierte Protokoll
-„gossip“ verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll,
-welches den Austausch von Statusinformationen und Metainformationen zwischen den
-einzelnen Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen
-erstellt, modifiziert oder entfernt werden, erhält ein weiterer Node in der
-Infrastruktur diese Information und baut gleichzeitig eine Replikation des
-Objektes. Diese Replikationen werden von dem Serveradministrator definiert,
-indem dieser den Datenmengen verschiedene \gls{Partitionen} zuteilt. Das
-Cassandra\hyp{}System verteilt jede dieser \gls{Partitionen} an die im Netzwerk
-vorhandenen Nodes in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition
-eins auf dem ersten Node repliziert wird, Partition zwei auf dem zweiten Node
-und immer so weiter, bis das Verfahren den ersten Node wieder erreicht.
+Cassandra\hyp{}Umfeld wird dies über das von dem Hersteller definierte
+Protokoll „gossip“ verwaltet. Es handelt sich dabei um ein
+Kommunikationsprotokoll, welches den Austausch von Statusinformationen und
+Metainformationen zwischen den einzelnen Nodes ermöglicht. Wenn auf einem
+einzelnen Node Dateninformationen erstellt, modifiziert oder entfernt werden,
+erhält ein weiterer Node in der Infrastruktur diese Information und baut
+gleichzeitig eine Replikation des Objektes. Diese Replikationen werden von dem
+Serveradministrator definiert, indem dieser den Datenmengen verschiedene
+\gls{Partitionen} zuteilt. Das Cassandra\hyp{}System verteilt jede dieser
+\gls{Partitionen} an die im Netzwerk vorhandenen Nodes in einer
+\gls{Ringtopologie}. Dies bedeutet, dass Partition eins auf dem ersten Node
+repliziert wird, Partition zwei auf dem zweiten Node und immer so weiter, bis
+das Verfahren den ersten Node wieder erreicht.
 
 In der Shell\hyp{}Ausgabe unter Listing~\ref{lst:cassandra} wird ein während
 der Evaluierungsphase erstelltes Cassandra\hyp{}System dargestellt. Dabei
@@ -1287,8 +1288,8 @@ Vorteile:
 Der aktive Server muss somit nur noch Schreibanfragen beantworten. Das
 Hinzufügen von passiven Nodes oder das Umschwenken der Schreibanfragen auf
 einen von ihnen kann im laufenden Betrieb erfolgen. Die
-Postgres\hyp{}Konfiguration lässt sich zur Laufzeit anpassen, um dem Dienst mehr
-Ressourcen des physischen Hosts zuzuweisen.
+Postgres\hyp{}Konfiguration lässt sich zur Laufzeit anpassen, um dem Dienst
+mehr Ressourcen des physischen Hosts zuzuweisen.
 
 Mit den Erweiterungen \gls{Pgpool-II} und \gls{Postgres-XC} kann ebenfalls ein
 hochverfügbarer Betrieb realisiert werden. Außerdem ermöglichen sie eine
@@ -1447,8 +1448,8 @@ nochmals fachlich aufzubereiten.
 
 \subsubsection{Beschreibung Impala}
 \label{subsubsec:impala_beschreibung}
-Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und nutzt
-die im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
+Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und
+nutzt die im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop\hyp{}System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop\hyp{}Landschaft wird es unter dem Begriff
@@ -1591,7 +1592,8 @@ der Informationen auf dem Datenhaltungssystem bereits Datenanpassungen
 vorgenommen werden. Diese Anpassungen können zum Beispiel Funktionen, wie das
 anonymisieren oder pseudonymisieren sein. Die \gls{API} kann jedoch auch zum
 Beispiel die Daten vor der Auslieferung beliebig anpassen und somit auf ein
-weiteres System optimal zuschneiden, ohne dabei die Ursprungsdaten zu verändern.
+weiteres System optimal zuschneiden, ohne dabei die Ursprungsdaten zu
+verändern.
 \nl%
 
 \subsection{Vorbereitung der Evaluierung}
@@ -1678,18 +1680,19 @@ Bei der Evaluierung der \gls{API}\hyp{}Systeme wurden die im
 Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der \gls{API} als Leitlinie für die Durchführung verwendet. Als
 ersten Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
-allgemeinen Eindruck über die aktuelle Marktsituation zu \gls{API}\hyp{}Systemen
-erhält. Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
-Fachzeitschriften gelesen. Die dort angesprochenen \gls{API}\hyp{}Systeme wurden
-anschließend mit den bereits definierten Anforderungen abgeglichen und
-aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten
-\gls{API}\hyp{}Systeme von Cloudprovidern nur in bereits vorkonfigurierten
-Paketen mit einem monatlichen Festpreis angeboten werden. Beides ist ein
-absolutes Ausschlusskriterium für den späteren Produktivbetrieb sowie Nutzung
-der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine eigene
-Definition von Funktionen komplett verboten. Lediglich ein einzelner
-Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene
-\gls{API}\hyp{}System in Hinsischt der Funktionen modifizieren durften.
+allgemeinen Eindruck über die aktuelle Marktsituation zu
+\gls{API}\hyp{}Systemen erhält. Dabei wurden im Internet mehrere Blogs, Foren
+sowie Artikel von Fachzeitschriften gelesen. Die dort angesprochenen
+\gls{API}\hyp{}Systeme wurden anschließend mit den bereits definierten
+Anforderungen abgeglichen und aussortiert. Dabei stellten die Projektmitglieder
+fest, dass die meisten \gls{API}\hyp{}Systeme von Cloudprovidern nur in bereits
+vorkonfigurierten Paketen mit einem monatlichen Festpreis angeboten werden.
+Beides ist ein absolutes Ausschlusskriterium für den späteren Produktivbetrieb
+sowie Nutzung der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen
+eine eigene Definition von Funktionen komplett verboten. Lediglich ein
+einzelner Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das
+betriebene \gls{API}\hyp{}System in Hinsischt der Funktionen modifizieren
+durften.
 
 Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
 für ein \gls{API}\hyp{}System mit dem Namen „Swagger“ entschieden. Es ist
@@ -1710,7 +1713,7 @@ von dem Projektteam aus der Bewertung ausgeschlossen.
 \begin{center}
 \begin{tabular}{lccccc}
   \toprule
-  System           & Modifizierbar & Doku  & Wissen  & Abhängigkeit  & Gesamt \\
+  System          & Modifizierbar & Doku  & Wissen  & Abhängigkeit  & Gesamt \\
   \midrule
   Swagger             & 10            & 9     & 10      & 10            & 39 \\
   RAML                & 10            & 8     & 7       & 10            & 35 \\
@@ -2607,17 +2610,17 @@ kommunizieren. Für jede Datenbank mit der kommuniziert werden soll, wird ein
 bestimmten \gls{DBMS} für die \gls{JDBC}\@. Er kommuniziert auf der einen Seite
 mit dem \gls{DBMS} und auf der anderen Seite mit der \gls{JDBC}\@. Für Logstash
 gibt es ein Plugin, welches die \gls{JDBC}\hyp{}Schnittstelle innerhalb des
-JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage, in eine Datenbank
-zu schreiben. Hierfür musste ausschließlich die Kommunikation mit der
+JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage, in eine
+Datenbank zu schreiben. Hierfür musste ausschließlich die Kommunikation mit der
 \gls{JDBC} programmiert werden. Postgres bietet einen \gls{Treiber} für
 \gls{JDBC} an (vgl.~\cite{postgres-jdbc}).
 \tm%
 
 \subsection{JDBC Treiber Typen}
-Es gibt vier verschiedene Typen von \gls{JDBC}\hyp{}\glslink{Treiber}{Treibern}.
-Typ vier ist besonders effizient, dieser wird auch von den Postgres Entwicklern
-bereitgestellt. Im Folgenden sind die einzelnen Typen erklärt
-(vgl.~\cite{jdbc-types}).
+Es gibt vier verschiedene Typen von
+\gls{JDBC}\hyp{}\glslink{Treiber}{Treibern}. Typ vier ist besonders effizient,
+dieser wird auch von den Postgres Entwicklern bereitgestellt. Im Folgenden sind
+die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
 \tm%
 
 \subsection{JDBC-ODBC Treiber}
@@ -2703,12 +2706,12 @@ Die Nachteile sind:
 \tm%
 
 \subsection{Nativer JDBC-Treiber}
-Hier liefern die Datenbankentwickler einen nativen \gls{Treiber}. Dies bedeutet,
-dass er komplett in Java geschrieben ist. Er wird beim Starten der Applikation
-geladen und erlaubt es der \gls{JDBC}\hyp{}Schnittstelle, direkt mit der
-Datenbank zu kommunizieren. Es werden keine weiteren Bibliotheken benötigt. Die
-Datenbank kann auf dem gleichen System wie die Applikation laufen oder auch
-über das Netzwerk angesprochen werden.
+Hier liefern die Datenbankentwickler einen nativen \gls{Treiber}. Dies
+bedeutet, dass er komplett in Java geschrieben ist. Er wird beim Starten der
+Applikation geladen und erlaubt es der \gls{JDBC}\hyp{}Schnittstelle, direkt
+mit der Datenbank zu kommunizieren. Es werden keine weiteren Bibliotheken
+benötigt. Die Datenbank kann auf dem gleichen System wie die Applikation laufen
+oder auch über das Netzwerk angesprochen werden.
 
 Die Vorteile sind:
 
