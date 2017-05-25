@@ -425,17 +425,14 @@ Wenn ein Mitglied einen besonderen Fortschritt im Projekt erzielt hat, wird
 dieser kurz präsentiert (Review). Hierbei wird keine vollständige Präsentation
 mit Folien erwartet, sondern eine kurze Erklärung der erledigten Arbeit mit
 einer Demonstration. Jedes Projektmitglied darf selbstständig entscheiden, ob
-es seine Arbeit hier präsentiert.
-
-Review und Retrospective werden oft als „R \& R“ abgekürzt.
-
-Am Ende jedes Sprints erfolgt die Planung für den kommenden Sprint (Planning).
-Es wird überlegt, welche Arbeit erledigt werden muss, danach erfolgt die
-ungefähre Schätzung des Zeitaufwandes. Für jede Aufgabe wird ein Ticket in der
-Projektmanagementsoftware erstellt. Das Projektteam hat sich für „JIRA“
-entschieden, da dies aktuell am verbreitetsten in der Wirtschaft ist. Neue
-Featurewünsche werden als Userstory angelegt. Dies ist ein Ticket in dem aus
-Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
+es seine Arbeit hier präsentiert. Review und Retrospective werden oft als „R \&
+R“ abgekürzt.Am Ende jedes Sprints erfolgt die Planung für den kommenden Sprint
+(Planning). Es wird überlegt, welche Arbeit erledigt werden muss, danach
+erfolgt die ungefähre Schätzung des Zeitaufwandes. Für jede Aufgabe wird ein
+Ticket in der Projektmanagementsoftware erstellt. Das Projektteam hat sich für
+„JIRA“ entschieden, da dies aktuell am verbreitetsten in der Wirtschaft ist.
+Neue Featurewünsche werden als Userstory angelegt. Dies ist ein Ticket in dem
+aus Sicht der anfragenden Person ihr Wunsch beschrieben ist. Für wichtige
 Ereignisse werden Meilensteine festgelegt. Jeder darf neue Tickets zu jeder
 Zeit anlegen. Diese landen dann im \gls{Backlog}. Dies ist der Sammelbegriff
 für ausstehende Tickets, welche keinem Sprint zugeordnet sind. Es wird nicht an
@@ -753,8 +750,8 @@ unterschieden (vgl.~\cite{collectd_plugins}):
   \1 Binding, ein Metaplugin, welches den Interpreter bestimmter Skriptsprachen
   einbindet. Dies erlaubt es, eigene Plugins in beliebigen Skriptsprachen zu
   schreiben
-  \1 Logging, erlaubt es, collectd interne Fehler und Warnungen in verschiedenen
-  Formen zu speichern und auszugeben
+  \1 Logging, erlaubt es, collectd interne Fehler und Warnungen in
+  verschiedenen Formen zu speichern und auszugeben
 \end{outline}
 
 Das Sammeln aller benötigter Daten wird von collectd unterstützt. Es kann
@@ -920,16 +917,16 @@ Maschine oder auf einem Hostsystem.
 \begin{center}
 \begin{tabular}{lcccc}
   \toprule
-  Programme           & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  Programme          & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
-  Coreutils           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  atop                & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  zabbix\hyp{}agent   & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  collectd            & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  python\hyp{}diamond & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  sysstat             & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  Logstash            & \~{}             & \~{}      & \~{}        & \~{}     \\
-  Riemann             & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Coreutils          & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  atop               & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  zabbix\hyp{}agent  & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  collectd           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  python\hyp{}diamond & \cmark{}        & \cmark{}  & \cmark{}    & \cmark{} \\
+  sysstat            & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  Logstash           & \~{}             & \~{}      & \~{}        & \~{}     \\
+  Riemann            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   \bottomrule
 \end{tabular}
 \captionof{table}{Ermittlung von lokalen Daten}
@@ -942,16 +939,16 @@ eben diesen selbst zu laufen:
 \begin{center}
 \begin{tabular}{lcccc}
   \toprule
-  Programme           & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
+  Programme          & Zugewiesener RAM & CPU Kerne & Datenträger & Netzwerk \\
   \midrule
-  Coreutils           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  atop                & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  zabbix\hyp{}agent   & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  collectd            & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  python\hyp{}diamond & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
-  sysstat             & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  Logstash            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
-  Riemann             & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Coreutils          & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  atop               & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  zabbix\hyp{}agent  & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  collectd           & \cmark{}         & \cmark{}  & \cmark{}    & \cmark{} \\
+  python\hyp{}diamond & \cmark{}        & \cmark{}  & \cmark{}    & \cmark{} \\
+  sysstat            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Logstash           & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
+  Riemann            & \xmark{}         & \xmark{}  & \xmark{}    & \xmark{} \\
   \bottomrule
 \end{tabular}
 \captionof{table}{Ermittlung von VM Daten}
@@ -1204,18 +1201,19 @@ Cluster\hyp{}System über mehrere Server (Nodes), um ein vollständiges Versagen
 durch den Ausfall von Hardwarekomponenten oder Softwareteilen auf dem System zu
 verhindern. Dazu wird ein \gls{Peer-to-Peer} Verfahren verwendet, welches die
 Dateninformationen auf mehrere Server verteilt und verwaltet. Im
-Cassandra\hyp{}Umfeld wird dies über das von dem Hersteller definierte Protokoll
-„gossip“ verwaltet. Es handelt sich dabei um ein Kommunikationsprotokoll,
-welches den Austausch von Statusinformationen und Metainformationen zwischen den
-einzelnen Nodes ermöglicht. Wenn auf einem einzelnen Node Dateninformationen
-erstellt, modifiziert oder entfernt werden, erhält ein weiterer Node in der
-Infrastruktur diese Information und baut gleichzeitig eine Replikation des
-Objektes. Diese Replikationen werden von dem Serveradministrator definiert,
-indem dieser den Datenmengen verschiedene \gls{Partitionen} zuteilt. Das
-Cassandra\hyp{}System verteilt jede dieser \gls{Partitionen} an die im Netzwerk
-vorhandenen Nodes in einer \gls{Ringtopologie}. Dies bedeutet, dass Partition
-eins auf dem ersten Node repliziert wird, Partition zwei auf dem zweiten Node
-und immer so weiter, bis das Verfahren den ersten Node wieder erreicht.
+Cassandra\hyp{}Umfeld wird dies über das von dem Hersteller definierte
+Protokoll „gossip“ verwaltet. Es handelt sich dabei um ein
+Kommunikationsprotokoll, welches den Austausch von Statusinformationen und
+Metainformationen zwischen den einzelnen Nodes ermöglicht. Wenn auf einem
+einzelnen Node Dateninformationen erstellt, modifiziert oder entfernt werden,
+erhält ein weiterer Node in der Infrastruktur diese Information und baut
+gleichzeitig eine Replikation des Objektes. Diese Replikationen werden von dem
+Serveradministrator definiert, indem dieser den Datenmengen verschiedene
+\gls{Partitionen} zuteilt. Das Cassandra\hyp{}System verteilt jede dieser
+\gls{Partitionen} an die im Netzwerk vorhandenen Nodes in einer
+\gls{Ringtopologie}. Dies bedeutet, dass Partition eins auf dem ersten Node
+repliziert wird, Partition zwei auf dem zweiten Node und immer so weiter, bis
+das Verfahren den ersten Node wieder erreicht.
 
 In der Shell\hyp{}Ausgabe unter Listing~\ref{lst:cassandra} wird ein während
 der Evaluierungsphase erstelltes Cassandra\hyp{}System dargestellt. Dabei
@@ -1287,8 +1285,8 @@ Vorteile:
 Der aktive Server muss somit nur noch Schreibanfragen beantworten. Das
 Hinzufügen von passiven Nodes oder das Umschwenken der Schreibanfragen auf
 einen von ihnen kann im laufenden Betrieb erfolgen. Die
-Postgres\hyp{}Konfiguration lässt sich zur Laufzeit anpassen, um dem Dienst mehr
-Ressourcen des physischen Hosts zuzuweisen.
+Postgres\hyp{}Konfiguration lässt sich zur Laufzeit anpassen, um dem Dienst
+mehr Ressourcen des physischen Hosts zuzuweisen.
 
 Mit den Erweiterungen \gls{Pgpool-II} und \gls{Postgres-XC} kann ebenfalls ein
 hochverfügbarer Betrieb realisiert werden. Außerdem ermöglichen sie eine
@@ -1447,8 +1445,8 @@ nochmals fachlich aufzubereiten.
 
 \subsubsection{Beschreibung Impala}
 \label{subsubsec:impala_beschreibung}
-Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und nutzt
-die im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
+Das Apache\hyp{}Impala\hyp{}System ist eine Hadoop basierende Software und
+nutzt die im Abschnitt „Hadoop / Hive / Impala“ erläuterteten Schnittstellten
 für den Datenzugriff. Es führt dabei eine spezialisierte Aufgabe auf dem
 Hadoop\hyp{}System aus und fällt somit nicht unter ein eigenständiges
 Datenhaltungssystem. In der Hadoop\hyp{}Landschaft wird es unter dem Begriff
@@ -1591,7 +1589,8 @@ der Informationen auf dem Datenhaltungssystem bereits Datenanpassungen
 vorgenommen werden. Diese Anpassungen können zum Beispiel Funktionen, wie das
 anonymisieren oder pseudonymisieren sein. Die \gls{API} kann jedoch auch zum
 Beispiel die Daten vor der Auslieferung beliebig anpassen und somit auf ein
-weiteres System optimal zuschneiden, ohne dabei die Ursprungsdaten zu verändern.
+weiteres System optimal zuschneiden, ohne dabei die Ursprungsdaten zu
+verändern.
 \nl%
 
 \subsection{Vorbereitung der Evaluierung}
@@ -1678,18 +1677,19 @@ Bei der Evaluierung der \gls{API}\hyp{}Systeme wurden die im
 Abschnitt~\ref{subsec:api_vorbereitung_der_evaluierung} festgehaltenen
 Anforderungen der \gls{API} als Leitlinie für die Durchführung verwendet. Als
 ersten Schritt wurde zunächst Recherche betrieben, damit das Projektteam einen
-allgemeinen Eindruck über die aktuelle Marktsituation zu \gls{API}\hyp{}Systemen
-erhält. Dabei wurden im Internet mehrere Blogs, Foren sowie Artikel von
-Fachzeitschriften gelesen. Die dort angesprochenen \gls{API}\hyp{}Systeme wurden
-anschließend mit den bereits definierten Anforderungen abgeglichen und
-aussortiert. Dabei stellten die Projektmitglieder fest, dass die meisten
-\gls{API}\hyp{}Systeme von Cloudprovidern nur in bereits vorkonfigurierten
-Paketen mit einem monatlichen Festpreis angeboten werden. Beides ist ein
-absolutes Ausschlusskriterium für den späteren Produktivbetrieb sowie Nutzung
-der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen eine eigene
-Definition von Funktionen komplett verboten. Lediglich ein einzelner
-Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das betriebene
-\gls{API}\hyp{}System in Hinsischt der Funktionen modifizieren durften.
+allgemeinen Eindruck über die aktuelle Marktsituation zu
+\gls{API}\hyp{}Systemen erhält. Dabei wurden im Internet mehrere Blogs, Foren
+sowie Artikel von Fachzeitschriften gelesen. Die dort angesprochenen
+\gls{API}\hyp{}Systeme wurden anschließend mit den bereits definierten
+Anforderungen abgeglichen und aussortiert. Dabei stellten die Projektmitglieder
+fest, dass die meisten \gls{API}\hyp{}Systeme von Cloudprovidern nur in bereits
+vorkonfigurierten Paketen mit einem monatlichen Festpreis angeboten werden.
+Beides ist ein absolutes Ausschlusskriterium für den späteren Produktivbetrieb
+sowie Nutzung der Software. Ebenfalls wurde bei den vorkonfigurierten Paketen
+eine eigene Definition von Funktionen komplett verboten. Lediglich ein
+einzelner Cloudprovider hatte ein Angebotsmodel, bei dem die Kunden das
+betriebene \gls{API}\hyp{}System in Hinsischt der Funktionen modifizieren
+durften.
 
 Aufgrund dieser Erkentnisse hat sich das Projektteam während der Evaluierung
 für ein \gls{API}\hyp{}System mit dem Namen „Swagger“ entschieden. Es ist
@@ -1710,7 +1710,7 @@ von dem Projektteam aus der Bewertung ausgeschlossen.
 \begin{center}
 \begin{tabular}{lccccc}
   \toprule
-  System           & Modifizierbar & Doku  & Wissen  & Abhängigkeit  & Gesamt \\
+  System          & Modifizierbar & Doku  & Wissen  & Abhängigkeit  & Gesamt \\
   \midrule
   Swagger             & 10            & 9     & 10      & 10            & 39 \\
   RAML                & 10            & 8     & 7       & 10            & 35 \\
@@ -1838,6 +1838,7 @@ bestimmten Zeitraum verwendet. Diese werden über die Metrik aus dem
 Datenhaltungssystem abgegriffen und dem Administrator über eine Übersicht
 angezeigt. Ein Graph\hyp{} beziehungsweise Balkendiagramm visualisiert immer
 eine oder mehrere Timeseries (siehe Abschnitt~\ref{section:Begriffserklärung}).
+\mr%
 
 \subsection{Vorbereitung der Evaluierung}
 \label{subsec:vorbereiten_der_evaluierung_datenvisualisierung}
@@ -1859,7 +1860,7 @@ entnommen werden. Der Oberbegriff definiert jeweils immer die Kategorie zu der
 das Kriterium zugewiesen ist. Folgende Kategorien wurden der Nutzwertanalyse
 hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
 
-\textbf{Kosten}
+\paragraph{Kosten}
 \begin{outline}
   \1 In der Grundanforderung unter Abschnitt~\ref{section:anforderungen} ist
   definiert, dass die zu evaluieriende Softwarelösung eine
@@ -1868,7 +1869,7 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   Kunden anfallen können.
 \end{outline}
 
-\textbf{Sicherheit}
+\paragraph{Sicherheit}
 \begin{outline}
   \1 Um den Zugriff und damit auch die Sicherheit der Webseite zu
   schützen, muss eine Authentisierung, Authentifizierung und Autorisierung
@@ -1888,7 +1889,7 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   sogar löschen unterbunden sind.
 \end{outline}
 
-\textbf{Skalierung}
+\paragraph{Skalierung}
 \begin{outline}
   \1 Die Datenvisualisierung muss eine Plugin\hyp{}Erweiterung unterstützen. Es
   dient dazu, dass im späteren Verlauf, wenn das Produkt bereits beim Kunden
@@ -1905,7 +1906,7 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   Projekt haben.
 \end{outline}
 
-\textbf{Performance}
+\paragraph{Performance}
 \begin{outline}
   \1 Da auf das Datenhaltungssystem nicht nur die Datenvisualisierung zugreift,
   sondern auch die Datenerfassung, um Daten abspeichern zu können, kann es zu
@@ -1917,7 +1918,7 @@ hinzugefüt: Kosten, Sicherheit, Skalierbar, Performance und Dokumentation.
   Anfragen überlastet wird. Ein kurzes Rechenbeispiel soll dies verdeutlichen.
   Acht unterschiedliche Benutzer greifen gleichzeitig auf die
   Datenvisualisierung zu und visualisieren im Fallbeispiel acht Graphen mit
-  unterschiedlichen Werten.Dies sind insgesamt 64 Graphen, welche sekündlich
+  unterschiedlichen Werten. Dies sind insgesamt 64 Graphen, welche sekündlich
   eine Abfrage an das Datenhaltungssystem senden werden.
 \end{outline}
 
@@ -1973,14 +1974,14 @@ kurzen Zusammenfassung, sowie Vor\hyp{} und Nachteile aufgeführt:
 Grafana ist eine von Torkel Ödegaard \& Raintank Inc entwickelte
 Open\hyp{}Source\hyp{}Visualisierungssoftware. Sie bietet neben einfachen
 Visualisierungsgraphen noch weitere Ereignisfunktionen. Um die Anmeldung an der
-Webseite durchführen zu können, kann hier wahlweise die Anmeldung mit
-einem \gls{Active Directory} Konto oder lokalen Benutzer plus
-Kennwortkombination durchgeführt werden. Hinzu können verschiedene
-Berechtigungen vergeben werden. Somit können zum Beispiel Mitarbeiter aus der
-Führungsebene eingeschränkte Zugriffe auf das System erhalten, um hier zum
-Beispiel Analysen durchführen zu können. Grafana arbeitet mit fast jedem
-Timeseries Datenhaltungssystem, wie z.B. InfluxDB zusammen. Zusätzlich kann es
-über Plugins erweitert werden. Damit Grafana \gls{API} Systeme (siehe auch
+Webseite durchführen zu können, kann hier wahlweise die Anmeldung mit einem
+\gls{Active Directory} Konto oder lokalen Benutzer plus Kennwortkombination
+durchgeführt werden. Hinzu können verschiedene Berechtigungen vergeben werden.
+Somit können zum Beispiel Mitarbeiter aus der Führungsebene eingeschränkte
+Zugriffe auf das System erhalten, um hier zum Beispiel Analysen durchführen zu
+können. Grafana arbeitet mit fast jedem Timeseries Datenhaltungssystem, wie
+z.B. InfluxDB zusammen. Zusätzlich kann es über Plugins erweitert werden. Damit
+Grafana \gls{API} Systeme (siehe auch
 Abschnitt~\ref{sec:schnittstelle_datenbereitstellung}) ansprechen kann, wird
 hier ein solches Plugin benötigt. Plugins werden zur Erweiterung der Software
 in der Programmiersprache Java entwickelt und installiert. Diese werden zum
@@ -1990,15 +1991,14 @@ Datenhaltungssystem \gls{API} \glslink{Statement}{Statements} zur Verfügung
 stellen kann und hiermit Graphen visualisieren kann. Grafana kann über einen
 \gls{Datenbanktreiber} oder eine Schnittstelle in Form eines
 \glslink{Treiber}{Treibers} einfache \glslink{Statement}{Statements} auf das
-Datenhaltungssystem durchführen, um die Daten abzugreifen.
-Es ist zusätzlich eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode
-angepasst und verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen
-an bestimmte Kundenumgebungen. Dadurch entstehen keine
-Support\hyp{}Kosten, da die Software nicht als ein Dienst angeboten wird.
-Grafana hat eine stetig wachsende Community mit sämtlichen Dokumenten zur
-Einrichtung oder Erweiterung des Systems. Der gesamte Quellcode ist auf
-\gls{GitHub} veröffentlicht, somit haben auch andere Mitglieder von
-\gls{GitHub} die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
+Datenhaltungssystem durchführen, um die Daten abzugreifen.  Es ist zusätzlich
+eine Open\hyp{}Source\hyp{}Software, wodurch der Quellcode angepasst und
+verändert werden darf. Dies bedarf zum Beispiel bei Anpassungen an bestimmte
+Kundenumgebungen. Dadurch entstehen keine Support\hyp{}Kosten, da die Software
+nicht als ein Dienst angeboten wird.  Grafana hat eine stetig wachsende
+Community mit sämtlichen Dokumenten zur Einrichtung oder Erweiterung des
+Systems. Der gesamte Quellcode ist auf \gls{GitHub} veröffentlicht, somit hat
+jeder die Möglichkeit, das Produkt zu verbessern und neue Funktionen zu
 implementieren. Die vom Anwender erstellten \glslink{Dashboard}{Dashboards} mit
 allen Graphen und \glslink{Statement}{Statements} können vom System, wie auch
 vom Anwender selbst, auf einen externen Dateifreigabeserver oder lokal
@@ -2038,26 +2038,24 @@ Open\hyp{}Source\hyp{}Lösung und ermöglicht es dem Anwender, die Software
 bearbeiten und anpassen zu können. Es verfügt über eine inhaltlich gute und
 umfangreiche Community mit einem eigenem Wiki\hyp{}Board, wo alle relevanten
 Dokumentationen enthalten sind. Graphen können leicht mittels
-\glslink{Statement}{Statements} über eine
-\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Datenabfrage oder
+\glslink{Statement}{Statements} über eine \gls{API}\hyp{}Datenabfrage oder
 direkt an das Datenhaltungssystem durchgeführt werden. Eine Anmeldung an der
 WebOberfläche mittels Benutzername und Kennwort oder \gls{LDAP} Anbindung ist
 ebenfalls möglich. Es können einzelne Graphen, wie auch das gesamte
 \gls{Dashboard}, auf externe Server oder lokal abgespeichert werden, um einem
 Verlust von einzelnen Graphen vorbeugen zu können. Graphite ist, wie auch
-Grafana~\ref{subsubsec:grafana}, kompatibel zu Timeseries
-Datenhaltungssystemen. Es bietet keine einfache Möglichkeit, weitere Plugins
-hinzufügen zu können, wie es beispielsweise Grafana~\ref{subsubsec:grafana}
-kann. Hierzu muss der Quellcode von Graphite massiv angepasst werden, wodurch
-gute Kenntniss der einzelnen Dienste erforderlich sind. Graphite ist ein
-System, welches aus mehreren Diensten besteht. Der Graphite\hyp{}Webdienst ist
-für die Anzeige der Webseite zuständig. Der \gls{Carbon}\hyp{}Cache\hyp{}Dienst
-wird verwendet, um die Daten, welche vom Datenerfassungsystem ermittelt worden
-sind, aufzuarbeiten. Dies wird benötigt, damit Graphite diese für die
-Visualisierung verwenden kann. Grundsätzlich installiert sich mit der
-Installation von Graphite noch eine Whisper\hyp{}Datenbank, welche jedoch durch
-eine beliebige, wie OpenTSDB~\ref{subsubsec:opentsdb} oder InfluxDB,
-ausgetauscht werden kann (vgl.~\cite{graphite}).
+Grafana, kompatibel zu Timeseries Datenhaltungssystemen. Es bietet keine
+einfache Möglichkeit, weitere Plugins hinzufügen zu können, wie es
+beispielsweise Grafana kann. Hierzu muss der Quellcode von Graphite massiv
+angepasst werden, wodurch gute Kenntniss der einzelnen Dienste erforderlich
+sind. Graphite ist ein System, welches aus mehreren Diensten besteht. Der
+Graphite\hyp{}Webdienst ist für die Anzeige der Webseite zuständig. Der
+\gls{Carbon}\hyp{}Cache\hyp{}Dienst wird verwendet, um die Daten, welche vom
+Datenerfassungsystem ermittelt worden sind, aufzuarbeiten. Dies wird benötigt,
+damit Graphite diese für die Visualisierung verwenden kann. Grundsätzlich
+installiert sich mit der Installation von Graphite noch eine
+Whisper\hyp{}Datenbank, welche jedoch durch eine beliebige, wie OpenTSDB oder
+InfluxDB, ausgetauscht werden kann (vgl.~\cite{graphite}).
 
 Zusammenfassung:
 
@@ -2156,12 +2154,11 @@ ein Benutzer und Kennwort benötigt. Ebenfalls besteht die Möglichkeit ein
 \gls{LDAP} an Datadog anbinden zu können. Innerhalb eines Graphen können
 bestimmte Teilabschnitte mit zum Beispiel Soziale Netzwerke, wie Facebook
 geteilt werden. Datadog bietet zudem eventbasierte Mitteilungen, welche vom
-Administrator festgelegt werden können. Datadog hat eine vollständige
-\gls{API}~\ref{sec:schnittstelle_datenbereitstellung} Unterstützung und
-\glslink{Dashboard}{Dashboards} können vom Administrator exportiert werden.
-Eine Möglichkeit, Graphen zu exportieren, bietet Datadog hier nicht. Auf die
-Community, sowie für den \gls{IRC-Channel}  haben nur Kunden Zuriff, welche
-eine Pro\hyp{}Lizenz gekauft haben (vgl.~\cite{datadog}).
+Administrator festgelegt werden können. Datadog hat eine vollständige \gls{API}
+Unterstützung und \glslink{Dashboard}{Dashboards} können vom Administrator
+exportiert werden. Eine Möglichkeit, Graphen zu exportieren, bietet Datadog
+hier nicht. Auf die Community, sowie für den \gls{IRC-Channel}  haben nur
+Kunden Zuriff, welche eine Pro\hyp{}Lizenz gekauft haben (vgl.~\cite{datadog}).
 
 Zusammenfassung:
 
@@ -2199,6 +2196,7 @@ entwickelt worden ist, individuell anpassen zu können
 
 Somit fällt Gridster\hyp{}D3, da es sich hierbei nicht um eine
 Visualisierungssoftware handelt, aus der weiteren Evaluierung heraus.
+\mr%
 
 \subsubsection{Netdata}
 \label{subsubsec:netdata}
@@ -2607,17 +2605,17 @@ kommunizieren. Für jede Datenbank mit der kommuniziert werden soll, wird ein
 bestimmten \gls{DBMS} für die \gls{JDBC}\@. Er kommuniziert auf der einen Seite
 mit dem \gls{DBMS} und auf der anderen Seite mit der \gls{JDBC}\@. Für Logstash
 gibt es ein Plugin, welches die \gls{JDBC}\hyp{}Schnittstelle innerhalb des
-JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage, in eine Datenbank
-zu schreiben. Hierfür musste ausschließlich die Kommunikation mit der
+JRuby Bytecodes nutzbar macht. Somit ist Logstash in der Lage, in eine
+Datenbank zu schreiben. Hierfür musste ausschließlich die Kommunikation mit der
 \gls{JDBC} programmiert werden. Postgres bietet einen \gls{Treiber} für
 \gls{JDBC} an (vgl.~\cite{postgres-jdbc}).
 \tm%
 
 \subsection{JDBC Treiber Typen}
-Es gibt vier verschiedene Typen von \gls{JDBC}\hyp{}\glslink{Treiber}{Treibern}.
-Typ vier ist besonders effizient, dieser wird auch von den Postgres Entwicklern
-bereitgestellt. Im Folgenden sind die einzelnen Typen erklärt
-(vgl.~\cite{jdbc-types}).
+Es gibt vier verschiedene Typen von
+\gls{JDBC}\hyp{}\glslink{Treiber}{Treibern}. Typ vier ist besonders effizient,
+dieser wird auch von den Postgres Entwicklern bereitgestellt. Im Folgenden sind
+die einzelnen Typen erklärt (vgl.~\cite{jdbc-types}).
 \tm%
 
 \subsection{JDBC-ODBC Treiber}
@@ -2703,12 +2701,12 @@ Die Nachteile sind:
 \tm%
 
 \subsection{Nativer JDBC-Treiber}
-Hier liefern die Datenbankentwickler einen nativen \gls{Treiber}. Dies bedeutet, dass
-er komplett in Java geschrieben ist. Er wird beim Starten der Applikation
-geladen und erlaubt es der \gls{JDBC}\hyp{}Schnittstelle, direkt mit der
-Datenbank zu kommunizieren. Es werden keine weiteren Bibliotheken benötigt. Die
-Datenbank kann auf dem gleichen System wie die Applikation laufen oder auch
-über das Netzwerk angesprochen werden.
+Hier liefern die Datenbankentwickler einen nativen \gls{Treiber}. Dies
+bedeutet, dass er komplett in Java geschrieben ist. Er wird beim Starten der
+Applikation geladen und erlaubt es der \gls{JDBC}\hyp{}Schnittstelle, direkt
+mit der Datenbank zu kommunizieren. Es werden keine weiteren Bibliotheken
+benötigt. Die Datenbank kann auf dem gleichen System wie die Applikation laufen
+oder auch über das Netzwerk angesprochen werden.
 
 Die Vorteile sind:
 
@@ -2814,7 +2812,7 @@ Typen von Ressourcen. Die wichtigsten sind:
 
 Eine einzelne Ressource benötigt nur sehr wenig Code. Jede Deklaration einer
 Ressource besteht aus drei Teilen (Beispiel unter
-Listing~\ref{lst:puppet-resource}.
+Listing~\ref{lst:puppet-resource}).
 
 Erst wird der Typ genannt, in diesem Fall \texttt{package}. Darauf folgt ein
 Name für die Deklaration und zum Schluss eine Liste an Parametern. Der Name der
@@ -2881,9 +2879,9 @@ ausgestattet. Ersterer ist der Administrator, oder auch root genannt, welcher
 nur genutzt wird um Änderungen (Abschnitt~\ref{subsec:postgres_partition}) am
 System vorzunehmen. Mit diesem werden ebenfalls die Zugriffsrechte der
 einzelnen Nutzer geregelt. Der zweite Nutzer besitzt die Berechtigungen in
-einem definierten Bereich innerhalb des Postgres\hyp{}Systems die
-Daten und dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die
-Prozesse aus Abschnitt~\ref{subsec:postgres_etl} und
+einem definierten Bereich innerhalb des Postgres\hyp{}Systems die Daten und
+dessen Struktur zu managen. Mit diesem Benutzer wurden z.B. die Prozesse aus
+Abschnitt~\ref{subsec:postgres_etl} und
 Abschnitt~\ref{subsec:postgres_datenschutz} durchgeführt. Dritter Nutzer wird
 von dem in Abschnitt~\ref{sec:api_system} definierten \gls{API}\hyp{}System
 verwendet. Dieser besitzt keine direkten Lese\hyp{} oder Schreibrechte auf die
@@ -2901,25 +2899,25 @@ Teammitglieder an den Inhalten der Datenbank arbeiten.
 
 \subsection{ETL}
 \label{subsec:postgres_etl}
-Durch das fehlschlagen der Anbindung eines Message Busses an die Datenerfassung
+Durch das Fehlschlagen der Anbindung eines Message Busses an die Datenerfassung
 musste eine alternative Möglichkeit der Informationsintegration zwischen der
 Datenhaltung und Datenerfassung entwickelt werden. Dazu wurde ein vollständig
 eigener Extraktions-, Transformations- und Lade-Prozess (ETL) in das System
 implementiert. Die konkrete Umsetzung erfolgte durch das Hinzufügen von einem
-eigenem Arbeitsbereich zwischen der Datenquelle und der Zieldatenbank.
+eigenen Arbeitsbereich zwischen der Datenquelle und der Zieldatenbank.
 
 Dabei findet der Extraktions\hyp{}Teil zwischen dem erstellten Arbeitsbereich
 und der Datenquelle statt. Es werden dabei die neuen Daten in ein allgemeines
 Datenobjekt eingefügt und kurzzeitig zwischengespeichert. Dieses Datenobjekt
-hat dabei keinerlei Anforderungen an die gelieferten Daten, und nimmt sie
+hat dabei keinerlei Anforderungen an die gelieferten Daten und nimmt sie
 zunächst einfach auf, sodass diese nicht verloren gehen. Sollten dabei Daten
 nicht vollständig übermittelt werden oder während der Übertragung die
 Datenquelle ausfallen, beziehungsweise andere Fehler entstehen, ist dies
 zunächst für den eigentlichen Wirkbetrieb, also das Halten der vollständigen
-Daten und dem Ausliefern der Daten an andere Systeme/\gls{API}, nicht relevant.
-Durch die Trennung der Systeme, beziehungsweise den einzelnen Aufgabenfeldern,
-ist nur der Verlust von neuen Daten das größte Risiko. Ein Systemabsturz durch
-dauerhafte Fehler beim Datenschreiben ist somit vermieden.
+Daten und das Ausliefern der Daten an andere Systeme/\glslink{API}{APIs}, nicht
+relevant.  Durch die Trennung der Systeme, beziehungsweise die einzelnen
+Aufgabenfelder, ist nur der Verlust von neuen Daten das größte Risiko. Ein
+Systemabsturz durch dauerhafte Fehler beim Datenschreiben ist somit vermieden.
 
 Sollten nun Daten in dem genannten allgemeinen Datenobjekt vorhanden sein,
 beginnt der Transformations\hyp{}Teil. Dabei greift ein weiterer Algorithmus
@@ -2930,9 +2928,9 @@ Definition von allen in dem Datenhaltsungssystem vorhandenen Daten zu besitzen.
 Er wird entsprechend als Dokumentationsbasis genutzt, sodass ein Nutzer genau
 nachvollziehen kann, in welcher Struktur und an welchem Ort die Daten in dem
 Datenhaltsungssystem abgespeichert sind. Gleichzeitig besitzt das Projektteam
-und der spätere Administrator im Wirkbetrieb die Möglichkeit den Dateninput
+und der spätere Administrator im Wirkbetrieb die Möglichkeit, den Dateninput
 über den ETL\hyp{}Prozess zu kontrollieren. Darüber können zum Beispiel die
-Länge von einzelnen Attributen, oder der Datentyp angepasst werden. Es kann
+Länge von einzelnen Attributen oder der Datentyp angepasst werden. Es kann
 jedoch sogar tiefer ins Detail gegangen werden und der genaue Inhalt eines
 Attributes bestimmt werden. Ist ein solches \gls{Repositorium} definiert,
 greift der Transformations\hyp{}Algorithmus darauf zu und püft die neuen Daten
@@ -2972,7 +2970,7 @@ diesen Teil besitzt die Postgres Datenbank bereits vorhandene Frameworks,
 welche von dem Projektteam genutzt werden. Somit muss das Management der
 Prozessabarbeitung innerhalb des Datenhaltsungssystem nicht selber entwickelt,
 sondern nur eingebunden werden. Desweiteren prüft der Lade\hyp{}Teil, ob eine
-in dem Abschnitt\ref{subsec:postgres_partition} erläuterte Partionierung
+in dem Abschnitt~\ref{subsec:postgres_partition} erläuterte Partionierung
 existiert. Sollte dies nicht der Fall sein, so wird vor dem eigentlichen
 Einfügen der Daten, eine neue Partition angelegt und der Haupttabelle
 mitgeteilt.
@@ -2980,28 +2978,28 @@ mitgeteilt.
 
 \subsection{Repositorium}
 \label{subsec:postgres_repositorium}
-Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz welcher
+Der im Abschnitt~\ref{subsec:postgres_etl} angesprochene Metadatensatz, welcher
 in diesem Projekt für die Metric\hyp{}Daten jedes virtuellen Servers genutzt
 wird, wurde zusammen mit allen Projektmitgliedern definiert und abgesprochen.
-Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es handelt
-sich um die Verwendung von einer einzelnen Datentabelle, welche nur zwei
-Attribute besitzt. Bei beiden Attributen handelt es sich um ein \gls{JSON}
+Dabei wurde sich auf eine spezielle Abspeicherung der Daten geeinigt. Es
+handelt sich um die Verwendung von einer einzelnen Datentabelle, welche nur
+zwei Attribute besitzt. Bei beiden Attributen handelt es sich um ein \gls{JSON}
 Objekt. Ersteres beinhaltet Metadaten zu dem einzelnen Datensatz. Das ist zum
 Beispiel eine generierte ID, um den Datensatz spezifisch selektieren zu können,
-oder die Informationen seit wann der Datensatz in der Datenhaltung existiert,
+oder die Informationen, seit wann der Datensatz in der Datenhaltung existiert,
 beziehungsweise wann und von welchem System angefasst wurde. Zweites \gls{JSON}
 Objekt/Attribut beinhaltet den eigentlichen Datensatz, also die werthaltigen
 Informationen, welche auch später analysiert werden. Die Inhalte des Attributes
-werden klar in dem Metadatensatz definiert. Der Vorteil dieser
-Datenspeicherung ist zum einen die Effizienz des Speicherplatzes sowie
-Geschwindigkeit und zum anderen das Zusammenhalten der zugehörigen
-Informationen. Desweiteren können in diesem Model sehr einfach neue
-Informationen hinzugefügt werden, indem diese in dem Metadatensatz definiert
-werden. Dies ist ein Vorteil der Skalierbarkeit und es müssen anders wie bei
-Datenbanken in der dritten Normalform die voneinander abhängigen Daten nicht in
-jeweils eine eigene Tabelle ausgelagert werden.
+werden klar in dem Metadatensatz definiert. Der Vorteil dieser Datenspeicherung
+ist zum einen die Effizienz des Speicherplatzes sowie Geschwindigkeit und zum
+anderen das Zusammenhalten der zugehörigen Informationen. Des Weiteren können
+in diesem Modell sehr einfach neue Informationen hinzugefügt werden, indem
+diese in dem Metadatensatz definiert werden. Dies ist ein Vorteil der
+Skalierbarkeit und es müssen anders als bei Datenbanken in der dritten
+Normalform die voneinander abhängigen Daten nicht in jeweils eine eigene
+Tabelle ausgelagert werden.
 
-Da sich bei diesem Model die Geschwindigkeit der Datenabfragen mit der Menge
+Da sich bei diesem Modell die Geschwindigkeit der Datenabfragen mit der Menge
 der Daten in einer Tabelle verlangsamt, wird die automatische Partitionierung
 angewandt, welche nachfolgend beschrieben wird.
 \nl%
@@ -3021,8 +3019,8 @@ Kinder\hyp{}Tabellen halten dabei bestimmte definierte Datenbereiche. In diesem
 Prototypen enthält die Kinder\hyp{}Tabelle \texttt{measurement\_xMINUS12Hour}
 nur Datensätze bei denen der Zeitstempel der beinhalteten Daten zwischen dem
 aktuellen Zeitpunkt und dem aktuellen Zeitpunkt minus 12 Stunden liegt. Die
-zweite Kinder\hyp{}Tabelle beinhaltet wiederrum nicht die Daten von der ersten
-Kinder\hyp{}Tabelle, sondern nur alle Daten welche einen Zeitstempel innerhalb
+zweite Kinder\hyp{}Tabelle beinhaltet wiederum nicht die Daten von der ersten
+Kinder\hyp{}Tabelle, sondern nur alle Daten, welche einen Zeitstempel innerhalb
 eines Tages besitzen. Diese Art von Partitionierung kann auf jedem beliebigen
 Attribut angewendet werden, sodass zum Beispiel auch noch CPU\hyp{}Daten von
 RAM\hyp{}Daten getrennt werden. Der Anwender oder Analyst der Haupttabelle
@@ -3033,9 +3031,9 @@ das Verhalten der Datenbank bei dem Einfügen von Daten mit einem älteren
 Zeitstempel.
 
 Bei der manuellen Partitionierung kann ein Administrator jedoch auch durch die
-Stärke der Partitionierungs\hyp{}Intervalle an Optimierung verlieren, oder
-sogar das System verschlechtern. Hinzu kommt ein starker administrativer
-Aufwand umso mehr \gls{Partitionen} eingefügt werden. Dabei kann auch die
+Stärke der Partitionierungs\hyp{}Intervalle an Optimierung verlieren oder sogar
+das System verschlechtern. Hinzu kommt ein starker administrativer Aufwand,
+umso mehr \gls{Partitionen} eingefügt werden. Dabei kann auch die
 Übersichtlichkeit des Codes verloren gehen. Entsprechend bietet Postgres auch
 die Methode der automatisierten Partitionierung an. Dabei werden die
 \gls{Partitionen} von dem Postgres System selbständig angepasst und die
@@ -3043,13 +3041,14 @@ Datenspanne definiert. Dies bringt den Vorteil, dass eine schnelle
 Geschwindigkeit der Datenabfrage zu jedem Zeitpunkt gewährleistet ist. Der
 administrative Aufwand wird mit dieser Methode jedoch nicht verringert. Die
 manuelle Partionierung hat einen kontinuierlich gleich bleibenden
-administrativen Aufwand. Bei der automatisierten Partionierung muss vorallem
+administrativen Aufwand. Bei der automatisierten Partionierung muss vor allem
 zu Begin mehr Zeit investiert werden. Erst bei der optimalen Einstellung der
-Konfigurationsmöglichkeiten erringert sich der administrative Aufwand deutlich.
+Konfigurationsmöglichkeiten verringert sich der administrative Aufwand
+deutlich.
 
-Das Projektteam hat sich entschieden die automatische Partionierung zu wählen.
+Das Projektteam hat sich entschieden, die automatische Partionierung zu wählen.
 Dies gewährleistet nicht nur eine dauerhaft schnelle Datenhaltung, sondern ist
-auch Kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für die
+auch kundenfreundlicher, da dieser nicht dauerhaft einen Administrator für die
 Partionierung einstellen muss. Speziell in diesem Projekt wurde sich zuletzt
 auf die Partitionierung in Bezug auf die Zeit des Datensatzes geeinigt. Dabei
 wird für jede Stunde am Tag eine eigene Partionierung erstellt. Somit wird ein
@@ -3072,23 +3071,23 @@ sind dies zum Beispiel nur Funktionen zur Abfrage von definierten Daten.
 
 Dieses Verfahren hat den großen Vorteil, dass wenn einer der Systembenutzer
 entfremdet wird, dieser keinen Schaden an dem Datenhaltsungssystem ausüben
-kann. Desweiteren kann der Systemadministrator genau kontrollieren, wer auf
+kann. Des Weiteren kann der Systemadministrator genau kontrollieren, wer auf
 welche Daten Zugriff haben soll. Ein weiterer Vorteil ist, dass durch die
-vordefinierten analytischen Fragestellungen bei jedem Benutzer die gleichen
-Daten ausgegeben werden, und somit eine falsch Aussage, aufgrund von
+vordefinierten, analytischen Fragestellungen bei jedem Benutzer die gleichen
+Daten ausgegeben werden und somit eine falsche Aussage, aufgrund von
 verschiedenen Implementierungsweisen, vermieden wird. Zu diesen analytischen
 Fragestellungen gehört ebenfalls die beschriebene Trendgenerierung aus
 Abschnitt~\ref{section:Begriffserklärung} und das in
-Abschnitt~\ref{subsec:postgres_etl} erläuterte dynamisch errechnen der
-im ETL verzichteten Datensätze.
+Abschnitt~\ref{subsec:postgres_etl} erläuterte dynamische Errechnen der im ETL
+verzichteten Datensätze.
 
 Zusätzlich wurde ein Benutzer mit vollständigen oder kritischen Zugriffsrechten
-auf der Datenbank eingerichtet, dass diese sich nur lokal auf dem
+auf der Datenbank eingerichtet, sodass diese sich nur lokal auf dem
 Datenbankserver verbinden können. Das bedeutet, dass mit diesen Benutzern nicht
 von anderen Systemen direkt auf die Datenbanktreiber zugegriffen werden kann.
-Dazu ist zunächst eine SSH\hyp{}Verbindung auf dem Server von nöten. SSH ist ein
+Dazu ist zunächst eine SSH\hyp{}Verbindung auf dem Server vonnöten. SSH ist ein
 speziell geschütztes Protokoll für die Fernadministration von Rechnersystemen.
-Man kann dabei einrichten, dass das einloggen nicht mit einem Passwort, sondern
+Man kann dabei einrichten, dass das Einloggen nicht mit einem Passwort, sondern
 ausschließlich mit einem, von dem System\hyp{}Administrator bereitgestellten,
 Key\hyp{}Dokument möglich ist. Dies bringt einen weiteren Sicherheitsfaktor zum
 Schutz der Daten auf dem Datenbanksystem.
@@ -3097,39 +3096,39 @@ Schutz der Daten auf dem Datenbanksystem.
 \section{API-System}
 \label{sec:api_system}
 Bei der Entwicklung des \gls{API}\hyp{}Systems wurde sich zunächst auf die
-Implementierung der Postgres und Grafana Anbindung konzentriert. Voraussetzung
-für die eigentliche Entwicklung ist eine funktionierende und auch möglich dem
-Entwickler vertraute Entwicklungsumgebung. Bei der Swagger \gls{API} wurde
-dazu die Umgebung mit dem Namen „Spring Tool Suite“ verwendet. Diese basiert
-auf dem Entwicklerstudio „Eclipse“ und war dem Projektteam bereits bekannt. Die
-Spring Tool Suite ist dabei für die Entwicklung einer Swagger \gls{API}
-optimiert und liefert alle benötigten Grundlagen mit. Für die Einbindung
-weiterer Funktionen wurden die entsprechenden Maven\hyp{}Abhängigkeiten
-eingefügt. Diese ermöglichen die einfache Integration von benötigten
-Bibliotheken oder Code\hyp{}Algorithmen. Das Spring Tool Suite liefert
-ebenfalls eine eigene Testumgebung mit, in welcher der Entwickler für das
-Projekt angepasste Tests definieren und durchführen kann.
+Implementierung der Postgres und Grafana\hyp{}Anbindung konzentriert.
+Voraussetzung für die eigentliche Entwicklung ist eine funktionierende und auch
+möglichst dem Entwickler vertraute Entwicklungsumgebung. Bei der Swagger
+\gls{API} wurde dazu die Umgebung mit dem Namen „Spring Tool Suite“ verwendet.
+Diese basiert auf dem Entwicklerstudio „Eclipse“ und war dem Projektteam
+bereits bekannt. Die Spring Tool Suite ist dabei für die Entwicklung einer
+Swagger \gls{API} optimiert und liefert alle benötigten Grundlagen mit. Für die
+Einbindung weiterer Funktionen wurden die entsprechenden
+Maven\hyp{}Abhängigkeiten eingefügt. Diese ermöglichen die einfache Integration
+von benötigten Bibliotheken oder Code\hyp{}Algorithmen. Das Spring Tool Suite
+liefert ebenfalls eine eigene Testumgebung mit, in welcher der Entwickler für
+das Projekt angepasste Tests definieren und durchführen kann.
 
-Nach der Einrichtung des Entwicklerstudios wurde zunächst das \gls{API} Model
+Nach der Einrichtung des Entwicklerstudios wurde zunächst das \gls{API} Modell
 definiert. Es handelt sich dabei um die Datenstruktur, welche das
 \gls{API}\hyp{}System von einem anderem System zugeschickt bekommt,
 beziehungsweise zuschickt (siehe auch
 Abschnitt~\ref{subsec:zusammenspiel_api_frontend}). Da sich das Projekt auf die
-Zusammenarbeit mit dem Grafana System konzentriert, wurde mit der Modellierung
-dieser Datenstrukturen begonnen. Dabei arbeitet Grafana nur mit vier URL's
-(Endpunkte) der \hyp{}\@. Die erste ist dafür zuständig zu prüfen, ob das
-\gls{API}\hyp{}System überhaupt erreichbar, beziehungsweise
-vorhanden ist. Die zweite wird genutzt, um an dem \gls{API} System anzufragen,
-welche Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen,
-basierend auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück.
-Die letztere ermöglicht es, einzelne Informationen in einem Graphen hervor zu
-heben. Alle vier URL's besitzen eine eigene Anfrage\hyp{}Methode und
+Zusammenarbeit mit dem Grafana\hyp{}System konzentriert, wurde mit der
+Modellierung dieser Datenstrukturen begonnen. Dabei arbeitet Grafana nur mit
+vier URLs (Endpunkte) der \gls{API}\@. Die erste ist dafür zuständig zu prüfen,
+ob das \gls{API}\hyp{}System überhaupt erreichbar, beziehungsweise vorhanden
+ist. Die zweite wird genutzt, um bei dem \gls{API} System anzufragen, welche
+Daten es besitzt. Die dritte führt die eigentlichen Datenanfragen, basierend
+auf der zweiten URL, aus und liefert die zu anzeigenden Daten zurück. Die
+letztere ermöglicht es, einzelne Informationen in einem Graphen hervor zu
+heben. Alle vier URLs besitzen eine eigene Anfrage\hyp{}Methode und
 Datenstruktur an der \gls{API} und erwarten auch unterschiedliche Antworten von
-der \gls{API} in Struktur und Inhalt. Neben diesen vier URL's wurde ebenfalls
-das extrahieren der in Abschnitt~\ref{subsec:zusammenspiel_api_frontend}
+der \gls{API} in Struktur und Inhalt. Neben diesen vier URLs wurde ebenfalls
+das Extrahieren der in Abschnitt~\ref{subsec:zusammenspiel_api_frontend}
 erläuterten Organisations\hyp{}ID implementiert.
 
-Nachdem diese URL's und Modelstrukturen definiert wurden, schaute das
+Nachdem diese URLs und Modellstrukturen definiert wurden, schaute das
 Projektteam auf die genaue Zusammenarbeit zwischen Grafana und der \hyp{}\@.
 Dies hatte den Vorteil, dass die darauf folgende Modellierung der Datenabfrage
 bei dem Datenhaltsungssystem besser nachvollziehbar war. Entsprechend wurden
@@ -3148,7 +3147,7 @@ abgeschlossen ist, konnte mit der Installation und Konfiguration von Grafana
 begonnen werden. Die Installation von Grafana wird nachfolgend für die Linux
 Distribution ArchLinux beschrieben. Grafana unterstützt ebenfalls auch andere
 Distributionen, jedoch können hier die entsprechenden unten aufgeführten
-Befehle abweichen. Die zu unterstützen Distributionen, können der Grafana
+Befehle abweichen. Die zu unterstützen Distributionen können der Grafana
 Evaluierung aus Abschnitt~\ref{subsubsec:grafana} entnommen werden. Damit die
 eigentliche Konfiguration durchgeführt werden konnte, musste zuvor das
 Installationspaket von Grafana heruntergeladen und installiert werden. Auf
@@ -3167,22 +3166,25 @@ entsprechenden Distribution.
 
 Nachdem Grafana erfolgreich heruntergladen und installiert worden ist, muss
 dieses mit folgendem Befehl gestartet und falls gewünscht im Autostart von
-Archlinux hinterlegt werden. Mit folgendem Befehl wird der Grafana Dienst
+Archlinux hinterlegt werden. Mit folgendem Befehl wird der Grafana\hyp{}Dienst
 gestartet:
+
 \begin{minted}{text}
 systemctl start grafana.service
 \end{minted}
 
 Um Grafana im Autostart zu hinterlegen, wird folgender Befehl benötigt:
+
 \begin{minted}{text}
 systemctl enable grafana.service
 \end{minted}
 
-Nachdem der \texttt{grafana.service} gestartet wurde, kann die Webseite
-über einen Browser bereits aufgerufen werden. Der Aufruf hierzu lautet wie
-folgt: \texttt{http://<FQDN-of-your-grafana-server>:3000}. Bei der Installation
-von Grafana wird bereits ein vordefinierter Administrator Benutzer mit Passwort
-festgelegt. Die Zugangsdaten hierzu lauten:
+Nachdem der \texttt{grafana.service} gestartet wurde, kann die Webseite über
+einen Browser bereits aufgerufen werden. Der Aufruf hierzu lautet wie folgt:
+\texttt{http://<Adresse\hyp{}des\hyp{}grafana\hyp{}servers>:3000}. Bei der
+Installation von Grafana wird bereits ein vordefinierter
+Administrator\hyp{}Benutzer mit Passwort festgelegt. Die Zugangsdaten hierzu
+lauten:
 
 \begin{outline}
   \1 Benutzername: admin
@@ -3190,29 +3192,29 @@ festgelegt. Die Zugangsdaten hierzu lauten:
 \end{outline}
 
 Diese Logindaten können nach dem erfolgreichen Login angepasst und verändert
-werden. Anschließend wird bereits das Home \gls{Dashboard} angezeigt von wo aus
-die Datenvisualisierung konfiguriert werden kann.
+werden. Anschließend wird bereits das Home \gls{Dashboard} angezeigt, von wo
+aus die Datenvisualisierung konfiguriert werden kann.
 
-Das \gls{Dashboard} ist wie folgt aufgebaut: Links gibt es ein Grafana Symbol,
-worüber alle Konfigurationen, wie Plugin\hyp{}Verwaltung, Datenquellen oder
-Benutzereinstellungen konfiguriert werden können. Rechts neben dem Grafana
-Symbol wird immer die aktuelle Ebene angezeigt auf der der Administrator sich
-befindet. Wenn der Administrator sich hier auf dem Home \gls{Dashboard}
-befindet, so wird hier „Home“ angezeigt und die Übersicht der einzelnen
-\glslink{Dashboard}{Dashboards}. Sollte der Administrator in den Einstellungen
-unter „Data Sources“ sein, so wird an der vorgesehenen Stelle „Data Sources“
-eingeblendet. Dies soll dem Administrator zusätzlich helfen, eine bessere
-Übersichtlichkeit zu erhalten. Auf der rechten Seite des jeweiligen
-\glslink{Dashboard}{Dashboards} hat der Administrator oder Benutzer die
-Möglichkeit, den Aktualisierungstimer der anzuzeigenen Daten zu verändern.
+Das \gls{Dashboard} ist wie folgt aufgebaut: Links gibt es ein
+Grafana\hyp{}Symbol, worüber alle Konfigurationen, wie Plugin\hyp{}Verwaltung,
+Datenquellen oder Benutzereinstellungen konfiguriert werden können. Rechts
+neben dem Grafana\hyp{}Symbol wird immer die aktuelle Ebene angezeigt auf der
+der Administrator sich befindet. Wenn der Administrator sich hier auf dem Home
+\gls{Dashboard} befindet, so wird hier „Home“ angezeigt und die Übersicht der
+einzelnen \glslink{Dashboard}{Dashboards}. Sollte der Administrator in den
+Einstellungen unter „Data Sources“ sein, so wird an der vorgesehenen Stelle
+„Data Sources“ eingeblendet. Dies soll dem Administrator zusätzlich helfen,
+eine bessere Übersichtlichkeit zu erhalten. Auf der rechten Seite des
+jeweiligen \glslink{Dashboard}{Dashboards} hat der Administrator oder Benutzer
+die Möglichkeit, den Aktualisierungstimer der anzuzeigenden Daten zu verändern.
 Standardmäßig steht dieser auf sechs Stunden, kann aber beliebig angepasst
 werden. Eine Darstellung des \glslink{Dashboard}{Dashboards}, kann dem
 Anhang~\ref{figure:grafana_dashboard} entnommen werden.
 
 Zu Beginn sollte hier zuerst die Datenquelle von der Grafana die ermittelten
 Daten erhält, konfiguriert werden. Hierzu navigiert der Administrator auf das
-Grafana Symbol und wählt hier anschließend „Data Sources“ aus. Nun kann hier
-unter „+ Add data source“ eine neue Datenquelle definiert werden. Grafana
+Grafana\hyp{}Symbol und wählt hier anschließend „Data Sources“ aus. Nun kann
+hier unter „Add data source“ eine neue Datenquelle definiert werden. Grafana
 bietet bereits eine Vielzahl an Auswahlmöglichkeiten von Datenhaltungssystemen
 an. Diese können nach Belieben durch Plugins erweitert werden. Hierauf wird im
 weiteren Verlauf der Implementierung eingegangen. Nachdem hier alle Werte
@@ -3220,16 +3222,16 @@ ausgefüllt worden sind, kann die Datenquelle über die Schaltfläche „Add“
 hinzugefügt werden. Grafana prüft bereits beim Speichern einer jeden
 Datenquelle, ob diese erreichbar ist und Daten abgerufen werden können.
 
-Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues \gls{Dashboard}
-angelegt werden, damit die Graphen definiert werden können. Das neue
-\gls{Dashboard} kann unter dem Reiter \gls{Dashboard} angelegt werden.
+Sobald die Datenquelle hinterlegt wurde, muss zunächst ein neues
+\gls{Dashboard} angelegt werden, damit die Graphen definiert werden können. Das
+neue \gls{Dashboard} kann unter dem Reiter \gls{Dashboard} angelegt werden.
 Anschließend erhält der Administrator bereits eine vordefinierte
 Auswahlmöglichkeiten von Graphen, Tabellen oder auch
 \glslink{singlestat}{Singlestats}. Diese können je nach Verwendungszweck
-hinzugefügt werden. Eine Beschränkung, wieviele Graphen maximal auf einem
+hinzugefügt werden. Eine Beschränkung, wie viele Graphen maximal auf einem
 \gls{Dashboard} angelegt werden können, ist laut der Dokumentation von Grafana
-nicht definiert, jedoch kann dies die Performance der Webseite für den
-Benutzer negativ beeinflussen.
+nicht definiert, jedoch kann dies die Performance der Webseite für den Benutzer
+negativ beeinflussen.
 
 Nachdem der gewünschte Graph ausgewählt worden ist, kann dieser angepasst und
 bearbeitet werden. Hierzu wird der zu editierende Graph ausgewählt und
@@ -3239,9 +3241,9 @@ weitere Konfigurationsmöglichkeiten für diesen Graphen definiert werden könne
 Zunächst wird die Metrik des Graphen angepasst, damit die ersten Graphen
 visuell dargestellt werden können. Unter dem
 Abschnitt~\ref{subsec:graphen-definieren} wird genauer auf die Erstellung von
-Graphen eingegangen. Im nachfolgenden ist eine Beispielabfrage für die
-Visualisierung von dem verwendetem Arbeitsspeicher einer Instanz. Die in dem
-Bild zu sehenen abgefragten Daten wurden aus einer InfluxDB erhalten:
+Graphen eingegangen. Im Nachfolgenden ist eine Beispielabfrage für die
+Visualisierung von dem verwendeten Arbeitsspeicher einer Instanz. Die in dem
+Bild zu sehenden, abgefragten Daten wurden aus einer InfluxDB erhalten:
 
 \begin{figure}[H]
   \centering
@@ -3263,7 +3265,7 @@ Plugininstallation. Es stehen viele verschiedene Plugins auf der Grafana
 Webseite zur Verfügung. Zu jedem Plugin gibt es eine kurze Erläuterung, sowie
 eine Schritt für Schritt Anleitung zur Installation dieses Plugins. Die Plugins
 werden über einen Kommandozeilenbefehl installiert und sind anschließend über
-die Grafana Oberfläche verfügbar.
+die Grafana\hyp{}Oberfläche verfügbar.
 
 Die Grundkonfiguration sind nun abgeschlossen und Grafana kann verwendet
 werden. Um weiteren Benutzern Zugriff zu dem \gls{Dashboard} zu gewähren,
@@ -3279,7 +3281,7 @@ wird sichergestellt, dass der Benutzer nur die zu ihm zugeordneten Daten sehen
 kann. Administratoren oder andere Mitarbeiter eines Unternehmens, wie zum
 Beispiel ein Kundenberater, erhalten mehrere Zuordnungen von
 Organisations\hyp{}IDs. Somit erhalten diese Zugriff auf die Dateninhalte des
-Kunden und können somit ihre Aufgaben, wie die Beratung auf ein neues Produkt,
+Kunden und können somit ihre Aufgaben, wie die Beratung für ein neues Produkt
 oder Verbesserung der Gesamtperformance, durchführen. Andersherum muss für
 einen Kunden mit mehreren gemieteten virtuellen Instanzen kein neuer Benutzer
 angelegt werden, stattdessen wird seinem bestehenden Benutzer eine weitere
@@ -3291,9 +3293,9 @@ die \gls{LDAP}\hyp{}Anbindung für die Authentifizierung an Grafana wünschen, s
 muss in dem Verzeichnis von der Grafana\hyp{}Installation die Datei
 \texttt{grafana.ini} angepasst werden. Alle Einstellungen, die in dieser Datei
 vorgenommen werden, beziehen sich auf die Servereinstellungen, welche vom
-Kunden individuell angepasst werden kann. Nachdem die Änderungen abgeschlossen
-sind, muss der Grafana\hyp{}Dienst neu gestartet werden. Dies wird mit
-folgendem Befehl durchgefüht:
+Kunden individuell angepasst werden können. Nachdem die Änderungen
+abgeschlossen sind, muss der Grafana\hyp{}Dienst neugestartet werden. Dies wird
+mit folgendem Befehl durchgefüht:
 
 \begin{minted}{text}
 systemctl restart grafana.service
@@ -3301,50 +3303,50 @@ systemctl restart grafana.service
 
 Diese Konfiguration beschreibt die manuelle Installation und Konfiguration von
 Grafana. Um hier jedoch nicht bei jedem einzelnen Kunden diese Anpassung
-vornehmen zu müssen, kann die Installation, wie auch die Konfiguration
+vornehmen zu müssen, kann die Installation, wie auch die Konfiguration,
 automatisiert werden.
 
-Die Automatisierung erfolgt mit einem Puppet Profil. Das Puppet Profil hat
-verschiedene Vorteile. So ist dieses Betriebsystem unabhängig, Versionen von
-Grafana können vorgegeben und Konfiguration werden direkt während der
-Installation in die Software implementiert. Um das Puppet Profil aufrufen zu
-können, wird folgender Befehl benötigt:
+Die Automatisierung erfolgt mit einem Puppet\hyp{}Profil. Das
+Puppet\hyp{}Profil hat verschiedene Vorteile. So ist dieses Betriebssystem
+unabhängig, Versionen von Grafana können vorgegeben und Konfigurationen werden
+direkt während der Installation in die Software implementiert. Um das
+Puppet\hyp{}Profil aufrufen zu können, wird folgender Befehl benötigt:
 
 \begin{minted}{text}
 sudo puppet apply grafana.pp
 \end{minted}
 
 Innerhalb des Profils wird eine „grafana.pp“ Datei erstellt und anschließend
-mit dem Puppet Profil aufgerufen. In dieser ist definiert mit welcher Version
-Grafana installiert, welche Datenquelle verwendet oder welches \gls{Dashboard}
-bereits vordefiniert übergeben werden soll. Hier können zusätzlich noch
-verschiedene andere Parameter, wie \gls{LDAP}\hyp{}Anbindung übergeben werden.
-Dies erleichtert dem Administrator die Konfiguration, da dieses Profil nur
-einmal auf der Distribution ausgeführt werden muss, um Grafana zu
-installieren und zu konfigurieren. Eine zusätzliche Konfiguration nach der
-Installation von Grafana wird nur dann benötigt, wenn spezielle Anforderungen
-vom Kunden gewünscht sind. \glslink{Dashboard}{Dashboards} werden in der
-Konfigurationsdatei des Puppet Moduls für Grafana als \gls{JSON} definiert
-und können im Nachhinein angepasst werden.
+mit dem Puppet\hyp{}Profil aufgerufen. In dieser ist definiert mit welcher
+Version Grafana installiert, welche Datenquelle verwendet oder welches
+\gls{Dashboard} bereits vordefiniert übergeben werden soll. Hier können
+zusätzlich noch verschiedene andere Parameter, wie \gls{LDAP}\hyp{}Anbindung
+übergeben werden. Dies erleichtert dem Administrator die Konfiguration, da
+dieses Profil nur einmal auf der Distribution ausgeführt werden muss, um
+Grafana zu installieren und zu konfigurieren. Eine zusätzliche Konfiguration
+nach der Installation von Grafana wird nur dann benötigt, wenn spezielle
+Anforderungen vom Kunden gewünscht sind. \glslink{Dashboard}{Dashboards} werden
+in der Konfigurationsdatei des Puppet\hyp{}Moduls für Grafana als \gls{JSON}
+definiert und können im Nachhinein angepasst werden.
 
 Im Anhang~\ref{lst:grafana} befindet sich ein Beispiel für eine solche
 Konfigurationsdatei.
 
 Während der ersten Tests für die Automatisierung der Installation stellte sich
 heraus, dass es hier ein Problem gibt, die Konfiguration an Grafana zu
-übergeben. Das Puppet Profil prüft den Login auf die Webseite nicht,
-da es davon ausgeht, dass die Anmeldemaske der Webseite unmittelbar
-nach dem Neustart von Grafana erreichbar ist. Das Problem liegt nicht in
-der grafana.pp, sondern in dem eigentlichen Puppet Modul, welches die
-Ressourcentypen \texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource}
-bereitstellt. Hierzu wurde ein Bugreport beim Entwickler des Puppet Moduls
-erstellt (vgl.~\cite{grafana-issue}).
+übergeben. Das Puppet Profil prüft den Login auf die Webseite nicht, da es
+davon ausgeht, dass die Anmeldemaske der Webseite unmittelbar nach dem Neustart
+von Grafana erreichbar ist. Das Problem liegt nicht in der grafana.pp, sondern
+in dem eigentlichen Puppet\hyp{}Modul, welches die Ressourcentypen
+\texttt{grafana\_dashboard} sowie \texttt{grafana\_datasource} bereitstellt.
+Hierzu wurde ein Bugreport beim Entwickler des Puppet\hyp{}Moduls erstellt
+(vgl.~\cite{grafana-issue}).
 \mr%
 
 \subsection{Graphen definieren}
 \label{subsec:graphen-definieren}
 Sobald die Grundkonfiguration von Grafana wie in
-Abschnitt~\ref{sec:realisierung_grafana} beschrieben durchgeführt worden ist,
+Abschnitt~\ref{sec:realisierung_grafana} beschrieben, durchgeführt worden ist,
 können als nächstes die Graphen konfiguriert werden.
 \mr%
 
@@ -3352,13 +3354,13 @@ können als nächstes die Graphen konfiguriert werden.
 Zu Beginn wird unter dem Reiter \texttt{General} ein aussagekräftiger Titel,
 sowie Beschreibung des Graphen hinterlegt. In dem Beispiel, welches im
 Anhang~\ref{figure:grafana_general} enthalten ist, wird der Graph für die
-Prozessor Auslastung definiert. Unter dem Reiter \texttt{General} können alle
+Prozessorauslastung definiert. Unter dem Reiter \texttt{General} können alle
 Konfigurationen für das Aussehen des Graphen, sowie Verlinkungen zu anderen
-\glslink{Dashboard}{Dashboards} oder direkten URL Adressen zu Webseiten
+\glslink{Dashboard}{Dashboards} oder direkten URL\hyp{}Adressen zu Webseiten
 hinterlegt werden. Diese werden anschließend, wie im
-Anhang~\ref{figure:grafana_description} auf der \gls{Dashboard} Übersicht
+Anhang~\ref{figure:grafana_description} auf der \gls{Dashboard}\hyp{}Übersicht
 dargestellt. Dies dient der besseren Übersichtlichkeit, wenn ein Administrator
-oder die Führungsebene diese Graphen analysieren möchten. Im zweiten Schritt
+oder die Führungsebene diese Graphen analysieren möchte. Im zweiten Schritt
 werden nun die einzelnen Graphen definiert.
 \mr%
 
@@ -3368,39 +3370,39 @@ welcher Datenquelle die erhaltenen Daten stammen und anschließend über die
 Schaltfläche \texttt{Add Query} hinzugefügt werden. Grafana unterstützt unter
 anderem viele verschiedene Datenquellen, wie zum Beipsiel OpenTSDB (siehe
 Abschnitt~\ref{subsubsec:opentsdb}) oder Elasticsearch (siehe
-Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die Daten
-Erhaltung eine \gls{HTTPS}\hyp{}\gls{API} Schnittstelle verwendet, welche im
-Laufe des Projektes entwickelt und entworfen worden ist. Die
+Abschnitt~\ref{subsubsec:elasticsearch}). In dem Projekt wird für die
+Datenerhaltung eine \gls{HTTPS}\hyp{}\gls{API} Schnittstelle verwendet, welche
+im Laufe des Projektes entwickelt und entworfen worden ist. Die
 \gls{HTTPS}\hyp{}\gls{API} liefert dabei ein \gls{JSON}\hyp{}Objekt. Sie wird
 nicht mittels einer \gls{SQL}\hyp{}Abfrage abgerufen, sondern über eine
-\gls{HTTPS} Schnittstelle. Innerhalb der \gls{API} werden bereits
-vordefinierte Werte zurückgegeben. Wenn als Datenquelle eine Datenbank
-angesprochen werden soll, so kann zunächst eine Art \texttt{SELECT}
-\gls{SQL}\hyp{}Abfrage hinterlegt werden. Innerhalb der \gls{SQL}\hyp{}Abfrage
-wird definiert, von wo die erhaltenen Daten stammen, sowie welche Werte
-abgerufen werden sollen. Ebenfalls kann diese \gls{SQL}\hyp{}Abfrage mit
-anderen \gls{SQL} Abfragen innerhalb einer Gruppe zusammengefasst werden. Ein
-Beispiel hierzu ist dem Anhang~\ref{figure:grafana_metrics} beigefügt.
+\gls{HTTPS} Schnittstelle. Innerhalb der \gls{API} werden bereits vordefinierte
+Werte zurückgegeben. Wenn als Datenquelle eine Datenbank angesprochen werden
+soll, so kann zunächst eine Art \texttt{SELECT} \gls{SQL}\hyp{}Abfrage
+hinterlegt werden. Innerhalb der \gls{SQL}\hyp{}Abfrage wird definiert, von wo
+die erhaltenen Daten stammen, sowie welche Werte abgerufen werden sollen.
+Ebenfalls kann diese \gls{SQL}\hyp{}Abfrage mit anderen \gls{SQL} Abfragen
+innerhalb einer Gruppe zusammengefasst werden. Ein Beispiel hierzu ist dem
+Anhang~\ref{figure:grafana_metrics} beigefügt.
 \mr%
 
 \subsubsection{Axes}
-Im nebenstehendem Reiter \texttt{Axes} kann definiert werden, ob eine
+Im nebenstehenden Reiter \texttt{Axes} kann definiert werden, ob eine
 Beschriftung für die X\hyp{} oder Y\hyp{}Achse benötigt wird. Zur
 Verdeutlichung ist dem Anhang~\ref{figure:grafana_axes} ein Bild hierzu
 beigefügt. Zusätzlich kann auch die entsprechende Einheit für diese Werte
 definiert werden, denn die erhaltenen Werte aus der Datenbank oder der
-\gls{API} sind meist nur Ganz\hyp{} oder Kommazahlen Werte, welche keine
+\gls{API} sind meist nur Ganz\hyp{} oder Kommazahlenwerte, welche keine
 Einheiten übergeben bekommen.
 \mr%
 
 \subsubsection{Legend}
 Unter dem Menüpunkt \texttt{Legend} wird die Legende für diesen Graphen
-definiert. Es kann dort eingestellt werden welchen Minimal\hyp{},
+definiert. Es kann dort eingestellt werden, welcher Minimal\hyp{},
 Maximal\hyp{}, Aktuell\hyp{} und Durschnittswert innerhalb der Analyse
 ausgegeben worden ist und ob diese Werte als Tabelle ausgegeben werden sollen.
 Diese Ausgabe erfolgt direkt unterhalb des Graphen und soll für eine bessere
 Übersichtlichkeit für den Administrator dienen, da dieser die Minimal\hyp{} und
-Maximalenwerte, sowie Aktuelle\hyp{} und Durchnittswerte welche innerhalb der
+Maximalwerte, sowie Aktuelle\hyp{} und Durchnittswerte, welche innerhalb der
 Analyse ausgegeben worden sind, sehen kann. Ein Beispiel hierzu ist dem
 Anhang~\ref{figure:grafana_legend} beigefügt.
 \mr%
@@ -3408,8 +3410,8 @@ Anhang~\ref{figure:grafana_legend} beigefügt.
 \subsubsection{Display}
 Nachdem nun die Axenbeschriftung und Legende angepasst worden sind, gibt es
 unter dem Punkt \texttt{Display} drei Einstellungsmöglichkeiten, \texttt{Draw
-options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau
-kann dem Anhang~\ref{figure:grafana_display} entnommen werden. Unter dem Punkt
+options}, \texttt{Series overrides} und \texttt{Thresholds}. Der Aufbau kann
+dem Anhang~\ref{figure:grafana_display} entnommen werden. Unter dem Punkt
 \texttt{Draw options} kann das Aussehen des Graphen angepasst werden. So kann
 bei jedem Schnittpunkt oder Veränderung des Graphen ein Punkt hinterlegt
 werden. Ebenso kann definiert werden, ob der Graph zur besseren
@@ -3422,7 +3424,7 @@ Einstellungen, welche ebenfalls in \texttt{Draw options} definiert werden
 können, für jeden einzelnen Graphen festgelegt werden. Abschließend gibt es zu
 diesem Menüpunkt noch den Punkt \texttt{Thresholds}. Dies sind Markierungen,
 innerhalb des Graphens, wenn ein kritischer Wert erreicht worden ist. Diese
-dienen dazu auf einem Blick zu erkennen, ob ein Problem der Instanz vorliegt.
+dienen dazu, auf einen Blick zu erkennen, ob ein Problem der Instanz vorliegt.
 Im Anhang~\ref{figure:grafana_thresholds} ist ein Bild beigefügt, welches dies
 einmal verdeutlicht.
 \mr%
@@ -3435,20 +3437,20 @@ allgemeinen Konfiguration unter dem Reiter \texttt{Alerting} konfiguriert
 werden und zum anderen muss dies die Datenquelle unterstützen. Die
 Benachrichtigung hierzu kann anschließend beispielsweise über Email oder den
 Messenger Telegram oder Threema erfolgen. Innerhalb der \texttt{Alert}
-Konfiguration, kann für jeden Graphen individuell die Kriterien definiert
+Konfiguration, können für jeden Graphen individuell die Kriterien definiert
 werden, bei denen eine Benachrichtigung ausgelöst werden soll. Ein Beispiel
 hierzu ist dem Anhang~\ref{figure:grafana_alert} beigefügt. Die Bedingung muss
 entweder einen Min\hyp{} oder Maximalwert eines Graphen beeinhalten, ab wann
 diese Bedingung erfüllt ist. Diese wird entweder mit einem Standardtext
 versendet oder kann über den Konfigurationsmenüpunkt \texttt{Notifications}
 individuell angepasst werden. Zudem wird definiert, über welchen
-Kommunikationsweg die Benachrichtigungen erfolgen soll.
+Kommunikationsweg die Benachrichtigungen erfolgen sollen.
 \mr%
 
 \subsubsection{Time range}
-Im letzten Punkt \texttt{Time range} kann der Intervall der zu anzeigenden
+Im letzten Punkt \texttt{Time range} kann das Intervall der anzuzeigenden,
 visualisierten Graphen definiert werden. Innerhalb der Dashboardübersicht in
-der rechten oberen Hälfte von Grafana kann die Allgemeine zu visualisierende
+der rechten, oberen Hälfte von Grafana kann die allgemeine zu visualisierende
 Zeit definiert werden. Diese gilt für alle Graphen innerhalb eines
 \glslink{Dashboard}{Dashboards}. Diese Einstellung kann individuell für jeden
 einzelnen Graphen unter \texttt{Time range} überschrieben werden und gilt dann
@@ -3457,35 +3459,36 @@ nur für den aktuell bearbeiteten Graphen.
 
 \section{Logstash und collectd}
 Die Implementierung beider Komponenten gestaltet sich als sehr einfach. Für
-beide existiert ein fertiges Puppetmodul, außerdem sind die
-Konfigurationsoptionen überschaubar. Für Logstash wurde ein eigenes Puppet
-Profil geschrieben, dieses befindet sich unter~\ref{lst:logstash-profile}. Es
-installiert Logstash und anschließend das \gls{JDBC} Plugin für die
-Kommunikation mit der Datenbank. Hierfür wird noch der Postgres \gls{Treiber}
-benötigt, dieser wird von der Postgres Webseite heruntergeladen. Zum Schluss
-wird die Logstash Konfiguration aus~\ref{lst:logstash} erzeugt und Logstash
-gestartet. Hierbei stellte sich heraus, dass das Puppet Modul für Logstash
-nicht zu 100\% auf Archlinux funktioniert. Dies wurde vom Projektteam behoben.
-Der Fix wurde den Entwicklern in einem Pull Request zugeschickt
-(vgl.~\cite{logstash-bug}).
+beide existiert ein fertiges Puppetmodul. Außerdem sind die
+Konfigurationsoptionen überschaubar. Für Logstash wurde ein eigenes
+Puppet\hyp{}Profil geschrieben. Dieses befindet sich
+unter~\ref{lst:logstash-profile}. Es installiert Logstash und anschließend das
+\gls{JDBC} Plugin für die Kommunikation mit der Datenbank. Hierfür wird noch
+der Postgres \gls{Treiber} benötigt, dieser wird von der Postgres Webseite
+heruntergeladen. Zum Schluss wird die Logstash\hyp{}Konfiguration
+aus~\ref{lst:logstash} erzeugt und Logstash gestartet. Hierbei stellte sich
+heraus, dass das Puppet\hyp{}Modul für Logstash nicht zu 100\% auf Archlinux
+funktioniert. Dies wurde vom Projektteam behoben. Der Fix wurde den
+Entwicklern in einem Pull Request zugeschickt (vgl.~\cite{logstash-bug}).
 
 Die Konfiguration von collectd läuft sehr ähnlich ab. Es wurde wieder ein
-Puppet Profil erzeugt, dieses befindet sich unter~\ref{lst:collectd-profile}.
-Dies installiert collectd, richtet dann das Netzwerk\hyp{}Plugin ein, um Daten
-zu Logstash schicken zu können. Im Anschluss werden die verschiedenen Plugins
-zum Sammeln der Metriken aktiviert. Hierbei wurde festgestellt, dass das Puppet
-Modul für collectd keine sinnvollen Standardwerte für das Konfigurieren des
-collectd \glslink{Repository}{Repositorys} besitzt. Dies wurde behoben und der
-Fix wieder den Entwicklern zur Verfügung gestellt (vgl.~\cite{collectd-bug}).
+Puppet\hyp{}Profil erzeugt, dieses befindet sich
+unter~\ref{lst:collectd-profile}. Dies installiert collectd und richtet dann
+das Netzwerk\hyp{}Plugin ein, um Daten zu Logstash schicken zu können. Im
+Anschluss werden die verschiedenen Plugins zum Sammeln der Metriken aktiviert.
+Hierbei wurde festgestellt, dass das Puppet\hyp{}Modul für collectd keine
+sinnvollen Standardwerte für das Konfigurieren des collectd
+\glslink{Repository}{Repositorys} besitzt. Dies wurde behoben und der Fix
+wieder den Entwicklern zur Verfügung gestellt (vgl.~\cite{collectd-bug}).
 \tm%
 
 \chapter{Tests und Qualitätssicherung}
-Der genutzte sowie der selbst entwickelte Code ist äußerst komplex. Es
-muss von Anfang an sichergestellt werden, dass dieser Code nicht nur
-funktioniert, sondern auch den gängigen Best Practices der jeweiligen
-Programmiersprache entspricht. Dadurch wird der Code strukturierter und
-ist für Außenstehende leichter zu verstehen. Im folgenden Kapitel werden die
-einzelnen Testverfahren vorgestellt und begründet.
+Der genutzte sowie der selbst entwickelte Code ist äußerst komplex. Es muss von
+Anfang an sichergestellt werden, dass dieser Code nicht nur funktioniert,
+sondern auch den gängigen Best Practices der jeweiligen Programmiersprache
+entspricht. Dadurch wird der Code strukturierter und ist für Außenstehende
+leichter zu verstehen. Im folgenden Kapitel werden die einzelnen Testverfahren
+vorgestellt und begründet.
 \tm%
 
 \section{Peer Review}
@@ -3509,7 +3512,7 @@ mergen.
 Continuous Integration beschreibt eine Vorgehensweise in der
 Softwareentwicklung. Hierbei wird für jede Änderung eine zuvor definierte
 Testmatrix durchlaufen, um sicherzustellen, dass die Software weiterhin intakt
-ist. Dies setzt vorraus, dass Tests vor dem eigentlichen Code entwickelt werden
+ist. Dies setzt voraus, dass Tests vor dem eigentlichen Code entwickelt werden
 (Test Driven Development) oder parallel zur Entwicklung des Codes. Ersteres
 stellt sicher, dass ausschließlich das implementiert wird, das gefordert ist.
 In den Tests wird definiert, wie eine Software zu funktionieren hat, danach
@@ -3519,8 +3522,8 @@ geforderte Funktionalität aufweist.
 
 Im Rahmen des Projekts werden Tests immer parallel zum Code entwickelt. Test
 Driven Development erfordert ein enormes Fachwissen über die genutzten
-Frameworks für Tests. Dieses lässt sich aufgrund der Komplexität nicht
-während des Projektes aneignen.
+Frameworks für Tests. Dieses lässt sich aufgrund der Komplexität nicht während
+des Projektes aneignen.
 \tm%
 
 \subsection{Travis}
@@ -3528,11 +3531,10 @@ Travis ist eine Plattform für Continuous Integration. Sie ist kostenlos nutzbar
 und stellt verschiedene virtuelle Maschinen und Container bereit, in denen
 Tests ausgeführt werden können. \gls{GitHub} kann bei neuen Pull Requests eine
 Benachrichtigung an Travis schicken. Daraufhin startet Travis eine neue VM und
-klont das entsprechende \gls{GitHub} \gls{Repository} und den
-\texttt{Feature Branch}. Danach wird eine definierte Testmatrix ausgeführt.
-Travis schickt eine Benachrichtigung an \gls{GitHub}, nachdem die Tests beendet
-wurden. Somit ist in der Weboberfläche ersichtlich, ob die Tests erfolgreich
-waren oder nicht.
+klont das entsprechende \gls{GitHub} \gls{Repository} und den \texttt{Feature
+Branch}. Danach wird eine definierte Testmatrix ausgeführt. Travis schickt eine
+Benachrichtigung an \gls{GitHub}, nachdem die Tests beendet wurden. Somit ist
+in der Weboberfläche ersichtlich, ob die Tests erfolgreich waren oder nicht.
 
 Dieses Verfahren ermöglicht es, eine reproduzierbare Testumgebung zu nutzen.
 Diese wird immer auotmatisch gestartet. Es ist nicht mehr notwendig, jeden Test
@@ -3568,10 +3570,10 @@ Für die Tests und Qualitätsicherung wurden unter anderem Unit\hyp{}Tests
 verwendet. Unit\hyp{}Tests sind Software\hyp{}Tests und werden immer dann
 verwendet, wenn jeweils die Kernfunktion von einem Quellcode geprüft werden
 soll. Rspec ist das Framework und stellt eine \gls{DSL} zur Verfügung, in der
-Testszenarien definiert werden können. Die Puppet Module welche in diesem
-Projekt verwendet werden, wie Beispielsweise Grafana, besitzen schon einige
+Testszenarien definiert werden können. Die Puppet\hyp{}Module, welche in diesem
+Projekt verwendet werden, wie beispielsweise Grafana, besitzen schon einige
 Tests, welche erweitert worden sind. Mit einem Test kann beispielsweise geprüft
-werden, ob das Profil auf unterschiedlichen Betriebssystemen ausgeführt werden
+werden, ob das Profil auf unterschiedlichen Betriebssystemen ausgeführt wird
 oder ob bestimmte Ressourcen im kompilierten Katalog enthalten sind. Zu Beginn
 müssen diese vorab mit rspec in dem Katalog kompiliert und definiert werden,
 damit diese verwendet werden können. Mit folgendem Befehl können die Tests
@@ -3581,12 +3583,12 @@ durchgeführt werden:
 bundle exec rake spec
 \end{minted}
 
-Die vollständigen Tests für das Grafana\hyp{}Profil befinden sich unter
-dem Anhang~\ref{lst:rspec-grafana}. Zuerst werden verschiedene Betriebssysteme
+Die vollständigen Tests für das Grafana\hyp{}Profil befinden sich unter dem
+Anhang~\ref{lst:rspec-grafana}. Zuerst werden verschiedene Betriebssysteme
 simuliert, um das Grafana\hyp{}Profil auf diesen zu testen. Jedes
 Betriebssystem besitzt betriebssystemspezifische \glslink{Fact}{Facts}. Diese
 werden von rspec simuliert und mit Hilfe einer Liste der unterstützten
-Betriebssysteme auf dem entsprechenend Profil getestet. Diese Liste an
+Betriebssysteme auf dem entsprechenenden Profil getestet. Diese Liste an
 Betriebssystemen wird aus der \texttt{metadata.json} ausgelesen und hierfür
 immer ein Katalog erstellt. Dieser zuvor erstellte Katalog wird anschließend
 geprüft. Unter anderem kann das rspec prüfen, ob benötigte Ressourcen wie
@@ -3603,7 +3605,7 @@ Die Vorteile von solchen Unit\hyp{}Tests mit rspec sind Folgende:
 \begin{outline}
   \1 Verschiedene Tests, wie Funktionalität des Profiles, können gleichzeitig
   geprüft werden
-  \1 Direkte Ausgabe, mit detaillierter Fehlerbeschreibung
+  \1 Direkte Ausgabe mit detaillierter Fehlerbeschreibung
   \1 Tests können für alle Profile gleich definiert werden
   \1 Die Tests können gleichzeitig für unterschiedliche Profile durchgeführt
   werden
@@ -3621,25 +3623,25 @@ verwendet und diese auf die im Projekt verwendeten Module angepasst. Der Code
 wird innerhalb dieser Tests ausgeführt und geprüft, ob die Grundfunktion, sowie
 die Funktionalität der einzelnen Module und das Puppet Modul idempotent und
 fehlerfrei läuft. Diese Szenarien prüfen beispielsweise, ob die Erhaltung der
-Daten, sowie speichern dieser Daten in der Datenbank und Visualisierung der
-Graphen funktioniert. Die Ausgabe erfolgt hier über einen booleschen Wert,
-welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend
-kann der Entwickler diesen Code erneut anpassen und testen. Die vollständigen
-Tests für das collectd Modul sind dem Anhang~\ref{lst:collectd-test}beigefügt.
+Daten, sowie das Speichern dieser Daten in der Datenbank und Visualisierung der
+Graphen, funktioniert. Die Ausgabe erfolgt hier über einen booleschen Wert,
+welcher entweder \texttt{true} oder \texttt{false} sein kann. Anschließend kann
+der Entwickler diesen Code erneut anpassen und testen. Die vollständigen Tests
+für das collectd Modul sind dem Anhang~\ref{lst:collectd-test}beigefügt.
 
-Wie auch auch bei Unit\hyp{}Tests, aus Abschnitt~\ref{sec:unit_tests} werden
+Wie auch auch bei Unit\hyp{}Tests aus Abschnitt~\ref{sec:unit_tests} werden
 Akzeptanztests für verschiedene Betriebsysteme programmiert. Anders als bei
 Unit\hyp{}Tests werden diese nicht in einer \texttt{metadata.json} hinterlegt,
-sondern jedes Betriebssystem erhält eine eigenen Datei, in der definiert ist,
+sondern jedes Betriebssystem erhält eine eigene Datei, in der definiert ist,
 mit welcher virtuellen Maschine oder Container dieser Code ausgeführt werden
 soll. Im Anhang~\ref{lst:def-centos} ist eine solche Datei beigefügt.
 \mr%
 
 \section{API Test}
 \label{sec:api_test}
-Während der Entwicklung des \gls{API} Systems wurde bei der Implementierung
-von einem neuen Algorithmus immer der zugehörige Test definiert. Dies wurde wie
-in Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
+Während der Entwicklung des \gls{API} Systems wurde bei der Implementierung von
+einem neuen Algorithmus immer der zugehörige Test definiert. Dies wurde, wie in
+Abschnitt~\ref{sec:unit_tests} bereits beschrieben, mit Komponententests
 durchgeführt. Speziell bei der \gls{API} wurden die Komponententests in einem
 parallelen Verzeichnis zu dem Source Code und in der gleichen
 Programmiersprache wie die \gls{API}, also Java, verfasst. Das in dem in
@@ -3653,24 +3655,24 @@ Für das Ausführen der definierten Tests muss keine eigene Laufzeit
 Infrastruktur bereitgestellt werden. Echte Komponententests werden
 normalerweise extrem schnell ausgeführt und steigern durch die Integration in
 das genannte Entwicklerstudio die Produktivität der \gls{API} Entwicklung um
-ein vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft,
+ein Vielfaches. Durch die geringe Laufzeit konnten die Tests auch beliebig oft,
 in diesem Fall nach jeder Änderung am Code, ausgeführt werden, ohne das längere
 Wartezeiten entstehen.
 
 Die von Swagger bereitgestellten Testbibliotheken sind dabei sehr umfangreich
 und bieten zu jeder \gls{API} Funktion auch die passenden Testdefinitionen.
-Die bereitgestellten Bibliotheken sind dabei von Mock Objekten abgeleitet. Mock
-Objekte sind in Testumgebungen Platzhalter für die im echten Code verwendeten
-Objektdefinitionen. Ein konkretes Beispiel dafür ist die „Bean“ Definition von
-Swagger. Mit dieser können verschiedene Definitionen von Objekten in eigenen
-Laufzeitumgebungen einfach simuliert und ausgewählt werden. In dem Projekt war
-dies zum Beispiel das nutzen von im Arbeitsspeicher gehaltene Daten zum testen
-während der Entwicklung versus dem Zugriff auf die Produktivdaten der
-Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in diese Art von
-Testbibliothek gehört, war das registrieren von verschiedenen \gls{API}
-Profilen, welche alle unterschiedliche Zugriffsrechte besitzen, um sicher zu
-stellen, dass jeder dieser Profile so funktioniert, wie von dem Entwickler
-vorgegeben.
+Die bereitgestellten Bibliotheken sind dabei von Mock-Objekten abgeleitet.
+Mock-Objekte sind in Testumgebungen Platzhalter für die im echten Code
+verwendeten Objektdefinitionen. Ein konkretes Beispiel dafür ist die „Bean“
+Definition von Swagger. Mit dieser können verschiedene Definitionen von
+Objekten in eigenen Laufzeitumgebungen einfach simuliert und ausgewählt werden.
+In dem Projekt war dies zum Beispiel das Nutzen von im Arbeitsspeicher
+gehaltenen Daten zum Testen während der Entwicklung versus dem Zugriff auf die
+Produktivdaten der Datenhaltung. Ein weiteres Beispiel, welches ebenfalls in
+diese Art von Testbibliothek gehört, war das Registrieren von verschiedenen
+\gls{API} Profilen, welche alle unterschiedliche Zugriffsrechte besitzen, um
+sicher zu stellen, dass jedes dieser Profile so funktioniert, wie von dem
+Entwickler vorgegeben.
 
 Neben den vorgestellten Komponententests kann der Entwickler ebenfalls
 Integrationstest in der Swagger Testumgebung definieren. Bei diesen werden
@@ -3681,17 +3683,17 @@ vorhanden sind (vgl.~\cite{Spring_Testing}).
 
 Bei der Swagger Testbibliothek kann zum Beispiel das korrekte Caching von Daten
 getestet werden. Das Anfragen und Abholen von Daten bei einem
-Datenhaltungssystem kann je nach Abfrage sehr lange dauern, um diese Zeit zu
+Datenhaltungssystem kann je nach Abfrage sehr lange dauern. Um diese Zeit zu
 verkürzen, nutzt Swagger die Methoden des Caching, welche mit diesem Test
-überprüft werden. Ein weiterer Testfall wäre die Prüfung von Abhängigkeiten,
-wenn zum Beispiel die \gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
+überprüft werden. Ein weiterer Testfall wäre die Prüfung von Abhängigkeiten.
+Wenn zum Beispiel die \gls{API} eine eigene Konfigurations\hyp{}Datei besitzt,
 kann damit geprüft werden, ob diese vollständig und ohne Fehleinträge ist.
 Jedoch kann der Integrationstest auch für komplexere Inhalte verwendet werden.
 In diesem Projekt ist es die Prüfung der korrekten \gls{Transaktion} von Daten
 mit der Nutzung von Backup\hyp{}\glslink{Transaktion}{Transaktionen}. Diese
-helfen vorallem wenn die \gls{API} Daten in dem Datenhaltungssystem
-modifizieren, da nach der Modifizierung die Daten wieder auf den vorherigen
-Stand zurück gesetzt werden. Diese Tests sparen nicht nur
+helfen vor allem, wenn die \gls{API} Daten in dem Datenhaltungssystem
+modifiziert, da nach der Modifizierung die Daten wieder auf den vorherigen
+Stand zurückgesetzt werden. Diese Tests sparen nicht nur
 Administrations\hyp{}Zeit, sondern geben dem Entwickler auch einen
 umfangreichen Bericht zu den von dem Programm getätigten Inhalten, um zu
 prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
@@ -3700,20 +3702,20 @@ prüfen, ob dies auch vollständig das gewollte Ergebnis ist.
 \section{ETL Test}
 \label{sec:etl_test}
 Für den in Abschnitt~\ref{subsec:postgres_etl} beschriebenen Extraktions-,
-Transformations- und Ladeprozess von der Datenhaltung wird neben den
-in Abschnitt~\ref{sec:unit_tests} erläuterteten Komponententests und
-in Abschnitt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich
-noch ein Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das
-System reagiert, wenn eine vorher nicht definierte Situation eintritt.
-Dies könnte zum Beispiel das erhalten von anderen Daten sein, welche keine
-definierten Metadaten\hyp{}Einträge besitzen.
+Transformations- und Ladeprozess von der Datenhaltung wird neben den in
+Abschnitt~\ref{sec:unit_tests} erläuterteten Komponententests und in
+Abschnitt~\ref{sec:api_test} beschriebenen Integrationstest zusätzlich noch ein
+Verhaltenstest durchgeführt. Bei diesem wird geprüft, wie das System reagiert,
+wenn eine vorher nicht definierte Situation eintritt. Dies könnte zum Beispiel
+das Erhalten von anderen Daten sein, welche keine definierten
+Metadaten\hyp{}Einträge besitzen.
 \nl%
 
 \chapter{Ausblick}
 \label{chapter:ausblick}
 Im Projekt wurde eine solide und modulare Architektur erstellt. Sie erfüllt
-alle Anforderungen, bietet aber auch noch diverse Möglichkeiten für
-weitere Optimierungen oder Erweiterungen.
+alle Anforderungen, bietet aber auch noch diverse Möglichkeiten für weitere
+Optimierungen oder Erweiterungen.
 \tm%
 
 \section{Alerting}
@@ -3725,7 +3727,7 @@ Sobald diese erreicht werden, wird eine Benachrichtigung verschickt. Dies kann
 über verschiedenste Kommunikationswege erfolgen. Denkbar ist es, Kunden zu
 informieren, wenn Ihr virtueller Server am oberen Ressourcenlimit läuft. Es
 könnte auch der Vertrieb informiert werden, welcher dann dem Kunden eine
-größere Instanz verkaufen kann.
+größere Instanz verkaufen könnte.
 \tm%
 
 \section{Quality of Service}
@@ -3733,24 +3735,24 @@ Logstash arbeitet im \texttt{Batch-Mode}. Dies bedeutet, das es mehrere Werte
 pro Prozess cached und diese dann gebündelt in einem
 \gls{SQL}\hyp{}\gls{Statement} zur Datenbank schickt. Der Standardwert liegt
 bei 125 Werten und ist konfigurierbar. Es ist in bestimmten Konstellationen
-möglich, das Logstash mehrere Minuten lang Werte zwischenspeichert bevor sie
+möglich, das Logstash mehrere Minuten lang Werte zwischenspeichert, bevor sie
 zur Datenbank geschickt werden. Dies passiert, wenn besonders viele Logstash
 Prozesse gestartet worden sind und wenig Daten von den
 \glslink{Hypervisor}{Hypervisors} kommen (zum Beispiel weil gerade viel VMs
 deaktiviert sind oder Wartungsarbeiten an Teilen der Infrastruktur durchgeführt
-wird). Wenn ein Kunde live seine Auslastung visualisieren möchte, dauert dies
+werden). Wenn ein Kunde live seine Auslastung visualisieren möchte, dauert dies
 eventuell zu lange. Zur Optimierung gibt es zwei Möglichkeiten. Zum einen kann
 der Zwischenspeicher verringert werden. Dies erhöht allerdings die Last auf der
-Datenbank, da dies zu wesentlich mehr \gls{SQL}\hyp{}Statements führt.
-Alternativ kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden.
+Datenbank, da dies zu wesentlich mehr \gls{SQL}\hyp{}Statements führt. Zum
+anderen kann mit Logstash \glslink{Quality of Service}{QoS} gemacht werden.
 Hierbei wird auf die eingehenden Daten ein \gls{Grok} Filter gelegt. Dieser
-erlaubt es Daten zu filtern und in Kategorien einzuordnen. Für jede Kategorie
+erlaubt es, Daten zu filtern und in Kategorien einzuordnen. Für jede Kategorie
 kann die Größe des Zwischenspeichers definiert werden. Diese Filter kann man
 auch dynamisch aktivieren. Sobald ein Kunde eine Live\hyp{}Visualisierung im
 Grafana startet, kann ein \gls{Grok} Filter aktiviert werden. Dieser filtert
-Daten dieses Kunden heraus kategorisiert diese in eine QoS Queue mit einem
-Zwischenspeicher von 0. Somit wird jeder Datensatz von diesem Kunden direkt
-an die Datenbank weitergeleitet.
+Daten dieses Kunden heraus, kategorisiert diese in eine QoS Queue mit einem
+Zwischenspeicher von 0. Somit wird jeder Datensatz von diesem Kunden direkt an
+die Datenbank weitergeleitet.
 \tm%
 
 \section{Cache Invalidation}
@@ -3764,23 +3766,23 @@ Zwischenspeichers noch nicht erreicht ist.
 
 \chapter{Fazit}
 In vielen Monaten Arbeit wurde ein neues Softwareprojekt geschaffen, welches
-eine sehr gute Alternative zu Telemetry aus dem OpenStack Projekt darstellt.
+eine sehr gute Alternative zu Telemetry aus dem OpenStack-Projekt darstellt.
 Die erarbeitete Lösung erfüllt alle definierten Anforderungen aus
 Abschnitt~\ref{section:anforderungen}. Nicht nur können alle Userstorys über
 Grafana visualisiert werden, auch die \gls{API} stellt einen passenden
 Placement Algorithmus zur Verfügung und bietet somit mehr Features als
 Telemetry. Das Softwareprojekt ist äußerst flexibel gehalten und kann in
-beliebige Umgebungen mit Linux  \glslink{Hypervisor}{Hypervisors} integiert
+beliebige Umgebungen mit Linux \glslink{Hypervisor}{Hypervisors} integiert
 werden. Aufgrund des modularen Konzepts und den offenen Schnittstellen gibt es
 auch mehrere Möglichkeiten für zukünftige Erweiterungen oder Spezialisierungen
 für bestimmte Umgebungen, wie im Abschnitt~\ref{chapter:ausblick} dargestellt.
 
 Das Projektteam hat nicht nur viel über Software Engineering, sondern auch über
 agiles Projektmanagement und kollaboratives Arbeiten gelernt. Währen der
-Entwicklung ergaben sich diverse Probleme. Durch das konsequente arbeiten mit
+Entwicklung ergaben sich diverse Probleme. Durch das konsequente Arbeiten mit
 Prototypen konnten Probleme im ersten Architektur\hyp{}Prototyp schnell erkannt
 werden. Gemeinsam wurde stets eine Lösung gefunden. Diverse kleinere Bugs in
-der benutzen Software wurden vom Team behoben und mit zusätzlichen Unit Tests
+der benutzten Software wurden vom Team behoben und mit zusätzlichen Unit Tests
 versehen. Alle Änderungen wurden an die jeweiligen Entwickler geschickt.
 
 Bei der Durchführung des Projektes wurde bei jedem Projektmitglied der
@@ -3795,7 +3797,11 @@ Selbsteinschätzung somit weiter fortgebildet oder sogar korrigiert.
 
 \printglossaries%
 
+\begingroup
+\tolerance1000
+\emergencystretch0.5em
 \printbibliography[heading=bibnumbered]
+\endgroup
 
 \chapter{Anhang}
 

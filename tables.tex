@@ -1,5 +1,5 @@
 \begin{center}
-  \begin{tabular}{ll}
+\begin{tabularx}{\textwidth}{p{2.5cm} lX}
   \toprule
   Feldname    & Beschreibung                                                 \\
   \midrule
@@ -12,34 +12,35 @@
   metric      & Die eigentliche Information, zum Beispiel die CPU Temperatur \\
   ttl         & Anzahl an Sekunden die ein Event nach Erstellung gültig ist  \\
   \bottomrule
-\end{tabular}
+\end{tabularx}
 \captionof{table}{Definition einer Event-Struktur in Riemann}
 \label{tbl:riemann}
 \end{center}
-
+\vspace{1ex}
 \begin{center}
-  \begin{tabular}{lll}
+  \begin{tabularx}{\textwidth}{p{2.5cm} lX}
   \toprule
     Projekt  & URL                                                 \\
   \midrule
     Logstash & https://github.com/elastic/puppet-logstash/pull/334 \\
     Grafana  & https://github.com/voxpupuli/puppet-grafana/pull/32 \\
   \bottomrule
-\end{tabular}
+\end{tabularx}
 \captionof{table}{Beiträge zu Open Source Projekten}
 \label{tbl:fossprs}
 \end{center}
-
+\vspace{1ex}
 \begin{center}
-  \begin{tabular}{ll}
+  \begin{tabularx}{\textwidth}{p{2.5cm} lX}
   \toprule
-    Projekt     & URL                                            \\
+    Projekt     & URL                                                   \\
   \midrule
-    Puppet      & https://tickets.puppetlabs.com/browse/PA-668   \\
-    Puppet      & https://tickets.puppetlabs.com/browse/PUP-7383 \\
-    Mcollective & https://tickets.puppetlabs.com/browse/MCO-804  \\
+    Puppet      & https://tickets.puppetlabs.com/browse/PA-668          \\
+    Puppet      & https://tickets.puppetlabs.com/browse/PUP-7383        \\
+    Mcollective & https://tickets.puppetlabs.com/browse/MCO-804         \\
+    Grafana     & https://github.com/voxpupuli/puppet-grafana/issues/35 \\
   \bottomrule
-\end{tabular}
+\end{tabularx}
 \captionof{table}{Gemeldete Bugs in Open Source Projekten}
 \label{tbl:fossissues}
 \end{center}
