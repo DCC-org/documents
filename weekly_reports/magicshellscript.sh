@@ -10,11 +10,17 @@ for directory in ${WEEKS[*]}; do
     if [ -f "${author}.tex" ]; then
       sed --in-place "s|###author###|$author|" main.tex
       sed --in-place "s|###author###|$author|" ../content.tex
+      if [ "${author}.tex" == "monatsbericht.tex" ]; then
+        sed --in-place "s|berichtsdatum,~\\\KW|berichtsdatummonat|" ../content.tex
+      fi
       #latexmk -C
       #rm "${directory}_${author}.pdf"
       latexmk -jobname="${directory}_${author}" -r ../latexmkrc
       sed --in-place "s|$author|###author###|" main.tex
       sed --in-place "s|$author|###author###|" ../content.tex
+      if [ "${author}.tex" == "monatsbericht.tex" ]; then
+        sed --in-place "s|berichtsdatummonat|berichtsdatum,~\\\KW|" ../content.tex
+      fi
     fi
   done
   cd ..
