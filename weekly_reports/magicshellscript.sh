@@ -12,6 +12,8 @@ for directory in ${WEEKS[*]}; do
       sed --in-place "s|###author###|$author|" ../content.tex
       if [ "${author}.tex" == "monatsbericht.tex" ]; then
         sed --in-place "s|berichtsdatum,~\\\KW|berichtsdatummonat|" ../content.tex
+        sed --in-place "s|Wochenbericht|Monatsbericht|" ../common.tex
+        sed --in-place "s|\\\titel~\\\KW|\\\titel|" ../common.tex
       fi
       #latexmk -C
       #rm "${directory}_${author}.pdf"
@@ -20,6 +22,8 @@ for directory in ${WEEKS[*]}; do
       sed --in-place "s|$author|###author###|" ../content.tex
       if [ "${author}.tex" == "monatsbericht.tex" ]; then
         sed --in-place "s|berichtsdatummonat|berichtsdatum,~\\\KW|" ../content.tex
+        sed --in-place "s|Monatsbericht|Wochenbericht|" ../common.tex
+        sed --in-place "s|l{\\\titel|l{\\\titel~\\\KW|" ../common.tex
       fi
     fi
   done
